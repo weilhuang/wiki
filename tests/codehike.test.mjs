@@ -21,12 +21,12 @@ test('Unsupported annotation handlers fail explicitly', async () => {
 })
 test('Published Code Hike steps match verified clean snippets and exact ranges', async () => {
   const groups = [
-    { fixture:'code-walkthroughs.json', source:'spring-service-boundaries/transaction-proxy', lang:'java' },
-    { fixture:'go-context-walkthroughs.json', source:'go-service-lifecycle/context-cancellation', lang:'go' }
+    { fixture:'code-walkthroughs.json', source:'frameworks/spring-transactions/proxy-call-chain', lang:'java' },
+    { fixture:'go-context-walkthroughs.json', source:'go/concurrency/context-cancellation', lang:'go' }
   ]
   for (const group of groups) {
     const cases = JSON.parse(readFileSync(`tests/fixtures/${group.fixture}`, 'utf8'))
-    const markdown = readFileSync(`docs/learn/${group.source}.md`, 'utf8')
+    const markdown = readFileSync(`docs/knowledge/${group.source}.md`, 'utf8')
     const fences = new MarkdownIt().parse(markdown, {}).filter(t => t.type === 'fence' && t.info === `${group.lang} steps`)
     assert.equal(fences.length, cases.length)
     for (let i = 0; i < fences.length; i++) {
@@ -43,4 +43,11 @@ test('Build cache handles real fences and rejects misses; Mermaid source rejects
   wikiMarkdown(md, cache)
   assert.throws(() => md.render('```mermaid\n%%{init: {securityLevel: loose}}%%\nflowchart TB\n```'), /不允许/)
   assert.throws(() => md.render('```mermaid\nflowchart TB\nA-->B\n```'), /accTitle/)
+})
+
+test('Python source links remain base-aware downloads, not invented HTML routes',()=>{
+  const md=new MarkdownIt();wikiMarkdown(md,{})
+  const html=md.render('[完整模型](/examples/order-extraction-protocol-model.py)')
+  assert.match(html,/href="\/wiki\/examples\/order-extraction-protocol-model\.py"/)
+  assert.match(html,/download=""/);assert.ok(!html.includes('.py.html'))
 })

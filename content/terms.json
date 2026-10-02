@@ -1,0 +1,58 @@
+{
+  "technology": {
+    "java": "Java",
+    "spring": "Spring",
+    "mvc": "Spring MVC",
+    "jdbc": "JDBC",
+    "hikari": "HikariCP",
+    "go": "Go",
+    "http": "HTTP",
+    "mysql": "MySQL",
+    "innodb": "InnoDB",
+    "redis": "Redis"
+  },
+  "mechanism": {
+    "ioc": "IoC",
+    "lifecycle": "生命周期",
+    "ownership": "资源所有权",
+    "validation": "参数校验",
+    "errors": "错误与异常",
+    "transactions": "事务",
+    "pool": "连接池",
+    "timeouts": "超时",
+    "concurrency": "并发",
+    "context": "context",
+    "idempotency": "幂等",
+    "goroutine": "goroutine",
+    "retry": "重试",
+    "shutdown": "优雅停机",
+    "isolation": "隔离级别",
+    "locks": "锁",
+    "invariants": "不变量",
+    "failure": "失败模型",
+    "outbox": "Outbox",
+    "messaging": "消息",
+    "recovery": "恢复",
+    "cache": "缓存",
+    "consistency": "一致性",
+    "ttl": "TTL",
+    "versioning": "版本",
+    "hashing": "哈希",
+    "service-boundary": "服务边界",
+    "data-ownership": "数据所有权",
+    "compatibility": "兼容演进"
+  },
+  "task": {
+    "understand": "理解机制",
+    "source-reading": "源码阅读",
+    "design": "设计评审",
+    "diagnose": "排障",
+    "verify": "验证",
+    "recover": "恢复",
+    "compare": "方案比较",
+    "migrate": "迁移"
+  },
+  "scenario": {
+    "orders": "订单"
+  }
+}

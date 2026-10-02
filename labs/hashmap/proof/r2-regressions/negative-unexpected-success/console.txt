@@ -1,0 +1,15 @@
+API identity: equal key replaces; collision keeps both; size=2
+API trace: A/B/C/D retained; model index4=1/1/1/1 index8=1/5/1/5
+COUNTEREXAMPLE broken contract: equals=true; different hashes; get(equal key)=null
+COUNTEREXAMPLE mutable key: before=saved changed=null size=1 restored=saved
+API null: containsKey distinguishes missing; computeIfAbsent fills null value
+API iteration: same-thread misuse throws; iterator.remove and entry.setValue work
+API sizing: newHashMap(13) stores 13 mappings; internal capacity not measured
+PASS api scenarios=7
+IMPL put capacity-request=64: after 8=Node; update=Node; after 9=TreeNode
+IMPL default put: after 8/9/10=Node; after 11=TreeNode; capacities inferred from source only
+IMPL computeIfAbsent capacity-request=64: 7 existing -> insert 8 -> TreeNode
+IMPL resize split: before=TreeNode; low 6=Node; high 7=TreeNode; size=49
+PASS implementation observations=4 (not an API guarantee)
+反向断言未按预期失败: equal-adds exit=1
+实际主异常: Exception in thread "main" java.lang.IllegalStateException: Negative hypothesis unexpectedly survived: equal-adds

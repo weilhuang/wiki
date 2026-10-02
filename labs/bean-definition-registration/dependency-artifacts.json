@@ -1,0 +1,50 @@
+[
+  {
+    "coordinates": "org.springframework:spring-context:6.2.19",
+    "file": "spring-context-6.2.19.jar",
+    "sha256": "ead4b645f94a7f665f00093eaafde634e97b34524294de653b51e43e0b3fc4a4",
+    "cachePath": "org.springframework/spring-context/6.2.19/e218e4c4ecad1e821905628b2c4ce8561d937baa/spring-context-6.2.19.jar"
+  },
+  {
+    "coordinates": "org.springframework:spring-aop:6.2.19",
+    "file": "spring-aop-6.2.19.jar",
+    "sha256": "a11b93539d80b02caf76171db2da96df39abebbfef49a2fadd6dda0779f2e20b",
+    "cachePath": "org.springframework/spring-aop/6.2.19/86a538bb7b2be38a0afc4ef049784def10a86c62/spring-aop-6.2.19.jar"
+  },
+  {
+    "coordinates": "org.springframework:spring-beans:6.2.19",
+    "file": "spring-beans-6.2.19.jar",
+    "sha256": "846dc8f30a639a36eb551ee99a30469be4d11bd285ca9daf164d98321571b404",
+    "cachePath": "org.springframework/spring-beans/6.2.19/6d6b4774db3b036df46be6332d93b09d70e5c147/spring-beans-6.2.19.jar"
+  },
+  {
+    "coordinates": "org.springframework:spring-core:6.2.19",
+    "file": "spring-core-6.2.19.jar",
+    "sha256": "52146689e71a911c92bac26677d73c692512a739893a57710cc233591756bff6",
+    "cachePath": "org.springframework/spring-core/6.2.19/691459d4644894dae8e5c2d9550a4cfb8302f62f/spring-core-6.2.19.jar"
+  },
+  {
+    "coordinates": "org.springframework:spring-expression:6.2.19",
+    "file": "spring-expression-6.2.19.jar",
+    "sha256": "d710a44417d890353895b341a722d7d08199e2b7da52f0a11c0e92571e1d6e19",
+    "cachePath": "org.springframework/spring-expression/6.2.19/c7202d23797fa778c5ed55e502ac1a9f0d34012a/spring-expression-6.2.19.jar"
+  },
+  {
+    "coordinates": "org.springframework:spring-jcl:6.2.19",
+    "file": "spring-jcl-6.2.19.jar",
+    "sha256": "9994478bcea1423b8892d4eb0db942c94da0090167c3c684050c1eaef04491d0",
+    "cachePath": "org.springframework/spring-jcl/6.2.19/39b9c7d631961f3649511b08ef167420b086184b/spring-jcl-6.2.19.jar"
+  },
+  {
+    "coordinates": "io.micrometer:micrometer-commons:1.15.12",
+    "file": "micrometer-commons-1.15.12.jar",
+    "sha256": "4b779cf7acb0534bb1f8e964f25200037ecb3944368f859a630fa637d6d5d7c0",
+    "cachePath": "io.micrometer/micrometer-commons/1.15.12/eb539638d48571fa6ce4ea3eb8417cab37a63438/micrometer-commons-1.15.12.jar"
+  },
+  {
+    "coordinates": "io.micrometer:micrometer-observation:1.15.12",
+    "file": "micrometer-observation-1.15.12.jar",
+    "sha256": "54483e68ed44af1bb0c36d1df2235d36f233e459d52f5a3be3e69813827a6300",
+    "cachePath": "io.micrometer/micrometer-observation/1.15.12/1d96fcaec8d2516236dfcb9914108e14bfd02238/micrometer-observation-1.15.12.jar"
+  }
+]

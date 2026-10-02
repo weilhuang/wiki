@@ -1,0 +1,5 @@
+IMPL put capacity-request=64: after 8=Node; update=Node; after 9=TreeNode
+IMPL default put: after 8/9/10=Node; after 11=TreeNode; capacities inferred from source only
+IMPL computeIfAbsent capacity-request=64: 7 existing -> insert 8 -> TreeNode
+IMPL resize split: before=TreeNode; low 6=Node; high 7=TreeNode; size=49
+PASS implementation observations=4 (not an API guarantee)

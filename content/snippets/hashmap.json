@@ -1,0 +1,54 @@
+[
+  {
+    "id": "hashmap.walkthrough",
+    "doc": "docs/knowledge/java/collections/hashmap.md",
+    "source": "labs/hashmap/experiments/src/HashMapWalkthrough.java",
+    "language": "java",
+    "version": "Java SE 21",
+    "type": "executable",
+    "annotations": "in-document",
+    "sourceSha256": "c40533f8ecf028cc31fedc50d0af2ec83fa82462b0c5bc2eb7cd21967e3c140d"
+  },
+  {
+    "id": "hashmap.putval",
+    "doc": "docs/knowledge/java/collections/hashmap-source.md",
+    "source": "labs/hashmap/sources/HashMap-jdk-21+35.java",
+    "lines": [
+      631,
+      672
+    ],
+    "language": "java",
+    "version": "jdk-21+35",
+    "type": "upstream-excerpt",
+    "annotations": "in-document",
+    "sourceSha256": "71c8d82247c2736e9fbe3769f366e9bd250bc73ecf390749998e830201aaabf2"
+  },
+  {
+    "id": "hashmap.resize-split",
+    "doc": "docs/knowledge/java/collections/hashmap-source.md",
+    "source": "labs/hashmap/sources/HashMap-jdk-21+35.java",
+    "lines": [
+      722,
+      749
+    ],
+    "language": "java",
+    "version": "jdk-21+35",
+    "type": "upstream-excerpt",
+    "annotations": "in-document",
+    "sourceSha256": "71c8d82247c2736e9fbe3769f366e9bd250bc73ecf390749998e830201aaabf2"
+  },
+  {
+    "id": "hashmap.treeifybin",
+    "doc": "docs/knowledge/java/collections/hashmap-source.md",
+    "source": "labs/hashmap/sources/HashMap-jdk-21+35.java",
+    "lines": [
+      761,
+      780
+    ],
+    "language": "java",
+    "version": "jdk-21+35",
+    "type": "upstream-excerpt",
+    "annotations": "in-document",
+    "sourceSha256": "71c8d82247c2736e9fbe3769f366e9bd250bc73ecf390749998e830201aaabf2"
+  }
+]

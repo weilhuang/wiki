@@ -1,0 +1,18 @@
+test_additive_field_and_unknown_schema_or_state (__main__.ProtocolTests.test_additive_field_and_unknown_schema_or_state) ... ok
+test_blind_rollback_fails_until_reverse_copy (__main__.ProtocolTests.test_blind_rollback_fails_until_reverse_copy) ... ok
+test_copying_orders_without_operations_cannot_activate (__main__.ProtocolTests.test_copying_orders_without_operations_cannot_activate) ... ok
+test_duplicate_event_identity_and_conflict (__main__.ProtocolTests.test_duplicate_event_identity_and_conflict) ... ok
+test_equal_version_conflict_is_not_silently_ignored (__main__.ProtocolTests.test_equal_version_conflict_is_not_silently_ignored) ... ok
+test_full_snapshot_can_skip_old_version (__main__.ProtocolTests.test_full_snapshot_can_skip_old_version) ... ok
+test_lost_response_replay_keeps_one_order (__main__.ProtocolTests.test_lost_response_replay_keeps_one_order) ... ok
+test_module_dependency_positive_and_negative_fixtures (__main__.ProtocolTests.test_module_dependency_positive_and_negative_fixtures) ... ok
+test_new_key_cannot_create_same_business_order (__main__.ProtocolTests.test_new_key_cannot_create_same_business_order) ... ok
+test_replay_after_cutover_uses_copied_operation_result (__main__.ProtocolTests.test_replay_after_cutover_uses_copied_operation_result) ... ok
+test_route_change_without_fence_is_rejected (__main__.ProtocolTests.test_route_change_without_fence_is_rejected) ... ok
+test_same_key_changed_request_is_rejected (__main__.ProtocolTests.test_same_key_changed_request_is_rejected) ... ok
+test_stale_writer_and_token_are_rejected_after_cutover (__main__.ProtocolTests.test_stale_writer_and_token_are_rejected_after_cutover) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.001s
+
+OK

@@ -1,0 +1,5 @@
+Exception in thread "main" java.lang.AssertionError: ASSERTION_FAILED: wrong hypothesis mutable-stays-readable expected=saved actual=null
+	at HashMapLab.check(HashMapLab.java:34)
+	at HashMapLab.equal(HashMapLab.java:37)
+	at HashMapLab.negative(HashMapLab.java:249)
+	at HashMapLab.main(HashMapLab.java:271)

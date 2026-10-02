@@ -1,82 +1,69 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { mkdtempSync, mkdirSync, writeFileSync, rmSync, readFileSync } from 'node:fs'
-import { tmpdir } from 'node:os'
-import { join } from 'node:path'
-import { createHash } from 'node:crypto'
-import { runInNewContext } from 'node:vm'
-import { curriculum, validateStructure, sourceUrl, readChapters, chapterNavigation, validateReadiness } from '../scripts/curriculum.mjs'
-import { legacyHtml } from '../scripts/legacy.mjs'
-import { JSDOM } from 'jsdom'
+import {mkdtempSync,mkdirSync,writeFileSync,rmSync,readFileSync} from 'node:fs'
+import {tmpdir}from'node:os'
+import {join}from'node:path'
+import {createHash}from'node:crypto'
+import {runInNewContext}from'node:vm'
+import {JSDOM}from'jsdom'
+import {readTopics,validateTopic,validateStructure,validateEvidence,validateAliases,registries,paths}from'../scripts/knowledge.mjs'
+import {legacyHtml}from'../scripts/legacy.mjs'
+const fixture=(id,extra={})=>({id,source:`knowledge/java/collections/${id}.md`,kind:'concept',status:'published',title:id,description:'A synthetic fixture for model contracts',domain:'java',category:'collections',date:'2026-10-02',scope:'synthetic only',tags:{technology:['java'],task:['understand']},requires:[],sourceRefs:[],verificationRefs:[],...extra})
+test('Knowledge has no fixed route count, chapter count, or unique route ownership',()=>{
+ const topics=[fixture('one'),fixture('two'),fixture('three')]
+ const route={id:'test',source:'paths/test.md',status:'published',entry:['basic'],goal:'goal',stages:[{title:'stage',task:'task',readings:[{topic:'one',role:'required',purpose:'purpose'}]}]}
+ assert.equal(validateStructure(topics,{routes:[]}),true)
+ assert.equal(validateStructure(topics,{routes:[route,{...route,id:'another',source:'paths/another.md'}]}),true)
+ assert.equal(readTopics().some(t=>Object.hasOwn(t,'pathId')),false)
+ assert.ok(paths.every(p=>p.stages.every(s=>s.task&&s.readings.every(r=>r.purpose))))
+})
+test('Strong prerequisites reject cycles and missing nodes, related links may form cycles',()=>{
+ let topics=[fixture('one',{requires:[{id:'two',reason:'needs state'}]}),fixture('two',{requires:[{id:'one',reason:'needs input'}]})]
+ assert.throws(()=>validateStructure(topics,{routes:[]}),/存在环/)
+ topics=[fixture('one',{related:[{id:'two',reason:'comparison'}]}),fixture('two',{related:[{id:'one',reason:'comparison'}]})]
+ assert.equal(validateStructure(topics,{routes:[]}),true)
+ topics[0].requires=[{id:'missing',reason:'missing'}];assert.throws(()=>validateStructure(topics,{routes:[]}),/未知关系/)
+ topics[0].requires=[{id:'two',reason:''}];assert.throws(()=>validateStructure(topics,{routes:[]}),/原因/)
+})
+test('Unknown taxonomy, status and duplicate routes fail; headings are not curriculum metadata',()=>{
+ assert.throws(()=>validateTopic(fixture('one',{category:'nonexistent'})),/未知分类/)
+ assert.throws(()=>validateTopic(fixture('one',{status:'verified'})),/编辑状态/)
+ assert.throws(()=>validateTopic(fixture('one',{pathId:'course'})),/唯一路线/)
+ assert.throws(()=>validateStructure([fixture('one'),fixture('two',{source:'knowledge/java/collections/one.md'})],{routes:[]}),/重复 canonical/)
+})
+test('A published concept needs no fake executable ZIP; executed claims bind exact source bytes',()=>{
+ const root=mkdtempSync(join(tmpdir(),'wiki-evidence-'))
+ try{
+   const topic=fixture('one'),registry={sources:[],verification:[]};assert.equal(validateEvidence(root,[topic],registry),true)
+   topic.kind='lab';assert.throws(()=>validateEvidence(root,[topic],registry),/实验教程/)
+   topic.verificationRefs=['test.run'];registry.verification=[{id:'test.run',kind:'executed',status:'not-run',scope:['synthetic'],limitations:['not run']}]
+   assert.equal(validateEvidence(root,[topic],registry),true)
+   registry.verification[0].status='pass';assert.throws(()=>validateEvidence(root,[topic],registry),/源码与成功命令/)
+   mkdirSync(join(root,'labs'));writeFileSync(join(root,'labs/sample.txt'),'fixed source')
+   Object.assign(registry.verification[0],{sourceFiles:[{path:'labs/sample.txt',sha256:createHash('sha256').update('fixed source').digest('hex')}],commands:[{command:'synthetic assertion',exitCode:0}]})
+   assert.equal(validateEvidence(root,[topic],registry),true)
+   writeFileSync(join(root,'labs/sample.txt'),'changed source');assert.throws(()=>validateEvidence(root,[topic],registry),/stale/)
+ }finally{rmSync(root,{recursive:true,force:true})}
+})
+test('All old experiment packages retain their source-bound evidence',()=>assert.equal(validateEvidence(process.cwd(),readTopics(),registries()),true))
+test('Compatibility goes directly to canonical pages and preserves query/hash without open redirects',()=>{
+ const config={title:'A < B',url:'https://example.com/notes/',base:'/notes/'}
+ const alias={from:'/blog/old.html',to:'/knowledge/java/collections/one.html',anchors:{split:'/knowledge/java/collections/two.html#new-section'}}
+ const html=legacyHtml(alias,['old','split'],config),dom=new JSDOM(html)
+ assert.equal(dom.window.document.querySelector('link[rel=canonical]').href,'https://example.com/notes/knowledge/java/collections/one.html')
+ assert.equal(dom.window.document.querySelector('meta[name=robots]').content,'noindex,follow')
+ const script=dom.window.document.querySelector('script').textContent
+ for(const [hash,expected]of [['#old','/notes/knowledge/java/collections/one.html?next=https%3A%2F%2Fevil.example#old'],['#split','/notes/knowledge/java/collections/two.html?next=https%3A%2F%2Fevil.example#new-section'],['#%broken','/notes/knowledge/java/collections/one.html?next=https%3A%2F%2Fevil.example#%broken']]){let actual;runInNewContext(script,{location:{hash,search:'?next=https%3A%2F%2Fevil.example',replace:x=>actual=x}});assert.equal(actual,expected)}
+ assert.match(html,/two\.html#new-section/);assert.equal(dom.window.document.title,'知识页面已归位 · A < B');dom.window.close()
+ const topics=[fixture('one')];assert.throws(()=>validateAliases([{from:'/old/',to:'/other/'}],topics),/未直达 canonical/)
+})
 
-test('Curriculum has three ordered closed paths and canonical routes', () => {
-  assert.equal(validateStructure(),true)
-  assert.equal(curriculum.chapters.length,15)
-  assert.equal(sourceUrl('learn/go-service-lifecycle/index.md'),'/learn/go-service-lifecycle/')
-  const chapters = curriculum.chapters.map(c=>({...c,title:c.id,url:sourceUrl(c.source)}))
-  for(const path of curriculum.paths) {
-    const own=chapters.filter(c=>c.pathId===path.id)
-    assert.equal(chapterNavigation(own[0],chapters).prev,false)
-    assert.equal(chapterNavigation(own.at(-1),chapters).next,false)
-    for(let i=1;i<own.length;i++) assert.equal(chapterNavigation(own[i],chapters).prev.link,own[i-1].url)
-  }
-})
-test('Curriculum rejects cycles, missing prerequisites, duplicate routes and stage drift', () => {
-  let copy=structuredClone(curriculum);copy.chapters[0].prerequisites=[copy.chapters[1].id];assert.throws(()=>validateStructure(copy),/存在环/)
-  copy=structuredClone(curriculum);copy.chapters[0].prerequisites=['missing'];assert.throws(()=>validateStructure(copy),/未知先修/)
-  copy=structuredClone(curriculum);copy.chapters[1].source=copy.chapters[0].source;assert.throws(()=>validateStructure(copy),/重复章节 route/)
-  copy=structuredClone(curriculum);copy.paths[0].stages[0].chapters.reverse();assert.throws(()=>validateStructure(copy),/阶段与章节/)
-})
-test('Missing chapters fail publication; preview never manufactures placeholder files', () => {
-  const root=mkdtempSync(join(tmpdir(),'wiki-curriculum-'))
-  try {
-    mkdirSync(join(root,'docs/learn'),{recursive:true})
-    assert.deepEqual(readChapters(root),[])
-    assert.throws(()=>validateReadiness(root),/缺少 15 章/)
-    writeFileSync(join(root,'docs/learn/unregistered.md'),'# Hidden draft\n')
-    assert.throws(()=>readChapters(root),/未登记学习页面/)
-  } finally { rmSync(root,{recursive:true,force:true}) }
-})
-test('Legacy compatibility has canonical/noindex, safe base and no-JS deep-link targets', () => {
-  const config={title:'A < B',url:'https://example.com/notes/',base:'/notes/'}
-  const html=legacyHtml({from:'/blog/old.html',to:'/learn/path/chapter.html'},['共享事务'],config)
-  const dom=new JSDOM(html)
-  assert.equal(dom.window.document.querySelector('link[rel=canonical]').href,'https://example.com/notes/learn/path/chapter.html')
-  assert.equal(dom.window.document.querySelector('meta[name=robots]').content,'noindex,follow')
-  assert.match(html,/location\.replace\("\/notes\/learn\/path\/chapter\.html"\+location\.search\+location\.hash\)/)
-  assert.match(html,/id="共享事务"/)
-  assert.match(html,/chapter\.html#%E5%85%B1/)
-  assert.equal(dom.window.document.title,'章节已归入学习路径 · A < B')
-  let replaced
-  runInNewContext(dom.window.document.querySelector('script').textContent, {location:{search:'?from=bookmark&next=https%3A%2F%2Foutside.example',hash:'#共享事务',replace:value=>{replaced=value}}})
-  assert.equal(replaced,'/notes/learn/path/chapter.html?from=bookmark&next=https%3A%2F%2Foutside.example#共享事务')
-  dom.window.close()
-})
-
-test('Complete prose still cannot publish without verified source-bound experiment evidence', () => {
-  const root=mkdtempSync(join(tmpdir(),'wiki-ready-'))
-  const model=structuredClone(curriculum)
-  try {
-    for(const source of [...model.requiredPages,...model.paths.map(p=>p.introSource),...model.chapters.map(c=>c.source)]) {
-      const path=join(root,'docs',source);mkdirSync(path.slice(0,path.lastIndexOf('/')),{recursive:true})
-      writeFileSync(path,'---\ntitle: Fixture\ndescription: Synthetic test only\ndate: "2026-10-02"\ntags: [test]\nobjectives: [test]\nversions: [test]\n---\n# Fixture\n\n```sh\n# This shell comment is not a document title\necho test\n```\n')
-    }
-    for(const c of model.chapters)c.contentStatus='ready'
-    assert.throws(()=>validateReadiness(root,model),/缺少执行证据/)
-    mkdirSync(join(root,'evidence'),{recursive:true});mkdirSync(join(root,'docs/public/examples'),{recursive:true})
-    const artifact=Buffer.from('Synthetic artifact hash fixture, not a real experiment archive')
-    for(const reference of new Set(model.chapters.map(c=>c.evidence))) {
-      const group=model.chapters.filter(c=>c.evidence===reference)
-      const target=group[0].practice.slice(1);writeFileSync(join(root,'docs/public',target),artifact)
-      const evidence={status:'partial',chapterIds:group.map(c=>c.id),versions:['fixture'],commands:[{command:'fixture',exitCode:0}],scope:['fixture'],notCovered:[],artifacts:[{path:target,sha256:createHash('sha256').update(artifact).digest('hex')}]}
-      writeFileSync(join(root,reference),JSON.stringify(evidence))
-    }
-    assert.throws(()=>validateReadiness(root,model),/尚未 verified/)
-    for(const reference of new Set(model.chapters.map(c=>c.evidence))) {
-      const file=join(root,reference);const evidence=JSON.parse(readFileSync(file,'utf8'));evidence.status='verified';writeFileSync(file,JSON.stringify(evidence))
-    }
-    assert.equal(validateReadiness(root,model).length,15)
-    writeFileSync(join(root,'docs/public',model.chapters[0].practice),'Modified artifact')
-    assert.throws(()=>validateReadiness(root,model),/执行证据不一致/)
-  } finally {rmSync(root,{recursive:true,force:true})}
+test('Route and generated-view collisions fail before they can overwrite a topic',async()=>{
+ const {validateOutputRoutes}=await import('../scripts/knowledge.mjs')
+ const topics=[fixture('one')],route={id:'test',source:'paths/test.md',status:'published',entry:['basic'],goal:'goal',stages:[{title:'stage',task:'task',readings:[{topic:'one',role:'required',purpose:'purpose'}]}]}
+ assert.throws(()=>validateStructure(topics,{routes:[route,{...route,id:'second'}]}),/重复路线 source/)
+ assert.throws(()=>validateStructure(topics,{routes:[{...route,source:topics[0].source}]}),/覆盖知识正文/)
+ assert.throws(()=>validateOutputRoutes(topics,{routes:[{...route,source:'knowledge/index.md'}],aliases:[]}),/生成页面路由冲突/)
+ assert.throws(()=>validateOutputRoutes([fixture('one',{source:'knowledge/java/collections/index.md'})],{routes:[],aliases:[]}),/生成页面路由冲突/)
+ assert.equal(validateOutputRoutes(topics,{routes:[route],aliases:[]}),true)
 })

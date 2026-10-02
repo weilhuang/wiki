@@ -1,0 +1,118 @@
+[
+  {
+    "from": "/learn/spring-service-boundaries/bean-ownership-lifecycle.html",
+    "to": "/knowledge/frameworks/spring-container/bean-lifecycle.html"
+  },
+  {
+    "from": "/learn/spring-service-boundaries/mvc-request-completion.html",
+    "to": "/knowledge/frameworks/spring-mvc/request-pipeline.html"
+  },
+  {
+    "from": "/learn/spring-service-boundaries/transaction-proxy.html",
+    "to": "/knowledge/frameworks/spring-transactions/proxy-call-chain.html"
+  },
+  {
+    "from": "/blog/spring-transaction-proxy.html",
+    "to": "/knowledge/frameworks/spring-transactions/proxy-call-chain.html"
+  },
+  {
+    "from": "/learn/spring-service-boundaries/connection-budget-timeouts.html",
+    "to": "/knowledge/frameworks/data-access/connection-budget.html"
+  },
+  {
+    "from": "/learn/spring-service-boundaries/service-boundary-review.html",
+    "to": "/cases/orders/local-service-boundary.html"
+  },
+  {
+    "from": "/learn/go-service-lifecycle/http-request-contract.html",
+    "to": "/knowledge/go/http/request-response-contract.html"
+  },
+  {
+    "from": "/learn/go-service-lifecycle/context-cancellation.html",
+    "to": "/knowledge/go/concurrency/context-cancellation.html"
+  },
+  {
+    "from": "/blog/go-context-cancellation.html",
+    "to": "/knowledge/go/concurrency/context-cancellation.html"
+  },
+  {
+    "from": "/learn/go-service-lifecycle/bounded-concurrency-ownership.html",
+    "to": "/knowledge/go/concurrency/bounded-work.html"
+  },
+  {
+    "from": "/learn/go-service-lifecycle/http-client-budgets.html",
+    "to": "/knowledge/go/http/client-budgets.html"
+  },
+  {
+    "from": "/learn/go-service-lifecycle/graceful-shutdown-review.html",
+    "to": "/knowledge/go/lifecycle/graceful-shutdown.html"
+  },
+  {
+    "from": "/learn/data-consistency/invariants-isolation-locks.html",
+    "to": "/knowledge/data/transactions/inventory-invariants.html"
+  },
+  {
+    "from": "/learn/data-consistency/idempotency-unknown-outcomes.html",
+    "to": "/knowledge/distributed/reliable-interactions/idempotency.html"
+  },
+  {
+    "from": "/learn/data-consistency/outbox-consumer-dedup.html",
+    "to": "/knowledge/distributed/events/transactional-outbox.html"
+  },
+  {
+    "from": "/learn/data-consistency/cache-freshness-invalidation.html",
+    "to": "/knowledge/data/cache/invalidation-freshness.html"
+  },
+  {
+    "from": "/learn/data-consistency/consistency-recovery-review.html",
+    "to": "/cases/orders/consistency-recovery.html"
+  },
+  {
+    "from": "/blog/",
+    "to": "/knowledge/"
+  },
+  {
+    "from": "/learn/",
+    "to": "/paths/",
+    "anchors": {
+      "全部学习路径": "/paths/#学习路线",
+      "spring-服务边界": "/paths/spring-service-principles.html#spring-服务原理",
+      "go-服务生命周期": "/paths/go-reliable-services.html#go-可靠服务",
+      "数据一致性": "/paths/data-message-consistency.html#数据与消息一致性",
+      "怎样组合阅读": "/paths/#学习路线"
+    }
+  },
+  {
+    "from": "/learn/spring-service-boundaries/",
+    "to": "/paths/spring-service-principles.html",
+    "anchors": {
+      "spring-服务边界": "/paths/spring-service-principles.html#spring-服务原理",
+      "进入前需要什么": "/paths/spring-service-principles.html#entry",
+      "五章如何接起来": "/paths/spring-service-principles.html#stage-1",
+      "实验入口与范围": "/resources/experiments.html#experiment-spring-service-boundaries",
+      "走完路径的标准": "/paths/spring-service-principles.html#completion"
+    }
+  },
+  {
+    "from": "/learn/go-service-lifecycle/",
+    "to": "/paths/go-reliable-services.html",
+    "anchors": {
+      "go-服务生命周期": "/paths/go-reliable-services.html#go-可靠服务",
+      "进入前需要什么": "/paths/go-reliable-services.html#entry",
+      "五章如何接起来": "/paths/go-reliable-services.html#stage-1",
+      "实验入口与范围": "/resources/experiments.html#experiment-go-service-lifecycle",
+      "走完路径的标准": "/paths/go-reliable-services.html#completion"
+    }
+  },
+  {
+    "from": "/learn/data-consistency/",
+    "to": "/paths/data-message-consistency.html",
+    "anchors": {
+      "数据一致性": "/paths/data-message-consistency.html#数据与消息一致性",
+      "进入前需要什么": "/paths/data-message-consistency.html#entry",
+      "五章如何接起来": "/paths/data-message-consistency.html#stage-1",
+      "实验入口与范围": "/resources/experiments.html#experiment-data-consistency",
+      "走完路径的标准": "/paths/data-message-consistency.html#completion"
+    }
+  }
+]

@@ -1,0 +1,33 @@
+{
+  "runtime": "Temurin 21.0.12.1+1-LTS",
+  "javaVersion": "21.0.12.1",
+  "compiler": "javac 21.0.12.1",
+  "os": "Linux",
+  "architecture": "x86_64",
+  "sourceTagExplained": "jdk-21+35",
+  "sourceTagBinaryExecuted": false,
+  "javaOptions": [
+    "-Xms16m",
+    "-Xmx64m",
+    "-XX:ActiveProcessorCount=1"
+  ],
+  "javacOptions": [
+    "-J-Xmx96m",
+    "-encoding",
+    "UTF-8",
+    "--release",
+    "21"
+  ],
+  "networkRequiredByLab": false,
+  "reflectionOrModuleOpens": false,
+  "limits": [
+    "No benchmark",
+    "No private table capacity or tree structure observation",
+    "No concurrent schedule test"
+  ],
+  "completedProcesses": {
+    "runnerExitCode": 0,
+    "residualHashMapLabOrWalkthroughProcesses": 0,
+    "observation": "ps command after foreground runner termination found none"
+  }
+}

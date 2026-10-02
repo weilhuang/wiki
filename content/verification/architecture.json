@@ -1,0 +1,71 @@
+[
+  {
+    "id": "architecture.order-extraction.sources",
+    "kind": "source-reviewed",
+    "status": "pass",
+    "scope": [
+      "2026-10-02经web工具读取十二个一手来源，含R2补充PostgreSQL18锁与隔离官方文档；核对相邻引用机制，业务条件与阈值为原创教学设定"
+    ],
+    "limitations": [
+      "动态官方页面不是固定软件运行结果",
+      "仅原作者网页核对书目结构，未声称全书逐页复核",
+      "没有重跑旧15章实验"
+    ],
+    "sourceFiles": [
+      {
+        "path": "content/sources/architecture.json",
+        "sha256": "e70eb3757c42ed71c589a39bfe1961ae5a390eaaa69664c38538748ed916786b"
+      }
+    ],
+    "commands": [],
+    "artifacts": [],
+    "recordedAt": "2026-10-02T14:27:38+00:00",
+    "independentlyReviewed": true
+  },
+  {
+    "id": "architecture.order-extraction.model",
+    "kind": "executed",
+    "status": "pass",
+    "scope": [
+      "R2，Python 3.12.14，标准库，单进程顺序内存模型；原13测试入口加强固定业务事实、停写期拒绝与历史版本指纹等断言，13项通过"
+    ],
+    "limitations": [
+      "无数据库/HTTP服务/broker/集群/网络/真实崩溃",
+      "原子性是假设，不证明生产栅栏协议可实现",
+      "无库存Saga与取消墓碑执行测试",
+      "依赖夹具不扫描生产源码",
+      "耗时不用于性能结论",
+      "历史版本指纹仅覆盖本进程已见且保留的已定义语义字段，无持久化/清理策略，不证明未见权威历史"
+    ],
+    "sourceFiles": [
+      {
+        "path": "docs/public/examples/order-extraction-protocol-model.py",
+        "sha256": "2609ab904fd4f0b6d963fd91d662399b45c1dad6c3f251e914f2ab0d3839050d"
+      }
+    ],
+    "commands": [
+      {
+        "command": "python3 --version",
+        "exitCode": 0,
+        "output": "Python 3.12.14"
+      },
+      {
+        "command": "python3 artifacts/order_extraction_model.py 2>&1 | tee artifacts/model-results.txt; test ${PIPESTATUS[0]} -eq 0",
+        "exitCode": 0
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "docs/public/examples/order-extraction-protocol-model.py",
+        "sha256": "2609ab904fd4f0b6d963fd91d662399b45c1dad6c3f251e914f2ab0d3839050d"
+      },
+      {
+        "path": "docs/public/examples/order-extraction-model-results.txt",
+        "sha256": "62326aca5e0cf6bd030dae3ad2b70a972296ecfb239feabd72d75b815e0dd9cf"
+      }
+    ],
+    "recordedAt": "2026-10-02T14:27:38+00:00",
+    "independentlyReviewed": true,
+    "title": "订单模块演进的顺序协议模型"
+  }
+]

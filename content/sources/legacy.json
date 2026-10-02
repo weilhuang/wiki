@@ -1,0 +1,832 @@
+[
+  {
+    "id": "ref.3ba882ec4e46",
+    "title": "作用域文档",
+    "url": "https://docs.spring.io/spring-framework/reference/6.2/core/beans/factory-scopes.html",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.289c25f6ea03",
+    "title": "生命周期中的线程安全说明",
+    "url": "https://docs.spring.io/spring-framework/reference/6.2/core/beans/factory-nature.html",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.fb8cb9384798",
+    "title": "Boot 外部配置文档",
+    "url": "https://docs.spring.io/spring-boot/3.5/reference/features/external-config.html",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.5108870f9d00",
+    "title": "AbstractApplicationContext，v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-context/src/main/java/org/springframework/context/support/AbstractApplicationContext.java",
+    "type": "source",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.77708c6b5ea7",
+    "title": "AbstractAutowireCapableBeanFactory，v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/support/AbstractAutowireCapableBeanFactory.java",
+    "type": "source",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.2469428d1022",
+    "title": "AbstractAutoProxyCreator，v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/AbstractAutoProxyCreator.java",
+    "type": "source",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.51b56b8b80b7",
+    "title": "Boot ConfigDataEnvironment，v3.5.16",
+    "url": "https://github.com/spring-projects/spring-boot/blob/v3.5.16/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/context/config/ConfigDataEnvironment.java",
+    "type": "source",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.e85897a0169a",
+    "title": "HandlerInterceptor 官方说明",
+    "url": "https://docs.spring.io/spring-framework/docs/6.2.19/javadoc-api/org/springframework/web/servlet/HandlerInterceptor.html",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.165c8ca86109",
+    "title": "MVC Validation",
+    "url": "https://docs.spring.io/spring-framework/reference/6.2/web/webmvc/mvc-controller/ann-validation.html",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.e331e8d5ca86",
+    "title": "ServletResponse 6.0 API",
+    "url": "https://jakarta.ee/specifications/servlet/6.0/apidocs/jakarta.servlet/jakarta/servlet/servletresponse",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.ed52fc38b603",
+    "title": "MVC 异步官方文档",
+    "url": "https://docs.spring.io/spring-framework/reference/6.2/web/webmvc/mvc-ann-async.html",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.dda5512f51e8",
+    "title": "DispatcherServlet，v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-webmvc/src/main/java/org/springframework/web/servlet/DispatcherServlet.java",
+    "type": "source",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.d149d181788e",
+    "title": "RequestMappingHandlerAdapter，v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-webmvc/src/main/java/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.java",
+    "type": "source",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.c76abc2cbb4a",
+    "title": "ServletInvocableHandlerMethod，v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-webmvc/src/main/java/org/springframework/web/servlet/mvc/method/annotation/ServletInvocableHandlerMethod.java",
+    "type": "source",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.048e6b451718",
+    "title": "RequestResponseBodyMethodProcessor，v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-webmvc/src/main/java/org/springframework/web/servlet/mvc/method/annotation/RequestResponseBodyMethodProcessor.java",
+    "type": "source",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.d5bf20d0fdb1",
+    "title": "Tomcat Response，10.1.55",
+    "url": "https://github.com/apache/tomcat/blob/10.1.55/java/org/apache/catalina/connector/Response.java",
+    "type": "source",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.fa86806eb349",
+    "title": "JDK 21 的 Connection 文档",
+    "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.sql/java/sql/Connection.html",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.16a5ebd52f8f",
+    "title": "JdbcTemplate 的 createConnectionProxy",
+    "url": "https://docs.spring.io/spring-framework/docs/6.2.19/javadoc-api/org/springframework/jdbc/core/JdbcTemplate.html",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.35c70a3e725f",
+    "title": "DataSourceTransactionManager API",
+    "url": "https://docs.spring.io/spring-framework/docs/6.2.19/javadoc-api/org/springframework/jdbc/datasource/DataSourceTransactionManager.html",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.c04a585b6aca",
+    "title": "DataSourceUtils API",
+    "url": "https://docs.spring.io/spring-framework/docs/6.2.19/javadoc-api/org/springframework/jdbc/datasource/DataSourceUtils.html",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.79685da77e78",
+    "title": "Spring AOP 文档",
+    "url": "https://docs.spring.io/spring-framework/reference/6.2/core/aop/proxying.html",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.8b8c2049199d",
+    "title": "传播行为文档",
+    "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-propagation.html",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.9e5737be6d25",
+    "title": "注解事务说明",
+    "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/annotations.html",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.a355379e371f",
+    "title": "TransactionInterceptor · v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionInterceptor.java",
+    "type": "source",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.6fac0d200f4d",
+    "title": "TransactionAspectSupport · v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionAspectSupport.java",
+    "type": "source",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.d2cc9522f494",
+    "title": "AbstractPlatformTransactionManager · v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-tx/src/main/java/org/springframework/transaction/support/AbstractPlatformTransactionManager.java",
+    "type": "source",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.0d6af92b4f80",
+    "title": "DataSourceTransactionManager · v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-jdbc/src/main/java/org/springframework/jdbc/datasource/DataSourceTransactionManager.java",
+    "type": "source",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.ff7f59c63039",
+    "title": "Spring 6.2 编程式事务",
+    "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/programmatic.html",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.74dab4a1cadb",
+    "title": "Spring 对 REQUIRES_NEW 的资源警告",
+    "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-propagation.html#tx-propagation-requires-new",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.0760e5101af8",
+    "title": "DataSourceUtils，v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-jdbc/src/main/java/org/springframework/jdbc/datasource/DataSourceUtils.java",
+    "type": "source",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.aed4212a2001",
+    "title": "TransactionSynchronizationManager，v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-tx/src/main/java/org/springframework/transaction/support/TransactionSynchronizationManager.java",
+    "type": "source",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.b88058bbe95b",
+    "title": "HikariPool，HikariCP-6.3.3",
+    "url": "https://github.com/brettwooldridge/HikariCP/blob/HikariCP-6.3.3/src/main/java/com/zaxxer/hikari/pool/HikariPool.java",
+    "type": "source",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.8aee1e014a40",
+    "title": "ProxyConnection，HikariCP-6.3.3",
+    "url": "https://github.com/brettwooldridge/HikariCP/blob/HikariCP-6.3.3/src/main/java/com/zaxxer/hikari/pool/ProxyConnection.java",
+    "type": "source",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.8e0798b53c5a",
+    "title": "Boot 优雅停机说明",
+    "url": "https://docs.spring.io/spring-boot/3.5/reference/web/graceful-shutdown.html",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.e9f5fb5fcb68",
+    "title": "TransactionTemplate v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-tx/src/main/java/org/springframework/transaction/support/TransactionTemplate.java",
+    "type": "source",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.ca33ec60e52f",
+    "title": "Boot WebServerGracefulShutdownLifecycle v3.5.16",
+    "url": "https://github.com/spring-projects/spring-boot/blob/v3.5.16/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/web/context/WebServerGracefulShutdownLifecycle.java",
+    "type": "source",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.ee7cea1fc719",
+    "title": "JSON 解码文档",
+    "url": "https://pkg.go.dev/encoding/json@go1.27.1#Decoder.DisallowUnknownFields",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.f6dd344ae313",
+    "title": "MaxBytesReader",
+    "url": "https://pkg.go.dev/net/http@go1.27.1#MaxBytesReader",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.13cbc05ba9e3",
+    "title": "Gin 1.12.0 的 Context.Next/Abort",
+    "url": "https://github.com/gin-gonic/gin/blob/v1.12.0/context.go",
+    "type": "source",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.e6a4eeb48e08",
+    "title": "ResponseWriter 文档",
+    "url": "https://pkg.go.dev/net/http@go1.27.1#ResponseWriter",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.4e4ea2e301b7",
+    "title": "server.go 的 Handler/ResponseWriter 与 conn.serve",
+    "url": "https://github.com/golang/go/blob/go1.27.1/src/net/http/server.go",
+    "type": "source",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.675156bfc15d",
+    "title": "JSON stream.go",
+    "url": "https://github.com/golang/go/blob/go1.27.1/src/encoding/json/stream.go",
+    "type": "source",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.36f12b6cb64f",
+    "title": "CancelFunc 文档",
+    "url": "https://pkg.go.dev/context@go1.27.1#CancelFunc",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.592b32bbaf86",
+    "title": "context.go",
+    "url": "https://github.com/golang/go/blob/go1.27.1/src/context/context.go",
+    "type": "source",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.aeaa4684e429",
+    "title": "Cause 与取消函数文档",
+    "url": "https://pkg.go.dev/context@go1.27.1#CancelCauseFunc",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.88a8c8234125",
+    "title": "Request.Context",
+    "url": "https://pkg.go.dev/net/http@go1.27.1#Request.Context",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.4bfc93b90628",
+    "title": "NewRequestWithContext",
+    "url": "https://pkg.go.dev/net/http@go1.27.1#NewRequestWithContext",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.30663a2cf4bc",
+    "title": "BeginTx 文档",
+    "url": "https://pkg.go.dev/database/sql@go1.27.1#DB.BeginTx",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.03e9a2ff89a5",
+    "title": "sql.go",
+    "url": "https://github.com/golang/go/blob/go1.27.1/src/database/sql/sql.go",
+    "type": "source",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.f559abcbdb80",
+    "title": "request.go，go1.27.1",
+    "url": "https://github.com/golang/go/blob/go1.27.1/src/net/http/request.go",
+    "type": "source",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.b3e94d5d16b6",
+    "title": "ctxutil.go，go1.27.1",
+    "url": "https://github.com/golang/go/blob/go1.27.1/src/database/sql/ctxutil.go",
+    "type": "source",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.434f46427990",
+    "title": "Go 官方事务指南",
+    "url": "https://go.dev/doc/database/execute-transactions",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.6d0382f36ffc",
+    "title": "testing/synctest",
+    "url": "https://pkg.go.dev/testing/synctest@go1.27.1",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.24250011715e",
+    "title": "Go 内存模型",
+    "url": "https://go.dev/ref/mem",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.a2d708703d62",
+    "title": "WaitGroup",
+    "url": "https://pkg.go.dev/sync@go1.27.1#WaitGroup",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.ef4a0c30daf4",
+    "title": "语言规范的 defer/recover",
+    "url": "https://go.dev/ref/spec#Handling_panics",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.6d7cf211a778",
+    "title": "sync/waitgroup.go",
+    "url": "https://github.com/golang/go/blob/go1.27.1/src/sync/waitgroup.go",
+    "type": "source",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.6961ee6c438f",
+    "title": "runtime/chan.go",
+    "url": "https://github.com/golang/go/blob/go1.27.1/src/runtime/chan.go",
+    "type": "source",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.64d9b046ac8d",
+    "title": "Transport API",
+    "url": "https://pkg.go.dev/net/http@go1.27.1#Transport",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.56fdd8d4af9a",
+    "title": "Client.Do",
+    "url": "https://pkg.go.dev/net/http@go1.27.1#Client.Do",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.f084e46195c7",
+    "title": "httptrace",
+    "url": "https://pkg.go.dev/net/http/httptrace@go1.27.1",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.85ce576850ed",
+    "title": "Client.Timeout 文档",
+    "url": "https://pkg.go.dev/net/http@go1.27.1#Client",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.4bb6bd9c8f90",
+    "title": "Transport 源码",
+    "url": "https://github.com/golang/go/blob/go1.27.1/src/net/http/transport.go",
+    "type": "source",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.348e42f9c4eb",
+    "title": "client.go",
+    "url": "https://github.com/golang/go/blob/go1.27.1/src/net/http/client.go",
+    "type": "source",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.0fbd10e8eeb0",
+    "title": "官方 Shutdown 合同",
+    "url": "https://pkg.go.dev/net/http@go1.27.1#Server.Shutdown",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.6e12d7c1caea",
+    "title": "os/signal 文档",
+    "url": "https://pkg.go.dev/os/signal@go1.27.1#NotifyContext",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.2f076f2127ff",
+    "title": "signal.NotifyContext",
+    "url": "https://github.com/golang/go/blob/go1.27.1/src/os/signal/signal.go",
+    "type": "source",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.ebc57db1e76a",
+    "title": "Go 程序执行规范",
+    "url": "https://go.dev/ref/spec#Program_execution",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.eec85a15d4c0",
+    "title": "MySQL 8.4 一致性非锁定读取文档",
+    "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-consistent-read.html",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.d65f41f48389",
+    "title": "MySQL 8.4 Locking Reads",
+    "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-locking-reads.html",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.513bcba45e1c",
+    "title": "不同 SQL 设置的 InnoDB 锁",
+    "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-locks-set.html",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.25dbecdfad8d",
+    "title": "InnoDB 错误处理",
+    "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-error-handling.html",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.6a53dac811d7",
+    "title": "死锁处理建议",
+    "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-deadlocks-handling.html",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.0d3f71d8260b",
+    "title": "Performance Schema 的 data_lock_waits",
+    "url": "https://dev.mysql.com/doc/refman/8.4/en/performance-schema-data-lock-waits-table.html",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.ad4d7570871e",
+    "title": "MySQL 的唯一约束处理",
+    "url": "https://dev.mysql.com/doc/refman/8.4/en/constraint-primary-key.html",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.adab29a536c1",
+    "title": "RFC 9110 的幂等方法与自动重试说明",
+    "url": "https://www.rfc-editor.org/rfc/rfc9110.html#section-9.2.2",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.46b63f434fb5",
+    "title": "MySQL 8.4 事务控制",
+    "url": "https://dev.mysql.com/doc/refman/8.4/en/commit.html",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.d413ab72a791",
+    "title": "autocommit、提交与回滚",
+    "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-autocommit-commit-rollback.html",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.52945e014298",
+    "title": "EXPIRE",
+    "url": "https://redis.io/docs/latest/commands/expire/",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.e987368157bc",
+    "title": "SET 的过期选项",
+    "url": "https://redis.io/docs/latest/commands/set/",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.34a06ebb5349",
+    "title": "7.4.7 的 expire.c",
+    "url": "https://github.com/redis/redis/blob/7.4.7/src/expire.c",
+    "type": "source",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.edbb2417b852",
+    "title": "Redis Lua 执行说明",
+    "url": "https://redis.io/docs/latest/develop/programmability/eval-intro/",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  },
+  {
+    "id": "ref.6e5d3141dadd",
+    "title": "EVAL 命令合同",
+    "url": "https://redis.io/docs/latest/commands/eval/",
+    "type": "documentation",
+    "version": null,
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "既有正文引用；迁移保留来源，不将迁移日期作为新的运行记录。"
+  }
+]

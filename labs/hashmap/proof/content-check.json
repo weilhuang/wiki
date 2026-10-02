@@ -1,0 +1,62 @@
+{
+  "status": "pass",
+  "checks": [
+    {
+      "file": "docs/hashmap.md",
+      "sha256": "741e097eb3641dc9a87644e54502d6ee062d63395826e62f405aec47940ef837",
+      "mermaidParsed": 4,
+      "codeHikeSteps": 1
+    },
+    {
+      "file": "docs/hashmap-source.md",
+      "sha256": "bc8a38f85f0d8c8f3aceaf33817242c6d5dad0b9ffe32b5a9dab0ef5fbf1810e",
+      "mermaidParsed": 2,
+      "codeHikeSteps": 3
+    },
+    {
+      "snippet": "hashmap.walkthrough",
+      "cleanSourceSHA256": "c40533f8ecf028cc31fedc50d0af2ec83fa82462b0c5bc2eb7cd21967e3c140d",
+      "source": "experiments/src/HashMapWalkthrough.java",
+      "lines": null,
+      "steps": 5
+    },
+    {
+      "snippet": "hashmap.putval",
+      "cleanSourceSHA256": "d7a901a18a238ae74d8aca9a65372400e821e3c4816f42870f071052ed75da1c",
+      "source": "sources/HashMap-jdk-21+35.java",
+      "lines": [
+        631,
+        672
+      ],
+      "steps": 5
+    },
+    {
+      "snippet": "hashmap.resize-split",
+      "cleanSourceSHA256": "fe957c2f2c18389acaa170320900839a98fa3fac58e02ac0dfdcba9e89dc2e6b",
+      "source": "sources/HashMap-jdk-21+35.java",
+      "lines": [
+        722,
+        749
+      ],
+      "steps": 4
+    },
+    {
+      "snippet": "hashmap.treeifybin",
+      "cleanSourceSHA256": "0fca22580f1c48631947932663a5796ea9c8d8e8d1b90263ac0efa81bf5adc00",
+      "source": "sources/HashMap-jdk-21+35.java",
+      "lines": [
+        761,
+        780
+      ],
+      "steps": 3
+    },
+    {
+      "sourceBytesEqual": true,
+      "sha256": "71c8d82247c2736e9fbe3769f366e9bd250bc73ecf390749998e830201aaabf2"
+    }
+  ],
+  "limitations": [
+    "Mermaid parse only; page rendering and accessibility need site integration QA",
+    "Code Hike compiled with actual 1.1.0 dependency; no standalone browser interaction tested"
+  ]
+}

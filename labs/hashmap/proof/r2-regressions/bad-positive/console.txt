@@ -1,0 +1,5 @@
+Exception in thread "main" java.lang.AssertionError: ASSERTION_FAILED: equal key must not add mapping expected=99 actual=1
+	at HashMapLab.check(HashMapLab.java:34)
+	at HashMapLab.equal(HashMapLab.java:37)
+	at HashMapLab.identityAndCollision(HashMapLab.java:46)
+	at HashMapLab.main(HashMapLab.java:266)

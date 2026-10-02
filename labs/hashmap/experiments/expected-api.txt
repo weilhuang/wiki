@@ -1,0 +1,8 @@
+API identity: equal key replaces; collision keeps both; size=2
+API trace: A/B/C/D retained; model index4=1/1/1/1 index8=1/5/1/5
+COUNTEREXAMPLE broken contract: equals=true; different hashes; get(equal key)=null
+COUNTEREXAMPLE mutable key: before=saved changed=null size=1 restored=saved
+API null: containsKey distinguishes missing; computeIfAbsent fills null value
+API iteration: same-thread misuse throws; iterator.remove and entry.setValue work
+API sizing: newHashMap(13) stores 13 mappings; internal capacity not measured
+PASS api scenarios=7

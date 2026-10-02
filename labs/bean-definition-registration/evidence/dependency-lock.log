@@ -1,0 +1,109 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.10.2/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+
+> Task :dependencies
+
+------------------------------------------------------------
+Root project 'spring-bean-definition-lab'
+------------------------------------------------------------
+
+annotationProcessor - Annotation processors and their dependencies for source set 'main'.
+No dependencies
+
+compileClasspath - Compile classpath for source set 'main'.
+\--- org.springframework:spring-context:6.2.19
+     +--- org.springframework:spring-aop:6.2.19
+     |    +--- org.springframework:spring-beans:6.2.19
+     |    |    \--- org.springframework:spring-core:6.2.19
+     |    |         \--- org.springframework:spring-jcl:6.2.19
+     |    \--- org.springframework:spring-core:6.2.19 (*)
+     +--- org.springframework:spring-beans:6.2.19 (*)
+     +--- org.springframework:spring-core:6.2.19 (*)
+     +--- org.springframework:spring-expression:6.2.19
+     |    \--- org.springframework:spring-core:6.2.19 (*)
+     \--- io.micrometer:micrometer-observation:1.15.12
+          \--- io.micrometer:micrometer-commons:1.15.12
+
+compileOnly - Compile-only dependencies for the 'main' feature. (n)
+No dependencies
+
+default - Configuration for default artifacts. (n)
+No dependencies
+
+implementation - Implementation dependencies for the 'main' feature. (n)
+\--- org.springframework:spring-context:6.2.19 (n)
+
+mainSourceElements - List of source directories contained in the Main SourceSet. (n)
+No dependencies
+
+runtimeClasspath - Runtime classpath of source set 'main'.
+\--- org.springframework:spring-context:6.2.19
+     +--- org.springframework:spring-aop:6.2.19
+     |    +--- org.springframework:spring-beans:6.2.19
+     |    |    \--- org.springframework:spring-core:6.2.19
+     |    |         \--- org.springframework:spring-jcl:6.2.19
+     |    \--- org.springframework:spring-core:6.2.19 (*)
+     +--- org.springframework:spring-beans:6.2.19 (*)
+     +--- org.springframework:spring-core:6.2.19 (*)
+     +--- org.springframework:spring-expression:6.2.19
+     |    \--- org.springframework:spring-core:6.2.19 (*)
+     \--- io.micrometer:micrometer-observation:1.15.12
+          \--- io.micrometer:micrometer-commons:1.15.12
+
+runtimeElements - Runtime elements for the 'main' feature. (n)
+No dependencies
+
+runtimeOnly - Runtime-only dependencies for the 'main' feature. (n)
+No dependencies
+
+testAnnotationProcessor - Annotation processors and their dependencies for source set 'test'.
+No dependencies
+
+testCompileClasspath - Compile classpath for source set 'test'.
+\--- org.springframework:spring-context:6.2.19
+     +--- org.springframework:spring-aop:6.2.19
+     |    +--- org.springframework:spring-beans:6.2.19
+     |    |    \--- org.springframework:spring-core:6.2.19
+     |    |         \--- org.springframework:spring-jcl:6.2.19
+     |    \--- org.springframework:spring-core:6.2.19 (*)
+     +--- org.springframework:spring-beans:6.2.19 (*)
+     +--- org.springframework:spring-core:6.2.19 (*)
+     +--- org.springframework:spring-expression:6.2.19
+     |    \--- org.springframework:spring-core:6.2.19 (*)
+     \--- io.micrometer:micrometer-observation:1.15.12
+          \--- io.micrometer:micrometer-commons:1.15.12
+
+testCompileOnly - Compile only dependencies for source set 'test'. (n)
+No dependencies
+
+testImplementation - Implementation only dependencies for source set 'test'. (n)
+No dependencies
+
+testRuntimeClasspath - Runtime classpath of source set 'test'.
+\--- org.springframework:spring-context:6.2.19
+     +--- org.springframework:spring-aop:6.2.19
+     |    +--- org.springframework:spring-beans:6.2.19
+     |    |    \--- org.springframework:spring-core:6.2.19
+     |    |         \--- org.springframework:spring-jcl:6.2.19
+     |    \--- org.springframework:spring-core:6.2.19 (*)
+     +--- org.springframework:spring-beans:6.2.19 (*)
+     +--- org.springframework:spring-core:6.2.19 (*)
+     +--- org.springframework:spring-expression:6.2.19
+     |    \--- org.springframework:spring-core:6.2.19 (*)
+     \--- io.micrometer:micrometer-observation:1.15.12
+          \--- io.micrometer:micrometer-commons:1.15.12
+
+testRuntimeOnly - Runtime only dependencies for source set 'test'. (n)
+No dependencies
+
+(*) - Indicates repeated occurrences of a transitive dependency subtree. Gradle expands transitive dependency subtrees only once per project; repeat occurrences only display the root of the subtree, followed by this annotation.
+
+(n) - A dependency or dependency configuration that cannot be resolved.
+
+A web-based, searchable dependency report is available by adding the --scan option.
+Persisted dependency lock state for project ':'
+
+BUILD SUCCESSFUL in 4s
+1 actionable task: 1 executed
+
+EXIT_CODE=0

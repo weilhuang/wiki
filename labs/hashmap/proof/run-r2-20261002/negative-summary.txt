@@ -1,0 +1,5 @@
+EXPECTED_FAILURE equal-adds exit=1
+EXPECTED_FAILURE collision-overwrites exit=1
+EXPECTED_FAILURE mutable-stays-readable exit=1
+EXPECTED_FAILURE eighth-put-tree exit=1
+EXPECTED_FAILURE resize-keeps-every-index exit=1

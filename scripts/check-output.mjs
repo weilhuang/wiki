@@ -2,6 +2,7 @@ import { readdirSync, readFileSync, statSync, existsSync } from 'node:fs'
 import { join, resolve, relative } from 'node:path'
 import { site } from '../site.config.mjs'
 import { JSDOM } from 'jsdom'
+import { runInNewContext } from 'node:vm'
 import { syncNotFoundMetadata } from '../docs/.vitepress/theme/not-found-metadata.mjs'
 import { readChapters, aliasEntries, chapterNavigation } from './curriculum.mjs'
 const dist = resolve('docs/.vitepress/dist')
@@ -46,7 +47,7 @@ if (notFoundDocument.querySelector('meta[name=robots]')) errors.push('404 robots
 notFoundDom.window.close()
 
 const chapters = readChapters(process.cwd(), { strict:true })
-const legacyAnchors = JSON.parse(readFileSync('tests/fixtures/legacy-anchors.json','utf8'))
+const legacyAnchors = JSON.parse(readFileSync('tests/fixtures/knowledge-legacy-anchors.json','utf8'))
 for (const chapter of chapters) {
   const html = readFileSync(join(dist, chapter.url.slice(1)), 'utf8')
   const canonical = new URL(chapter.url.slice(1), site.url).href
@@ -65,12 +66,27 @@ for (const alias of aliasEntries()) {
   const html = readFileSync(file, 'utf8')
   if (!html.includes('noindex,follow') || !html.includes('location.replace(') || !html.includes('+location.search+location.hash')) errors.push(`${alias.from}: incomplete compatibility redirect`)
   if (!html.includes(new URL(alias.to.slice(1),site.url).href)) errors.push(`${alias.from}: incorrect target canonical`)
-  const target = readFileSync(join(dist, alias.to.endsWith('/') ? `${alias.to}index.html` : alias.to), 'utf8')
-  for (const id of legacyAnchors[alias.from] || []) if (!target.includes(`id="${id}"`)) errors.push(`${alias.from}: legacy anchor lost: ${id}`)
+  const aliasDom=new JSDOM(html),script=aliasDom.window.document.querySelector('script').textContent
+  for(const id of legacyAnchors[alias.from]||[]){
+    const destination=alias.anchors?.[id]||alias.to+'#'+id
+    const targetUrl=new URL(destination.slice(1),site.url),targetFile=join(dist,targetUrl.pathname.slice(site.base.length).replace(/\/$/,'/index.html'))
+    if(!existsSync(targetFile)||!readFileSync(targetFile,'utf8').includes(`id="${decodeURIComponent(targetUrl.hash.slice(1))}"`))errors.push(`${alias.from}: legacy anchor has no final target: ${id}`)
+    let actual;runInNewContext(script,{location:{search:'?from=legacy&next=https%3A%2F%2Foutside.example',hash:'#'+encodeURIComponent(id),replace:value=>{actual=value}}})
+    const observed=new URL(actual,site.origin),expected=new URL(destination.slice(1),site.url);expected.search='?from=legacy&next=https%3A%2F%2Foutside.example'
+    if(observed.href!==expected.href)errors.push(`${alias.from}: query/hash mapping failed: ${id}`)
+    if(!html.includes(`id="${id}"`))errors.push(`${alias.from}: no-JS legacy anchor missing: ${id}`)
+  }
+  aliasDom.window.close()
   if (map.includes(new URL(alias.from.slice(1),site.url).href) || feed.includes(new URL(alias.from.slice(1),site.url).href)) errors.push(`${alias.from}: legacy URL leaked into sitemap/RSS`)
 }
 const feedLinks = [...feed.matchAll(/<item><title>.*?<\/title><link>(.*?)<\/link>/g)].map(match=>match[1])
 if (feedLinks.length !== chapters.length || new Set(feedLinks).size !== chapters.length) errors.push('RSS must contain each canonical chapter exactly once')
 
+const inPlaceAnchors=JSON.parse(readFileSync('content/page-anchors.json','utf8'))
+for(const [source,anchors]of Object.entries(inPlaceAnchors)){
+  const file=join(dist,source.replace(/\.md$/,'.html')),dom=new JSDOM(readFileSync(file,'utf8'))
+  for(const anchor of anchors){const matches=[...dom.window.document.querySelectorAll('[id]')].filter(el=>el.id===anchor.id);if(matches.length!==1||!matches[0].nextElementSibling)errors.push(`${source}: in-place semantic anchor missing/duplicated: ${anchor.id}`)}
+  dom.window.close()
+}
 if (errors.length) throw new Error(errors.join('\n'))
 console.log(`Output: ${pages.length} HTML pages, internal links/assets, language, canonical curriculum, legacy anchors, feed, sitemap and 404 passed`)

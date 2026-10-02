@@ -1,0 +1,15 @@
+API identity: equal key replaces; collision keeps both; size=2
+API trace: A/B/C/D retained; model index4=1/1/1/1 index8=1/5/1/5
+COUNTEREXAMPLE broken contract: equals=true; different hashes; get(equal key)=null
+COUNTEREXAMPLE mutable key: before=saved changed=null size=1 restored=saved
+API null: containsKey distinguishes missing; computeIfAbsent fills null value
+API iteration: same-thread misuse throws; iterator.remove and entry.setValue work
+API sizing: newHashMap(13) stores 13 mappings; internal capacity not measured
+PASS api scenarios=7
+IMPL put capacity-request=64: after 8=Node; update=Node; after 9=TreeNode
+IMPL default put: after 8/9/10=Node; after 11=TreeNode; capacities inferred from source only
+Exception in thread "main" java.lang.AssertionError: ASSERTION_FAILED: compute treeification preserves every expected value expected=3 actual=300
+	at HashMapLab.check(HashMapLab.java:34)
+	at HashMapLab.equal(HashMapLab.java:37)
+	at HashMapLab.implComputeThreshold(HashMapLab.java:200)
+	at HashMapLab.main(HashMapLab.java:270)

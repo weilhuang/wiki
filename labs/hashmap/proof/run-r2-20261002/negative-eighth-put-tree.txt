@@ -1,0 +1,4 @@
+Exception in thread "main" java.lang.AssertionError: ASSERTION_FAILED: wrong hypothesis eighth-put-tree
+	at HashMapLab.check(HashMapLab.java:34)
+	at HashMapLab.negative(HashMapLab.java:254)
+	at HashMapLab.main(HashMapLab.java:271)

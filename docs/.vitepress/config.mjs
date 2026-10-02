@@ -3,7 +3,10 @@ import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { readPosts, rss, site } from '../../scripts/content.mjs'
 import { existsSync } from 'node:fs'
-import { curriculum, chapterNavigation, sourceUrl } from '../../scripts/curriculum.mjs'
+import { taxonomy, paths, topicNavigation, sourceUrl } from '../../scripts/knowledge.mjs'
+import { generateViews } from '../../scripts/generate-views.mjs'
+import { addTopicContext } from '../../scripts/topic-context.mjs'
+import { renderSearch } from '../../scripts/search.mjs'
 import { writeLegacyPages } from '../../scripts/legacy.mjs'
 import { managedPageHead } from '../../scripts/page-metadata.mjs'
 import { notFoundRobots } from './theme/not-found-metadata.mjs'
@@ -11,25 +14,20 @@ import { createCodeCache } from '../../scripts/code-cache.mjs'
 import { wikiMarkdown } from '../../scripts/markdown-extensions.mjs'
 import { tokenizeChinese } from '../../scripts/search.mjs'
 
+const posts = generateViews()
 const codeCache = await createCodeCache()
-const posts = readPosts()
-const available = source => existsSync(join(process.cwd(), 'docs', source))
-const pathLink = path => sourceUrl(path.introSource)
-const guideLinks = [
-  { text: '知识地图', link: '/guide/knowledge-map.html', source: 'guide/knowledge-map.md' },
-  { text: '全部学习路径', link: '/learn/', source: 'learn/index.md' },
-  { text: '实验与评审', link: '/guide/practice.html', source: 'guide/practice.md' },
-  { text: '后续规划', link: '/guide/roadmap.html', source: 'guide/roadmap.md' }
-].filter(item => available(item.source)).map(({source,...item}) => item)
-const sidebar = Object.fromEntries(curriculum.paths.map(path => [pathLink(path), [
-  ...(available(path.introSource) ? [{ text: '路径导读', items: [{ text:path.title, link:pathLink(path) }] }] : []),
-  ...path.stages.map(stage=>({ text:stage.title, collapsed:false, items:stage.chapters.map(id=>posts.find(p=>p.id===id)).filter(Boolean).map(chapter=>({text:`${chapter.order}. ${chapter.title}`,link:chapter.url})) })).filter(group=>group.items.length),
-  { text:'相关路径', items:curriculum.paths.filter(p=>p.id!==path.id && available(p.introSource)).map(p=>({text:p.title,link:pathLink(p)})) }
-].filter(group=>group.items.length)]))
-sidebar['/'] = [{text:'阅读入口',items:guideLinks}, {text:'学习路径',items:curriculum.paths.filter(p=>available(p.introSource)).map(p=>({text:p.title,link:pathLink(p)}))}].filter(group=>group.items.length)
+const rootLinks=[{text:'知识目录',link:'/knowledge/'},{text:'学习路线',link:'/paths/'},{text:'场景与排障',link:'/cases/'},{text:'源码阅读',link:'/resources/source-reading.html'},{text:'实验与验证',link:'/resources/experiments.html'},{text:'复习与推理',link:'/resources/review.html'}]
+const sidebar = Object.fromEntries(taxonomy.map(domain=>[`/knowledge/${domain.id}/`,[
+  {text:domain.title,items:[{text:'领域导读',link:`/knowledge/${domain.id}/`}]},
+  ...domain.categories.map(category=>({text:category.title,collapsed:false,items:[{text:'分类导读',link:`/knowledge/${domain.id}/${category.id}/`},...posts.filter(t=>t.domain===domain.id&&t.category===category.id).map(t=>({text:t.title,link:t.url}))]})).filter(group=>group.items.length>1),
+  {text:'其他阅读入口',items:rootLinks}
+]]))
+sidebar['/']=[{text:'阅读入口',items:rootLinks},{text:'知识领域',collapsed:false,items:taxonomy.map(d=>({text:d.title,link:`/knowledge/${d.id}/`}))}]
+sidebar['/paths/']=[{text:'目标路线',items:paths.map(p=>({text:p.title,link:sourceUrl(p.source)}))},{text:'其他入口',items:rootLinks}]
+sidebar['/cases/']=[{text:'场景方案',items:posts.filter(t=>t.kind==='scenario').map(t=>({text:t.title,link:t.url}))},{text:'其他入口',items:rootLinks}]
 export default defineConfig({
   lang: 'zh-CN', title: site.title,
-  description: '按先修、机制、实验与综合评审组织的后端工程知识站。',
+  description: '按领域查找机制，沿学习路线建立联系，用源码和实验检验工程判断。',
   base: site.base, cleanUrls: false, lastUpdated: true,
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: `${site.base}favicon.svg` }],
@@ -40,14 +38,14 @@ export default defineConfig({
   sitemap: { hostname: site.url, transformItems: items => items.filter(item => item.url !== '404.html' && !item.url.startsWith('blog/')) },
   transformPageData(pageData) {
     const chapter = posts.find(p=>p.source===pageData.relativePath)
-    if (chapter) pageData.frontmatter = { ...pageData.frontmatter, ...chapterNavigation(chapter, posts) }
+    if (chapter) pageData.frontmatter = { ...pageData.frontmatter, ...topicNavigation(chapter, posts) }
     pageData.frontmatter.head = managedPageHead(pageData.relativePath, pageData.frontmatter, site.url)
   },
   transformHead({ pageData }) { return pageData.isNotFound ? [notFoundRobots] : [] },
   vite: { plugins: [{ name: 'wiki-codehike-watch', enforce: 'pre', generateBundle(_options, bundle) { for (const file of Object.values(bundle)) { if (file.type === 'chunk' && Object.keys(file.modules).some(id => /node_modules\/(react|react-dom|codehike|@code-hike)\//.test(id))) throw new Error('Build-only Code Hike/React leaked into a runtime bundle') } }, async handleHotUpdate(ctx) { if (ctx.file.endsWith('.md')) await codeCache.refresh() } }] },
   markdown: {
     highlight: (code, lang) => codeCache.get(code, lang).html,
-    config: md => wikiMarkdown(md, codeCache),
+    config: md => { wikiMarkdown(md, codeCache); addTopicContext(md, posts) },
     codeCopyButtonTitle: '复制代码',
     lineNumbers: true,
     theme: { light: 'github-light', dark: 'github-dark' },
@@ -56,30 +54,32 @@ export default defineConfig({
   themeConfig: {
     logo: '/favicon.svg', siteTitle: site.title,
     nav: [
-      { text: '知识地图', link: '/guide/knowledge-map' },
-      { text: '学习路径', activeMatch: '/learn/', items: [...curriculum.paths.filter(path=>available(path.introSource)).map(path=>({text:path.title,link:pathLink(path)})), ...(available('learn/index.md')?[{text:'全部学习路径',link:'/learn/'}]:[])] },
-      ...(available('guide/practice.md') ? [{ text: '实验与评审', link: '/guide/practice' }] : []),
-      { text: '标签', link: '/tags' },
-      { text: '关于', link: '/about' }
+      {text:'知识目录',link:'/knowledge/'},
+      {text:'学习路线',link:'/paths/'},
+      {text:'场景与排障',link:'/cases/'},
+      {text:'资源',items:[{text:'源码阅读',link:'/resources/source-reading.html'},{text:'实验与验证',link:'/resources/experiments.html'},{text:'复习与推理',link:'/resources/review.html'},{text:'主题筛选',link:'/tags.html'}]},
+      {text:'关于',link:'/about.html'}
     ],
+    editLink: { pattern: `${site.repoUrl}/edit/main/docs/:path`, text:'在 GitHub 编辑此页' },
     sidebar,
     socialLinks: [{ icon: 'github', link: site.repoUrl, ariaLabel: '查看 GitHub 源码' }],
     outline: { level: [2, 3], label: '本文目录' },
-    docFooter: { prev: '上一章', next: '下一章' },
+    docFooter: { prev: '分类前一项', next: '分类后一项' },
     lastUpdated: { text: '更新于', formatOptions: { dateStyle: 'medium' } },
     darkModeSwitchLabel: '主题', lightModeSwitchTitle: '切换到浅色模式', darkModeSwitchTitle: '切换到深色模式',
-    sidebarMenuLabel: '章节目录', returnToTopLabel: '回到顶部', skipToContentLabel: '跳转到正文',
+    sidebarMenuLabel: '知识目录', returnToTopLabel: '回到顶部', skipToContentLabel: '跳转到正文',
     notFound: { code: '404', title: '这页暂时找不到', quote: '链接可能已经移动。可以回到首页，或用搜索找找关键词。', linkLabel: '回到首页', linkText: '回到首页' },
     footer: { message: '基于 VitePress 构建', copyright: site.title },
     search: {
       provider: 'local',
       options: {
         detailedView: true,
+        _render: renderSearch,
         miniSearch: { options: { tokenize: tokenizeChinese }, searchOptions: { prefix: true, fuzzy: false, combineWith: 'AND' } },
         translations: {
           button: { buttonText: '搜索知识库', buttonAriaLabel: '搜索知识库' },
           modal: {
-            displayDetails: '显示详细结果', resetButtonTitle: '清空搜索', backButtonTitle: '关闭搜索', noResultsText: '没有找到相关章节',
+            displayDetails: '显示详细结果', resetButtonTitle: '清空搜索', backButtonTitle: '关闭搜索', noResultsText: '没有找到已发布内容，可换用技术名或到知识目录查看规划',
             footer: { selectText: '选择', selectKeyAriaLabel: '回车', navigateText: '切换', navigateUpKeyAriaLabel: '向上', navigateDownKeyAriaLabel: '向下', closeText: '关闭', closeKeyAriaLabel: 'Esc' }
           }
         }

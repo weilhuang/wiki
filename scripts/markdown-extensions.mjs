@@ -1,4 +1,16 @@
+import { site } from '../site.config.mjs'
 export function wikiMarkdown(md, codeCache) {
+  // VitePress treats uncommon suffixes such as .py as document routes. Explicit
+  // download semantics keep authored source links as files; output checks still
+  // require the exact public asset to exist.
+  md.core.ruler.after('inline','wiki-source-downloads',state=>{
+    for(const token of state.tokens)for(const child of token.children||[]){
+      const href=child.type==='link_open'&&child.attrGet('href')
+      if(typeof href==='string'&&/^\/examples\/[a-z0-9-]+\.py$/.test(href)){
+        child.attrSet('download','');child.attrSet('href',site.base+href.slice(1))
+      }
+    }
+  })
   const fence = md.renderer.rules.fence
   md.renderer.rules.fence = (tokens, index, options, env, renderer) => {
     const token = tokens[index]

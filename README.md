@@ -1,6 +1,6 @@
 # 工程札记
 
-基于 VitePress 的中文后端工程知识站。按先修关系组织 Spring 服务边界、Go 服务生命周期和数据一致性三条学习路径，章节从具体问题进入机制、反例与综合评审。
+基于 VitePress 的中文后端工程知识站。按大领域、分类与稳定知识点组织；路线、源码、实验和复习视图引用同一正文。文章从具体问题进入机制、源码、条件与取舍。
 
 ## 本地运行
 
@@ -18,39 +18,28 @@ npm run docs:preview # 预览生产产物，在 /wiki/ 路径打开
 
 界面使用 VitePress 原生默认主题，不做首页营销布局或全局视觉覆盖。项目固定 VitePress 1.6.4 稳定版，使用锁文件安装依赖。Vite 6.4.3 override 避免继续使用 VitePress 1.x 默认的旧 Vite 5，构建和本地搜索已列入验证范围。升级时请一起检查 `package-lock.json`、生产构建和浏览器交互，不要直接切换到 `@next`。
 
-## 内容结构与发布门禁
+## 内容模型与发布门禁
 
-- `curriculum.mjs`：主题、路径、章节顺序、阶段、先修关系、兼容路由与证据引用的唯一结构来源
-- `docs/learn/<path-id>/index.md`：完整路径导读；同目录其他 Markdown 是稳定章节路由
-- `docs/guide/`：知识地图、实验与评审、明确标注的后续范围
-- `evidence/*.json`：基础实验的执行范围、命令、退出码、版本和下载 ZIP 的 SHA256
-- `docs/.vitepress/theme/`：默认主题扩展，仅包含关键词索引、Mermaid 与代码分步组件
-- `site.config.mjs`：站点名称、仓库、域名和部署子路径
-- `scripts/`、`tests/`：课程结构、证据、搜索、代码/图和输出验证
+- `content/taxonomy.mjs`：九个稳定领域、分类及规划范围；`domain-guides.mjs` / `category-guides.mjs` 保存对应教学导读
+- `docs/knowledge/<domain>/<category>/`：拥有稳定 ID 的 canonical 知识正文；案例、排障页可使用独立任务路由，主分类仍明确
+- `content/paths.mjs`：路线只引用知识 ID，说明准入、阅读目的与阶段任务，不复制正文或推导强先修
+- `content/sources/`、`content/verification/`：来源和多维验证台账；五组历史 `evidence/*.json` 与 ZIP 保留原身份
+- `content/redirects.json`：原 blog/learn 直接到最终 canonical，支持必要的逐锚点迁移
+- `content/review-questions.json`、`content/search-intents.json`：复习问题回链主文，实际搜索问法定位到具体小节
+- `scripts/generate-views.mjs`：从同一元数据生成目录、路线与资源页；生成页标记 `generated: true`，应修改其来源而非生成结果
+- `site.config.mjs`：站名、仓库、域名与部署子路径；`docs/.vitepress/theme/` 保留默认主题及内容增强组件
 
-首批发布合同是三条路径各五章及三份导读。`npm run docs:build` 会拒绝缺章、未登记章节、草稿、先修环、缺失指南、未通过的基础实验及 ZIP 哈希不匹配。内容 `ready` 与实验 `verified` 是两种独立状态；实验通过仍需内容和平台独立评审，不能自动替代发布审阅。
+知识正文必填稳定 `id`、`kind`、`status`、`title`、`description`、`domain`、`category`、日期及适用 `scope`。文章类型为 concept/source/pattern/scenario/troubleshooting/lab/review；编辑状态为 planned/draft/review/published/retired。只有 published 正文进入公开 docs，其他状态留在 docs 外。标签按 technology/mechanism/task/scenario 使用受控 ID。
 
-开发服务器可用于本地预览已集成的正文；缺章时不制造占位页，也不能把本地预览当作完整发布。草稿留在 `docs/` 之外，避免构建到公开站点。新增章节或调整 manifest 后重启开发服务器，同步侧栏与内容索引。
+requires、recommendedBefore、related、contrastsWith 等关系都带目标 ID 与 reason。只有 requires 必须无环；推荐顺序不自动成为先修。知识没有唯一 pathId，也没有全站 3×5 数量约束。必要基础可用文字补充，不为没有写完的先修制造空链接。
 
-每章 frontmatter 是标题、摘要、日期、标签、目标与版本的唯一内容来源，保留一个一级标题：
+验证记录独立表示 source-reviewed/static-checked/executed，以及 not-run/pass/fail/blocked/stale。概念与模式页无需伪造实验 ZIP；声称 executed/pass 时必须给出绑定源码与真实成功命令，文件变化使旧记录失效。新实验版本使用新身份，不覆盖历史包。资料复核、语法通过与运行结果不能互相冒认。
 
-```yaml
----
-title: 本章标题
-description: 本章解决的问题与结论范围。
-date: "2026-10-02"
-updated: "2026-10-02"
-tags: [Go, 并发]
-objectives: [证明启动的任务都会被等待和收尾, 明确并发上限与失败结果合同]
-versions: ["Go 1.27.1"]
----
-```
+`npm run check` 会生成视图并校验元数据、关系、别名、适用证据、源码/ZIP身份、代码/图、实际搜索库存与构建输出。当前重构批次另设三类内容样板准入，这属于一次发布范围，不是永久限制文章形状。所有标题和顺序来源分工明确；新增分类或修改结构后重启开发服务器以刷新导航。
 
-章号、分组、先修 ID 和前后章由 manifest 决定；日期不影响学习顺序。站内链接使用 `/learn/<path-id>/<chapter-slug>`，不要手写部署子目录。Vue 中使用 VitePress `withBase`。默认保留 `.html`，导读使用目录 URL，以适配 GitHub Pages。
+正文保留一个 H1。站内 Markdown 链接使用不带部署 base 的完整 `.html` canonical 地址；Vue 使用 VitePress `withBase`。目录页使用尾斜线。不要从标题或文章顺序生成路由。
 
-旧 `/blog/` 与两篇既有文章地址在构建后生成兼容 HTML：跳转保留 query/hash，使用 `location.replace` 避免 Back 循环；有 canonical、noindex 与无 JavaScript 的逐节链接。它们不进入搜索、RSS 或 sitemap。这是静态 HTML 兼容跳转，不是 HTTP 301。旧章节锚点与实验 ZIP 路径继续受检查。
-
-RSS 保留给已有订阅者，标签提供横切索引；它们都从同一已登记 canonical 章节清单投影。主导航按路径组织。代码复制、行号、代码组、提示块保留 VitePress 原生行为，没有第三方统计、评论或远程搜索。
+旧 URL 构建为 noindex 的静态兼容页，保留 query/hash、无脚本逐节入口，并使用 location.replace 避免 Back 循环；不是 HTTP 301。搜索、RSS 和 sitemap 不收迁移壳。默认搜索扩展仅用 VitePress 支持的本地渲染接口，不上传查询或图源。
 
 ### Code Hike
 
