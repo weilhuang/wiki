@@ -1,0 +1,319 @@
+{
+  "schemaVersion": 1,
+  "status": "verified",
+  "completedAt": "2026-10-02T09:47:05Z",
+  "sourceSnapshot": {
+    "archive": "data-consistency.zip",
+    "archiveSha256": "a7cbd725764ac9266042e8ba93954c6e6377065f2ea690cfd4963c42147e5e22",
+    "sourceManifestSha256": "2bd2f966ad428bd5dc80a35688f177a9d66144b282bb3e7b59486cd28e626299",
+    "sourceSha256": {
+      "README.md": "796b2265f9c4fcc7ea0b4946dcbf74aaae59fe614e386ea496f2a6cb95ca99b5",
+      "RESULT-CONTRACT.md": "f50164c7b9c22cde82c6a4e00e14406cb8d94c4766df22d7b64357687eec767c",
+      "check_static.py": "a4f0ee0857992dff064bf2706624fe69bc9a4fc5a1d53f04afa521ebbf6fcb26",
+      "compose.yaml": "3e28ee882c99ac1c5eb5d1dd4bc0f194a7740e676d5f01bfe0516aad74fe195a",
+      "infra/versions.env": "633dd50e7da950a0da9ddb86484e11a63b475a82c89688c3a8f2640c24568a4b",
+      "lab.py": "b5b4ea1f0b083ed76bc6fab21a8ef57eeed121f7eebf2ccc0d773a099118be0d",
+      "lua/fill.lua": "befe00cfff4d2af3baab596a0f240f34cbc325e62d8e3d638f5b98e2b36b023a",
+      "lua/invalidate.lua": "659ae47f3d59c4299ec64e0d3d8e08f26ce6f979364ba0c9cb40a612efe1bf11",
+      "run.sh": "12aea3c40fdaa72f946e195530e3d988c38fcc2c84ee6a5d1ac5e073defe249d",
+      "sql/reconcile.sql": "4cada03ba972a5e0442887c0e81f07a0bde747b050900c337cf60a1e3d3899d5",
+      "sql/schema.sql": "e2abe01b0f1df131f41e26ec949057044e20c1e85cebd20dc07441b145cf5169"
+    }
+  },
+  "execution": {
+    "url": "https://github.com/weilhuang/wiki/actions/runs/36991587537",
+    "runId": 36991587537,
+    "attempt": 1,
+    "testedCheckoutSha": "c88fcd0096e16c94775b03b0926ecd04c8136acb",
+    "pullRequestHeadSha": "a8dce8cd63496b65b882a3172a8919bca3379a7b",
+    "baseSha": "dc431927c91ef7f1d79aad772e3e8a6bb7a55b9e",
+    "command": "timeout --kill-after=15s 12m bash run.sh all",
+    "runner": "GitHub-hosted ubuntu-24.04",
+    "mysql": "8.4.7 / InnoDB / REPEATABLE READ / autocommit=1",
+    "redis": "7.4.7",
+    "imageIds": [
+      "sha256:0de4015d5b1f0fa462e43b48c29f8f66eacdd16d11e07aedf3b13533adadd504",
+      "sha256:e08bd8d5a6774025cff22e5db8361f6a5d023811e84d77d0033e47d44970cc94"
+    ],
+    "imageRepoDigests": [
+      [
+        "mysql@sha256:0426ec38c7a10aa45ba383887df7878f74ee70e2fd589c7b69207f3577901903"
+      ],
+      [
+        "redis@sha256:02f2cc4882f8bf87c79a220ac958f58c700bdec0dfb9b9ea61b62fb0e8f1bfcf"
+      ]
+    ]
+  },
+  "cases": [
+    {
+      "case": "D1.naive_lost_update",
+      "status": "PASS",
+      "observed": {
+        "available": 0,
+        "reserved": 2,
+        "negative_control_detected": true
+      }
+    },
+    {
+      "case": "D1.conditional_update",
+      "status": "PASS",
+      "observed": {
+        "affected_rows": [
+          1,
+          0
+        ],
+        "lock_wait_observed": true
+      }
+    },
+    {
+      "case": "D1.locking_read",
+      "status": "PASS",
+      "observed": {
+        "locked_read_values": [
+          1,
+          0
+        ]
+      }
+    },
+    {
+      "case": "D1.snapshot_vs_current",
+      "status": "PASS",
+      "observed": {
+        "repeatable_read_snapshot": 1,
+        "locking_read": 0
+      }
+    },
+    {
+      "case": "D1.deadlock_cycle",
+      "status": "PASS",
+      "observed": {
+        "deadlock_victims": 1,
+        "victim_identity_not_assumed": true
+      }
+    },
+    {
+      "case": "D2.concurrent_same_key",
+      "status": "PASS",
+      "observed": {
+        "orders": 1,
+        "available": 9,
+        "same_saved_result": true
+      }
+    },
+    {
+      "case": "D2.payload_conflict",
+      "status": "PASS",
+      "observed": {
+        "conflict_before_second_effect": true
+      }
+    },
+    {
+      "case": "D2.before_commit_disconnect",
+      "status": "PASS",
+      "observed": {
+        "rolled_back_rows": true,
+        "retry_orders": 1
+      }
+    },
+    {
+      "case": "D2.after_commit_response_lost",
+      "status": "PASS",
+      "observed": {
+        "adapter_lost_response": true,
+        "orders": 1
+      }
+    },
+    {
+      "case": "D2.retention_boundary",
+      "status": "PASS",
+      "observed": {
+        "stable_identity_blocks_repeat": true,
+        "expired_key_with_new_identity_orders": 2
+      }
+    },
+    {
+      "case": "D2.saved_rejection",
+      "status": "PASS",
+      "observed": {
+        "terminal_rejection_not_recomputed": true
+      }
+    },
+    {
+      "case": "D3.business_commit_before_relay",
+      "status": "PASS",
+      "observed": {
+        "durable_outbox_survives_absent_relay": true
+      }
+    },
+    {
+      "case": "D3.publish_before_mark",
+      "status": "PASS",
+      "observed": {
+        "deliveries": 2,
+        "effects": 1,
+        "backend": "controlled_receiver_not_broker"
+      }
+    },
+    {
+      "case": "D3.consumer_before_commit",
+      "status": "PASS",
+      "observed": {
+        "fault": "before_commit",
+        "effects_after_replay": 1
+      }
+    },
+    {
+      "case": "D3.consumer_after_commit",
+      "status": "PASS",
+      "observed": {
+        "fault": "after_commit",
+        "effects_after_replay": 1
+      }
+    },
+    {
+      "case": "D3.split_commit_negative_control",
+      "status": "PASS",
+      "observed": {
+        "negative_control_detected": true,
+        "dedup_without_effect": 1
+      }
+    },
+    {
+      "case": "D4.stale_refill",
+      "status": "PASS",
+      "observed": {
+        "negative_control_detected": true,
+        "db_version": 2,
+        "cache_version": 1
+      }
+    },
+    {
+      "case": "D4.version_watermark",
+      "status": "PASS",
+      "observed": {
+        "stale_versions_rejected": 2,
+        "retained_floor": "2"
+      }
+    },
+    {
+      "case": "D4.invalidation_delivery_loss",
+      "status": "PASS",
+      "observed": {
+        "lost_command_leaves_stale_cache": true,
+        "retry_invalidates": true
+      }
+    },
+    {
+      "case": "D4.expiry_and_watermark_loss",
+      "status": "PASS",
+      "observed": {
+        "value_expired": true,
+        "watermark_loss_weakens_guarantee": true
+      }
+    },
+    {
+      "case": "D4.concurrent_fill_after_floor",
+      "status": "PASS",
+      "observed": {
+        "concurrent_results": [
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "final": "v2"
+      }
+    },
+    {
+      "case": "D5.six_failure_recovery",
+      "status": "PASS",
+      "observed": {
+        "orders": 1,
+        "available": 2,
+        "deliveries": 2,
+        "effects": 1,
+        "all_reconciliation_queries_empty": true
+      }
+    },
+    {
+      "case": "D5.schema_v2_backwards_compatible_snapshot",
+      "status": "PASS",
+      "observed": {
+        "schema_versions_accepted": [
+          1,
+          2
+        ],
+        "out_of_order_snapshot_did_not_regress": true,
+        "scope": "full_snapshot_projection_only_no_external_effect"
+      }
+    }
+  ],
+  "exitCodes": {
+    "run_exit_code": 0,
+    "cleanup_exit_code": 0,
+    "logs_exit_code": 0,
+    "ps_exit_code": 0
+  },
+  "scope": "真实单节点 MySQL 与 Redis，订单/库存、幂等、outbox/受控接收端、缓存与恢复对账。",
+  "productionOrRealBrokerVerified": false,
+  "notCovered": [
+    "真实 Kafka/RocketMQ 的 producer/ack/offset/重平衡",
+    "多 relay 租约、外部不可回滚副作用",
+    "HTTP 断链、数据库进程掉电或磁盘故障",
+    "Redis 复制与故障切换",
+    "生产负载、容量及线上迁移",
+    "任意 Unicode/大小写身份规则"
+  ],
+  "expectedFaultCleanupWarnings": [
+    {
+      "case": "D2.before_commit_disconnect",
+      "connectionId": 24,
+      "event": "session_close_error",
+      "detail": "KILL CONNECTION 后 ROLLBACK sentinel 等待达到约25秒上限，客户端退出码1",
+      "reviewStatus": "confirmed-expected-fault-injection"
+    },
+    {
+      "case": "D3.consumer_before_commit",
+      "connectionId": 56,
+      "event": "session_close_error",
+      "detail": "KILL CONNECTION 后 ROLLBACK sentinel 等待达到约25秒上限，客户端退出码1",
+      "reviewStatus": "confirmed-expected-fault-injection"
+    },
+    {
+      "case": "D5.six_failure_recovery",
+      "connectionId": 86,
+      "event": "session_close_error",
+      "detail": "KILL CONNECTION 后 ROLLBACK sentinel 等待达到约25秒上限，客户端退出码1",
+      "reviewStatus": "confirmed-expected-fault-injection"
+    }
+  ],
+  "artifact": {
+    "id": 11219772849,
+    "url": "https://github.com/weilhuang/wiki/actions/runs/36991587537/artifacts/11219772849",
+    "sha256": "4df7254edfeecbd29b538e1029235cabdfa2193f7810b0b9bd1d7fa7de9d42a9",
+    "bytes": 39108,
+    "expiresAt": "2026-10-05T09:47:04Z"
+  },
+  "documentationStatus": {
+    "atSourceFreeze": "NOT_RUN",
+    "note": "源码 ZIP 保留冻结时的 README 与 RESULT-CONTRACT；本文件记录该精确源码快照随后完成的真实 CI，未修改包内历史状态。"
+  },
+  "checks": {
+    "caseCount": 23,
+    "caseBeginCount": 23,
+    "casePassCount": 23,
+    "sourceUnchanged": true,
+    "workflowSha256": "e11beb595f34cdc7984ff5918709dfb5244ce243c6204abfbc527edc7e3104c8",
+    "validatorSha256": "8277e2870ab3e9a773bd9c4ece65951586b9f9893e8be3a79b1b3606f3cc1ee9",
+    "all60SessionsClosed": true,
+    "sqlSendCount": 605,
+    "sqlResultCount": 602,
+    "expectedUnansweredPostKillRollbacks": 3,
+    "redisCommandCount": 41
+  },
+  "independentlyReviewed": true
+}

@@ -1,0 +1,20 @@
+{
+  "review_status": "APPROVED_FOR_DRAFT_PR_AND_BOUNDED_REAL_CI_ONLY",
+  "mysql_execution": "NOT_RUN",
+  "redis_execution": "NOT_RUN",
+  "aggregate_encoding": "UTF-8 json.dumps(source_sha256, sort_keys=True, separators=(\",\", \":\"))",
+  "source_manifest_sha256": "2bd2f966ad428bd5dc80a35688f177a9d66144b282bb3e7b59486cd28e626299",
+  "source_sha256": {
+    "README.md": "796b2265f9c4fcc7ea0b4946dcbf74aaae59fe614e386ea496f2a6cb95ca99b5",
+    "RESULT-CONTRACT.md": "f50164c7b9c22cde82c6a4e00e14406cb8d94c4766df22d7b64357687eec767c",
+    "check_static.py": "a4f0ee0857992dff064bf2706624fe69bc9a4fc5a1d53f04afa521ebbf6fcb26",
+    "compose.yaml": "3e28ee882c99ac1c5eb5d1dd4bc0f194a7740e676d5f01bfe0516aad74fe195a",
+    "infra/versions.env": "633dd50e7da950a0da9ddb86484e11a63b475a82c89688c3a8f2640c24568a4b",
+    "lab.py": "b5b4ea1f0b083ed76bc6fab21a8ef57eeed121f7eebf2ccc0d773a099118be0d",
+    "lua/fill.lua": "befe00cfff4d2af3baab596a0f240f34cbc325e62d8e3d638f5b98e2b36b023a",
+    "lua/invalidate.lua": "659ae47f3d59c4299ec64e0d3d8e08f26ce6f979364ba0c9cb40a612efe1bf11",
+    "run.sh": "12aea3c40fdaa72f946e195530e3d988c38fcc2c84ee6a5d1ac5e073defe249d",
+    "sql/reconcile.sql": "4cada03ba972a5e0442887c0e81f07a0bde747b050900c337cf60a1e3d3899d5",
+    "sql/schema.sql": "e2abe01b0f1df131f41e26ec949057044e20c1e85cebd20dc07441b145cf5169"
+  }
+}

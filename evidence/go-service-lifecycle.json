@@ -1,0 +1,57 @@
+{
+  "status": "verified",
+  "chapterIds": [
+    "go-http-request-contract",
+    "go-bounded-concurrency-ownership",
+    "go-http-client-budgets",
+    "go-graceful-shutdown-review"
+  ],
+  "versions": [
+    "go go1.27.1 linux/amd64",
+    "mermaid 11.17.2",
+    "codehike 1.1.0",
+    "node 24.19.0",
+    "gin 1.12.0 source review only"
+  ],
+  "commands": [
+    {
+      "command": "./verify.sh",
+      "exitCode": 0
+    }
+  ],
+  "scope": [
+    "25 个顶层测试、26 个子测试，无跳过",
+    "真实 main 的 SIGTERM 排空/期限取消、启动失败和已启动池的完成信号",
+    "普通与 race 构建的真实子进程、race 测试和 vet",
+    "四个错误响应/媒体类型/截断响应/漏 join 反例被对应断言识别"
+  ],
+  "notCovered": [
+    "Gin runtime",
+    "TLS/HTTP2/HTTP3/proxies",
+    "Kubernetes/readiness propagation/rolling deploy",
+    "real database/durable queue/idempotency/crash recovery",
+    "cross-platform signal behavior",
+    "production load/performance",
+    "second force signal"
+  ],
+  "artifacts": [
+    {
+      "path": "examples/go-service-lifecycle.zip",
+      "sha256": "de1a3140d6d70625f2abaf0133a78037714ceb7affcde6a20be29d02f7f92ed3"
+    }
+  ],
+  "sourceManifestSha256": "618f2e4e65d0ba94cca5739fc8bb30c7a57e7df9074b3e5b1e807867f886c8ff",
+  "reviewStatus": "approved",
+  "environment": {
+    "Go": "1.27.1",
+    "GOTOOLCHAIN": "local",
+    "GOMAXPROCS": "2",
+    "GOFLAGS": "-buildvcs=false",
+    "network": "loopback only"
+  },
+  "reviewFindingsClosed": [
+    "准确 HTTP DTO/公开错误/媒体类型",
+    "真实 main 完整读体与强制中断",
+    "启动失败路径等待 pool 完成后再关闭依赖"
+  ]
+}

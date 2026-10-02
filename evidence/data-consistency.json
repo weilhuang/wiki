@@ -1,0 +1,75 @@
+{
+  "status": "verified",
+  "reviewStatus": "approved",
+  "chapterIds": [
+    "data-invariants-isolation-locks",
+    "data-idempotency-unknown-outcomes",
+    "data-outbox-consumer-dedup",
+    "data-cache-freshness-invalidation",
+    "data-consistency-recovery-review"
+  ],
+  "versions": [
+    "MySQL 8.4.7 / InnoDB / REPEATABLE READ",
+    "Redis 7.4.7 / Alpine 3.21",
+    "GitHub-hosted Ubuntu 24.04"
+  ],
+  "commands": [
+    {
+      "command": "python3 check_static.py",
+      "exitCode": 0
+    },
+    {
+      "command": "timeout --kill-after=15s 12m bash run.sh all",
+      "exitCode": 0
+    }
+  ],
+  "scope": [
+    "真实单节点 MySQL 与 Redis 的23个基础场景",
+    "受控持久接收端的 outbox/去重状态机",
+    "真实 SQL、Redis、会话、镜像与清理证据经过独立复核"
+  ],
+  "notCovered": [
+    "真实 Kafka/RocketMQ 的 producer/ack/offset/重平衡",
+    "多 relay 租约、外部不可回滚副作用",
+    "HTTP 断链、数据库进程掉电或磁盘故障",
+    "Redis 复制与故障切换",
+    "生产负载、容量及线上迁移",
+    "任意 Unicode/大小写身份规则"
+  ],
+  "artifacts": [
+    {
+      "path": "examples/data-consistency.zip",
+      "sha256": "a7cbd725764ac9266042e8ba93954c6e6377065f2ea690cfd4963c42147e5e22"
+    }
+  ],
+  "sourceManifestSha256": "2bd2f966ad428bd5dc80a35688f177a9d66144b282bb3e7b59486cd28e626299",
+  "verification": {
+    "path": "examples/data-consistency-verification.json",
+    "sha256": "ca217e90a54f37750c2386c9510e235b93ba19cfb49b742f6dca496eed3793cc"
+  },
+  "runUrl": "https://github.com/weilhuang/wiki/actions/runs/36991587537",
+  "testedCheckoutSha": "c88fcd0096e16c94775b03b0926ecd04c8136acb",
+  "expectedFaultCleanupWarnings": [
+    {
+      "case": "D2.before_commit_disconnect",
+      "connectionId": 24,
+      "event": "session_close_error",
+      "detail": "KILL CONNECTION 后 ROLLBACK sentinel 等待达到约25秒上限，客户端退出码1",
+      "reviewStatus": "confirmed-expected-fault-injection"
+    },
+    {
+      "case": "D3.consumer_before_commit",
+      "connectionId": 56,
+      "event": "session_close_error",
+      "detail": "KILL CONNECTION 后 ROLLBACK sentinel 等待达到约25秒上限，客户端退出码1",
+      "reviewStatus": "confirmed-expected-fault-injection"
+    },
+    {
+      "case": "D5.six_failure_recovery",
+      "connectionId": 86,
+      "event": "session_close_error",
+      "detail": "KILL CONNECTION 后 ROLLBACK sentinel 等待达到约25秒上限，客户端退出码1",
+      "reviewStatus": "confirmed-expected-fault-injection"
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+[
+  {
+    "id": "cancel-cause",
+    "article": "go-context-cancellation",
+    "language": "go",
+    "title": "分别观察取消类别与原因",
+    "goFenceIndex": 1,
+    "code": "func Example_withCancelCause() {\n\tcause := errors.New(\"caller stopped waiting\")\n\tctx, cancel := context.WithCancelCause(context.Background())\n\tdefer cancel(nil)\n\tcancel(cause)\n\tfmt.Println(ctx.Err())\n\tfmt.Println(context.Cause(ctx))\n}\n",
+    "lineNumbering": "1-based inclusive, clean code; blank lines count",
+    "steps": [
+      {
+        "title": "创建带原因的取消函数",
+        "startLine": 2,
+        "endLine": 4,
+        "description": "创建带原因的取消函数：defer 保证所有返回路径都清理；nil 不会覆盖已记录的原因。"
+      },
+      {
+        "title": "首次取消确定原因",
+        "startLine": 5,
+        "endLine": 5,
+        "description": "首次取消确定原因：后续 cancel 调用不能改写它。"
+      },
+      {
+        "title": "分别观察类别与原因",
+        "startLine": 6,
+        "endLine": 7,
+        "description": "分别观察类别与原因：Err 是 context canceled，Cause 是 caller stopped waiting。"
+      }
+    ]
+  },
+  {
+    "id": "return-policy",
+    "article": "go-context-cancellation",
+    "language": "go",
+    "title": "返回时的取消策略",
+    "goFenceIndex": 2,
+    "code": "func CreateWithin(parent context.Context, budget time.Duration,\n\tcreate func(context.Context) (string, error),\n) (string, error) {\n\tctx, cancel := context.WithTimeout(parent, budget)\n\tdefer cancel()\n\tif err := ctx.Err(); err != nil {\n\t\treturn \"\", err\n\t}\n\tid, err := create(ctx)\n\tif err != nil {\n\t\treturn \"\", err\n\t}\n\tif err := ctx.Err(); err != nil {\n\t\treturn \"\", err\n\t}\n\treturn id, nil\n}\n",
+    "lineNumbering": "1-based inclusive, clean code; blank lines count",
+    "steps": [
+      {
+        "title": "从父 context 派生预算，并在所有退出路径清理子 context。",
+        "startLine": 4,
+        "endLine": 5,
+        "description": "从父 context 派生预算，并在所有退出路径清理子 context。"
+      },
+      {
+        "title": "前置检查",
+        "startLine": 6,
+        "endLine": 8,
+        "description": "前置检查：已知请求失效时，不再启动下游。"
+      },
+      {
+        "title": "同步调用下游",
+        "startLine": 9,
+        "endLine": 12,
+        "description": "同步调用下游：它自己返回前，这个包装函数也不会返回；已有错误保留优先级。"
+      },
+      {
+        "title": "后置策略",
+        "startLine": 13,
+        "endLine": 16,
+        "description": "后置策略：下游成功时若已取消，对调用方返回取消；这不会撤销副作用。"
+      }
+    ]
+  },
+  {
+    "id": "side-effect-before-cancel",
+    "article": "go-context-cancellation",
+    "language": "go",
+    "title": "取消不会恢复副作用",
+    "goFenceIndex": 3,
+    "code": "func main() {\n\tparent, cancel := context.WithCancel(context.Background())\n\tdefer cancel()\n\tsaved := 0\n\tid, err := contextlab.CreateWithin(parent, time.Minute,\n\t\tfunc(ctx context.Context) (string, error) {\n\t\t\tsaved++ // An in-memory side effect, not a database commit.\n\t\t\tcancel()\n\t\t\treturn \"order-1\", nil\n\t\t})\n\tfmt.Printf(\"id=%q err=%v saved=%d\\n\", id, err, saved)\n}\n",
+    "lineNumbering": "1-based inclusive, clean code; blank lines count",
+    "steps": [
+      {
+        "title": "创建父 context 与内存计数，固定一个可观察的副作用。",
+        "startLine": 2,
+        "endLine": 4,
+        "description": "创建父 context 与内存计数，固定一个可观察的副作用。"
+      },
+      {
+        "title": "严格安排顺序",
+        "startLine": 5,
+        "endLine": 10,
+        "description": "严格安排顺序：先改计数，再取消父 context，最后让下游返回成功。"
+      },
+      {
+        "title": "同时打印调用结果与数据状态",
+        "startLine": 11,
+        "endLine": 11,
+        "description": "同时打印调用结果与数据状态：错误和 saved=1 可以共存。"
+      }
+    ]
+  },
+  {
+    "id": "worker-cleanup",
+    "article": "go-context-cancellation",
+    "language": "go",
+    "title": "发送等待与工作收尾",
+    "goFenceIndex": 4,
+    "code": "func Count(ctx context.Context) (<-chan int, <-chan struct{}) {\n\tout := make(chan int)\n\texited := make(chan struct{})\n\tgo func() {\n\t\tdefer close(exited)\n\t\tdefer close(out)\n\t\tfor n := 0; ; n++ {\n\t\t\tselect {\n\t\t\tcase <-ctx.Done():\n\t\t\t\treturn\n\t\t\tcase out <- n:\n\t\t\t}\n\t\t}\n\t}()\n\treturn out, exited\n}\n",
+    "lineNumbering": "1-based inclusive, clean code; blank lines count",
+    "steps": [
+      {
+        "title": "分开数据与生命周期信号",
+        "startLine": 2,
+        "endLine": 6,
+        "description": "分开数据与生命周期信号：清理时先关闭 out，再关闭 exited。"
+      },
+      {
+        "title": "阻塞发送也能观察取消；接收与取消同时就绪时，select 不保证取消优先。",
+        "startLine": 7,
+        "endLine": 13,
+        "description": "阻塞发送也能观察取消；接收与取消同时就绪时，select 不保证取消优先。"
+      },
+      {
+        "title": "调用方负责取消与汇合；只停止读 out 不会自动让生产者结束。",
+        "startLine": 15,
+        "endLine": 16,
+        "description": "调用方负责取消与汇合；只停止读 out 不会自动让生产者结束。"
+      }
+    ]
+  }
+]

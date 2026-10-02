@@ -1,0 +1,73 @@
+{
+  "status": "verified",
+  "chapterIds": [
+    "spring-bean-ownership-lifecycle",
+    "spring-mvc-request-completion",
+    "spring-connection-budget-timeouts",
+    "spring-service-boundary-review"
+  ],
+  "versions": [
+    "jdk Temurin 21.0.12.1+1",
+    "gradle 8.10.2",
+    "springBoot 3.5.16",
+    "springFramework 6.2.19",
+    "tomcat 10.1.55",
+    "servlet 6.0",
+    "hikariCP 6.3.3",
+    "h2 2.3.232",
+    "hibernateValidator 8.0.3.Final",
+    "codeHike 1.1.0",
+    "mermaid 11.17.2"
+  ],
+  "commands": [
+    {
+      "command": "timeout 90s gradle --offline --no-daemon run --args=all dependencies --configuration runtimeClasspath",
+      "exitCode": 0
+    }
+  ],
+  "scope": [
+    "4 组容器生命周期实验",
+    "5 组连接资源实验",
+    "8 个真实回环 HTTP 请求，同时核对业务副作用"
+  ],
+  "notCovered": [
+    "MySQL/PostgreSQL isolation/locks/driver cancellation",
+    "real downstream HTTP timing/cancellation",
+    "nested REQUIRES_NEW pool-exhaustion scenario (diagram is mechanism inference)",
+    "Servlet async dispatch, TLS, reverse proxy, HTTP/2, browser disconnect",
+    "standalone JVM SIGTERM or orchestration-platform draining",
+    "identity, inventory, payment, idempotency, broker/event handoff",
+    "performance/load testing",
+    "website browser rendering/accessibility (separate site QA, outside this experiment)"
+  ],
+  "artifacts": [
+    {
+      "path": "examples/spring-service-boundaries.zip",
+      "sha256": "2b46b578290ea5f47544adcb08c53809c9cdecc6221684b45ef68a048eb30163"
+    }
+  ],
+  "sourceManifestSha256": "581bf9d1ce10a6f282b67b28d067e858a36249e344f1ad1b53fa019b4ca5d9d5",
+  "reviewStatus": "approved",
+  "reviewFindingsClosed": [
+    "HTTP 状态、媒体类型和语义响应体断言已通过错误实现回归验证",
+    "容器销毁事件与资源归还断言已补足并通过独立复核"
+  ],
+  "reviewSummary": {
+    "revision": "R2",
+    "archiveSha256": "2b46b578290ea5f47544adcb08c53809c9cdecc6221684b45ef68a048eb30163",
+    "sourceManifestSha256": "581bf9d1ce10a6f282b67b28d067e858a36249e344f1ad1b53fa019b4ca5d9d5",
+    "baseline": "Freshly extracted R2 source passed the complete lifecycle, pool and real loopback HTTP suite in its fixed environment.",
+    "negativeControls": [
+      "Missing success body rejected by complete JSON assertion",
+      "Wrong public error contract rejected by exact error-code assertion",
+      "Missing consumer destruction rejected by exactly-once event assertion"
+    ],
+    "negativeControlProcessExitCodes": [
+      1,
+      1,
+      1
+    ],
+    "limits": "Targeted regression evidence; not exhaustive correctness or production reliability.",
+    "publicEvidence": "The same source ZIP contains VERIFICATION.md, SOURCE_SHA256SUMS and sanitized verification/negative-control output."
+  }
+}

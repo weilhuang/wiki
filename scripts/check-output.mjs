@@ -1,6 +1,8 @@
 import { readdirSync, readFileSync, statSync, existsSync } from 'node:fs'
 import { join, resolve, relative } from 'node:path'
 import { site } from '../site.config.mjs'
+import { JSDOM } from 'jsdom'
+import { readChapters, aliasEntries, chapterNavigation } from './curriculum.mjs'
 const dist = resolve('docs/.vitepress/dist')
 const walk = dir => readdirSync(dir).flatMap(name => { const path = join(dir, name); return statSync(path).isDirectory() ? walk(path) : [path] })
 const files = walk(dist)
@@ -32,5 +34,33 @@ for (const file of ['feed.xml', 'sitemap.xml', '404.html', '.nojekyll']) if (!ex
 const feed = readFileSync(join(dist, 'feed.xml'), 'utf8')
 const map = readFileSync(join(dist, 'sitemap.xml'), 'utf8')
 if (!feed.includes(site.url) || !map.includes(site.url)) errors.push('RSS or sitemap missing deployment base')
+
+const chapters = readChapters(process.cwd(), { strict:true })
+const legacyAnchors = JSON.parse(readFileSync('tests/fixtures/legacy-anchors.json','utf8'))
+for (const chapter of chapters) {
+  const html = readFileSync(join(dist, chapter.url.slice(1)), 'utf8')
+  const canonical = new URL(chapter.url.slice(1), site.url).href
+  const dom = new JSDOM(html)
+  if (dom.window.document.querySelector('link[rel=canonical]')?.getAttribute('href') !== canonical) errors.push(`${chapter.source}: incorrect canonical`)
+  const navigation = chapterNavigation(chapter, chapters)
+  for (const direction of ['prev','next']) {
+    const href = dom.window.document.querySelector(`a.pager-link.${direction}`)?.getAttribute('href')
+    const expected = navigation[direction] ? `${site.base}${navigation[direction].link.slice(1)}` : undefined
+    if (href !== expected) errors.push(`${chapter.source}: incorrect ${direction} chapter link`)
+  }
+  dom.window.close()
+}
+for (const alias of aliasEntries()) {
+  const file = join(dist, alias.from.endsWith('/') ? `${alias.from}index.html` : alias.from)
+  const html = readFileSync(file, 'utf8')
+  if (!html.includes('noindex,follow') || !html.includes('location.replace(') || !html.includes('+location.search+location.hash')) errors.push(`${alias.from}: incomplete compatibility redirect`)
+  if (!html.includes(new URL(alias.to.slice(1),site.url).href)) errors.push(`${alias.from}: incorrect target canonical`)
+  const target = readFileSync(join(dist, alias.to.endsWith('/') ? `${alias.to}index.html` : alias.to), 'utf8')
+  for (const id of legacyAnchors[alias.from] || []) if (!target.includes(`id="${id}"`)) errors.push(`${alias.from}: legacy anchor lost: ${id}`)
+  if (map.includes(new URL(alias.from.slice(1),site.url).href) || feed.includes(new URL(alias.from.slice(1),site.url).href)) errors.push(`${alias.from}: legacy URL leaked into sitemap/RSS`)
+}
+const feedLinks = [...feed.matchAll(/<item><title>.*?<\/title><link>(.*?)<\/link>/g)].map(match=>match[1])
+if (feedLinks.length !== chapters.length || new Set(feedLinks).size !== chapters.length) errors.push('RSS must contain each canonical chapter exactly once')
+
 if (errors.length) throw new Error(errors.join('\n'))
-console.log(`Output: ${pages.length} HTML pages, internal links/assets, language, feed, sitemap and 404 passed`)
+console.log(`Output: ${pages.length} HTML pages, internal links/assets, language, canonical curriculum, legacy anchors, feed, sitemap and 404 passed`)
