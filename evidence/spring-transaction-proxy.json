@@ -1,0 +1,31 @@
+{
+  "status": "verified",
+  "chapterIds": [
+    "spring-transaction-proxy"
+  ],
+  "versions": [
+    "JDK 21",
+    "Spring Framework 6.2.19",
+    "H2 2.3.232",
+    "Gradle 8.10.2"
+  ],
+  "commands": [
+    {
+      "command": "gradle --offline --no-daemon run",
+      "exitCode": 0
+    }
+  ],
+  "scope": [
+    "完整源码的 10 个事务场景：代理/自调用、共享 rollback-only、独立事务、回滚规则、绑定连接"
+  ],
+  "notCovered": [
+    "目标 MySQL/PostgreSQL 驱动与隔离行为",
+    "HTTP、线程池与分布式事务"
+  ],
+  "artifacts": [
+    {
+      "path": "examples/spring-transaction-proxy.zip",
+      "sha256": "642f64c2ed79b7a1f2387fdfba496344f071de85208f4aa9a340ac1f83c47f4c"
+    }
+  ]
+}

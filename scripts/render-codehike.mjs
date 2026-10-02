@@ -57,9 +57,12 @@ export function renderHighlightedCode(code) {
 /** Use in async preprocessing. Do not place async highlight directly in markdown.highlight. */
 export async function compileCode(raw) {
   const result=await highlight(raw,'github-from-css');
+  const cleanLines = result.code.replace(/\n$/, '').split('\n');
   for (const annotation of result.annotations) {
     if (!['focus', 'mark', 'step'].includes(annotation.name)) throw new Error(`Unsupported Code Hike annotation: ${annotation.name}`);
     if (annotation.name === 'step' && !('fromLineNumber' in annotation)) throw new Error('Code Hike step must select full lines');
+    if ('fromLineNumber' in annotation && (!Number.isInteger(annotation.fromLineNumber) || !Number.isInteger(annotation.toLineNumber) || annotation.fromLineNumber < 1 || annotation.toLineNumber < annotation.fromLineNumber || annotation.toLineNumber > cleanLines.length)) throw new Error('Code Hike annotation line range is outside the cleaned source');
+    if ('lineNumber' in annotation && (annotation.lineNumber < 1 || annotation.lineNumber > cleanLines.length || annotation.fromColumn < 1 || annotation.toColumn < annotation.fromColumn || annotation.toColumn > cleanLines[annotation.lineNumber-1].length)) throw new Error('Code Hike annotation column range is outside the cleaned source');
   }
   return {result,html:renderHighlightedCode(result)};
 }

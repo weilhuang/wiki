@@ -3,3 +3,6 @@ docs/.vitepress/cache/
 docs/.vitepress/dist/
 .DS_Store
 *.local
+__pycache__/
+*.pyc
+labs/**/results/

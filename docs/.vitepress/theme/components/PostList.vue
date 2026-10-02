@@ -22,9 +22,9 @@ onUnmounted(() => { window.removeEventListener('hashchange', readHash) })
 <template>
   <div class="post-listing">
     <div class="filter-list" :aria-label="mode === 'tags' ? '按标签筛选' : '按主题筛选'"><VPButton v-for="filter in filters" :key="filter" type="button" :theme="selected === filter ? 'brand' : 'alt'" :aria-pressed="selected === filter" :text="filter" @click="select(filter)" /></div>
-    <p class="result-count" aria-live="polite">共 {{ visible.length }} 篇笔记</p>
+    <p class="result-count" aria-live="polite">共 {{ visible.length }} 章</p>
     <article v-for="post in visible" :key="post.url" class="list-post">
-      <div class="list-meta"><span>{{ post.category }}</span><time :datetime="post.date">{{ post.date }}</time><span>约 {{ post.minutes }} 分钟</span></div>
+      <div class="list-meta"><span>{{ post.category }}</span><span>第 {{ post.order }} 章</span><span>约 {{ post.minutes }} 分钟</span></div>
       <h2><a :href="withBase(post.url)">{{ post.title }}</a></h2><p>{{ post.description }}</p>
       <div class="list-tags"><a v-for="tag in post.tags" :key="tag" :href="withBase(`/tags.html#${encodeURIComponent(tag)}`)">{{ tag }}</a></div>
     </article>

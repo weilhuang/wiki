@@ -17,16 +17,23 @@ test('Code Hike escapes HTML, strips annotation comments, preserves marks and co
 })
 test('Unsupported annotation handlers fail explicitly', async () => {
   await assert.rejects(() => compileCode({ value: '// !unknown(1) test\nconst x = 1;\n', lang: 'js', meta: '' }), /Unsupported/)
+  await assert.rejects(() => compileCode({ value: '// !step(1:20) bad range\nconst x = 1;\n', lang: 'js', meta: '' }), /outside the cleaned source/)
 })
-test('Published Code Hike steps match the verified clean Java snippets and exact ranges', async () => {
-  const cases = JSON.parse(readFileSync('tests/fixtures/code-walkthroughs.json', 'utf8'))
-  const markdown = readFileSync('docs/blog/spring-transaction-proxy.md', 'utf8')
-  const fences = new MarkdownIt().parse(markdown, {}).filter(t => t.type === 'fence' && t.info === 'java steps')
-  assert.equal(fences.length, cases.length)
-  for (let i = 0; i < fences.length; i++) {
-    const { result } = await compileCode({ value: fences[i].content, lang: 'java', meta: 'steps' })
-    assert.equal(result.code, cases[i].code)
-    assert.deepEqual(result.annotations.filter(a => a.name === 'step').map(a => [a.fromLineNumber, a.toLineNumber]), cases[i].steps.map(s => [s.startLine, s.endLine]))
+test('Published Code Hike steps match verified clean snippets and exact ranges', async () => {
+  const groups = [
+    { fixture:'code-walkthroughs.json', source:'spring-service-boundaries/transaction-proxy', lang:'java' },
+    { fixture:'go-context-walkthroughs.json', source:'go-service-lifecycle/context-cancellation', lang:'go' }
+  ]
+  for (const group of groups) {
+    const cases = JSON.parse(readFileSync(`tests/fixtures/${group.fixture}`, 'utf8'))
+    const markdown = readFileSync(`docs/learn/${group.source}.md`, 'utf8')
+    const fences = new MarkdownIt().parse(markdown, {}).filter(t => t.type === 'fence' && t.info === `${group.lang} steps`)
+    assert.equal(fences.length, cases.length)
+    for (let i = 0; i < fences.length; i++) {
+      const { result } = await compileCode({ value:fences[i].content, lang:group.lang, meta:'steps' })
+      assert.equal(result.code, cases[i].code)
+      assert.deepEqual(result.annotations.filter(a => a.name === 'step').map(a => [a.fromLineNumber, a.toLineNumber]), cases[i].steps.map(s => [s.startLine, s.endLine]))
+    }
   }
 })
 test('Build cache handles real fences and rejects misses; Mermaid source rejects unsafe overrides', async () => {

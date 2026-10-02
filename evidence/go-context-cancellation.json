@@ -1,0 +1,42 @@
+{
+  "status": "verified",
+  "chapterIds": [
+    "go-context-cancellation"
+  ],
+  "versions": [
+    "Go 1.27.1 linux/amd64"
+  ],
+  "commands": [
+    {
+      "command": "go run ./cmd/demo",
+      "exitCode": 0
+    },
+    {
+      "command": "go test -count=1 -v ./...",
+      "exitCode": 0
+    },
+    {
+      "command": "go test -race -count=1 ./...",
+      "exitCode": 0
+    },
+    {
+      "command": "go vet ./...",
+      "exitCode": 0
+    }
+  ],
+  "scope": [
+    "标准库的 16 个顶层测试、4 个子测试、3 个可执行示例",
+    "取消传播、预算、返回策略、协程收尾和内存副作用"
+  ],
+  "notCovered": [
+    "真实数据库集成",
+    "HTTP 网络取消",
+    "生产负载"
+  ],
+  "artifacts": [
+    {
+      "path": "examples/go-context-cancellation.zip",
+      "sha256": "8de924f948adc8fd7222474fad7aadccff05154e12e824d906d1fe1a7ddea429"
+    }
+  ]
+}

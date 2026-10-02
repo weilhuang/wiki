@@ -1,35 +1,39 @@
 ---
-title: 工程札记
+title: 后端工程知识站
 titleTemplate: false
+description: 从机制解释、反例验证到系统评审，沿三条闭合路径学习后端服务边界与数据一致性。
 prev: false
 next: false
 lastUpdated: false
 ---
 
-# 后端工程知识库
+# 后端工程知识站
 
-围绕执行模型、事务边界、故障处理和工程验证，按先修关系组织内容。每个专题从一个可复现的问题开始，再用流程图、时序图与代码说明机制和适用范围。
+这里按问题的先修关系组织知识：先弄清楚状态和资源由谁负责，再用反例检验理解，最后把多个边界放回同一个服务里评审。阅读顺序由知识依赖决定。
 
-## 阅读入口
+## 选择一条学习路径
 
-| 你想弄清楚什么 | 从这里读 | 需要的基础 |
+首批内容围绕三个能独立走完的主题，共十五章。每条路径都从基本合同进入机制、诊断和综合演练。
+
+| 路径 | 从什么问题开始 | 最后交付什么 |
 | --- | --- | --- |
-| Spring 注解为什么没有回滚数据 | [Spring 事务：代理、传播与提交边界](/blog/spring-transaction-proxy) | Java 异常、Spring Bean、数据库事务 |
-| Go 接口超时后为什么仍有写入 | [Go context：取消信号与副作用边界](/blog/go-context-cancellation) | 函数、error、defer、channel |
-| 怎样把知识串成一条学习路径 | [后端知识地图](/guide/knowledge-map) | 能运行一个简单程序 |
+| [Spring 服务边界](/learn/spring-service-boundaries/) | 对象何时可用，请求失败后数据和资源处于什么状态 | 对象所有权图、HTTP/数据失败矩阵、连接预算和服务边界 ADR |
+| [Go 服务生命周期](/learn/go-service-lifecycle/) | 请求结束以后，谁还在工作、谁负责收尾 | 入口合同、有界并发与调用预算、停机证据和运行手册 |
+| [数据一致性](/learn/data-consistency/) | 并发和超时发生时，订单、库存和读模型如何保持约定 | 不变量、幂等与事件合同、缓存风险表和恢复对账报告 |
 
-## 知识体系
+熟悉 Java 的读者可先走 Spring 路径；熟悉 Go 的读者可先走 Go 路径。两条路径都会遇到“请求失败，但业务可能已经完成”，接着进入数据一致性。无需先学会另一门语言。
 
-1. **基础与运行时**：执行模型、并发、HTTP 与数据库基础
-2. **框架与中间件**：代理、事务、缓存、消息与调用链
-3. **分布式与云**：超时、重试、幂等、一致性与生命周期
-4. **可观测性与身份安全**：日志、指标、追踪、认证与授权
-5. **工程实践**：最小复现、自动化测试、依赖管理与交付验证
+## 带着具体问题查找
 
-已完成的专题会出现在左侧目录。[知识地图](/guide/knowledge-map)会区分已有内容与后续范围。
+- **注解明明写了，事务为何没有按预期回滚？** 看[事务代理入口与共享回滚](/learn/spring-service-boundaries/transaction-proxy#call-paths)
+- **超时已经返回，写入是否还能继续？** 看[取消信号与业务结果](/learn/go-service-lifecycle/context-cancellation)
+- **线程越加越多，服务为何仍在等连接？** 看[连接持有期和超时预算](/learn/spring-service-boundaries/connection-budget-timeouts)
+- **一个分支报错后，其他 goroutine 由谁回收？** 看[有界并发与所有权](/learn/go-service-lifecycle/bounded-concurrency-ownership)
+- **第一次请求结果未知，第二次怎样重试？** 看[幂等键、保存结果与有效期](/learn/data-consistency/idempotency-unknown-outcomes)
+- **数据库、消息和缓存恢复以后，凭什么确认一致？** 看[联合对账与恢复演练](/learn/data-consistency/consistency-recovery-review)
 
-## 怎么读一篇专题
+## 如何判断自己学会了
 
-先画出数据流和调用边界，再运行反例。对照图中的每一步，核对代码、返回值和最终数据状态。读完后，改变一个前提重跑一次，确认结论在哪些条件下成立。
+读代码前先预测结果，运行后同时观察响应、最终数据和资源状态。再改变一个条件，构造能推翻错误解释的反例。路径终章要求写出取舍和未覆盖范围，不能只提交一张“测试通过”的截图。
 
-[全部文章](/blog/) · [按标签查找](/tags) · [RSS](/feed.xml)
+[实验与评审](/guide/practice)给出具体做法；[知识地图](/guide/knowledge-map)说明三个主题之间的依赖，以及当前没有覆盖的领域。

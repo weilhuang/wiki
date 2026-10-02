@@ -2,6 +2,9 @@
 title: Spring 事务调用链：从代理入口到数据库连接
 description: 用十个可运行场景追踪自调用、线程绑定连接、rollback-only 和事务传播，解释异常与最终数据为什么会不一致。
 date: "2026-10-02"
+updated: "2026-10-02"
+versions: ["JDK 21", "Spring Framework 6.2.19", "H2 2.3.232", "Gradle 8.10.2"]
+objectives: [追踪代理与连接的完整调用链, 区分共享事务和独立事务的提交边界, 用数据库最终状态验证回滚规则]
 category: Java
 tags: [Spring, 事务, JDBC, 源码阅读]
 order: 1
@@ -19,7 +22,7 @@ chapter: 1
 
 ## 阅读准备与实验范围
 
-这是“请求失败以后，数据怎么样了”系列的第一章。后面可以接着读 [Go context 取消以后，写入会怎样？](/blog/go-context-cancellation)，比较请求生命周期与提交时机；幂等重试与消息一致性还在规划中，阅读顺序见 [知识地图](/guide/knowledge-map)。
+这是“请求失败以后，数据怎么样了”系列的第一章。后面可以接着读 [Go context 取消以后，写入会怎样？](/learn/go-service-lifecycle/context-cancellation)，比较请求生命周期与提交时机；幂等重试与消息一致性还在规划中，阅读顺序见 [知识地图](/guide/knowledge-map)。
 
 先修不多：知道 Java 对象调用、运行时异常与受检异常的区别；用过 Spring Bean；知道数据库可以提交或回滚。如果只记得 `@Transactional` 的名字，也可以先跑实验，再回来看调用链。
 
@@ -348,7 +351,9 @@ flowchart TB
 
 前面三题可以在这个小项目里直接比较最终行。第四题涉及线程生命周期与资源归属，先补上明确的等待和异常收集，再设计测试；不要靠打印顺序猜提交顺序。
 
-下一章 [Go context 取消以后，写入会怎样？](/blog/go-context-cancellation)把同一个问题放到请求取消上：调用方不再等待时，已经完成的数据库操作该怎样判断。读到那里时，先记住这里找到的提交边界。
+下一章[连接池与事务预算](/learn/spring-service-boundaries/connection-budget-timeouts)继续沿这条调用链观察资源：事务还没有结束时，连接由谁占用，等待又怎样消耗请求预算。
+
+跨路径延伸可读[Go 请求取消与提交结果](/learn/go-service-lifecycle/context-cancellation)：调用方不再等待时，已经完成的操作该怎样判断。比较两章时，保留这里找到的提交边界。
 
 ## 固定版本源码与资料
 
