@@ -2,8 +2,11 @@ import { defineConfig } from 'vitepress'
 import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { readPosts, rss, site } from '../../scripts/content.mjs'
+import { createCodeCache } from '../../scripts/code-cache.mjs'
+import { wikiMarkdown } from '../../scripts/markdown-extensions.mjs'
 import { tokenizeChinese } from '../../scripts/search.mjs'
 
+const codeCache = await createCodeCache()
 const posts = readPosts()
 const categories = [...new Set(posts.map(p => p.category))]
 export default defineConfig({
@@ -13,7 +16,7 @@ export default defineConfig({
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: `${site.base}favicon.svg` }],
     ['link', { rel: 'alternate', type: 'application/rss+xml', title: `${site.title} RSS`, href: `${site.base}feed.xml` }],
-    ['meta', { name: 'theme-color', content: '#155e54' }],
+    ['meta', { name: 'theme-color', content: '#3451b2' }],
     ['meta', { name: 'referrer', content: 'strict-origin-when-cross-origin' }]
   ],
   sitemap: { hostname: site.url },
@@ -22,7 +25,11 @@ export default defineConfig({
     if (path === '404.html') return [['meta', { name: 'robots', content: 'noindex' }]]
     return [['link', { rel: 'canonical', href: new URL(path, site.url).href }]]
   },
+  vite: { plugins: [{ name: 'wiki-codehike-watch', enforce: 'pre', generateBundle(_options, bundle) { for (const file of Object.values(bundle)) { if (file.type === 'chunk' && Object.keys(file.modules).some(id => /node_modules\/(react|react-dom|codehike|@code-hike)\//.test(id))) throw new Error('Build-only Code Hike/React leaked into a runtime bundle') } }, async handleHotUpdate(ctx) { if (ctx.file.endsWith('.md')) await codeCache.refresh() } }] },
   markdown: {
+    highlight: (code, lang) => codeCache.get(code, lang).html,
+    config: md => wikiMarkdown(md, codeCache),
+    codeCopyButtonTitle: '复制代码',
     lineNumbers: true,
     theme: { light: 'github-light', dark: 'github-dark' },
     container: { tipLabel: '提示', warningLabel: '注意', dangerLabel: '风险', infoLabel: '说明', detailsLabel: '展开细节' }
@@ -46,7 +53,7 @@ export default defineConfig({
     darkModeSwitchLabel: '主题', lightModeSwitchTitle: '切换到浅色模式', darkModeSwitchTitle: '切换到深色模式',
     sidebarMenuLabel: '文章目录', returnToTopLabel: '回到顶部', skipToContentLabel: '跳转到正文',
     notFound: { code: '404', title: '这页暂时找不到', quote: '链接可能已经移动。可以回到首页，或用搜索找找关键词。', linkLabel: '回到首页', linkText: '回到首页' },
-    footer: { message: '把问题讲清楚，把边界记下来。', copyright: `${site.title} · <a href="${site.base}feed.xml">RSS</a>` },
+    footer: { message: '基于 VitePress 构建', copyright: `${site.title} · <a href="${site.base}feed.xml">RSS</a>` },
     search: {
       provider: 'local',
       options: {

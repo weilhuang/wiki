@@ -1,0 +1,124 @@
+[
+  {
+    "id": "proxy-entry",
+    "article": "spring-transaction-proxy",
+    "language": "java",
+    "title": "同一段代码，两条调用路径",
+    "javaFenceIndex": 1,
+    "code": "public void record() { recordAndFail(); }\n\n@Transactional\npublic void recordAndFail() {\n    jdbc.update(\"insert into events(label) values (?)\", \"created\");\n    throw new IllegalStateException(\"写入后失败\");\n}\n",
+    "lineNumbering": "1-based inclusive, clean code; blank lines count",
+    "steps": [
+      {
+        "title": "看入口",
+        "startLine": 1,
+        "endLine": 1,
+        "description": "record 自己没有事务配置，下一次调用使用 this；从这里进入不会自动穿过内层事务代理。"
+      },
+      {
+        "title": "找事务属性",
+        "startLine": 3,
+        "endLine": 4,
+        "description": "外部通过代理调用 recordAndFail 时，这个事务属性才进入拦截器的处理路径。"
+      },
+      {
+        "title": "定位写入",
+        "startLine": 5,
+        "endLine": 5,
+        "description": "SQL 使用哪条连接取决于当前资源绑定。直接代理调用时使用事务连接；无外层事务的自调用走自动提交。"
+      },
+      {
+        "title": "沿异常返回",
+        "startLine": 6,
+        "endLine": 6,
+        "description": "异常是同一个，回滚结果不同。关键是返回途中有没有一个已经建立的事务边界来处理它。"
+      }
+    ]
+  },
+  {
+    "id": "self-requires-new",
+    "article": "spring-transaction-proxy",
+    "language": "java",
+    "title": "自调用上的 REQUIRES_NEW 没有建立新边界",
+    "javaFenceIndex": 2,
+    "code": "@Transactional\npublic void outerSelfRequiresNew() {\n    jdbc.update(\"insert into events(label) values (?)\", \"outer\");\n    selfAudit();\n    throw new IllegalStateException(\"外层失败\");\n}\n\n@Transactional(propagation = Propagation.REQUIRES_NEW)\npublic void selfAudit() {\n    jdbc.update(\"insert into events(label) values (?)\", \"self-audit\");\n}\n",
+    "lineNumbering": "1-based inclusive, clean code; blank lines count",
+    "steps": [
+      {
+        "title": "外层先开始",
+        "startLine": 1,
+        "endLine": 4,
+        "description": "外部从代理进入 outerSelfRequiresNew，先建立外层事务。selfAudit 是对象内部调用。"
+      },
+      {
+        "title": "注解没有被重新处理",
+        "startLine": 8,
+        "endLine": 11,
+        "description": "自调用绕过了这个 REQUIRES_NEW 配置，但 JdbcTemplate 仍然能找到外层线程绑定的连接。"
+      },
+      {
+        "title": "外层统一回滚",
+        "startLine": 5,
+        "endLine": 5,
+        "description": "外层异常穿过外层代理，outer 与 self-audit 两次插入一起回滚。"
+      }
+    ]
+  },
+  {
+    "id": "shared-rollback",
+    "article": "spring-transaction-proxy",
+    "language": "java",
+    "title": "catch 发生在内层代理处理异常之后",
+    "javaFenceIndex": 3,
+    "code": "@Transactional\npublic void catchInner() {\n    jdbc.update(\"insert into events(label) values (?)\", \"outer\");\n    try { inner.fail(); } catch (IllegalStateException ignored) { }\n}\n",
+    "lineNumbering": "1-based inclusive, clean code; blank lines count",
+    "steps": [
+      {
+        "title": "建立外层事务",
+        "startLine": 1,
+        "endLine": 3,
+        "description": "外层代理开启事务并写入 outer。"
+      },
+      {
+        "title": "通过另一个 Bean 调用",
+        "startLine": 4,
+        "endLine": 4,
+        "description": "inner 是容器注入的代理。内层 REQUIRED 加入外层事务，异常先被内层事务拦截器看到。"
+      },
+      {
+        "title": "正常返回仍不能提交",
+        "startLine": 4,
+        "endLine": 5,
+        "description": "catch 恢复了 Java 控制流，共享事务的回滚标记却仍然存在，外层最终收到 UnexpectedRollbackException。"
+      }
+    ]
+  },
+  {
+    "id": "explicit-boundary",
+    "article": "spring-transaction-proxy",
+    "language": "java",
+    "title": "TransactionTemplate 的显式边界",
+    "javaFenceIndex": 4,
+    "code": "public void record() {\n    tx.executeWithoutResult(status -> {\n        jdbc.update(\"insert into events(label) values (?)\", \"created\");\n        throw new IllegalStateException(\"写入后失败\");\n    });\n}\n",
+    "lineNumbering": "1-based inclusive, clean code; blank lines count",
+    "steps": [
+      {
+        "title": "显式进入事务管理",
+        "startLine": 2,
+        "endLine": 2,
+        "description": "模板调用事务管理器，边界在回调外建立，不依赖方法自调用经过代理。"
+      },
+      {
+        "title": "写入与异常都在边界内",
+        "startLine": 3,
+        "endLine": 4,
+        "description": "异常离开回调，模板按规则回滚，created 不会保留。"
+      },
+      {
+        "title": "仍需判断传播",
+        "startLine": 2,
+        "endLine": 5,
+        "description": "模板默认仍是 REQUIRED；如果已有事务，它可能参与原事务，不能把显式边界误认成独立事务。"
+      }
+    ]
+  }
+]
