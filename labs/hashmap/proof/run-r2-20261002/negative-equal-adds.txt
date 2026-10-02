@@ -1,0 +1,5 @@
+Exception in thread "main" java.lang.AssertionError: ASSERTION_FAILED: wrong hypothesis equal-adds expected=2 actual=1
+	at HashMapLab.check(HashMapLab.java:34)
+	at HashMapLab.equal(HashMapLab.java:37)
+	at HashMapLab.negative(HashMapLab.java:239)
+	at HashMapLab.main(HashMapLab.java:271)

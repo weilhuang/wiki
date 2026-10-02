@@ -1,0 +1,143 @@
+{
+  "status": "pass",
+  "reviewType": "author source review; independent review pending",
+  "source": {
+    "path": "sources/HashMap-jdk-21+35.java",
+    "sha256": "71c8d82247c2736e9fbe3769f366e9bd250bc73ecf390749998e830201aaabf2"
+  },
+  "claims": [
+    {
+      "claim": "Node 保存插入时 hash、key 引用、可变 value 与 next",
+      "lines": [
+        277,
+        316
+      ],
+      "url": "https://github.com/openjdk/jdk/blob/jdk-21%2B35/src/java.base/share/classes/java/util/HashMap.java#L277-L316"
+    },
+    {
+      "claim": "hash(null)=0；非空散列采用 h ^ (h >>> 16)",
+      "lines": [
+        320,
+        339
+      ],
+      "url": "https://github.com/openjdk/jdk/blob/jdk-21%2B35/src/java.base/share/classes/java/util/HashMap.java#L320-L339"
+    },
+    {
+      "claim": "构造时惰性 table；带参数 threshold 暂存容量意图",
+      "lines": [
+        382,
+        479
+      ],
+      "url": "https://github.com/openjdk/jdk/blob/jdk-21%2B35/src/java.base/share/classes/java/util/HashMap.java#L382-L479"
+    },
+    {
+      "claim": "getNode 使用 hash、引用/equals 并在需要时分派树查找",
+      "lines": [
+        562,
+        603
+      ],
+      "url": "https://github.com/openjdk/jdk/blob/jdk-21%2B35/src/java.base/share/classes/java/util/HashMap.java#L562-L603"
+    },
+    {
+      "claim": "putVal 覆盖先返回，新增才维护 size；普通链第9条请求树化",
+      "lines": [
+        617,
+        672
+      ],
+      "url": "https://github.com/openjdk/jdk/blob/jdk-21%2B35/src/java.base/share/classes/java/util/HashMap.java#L617-L672"
+    },
+    {
+      "claim": "resize 有初始化/翻倍/最大容量分支；普通链按新增位拆分保持相对次序",
+      "lines": [
+        683,
+        755
+      ],
+      "url": "https://github.com/openjdk/jdk/blob/jdk-21%2B35/src/java.base/share/classes/java/util/HashMap.java#L683-L755"
+    },
+    {
+      "claim": "treeifyBin 容量<64时扩容；否则替换树节点并树化",
+      "lines": [
+        757,
+        780
+      ],
+      "url": "https://github.com/openjdk/jdk/blob/jdk-21%2B35/src/java.base/share/classes/java/util/HashMap.java#L757-L780"
+    },
+    {
+      "claim": "computeIfAbsent 的计数与 putVal 不同，第8条可请求树化",
+      "lines": [
+        1195,
+        1248
+      ],
+      "url": "https://github.com/openjdk/jdk/blob/jdk-21%2B35/src/java.base/share/classes/java/util/HashMap.java#L1195-L1248"
+    },
+    {
+      "claim": "HashIterator nextNode 检查 modCount；remove 使用 movable=false",
+      "lines": [
+        1581,
+        1623
+      ],
+      "url": "https://github.com/openjdk/jdk/blob/jdk-21%2B35/src/java.base/share/classes/java/util/HashMap.java#L1581-L1623"
+    },
+    {
+      "claim": "afterNodeAccess/Insertion/Removal 是 HashMap 空钩子",
+      "lines": [
+        1940,
+        1943
+      ],
+      "url": "https://github.com/openjdk/jdk/blob/jdk-21%2B35/src/java.base/share/classes/java/util/HashMap.java#L1940-L1943"
+    },
+    {
+      "claim": "TreeNode.find 同hash无可用比较次序时可能搜索两边",
+      "lines": [
+        2017,
+        2042
+      ],
+      "url": "https://github.com/openjdk/jdk/blob/jdk-21%2B35/src/java.base/share/classes/java/util/HashMap.java#L2017-L2042"
+    },
+    {
+      "claim": "tieBreakOrder 与 putTreeVal 的身份顺序不能替代 equals",
+      "lines": [
+        2051,
+        2177
+      ],
+      "url": "https://github.com/openjdk/jdk/blob/jdk-21%2B35/src/java.base/share/classes/java/util/HashMap.java#L2051-L2177"
+    },
+    {
+      "claim": "删除退化检查树形和 movable，不统一按 <=6 计数",
+      "lines": [
+        2179,
+        2214
+      ],
+      "url": "https://github.com/openjdk/jdk/blob/jdk-21%2B35/src/java.base/share/classes/java/util/HashMap.java#L2179-L2214"
+    },
+    {
+      "claim": "扩容树拆分对低/高组分别按<=6退化",
+      "lines": [
+        2289,
+        2342
+      ],
+      "url": "https://github.com/openjdk/jdk/blob/jdk-21%2B35/src/java.base/share/classes/java/util/HashMap.java#L2289-L2342"
+    },
+    {
+      "claim": "newHashMap 接收预期映射数并计算容量",
+      "lines": [
+        2563,
+        2585
+      ],
+      "url": "https://github.com/openjdk/jdk/blob/jdk-21%2B35/src/java.base/share/classes/java/util/HashMap.java#L2563-L2585"
+    }
+  ],
+  "runtimeAssociatedSource": {
+    "path": "sources/HashMap-runtime-21.0.12.1.java",
+    "sha256": "71c8d82247c2736e9fbe3769f366e9bd250bc73ecf390749998e830201aaabf2"
+  },
+  "sameSourceFileBytes": true,
+  "historicalTransfer": {
+    "url": "https://github.com/openjdk/jdk7u/blob/jdk7u80-b15/jdk/src/share/classes/java/util/HashMap.java#L589-L603",
+    "file": {
+      "path": "sources/HashMap-jdk7u80-b15.java",
+      "sha256": "9986060be703f39c0057d7c9a4e3a1c84ba6f907069968bf7379e6e72e53910a"
+    },
+    "executed": false
+  }
+}

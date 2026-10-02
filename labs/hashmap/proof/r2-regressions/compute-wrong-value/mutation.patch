@@ -1,0 +1,11 @@
+--- baseline/HashMapLab.java
++++ compute-wrong-value/HashMapLab.java
+@@ -191,7 +191,7 @@
+             kind("Node", map, collision(i));
+             equal(i, map.get(collision(i)), "compute fixture preserves prior value");
+         }
+-        Integer result = map.computeIfAbsent(collision(8), k -> 8);
++        Integer result = map.computeIfAbsent(collision(8), k -> 800);
+         equal(8, result, "computeIfAbsent returns independently expected eighth value");
+         equal(8, map.size(), "computeIfAbsent adds exactly one mapping");
+         for (int i = 1; i <= 8; i++) {

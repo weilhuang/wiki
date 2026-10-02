@@ -1,0 +1,11 @@
+--- baseline/HashMapLab.java
++++ bad-positive/HashMapLab.java
+@@ -43,7 +43,7 @@
+         Map<Key, String> map = new HashMap<>(4);
+         equal(null, map.put(new Key("A", 1), "a1"), "new key returns null");
+         equal("a1", map.put(new Key("A", 1), "a2"), "equal key returns old value");
+-        equal(1, map.size(), "equal key must not add mapping");
++        equal(99, map.size(), "equal key must not add mapping");
+         equal(null, map.put(new Key("X", 1), "x1"), "same hash different key adds mapping");
+         equal(2, map.size(), "collision must not replace unequal key");
+         equal("a2", map.get(new Key("A", 1)), "A survives collision");

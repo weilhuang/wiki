@@ -1,0 +1,11 @@
+--- baseline/HashMapLab.java
++++ wrong-negative-scenario/HashMapLab.java
+@@ -236,7 +236,7 @@
+             case "equal-adds" -> {
+                 Map<Key, String> map = new HashMap<>();
+                 map.put(new Key("A", 1), "a1"); map.put(new Key("A", 1), "a2");
+-                equal(2, map.size(), "wrong hypothesis equal-adds");
++                equal(2, map.size(), "wrong hypothesis unrelated-scenario");
+             }
+             case "collision-overwrites" -> {
+                 Map<Key, String> map = new HashMap<>();

@@ -1,0 +1,8 @@
+put A -> null
+put A' -> a1
+size after update -> 1
+size after inserts -> 4
+A -> a2
+B -> b1
+C -> c1
+D -> d1

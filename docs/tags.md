@@ -1,15 +1,16 @@
 ---
-title: 按关键词查找章节
-description: 通过横切关键词查找学习路径中的 canonical 章节。
-sidebar: false
-aside: false
+title: 主题筛选
+description: 组合领域、类型与任务查找 canonical 知识点。
 prev: false
 next: false
 lastUpdated: false
+generated: true
+search: false
 ---
+<div id="按关键词查找章节" class="legacy-anchor" aria-hidden="true"></div>
 
-# 按关键词查找章节
+# 主题筛选
 
-标签适合横向查找同一机制在不同路径中的位置。首次系统学习，请先看[全部学习路径](/learn/)，按先修顺序推进。
+分类表示主归属，标签表示技术、机制与任务。组合筛选不会复制正文；链接中的条件可以分享，浏览器前进后退会恢复选择。
 
-<PostList mode="tags" />
+<TopicList />

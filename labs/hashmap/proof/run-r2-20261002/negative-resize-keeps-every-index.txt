@@ -1,0 +1,5 @@
+Exception in thread "main" java.lang.AssertionError: ASSERTION_FAILED: wrong hypothesis resize-keeps-every-index expected=1 actual=5
+	at HashMapLab.check(HashMapLab.java:34)
+	at HashMapLab.equal(HashMapLab.java:37)
+	at HashMapLab.negative(HashMapLab.java:257)
+	at HashMapLab.main(HashMapLab.java:271)

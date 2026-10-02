@@ -1,0 +1,8 @@
+REJECTED_MUTANT wrong-exception exit=1
+REJECTED_MUTANT compute-wrong-value exit=1
+REJECTED_MUTANT bad-positive exit=1
+REJECTED_MUTANT wrong-negative-scenario exit=1
+REJECTED_MUTANT negative-unexpected-success exit=1
+REJECTED_MUTANT compute-drops-old-mapping exit=1
+REJECTED_MUTANT compute-corrupts-old-value exit=1
+PASS verifier regressions=7

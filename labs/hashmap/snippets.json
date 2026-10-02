@@ -1,0 +1,6 @@
+[
+  {"id":"hashmap.walkthrough","doc":"docs/hashmap.md","source":"experiments/src/HashMapWalkthrough.java","language":"java","version":"Java SE 21","type":"executable","annotations":"in-document"},
+  {"id":"hashmap.putval","doc":"docs/hashmap-source.md","source":"sources/HashMap-jdk-21+35.java","lines":[631,672],"language":"java","version":"jdk-21+35","type":"upstream-excerpt","annotations":"in-document"},
+  {"id":"hashmap.resize-split","doc":"docs/hashmap-source.md","source":"sources/HashMap-jdk-21+35.java","lines":[722,749],"language":"java","version":"jdk-21+35","type":"upstream-excerpt","annotations":"in-document"},
+  {"id":"hashmap.treeifybin","doc":"docs/hashmap-source.md","source":"sources/HashMap-jdk-21+35.java","lines":[761,780],"language":"java","version":"jdk-21+35","type":"upstream-excerpt","annotations":"in-document"}
+]

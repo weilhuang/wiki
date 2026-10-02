@@ -1,0 +1,3 @@
+wrong-exception exit=0
+compute-wrong-value exit=0
+bad-positive exit=1

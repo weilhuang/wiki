@@ -1,0 +1,122 @@
+[
+  {
+    "id": "architecture.microservices",
+    "title": "Microservice Architecture pattern",
+    "url": "https://microservices.io/patterns/microservices.html",
+    "type": "documentation",
+    "version": "动态模式文档",
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "独立交付收益及复杂交互/运行时耦合成本；未采用页面生产规模或营销数字"
+  },
+  {
+    "id": "architecture.database-per-service",
+    "title": "Pattern: Database per Service",
+    "url": "https://microservices.io/patterns/data/database-per-service.html",
+    "type": "documentation",
+    "version": "动态模式文档",
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "引用私有数据与逻辑/物理隔离选择；未采用将分布式事务笼统归因CAP的措辞"
+  },
+  {
+    "id": "architecture.outbox",
+    "title": "Pattern: Transactional Outbox",
+    "url": "https://microservices.io/patterns/data/transactional-outbox.html",
+    "type": "documentation",
+    "version": "动态模式文档",
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "共同存储业务事实与交接责任；重复发布仍需下游处理"
+  },
+  {
+    "id": "architecture.saga",
+    "title": "Pattern: Saga",
+    "url": "https://microservices.io/patterns/data/saga.html",
+    "type": "documentation",
+    "version": "动态模式文档",
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "本地步骤、显式补偿与隔离限制；案例协议为原创教学设计"
+  },
+  {
+    "id": "architecture.monolith-first",
+    "title": "Martin Fowler: Monolith First",
+    "url": "https://martinfowler.com/bliki/MonolithFirst.html",
+    "type": "documentation",
+    "version": "2015-06-03",
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "经验性论述，不当作普适定理"
+  },
+  {
+    "id": "architecture.strangler",
+    "title": "Martin Fowler: Strangler Fig",
+    "url": "https://martinfowler.com/bliki/StranglerFigApplication.html",
+    "type": "documentation",
+    "version": "2024-08-22 页面",
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "增量替换与过渡结构；案例阶段、门槛为原创"
+  },
+  {
+    "id": "architecture.newman-book",
+    "title": "Sam Newman: Monolith to Microservices",
+    "url": "https://samnewman.io/books/monolith-to-microservices/",
+    "type": "documentation",
+    "version": "原作者书目与目录页",
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "仅核对原作者网页与章节结构，没有声称完成全书逐页复核"
+  },
+  {
+    "id": "architecture.api-compatibility",
+    "title": "Google AIP-180: Backwards compatibility",
+    "url": "https://google.aip.dev/180",
+    "type": "documentation",
+    "version": "动态设计指导",
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "作为兼容设计参考，不作为所有HTTP接口强制规范"
+  },
+  {
+    "id": "architecture.slo",
+    "title": "Google SRE Book: Service Level Objectives",
+    "url": "https://sre.google/sre-book/service-level-objectives/",
+    "type": "documentation",
+    "version": "在线原书章节",
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "区分SLI/SLO；本页候选数值不是来源给出的通用阈值"
+  },
+  {
+    "id": "architecture.modulith-verification",
+    "title": "Spring Modulith: Verifying Application Module Structure",
+    "url": "https://docs.spring.io/spring-modulith/reference/verification.html",
+    "type": "documentation",
+    "version": "动态官方参考文档",
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "仅引用结构验证能力，未安装或执行框架集成，无版本运行保证"
+  },
+  {
+    "id": "architecture.pg-row-locks",
+    "title": "PostgreSQL 18: Explicit Locking, Row-Level Locks",
+    "url": "https://www.postgresql.org/docs/18/explicit-locking.html#LOCKING-ROWS",
+    "type": "documentation",
+    "version": "PostgreSQL 18 官方参考文档",
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "仅核对冲突行锁的等待、持有与死锁处理，未执行数据库gate协议"
+  },
+  {
+    "id": "architecture.pg-isolation",
+    "title": "PostgreSQL 18: Transaction Isolation",
+    "url": "https://www.postgresql.org/docs/18/transaction-iso.html",
+    "type": "documentation",
+    "version": "PostgreSQL 18 官方参考文档",
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "核对普通快照读取和锁定读取的差异，不把同事务等同互斥；未执行数据库实验"
+  }
+]

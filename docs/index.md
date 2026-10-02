@@ -1,39 +1,42 @@
 ---
-title: 后端工程知识站
-titleTemplate: false
-description: 从机制解释、反例验证到系统评审，沿三条闭合路径学习后端服务边界与数据一致性。
+title: 后端开发知识库
+description: 从领域目录查机制，沿学习路线建立联系，用源码和实验检验判断。
 prev: false
 next: false
 lastUpdated: false
+generated: true
+search: false
 ---
+<div id="后端工程知识站" class="legacy-anchor" aria-hidden="true"></div>
 
-# 后端工程知识站
+# 后端开发知识库
 
-这里按问题的先修关系组织知识：先弄清楚状态和资源由谁负责，再用反例检验理解，最后把多个边界放回同一个服务里评审。阅读顺序由知识依赖决定。
+这里围绕一个问题组织内容：**行为为什么这样发生，条件变化后应当怎样判断。** 从领域目录找具体机制；需要连成一条主线时，再选择有目标的学习路线。
 
-## 选择一条学习路径
+- [按领域查知识](/knowledge/)：从分类进入机制、源码、模式与比较
+<div id="选择一条学习路径" class="legacy-anchor" aria-hidden="true"></div>
 
-首批内容围绕三个能独立走完的主题，共十五章。每条路径都从基本合同进入机制、诊断和综合演练。
+- [按目标选择路线](/paths/)：看阅读准备、阅读目的和阶段任务
+<div id="带着具体问题查找" class="legacy-anchor" aria-hidden="true"></div>
 
-| 路径 | 从什么问题开始 | 最后交付什么 |
-| --- | --- | --- |
-| [Spring 服务边界](/learn/spring-service-boundaries/) | 对象何时可用，请求失败后数据和资源处于什么状态 | 对象所有权图、HTTP/数据失败矩阵、连接预算和服务边界 ADR |
-| [Go 服务生命周期](/learn/go-service-lifecycle/) | 请求结束以后，谁还在工作、谁负责收尾 | 入口合同、有界并发与调用预算、停机证据和运行手册 |
-| [数据一致性](/learn/data-consistency/) | 并发和超时发生时，订单、库存和读模型如何保持约定 | 不变量、幂等与事件合同、缓存风险表和恢复对账报告 |
+- [从场景或故障进入](/cases/)：先界定问题，再回到相关机制
 
-熟悉 Java 的读者可先走 Spring 路径；熟悉 Go 的读者可先走 Go 路径。两条路径都会遇到“请求失败，但业务可能已经完成”，接着进入数据一致性。无需先学会另一门语言。
+## 知识领域
 
-## 带着具体问题查找
+- [Java 平台](/knowledge/java/)：从对象身份、集合与并发，连接到字节码、内存和运行时行为。语言/API 约定与某版 JDK 的实现分开阅读。
+- [Go 工程](/knowledge/go/)：围绕函数合同、并发所有权、标准库服务和进程生命周期组织 Go 知识。先解释谁启动、谁等待、谁关闭，再讨论工具选择。
+- [框架与服务通信](/knowledge/frameworks/)：沿请求进入、对象创建、代理调用和资源使用，解释应用框架与通信协议如何影响业务行为。
+- [数据与存储](/knowledge/data/)：先识别业务事实及不变量，再研究索引、事务、复制和派生数据如何保存或读取它。
+- [消息与分布式](/knowledge/distributed/)：多个参与者无法共享同一次观察时，要分别说明身份、确认、顺序、重试和恢复。
+- [系统架构与演进](/knowledge/architecture/)：从业务约束和变化成本出发选择结构。模式用于解释一个决定解决了什么、又引出了什么。
+- [云原生与可靠性](/knowledge/cloud/)：从进程和资源出发，把交付、观测、服务目标与恢复联系起来。平台工具不能消除应用自身的生命周期责任。
+- [身份与安全](/knowledge/security/)（领域导读已上线，专题文章待补充）：每次访问都要明确主体、资源、动作和信任边界，再选择认证、授权及凭据生命周期。
+- [计算机基础与工程方法](/knowledge/foundations/)（领域导读已上线，专题文章待补充）：数据结构、操作系统和测试方法为上层机制提供可推理的模型；构建与协作让结论能被复核。
 
-- **注解明明写了，事务为何没有按预期回滚？** 看[事务代理入口与共享回滚](/learn/spring-service-boundaries/transaction-proxy#call-paths)
-- **超时已经返回，写入是否还能继续？** 看[取消信号与业务结果](/learn/go-service-lifecycle/context-cancellation)
-- **线程越加越多，服务为何仍在等连接？** 看[连接持有期和超时预算](/learn/spring-service-boundaries/connection-budget-timeouts)
-- **一个分支报错后，其他 goroutine 由谁回收？** 看[有界并发与所有权](/learn/go-service-lifecycle/bounded-concurrency-ownership)
-- **第一次请求结果未知，第二次怎样重试？** 看[幂等键、保存结果与有效期](/learn/data-consistency/idempotency-unknown-outcomes)
-- **数据库、消息和缓存恢复以后，凭什么确认一致？** 看[联合对账与恢复演练](/learn/data-consistency/consistency-recovery-review)
+## 怎样使用一篇文章
 
-## 如何判断自己学会了
+先读开篇问题和适用范围，再沿图与具体输入解释状态变化。源码页把接口合同与固定版本实现分开；模式页比较约束、代价和简单替代。实验详情放在可展开附录，运行通过只支持它明确覆盖的条件。
 
-读代码前先预测结果，运行后同时观察响应、最终数据和资源状态。再改变一个条件，构造能推翻错误解释的反例。路径终章要求写出取舍和未覆盖范围，不能只提交一张“测试通过”的截图。
+<div id="如何判断自己学会了" class="legacy-anchor" aria-hidden="true"></div>
 
-[实验与评审](/guide/practice)给出具体做法；[知识地图](/guide/knowledge-map)说明三个主题之间的依赖，以及当前没有覆盖的领域。
+想检验理解，可以在[复习与推理](/resources/review.html)改变一个条件再预测结果；需要查具体实现，进入[源码阅读](/resources/source-reading.html)。未写内容集中标为规划，不会生成空知识页。

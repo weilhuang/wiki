@@ -1,0 +1,92 @@
+[
+  {
+    "id": "openjdk21.hashmap",
+    "title": "OpenJDK jdk-21+35 HashMap.java",
+    "url": "https://github.com/openjdk/jdk/blob/jdk-21%2B35/src/java.base/share/classes/java/util/HashMap.java",
+    "type": "source",
+    "version": "jdk-21+35",
+    "accessedAt": "2026-10-02",
+    "license": "GPL-2.0-only WITH Classpath-exception-2.0",
+    "notes": "完整原文件保留版权头与许可；SHA256 71c8d82247c2736e9fbe3769f366e9bd250bc73ecf390749998e830201aaabf2。片段锚点使用原文件行号，不使用网页提取器行号。"
+  },
+  {
+    "id": "openjdk7.hashmap",
+    "title": "OpenJDK jdk7u80-b15 HashMap.java（历史对照）",
+    "url": "https://github.com/openjdk/jdk7u/blob/jdk7u80-b15/jdk/src/share/classes/java/util/HashMap.java",
+    "type": "source",
+    "version": "jdk7u80-b15",
+    "accessedAt": "2026-10-02",
+    "license": "GPL-2.0-only WITH Classpath-exception-2.0",
+    "notes": "仅源码核对 transfer/Entry 与现代实现的差异；未运行 JDK7；SHA256 9986060be703f39c0057d7c9a4e3a1c84ba6f907069968bf7379e6e72e53910a"
+  },
+  {
+    "id": "javase21.hashmap",
+    "title": "Java SE 21 HashMap API",
+    "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/HashMap.html",
+    "type": "api",
+    "version": "Java SE 21",
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "官方 API 合同，独立中文解释；不复制长篇文档。"
+  },
+  {
+    "id": "javase21.object",
+    "title": "Java SE 21 Object API",
+    "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html",
+    "type": "api",
+    "version": "Java SE 21",
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "官方 API 合同，独立中文解释；不复制长篇文档。"
+  },
+  {
+    "id": "javase21.map",
+    "title": "Java SE 21 Map API",
+    "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Map.html",
+    "type": "api",
+    "version": "Java SE 21",
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "官方 API 合同，独立中文解释；不复制长篇文档。"
+  },
+  {
+    "id": "javase21.linkedhashmap",
+    "title": "Java SE 21 LinkedHashMap API",
+    "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/LinkedHashMap.html",
+    "type": "api",
+    "version": "Java SE 21",
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "官方 API 合同，独立中文解释；不复制长篇文档。"
+  },
+  {
+    "id": "javase21.treemap",
+    "title": "Java SE 21 TreeMap API",
+    "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/TreeMap.html",
+    "type": "api",
+    "version": "Java SE 21",
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "官方 API 合同，独立中文解释；不复制长篇文档。"
+  },
+  {
+    "id": "javase21.concurrenthashmap",
+    "title": "Java SE 21 ConcurrentHashMap API",
+    "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html",
+    "type": "api",
+    "version": "Java SE 21",
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "官方 API 合同，独立中文解释；不复制长篇文档。"
+  },
+  {
+    "id": "javase21.collections",
+    "title": "Java SE 21 Collections API",
+    "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collections.html",
+    "type": "api",
+    "version": "Java SE 21",
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "官方 API 合同，独立中文解释；不复制长篇文档。"
+  }
+]

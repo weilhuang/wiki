@@ -1,0 +1,57 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.10.2/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :clean
+> Task :compileJava
+> Task :processResources
+> Task :classes
+> Task :compileTestJava
+> Task :processTestResources
+> Task :testClasses
+> Task :test
+
+> Task :verify
+PASS 1: raw reader registers even an eager definition without creating it
+PASS 2: lazy context defers creation and aliases resolve to one identity
+PASS 3: eager context creates before refresh returns
+PASS 4: an eager dependency can force a lazy bean to be created
+PASS 5: override false rejects second resource and preserves first definition
+Oct 02, 2026 10:00:36 PM org.springframework.beans.factory.support.DefaultListableBeanFactory logBeanDefinitionOverriding
+INFO: Overriding bean definition for bean 'catalog' with a different definition: replacing [Generic bean: class=lab.Catalog; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; fallback=false; factoryBeanName=null; factoryMethodName=null; initMethodNames=[init]; destroyMethodNames=[close]; defined in class path resource [eager.xml]] with [Generic bean: class=lab.Catalog; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; fallback=false; factoryBeanName=null; factoryMethodName=null; initMethodNames=[init]; destroyMethodNames=[close]; defined in class path resource [beta.xml]]
+PASS 6: override true replaces a definition with zero net count increase
+PASS 7: duplicate names in one beans element fail even when override is true
+PASS 8: malformed XML fails before any definition is registered
+PASS 9: missing classpath resource fails while opening the resource
+PASS 10: unknown property registers but fails during population
+PASS 11: unresolved bean reference fails when a consumer is created
+PASS 12: factory postprocessor changes definition before ordinary creation
+PASS 13: annotation entry produces bean-method definition during refresh
+PASS: 13 scenarios, 61 assertions
+
+> Task :check
+
+> Task :run
+registered: definitions=1, aliases=[catalogAlias], singleton=false, constructed=0
+refreshed: singleton=false, constructed=0
+looked up: label=alpha, same=true, constructed=1, initialized=1
+closed: destroyed=1
+
+> Task :resolvedVersions
+io.micrometer:micrometer-commons:1.15.12
+io.micrometer:micrometer-observation:1.15.12
+org.springframework:spring-aop:6.2.19
+org.springframework:spring-beans:6.2.19
+org.springframework:spring-context:6.2.19
+org.springframework:spring-core:6.2.19
+org.springframework:spring-expression:6.2.19
+org.springframework:spring-jcl:6.2.19
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.10.2/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 6s
+9 actionable tasks: 9 executed
+
+EXIT_CODE=0

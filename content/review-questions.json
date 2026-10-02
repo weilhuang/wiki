@@ -1,0 +1,135 @@
+[
+  {
+    "id": "bean-owner",
+    "topic": "frameworks.bean-lifecycle",
+    "task": "understand",
+    "prompt": "prototype 对象持有资源，容器关闭时谁负责释放？改变创建方式以后答案会变吗？",
+    "anchor": "_3-用事件证明顺序-不靠日志看起来差不多"
+  },
+  {
+    "id": "mvc-enter",
+    "topic": "frameworks.mvc-pipeline",
+    "task": "diagnose",
+    "prompt": "怎样用状态码和业务进入次数区分转换失败、校验失败与业务拒绝？",
+    "anchor": "_3-三条失败路径-业务进入次数不同"
+  },
+  {
+    "id": "rollback-catch",
+    "topic": "frameworks.transaction-proxy",
+    "task": "understand",
+    "prompt": "两段代码都 catch 了异常，为什么一段提交，另一段抛 UnexpectedRollbackException？",
+    "anchor": "shared-rollback"
+  },
+  {
+    "id": "pool-budget",
+    "topic": "frameworks.connection-budget",
+    "task": "compare",
+    "prompt": "延长借连接超时和缩短事务持有范围，分别改变了哪项成本？",
+    "anchor": "_2-缩小持有范围-与单纯延长耐心不同"
+  },
+  {
+    "id": "local-two-commits",
+    "topic": "architecture.local-service-boundary",
+    "task": "design",
+    "prompt": "数据库已提交但响应不完整，接口评审还欠哪一项合同？",
+    "anchor": "_3-两个提交点之间-失败不会消失"
+  },
+  {
+    "id": "http-decode",
+    "topic": "go.http-contract",
+    "task": "understand",
+    "prompt": "删除第二次 JSON Decode 后，什么输入会被错误接受？",
+    "anchor": "机制题-删除第二次-decode-会怎样"
+  },
+  {
+    "id": "cancel-join",
+    "topic": "go.context-cancellation",
+    "task": "design",
+    "prompt": "cancel 已经返回，工作仍在阻塞时，谁负责等待与回收？",
+    "anchor": "worker-lifetime"
+  },
+  {
+    "id": "bounded-queue",
+    "topic": "go.bounded-work",
+    "task": "compare",
+    "prompt": "最多并发八项是否足够限制内存？还要限制哪个数量？",
+    "anchor": "设计题-最多并发-8-是否足够"
+  },
+  {
+    "id": "client-retry",
+    "topic": "go.client-budgets",
+    "task": "design",
+    "prompt": "三次重试如何共享总预算，写入结果未知时还能否自动重试？",
+    "anchor": "三次重试-到底是哪一种三次"
+  },
+  {
+    "id": "shutdown-context",
+    "topic": "go.graceful-shutdown",
+    "task": "understand",
+    "prompt": "把已取消的信号 context 直接传给 Shutdown，会失去哪段等待？",
+    "anchor": "停机预算不能从已经取消的信号继承"
+  },
+  {
+    "id": "inventory-conservation",
+    "topic": "data.inventory-invariants",
+    "task": "verify",
+    "prompt": "库存从未负数仍然超卖，需要增加哪一项业务断言？",
+    "anchor": "_2-最短反例-每条-sql-都成功-业务仍然失败"
+  },
+  {
+    "id": "identity-retention",
+    "topic": "distributed.idempotency",
+    "task": "design",
+    "prompt": "幂等记录被提前清理后，同一个请求键还能承诺什么？",
+    "anchor": "_5-保留期不是清理脚本的小参数"
+  },
+  {
+    "id": "dedup-projection",
+    "topic": "distributed.transactional-outbox",
+    "task": "diagnose",
+    "prompt": "dedup 已存在而 projection 缺失，为什么简单重投不能修复？",
+    "anchor": "_3-消费去重的提交边界-比表名重要"
+  },
+  {
+    "id": "cache-ttl",
+    "topic": "data.cache-invalidation",
+    "task": "understand",
+    "prompt": "TTL 为一分钟，为什么仍可能返回一小时前的源数据？",
+    "anchor": "_3-ttl-测量的是缓存驻留时间-不是源数据年龄"
+  },
+  {
+    "id": "recovery-stop",
+    "topic": "architecture.consistency-recovery",
+    "task": "recover",
+    "prompt": "服务重新启动且队列清空，为什么还不能宣布业务恢复？",
+    "anchor": "_4-对账查询必须能发现-局部成功、整体仍坏"
+  },
+  {
+    "id": "hashmap-resize",
+    "topic": "java.hashmap",
+    "task": "understand",
+    "prompt": "容量从四变八时，为什么同一桶的节点有些留原位，有些移动？",
+    "anchor": "resize"
+  },
+  {
+    "id": "hashmap-treeify",
+    "topic": "java.hashmap-source",
+    "task": "source-reading",
+    "prompt": "普通 put 和 computeIfAbsent 的树化请求为什么不能共用一句阈值口诀？",
+    "anchor": "treeify-paths"
+  },
+  {
+    "id": "bean-definition",
+    "topic": "frameworks.bean-definition-registration",
+    "task": "source-reading",
+    "prompt": "已经注册 catalog 的定义，为什么构造器仍可能没有运行？",
+    "anchor": "instance-boundary"
+  },
+  {
+    "id": "extract-order",
+    "topic": "architecture.order-service-extraction",
+    "task": "compare",
+    "prompt": "什么证据会让“不拆订单写服务”的决定改变？新写发生后还怎样回退？",
+    "anchor": "decision-matrix"
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "path": "build.gradle",
+    "sha256": "c80c4e230d1fea7bd14ca58a09d73693c46a9c6a3f056c5aac65e8247cde23f6"
+  },
+  {
+    "path": "gradle.lockfile",
+    "sha256": "9c3ed2b689bc81e438d23382d76f20edcdca68fdd94ffd5d57a30d6c314e22c7"
+  },
+  {
+    "path": "gradle.properties",
+    "sha256": "d9cf872761e2ab9dc5270e18345e0daeff7a412d6e4103e7382f67f960644256"
+  },
+  {
+    "path": "settings.gradle",
+    "sha256": "c5ca8dc49c41ddc9c6af0f9fdc16533a92cbdb1324bd472accd52289cc5e0af2"
+  },
+  {
+    "path": "src/main/java/lab/Catalog.java",
+    "sha256": "36802868bef29629539efc36ec1c84e7e070ee7c66ba536e654c5f9edad4e4f2"
+  },
+  {
+    "path": "src/main/java/lab/Main.java",
+    "sha256": "2128d9a6c1f4b7340bbe7d7d4392f660f9287dab53e590e0d8780328a9203491"
+  },
+  {
+    "path": "src/main/resources/beans.xml",
+    "sha256": "558c463027b706ec30fb8b66948616f6dcd184c5bb60cfc02d9ceebcfa23a31d"
+  },
+  {
+    "path": "src/test/java/lab/BeanDefinitionLabTests.java",
+    "sha256": "ea44437c355f43d145fef3806e6607fbbef86594e1909413cf20880a3a31fa4d"
+  },
+  {
+    "path": "src/test/resources/bad-property.xml",
+    "sha256": "2f148d7010f21438d91e1ed68a751857f8cd24b557f67823d885b85aa71ac276"
+  },
+  {
+    "path": "src/test/resources/beta.xml",
+    "sha256": "1dc9b08f2543b8d19d24cc419a2914abf7d14b6dd95cdb65a9ef56f64b3ef3c9"
+  },
+  {
+    "path": "src/test/resources/duplicate-in-one.xml",
+    "sha256": "01d59210630b88d1cd8f6d4ffc9815917f28df07fc06903f8b3ca2b4173d3e6a"
+  },
+  {
+    "path": "src/test/resources/eager-consumer.xml",
+    "sha256": "5512bbbd8142edf08e60a24721100f70f3a63099bab6b31bc3bdf4bc878d3233"
+  },
+  {
+    "path": "src/test/resources/eager.xml",
+    "sha256": "01725a45b5dc49611beeec2e4ae9fb823c7514b87e1591f042b90ebf462467b0"
+  },
+  {
+    "path": "src/test/resources/malformed.xml",
+    "sha256": "88e2f2f63d0fccc32b0578888417a9adae89bf8891694e6c624021b6e27b3aa5"
+  },
+  {
+    "path": "src/test/resources/missing-reference.xml",
+    "sha256": "c266d06c4e3c0affdf1626b052c3f355e4e43fa59509ee822ef53f5d6c844ef5"
+  }
+]

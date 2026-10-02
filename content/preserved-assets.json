@@ -1,0 +1,109 @@
+{
+  "base": "e8e83ced87cebc69d404c353768c37952a3df5bb",
+  "files": [
+    {
+      "path": ".github/workflows/data-lab.yml",
+      "sha256": "e11beb595f34cdc7984ff5918709dfb5244ce243c6204abfbc527edc7e3104c8"
+    },
+    {
+      "path": "docs/public/examples/data-consistency-verification.json",
+      "sha256": "ca217e90a54f37750c2386c9510e235b93ba19cfb49b742f6dca496eed3793cc"
+    },
+    {
+      "path": "docs/public/examples/data-consistency.zip",
+      "sha256": "a7cbd725764ac9266042e8ba93954c6e6377065f2ea690cfd4963c42147e5e22"
+    },
+    {
+      "path": "docs/public/examples/go-context-cancellation.zip",
+      "sha256": "8de924f948adc8fd7222474fad7aadccff05154e12e824d906d1fe1a7ddea429"
+    },
+    {
+      "path": "docs/public/examples/go-service-lifecycle.zip",
+      "sha256": "de1a3140d6d70625f2abaf0133a78037714ceb7affcde6a20be29d02f7f92ed3"
+    },
+    {
+      "path": "docs/public/examples/spring-service-boundaries.zip",
+      "sha256": "2b46b578290ea5f47544adcb08c53809c9cdecc6221684b45ef68a048eb30163"
+    },
+    {
+      "path": "docs/public/examples/spring-transaction-proxy.zip",
+      "sha256": "642f64c2ed79b7a1f2387fdfba496344f071de85208f4aa9a340ac1f83c47f4c"
+    },
+    {
+      "path": "evidence/data-consistency.json",
+      "sha256": "bdcb27a747b7a14339f2ab3acbc3c3eed4c2f2f11b9f17ba4ecb0f0ff8539b12"
+    },
+    {
+      "path": "evidence/go-context-cancellation.json",
+      "sha256": "a33413743c29500e2a4b7673979b990ca63ee098aaa9eb1293fe0db4fbad2704"
+    },
+    {
+      "path": "evidence/go-service-lifecycle.json",
+      "sha256": "9f8833c53c636656828094992f9a28cb91ee5d6f89c5d287fa8b7579ce1a2149"
+    },
+    {
+      "path": "evidence/spring-service-boundaries.json",
+      "sha256": "6cb0b4360d68cb81a22f4eaef09b9ce27ba8f71de0711d176d9ffe183156edbe"
+    },
+    {
+      "path": "evidence/spring-transaction-proxy.json",
+      "sha256": "e28750e0418ce993fd72b627ae36f69aebc9a61f248e965119bdc5d06e996d00"
+    },
+    {
+      "path": "labs/data-consistency-reviewed.json",
+      "sha256": "c6c3935c42d25d9a02709b24da3e57ae6c52976af697b23194d92ad99da02aab"
+    },
+    {
+      "path": "labs/data-consistency/README.md",
+      "sha256": "796b2265f9c4fcc7ea0b4946dcbf74aaae59fe614e386ea496f2a6cb95ca99b5"
+    },
+    {
+      "path": "labs/data-consistency/RESULT-CONTRACT.md",
+      "sha256": "f50164c7b9c22cde82c6a4e00e14406cb8d94c4766df22d7b64357687eec767c"
+    },
+    {
+      "path": "labs/data-consistency/check_static.py",
+      "sha256": "a4f0ee0857992dff064bf2706624fe69bc9a4fc5a1d53f04afa521ebbf6fcb26"
+    },
+    {
+      "path": "labs/data-consistency/compose.yaml",
+      "sha256": "3e28ee882c99ac1c5eb5d1dd4bc0f194a7740e676d5f01bfe0516aad74fe195a"
+    },
+    {
+      "path": "labs/data-consistency/infra/versions.env",
+      "sha256": "633dd50e7da950a0da9ddb86484e11a63b475a82c89688c3a8f2640c24568a4b"
+    },
+    {
+      "path": "labs/data-consistency/lab.py",
+      "sha256": "b5b4ea1f0b083ed76bc6fab21a8ef57eeed121f7eebf2ccc0d773a099118be0d"
+    },
+    {
+      "path": "labs/data-consistency/lua/fill.lua",
+      "sha256": "befe00cfff4d2af3baab596a0f240f34cbc325e62d8e3d638f5b98e2b36b023a"
+    },
+    {
+      "path": "labs/data-consistency/lua/invalidate.lua",
+      "sha256": "659ae47f3d59c4299ec64e0d3d8e08f26ce6f979364ba0c9cb40a612efe1bf11"
+    },
+    {
+      "path": "labs/data-consistency/run.sh",
+      "sha256": "12aea3c40fdaa72f946e195530e3d988c38fcc2c84ee6a5d1ac5e073defe249d"
+    },
+    {
+      "path": "labs/data-consistency/sql/reconcile.sql",
+      "sha256": "4cada03ba972a5e0442887c0e81f07a0bde747b050900c337cf60a1e3d3899d5"
+    },
+    {
+      "path": "labs/data-consistency/sql/schema.sql",
+      "sha256": "e2abe01b0f1df131f41e26ec949057044e20c1e85cebd20dc07441b145cf5169"
+    },
+    {
+      "path": "scripts/ci/data_evidence.py",
+      "sha256": "8277e2870ab3e9a773bd9c4ece65951586b9f9893e8be3a79b1b3606f3cc1ee9"
+    },
+    {
+      "path": "scripts/ci/test_data_evidence.py",
+      "sha256": "44f3d6dbd23680de2151649cf8a1de04f020ec2e92741912f6e257b27c1b687b"
+    }
+  ]
+}

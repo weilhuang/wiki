@@ -1,0 +1,119 @@
+{
+  "status": "pass",
+  "scope": "Verifier regression tests; mutations target only this educational lab, never the JDK",
+  "count": 7,
+  "results": [
+    {
+      "name": "wrong-exception",
+      "exitCode": 1,
+      "expectedExitCode": 1,
+      "acceptedByVerifier": false,
+      "baselineSourceSHA256": "fd3b687658786a968e1c5c14b356849fc21731551c7eea9e3566ab75e8a74af0",
+      "mutantSourceSHA256": "c0e659e12aca79dccf39fb0b1271c977818e6962f8f5854d741da2817f537dc9",
+      "requiredFailureEvidence": [
+        "反向断言未按预期失败: equal-adds",
+        "java.lang.IllegalStateException: ASSERTION_FAILED: wrong hypothesis equal-adds"
+      ],
+      "artifacts": [
+        "proof/r2-regressions/wrong-exception/console.txt",
+        "proof/r2-regressions/wrong-exception/mutation.patch"
+      ]
+    },
+    {
+      "name": "compute-wrong-value",
+      "exitCode": 1,
+      "expectedExitCode": 1,
+      "acceptedByVerifier": false,
+      "baselineSourceSHA256": "fd3b687658786a968e1c5c14b356849fc21731551c7eea9e3566ab75e8a74af0",
+      "mutantSourceSHA256": "bf1fc78b02b2a08aad3c8bc83df591caf8256be549a76e77a2decd5440ee59e0",
+      "requiredFailureEvidence": [
+        "java.lang.AssertionError:",
+        "eighth value expected=8 actual=800"
+      ],
+      "artifacts": [
+        "proof/r2-regressions/compute-wrong-value/console.txt",
+        "proof/r2-regressions/compute-wrong-value/mutation.patch"
+      ]
+    },
+    {
+      "name": "bad-positive",
+      "exitCode": 1,
+      "expectedExitCode": 1,
+      "acceptedByVerifier": false,
+      "baselineSourceSHA256": "fd3b687658786a968e1c5c14b356849fc21731551c7eea9e3566ab75e8a74af0",
+      "mutantSourceSHA256": "2c861aa73ea7a81e5cc036502fd09d239df4b839e6f752363a7fe7c03dbc6602",
+      "requiredFailureEvidence": [
+        "java.lang.AssertionError:",
+        "equal key must not add mapping expected=99 actual=1"
+      ],
+      "artifacts": [
+        "proof/r2-regressions/bad-positive/console.txt",
+        "proof/r2-regressions/bad-positive/mutation.patch"
+      ]
+    },
+    {
+      "name": "wrong-negative-scenario",
+      "exitCode": 1,
+      "expectedExitCode": 1,
+      "acceptedByVerifier": false,
+      "baselineSourceSHA256": "fd3b687658786a968e1c5c14b356849fc21731551c7eea9e3566ab75e8a74af0",
+      "mutantSourceSHA256": "adf1fd03c2550b09b7d5814e6584a7d7ea0a889e6c1897673daa9278bd7f6ca5",
+      "requiredFailureEvidence": [
+        "反向断言未按预期失败: equal-adds",
+        "wrong hypothesis unrelated-scenario"
+      ],
+      "artifacts": [
+        "proof/r2-regressions/wrong-negative-scenario/console.txt",
+        "proof/r2-regressions/wrong-negative-scenario/mutation.patch"
+      ]
+    },
+    {
+      "name": "negative-unexpected-success",
+      "exitCode": 1,
+      "expectedExitCode": 1,
+      "acceptedByVerifier": false,
+      "baselineSourceSHA256": "fd3b687658786a968e1c5c14b356849fc21731551c7eea9e3566ab75e8a74af0",
+      "mutantSourceSHA256": "8b1b95cb8e592183f2a8847557a3e89d3d2f9b6c1334b4546e96c773a74a8893",
+      "requiredFailureEvidence": [
+        "反向断言未按预期失败: equal-adds",
+        "Negative hypothesis unexpectedly survived: equal-adds"
+      ],
+      "artifacts": [
+        "proof/r2-regressions/negative-unexpected-success/console.txt",
+        "proof/r2-regressions/negative-unexpected-success/mutation.patch"
+      ]
+    },
+    {
+      "name": "compute-drops-old-mapping",
+      "exitCode": 1,
+      "expectedExitCode": 1,
+      "acceptedByVerifier": false,
+      "baselineSourceSHA256": "fd3b687658786a968e1c5c14b356849fc21731551c7eea9e3566ab75e8a74af0",
+      "mutantSourceSHA256": "b57fa5443c26f23ba485d387ed31bec84981711970c85f3b1a4176dccbbb2c7d",
+      "requiredFailureEvidence": [
+        "java.lang.AssertionError:",
+        "adds exactly one mapping expected=8 actual=7"
+      ],
+      "artifacts": [
+        "proof/r2-regressions/compute-drops-old-mapping/console.txt",
+        "proof/r2-regressions/compute-drops-old-mapping/mutation.patch"
+      ]
+    },
+    {
+      "name": "compute-corrupts-old-value",
+      "exitCode": 1,
+      "expectedExitCode": 1,
+      "acceptedByVerifier": false,
+      "baselineSourceSHA256": "fd3b687658786a968e1c5c14b356849fc21731551c7eea9e3566ab75e8a74af0",
+      "mutantSourceSHA256": "0574c6497dae8f74ea658d023f0ead6e9e2c0d06d481d4d096d894e2aa0aecd2",
+      "requiredFailureEvidence": [
+        "java.lang.AssertionError:",
+        "preserves every expected value expected=3 actual=300"
+      ],
+      "artifacts": [
+        "proof/r2-regressions/compute-corrupts-old-value/console.txt",
+        "proof/r2-regressions/compute-corrupts-old-value/mutation.patch"
+      ]
+    }
+  ]
+}

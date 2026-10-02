@@ -2,13 +2,13 @@ import DefaultTheme from 'vitepress/theme'
 import MermaidDiagram from './components/MermaidDiagram.vue'
 import CodeWalkthrough from './components/CodeWalkthrough.vue'
 import './codehike.css'
-import PostList from './components/PostList.vue'
+import TopicList from './components/TopicList.vue'
 import { syncNotFoundMetadata } from './not-found-metadata.mjs'
 
 export default {
   extends: DefaultTheme,
   enhanceApp({ app, router }) {
-    app.component('PostList', PostList); app.component('MermaidDiagram', MermaidDiagram); app.component('CodeWalkthrough', CodeWalkthrough)
+    app.component('TopicList', TopicList); app.component('MermaidDiagram', MermaidDiagram); app.component('CodeWalkthrough', CodeWalkthrough)
     if (typeof document !== 'undefined') {
       const previous = router.onAfterRouteChange ?? router.onAfterRouteChanged
       router.onAfterRouteChange = async to => {

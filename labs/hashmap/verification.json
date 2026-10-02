@@ -1,0 +1,276 @@
+[
+  {
+    "id": "hashmap.source-review",
+    "kind": "source-reviewed",
+    "status": "pass",
+    "scope": "作者逐项核对 jdk-21+35 原文件指定行，区分 Java SE21 API 与实现、GA源码与补丁版二进制；独立审阅未完成",
+    "limitations": [
+      "仅核对 source-review.json 所列分支",
+      "历史 JDK7 仅源码，不是运行证据",
+      "没有证明红黑树全部性质"
+    ],
+    "sourceFiles": [
+      {
+        "path": "sources/HashMap-jdk-21+35.java",
+        "sha256": "71c8d82247c2736e9fbe3769f366e9bd250bc73ecf390749998e830201aaabf2"
+      },
+      {
+        "path": "sources/HashMap-runtime-21.0.12.1.java",
+        "sha256": "71c8d82247c2736e9fbe3769f366e9bd250bc73ecf390749998e830201aaabf2"
+      },
+      {
+        "path": "sources/HashMap-jdk7u80-b15.java",
+        "sha256": "9986060be703f39c0057d7c9a4e3a1c84ba6f907069968bf7379e6e72e53910a"
+      }
+    ],
+    "commands": [
+      {
+        "command": "sha256sum sources/HashMap-jdk-21+35.java sources/HashMap-runtime-21.0.12.1.java sources/HashMap-jdk7u80-b15.java",
+        "exitCode": 0
+      }
+    ],
+    "artifacts": [
+      "proof/source-review.json"
+    ],
+    "recordedAt": "2026-10-02T14:22:37Z",
+    "revision": "R2",
+    "publicRecordNote": "Public path-sanitized copy of the recorded R2 execution/source check. Angle-bracket paths are placeholders, not literal replay commands. No new execution or expanded coverage."
+  },
+  {
+    "id": "hashmap.api-run",
+    "kind": "executed",
+    "status": "pass",
+    "scope": "Temurin 21.0.12.1+1-LTS，7个公共API场景及完整调用示例；违约键的输出只属固定实现反例",
+    "limitations": [
+      "不读取私有容量",
+      "位运算索引为独立模型，不能独自证明真实桶布局",
+      "不证明并发安全或性能",
+      "未执行GA二进制"
+    ],
+    "sourceFiles": [
+      {
+        "path": "experiments/src/HashMapLab.java",
+        "sha256": "fd3b687658786a968e1c5c14b356849fc21731551c7eea9e3566ab75e8a74af0"
+      },
+      {
+        "path": "experiments/src/HashMapWalkthrough.java",
+        "sha256": "c40533f8ecf028cc31fedc50d0af2ec83fa82462b0c5bc2eb7cd21967e3c140d"
+      },
+      {
+        "path": "experiments/run.sh",
+        "sha256": "2238a876676e9edf902200c1e2e95aae7dc0a3a9fbd88dbfcb58354a6ce99a9b"
+      },
+      {
+        "path": "run.sh",
+        "sha256": "bbffc7822ddad6054965d57a3a9971011060b71d86b1e6d8b2a646d0d5a3adbc"
+      }
+    ],
+    "commands": [
+      {
+        "command": "JAVA_HOME=<JDK21_HOME> bash run.sh verify <ISOLATED_RUN_OUTPUT>",
+        "exitCode": 0
+      }
+    ],
+    "artifacts": [
+      "proof/run-r2-20261002/api.txt",
+      "proof/run-r2-20261002/walkthrough.txt",
+      "proof/run-r2-20261002/java-version.txt",
+      "proof/run-r2-20261002/javac-version.txt",
+      "proof/run-r2-20261002-console.txt",
+      "proof/environment.json"
+    ],
+    "recordedAt": "2026-10-02T14:22:37Z",
+    "revision": "R2",
+    "publicRecordNote": "Public path-sanitized copy of the recorded R2 execution/source check. Angle-bracket paths are placeholders, not literal replay commands. No new execution or expanded coverage."
+  },
+  {
+    "id": "hashmap.impl-run",
+    "kind": "executed",
+    "status": "pass",
+    "scope": "同一验证命令中的4个显式可选实现观察：put第9节点、默认map第11节点、computeIfAbsent第8节点、树拆分6/7节点；逐键检查映射",
+    "limitations": [
+      "仅通过Map.Entry实际类名观察Node/TreeNode",
+      "容量由固定源码推演，没有访问table字段",
+      "未测树高度/颜色/删除枚举",
+      "类型名不属于API保证"
+    ],
+    "sourceFiles": [
+      {
+        "path": "experiments/src/HashMapLab.java",
+        "sha256": "fd3b687658786a968e1c5c14b356849fc21731551c7eea9e3566ab75e8a74af0"
+      },
+      {
+        "path": "experiments/src/HashMapWalkthrough.java",
+        "sha256": "c40533f8ecf028cc31fedc50d0af2ec83fa82462b0c5bc2eb7cd21967e3c140d"
+      },
+      {
+        "path": "experiments/run.sh",
+        "sha256": "2238a876676e9edf902200c1e2e95aae7dc0a3a9fbd88dbfcb58354a6ce99a9b"
+      },
+      {
+        "path": "run.sh",
+        "sha256": "bbffc7822ddad6054965d57a3a9971011060b71d86b1e6d8b2a646d0d5a3adbc"
+      }
+    ],
+    "commands": [
+      {
+        "command": "HashMapLab --impl（由上述 bash run.sh verify 调用）",
+        "exitCode": 0
+      }
+    ],
+    "artifacts": [
+      "proof/run-r2-20261002/implementation.txt",
+      "proof/environment.json"
+    ],
+    "recordedAt": "2026-10-02T14:22:37Z",
+    "revision": "R2",
+    "publicRecordNote": "Public path-sanitized copy of the recorded R2 execution/source check. Angle-bracket paths are placeholders, not literal replay commands. No new execution or expanded coverage."
+  },
+  {
+    "id": "hashmap.negative-run",
+    "kind": "executed",
+    "status": "pass",
+    "scope": "5个可见错误假设分别由主异常首行指定 AssertionError 拒绝，验证器检查异常类型、对应命题消息和退出码1；整体exit0",
+    "limitations": [
+      "是反向命题检查，不是对JDK进行变异测试",
+      "最后一项验证独立位运算模型"
+    ],
+    "sourceFiles": [
+      {
+        "path": "experiments/src/HashMapLab.java",
+        "sha256": "fd3b687658786a968e1c5c14b356849fc21731551c7eea9e3566ab75e8a74af0"
+      },
+      {
+        "path": "experiments/src/HashMapWalkthrough.java",
+        "sha256": "c40533f8ecf028cc31fedc50d0af2ec83fa82462b0c5bc2eb7cd21967e3c140d"
+      },
+      {
+        "path": "experiments/run.sh",
+        "sha256": "2238a876676e9edf902200c1e2e95aae7dc0a3a9fbd88dbfcb58354a6ce99a9b"
+      },
+      {
+        "path": "run.sh",
+        "sha256": "bbffc7822ddad6054965d57a3a9971011060b71d86b1e6d8b2a646d0d5a3adbc"
+      }
+    ],
+    "commands": [
+      {
+        "command": "HashMapLab --negative equal-adds（由上述 bash run.sh verify 调用）",
+        "exitCode": 1,
+        "expectedExitCode": 1
+      },
+      {
+        "command": "HashMapLab --negative collision-overwrites（由上述 bash run.sh verify 调用）",
+        "exitCode": 1,
+        "expectedExitCode": 1
+      },
+      {
+        "command": "HashMapLab --negative mutable-stays-readable（由上述 bash run.sh verify 调用）",
+        "exitCode": 1,
+        "expectedExitCode": 1
+      },
+      {
+        "command": "HashMapLab --negative eighth-put-tree（由上述 bash run.sh verify 调用）",
+        "exitCode": 1,
+        "expectedExitCode": 1
+      },
+      {
+        "command": "HashMapLab --negative resize-keeps-every-index（由上述 bash run.sh verify 调用）",
+        "exitCode": 1,
+        "expectedExitCode": 1
+      }
+    ],
+    "artifacts": [
+      "proof/run-r2-20261002/negative-summary.txt",
+      "proof/run-r2-20261002/negative-equal-adds.txt",
+      "proof/run-r2-20261002/negative-collision-overwrites.txt",
+      "proof/run-r2-20261002/negative-mutable-stays-readable.txt",
+      "proof/run-r2-20261002/negative-eighth-put-tree.txt",
+      "proof/run-r2-20261002/negative-resize-keeps-every-index.txt"
+    ],
+    "recordedAt": "2026-10-02T14:22:37Z",
+    "revision": "R2",
+    "publicRecordNote": "Public path-sanitized copy of the recorded R2 execution/source check. Angle-bracket paths are placeholders, not literal replay commands. No new execution or expanded coverage."
+  },
+  {
+    "id": "hashmap.snippet-check",
+    "kind": "static-checked",
+    "status": "pass",
+    "scope": "实际 Code Hike 1.1.0 编译所有非图围栏；4个steps片段clean source逐字同步；6个Mermaid图解析；标题/metadata基础检查与shell语法",
+    "limitations": [
+      "只解析图语法，未做本任务独立浏览器渲染",
+      "独立技术审校、整站链接/导航/键盘/窄屏待平台集成检查"
+    ],
+    "sourceFiles": [
+      {
+        "path": "docs/hashmap.md",
+        "sha256": "741e097eb3641dc9a87644e54502d6ee062d63395826e62f405aec47940ef837"
+      },
+      {
+        "path": "docs/hashmap-source.md",
+        "sha256": "bc8a38f85f0d8c8f3aceaf33817242c6d5dad0b9ffe32b5a9dab0ef5fbf1810e"
+      },
+      {
+        "path": "snippets.json",
+        "sha256": "a7e1cb7172ce9c41dbe10f13f56bdff38dd2d4ec20328232866805b7270ecab0"
+      },
+      {
+        "path": "tools/check-content.mjs",
+        "sha256": "3a22fc6d81e561e1c1636e7cc9164cb028adb912a032b05cfadd050fbc986dbe"
+      }
+    ],
+    "commands": [
+      {
+        "command": "WIKI_REPO=<WIKI_CHECKOUT> node tools/check-content.mjs",
+        "exitCode": 0
+      },
+      {
+        "command": "bash -n run.sh experiments/run.sh",
+        "exitCode": 0
+      }
+    ],
+    "artifacts": [
+      "proof/content-check.json"
+    ],
+    "recordedAt": "2026-10-02T14:22:37Z",
+    "revision": "R2",
+    "publicRecordNote": "Public path-sanitized copy of the recorded R2 execution/source check. Angle-bracket paths are placeholders, not literal replay commands. No new execution or expanded coverage."
+  },
+  {
+    "id": "hashmap.verifier-regressions",
+    "kind": "executed",
+    "status": "pass",
+    "scope": "R2验证器隔离回归：7个变异逐项要求退出1和具体目标故障证据；覆盖R1原三变异及命题/意外成功/compute映射丢失与污染",
+    "limitations": [
+      "变异仅作用于教学实验，不改JDK",
+      "不代表穷尽全部验证器漏洞"
+    ],
+    "sourceFiles": [
+      {
+        "path": "experiments/src/HashMapLab.java",
+        "sha256": "fd3b687658786a968e1c5c14b356849fc21731551c7eea9e3566ab75e8a74af0"
+      },
+      {
+        "path": "experiments/run.sh",
+        "sha256": "2238a876676e9edf902200c1e2e95aae7dc0a3a9fbd88dbfcb58354a6ce99a9b"
+      },
+      {
+        "path": "tools/check-regressions.py",
+        "sha256": "4e3af9cea1f80e13bb35de6f01159e6cb87ec16d55989e72a319547d45409444"
+      }
+    ],
+    "commands": [
+      {
+        "command": "JAVA_HOME=<JDK21_HOME> python3 tools/check-regressions.py",
+        "exitCode": 0
+      }
+    ],
+    "artifacts": [
+      "proof/r2-regressions/results.json",
+      "proof/r2-regressions-console.txt"
+    ],
+    "recordedAt": "2026-10-02T14:22:37Z",
+    "revision": "R2",
+    "publicRecordNote": "Public path-sanitized copy of the recorded R2 execution/source check. Angle-bracket paths are placeholders, not literal replay commands. No new execution or expanded coverage."
+  }
+]

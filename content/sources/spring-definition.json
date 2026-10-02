@@ -1,0 +1,292 @@
+[
+  {
+    "id": "spring6219.context",
+    "title": "AbstractApplicationContext v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-context/src/main/java/org/springframework/context/support/AbstractApplicationContext.java",
+    "type": "source",
+    "version": "v6.2.19",
+    "accessedAt": "2026-10-02",
+    "license": "Apache-2.0",
+    "notes": "固定版本源码复核；精确 URL、版本和文件 SHA 在同组验证记录中，不代表全部分支执行。"
+  },
+  {
+    "id": "spring6219.AbstractRefreshableApplicationContext",
+    "title": "AbstractRefreshableApplicationContext v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-context/src/main/java/org/springframework/context/support/AbstractRefreshableApplicationContext.java",
+    "type": "source",
+    "version": "v6.2.19",
+    "accessedAt": "2026-10-02",
+    "license": "Apache-2.0",
+    "notes": "固定版本源码复核；精确 URL、版本和文件 SHA 在同组验证记录中，不代表全部分支执行。"
+  },
+  {
+    "id": "spring6219.xml-context",
+    "title": "AbstractXmlApplicationContext v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-context/src/main/java/org/springframework/context/support/AbstractXmlApplicationContext.java",
+    "type": "source",
+    "version": "v6.2.19",
+    "accessedAt": "2026-10-02",
+    "license": "Apache-2.0",
+    "notes": "固定版本源码复核；精确 URL、版本和文件 SHA 在同组验证记录中，不代表全部分支执行。"
+  },
+  {
+    "id": "spring6219.ClassPathXmlApplicationContext",
+    "title": "ClassPathXmlApplicationContext v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-context/src/main/java/org/springframework/context/support/ClassPathXmlApplicationContext.java",
+    "type": "source",
+    "version": "v6.2.19",
+    "accessedAt": "2026-10-02",
+    "license": "Apache-2.0",
+    "notes": "固定版本源码复核；精确 URL、版本和文件 SHA 在同组验证记录中，不代表全部分支执行。"
+  },
+  {
+    "id": "spring6219.GenericApplicationContext",
+    "title": "GenericApplicationContext v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-context/src/main/java/org/springframework/context/support/GenericApplicationContext.java",
+    "type": "source",
+    "version": "v6.2.19",
+    "accessedAt": "2026-10-02",
+    "license": "Apache-2.0",
+    "notes": "固定版本源码复核；精确 URL、版本和文件 SHA 在同组验证记录中，不代表全部分支执行。"
+  },
+  {
+    "id": "spring6219.resource-reader",
+    "title": "AbstractBeanDefinitionReader v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/support/AbstractBeanDefinitionReader.java",
+    "type": "source",
+    "version": "v6.2.19",
+    "accessedAt": "2026-10-02",
+    "license": "Apache-2.0",
+    "notes": "固定版本源码复核；精确 URL、版本和文件 SHA 在同组验证记录中，不代表全部分支执行。"
+  },
+  {
+    "id": "spring6219.xml-reader",
+    "title": "XmlBeanDefinitionReader v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/xml/XmlBeanDefinitionReader.java",
+    "type": "source",
+    "version": "v6.2.19",
+    "accessedAt": "2026-10-02",
+    "license": "Apache-2.0",
+    "notes": "固定版本源码复核；精确 URL、版本和文件 SHA 在同组验证记录中，不代表全部分支执行。"
+  },
+  {
+    "id": "spring6219.document-reader",
+    "title": "DefaultBeanDefinitionDocumentReader v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/xml/DefaultBeanDefinitionDocumentReader.java",
+    "type": "source",
+    "version": "v6.2.19",
+    "accessedAt": "2026-10-02",
+    "license": "Apache-2.0",
+    "notes": "固定版本源码复核；精确 URL、版本和文件 SHA 在同组验证记录中，不代表全部分支执行。"
+  },
+  {
+    "id": "spring6219.parser",
+    "title": "BeanDefinitionParserDelegate v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/xml/BeanDefinitionParserDelegate.java",
+    "type": "source",
+    "version": "v6.2.19",
+    "accessedAt": "2026-10-02",
+    "license": "Apache-2.0",
+    "notes": "固定版本源码复核；精确 URL、版本和文件 SHA 在同组验证记录中，不代表全部分支执行。"
+  },
+  {
+    "id": "spring6219.reader-utils",
+    "title": "BeanDefinitionReaderUtils v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/support/BeanDefinitionReaderUtils.java",
+    "type": "source",
+    "version": "v6.2.19",
+    "accessedAt": "2026-10-02",
+    "license": "Apache-2.0",
+    "notes": "固定版本源码复核；精确 URL、版本和文件 SHA 在同组验证记录中，不代表全部分支执行。"
+  },
+  {
+    "id": "spring6219.listable-factory",
+    "title": "DefaultListableBeanFactory v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/support/DefaultListableBeanFactory.java",
+    "type": "source",
+    "version": "v6.2.19",
+    "accessedAt": "2026-10-02",
+    "license": "Apache-2.0",
+    "notes": "固定版本源码复核；精确 URL、版本和文件 SHA 在同组验证记录中，不代表全部分支执行。"
+  },
+  {
+    "id": "spring6219.bean-factory",
+    "title": "AbstractBeanFactory v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/support/AbstractBeanFactory.java",
+    "type": "source",
+    "version": "v6.2.19",
+    "accessedAt": "2026-10-02",
+    "license": "Apache-2.0",
+    "notes": "固定版本源码复核；精确 URL、版本和文件 SHA 在同组验证记录中，不代表全部分支执行。"
+  },
+  {
+    "id": "spring6219.autowire-factory",
+    "title": "AbstractAutowireCapableBeanFactory v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/support/AbstractAutowireCapableBeanFactory.java",
+    "type": "source",
+    "version": "v6.2.19",
+    "accessedAt": "2026-10-02",
+    "license": "Apache-2.0",
+    "notes": "固定版本源码复核；精确 URL、版本和文件 SHA 在同组验证记录中，不代表全部分支执行。"
+  },
+  {
+    "id": "spring6219.singleton-registry",
+    "title": "DefaultSingletonBeanRegistry v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/support/DefaultSingletonBeanRegistry.java",
+    "type": "source",
+    "version": "v6.2.19",
+    "accessedAt": "2026-10-02",
+    "license": "Apache-2.0",
+    "notes": "固定版本源码复核；精确 URL、版本和文件 SHA 在同组验证记录中，不代表全部分支执行。"
+  },
+  {
+    "id": "spring6219.BeanDefinition",
+    "title": "BeanDefinition v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/config/BeanDefinition.java",
+    "type": "source",
+    "version": "v6.2.19",
+    "accessedAt": "2026-10-02",
+    "license": "Apache-2.0",
+    "notes": "固定版本源码复核；精确 URL、版本和文件 SHA 在同组验证记录中，不代表全部分支执行。"
+  },
+  {
+    "id": "spring6219.BeanDefinitionRegistry",
+    "title": "BeanDefinitionRegistry v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/support/BeanDefinitionRegistry.java",
+    "type": "source",
+    "version": "v6.2.19",
+    "accessedAt": "2026-10-02",
+    "license": "Apache-2.0",
+    "notes": "固定版本源码复核；精确 URL、版本和文件 SHA 在同组验证记录中，不代表全部分支执行。"
+  },
+  {
+    "id": "spring6219.DefaultDocumentLoader",
+    "title": "DefaultDocumentLoader v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/xml/DefaultDocumentLoader.java",
+    "type": "source",
+    "version": "v6.2.19",
+    "accessedAt": "2026-10-02",
+    "license": "Apache-2.0",
+    "notes": "固定版本源码复核；精确 URL、版本和文件 SHA 在同组验证记录中，不代表全部分支执行。"
+  },
+  {
+    "id": "spring6219.PluggableSchemaResolver",
+    "title": "PluggableSchemaResolver v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/xml/PluggableSchemaResolver.java",
+    "type": "source",
+    "version": "v6.2.19",
+    "accessedAt": "2026-10-02",
+    "license": "Apache-2.0",
+    "notes": "固定版本源码复核；精确 URL、版本和文件 SHA 在同组验证记录中，不代表全部分支执行。"
+  },
+  {
+    "id": "spring6219.DefaultResourceLoader",
+    "title": "DefaultResourceLoader v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-core/src/main/java/org/springframework/core/io/DefaultResourceLoader.java",
+    "type": "source",
+    "version": "v6.2.19",
+    "accessedAt": "2026-10-02",
+    "license": "Apache-2.0",
+    "notes": "固定版本源码复核；精确 URL、版本和文件 SHA 在同组验证记录中，不代表全部分支执行。"
+  },
+  {
+    "id": "spring6219.PathMatchingResourcePatternResolver",
+    "title": "PathMatchingResourcePatternResolver v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-core/src/main/java/org/springframework/core/io/support/PathMatchingResourcePatternResolver.java",
+    "type": "source",
+    "version": "v6.2.19",
+    "accessedAt": "2026-10-02",
+    "license": "Apache-2.0",
+    "notes": "固定版本源码复核；精确 URL、版本和文件 SHA 在同组验证记录中，不代表全部分支执行。"
+  },
+  {
+    "id": "spring6219.ClassPathResource",
+    "title": "ClassPathResource v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-core/src/main/java/org/springframework/core/io/ClassPathResource.java",
+    "type": "source",
+    "version": "v6.2.19",
+    "accessedAt": "2026-10-02",
+    "license": "Apache-2.0",
+    "notes": "固定版本源码复核；精确 URL、版本和文件 SHA 在同组验证记录中，不代表全部分支执行。"
+  },
+  {
+    "id": "spring6219.SimpleAliasRegistry",
+    "title": "SimpleAliasRegistry v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-core/src/main/java/org/springframework/core/SimpleAliasRegistry.java",
+    "type": "source",
+    "version": "v6.2.19",
+    "accessedAt": "2026-10-02",
+    "license": "Apache-2.0",
+    "notes": "固定版本源码复核；精确 URL、版本和文件 SHA 在同组验证记录中，不代表全部分支执行。"
+  },
+  {
+    "id": "spring6219.annotation",
+    "title": "AnnotationConfigApplicationContext v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-context/src/main/java/org/springframework/context/annotation/AnnotationConfigApplicationContext.java",
+    "type": "source",
+    "version": "v6.2.19",
+    "accessedAt": "2026-10-02",
+    "license": "Apache-2.0",
+    "notes": "固定版本源码复核；精确 URL、版本和文件 SHA 在同组验证记录中，不代表全部分支执行。"
+  },
+  {
+    "id": "spring6219.AnnotatedBeanDefinitionReader",
+    "title": "AnnotatedBeanDefinitionReader v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-context/src/main/java/org/springframework/context/annotation/AnnotatedBeanDefinitionReader.java",
+    "type": "source",
+    "version": "v6.2.19",
+    "accessedAt": "2026-10-02",
+    "license": "Apache-2.0",
+    "notes": "固定版本源码复核；精确 URL、版本和文件 SHA 在同组验证记录中，不代表全部分支执行。"
+  },
+  {
+    "id": "spring6219.configuration-processor",
+    "title": "ConfigurationClassPostProcessor v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-context/src/main/java/org/springframework/context/annotation/ConfigurationClassPostProcessor.java",
+    "type": "source",
+    "version": "v6.2.19",
+    "accessedAt": "2026-10-02",
+    "license": "Apache-2.0",
+    "notes": "固定版本源码复核；精确 URL、版本和文件 SHA 在同组验证记录中，不代表全部分支执行。"
+  },
+  {
+    "id": "spring6219.configuration-reader",
+    "title": "ConfigurationClassBeanDefinitionReader v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-context/src/main/java/org/springframework/context/annotation/ConfigurationClassBeanDefinitionReader.java",
+    "type": "source",
+    "version": "v6.2.19",
+    "accessedAt": "2026-10-02",
+    "license": "Apache-2.0",
+    "notes": "固定版本源码复核；精确 URL、版本和文件 SHA 在同组验证记录中，不代表全部分支执行。"
+  },
+  {
+    "id": "boot3516.application",
+    "title": "SpringApplication v3.5.16",
+    "url": "https://github.com/spring-projects/spring-boot/blob/v3.5.16/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/SpringApplication.java",
+    "type": "source",
+    "version": "v3.5.16",
+    "accessedAt": "2026-10-02",
+    "license": "Apache-2.0",
+    "notes": "固定版本源码复核；精确 URL、版本和文件 SHA 在同组验证记录中，不代表全部分支执行。"
+  },
+  {
+    "id": "boot3516.definition-loader",
+    "title": "BeanDefinitionLoader v3.5.16",
+    "url": "https://github.com/spring-projects/spring-boot/blob/v3.5.16/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/BeanDefinitionLoader.java",
+    "type": "source",
+    "version": "v3.5.16",
+    "accessedAt": "2026-10-02",
+    "license": "Apache-2.0",
+    "notes": "固定版本源码复核；精确 URL、版本和文件 SHA 在同组验证记录中，不代表全部分支执行。"
+  },
+  {
+    "id": "spring6219.lazy",
+    "title": "Spring 6.2 懒初始化合同与依赖例外",
+    "url": "https://docs.spring.io/spring-framework/reference/6.2/core/beans/dependencies/factory-lazy-init.html",
+    "type": "documentation",
+    "version": "访问时标示6.2.19；6.2文档路由可更新",
+    "accessedAt": "2026-10-02",
+    "license": null,
+    "notes": "固定版本源码复核；精确 URL、版本和文件 SHA 在同组验证记录中，不代表全部分支执行。"
+  }
+]

@@ -1,0 +1,57 @@
+[
+  {
+    "query": "catch 住异常 还是回滚",
+    "topic": "frameworks.transaction-proxy",
+    "anchor": "shared-rollback"
+  },
+  {
+    "query": "UnexpectedRollbackException",
+    "topic": "frameworks.transaction-proxy",
+    "anchor": "shared-rollback"
+  },
+  {
+    "query": "goroutine 没退出",
+    "topic": "go.context-cancellation",
+    "anchor": "worker-lifetime"
+  },
+  {
+    "query": "cancel 不等待",
+    "topic": "go.context-cancellation",
+    "anchor": "worker-lifetime"
+  },
+  {
+    "query": "缓存删除后又旧了",
+    "topic": "data.cache-invalidation",
+    "anchor": "_2-后删也有窗口-旧读者还没回来"
+  },
+  {
+    "query": "dedup 有但投影没有",
+    "topic": "distributed.transactional-outbox",
+    "anchor": "_3-消费去重的提交边界-比表名重要"
+  },
+  {
+    "query": "HashMap 扩容",
+    "topic": "java.hashmap",
+    "anchor": "resize"
+  },
+  {
+    "query": "哈希冲突",
+    "topic": "java.hashmap",
+    "anchor": "table-and-bins"
+  },
+  {
+    "query": "putVal",
+    "topic": "java.hashmap-source",
+    "anchor": "putval"
+  },
+  {
+    "query": "BeanDefinition 资源定位",
+    "topic": "frameworks.bean-definition-registration",
+    "anchor": "_4-资源定位-classpath-字符串在哪里变成可读字节"
+  },
+  {
+    "query": "要不要拆微服务",
+    "topic": "architecture.order-service-extraction",
+    "anchor": "_4-决策矩阵-先过硬门槛-再比较代价"
+  }
+]

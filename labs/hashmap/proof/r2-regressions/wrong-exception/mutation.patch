@@ -1,0 +1,11 @@
+--- baseline/HashMapLab.java
++++ wrong-exception/HashMapLab.java
+@@ -31,7 +31,7 @@
+     }
+ 
+     static void check(boolean condition, String message) {
+-        if (!condition) throw new AssertionError("ASSERTION_FAILED: " + message);
++        if (!condition) throw new IllegalStateException("ASSERTION_FAILED: " + message);
+     }
+     static void equal(Object expected, Object actual, String message) {
+         check(Objects.equals(expected, actual), message + " expected=" + expected + " actual=" + actual);

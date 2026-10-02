@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+repositories { mavenCentral() }
+dependencies { implementation 'org.springframework:spring-context:6.2.19' }
+java { toolchain { languageVersion = JavaLanguageVersion.of(21) } }
+application { mainClass = 'lab.Main' }
+tasks.register('verify', JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'lab.BeanDefinitionLabTests'
+}
+tasks.named('check') { dependsOn tasks.named('verify') }
+tasks.register('resolvedVersions') {
+    doLast {
+        configurations.runtimeClasspath.resolvedConfiguration.resolvedArtifacts
+            .sort { it.moduleVersion.id.toString() }.each { println it.moduleVersion.id }
+    }
+}
+
+dependencyLocking { lockAllConfigurations() }

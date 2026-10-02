@@ -1,0 +1,42 @@
+[
+  {
+    "id": "legacy.spring-service-boundaries",
+    "kind": "executed",
+    "status": "pass",
+    "legacyEvidence": "evidence/spring-service-boundaries.json",
+    "recordedAt": "2026-10-02",
+    "notes": "原独立复核通过的冻结运行；本次文档迁移未重新执行。"
+  },
+  {
+    "id": "legacy.spring-transaction-proxy",
+    "kind": "executed",
+    "status": "pass",
+    "legacyEvidence": "evidence/spring-transaction-proxy.json",
+    "recordedAt": "2026-10-02",
+    "notes": "原独立复核通过的冻结运行；本次文档迁移未重新执行。"
+  },
+  {
+    "id": "legacy.go-service-lifecycle",
+    "kind": "executed",
+    "status": "pass",
+    "legacyEvidence": "evidence/go-service-lifecycle.json",
+    "recordedAt": "2026-10-02",
+    "notes": "原独立复核通过的冻结运行；本次文档迁移未重新执行。"
+  },
+  {
+    "id": "legacy.go-context-cancellation",
+    "kind": "executed",
+    "status": "pass",
+    "legacyEvidence": "evidence/go-context-cancellation.json",
+    "recordedAt": "2026-10-02",
+    "notes": "原独立复核通过的冻结运行；本次文档迁移未重新执行。"
+  },
+  {
+    "id": "legacy.data-consistency",
+    "kind": "executed",
+    "status": "pass",
+    "legacyEvidence": "evidence/data-consistency.json",
+    "recordedAt": "2026-10-02",
+    "notes": "原独立复核通过的冻结运行；本次文档迁移未重新执行。"
+  }
+]

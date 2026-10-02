@@ -10,7 +10,7 @@
   "packageManager": "npm@11.9.0",
   "scripts": {
     "docs:dev": "vitepress dev docs --host 127.0.0.1",
-    "docs:build": "node scripts/check-content.mjs && vitepress build docs && node scripts/check-output.mjs",
+    "docs:build": "node scripts/check-content.mjs && node scripts/check-preservation.mjs && vitepress build docs && node scripts/check-output.mjs && node scripts/check-search.mjs",
     "docs:preview": "vitepress preview docs --host 0.0.0.0",
     "test": "node --test tests/*.test.mjs",
     "check": "npm test && npm run docs:build"
