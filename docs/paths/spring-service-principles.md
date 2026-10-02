@@ -25,7 +25,7 @@ Java 调用与异常；HTTP 请求响应；SQL 提交与回滚。这些是进入
 - [容器创建与对象所有权：Bean 何时可用，谁负责关闭](/knowledge/frameworks/spring-container/bean-lifecycle.html)（主线）：区分定义、实例与内部资源的生命周期
 - [请求完成链：MVC 在哪里选择处理器、转换异常和提交响应](/knowledge/frameworks/spring-mvc/request-pipeline.html)（主线）：定位参数解析、异常处理和响应提交
 
-**阶段任务：**画出协作者所有权和请求处理链；能解释业务尚未进入时为何返回错误。
+**阶段任务**：画出协作者所有权和请求处理链；能解释业务尚未进入时为何返回错误。
 
 ## 2. 数据与资源的边界 {#stage-2}
 
@@ -34,7 +34,7 @@ Java 调用与异常；HTTP 请求响应；SQL 提交与回滚。这些是进入
 - [Spring 事务调用链：从代理入口到数据库连接](/knowledge/frameworks/spring-transactions/proxy-call-chain.html)（主线）：跟踪代理、回滚标记和线程绑定连接
 - [连接池与事务预算：请求卡住时，资源被谁占住](/knowledge/frameworks/data-access/connection-budget.html)（主线）：解释连接占用与排队，区分超时和终止
 
-**阶段任务：**预测事务最终结果与连接归还时机，比较短事务与跨外部等待的长事务。
+**阶段任务**：预测事务最终结果与连接归还时机，比较短事务与跨外部等待的长事务。
 
 ## 3. 把边界放进同一个服务 {#stage-3}
 
@@ -42,7 +42,7 @@ Java 调用与异常；HTTP 请求响应；SQL 提交与回滚。这些是进入
 
 - [订单服务评审：把对象、HTTP、事务和资源合同接起来](/cases/orders/local-service-boundary.html)（主线）：同时核对 HTTP、持久数据和资源结果
 
-**阶段任务：**提交有备选方案、失败矩阵和未覆盖项的设计评审。
+**阶段任务**：提交有备选方案、失败矩阵和未覆盖项的设计评审。
 
 ## 完成以后 {#completion}
 

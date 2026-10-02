@@ -62,6 +62,6 @@
 }
 
 
-.vp-doc .codehike .line:not(.has-focus) { filter: none !important; opacity: 1; }
+.vp-doc .codehike .line:not(.has-focus) { filter: none !important; opacity: 1 !important; }
 .vp-doc .codehike .has-focus, .vp-doc .codehike .ch-inline-mark { background-color: var(--vp-code-line-highlight-color); }
 .vp-doc .codehike .ch-inline-mark { border-bottom: 2px solid var(--vp-c-brand-1); }

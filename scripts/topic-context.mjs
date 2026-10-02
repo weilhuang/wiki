@@ -16,7 +16,7 @@ export function topicContextMarkdown(topic,topics) {
     if(prev||next)bottom+=`路线建议顺序（不是强先修）：${prev?'前一项 '+link(prev):'本路线起点'}；${next?'后一项 '+link(next):'本路线收束'}。\n\n`
   }
   bottom+='按其他任务继续：[源码阅读](/resources/source-reading.html) · [实验与验证](/resources/experiments.html) · [复习与推理](/resources/review.html)\n'
-  const scope=`**适用范围：**${topic.scope}\n\n`+(prerequisite.length?`**理解先修：**${prerequisite.join('；')}。\n\n`:'')
+  const scope=`**适用范围**：${topic.scope}\n\n`+(prerequisite.length?`**理解先修**：${prerequisite.join('；')}。\n\n`:'')
   return {breadcrumb,scope,bottom}
 }
 export function addTopicContext(md,topics) {
