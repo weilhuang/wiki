@@ -1,6 +1,9 @@
 ---
 title: 关于这些笔记
 description: 工程札记的内容范围与阅读方式。
+prev: false
+next: false
+lastUpdated: false
 ---
 
 <script setup>
