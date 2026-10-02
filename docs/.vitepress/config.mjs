@@ -5,6 +5,8 @@ import { readPosts, rss, site } from '../../scripts/content.mjs'
 import { existsSync } from 'node:fs'
 import { curriculum, chapterNavigation, sourceUrl } from '../../scripts/curriculum.mjs'
 import { writeLegacyPages } from '../../scripts/legacy.mjs'
+import { managedPageHead } from '../../scripts/page-metadata.mjs'
+import { notFoundRobots } from './theme/not-found-metadata.mjs'
 import { createCodeCache } from '../../scripts/code-cache.mjs'
 import { wikiMarkdown } from '../../scripts/markdown-extensions.mjs'
 import { tokenizeChinese } from '../../scripts/search.mjs'
@@ -39,12 +41,9 @@ export default defineConfig({
   transformPageData(pageData) {
     const chapter = posts.find(p=>p.source===pageData.relativePath)
     if (chapter) pageData.frontmatter = { ...pageData.frontmatter, ...chapterNavigation(chapter, posts) }
+    pageData.frontmatter.head = managedPageHead(pageData.relativePath, pageData.frontmatter, site.url)
   },
-  transformHead({ pageData }) {
-    const path = pageData.relativePath.replace(/index\.md$/, '').replace(/\.md$/, '.html')
-    if (path === '404.html') return [['meta', { name: 'robots', content: 'noindex' }]]
-    return [['link', { rel: 'canonical', href: pageData.frontmatter.canonical ? new URL(pageData.frontmatter.canonical.replace(/^\//, ''), site.url).href : new URL(path, site.url).href }]]
-  },
+  transformHead({ pageData }) { return pageData.isNotFound ? [notFoundRobots] : [] },
   vite: { plugins: [{ name: 'wiki-codehike-watch', enforce: 'pre', generateBundle(_options, bundle) { for (const file of Object.values(bundle)) { if (file.type === 'chunk' && Object.keys(file.modules).some(id => /node_modules\/(react|react-dom|codehike|@code-hike)\//.test(id))) throw new Error('Build-only Code Hike/React leaked into a runtime bundle') } }, async handleHotUpdate(ctx) { if (ctx.file.endsWith('.md')) await codeCache.refresh() } }] },
   markdown: {
     highlight: (code, lang) => codeCache.get(code, lang).html,
