@@ -1,7 +1,7 @@
 ---
 layout: page
-title: 首页
-titleTemplate: 工程札记
+title: 工程札记
+titleTemplate: false
 sidebar: false
 ---
 
