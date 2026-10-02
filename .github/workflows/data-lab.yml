@@ -1,0 +1,61 @@
+name: Validate data consistency lab
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/data-lab.yml'
+      - 'scripts/ci/data_evidence.py'
+      - 'scripts/ci/test_data_evidence.py'
+      - 'labs/data-consistency/**'
+      - 'labs/data-consistency-reviewed.json'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: data-lab-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  real-services:
+    name: MySQL and Redis / 23 cases
+    if: github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - name: Checkout the proposed merge
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+          submodules: false
+          lfs: false
+      - name: Check reviewed source and static safety contract
+        env:
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          python3 scripts/ci/test_data_evidence.py
+          python3 scripts/ci/data_evidence.py prepare
+          python3 labs/data-consistency/check_static.py
+          python3 scripts/ci/data_evidence.py check-optimizer
+      - name: Run the real isolated services once
+        working-directory: labs/data-consistency
+        run: timeout --kill-after=15s 12m bash run.sh all
+      - name: Validate and stage bounded evidence
+        id: evidence
+        if: always()
+        run: python3 scripts/ci/data_evidence.py collect
+      - name: Upload this run's evidence
+        if: always() && steps.evidence.outputs.upload_ready == 'true'
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: data-consistency-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/wiki-data-evidence-upload
+          retention-days: 3
+          include-hidden-files: false
+          if-no-files-found: error
+          compression-level: 6

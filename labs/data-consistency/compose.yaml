@@ -1,0 +1,37 @@
+services:
+  mysql:
+    image: ${MYSQL_IMAGE:?infra/versions.env is required}
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      MYSQL_DATABASE: consistency_lab
+    command: ["--transaction-isolation=REPEATABLE-READ", "--innodb-lock-wait-timeout=15", "--innodb-print-all-deadlocks=ON"]
+    labels:
+      knowledge-station.owner: ${LAB_OWNER:?run.sh owns this project}
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks: [lab]
+    healthcheck:
+      test: ["CMD-SHELL", "grep -qx mysqld /proc/1/comm && mysqladmin --protocol=socket -uroot ping --silent"]
+      interval: 2s
+      timeout: 2s
+      retries: 60
+    mem_limit: 768m
+  redis:
+    image: ${REDIS_IMAGE:?infra/versions.env is required}
+    command: ["redis-server", "--save", "", "--appendonly", "no", "--maxmemory", "64mb", "--maxmemory-policy", "noeviction"]
+    labels:
+      knowledge-station.owner: ${LAB_OWNER:?run.sh owns this project}
+    networks: [lab]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 2s
+      timeout: 2s
+      retries: 30
+    mem_limit: 128m
+networks:
+  lab:
+    internal: true
+volumes:
+  mysql-data:
+    labels:
+      knowledge-station.owner: ${LAB_OWNER:?run.sh owns this project}
