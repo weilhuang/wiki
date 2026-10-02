@@ -2,6 +2,7 @@ import { readdirSync, readFileSync, statSync, existsSync } from 'node:fs'
 import { join, resolve, relative } from 'node:path'
 import { site } from '../site.config.mjs'
 import { JSDOM } from 'jsdom'
+import { syncNotFoundMetadata } from '../docs/.vitepress/theme/not-found-metadata.mjs'
 import { readChapters, aliasEntries, chapterNavigation } from './curriculum.mjs'
 const dist = resolve('docs/.vitepress/dist')
 const walk = dir => readdirSync(dir).flatMap(name => { const path = join(dir, name); return statSync(path).isDirectory() ? walk(path) : [path] })
@@ -34,6 +35,15 @@ for (const file of ['feed.xml', 'sitemap.xml', '404.html', '.nojekyll']) if (!ex
 const feed = readFileSync(join(dist, 'feed.xml'), 'utf8')
 const map = readFileSync(join(dist, 'sitemap.xml'), 'utf8')
 if (!feed.includes(site.url) || !map.includes(site.url)) errors.push('RSS or sitemap missing deployment base')
+const notFoundDom = new JSDOM(readFileSync(join(dist, '404.html'), 'utf8'))
+const notFoundDocument = notFoundDom.window.document
+if (notFoundDocument.querySelector('meta[name=robots]')?.content !== 'noindex' || notFoundDocument.querySelector('link[rel=canonical]')) errors.push('Generated default 404 must be noindex without canonical')
+syncNotFoundMetadata(notFoundDocument, true)
+syncNotFoundMetadata(notFoundDocument, true)
+if (notFoundDocument.querySelectorAll('meta[name=robots]').length !== 1) errors.push('404 robots metadata duplicated during client initialization')
+syncNotFoundMetadata(notFoundDocument, false)
+if (notFoundDocument.querySelector('meta[name=robots]')) errors.push('404 robots metadata survives navigation to a normal page')
+notFoundDom.window.close()
 
 const chapters = readChapters(process.cwd(), { strict:true })
 const legacyAnchors = JSON.parse(readFileSync('tests/fixtures/legacy-anchors.json','utf8'))
