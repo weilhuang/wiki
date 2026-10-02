@@ -31,6 +31,12 @@ for (const path of pages) {
     }
   }
   if (!text.includes('lang="zh-CN"')) errors.push(`${path}: missing document language`)
+  const bodyDom = new JSDOM(text)
+  const body = bodyDom.window.document.body
+  body.querySelectorAll('pre, code, script, style, template, [hidden], [aria-hidden="true"]').forEach(element => element.remove())
+  const unparsed = body.textContent.match(/\*\*[^*\n]+\*\*/g)
+  if (unparsed) errors.push(`${relative(dist, path)}: unparsed bold delimiters in visible non-code text: ${unparsed.join(', ')}`)
+  bodyDom.window.close()
 }
 for (const file of ['feed.xml', 'sitemap.xml', '404.html', '.nojekyll']) if (!existsSync(join(dist, file))) errors.push(`Missing ${file}`)
 const feed = readFileSync(join(dist, 'feed.xml'), 'utf8')
@@ -89,4 +95,4 @@ for(const [source,anchors]of Object.entries(inPlaceAnchors)){
   dom.window.close()
 }
 if (errors.length) throw new Error(errors.join('\n'))
-console.log(`Output: ${pages.length} HTML pages, internal links/assets, language, canonical curriculum, legacy anchors, feed, sitemap and 404 passed`)
+console.log(`Output: ${pages.length} HTML pages, non-code bold rendering, internal links/assets, language, canonical curriculum, legacy anchors, feed, sitemap and 404 passed`)

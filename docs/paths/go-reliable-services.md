@@ -24,7 +24,7 @@ Go 函数、error 与 defer；channel 与 goroutine；HTTP 请求响应。这些
 - [HTTP 管线与响应合同：谁解析、谁调用、谁写回](/knowledge/go/http/request-response-contract.html)（主线）：建立入口拒绝顺序与完整响应合同
 - [Go 请求取消：从 context 传播到提交结果](/knowledge/go/concurrency/context-cancellation.html)（主线）：区分取消信号、工作退出和业务提交
 
-**阶段任务：**用同一输入分别预测公开响应、业务进入和副作用。
+**阶段任务**：用同一输入分别预测公开响应、业务进入和副作用。
 
 ## 2. 限制工作与等待 {#stage-2}
 
@@ -33,7 +33,7 @@ Go 函数、error 与 defer；channel 与 goroutine；HTTP 请求响应。这些
 - [有界并发与 goroutine 所有权：启动以后谁等待、谁收尾](/knowledge/go/concurrency/bounded-work.html)（主线）：说明谁接纳、谁 join、谁关闭
 - [下游 HTTP 调用：连接复用、超时预算与有限重试](/knowledge/go/http/client-budgets.html)（主线）：让 Body、连接复用和重试共享总预算
 
-**阶段任务：**给活动任务、队列和下游调用设可解释的边界。
+**阶段任务**：给活动任务、队列和下游调用设可解释的边界。
 
 ## 3. 关闭进程前兑现责任 {#stage-3}
 
@@ -41,7 +41,7 @@ Go 函数、error 与 defer；channel 与 goroutine；HTTP 请求响应。这些
 
 - [优雅停机评审：停止接单以后，哪些工作还欠着](/knowledge/go/lifecycle/graceful-shutdown.html)（主线）：按依赖顺序停止接纳、等待和释放资源
 
-**阶段任务：**演练正常排空与强制退出，说明什么结果需要外部持久化。
+**阶段任务**：演练正常排空与强制退出，说明什么结果需要外部持久化。
 
 ## 完成以后 {#completion}
 
