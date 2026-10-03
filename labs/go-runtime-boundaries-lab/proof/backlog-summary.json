@@ -1,0 +1,14 @@
+{
+  "scenario": "backlog",
+  "version": "go1.27.1",
+  "status": "pass",
+  "started": 24,
+  "joined": 24,
+  "completed": 24,
+  "applicationGoroutineLimit": 24,
+  "blockedObserved": 22,
+  "activeAtSnapshot": 2,
+  "waitingAtSnapshot": 22,
+  "cpuChecksum": 0,
+  "networkBytes": 0
+}

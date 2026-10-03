@@ -1,0 +1,20 @@
+File: diagnose
+Build ID: 0cad9b3e9e81afa46d86c93d5c9aecd24707c5ec
+Type: delay
+Time: 2026-10-03 16:22:44 CST
+Showing nodes accounting for 494.18us, 100% of 494.18us total
+      flat  flat%   sum%        cum   cum%
+  465.88us 94.27% 94.27%   465.88us 94.27%  runtime.chanrecv1
+   28.29us  5.73%   100%    28.29us  5.73%  sync.(*WaitGroup).Wait
+         0     0%   100%     5.21us  1.05%  main.capture
+         0     0%   100%   459.75us 93.03%  main.channelWait
+         0     0%   100%    34.42us  6.97%  main.main
+         0     0%   100%    34.42us  6.97%  main.run
+         0     0%   100%   459.75us 93.03%  main.run.func5.1
+         0     0%   100%   459.75us 93.03%  main.run.func7
+         0     0%   100%     5.21us  1.05%  runtime.gcBgMarkStartWorkers
+         0     0%   100%     5.21us  1.05%  runtime.gcStart
+         0     0%   100%    34.42us  6.97%  runtime.main
+         0     0%   100%     5.21us  1.05%  runtime.makeslice
+         0     0%   100%     5.21us  1.05%  runtime.mallocgc
+         0     0%   100%     5.21us  1.05%  runtime.mallocgcLarge

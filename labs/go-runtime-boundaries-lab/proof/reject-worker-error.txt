@@ -1,0 +1,15 @@
+{
+  "scenario": "network",
+  "version": "go1.27.1",
+  "status": "fail",
+  "started": 1,
+  "joined": 1,
+  "completed": 0,
+  "applicationGoroutineLimit": 2,
+  "blockedObserved": 1,
+  "activeAtSnapshot": 0,
+  "waitingAtSnapshot": 0,
+  "cpuChecksum": 0,
+  "networkBytes": 0,
+  "error": "WORKER_ERROR: EOF\nCOMPLETION_MISMATCH started=1 completed=0"
+}

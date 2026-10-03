@@ -1,0 +1,33 @@
+=== RUN   TestRaceFixture
+==================
+WARNING: DATA RACE
+Write at 0x00c00009c3f8 by goroutine 10:
+  example.com/go-runtime-boundaries-lab.TestRaceFixture.func1()
+      ./ownership_test.go:149 +0xb9
+
+Previous write at 0x00c00009c3f8 by goroutine 9:
+  example.com/go-runtime-boundaries-lab.TestRaceFixture.func1()
+      ./ownership_test.go:149 +0xb9
+
+Goroutine 10 (running) created at:
+  example.com/go-runtime-boundaries-lab.TestRaceFixture()
+      ./ownership_test.go:145 +0x10d
+  testing.tRunner()
+      GO_TOOLCHAIN/src/testing/testing.go:2193 +0x21c
+  testing.(*T).Run.gowrap1()
+      GO_TOOLCHAIN/src/testing/testing.go:2258 +0x38
+
+Goroutine 9 (finished) created at:
+  example.com/go-runtime-boundaries-lab.TestRaceFixture()
+      ./ownership_test.go:145 +0x10d
+  testing.tRunner()
+      GO_TOOLCHAIN/src/testing/testing.go:2193 +0x21c
+  testing.(*T).Run.gowrap1()
+      GO_TOOLCHAIN/src/testing/testing.go:2258 +0x38
+==================
+    ownership_test.go:155: RACE_FIXTURE_JOINED final=1
+    testing.go:1865: race detected during execution of test
+--- FAIL: TestRaceFixture (0.00s)
+FAIL
+FAIL	example.com/go-runtime-boundaries-lab	0.009s
+FAIL

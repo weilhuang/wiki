@@ -1,0 +1,15 @@
+File: diagnose
+Build ID: 0cad9b3e9e81afa46d86c93d5c9aecd24707c5ec
+Type: delay
+Time: 2026-10-03 16:22:46 CST
+Showing nodes accounting for 5.36us, 100% of 5.36us total
+      flat  flat%   sum%        cum   cum%
+    5.36us   100%   100%     5.36us   100%  runtime.chanrecv1
+         0     0%   100%     5.36us   100%  main.main
+         0     0%   100%     5.36us   100%  main.run
+         0     0%   100%     4.29us 80.01%  runtime.gcBgMarkStartWorkers
+         0     0%   100%     4.29us 80.01%  runtime.gcStart
+         0     0%   100%     5.36us   100%  runtime.main
+         0     0%   100%     4.29us 80.01%  runtime.makechan
+         0     0%   100%     4.29us 80.01%  runtime.mallocgc
+         0     0%   100%     4.29us 80.01%  runtime.mallocgcSmallScanNoHeader

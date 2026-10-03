@@ -22,6 +22,7 @@ Go 函数、error 与 defer；channel 与 goroutine；HTTP 请求响应。这些
 从公开输入和响应开始，先知道服务承诺什么，再讨论请求取消后的工作。
 
 - [HTTP 管线与响应合同：谁解析、谁调用、谁写回](/knowledge/go/http/request-response-contract.html)（主线）：建立入口拒绝顺序与完整响应合同
+- [channel 的同步与关闭：谁交接、谁结束](/knowledge/go/concurrency/channel-memory-ownership.html)（选读）：需要解释交接规则时，先区分收发同步、对象别名和工作结束
 - [Go 请求取消：从 context 传播到提交结果](/knowledge/go/concurrency/context-cancellation.html)（主线）：区分取消信号、工作退出和业务提交
 
 **阶段任务**：用同一输入分别预测公开响应、业务进入和副作用。
@@ -32,6 +33,7 @@ Go 函数、error 与 defer；channel 与 goroutine；HTTP 请求响应。这些
 
 - [有界并发与 goroutine 所有权：启动以后谁等待、谁收尾](/knowledge/go/concurrency/bounded-work.html)（主线）：说明谁接纳、谁 join、谁关闭
 - [下游 HTTP 调用：连接复用、超时预算与有限重试](/knowledge/go/http/client-budgets.html)（主线）：让 Body、连接复用和重试共享总预算
+- [goroutine 为什么在等：调度、netpoll 与诊断证据](/knowledge/go/runtime/scheduler-netpoll-diagnosis.html)（选读）：定位慢请求时，用实际栈、profile与trace区分执行、等待和输入堆积
 
 **阶段任务**：给活动任务、队列和下游调用设可解释的边界。
 

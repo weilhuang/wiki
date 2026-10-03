@@ -1,0 +1,22 @@
+[
+  {
+    "path": "cmd/diagnose/main.go",
+    "sha256": "84ff071b3e1b29b34062c53cc8e99fb117e709dbd9015cfb6c20b08d1bb79404"
+  },
+  {
+    "path": "go.mod",
+    "sha256": "547589176a4bff182d8abc99dd0a81d232a673004e90ca4d46338866ee273a77"
+  },
+  {
+    "path": "ownership.go",
+    "sha256": "4aee38fe73da2248902bc96acc2b5267ce389140374e980df7cf7a29f427aada"
+  },
+  {
+    "path": "ownership_test.go",
+    "sha256": "2bebc73d69476048f09e5ab9dacd938ec97d71b58657f0b467cef556e19ce9bb"
+  },
+  {
+    "path": "run.py",
+    "sha256": "a32273252ca87c0a6a509aef1a54c18110dd4568ae28832016a1d443b16daa54"
+  }
+]

@@ -1,0 +1,16 @@
+File: diagnose
+Build ID: 0cad9b3e9e81afa46d86c93d5c9aecd24707c5ec
+Type: delay
+Time: 2026-10-03 16:22:46 CST
+Showing nodes accounting for 22974.38us, 99.68% of 23048.26us total
+Dropped 6 nodes (cum <= 115.24us)
+      flat  flat%   sum%        cum   cum%
+20937.07us 90.84% 90.84% 20937.07us 90.84%  runtime.chansend1
+ 2037.32us  8.84% 99.68%  2037.32us  8.84%  runtime.chanrecv1
+         0     0% 99.68%  1827.83us  7.93%  main.activeWork
+         0     0% 99.68%   283.36us  1.23%  main.main
+         0     0% 99.68% 22764.90us 98.77%  main.queuedWork
+         0     0% 99.68%   283.36us  1.23%  main.run
+         0     0% 99.68% 22764.90us 98.77%  main.run.func10
+         0     0% 99.68% 22764.90us 98.77%  main.run.func5.1
+         0     0% 99.68%   283.36us  1.23%  runtime.main

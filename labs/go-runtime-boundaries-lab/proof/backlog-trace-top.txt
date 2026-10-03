@@ -1,0 +1,14 @@
+Type: delay
+Showing nodes accounting for 23.09ms, 99.69% of 23.16ms total
+Dropped 6 nodes (cum <= 0.12ms)
+      flat  flat%   sum%        cum   cum%
+   20.93ms 90.38% 90.38%    20.93ms 90.38%  runtime.chansend1
+    2.16ms  9.31% 99.69%     2.16ms  9.31%  runtime.chanrecv1
+         0     0% 99.69%     1.83ms  7.92%  main.activeWork
+         0     0% 99.69%     0.39ms  1.70%  main.main
+         0     0% 99.69%    22.77ms 98.30%  main.queuedWork
+         0     0% 99.69%     0.39ms  1.70%  main.run
+         0     0% 99.69%    22.77ms 98.30%  main.run.func10
+         0     0% 99.69%    22.77ms 98.30%  main.run.func5.1
+         0     0% 99.69%     0.12ms  0.51%  runtime/pprof.StopCPUProfile
+Main binary filename not available.

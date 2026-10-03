@@ -1,0 +1,32 @@
+[
+  {
+    "id": "go-runtime.roundtrip",
+    "article": "articles/channel-memory-ownership.md",
+    "file": "ownership.go",
+    "lines": [
+      11,
+      27
+    ],
+    "transform": "none",
+    "sourceSha256": "4aee38fe73da2248902bc96acc2b5267ce389140374e980df7cf7a29f427aada",
+    "cleanCodeSha256": "d4e67d6e5137543ea0f40aec3ef19d971a3d6e2a9656e15a84f297ecd5fa64c1",
+    "source": "labs/go-runtime-boundaries-lab/ownership.go",
+    "doc": "docs/knowledge/go/concurrency/channel-memory-ownership.md",
+    "language": "go"
+  },
+  {
+    "id": "go-runtime.queued-work",
+    "article": "articles/scheduler-netpoll-diagnosis.md",
+    "file": "cmd/diagnose/main.go",
+    "lines": [
+      73,
+      81
+    ],
+    "transform": "none",
+    "sourceSha256": "84ff071b3e1b29b34062c53cc8e99fb117e709dbd9015cfb6c20b08d1bb79404",
+    "cleanCodeSha256": "4d728e267bd8c014cd29b4f65cbe44477a59c278ce57decc07f47b31c69249a6",
+    "source": "labs/go-runtime-boundaries-lab/cmd/diagnose/main.go",
+    "doc": "docs/knowledge/go/runtime/scheduler-netpoll-diagnosis.md",
+    "language": "go"
+  }
+]

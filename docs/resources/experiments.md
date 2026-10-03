@@ -40,6 +40,23 @@ search: false
 
 </details>
 
+### 可靠性模型：事件统计、服务预算与排空时序 {#experiment-cloud-reliability-lab}
+
+[查看运行结果](/examples/cloud-reliability-results.json) · [下载源码包](/examples/cloud-reliability-lab.zip)。历史运行范围：CPython3.12.14/Linux标准库；固定输入、单进程顺序执行；每条实验命令外部总超时10秒；15个正确模型场景、19个精确身份的错误变体、5类无关结果拒绝；两份正文walkthrough实际执行；预期拒绝除错误类型还核对断言code、expected和actual；两条单独mutant命令真实退出2并记录expected-rejection。
+
+关联知识：[就绪与排空：发布期间谁还接请求](/knowledge/cloud/lifecycle/readiness-draining.html)、[延迟与错误怎样变成服务目标：RED、USE 与 SLO](/knowledge/cloud/observability/service-level-signals.html)。
+
+<details class="verification-appendix">
+<summary>版本、下载身份与未覆盖范围</summary>
+
+- 版本：CPython 3.12.14；Linux; standard library only
+- SHA256：08baa55539cb676755e60b5546bddb2c296ebb7e98c7cba00619157293b5a20a
+- SHA256：de75db02078d4dff573e7b69c170fbad020a3bd781640aee4066c5627fdeb541
+- 未覆盖：无真实流量、生产SLO、监控查询、统计置信区间或概率采样器；无线程、子进程、服务、HTTP、信号、集群、代理、持久化或网络；原子方法调用与显式逻辑时间为模型前提；生命周期模型仅普通ready路由缓存，不实现kube-proxy回退、探针、sidecar或kubelet额外2秒；source-only ZIP包装不等于再次执行；观察只绑定所列字节
+- 此处汇总已有运行记录；收录到目录不会增加实验覆盖范围
+
+</details>
+
 ### 等待条件与断言实验：线程、TCP loopback 和受控交错 {#experiment-foundations-service-lab}
 
 [查看运行结果](/examples/foundations-service-results.json) · [下载源码包](/examples/foundations-service-lab.zip)。历史运行范围：CPython 3.12.14/Linux 固定计算、锁/空队列因果条件及真实TCP loopback；核对数据与线程/socket释放；两个事件控制交错，在computed和join后核对精确结果/副作用；同步观察done实际发布时的资源状态；五个原有坏实现命中精确预期原因列表；leak同时命中PUBLISH_ORDER与RESOURCE；真实启动失败必须精确匹配RuntimeError与injected startup failure，返回error/退出2且不得冒充业务负例；错误退出码、原因或缺字段不能假绿；额外启动身份源码变异由r2回归实际拒绝；r2三项真实service.py源变异：清理许可后提前发布done、中间结果错误后恢复、启动异常类型/消息替换；前两项分别命中PUBLISH_ORDER/RESULT且完成有界清理；第三项因精确启动归因不符拒绝，均非语法/启动失败冒充业务负例。
@@ -53,6 +70,22 @@ search: false
 - SHA256：483142b57f91b174429d717df532a8fdb15c01c836f84da9b062bb3bc244586e
 - SHA256：98435b03a3dc98d10bffa5a7a0c3463238da202366b5cfc319b981e107bb8f9b
 - 未覆盖：事件不能证明线程当时已进入内核睡眠；无远端网络/数据库/HTTP；时间数值只记录不设性能阈值；不证明调度公平性或生产容量；资源和回执为内存模型，不是真实服务；correct只代表指定正常路径，不包含生产异常恢复；不穷尽并发交错或证明无数据竞争；验证器保护有限，不是完整故障注入工具；启动异常作为基础设施异常记录，未冒认为目标业务反例；任务资源和effects是内存模型；不证明操作系统所有调度或真实数据库/HTTP行为；同步发布观察器只作用于本实验可控制的Event对象；不保证任意外部系统可获得同样观察面
+- 此处汇总已有运行记录；收录到目录不会增加实验覆盖范围
+
+</details>
+
+### Go 运行时实验：channel 交接、CPU、网络等待与有界堆积 {#experiment-go-runtime-boundaries}
+
+[下载源码包](/examples/go-runtime-boundaries-lab.zip)。历史运行范围：无缓冲反向边、容量1的R1→S2、close排空后的零值接收、对象转交/归还；正确路径race/vet；alias错误发布、cancel-as-join错误断言按目标原因拒绝；独立真实竞争检测；有限select样本只核对就绪集合记账；所有应用worker通过done/WaitGroup结束；四类独立有限进程，实际CPU/block profile与execution trace；不是网络模型；TCP一个loopback连接对，IO wait实栈后发送K；2秒deadline与连接关闭；24项输入/2许可，active2与waiting22；完成24并join24；关闭peer后的真实worker EOF必须传播为exit1，joined1/completed0。
+
+关联知识：[channel 的同步与关闭：谁交接、谁结束](/knowledge/go/concurrency/channel-memory-ownership.html)、[goroutine 为什么在等：调度、netpoll 与诊断证据](/knowledge/go/runtime/scheduler-netpoll-diagnosis.html)。
+
+<details class="verification-appendix">
+<summary>版本、下载身份与未覆盖范围</summary>
+
+- 版本：Go 1.27.1 linux/amd64；GOMAXPROCS=2, standard library only
+- SHA256：e63ec0bd9864cadc2a3e8d25a8dbc63e65188130c433278c7ae1fd706b7c220d
+- 未覆盖：race无报告仅覆盖实际执行路径与交错，不证明一般无竞态；不根据选择分布证明公平或取消优先级；确定性alias反例无数据竞争，检查的是应用所有权承诺；仅Go1.27.1 Linux amd64，GOMAXPROCS2与有限短窗口；探针有开销；累积等待时间不是请求墙钟时长；不证明生产吞吐/容量、调度公平、多机网络或netpoll完整正确性；未运行HTTP负载、cgo、磁盘IO、容器限额或长期泄漏
 - 此处汇总已有运行记录；收录到目录不会增加实验覆盖范围
 
 </details>

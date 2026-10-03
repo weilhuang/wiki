@@ -16,7 +16,9 @@ search: false
 - [HashMap 的查找、冲突与扩容](/knowledge/java/collections/hashmap.html)：用 A、B、C、D 四个键追踪身份匹配、桶内结构和扩容，再解释可变键、树化与选型边界
 - [沿 OpenJDK 21 源码追踪 HashMap 的状态变化](/knowledge/java/collections/hashmap-source.html)：从 put 入口读到 putVal、resize 和树桶分支，核对计数、低高位拆分及不同 API 的树化边界
 - [线程池如何接纳任务：线程、队列与拒绝](/knowledge/java/juc-execution/executor-admission.html)：沿 JDK21 execute、FutureTask 与 shutdown 的真实分支解释任务接纳、异常归属和关闭后的责任
+- [channel 的同步与关闭：谁交接、谁结束](/knowledge/go/concurrency/channel-memory-ownership.html)：从一个重复使用的字节切片推导收发、缓冲与关闭的内存边界，再区分对象交接、select 就绪和工作结束
 - [Go 请求取消：从 context 传播到提交结果](/knowledge/go/concurrency/context-cancellation.html)：沿请求、工作 goroutine 和数据提交三条线理解 context，配合可运行实验区分取消信号、函数返回与业务结果。
+- [goroutine 为什么在等：调度、netpoll 与诊断证据](/knowledge/go/runtime/scheduler-netpoll-diagnosis.html)：沿四个有界真实进程区分计算、channel 阻塞、TCP 网络等待和工作堆积，用栈、CPU profile 与 trace 逐步缩小判断范围
 - [AOP 的接收者是谁：JDK、CGLIB 与拦截器分派](/knowledge/frameworks/spring-aop/proxy-dispatch.html)：从容器返回的对象追到真实业务接收者，用两种代理、final、自调用和短路解释哪些调用经过拦截器。
 - [自动配置为何生效：条件、顺序与退让](/knowledge/frameworks/spring-boot/conditional-configuration.html)：沿 imports 候选、条件阶段和定义注册追踪默认 Bean，用类路径、属性和用户 Bean 的变化解释装配结果与条件报告。
 - [BeanDefinition 从哪里来：定位、解析、注册与实例化的边界](/knowledge/frameworks/spring-container/bean-definition-registration.html)：跟随一个 XML 输入跨过 Spring 6.2.19 的真实类型分派，观察定义表、别名表与实例缓存如何变化，再连接注解和 Boot 入口。

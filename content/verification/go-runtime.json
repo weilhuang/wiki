@@ -1,0 +1,878 @@
+[
+  {
+    "recordedAt": "2026-10-03",
+    "revision": "G-r1",
+    "independentlyReviewed": true,
+    "versions": [
+      "Go 1.27.1 linux/amd64",
+      "GOMAXPROCS=2, standard library only"
+    ],
+    "id": "go-runtime.source-review",
+    "kind": "source-reviewed",
+    "status": "pass",
+    "title": "Go 1.27.1 内存模型、channel 与 runtime 源码复核",
+    "scope": [
+      "官方规范/API通过web实际复核；channel四种同步边、select就绪与取消/结束边界",
+      "固定tag runtime/poll/规范/许可11文件实际下载并与已安装发行版逐字节比较；明确阅读范围"
+    ],
+    "limitations": [
+      "不构成整个Go发行版可复现构建验证",
+      "固定源码用于解释实现，不能扩大语言或API保证"
+    ],
+    "sourceFiles": [
+      {
+        "path": "content/sources/go-runtime.json",
+        "sha256": "304bbb304dbcdc8476e0a0fcbd5a3409a38fd8a081aaa2a13cca99dd3e31c541"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/source-review.json",
+        "sha256": "3b9f8643abe7beef5c24d22ec5dee13ba5a3774c17793f13dfed6761db9463c4"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/source-scope.json",
+        "sha256": "10d744e71541dcc61d6fb3ada42174358d7443009449eee9697022777d20d280"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/sources/src/runtime/chan.go.txt",
+        "sha256": "dbe8d02ebb1b554b28263c8f34747c0b6d796b3e7040a2f6a625c472e9ce9a42"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/sources/src/runtime/select.go.txt",
+        "sha256": "93977178a5c507d2bd0bbd990613fa0c8a1d6d18b974fcbcd6c9edce6bd8b5bf"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/sources/src/runtime/proc.go.txt",
+        "sha256": "40d15ce858cf058cff92606001a29ee1689db88c121a2f0c283163a0d64a7375"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/sources/src/runtime/runtime2.go.txt",
+        "sha256": "7d66ed912f68b1259947807ca1bdf79ee7e54c6a61a716d88db663d570af66da"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/sources/src/runtime/netpoll.go.txt",
+        "sha256": "f7c606d3fa0a3b9499fd5f42b81918a98f0b99a6029fca2010cabc710fc9ea65"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/sources/src/runtime/netpoll_epoll.go.txt",
+        "sha256": "cd94172ee133e4e522a8091818c6d82c9fdb94a9c263d5004feee114f76f9624"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/sources/src/internal/poll/fd_unix.go.txt",
+        "sha256": "675f74e8cbfc73170e08b43947c131706cd59e498d722555fe3b793618f5f162"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/sources/src/internal/poll/fd_poll_runtime.go.txt",
+        "sha256": "88fda43019c5dcf42545effdebd1747aaea377560dd041a35df8499538ee07c5"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/sources/doc/go_mem.html",
+        "sha256": "a7372b4f36c9525ecc7531bbdbb9e53746ae3f58367a25fe8084d5a35bb8ee7c"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/sources/doc/go_spec.html",
+        "sha256": "a249c493e0ad58ccfeac8081426d5b0e77f92b9761b95548f85c9e4d23d0a753"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/sources/LICENSE",
+        "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad"
+      }
+    ],
+    "upstreamSnapshots": [
+      {
+        "url": "https://raw.githubusercontent.com/golang/go/go1.27.1/src/runtime/chan.go",
+        "tag": "go1.27.1",
+        "sha256": "dbe8d02ebb1b554b28263c8f34747c0b6d796b3e7040a2f6a625c472e9ce9a42"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/golang/go/go1.27.1/src/runtime/select.go",
+        "tag": "go1.27.1",
+        "sha256": "93977178a5c507d2bd0bbd990613fa0c8a1d6d18b974fcbcd6c9edce6bd8b5bf"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/golang/go/go1.27.1/src/runtime/proc.go",
+        "tag": "go1.27.1",
+        "sha256": "40d15ce858cf058cff92606001a29ee1689db88c121a2f0c283163a0d64a7375"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/golang/go/go1.27.1/src/runtime/runtime2.go",
+        "tag": "go1.27.1",
+        "sha256": "7d66ed912f68b1259947807ca1bdf79ee7e54c6a61a716d88db663d570af66da"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/golang/go/go1.27.1/src/runtime/netpoll.go",
+        "tag": "go1.27.1",
+        "sha256": "f7c606d3fa0a3b9499fd5f42b81918a98f0b99a6029fca2010cabc710fc9ea65"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/golang/go/go1.27.1/src/runtime/netpoll_epoll.go",
+        "tag": "go1.27.1",
+        "sha256": "cd94172ee133e4e522a8091818c6d82c9fdb94a9c263d5004feee114f76f9624"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/golang/go/go1.27.1/src/internal/poll/fd_unix.go",
+        "tag": "go1.27.1",
+        "sha256": "675f74e8cbfc73170e08b43947c131706cd59e498d722555fe3b793618f5f162"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/golang/go/go1.27.1/src/internal/poll/fd_poll_runtime.go",
+        "tag": "go1.27.1",
+        "sha256": "88fda43019c5dcf42545effdebd1747aaea377560dd041a35df8499538ee07c5"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/golang/go/go1.27.1/doc/go_mem.html",
+        "tag": "go1.27.1",
+        "sha256": "a7372b4f36c9525ecc7531bbdbb9e53746ae3f58367a25fe8084d5a35bb8ee7c"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/golang/go/go1.27.1/doc/go_spec.html",
+        "tag": "go1.27.1",
+        "sha256": "a249c493e0ad58ccfeac8081426d5b0e77f92b9761b95548f85c9e4d23d0a753"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/golang/go/go1.27.1/LICENSE",
+        "tag": "go1.27.1",
+        "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad"
+      }
+    ],
+    "commands": [],
+    "artifacts": []
+  },
+  {
+    "recordedAt": "2026-10-03T09:31:07.540604+00:00",
+    "revision": "G-C-integration-1",
+    "independentlyReviewed": false,
+    "versions": [
+      "Go 1.27.1 linux/amd64",
+      "GOMAXPROCS=2, standard library only"
+    ],
+    "id": "go-runtime.static",
+    "kind": "static-checked",
+    "status": "pass",
+    "title": "Go 两篇正文的片段、图与canonical静态检查",
+    "scope": [
+      "37 canonical topics across9 domains,6 reference-based routes,24 Node regressions,117 HTML outputs,463 search sections and60 intent targets",
+      "Four integrated articles,4 Mermaid diagrams and4 genuine Code Hike walkthroughs; canonical source and snippet identities",
+      "Go concurrency/runtime and cloud category guides; service-reliability route; shared source ZIP entries and applicable evidence scopes",
+      "Legacy anchors,canonical/404 lifecycle,visible non-code Markdown,strong rendering and source/assets preserved"
+    ],
+    "limitations": [
+      "No new Go runtime or cloud model execution in platform integration; source-bound author and independent executions remain separate",
+      "Kubernetes cluster behavior remains not-run; process examples and sequential models do not establish cluster guarantees",
+      "Independent whole-tree review,remote CI and deployed-browser checks are separate gates"
+    ],
+    "sourceFiles": [
+      {
+        "path": "docs/knowledge/go/concurrency/channel-memory-ownership.md",
+        "sha256": "78d8fe7f3ab882b87e0d5ccea754d809b9e126b23b1086cca947e58723a1fe17"
+      },
+      {
+        "path": "docs/knowledge/go/runtime/scheduler-netpoll-diagnosis.md",
+        "sha256": "29019b6c98019405842f6a8cdacff11d1d763c65238e4926adf678b6590ac3f7"
+      },
+      {
+        "path": "content/snippets/go-runtime.json",
+        "sha256": "6bc5882b11900ecb09818af7cc01baa5f8ca1377d8cdca1e05d404caaedc9bce"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/editorial/static-check.mjs",
+        "sha256": "608fa04e61ac3b18a2c0776f111ac40e46522ed6cfa3ac9ad61df35df92b35d5"
+      }
+    ],
+    "commands": [
+      {
+        "command": "npm run check",
+        "exitCode": 0
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "content/records/go-cloud/integration-static.json",
+        "sha256": "53a5fa2c5813db0bd896d06abf0b4c94ddc6221c534adb94dea8a63397c3cdf1"
+      }
+    ],
+    "historicalAuthorChecks": {
+      "scope": [
+        "两篇单H1/review元信息、四维受控tag与既有canonical关系/链接",
+        "真实Code Hike 1.1.0两段清洁源码逐字匹配、七步范围；Mermaid11.17.2两图strict解析和无障碍描述"
+      ],
+      "commands": [
+        {
+          "command": "node checks/static-check.mjs . SITE_ROOT",
+          "exitCode": 0,
+          "workingDirectory": "author-staging"
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "labs/go-runtime-boundaries-lab/editorial/static-result.json",
+          "sha256": "1e33aa91cc76980d388880cf755e754c729c566cc71309dcaa6aac9cb550e9bd"
+        }
+      ]
+    }
+  },
+  {
+    "recordedAt": "2026-10-03",
+    "revision": "G-r1",
+    "independentlyReviewed": true,
+    "versions": [
+      "Go 1.27.1 linux/amd64",
+      "GOMAXPROCS=2, standard library only"
+    ],
+    "id": "go-runtime.channel-run",
+    "kind": "executed",
+    "status": "pass",
+    "title": "channel 同步、对象交接与错误断言实验",
+    "resourceGroup": "go-runtime-boundaries",
+    "scope": [
+      "无缓冲反向边、容量1的R1→S2、close排空后的零值接收、对象转交/归还",
+      "正确路径race/vet；alias错误发布、cancel-as-join错误断言按目标原因拒绝；独立真实竞争检测",
+      "有限select样本只核对就绪集合记账；所有应用worker通过done/WaitGroup结束"
+    ],
+    "limitations": [
+      "race无报告仅覆盖实际执行路径与交错，不证明一般无竞态",
+      "不根据选择分布证明公平或取消优先级",
+      "确定性alias反例无数据竞争，检查的是应用所有权承诺"
+    ],
+    "sourceFiles": [
+      {
+        "path": "labs/go-runtime-boundaries-lab/attempts/attempt-1/source/go.mod",
+        "sha256": "547589176a4bff182d8abc99dd0a81d232a673004e90ca4d46338866ee273a77"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/cmd/diagnose/main.go",
+        "sha256": "84ff071b3e1b29b34062c53cc8e99fb117e709dbd9015cfb6c20b08d1bb79404"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/go.mod",
+        "sha256": "547589176a4bff182d8abc99dd0a81d232a673004e90ca4d46338866ee273a77"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/ownership.go",
+        "sha256": "4aee38fe73da2248902bc96acc2b5267ce389140374e980df7cf7a29f427aada"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/ownership_test.go",
+        "sha256": "2bebc73d69476048f09e5ab9dacd938ec97d71b58657f0b467cef556e19ce9bb"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/run.py",
+        "sha256": "015a3fb340db45c6872f0cf6fbdefe6e42623fef3c41fb435e67a12ae91c0290"
+      }
+    ],
+    "commands": [
+      {
+        "name": "version",
+        "command": "go version",
+        "exitCode": 0,
+        "durationSeconds": 0.013,
+        "timedOut": false
+      },
+      {
+        "name": "tests",
+        "command": "go test -p=1 -count=1 -v -timeout=20s ./...",
+        "exitCode": 0,
+        "durationSeconds": 0.346,
+        "timedOut": false
+      },
+      {
+        "name": "race-clean",
+        "command": "go test -p=1 -race -count=1 -v -timeout=20s ./...",
+        "exitCode": 0,
+        "durationSeconds": 1.25,
+        "timedOut": false
+      },
+      {
+        "name": "vet",
+        "command": "go vet -p=1 ./...",
+        "exitCode": 0,
+        "durationSeconds": 0.068,
+        "timedOut": false
+      },
+      {
+        "name": "reject-alias",
+        "command": "LAB_VARIANT=alias go test -p=1 -count=1 -run ^TestPublishedPayload$ -v -timeout=20s .",
+        "exitCode": 1,
+        "durationSeconds": 0.154,
+        "timedOut": false,
+        "expectation": "expected-rejection",
+        "expectedExitCode": 1
+      },
+      {
+        "name": "reject-cancel-join",
+        "command": "LAB_VARIANT=cancel-join go test -p=1 -count=1 -run ^TestCancellationIsNotJoin$ -v -timeout=20s .",
+        "exitCode": 1,
+        "durationSeconds": 0.156,
+        "timedOut": false,
+        "expectation": "expected-rejection",
+        "expectedExitCode": 1
+      },
+      {
+        "name": "reject-race",
+        "command": "LAB_VARIANT=race go test -p=1 -race -count=1 -run ^TestRaceFixture$ -v -timeout=20s .",
+        "exitCode": 1,
+        "durationSeconds": 0.228,
+        "timedOut": false,
+        "expectation": "expected-rejection",
+        "expectedExitCode": 1
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "docs/public/examples/go-runtime-boundaries-lab.zip",
+        "sha256": "e63ec0bd9864cadc2a3e8d25a8dbc63e65188130c433278c7ae1fd706b7c220d"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/commands.json",
+        "sha256": "65d67c2f1551ab8e27ca763a0c37aca39b9ae481d237ac867e893dbff4b2fbf7"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/input-source-hashes.json",
+        "sha256": "1007f34f30a97789e85a514f71dc331d91f958836796e4d81a3969fe9e80a40b"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/race-clean.txt",
+        "sha256": "e7a87b4f68fd4d9da818e1c056c0767b9d557dcb17c6b0e76bfc399c2ef074c9"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/reject-alias.txt",
+        "sha256": "73245803a3a5fd76f120f01fda097b62170db159499a900b0f71a9f820f49708"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/reject-cancel-join.txt",
+        "sha256": "b96f1bcd5d2c867e2d7f1a88aae10d05ea05bb7fce8d1fa6f7b95f7fbb338c2c"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/reject-race.txt",
+        "sha256": "f87dd5c6a05da0875c28f64a307a9b353b48d1d99a8d0ce76911b73756626aee"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/reject-worker-error.txt",
+        "sha256": "27465e42af8cefffcb8394ccf304da50fa02c6c9e60740a7b3a9c29f6caee6fb"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/result.json",
+        "sha256": "106bb6af602ae4959710a0c99af9f68937ccf2faac89eb95ad2691829e48d775"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/tests.txt",
+        "sha256": "1098fb54bc13c4e24b6719a6fe67145c2d98ced5740f21bfc2744f22cd3faee4"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/verifier-regressions.json",
+        "sha256": "5e85644d740a8d3fcc8e4ede59a0fa63c9c9fe7e3e907af69a829c582f0b256f"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/vet.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ]
+  },
+  {
+    "recordedAt": "2026-10-03",
+    "revision": "G-r1",
+    "independentlyReviewed": true,
+    "versions": [
+      "Go 1.27.1 linux/amd64",
+      "GOMAXPROCS=2, standard library only"
+    ],
+    "id": "go-runtime.diagnosis-run",
+    "kind": "executed",
+    "status": "pass",
+    "title": "真实Go进程的CPU、channel、TCP等待与有限堆积",
+    "resourceGroup": "go-runtime-boundaries",
+    "scope": [
+      "四类独立有限进程，实际CPU/block profile与execution trace；不是网络模型",
+      "TCP一个loopback连接对，IO wait实栈后发送K；2秒deadline与连接关闭",
+      "24项输入/2许可，active2与waiting22；完成24并join24",
+      "关闭peer后的真实worker EOF必须传播为exit1，joined1/completed0"
+    ],
+    "limitations": [
+      "仅Go1.27.1 Linux amd64，GOMAXPROCS2与有限短窗口",
+      "探针有开销；累积等待时间不是请求墙钟时长",
+      "不证明生产吞吐/容量、调度公平、多机网络或netpoll完整正确性",
+      "未运行HTTP负载、cgo、磁盘IO、容器限额或长期泄漏"
+    ],
+    "sourceFiles": [
+      {
+        "path": "labs/go-runtime-boundaries-lab/attempts/attempt-1/source/go.mod",
+        "sha256": "547589176a4bff182d8abc99dd0a81d232a673004e90ca4d46338866ee273a77"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/cmd/diagnose/main.go",
+        "sha256": "84ff071b3e1b29b34062c53cc8e99fb117e709dbd9015cfb6c20b08d1bb79404"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/go.mod",
+        "sha256": "547589176a4bff182d8abc99dd0a81d232a673004e90ca4d46338866ee273a77"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/ownership.go",
+        "sha256": "4aee38fe73da2248902bc96acc2b5267ce389140374e980df7cf7a29f427aada"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/ownership_test.go",
+        "sha256": "2bebc73d69476048f09e5ab9dacd938ec97d71b58657f0b467cef556e19ce9bb"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/run.py",
+        "sha256": "015a3fb340db45c6872f0cf6fbdefe6e42623fef3c41fb435e67a12ae91c0290"
+      }
+    ],
+    "commands": [
+      {
+        "name": "build",
+        "command": "go build -p=1 -buildvcs=false -trimpath -o PRIVATE/diagnose ./cmd/diagnose",
+        "exitCode": 0,
+        "durationSeconds": 9.825,
+        "timedOut": false
+      },
+      {
+        "name": "run-cpu",
+        "command": "PRIVATE/diagnose -scenario cpu -out PRIVATE/cpu",
+        "exitCode": 0,
+        "durationSeconds": 0.456,
+        "timedOut": false
+      },
+      {
+        "name": "cpu-cpu-top",
+        "command": "go tool pprof -top -nodecount=50 PRIVATE/cpu/cpu.pprof",
+        "exitCode": 0,
+        "durationSeconds": 3.623,
+        "timedOut": false
+      },
+      {
+        "name": "run-channel",
+        "command": "PRIVATE/diagnose -scenario channel -out PRIVATE/channel",
+        "exitCode": 0,
+        "durationSeconds": 0.008,
+        "timedOut": false
+      },
+      {
+        "name": "channel-cpu-top",
+        "command": "go tool pprof -top -nodecount=50 PRIVATE/channel/cpu.pprof",
+        "exitCode": 0,
+        "durationSeconds": 0.094,
+        "timedOut": false
+      },
+      {
+        "name": "channel-trace-sync",
+        "command": "go tool trace -pprof=sync PRIVATE/channel/trace.out",
+        "exitCode": 0,
+        "durationSeconds": 1.4,
+        "timedOut": false
+      },
+      {
+        "name": "channel-trace-top",
+        "command": "go tool pprof -top -nodecount=50 PRIVATE/channel/sync.pprof",
+        "exitCode": 0,
+        "durationSeconds": 0.088,
+        "timedOut": false
+      },
+      {
+        "name": "channel-block-top",
+        "command": "go tool pprof -top -nodecount=50 PRIVATE/channel/block.pprof",
+        "exitCode": 0,
+        "durationSeconds": 0.083,
+        "timedOut": false
+      },
+      {
+        "name": "run-network",
+        "command": "PRIVATE/diagnose -scenario network -out PRIVATE/network",
+        "exitCode": 0,
+        "durationSeconds": 0.009,
+        "timedOut": false
+      },
+      {
+        "name": "network-cpu-top",
+        "command": "go tool pprof -top -nodecount=50 PRIVATE/network/cpu.pprof",
+        "exitCode": 0,
+        "durationSeconds": 0.082,
+        "timedOut": false
+      },
+      {
+        "name": "network-trace-net",
+        "command": "go tool trace -pprof=net PRIVATE/network/trace.out",
+        "exitCode": 0,
+        "durationSeconds": 0.077,
+        "timedOut": false
+      },
+      {
+        "name": "network-trace-top",
+        "command": "go tool pprof -top -nodecount=50 PRIVATE/network/net.pprof",
+        "exitCode": 0,
+        "durationSeconds": 0.079,
+        "timedOut": false
+      },
+      {
+        "name": "network-block-top",
+        "command": "go tool pprof -top -nodecount=50 PRIVATE/network/block.pprof",
+        "exitCode": 0,
+        "durationSeconds": 0.089,
+        "timedOut": false
+      },
+      {
+        "name": "run-backlog",
+        "command": "PRIVATE/diagnose -scenario backlog -out PRIVATE/backlog",
+        "exitCode": 0,
+        "durationSeconds": 0.009,
+        "timedOut": false
+      },
+      {
+        "name": "backlog-cpu-top",
+        "command": "go tool pprof -top -nodecount=50 PRIVATE/backlog/cpu.pprof",
+        "exitCode": 0,
+        "durationSeconds": 0.077,
+        "timedOut": false
+      },
+      {
+        "name": "backlog-trace-sync",
+        "command": "go tool trace -pprof=sync PRIVATE/backlog/trace.out",
+        "exitCode": 0,
+        "durationSeconds": 0.07,
+        "timedOut": false
+      },
+      {
+        "name": "backlog-trace-top",
+        "command": "go tool pprof -top -nodecount=50 PRIVATE/backlog/sync.pprof",
+        "exitCode": 0,
+        "durationSeconds": 0.082,
+        "timedOut": false
+      },
+      {
+        "name": "backlog-block-top",
+        "command": "go tool pprof -top -nodecount=50 PRIVATE/backlog/block.pprof",
+        "exitCode": 0,
+        "durationSeconds": 0.087,
+        "timedOut": false
+      },
+      {
+        "name": "reject-worker-error",
+        "command": "PRIVATE/diagnose -scenario network -out PRIVATE/worker-error -fail-worker",
+        "exitCode": 1,
+        "durationSeconds": 0.008,
+        "timedOut": false,
+        "expectation": "expected-rejection",
+        "expectedExitCode": 1
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "docs/public/examples/go-runtime-boundaries-lab.zip",
+        "sha256": "e63ec0bd9864cadc2a3e8d25a8dbc63e65188130c433278c7ae1fd706b7c220d"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/backlog-block-top.txt",
+        "sha256": "4b15c6d306b0e05f9b3e95b8d36ece90cff8b2aaf5e5d64449c546bf598f792d"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/backlog-cpu-top.txt",
+        "sha256": "aed8d86c1ed5e521af2df2b57b45a9cf4546bcf90f6baf34a05471c1131a662b"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/backlog-goroutines.txt",
+        "sha256": "f901f965bef34a465904d4a62330c590e7f9274c674c54aafc474bbeb43233d8"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/backlog-raw-artifact-hashes.json",
+        "sha256": "1be024954052925229cd66375442bba3f577d6e357fdb2a4c9df5de469b8b602"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/backlog-summary.json",
+        "sha256": "f4a20d1e7adcfd9d2a298004cc3da775ceb02f2913d8613482dbfc3fedb0795d"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/backlog-trace-top.txt",
+        "sha256": "2530619e5702c28f4199e7e818c5555773f7ccb51c29ab4fe23041c4fe8f4db7"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/build.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/channel-block-top.txt",
+        "sha256": "3928caefce3c73ba5fbbbb965be1cddcce96f6b05fead3066917466eb26bb84e"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/channel-cpu-top.txt",
+        "sha256": "463e1d949a3e66697f3eec6e61ec0ebb60a597c98c4dc9a3293e4bc5e1c73b62"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/channel-goroutines.txt",
+        "sha256": "e4066439f473188d1b89ee417a79391d959ce8db2a1347f4978c21620eb51037"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/channel-raw-artifact-hashes.json",
+        "sha256": "45feb5b7329700d0dfeecadc190ff7e31674dc2bd10a7a496d3d728571952231"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/channel-summary.json",
+        "sha256": "178c2e0f225bacf773c988bbb491215b89d418a8a75cbf9b0e4eb81036a98b16"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/channel-trace-top.txt",
+        "sha256": "27447e21ffc08610eb0899ce33e786a94f2140c8e5bd7f3d3a064e53acb70738"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/commands.json",
+        "sha256": "65d67c2f1551ab8e27ca763a0c37aca39b9ae481d237ac867e893dbff4b2fbf7"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/cpu-cpu-top.txt",
+        "sha256": "bd0b7c5aa41b321678cebc6232746503bf468d78fc9311710b8f149fdf77eea3"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/cpu-goroutines.txt",
+        "sha256": "3a2aeec79c612350b69348e6659d636c57b300c15bf822144463c301f48ceb8c"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/cpu-raw-artifact-hashes.json",
+        "sha256": "da02094e111e1d14e690f2c71838ff88b66fee78636f6082e40ff0b5faecfaa0"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/cpu-summary.json",
+        "sha256": "13f45abdd6dd030c696be1bfb00ab6a4039ab3f0a14fafadfbe8146255dfb603"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/input-source-hashes.json",
+        "sha256": "1007f34f30a97789e85a514f71dc331d91f958836796e4d81a3969fe9e80a40b"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/network-block-top.txt",
+        "sha256": "f14ec78326946b7d5783b2981cfc33f7259e53845b37b07c8081cb71d63cab7e"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/network-cpu-top.txt",
+        "sha256": "68835adf578ed75acc7bf80b65383b2b896a57a0cfa5baac98388f21c611957c"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/network-goroutines.txt",
+        "sha256": "4eff642bc81ecb31b21c205f626766d7b22763808370ca4c2aaa162cd95bd527"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/network-raw-artifact-hashes.json",
+        "sha256": "3644727965d01fb0cd5d6e016f258951118560b01be291f58a7656ed5ebec364"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/network-summary.json",
+        "sha256": "27adeef3a63f9fa4afb8eac071d6ae4032faaf00e151953c2a7d66d1bf00da10"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/network-trace-top.txt",
+        "sha256": "6bfd381a63d7cb6b0f944172f8dd816d1b886e994251b3f9a27603691127277f"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/race-clean.txt",
+        "sha256": "e7a87b4f68fd4d9da818e1c056c0767b9d557dcb17c6b0e76bfc399c2ef074c9"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/reject-alias.txt",
+        "sha256": "73245803a3a5fd76f120f01fda097b62170db159499a900b0f71a9f820f49708"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/reject-cancel-join.txt",
+        "sha256": "b96f1bcd5d2c867e2d7f1a88aae10d05ea05bb7fce8d1fa6f7b95f7fbb338c2c"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/reject-race.txt",
+        "sha256": "f87dd5c6a05da0875c28f64a307a9b353b48d1d99a8d0ce76911b73756626aee"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/reject-worker-error.txt",
+        "sha256": "27465e42af8cefffcb8394ccf304da50fa02c6c9e60740a7b3a9c29f6caee6fb"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/result.json",
+        "sha256": "106bb6af602ae4959710a0c99af9f68937ccf2faac89eb95ad2691829e48d775"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/run-backlog.txt",
+        "sha256": "f4a20d1e7adcfd9d2a298004cc3da775ceb02f2913d8613482dbfc3fedb0795d"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/run-channel.txt",
+        "sha256": "178c2e0f225bacf773c988bbb491215b89d418a8a75cbf9b0e4eb81036a98b16"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/run-cpu.txt",
+        "sha256": "13f45abdd6dd030c696be1bfb00ab6a4039ab3f0a14fafadfbe8146255dfb603"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/run-network.txt",
+        "sha256": "27adeef3a63f9fa4afb8eac071d6ae4032faaf00e151953c2a7d66d1bf00da10"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/tests.txt",
+        "sha256": "1098fb54bc13c4e24b6719a6fe67145c2d98ced5740f21bfc2744f22cd3faee4"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/verifier-regressions.json",
+        "sha256": "5e85644d740a8d3fcc8e4ede59a0fa63c9c9fe7e3e907af69a829c582f0b256f"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/version.txt",
+        "sha256": "f554cfdb85411c2bb1d503df3f53dfbad1f753eb8271938833166a5d26a7547c"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/vet.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/proof/worker-error-summary.json",
+        "sha256": "27465e42af8cefffcb8394ccf304da50fa02c6c9e60740a7b3a9c29f6caee6fb"
+      }
+    ]
+  },
+  {
+    "recordedAt": "2026-10-03",
+    "revision": "G-r1",
+    "independentlyReviewed": true,
+    "versions": [
+      "Go 1.27.1 linux/amd64",
+      "GOMAXPROCS=2, standard library only"
+    ],
+    "id": "go-runtime.initial-build",
+    "kind": "executed",
+    "status": "fail",
+    "title": "首次VCS标识构建失败（后续修正保留原记录）",
+    "scope": [
+      "首次diagnose构建在VCS stamping查询失败，exit1；四类诊断均尚未运行",
+      "后续仅对独立实验构建增加-buildvcs=false，成功运行见go-runtime.diagnosis-run"
+    ],
+    "limitations": [
+      "该失败不是目标错误实现被拒绝，不能计作成功诊断",
+      "无权限或git配置改动"
+    ],
+    "sourceFiles": [
+      {
+        "path": "labs/go-runtime-boundaries-lab/attempts/attempt-1/source/cmd/diagnose/main.go.txt",
+        "sha256": "84ff071b3e1b29b34062c53cc8e99fb117e709dbd9015cfb6c20b08d1bb79404"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/attempts/attempt-1/source/go.mod",
+        "sha256": "547589176a4bff182d8abc99dd0a81d232a673004e90ca4d46338866ee273a77"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/attempts/attempt-1/source/ownership.go.txt",
+        "sha256": "4aee38fe73da2248902bc96acc2b5267ce389140374e980df7cf7a29f427aada"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/attempts/attempt-1/source/ownership_test.go.txt",
+        "sha256": "2bebc73d69476048f09e5ab9dacd938ec97d71b58657f0b467cef556e19ce9bb"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/attempts/attempt-1/source/run.py.txt",
+        "sha256": "a32273252ca87c0a6a509aef1a54c18110dd4568ae28832016a1d443b16daa54"
+      }
+    ],
+    "commands": [
+      {
+        "name": "version",
+        "command": "go version",
+        "exitCode": 0,
+        "durationSeconds": 0.009,
+        "timedOut": false
+      },
+      {
+        "name": "tests",
+        "command": "go test -p=1 -count=1 -v -timeout=20s ./...",
+        "exitCode": 0,
+        "durationSeconds": 0.591,
+        "timedOut": false
+      },
+      {
+        "name": "race-clean",
+        "command": "go test -p=1 -race -count=1 -v -timeout=20s ./...",
+        "exitCode": 0,
+        "durationSeconds": 1.526,
+        "timedOut": false
+      },
+      {
+        "name": "vet",
+        "command": "go vet -p=1 ./...",
+        "exitCode": 0,
+        "durationSeconds": 0.137,
+        "timedOut": false
+      },
+      {
+        "name": "reject-alias",
+        "command": "LAB_VARIANT=alias go test -p=1 -count=1 -run ^TestPublishedPayload$ -v -timeout=20s .",
+        "exitCode": 1,
+        "durationSeconds": 0.144,
+        "timedOut": false,
+        "expectation": "expected-rejection",
+        "expectedExitCode": 1
+      },
+      {
+        "name": "reject-cancel-join",
+        "command": "LAB_VARIANT=cancel-join go test -p=1 -count=1 -run ^TestCancellationIsNotJoin$ -v -timeout=20s .",
+        "exitCode": 1,
+        "durationSeconds": 0.154,
+        "timedOut": false,
+        "expectation": "expected-rejection",
+        "expectedExitCode": 1
+      },
+      {
+        "name": "reject-race",
+        "command": "LAB_VARIANT=race go test -p=1 -race -count=1 -run ^TestRaceFixture$ -v -timeout=20s .",
+        "exitCode": 1,
+        "durationSeconds": 0.224,
+        "timedOut": false,
+        "expectation": "expected-rejection",
+        "expectedExitCode": 1
+      },
+      {
+        "name": "build",
+        "command": "go build -p=1 -trimpath -o PRIVATE/diagnose ./cmd/diagnose",
+        "exitCode": 1,
+        "durationSeconds": 0.021,
+        "timedOut": false
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "labs/go-runtime-boundaries-lab/attempts/attempt-1/proof/build.txt",
+        "sha256": "b508597d5aeb9815ee3655a0f7896215a96e60771442e69f6fbb10771197e90c"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/attempts/attempt-1/proof/commands.json",
+        "sha256": "55f1665eb9101efe90727f2332cb9b3693dee625bbb49e49a2e4ad1cc43eae1a"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/attempts/attempt-1/proof/input-source-hashes.json",
+        "sha256": "bf866278af82c6e6badb01bbbcf573e6496ebf249354b2e3965994e430b258f1"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/attempts/attempt-1/proof/race-clean.txt",
+        "sha256": "881394a76b635da18966dbfc012383442485e33b5fad311624b4fbb8ef16522e"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/attempts/attempt-1/proof/reject-alias.txt",
+        "sha256": "73245803a3a5fd76f120f01fda097b62170db159499a900b0f71a9f820f49708"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/attempts/attempt-1/proof/reject-cancel-join.txt",
+        "sha256": "3d974c9bab6faf2375a6ecbdbb6dcf39d04d399439c0c6c704fe02341a51c901"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/attempts/attempt-1/proof/reject-race.txt",
+        "sha256": "5ac0ce2d05f96f6d17a3113145334372f8eb133eaa90a50974b0c694e5865ab6"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/attempts/attempt-1/proof/result.json",
+        "sha256": "90fae4295d10c69e6bd733c880d7be0d9cb297590c0193697b1f4b3deb561938"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/attempts/attempt-1/proof/tests.txt",
+        "sha256": "b291fec901fc5745b0e5cbb4b5c92869cf85f007f8aae9651011874e96b0c158"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/attempts/attempt-1/proof/version.txt",
+        "sha256": "f554cfdb85411c2bb1d503df3f53dfbad1f753eb8271938833166a5d26a7547c"
+      },
+      {
+        "path": "labs/go-runtime-boundaries-lab/attempts/attempt-1/proof/vet.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ]
+  }
+]

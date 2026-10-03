@@ -1,0 +1,10 @@
+File: diagnose
+Build ID: 0cad9b3e9e81afa46d86c93d5c9aecd24707c5ec
+Type: cpu
+Time: 2026-10-03 16:22:40 CST
+Duration: 451.79ms, Total samples = 450ms (99.60%)
+Showing nodes accounting for 450ms, 100% of 450ms total
+      flat  flat%   sum%        cum   cum%
+     450ms   100%   100%      450ms   100%  main.cpuWork
+         0     0%   100%      450ms   100%  main.run.func5.1
+         0     0%   100%      450ms   100%  main.run.func6

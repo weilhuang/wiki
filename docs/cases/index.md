@@ -20,8 +20,10 @@ search: false
 
 ## 排障入口
 
+- [发布时 ready=false 仍收到请求](/knowledge/cloud/lifecycle/readiness-draining.html#termination-order)：区分端点传播、应用接纳门和已有工作的排空
 - [接口慢而数据库 CPU 不高：先查连接等待](/troubleshooting/connection-waiting.html)：区分未借到连接、持有连接做外部等待与 SQL 自身等待
 - [catch 住异常仍回滚](/knowledge/frameworks/spring-transactions/proxy-call-chain.html#shared-rollback)：检查异常经过的代理边界与共享回滚标记
+- [goroutine 很多但 CPU 低](/knowledge/go/runtime/scheduler-netpoll-diagnosis.html#diagnostic-decisions)：用实际状态和同一窗口证据区分 channel、网络等待与许可之外的堆积
 - [goroutine 收到取消仍未退出](/knowledge/go/concurrency/context-cancellation.html#worker-lifetime)：查停止条件、资源阻塞与等待责任
 - [缓存删过仍返回旧值](/knowledge/data/cache/invalidation-freshness.html#_2-后删也有窗口-旧读者还没回来)：追踪旧读者回填的时序
 - [已有去重记录却缺少投影](/knowledge/distributed/events/transactional-outbox.html#_3-消费去重的提交边界-比表名重要)：核对去重与副作用是否共同提交

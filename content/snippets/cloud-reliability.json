@@ -1,0 +1,22 @@
+[
+  {
+    "id": "cloud.signals-walk",
+    "doc": "docs/knowledge/cloud/observability/service-level-signals.md",
+    "source": "labs/cloud-reliability-lab/walk_signals.py",
+    "language": "python",
+    "version": "CPython 3.12.14",
+    "type": "executable",
+    "annotations": "in-document",
+    "sourceSha256": "4fb2f5b6c0973e2dc0ce65de24a3f290b3a4f03e352df793b760d9686159dacb"
+  },
+  {
+    "id": "cloud.draining-walk",
+    "doc": "docs/knowledge/cloud/lifecycle/readiness-draining.md",
+    "source": "labs/cloud-reliability-lab/walk_draining.py",
+    "language": "python",
+    "version": "CPython 3.12.14",
+    "type": "executable",
+    "annotations": "in-document",
+    "sourceSha256": "7fa5bf986a872c400bd679dce561e130763dfec4dff6e12a8883e218e6591006"
+  }
+]

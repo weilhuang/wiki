@@ -1,0 +1,155 @@
+[
+  {
+    "id": "go127.memory-model",
+    "title": "The Go Memory Model",
+    "url": "https://go.dev/ref/mem",
+    "type": "specification",
+    "version": "go1.27.1",
+    "reviewedAt": "2026-10-03",
+    "scope": "Channel synchronization rules, goroutine creation/destruction and DRF-SC; fixed doc/go_mem.html snapshot"
+  },
+  {
+    "id": "go127.spec",
+    "title": "Go language specification",
+    "url": "https://go.dev/ref/spec",
+    "type": "specification",
+    "version": "go1.27.1",
+    "reviewedAt": "2026-10-03",
+    "scope": "Select readiness and evaluation, send/receive/close, representation of values; fixed doc/go_spec.html snapshot"
+  },
+  {
+    "id": "go127.context-api",
+    "title": "Go 1.27.1 context API",
+    "url": "https://pkg.go.dev/context@go1.27.1#CancelFunc",
+    "type": "api",
+    "version": "go1.27.1",
+    "reviewedAt": "2026-10-03",
+    "scope": "CancelFunc signals cancellation without waiting for work to stop"
+  },
+  {
+    "id": "go127.synctest-api",
+    "title": "Go 1.27.1 testing/synctest",
+    "url": "https://pkg.go.dev/testing/synctest@go1.27.1",
+    "type": "api",
+    "version": "go1.27.1",
+    "reviewedAt": "2026-10-03",
+    "scope": "Wait and durably blocking operations; real network excluded from test bubble"
+  },
+  {
+    "id": "go127.race-guide",
+    "title": "Go data race detector",
+    "url": "https://go.dev/doc/articles/race_detector",
+    "type": "documentation",
+    "version": "accessed 2026-10-03",
+    "reviewedAt": "2026-10-03",
+    "scope": "Only executed paths and observed runtime accesses are checked"
+  },
+  {
+    "id": "go127.runtime-api",
+    "title": "Go 1.27.1 runtime API",
+    "url": "https://pkg.go.dev/runtime@go1.27.1",
+    "type": "api",
+    "version": "go1.27.1",
+    "reviewedAt": "2026-10-03",
+    "scope": "GOMAXPROCS, Stack, SetBlockProfileRate"
+  },
+  {
+    "id": "go127.pprof-api",
+    "title": "Go 1.27.1 runtime/pprof",
+    "url": "https://pkg.go.dev/runtime/pprof@go1.27.1",
+    "type": "api",
+    "version": "go1.27.1",
+    "reviewedAt": "2026-10-03",
+    "scope": "CPU profile and block profile attribution and stopping"
+  },
+  {
+    "id": "go127.trace-api",
+    "title": "Go 1.27.1 runtime/trace",
+    "url": "https://pkg.go.dev/runtime/trace@go1.27.1",
+    "type": "api",
+    "version": "go1.27.1",
+    "reviewedAt": "2026-10-03",
+    "scope": "Start and Stop execution tracing; runtime events"
+  },
+  {
+    "id": "go127.trace-command",
+    "title": "Go 1.27.1 cmd/trace",
+    "url": "https://pkg.go.dev/cmd/trace@go1.27.1",
+    "type": "documentation",
+    "version": "go1.27.1",
+    "reviewedAt": "2026-10-03",
+    "scope": "pprof export net/sync/syscall/sched semantics"
+  },
+  {
+    "id": "go127.chan-source",
+    "title": "Go go1.27.1 src/runtime/chan.go",
+    "url": "https://github.com/golang/go/blob/go1.27.1/src/runtime/chan.go",
+    "type": "source",
+    "version": "go1.27.1",
+    "reviewedAt": "2026-10-03",
+    "scope": "Send admission, park, closed channel and receive branches; lines 176-310;414-484;524-697"
+  },
+  {
+    "id": "go127.select-source",
+    "title": "Go go1.27.1 src/runtime/select.go",
+    "url": "https://github.com/golang/go/blob/go1.27.1/src/runtime/select.go",
+    "type": "source",
+    "version": "go1.27.1",
+    "reviewedAt": "2026-10-03",
+    "scope": "Permuted case polling order; lines 167-202"
+  },
+  {
+    "id": "go127.proc-source",
+    "title": "Go go1.27.1 src/runtime/proc.go",
+    "url": "https://github.com/golang/go/blob/go1.27.1/src/runtime/proc.go",
+    "type": "source",
+    "version": "go1.27.1",
+    "reviewedAt": "2026-10-03",
+    "scope": "GMP concepts and findRunnable/schedule/netpoll integration; lines 25-34;3404-3524;3747-3805;4150-4210"
+  },
+  {
+    "id": "go127.runtime-state-source",
+    "title": "Go go1.27.1 src/runtime/runtime2.go",
+    "url": "https://github.com/golang/go/blob/go1.27.1/src/runtime/runtime2.go",
+    "type": "source",
+    "version": "go1.27.1",
+    "reviewedAt": "2026-10-03",
+    "scope": "Runnable/running/syscall/waiting state definitions; lines 35-65"
+  },
+  {
+    "id": "go127.netpoll-source",
+    "title": "Go go1.27.1 src/runtime/netpoll.go",
+    "url": "https://github.com/golang/go/blob/go1.27.1/src/runtime/netpoll.go",
+    "type": "source",
+    "version": "go1.27.1",
+    "reviewedAt": "2026-10-03",
+    "scope": "Runtime poll wait and park on IO wait; lines 336-361;546-583"
+  },
+  {
+    "id": "go127.epoll-source",
+    "title": "Go go1.27.1 src/runtime/netpoll_epoll.go",
+    "url": "https://github.com/golang/go/blob/go1.27.1/src/runtime/netpoll_epoll.go",
+    "type": "source",
+    "version": "go1.27.1",
+    "reviewedAt": "2026-10-03",
+    "scope": "Linux epoll events and ready list; lines 99-176"
+  },
+  {
+    "id": "go127.poll-source",
+    "title": "Go go1.27.1 src/internal/poll/fd_unix.go",
+    "url": "https://github.com/golang/go/blob/go1.27.1/src/internal/poll/fd_unix.go",
+    "type": "source",
+    "version": "go1.27.1",
+    "reviewedAt": "2026-10-03",
+    "scope": "FD.Read retry after EAGAIN and pollable waitRead; lines 141-178"
+  },
+  {
+    "id": "go127.poll-runtime-source",
+    "title": "Go go1.27.1 src/internal/poll/fd_poll_runtime.go",
+    "url": "https://github.com/golang/go/blob/go1.27.1/src/internal/poll/fd_poll_runtime.go",
+    "type": "source",
+    "version": "go1.27.1",
+    "reviewedAt": "2026-10-03",
+    "scope": "Read wait bridges to runtime poll wait; lines 72-94"
+  }
+]

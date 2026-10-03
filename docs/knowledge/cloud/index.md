@@ -19,13 +19,13 @@ search: false
 
 ## 核心关系与阅读顺序
 
-应用拥有工作和资源，平台负责调度与生命周期信号，观测系统记录外部表现。三者通过就绪、接纳、等待和终止窗口交接。可靠性来自合同配合，不来自组件列表。
+服务目标描述用户事件，应用负责接纳和完成工作，平台通过探针、端点与路由影响请求去向。指标采样、控制面状态和进程退出各有独立的观察边界，必须在同一时间线对齐。
 
-先识别进程与资源边界，再理解容器/工作负载和发布；观测从业务问题选择指标，诊断从基线和负载比较假设，最后才讨论弹性与容量。
+先用服务事件定义分母与好事件，再比较比例、分布和资源等待；随后把发布期间的路由传播、应用排空与终止预算放进一条失败时间线。需要解释某个栈或查询时，再回到运行时和数据专题。
 
-常见误区：探针成功不代表业务正确；CPU 不高不排除排队；一次进程退出成功不能证明反向代理或 Kubernetes 已完成摘流。
+常见误区：零流量不能直接填成全部成功；平均实例百分位不能得到整体百分位；readiness 变化不是全链路屏障，进程内停机通过也不能证明集群摘流。
 
-**综合任务**：为部署期间的在途请求画时间线，说明何时停止接纳、等待哪些工作、哪个超时迫使退出，以及怎样观测丢失责任。
+**综合任务**：为一个订单接口写出用户事件与好事件条件，安排发布期间的迟到请求，分别记录路由、接纳、完成与清理的观察。说明有限样本、顺序模型与真实部署各自还缺什么证据。
 
 ## 从分类进入
 
@@ -49,9 +49,11 @@ search: false
 
 启动、就绪、接纳和退出共同决定变更窗口。
 
-本分类正文仍在规划，当前不提供空文章链接。
+[分类导读](/knowledge/cloud/lifecycle/)
 
-后续范围：探针、摘流、PDB、HPA、requests/limits。
+- [就绪与排空：发布期间谁还接请求](/knowledge/cloud/lifecycle/readiness-draining.html)：沿 Kubernetes 1.34 的探针、EndpointSlice 和终止时序，区分路由传播、应用接纳、在途完成与依赖释放，并用有限模型暴露失败窗口
+
+后续范围：真实集群摘流与故障实验、PDB、HPA、requests/limits。
 
 ### 交付与平台
 
@@ -65,9 +67,11 @@ search: false
 
 选择能回答问题的指标、日志和追踪，控制基数与隐私。
 
-本分类正文仍在规划，当前不提供空文章链接。
+[分类导读](/knowledge/cloud/observability/)
 
-后续范围：RED/USE、SLI/SLO、采样、告警。
+- [延迟与错误怎样变成服务目标：RED、USE 与 SLO](/knowledge/cloud/observability/service-level-signals.html)：从一次请求的计数边界出发，用固定样本推导服务指标、延迟分布和错误预算，并识别聚合、低流量、采样与高基数陷阱
+
+后续范围：遥测管线与OpenTelemetry、告警窗口与误报、真实负载与预算校准。
 
 ### 性能与故障定位
 
@@ -89,4 +93,4 @@ search: false
 
 ## 如何与其他领域连接
 
-从[Go 进程停机](/knowledge/go/lifecycle/graceful-shutdown.html)理解所有权，再到[连接等待排障](/troubleshooting/connection-waiting.html)练习假设与证据；这些结果不会自动成为集群保证。恢复数据时回到[订单联合对账](/cases/orders/consistency-recovery.html)，服务存活只是一个信号。
+[服务事件与目标](/knowledge/cloud/observability/service-level-signals.html)先界定用户观察，再用[Go 运行时证据](/knowledge/go/runtime/scheduler-netpoll-diagnosis.html)或[连接等待](/troubleshooting/connection-waiting.html)排除局部原因。[就绪与排空](/knowledge/cloud/lifecycle/readiness-draining.html)把平台时序接回[应用停机](/knowledge/go/lifecycle/graceful-shutdown.html)；Kubernetes 来源复核和顺序模型仍需真实集群验证。恢复数据时，继续用[订单联合对账](/cases/orders/consistency-recovery.html)核对业务事实。

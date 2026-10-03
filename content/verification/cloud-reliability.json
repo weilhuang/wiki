@@ -1,0 +1,270 @@
+[
+  {
+    "recordedAt": "2026-10-03T09:08:55.523919+00:00",
+    "revision": "C-r1",
+    "independentlyReviewed": true,
+    "resourceGroup": "cloud-reliability-lab",
+    "id": "cloud.signals-sources",
+    "title": "服务目标与观测方法来源复核",
+    "kind": "source-reviewed",
+    "status": "pass",
+    "scope": [
+      "实际读取8个一手来源；事件比例与预算职责、RED/USE、经典累积桶与分位聚合、采样与字段最小化",
+      "固定样本、表格、诊断例子和推理为原创"
+    ],
+    "limitations": [
+      "Prometheus/OTel等在线页可更新，仅记录访问日期；未运行产品或生产SLI"
+    ],
+    "sourceFiles": [
+      {
+        "path": "content/sources/cloud-reliability.json",
+        "sha256": "eac7fe9503f02de95b3b68d0ebd78b47ba9bffbc27c97e94423af3079f15ab46"
+      }
+    ],
+    "commands": [],
+    "artifacts": []
+  },
+  {
+    "recordedAt": "2026-10-03T09:08:55.523919+00:00",
+    "revision": "C-r1",
+    "independentlyReviewed": true,
+    "resourceGroup": "cloud-reliability-lab",
+    "id": "cloud.lifecycle-sources",
+    "title": "Kubernetes 1.34 生命周期语义复核",
+    "kind": "source-reviewed",
+    "status": "pass",
+    "scope": [
+      "实际读取Kubernetes v1.34 probes/lifecycle/hooks/EndpointSlices/service proxies/Deployment文档快照",
+      "固定v1.34.0源码podToEndpoint与CategorizeEndpoints核对：publishNotReadyAddresses例外及Cluster/Local serving+terminating回退"
+    ],
+    "limitations": [
+      "文档URL不承诺commit级字节不可变性；没有复制上游源码，因此未声称字节级源码快照",
+      "未运行集群、kubelet、探针、容器或代理；模型不代替平台执行证据"
+    ],
+    "sourceFiles": [
+      {
+        "path": "content/sources/cloud-reliability.json",
+        "sha256": "eac7fe9503f02de95b3b68d0ebd78b47ba9bffbc27c97e94423af3079f15ab46"
+      }
+    ],
+    "commands": [],
+    "artifacts": []
+  },
+  {
+    "recordedAt": "2026-10-03T09:08:55.523919+00:00",
+    "revision": "C-r1",
+    "independentlyReviewed": true,
+    "resourceGroup": "cloud-reliability-lab",
+    "id": "cloud.models-run",
+    "title": "固定事件统计与有限排空时序模型",
+    "kind": "executed",
+    "status": "pass",
+    "scope": [
+      "CPython3.12.14/Linux标准库；固定输入、单进程顺序执行；每条实验命令外部总超时10秒",
+      "15个正确模型场景、19个精确身份的错误变体、5类无关结果拒绝；两份正文walkthrough实际执行",
+      "预期拒绝除错误类型还核对断言code、expected和actual；两条单独mutant命令真实退出2并记录expected-rejection"
+    ],
+    "limitations": [
+      "无真实流量、生产SLO、监控查询、统计置信区间或概率采样器",
+      "无线程、子进程、服务、HTTP、信号、集群、代理、持久化或网络；原子方法调用与显式逻辑时间为模型前提",
+      "生命周期模型仅普通ready路由缓存，不实现kube-proxy回退、探针、sidecar或kubelet额外2秒",
+      "source-only ZIP包装不等于再次执行；观察只绑定所列字节"
+    ],
+    "sourceFiles": [
+      {
+        "path": "labs/cloud-reliability-lab/lifecycle.py",
+        "sha256": "47fe208d9379e367f956dbd038bf9a58e992421e62b466024a40c4501b95f43e"
+      },
+      {
+        "path": "labs/cloud-reliability-lab/signals.py",
+        "sha256": "f36d6a7a83dde131a19e1e6d51e97760fe75ab27cdd7c38dc7012c13dd2c178b"
+      },
+      {
+        "path": "labs/cloud-reliability-lab/verify.py",
+        "sha256": "019d16e91c43da4e9001305bd0bcd335699e995900e3c16e7a6e402992bb869b"
+      },
+      {
+        "path": "labs/cloud-reliability-lab/walk_draining.py",
+        "sha256": "7fa5bf986a872c400bd679dce561e130763dfec4dff6e12a8883e218e6591006"
+      },
+      {
+        "path": "labs/cloud-reliability-lab/walk_signals.py",
+        "sha256": "4fb2f5b6c0973e2dc0ce65de24a3f290b3a4f03e352df793b760d9686159dacb"
+      },
+      {
+        "path": "labs/cloud-reliability-lab/runtime.json",
+        "sha256": "bdcae23d2d379d9f7f50974103972f247e36b533e61186fa4ce1c933a1cbf6c3"
+      }
+    ],
+    "commands": [
+      {
+        "command": "python3 --version",
+        "workingDirectory": "labs/cloud-reliability-lab",
+        "exitCode": 0,
+        "output": "Python 3.12.14\n"
+      },
+      {
+        "command": "timeout 10s python3 -B walk_signals.py",
+        "workingDirectory": "labs/cloud-reliability-lab",
+        "exitCode": 0,
+        "output": "{'total': 110, 'good': 91, 'ratio': '91/110', 'burn': '190/11'}\n"
+      },
+      {
+        "command": "timeout 10s python3 -B walk_draining.py",
+        "workingDirectory": "labs/cloud-reliability-lab",
+        "exitCode": 0,
+        "output": "{'completed': ['old'], 'rejected': ['late'], 'close_count': 1, 'forced': False}\n"
+      },
+      {
+        "command": "timeout 10s python3 -B verify.py --output results.json",
+        "workingDirectory": "labs/cloud-reliability-lab",
+        "exitCode": 0,
+        "output": "15 model cases passed; 19 exact target rejections; 5 unrelated outcomes refused\n"
+      },
+      {
+        "command": "timeout 10s python3 -B verify.py --mutant mean-ratios",
+        "workingDirectory": "labs/cloud-reliability-lab",
+        "exitCode": 2,
+        "output": "{\"case\": \"counts\", \"failure\": {\"actual\": \"1/2\", \"code\": \"pooled-ratio\", \"expected\": \"91/110\"}, \"mutant\": \"mean-ratios\", \"status\": \"target-rejected\"}\n",
+        "expectation": "expected-rejection",
+        "expectedExitCode": 2
+      },
+      {
+        "command": "timeout 10s python3 -B verify.py --mutant restart-grace",
+        "workingDirectory": "labs/cloud-reliability-lab",
+        "exitCode": 2,
+        "output": "{\"case\": \"deadline\", \"failure\": {\"actual\": 16, \"code\": \"single-grace-deadline\", \"expected\": 10}, \"mutant\": \"restart-grace\", \"status\": \"target-rejected\"}\n",
+        "expectation": "expected-rejection",
+        "expectedExitCode": 2
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "docs/public/examples/cloud-reliability-results.json",
+        "sha256": "08baa55539cb676755e60b5546bddb2c296ebb7e98c7cba00619157293b5a20a"
+      },
+      {
+        "path": "docs/public/examples/cloud-reliability-lab.zip",
+        "sha256": "de75db02078d4dff573e7b69c170fbad020a3bd781640aee4066c5627fdeb541"
+      },
+      {
+        "path": "labs/cloud-reliability-lab/source-manifest.json",
+        "sha256": "47c1ade166313827829ebe4e9439001f4b4687acfb76d2d9b035a24de3d9590f"
+      }
+    ],
+    "versions": [
+      "CPython 3.12.14",
+      "Linux; standard library only"
+    ]
+  },
+  {
+    "recordedAt": "2026-10-03T09:31:07.540604+00:00",
+    "revision": "G-C-integration-1",
+    "independentlyReviewed": false,
+    "resourceGroup": "cloud-reliability-lab",
+    "id": "cloud.snippet-check",
+    "title": "正文片段、机制图与配置文本检查",
+    "kind": "static-checked",
+    "status": "pass",
+    "scope": [
+      "37 canonical topics across9 domains,6 reference-based routes,24 Node regressions,117 HTML outputs,463 search sections and60 intent targets",
+      "Four integrated articles,4 Mermaid diagrams and4 genuine Code Hike walkthroughs; canonical source and snippet identities",
+      "Go concurrency/runtime and cloud category guides; service-reliability route; shared source ZIP entries and applicable evidence scopes",
+      "Legacy anchors,canonical/404 lifecycle,visible non-code Markdown,strong rendering and source/assets preserved"
+    ],
+    "limitations": [
+      "No new Go runtime or cloud model execution in platform integration; source-bound author and independent executions remain separate",
+      "Kubernetes cluster behavior remains not-run; process examples and sequential models do not establish cluster guarantees",
+      "Independent whole-tree review,remote CI and deployed-browser checks are separate gates"
+    ],
+    "sourceFiles": [
+      {
+        "path": "docs/knowledge/cloud/observability/service-level-signals.md",
+        "sha256": "677d5008416a54eefc53c75de652e1b1c0457e3a952cda06e1a440f34b2d8c6c"
+      },
+      {
+        "path": "docs/knowledge/cloud/lifecycle/readiness-draining.md",
+        "sha256": "3d81568f2d66b7a949bb977e73dff58e5bd71f724bfbe596ff2e77f596d2441f"
+      },
+      {
+        "path": "content/snippets/cloud-reliability.json",
+        "sha256": "64f653a9ba06c27bfda5d7c2274587478384452019a71ddcc1ab0685d1832b59"
+      },
+      {
+        "path": "labs/cloud-reliability-lab/pod-spec-fragment.yaml",
+        "sha256": "669be8168e5f78021e4b5045e066026a2985a8b4432cb423ae1b5bf1f9052ea9"
+      },
+      {
+        "path": "content/records/cloud-reliability/author-check.mjs",
+        "sha256": "10bb3faf0826ff61d993f33b93b10656219e1306aee0ef13134f56126bc8e40d"
+      }
+    ],
+    "commands": [
+      {
+        "command": "npm run check",
+        "exitCode": 0
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "content/records/go-cloud/integration-static.json",
+        "sha256": "53a5fa2c5813db0bd896d06abf0b4c94ddc6221c534adb94dea8a63397c3cdf1"
+      }
+    ],
+    "historicalAuthorChecks": {
+      "scope": [
+        "复用现站依赖；2张Mermaid在strict/htmlLabels=false下解析；3个代码块经CodeHike1.1.0编译",
+        "两份Python walkthrough去除注释后与源文件逐字相同；step范围有效；review字段、来源ID、已有主题关系与一个H1检查",
+        "配置片段YAML语法与正文逐字一致；Python源码AST解析；ZIP字节/范围检查"
+      ],
+      "commands": [
+        {
+          "command": "node records/author-check.mjs ../../../../wiki",
+          "workingDirectory": "author-package-root",
+          "exitCode": 0,
+          "output": "2 articles; 2 Mermaid diagrams; 3 Code Hike code blocks; 2 exact snippets; YAML syntax and text only"
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "content/records/cloud-reliability/author-static.json",
+          "sha256": "b62f3bc554c81bc694e58bd4bc894e55263880f63f0d7e8fd3c5b785134ce9df"
+        },
+        {
+          "path": "content/records/cloud-reliability/package-check.json",
+          "sha256": "7b9bb35fa0d4682abb4a969a030fc2593e8512c153d75ee8e60f7714a21d68ed"
+        },
+        {
+          "path": "content/records/cloud-reliability/check-history.json",
+          "sha256": "570ba595b3853870173a7222cc0f89411e7c61c31fb1048a837a70b93208a2ea"
+        }
+      ]
+    }
+  },
+  {
+    "recordedAt": "2026-10-03T09:08:55.523919+00:00",
+    "revision": "C-r1",
+    "independentlyReviewed": false,
+    "resourceGroup": "cloud-reliability-lab",
+    "id": "cloud.kubernetes-not-run",
+    "title": "Kubernetes 集群行为尚未执行",
+    "kind": "executed",
+    "status": "not-run",
+    "scope": [
+      "探针、容器信号、EndpointSlice传播、代理路由与实际发布/排空",
+      "文章中的Pod spec片段与候选时间预算"
+    ],
+    "limitations": [
+      "当前仅source-reviewed；未安装Kubernetes、Docker或监控栈",
+      "真实服务/多进程/集群harness需要另行设计与授权；没有计划用模型替代"
+    ],
+    "sourceFiles": [
+      {
+        "path": "labs/cloud-reliability-lab/pod-spec-fragment.yaml",
+        "sha256": "669be8168e5f78021e4b5045e066026a2985a8b4432cb423ae1b5bf1f9052ea9"
+      }
+    ],
+    "commands": [],
+    "artifacts": []
+  }
+]

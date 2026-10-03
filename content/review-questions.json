@@ -313,5 +313,68 @@
     "task": "recover",
     "prompt": "恢复了业务值却没有水位或操作记录，分别失去什么保护？",
     "anchor": "scope-recovery"
+  },
+  {
+    "id": "go-channel-alias",
+    "topic": "go.channel-memory-ownership",
+    "task": "understand",
+    "prompt": "发送 slice 后立刻复用底层数组，为什么发送完成仍不足以保护消费者？归还通道增加了哪条边？",
+    "anchor": "ownership-round-trip"
+  },
+  {
+    "id": "go-close-drain",
+    "topic": "go.channel-memory-ownership",
+    "task": "verify",
+    "prompt": "关闭有缓冲 channel 后，哪次接收才观察到关闭并得到零值？能否把较早收到的缓存值也当作这个信号？",
+    "anchor": "close-and-drain"
+  },
+  {
+    "id": "go-select-ready",
+    "topic": "go.channel-memory-ownership",
+    "task": "understand",
+    "prompt": "取消与工作同时就绪时，把取消 case 写在第一行是否有优先级？有限抽样能证明什么？",
+    "anchor": "select-ready-set"
+  },
+  {
+    "id": "go-runtime-wait",
+    "topic": "go.runtime-wait-diagnosis",
+    "task": "diagnose",
+    "prompt": "goroutine 增多而 CPU 低时，哪些栈、profile 与 trace 观察能区分网络等待和许可之外的输入堆积？",
+    "anchor": "four-scenarios"
+  },
+  {
+    "id": "go-profile-time",
+    "topic": "go.runtime-wait-diagnosis",
+    "task": "verify",
+    "prompt": "为什么 block profile 的累积等待、CPU 样本与一次请求的墙钟延迟不能直接相加比较？",
+    "anchor": "evidence-types"
+  },
+  {
+    "id": "cloud-quantile-merge",
+    "topic": "cloud.service-level-signals",
+    "task": "understand",
+    "prompt": "两个实例的p95能否按请求量加权？给出同桶不同真实分位的反例。",
+    "anchor": "quantiles"
+  },
+  {
+    "id": "cloud-empty-window",
+    "topic": "cloud.service-level-signals",
+    "task": "diagnose",
+    "prompt": "没有请求和采集缺失分别知道什么，为什么都不能填成100%成功？",
+    "anchor": "low-traffic"
+  },
+  {
+    "id": "cloud-grace-budget",
+    "topic": "cloud.readiness-draining",
+    "task": "design",
+    "prompt": "preStop、在途工作和依赖清理怎样共享外层宽限？hook返回后为什么不重新计时？",
+    "anchor": "budget-timeline"
+  },
+  {
+    "id": "cloud-route-gate",
+    "topic": "cloud.readiness-draining",
+    "task": "verify",
+    "prompt": "EndpointSlice ready已为false，迟到请求仍到应用时，分别需要什么观察证明路由与进程边界？",
+    "anchor": "finite-model"
   }
 ]

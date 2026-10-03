@@ -12,9 +12,9 @@ export const taxonomy = [
   ] },
   { id:'go', title:'Go 工程', summary:'围绕函数合同、并发所有权、标准库服务和进程生命周期组织 Go 知识。先解释谁启动、谁等待、谁关闭，再讨论工具选择。', prerequisites:'能阅读 Go 函数、接口、error 和 defer；并发页需要 channel/goroutine 的基本概念。', boundary:'context 是本进程协作协议，不是数据库提交结果或持久任务队列。跨服务恢复回到可靠交互。', categories:[
     ['language','语言核心','用具体值和控制流澄清语言约定。','值与指针、slice/map、接口 nil、error 链、泛型'],
-    ['concurrency','并发协作与设计','把取消信号、工作退出和结果回收分开，再限制并发与队列。','sync、errgroup、背压、并发测试'],
+    ['concurrency','并发协作与设计','先区分数据同步、对象交接与工作结束，再限制并发与队列。','sync、errgroup、背压、并发测试'],
     ['http','HTTP 服务与客户端','输入、响应、Body、连接和预算共同构成调用合同。','database/sql、JSON、代理与流式响应'],
-    ['runtime','运行时','从可观察行为进入调度、netpoll、GC 和分配实现。','GMP、栈增长、内存模型、pprof/trace'],
+    ['runtime','运行时','从可观察行为进入调度、netpoll、GC 和分配实现。','栈增长、内存分配与GC、cgo与系统调用、代表性负载下的运行时诊断'],
     ['lifecycle','进程生命周期','先停止接纳，再等待已有工作，最后释放依赖。','就绪摘流、持久后台任务、容器终止窗口'],
     ['engineering','框架与工程','框架比较先说明它增加的状态和责任。','Gin、gRPC、配置日志、模块版本、测试替身']
   ] },
@@ -58,9 +58,9 @@ export const taxonomy = [
   { id:'cloud', title:'云原生与可靠性', summary:'从进程和资源出发，把交付、观测、服务目标与恢复联系起来。平台工具不能消除应用自身的生命周期责任。', prerequisites:'了解进程、网络和服务调用；诊断先记录工作负载和时间范围。', boundary:'本机停机不证明 Kubernetes 摘流；一次功能用例不证明容量、SLO 或多节点恢复。', categories:[
     ['processes','Linux 与进程','用进程、描述符和资源限制理解运行现场。','信号、namespace/cgroup、页缓存、资源统计'],
     ['containers','容器与工作负载','区分镜像、运行用户、网络和状态卷的责任。','镜像分层、Docker、Pod、Deployment、存储'],
-    ['lifecycle','生命周期与弹性','启动、就绪、接纳和退出共同决定变更窗口。','探针、摘流、PDB、HPA、requests/limits'],
+    ['lifecycle','生命周期与弹性','启动、就绪、接纳和退出共同决定变更窗口。','真实集群摘流与故障实验、PDB、HPA、requests/limits'],
     ['delivery','交付与平台','同一制品逐步提升环境，数据变更需要兼容窗口。','CI/CD、灰度、功能开关、回滚、平台治理'],
-    ['observability','观测与服务目标','选择能回答问题的指标、日志和追踪，控制基数与隐私。','RED/USE、SLI/SLO、采样、告警'],
+    ['observability','观测与服务目标','选择能回答问题的指标、日志和追踪，控制基数与隐私。','遥测管线与OpenTelemetry、告警窗口与误报、真实负载与预算校准'],
     ['performance','性能与故障定位','用等待、资源持有与负载区分相似症状。','排队、Little 定律、profile、连接耗尽'],
     ['recovery','恢复与复盘','恢复必须对账并定义停止条件，不能只看进程重新启动。','备份演练、RPO/RTO、灾备、故障注入']
   ] },

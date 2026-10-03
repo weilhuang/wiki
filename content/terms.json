@@ -13,7 +13,8 @@
     "spring-boot": "Spring Boot",
     "rabbitmq": "RabbitMQ",
     "kafka": "Kafka",
-    "etcd": "etcd"
+    "etcd": "etcd",
+    "kubernetes": "Kubernetes"
   },
   "mechanism": {
     "ioc": "IoC",
@@ -54,7 +55,9 @@
     "dispatch": "调用分派",
     "conditional-configuration": "条件装配",
     "indexing": "索引与访问路径",
-    "fencing": "资源端栅栏"
+    "fencing": "资源端栅栏",
+    "observability": "可观测性",
+    "slo": "服务目标"
   },
   "task": {
     "understand": "理解机制",

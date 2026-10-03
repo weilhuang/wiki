@@ -1,0 +1,49 @@
+goroutine 1 [running]:
+main.capture({0x76d2f8, 0x2faa178b2070}, {0x5a88f4, 0x10}, {0x5a6b9b, 0x9}, 0x1)
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:90 +0xf8
+main.run({0x7fff89ffd7da, 0x7}, {0x7fff89ffd7e7, 0x4d}, 0x0)
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:257 +0xee6
+main.main()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:322 +0x167
+
+goroutine 23 [trace reader (blocked)]:
+runtime.ReadTrace()
+	runtime/trace.go:893 +0x45
+runtime/trace.(*traceMultiplexer).startLocked.func1()
+	runtime/trace/subscribe.go:167 +0xb4
+created by runtime/trace.(*traceMultiplexer).startLocked in goroutine 1
+	runtime/trace/subscribe.go:157 +0x159
+
+goroutine 24 [syscall]:
+runtime/pprof.readProfile()
+	runtime/cpuprof.go:251 +0x4a
+runtime/pprof.profileWriter({0x76c360?, 0x2faa17888048?})
+	runtime/pprof/pprof.go:927 +0x45
+created by runtime/pprof.StartCPUProfile in goroutine 1
+	runtime/pprof/pprof.go:908 +0x1b6
+
+goroutine 28 [IO wait]:
+internal/poll.runtime_pollWait(0x7fa4342d1e00, 0x72)
+	runtime/netpoll.go:351 +0x85
+internal/poll.(*pollDesc).wait(0x2faa178b0180?, 0x2faa177ac190?, 0x0)
+	internal/poll/fd_poll_runtime.go:84 +0x27
+internal/poll.(*pollDesc).waitRead(...)
+	internal/poll/fd_poll_runtime.go:89
+internal/poll.(*FD).Read(0x2faa178b0180, {0x2faa177ac190, 0x1, 0x1})
+	internal/poll/fd_unix.go:170 +0x2a8
+net.(*netFD).Read(0x2faa178b0180, {0x2faa177ac190?, 0x7fa47c5b0a01?, 0x2faa177ac190?})
+	net/fd_posix.go:68 +0x25
+net.(*conn).Read(0x2faa1779a068, {0x2faa177ac190?, 0x721ce8?, 0x421801?})
+	net/net.go:196 +0x45
+io.ReadAtLeast({0x7fa4342eac00, 0x2faa1779a068}, {0x2faa177ac190, 0x1, 0x1}, 0x1)
+	io/io.go:335 +0x83
+io.ReadFull(...)
+	io/io.go:354
+main.networkWait({0x76d618, 0x2faa1779a068}, 0x0?)
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:62 +0x79
+main.run.func9()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:248 +0x35
+main.run.func5.1()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:165 +0x57
+created by main.run.func5 in goroutine 1
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:163 +0xa5

@@ -1,0 +1,192 @@
+[
+  {
+    "name": "version",
+    "command": "go version",
+    "exitCode": 0,
+    "durationSeconds": 0.013,
+    "timedOut": false
+  },
+  {
+    "name": "tests",
+    "command": "go test -p=1 -count=1 -v -timeout=20s ./...",
+    "exitCode": 0,
+    "durationSeconds": 0.346,
+    "timedOut": false
+  },
+  {
+    "name": "race-clean",
+    "command": "go test -p=1 -race -count=1 -v -timeout=20s ./...",
+    "exitCode": 0,
+    "durationSeconds": 1.25,
+    "timedOut": false
+  },
+  {
+    "name": "vet",
+    "command": "go vet -p=1 ./...",
+    "exitCode": 0,
+    "durationSeconds": 0.068,
+    "timedOut": false
+  },
+  {
+    "name": "reject-alias",
+    "command": "LAB_VARIANT=alias go test -p=1 -count=1 -run ^TestPublishedPayload$ -v -timeout=20s .",
+    "exitCode": 1,
+    "durationSeconds": 0.154,
+    "timedOut": false,
+    "expectation": "expected-rejection",
+    "expectedExitCode": 1
+  },
+  {
+    "name": "reject-cancel-join",
+    "command": "LAB_VARIANT=cancel-join go test -p=1 -count=1 -run ^TestCancellationIsNotJoin$ -v -timeout=20s .",
+    "exitCode": 1,
+    "durationSeconds": 0.156,
+    "timedOut": false,
+    "expectation": "expected-rejection",
+    "expectedExitCode": 1
+  },
+  {
+    "name": "reject-race",
+    "command": "LAB_VARIANT=race go test -p=1 -race -count=1 -run ^TestRaceFixture$ -v -timeout=20s .",
+    "exitCode": 1,
+    "durationSeconds": 0.228,
+    "timedOut": false,
+    "expectation": "expected-rejection",
+    "expectedExitCode": 1
+  },
+  {
+    "name": "build",
+    "command": "go build -p=1 -buildvcs=false -trimpath -o PRIVATE/diagnose ./cmd/diagnose",
+    "exitCode": 0,
+    "durationSeconds": 9.825,
+    "timedOut": false
+  },
+  {
+    "name": "run-cpu",
+    "command": "PRIVATE/diagnose -scenario cpu -out PRIVATE/cpu",
+    "exitCode": 0,
+    "durationSeconds": 0.456,
+    "timedOut": false
+  },
+  {
+    "name": "cpu-cpu-top",
+    "command": "go tool pprof -top -nodecount=50 PRIVATE/cpu/cpu.pprof",
+    "exitCode": 0,
+    "durationSeconds": 3.623,
+    "timedOut": false
+  },
+  {
+    "name": "run-channel",
+    "command": "PRIVATE/diagnose -scenario channel -out PRIVATE/channel",
+    "exitCode": 0,
+    "durationSeconds": 0.008,
+    "timedOut": false
+  },
+  {
+    "name": "channel-cpu-top",
+    "command": "go tool pprof -top -nodecount=50 PRIVATE/channel/cpu.pprof",
+    "exitCode": 0,
+    "durationSeconds": 0.094,
+    "timedOut": false
+  },
+  {
+    "name": "channel-trace-sync",
+    "command": "go tool trace -pprof=sync PRIVATE/channel/trace.out",
+    "exitCode": 0,
+    "durationSeconds": 1.4,
+    "timedOut": false
+  },
+  {
+    "name": "channel-trace-top",
+    "command": "go tool pprof -top -nodecount=50 PRIVATE/channel/sync.pprof",
+    "exitCode": 0,
+    "durationSeconds": 0.088,
+    "timedOut": false
+  },
+  {
+    "name": "channel-block-top",
+    "command": "go tool pprof -top -nodecount=50 PRIVATE/channel/block.pprof",
+    "exitCode": 0,
+    "durationSeconds": 0.083,
+    "timedOut": false
+  },
+  {
+    "name": "run-network",
+    "command": "PRIVATE/diagnose -scenario network -out PRIVATE/network",
+    "exitCode": 0,
+    "durationSeconds": 0.009,
+    "timedOut": false
+  },
+  {
+    "name": "network-cpu-top",
+    "command": "go tool pprof -top -nodecount=50 PRIVATE/network/cpu.pprof",
+    "exitCode": 0,
+    "durationSeconds": 0.082,
+    "timedOut": false
+  },
+  {
+    "name": "network-trace-net",
+    "command": "go tool trace -pprof=net PRIVATE/network/trace.out",
+    "exitCode": 0,
+    "durationSeconds": 0.077,
+    "timedOut": false
+  },
+  {
+    "name": "network-trace-top",
+    "command": "go tool pprof -top -nodecount=50 PRIVATE/network/net.pprof",
+    "exitCode": 0,
+    "durationSeconds": 0.079,
+    "timedOut": false
+  },
+  {
+    "name": "network-block-top",
+    "command": "go tool pprof -top -nodecount=50 PRIVATE/network/block.pprof",
+    "exitCode": 0,
+    "durationSeconds": 0.089,
+    "timedOut": false
+  },
+  {
+    "name": "run-backlog",
+    "command": "PRIVATE/diagnose -scenario backlog -out PRIVATE/backlog",
+    "exitCode": 0,
+    "durationSeconds": 0.009,
+    "timedOut": false
+  },
+  {
+    "name": "backlog-cpu-top",
+    "command": "go tool pprof -top -nodecount=50 PRIVATE/backlog/cpu.pprof",
+    "exitCode": 0,
+    "durationSeconds": 0.077,
+    "timedOut": false
+  },
+  {
+    "name": "backlog-trace-sync",
+    "command": "go tool trace -pprof=sync PRIVATE/backlog/trace.out",
+    "exitCode": 0,
+    "durationSeconds": 0.07,
+    "timedOut": false
+  },
+  {
+    "name": "backlog-trace-top",
+    "command": "go tool pprof -top -nodecount=50 PRIVATE/backlog/sync.pprof",
+    "exitCode": 0,
+    "durationSeconds": 0.082,
+    "timedOut": false
+  },
+  {
+    "name": "backlog-block-top",
+    "command": "go tool pprof -top -nodecount=50 PRIVATE/backlog/block.pprof",
+    "exitCode": 0,
+    "durationSeconds": 0.087,
+    "timedOut": false
+  },
+  {
+    "name": "reject-worker-error",
+    "command": "PRIVATE/diagnose -scenario network -out PRIVATE/worker-error -fail-worker",
+    "exitCode": 1,
+    "durationSeconds": 0.008,
+    "timedOut": false,
+    "expectation": "expected-rejection",
+    "expectedExitCode": 1
+  }
+]

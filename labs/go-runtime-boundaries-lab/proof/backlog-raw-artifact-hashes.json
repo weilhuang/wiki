@@ -1,0 +1,32 @@
+[
+  {
+    "file": "block.pprof",
+    "sha256": "6879fcb3e3a2e7ae6bb7fee35750f1fcabb6674ccf8a985bb975010c0f1a380f",
+    "bytes": 1229
+  },
+  {
+    "file": "cpu.pprof",
+    "sha256": "eb94bb4359b1c7bc76d5abb4d9cb51ad052b4c5e07092b59d7d936073f9084e4",
+    "bytes": 493
+  },
+  {
+    "file": "goroutines.txt",
+    "sha256": "f901f965bef34a465904d4a62330c590e7f9274c674c54aafc474bbeb43233d8",
+    "bytes": 12414
+  },
+  {
+    "file": "summary.json",
+    "sha256": "f4a20d1e7adcfd9d2a298004cc3da775ceb02f2913d8613482dbfc3fedb0795d",
+    "bytes": 278
+  },
+  {
+    "file": "sync.pprof",
+    "sha256": "35e61ba66cf231cbb5580553f43e3e28903338ebc996d718d5c515f8a2364d59",
+    "bytes": 745
+  },
+  {
+    "file": "trace.out",
+    "sha256": "d7abdf978ddfc9e33ebdfac7ff706be028e326a07f6f38dc0dd661c3e39d962d",
+    "bytes": 17594
+  }
+]

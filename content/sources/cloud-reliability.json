@@ -1,0 +1,162 @@
+[
+  {
+    "id": "cloud.sre-slos",
+    "title": "Google SRE Workbook — Implementing SLOs",
+    "url": "https://sre.google/workbook/implementing-slos/",
+    "type": "documentation",
+    "version": "2018 book chapter; online edition checked 2026-10-03",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "SLI good/total; measurement point; SLO and error-budget policy; arithmetic and synthetic sample are original"
+  },
+  {
+    "id": "cloud.sre-monitoring",
+    "title": "Google SRE — Monitoring Distributed Systems",
+    "url": "https://sre.google/sre-book/monitoring-distributed-systems/",
+    "type": "documentation",
+    "version": "2016 book chapter; online edition checked 2026-10-03",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "Golden signals, symptoms versus causes; original connection-pool example"
+  },
+  {
+    "id": "cloud.red-method",
+    "title": "Grafana Labs — The RED Method: How to Instrument Your Services",
+    "url": "https://grafana.com/blog/the-red-method-how-to-instrument-your-services/",
+    "type": "documentation",
+    "version": "2018-08-03; checked 2026-10-03",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "Rate, errors and duration as service-oriented questions; no tool/product claim"
+  },
+  {
+    "id": "cloud.use-method",
+    "title": "Brendan Gregg — The USE Method",
+    "url": "https://www.brendangregg.com/usemethod.html",
+    "type": "documentation",
+    "version": "Author-maintained web page; checked 2026-10-03",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "Resource utilization/saturation/errors; software resources and averaging bursts; no borrowed production anecdote"
+  },
+  {
+    "id": "cloud.prometheus-histograms",
+    "title": "Prometheus — Histograms and summaries",
+    "url": "https://prometheus.io/docs/practices/histograms/",
+    "type": "documentation",
+    "version": "Dynamic documentation checked 2026-10-03; example limited to classic cumulative buckets",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "Cumulative inclusive boundaries, aggregation, summary quantiles and bucket uncertainty; no product run"
+  },
+  {
+    "id": "cloud.prometheus-instrumentation",
+    "title": "Prometheus — Instrumentation",
+    "url": "https://prometheus.io/docs/practices/instrumentation/",
+    "type": "documentation",
+    "version": "Dynamic documentation checked 2026-10-03",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "Label-set costs, counter reset basics; scale numbers in article are original combinatorics"
+  },
+  {
+    "id": "cloud.otel-sampling",
+    "title": "OpenTelemetry — Sampling",
+    "url": "https://opentelemetry.io/docs/concepts/sampling/",
+    "type": "documentation",
+    "version": "Dynamic documentation checked 2026-10-03",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "Head/tail selection; fixed selection-bias sample is original, not a sampling implementation"
+  },
+  {
+    "id": "cloud.otel-sensitive",
+    "title": "OpenTelemetry — Handling sensitive data",
+    "url": "https://opentelemetry.io/docs/security/handling-sensitive-data/",
+    "type": "documentation",
+    "version": "Dynamic documentation checked 2026-10-03",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "Data minimization; credentials/session data; attribute allow lists; no personal data processed"
+  },
+  {
+    "id": "cloud.k8s134-probes",
+    "title": "Kubernetes 1.34 — Configure Liveness, Readiness and Startup Probes",
+    "url": "https://v1-34.docs.kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/",
+    "type": "documentation",
+    "version": "Kubernetes v1.34 documentation snapshot; accessed 2026-10-03",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "Startup gating; probe responsibilities/thresholds; HTTP fields; configured periods are not exact timing proof"
+  },
+  {
+    "id": "cloud.k8s134-lifecycle",
+    "title": "Kubernetes 1.34 — Pod Lifecycle",
+    "url": "https://v1-34.docs.kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/",
+    "type": "documentation",
+    "version": "Kubernetes v1.34 documentation snapshot; accessed 2026-10-03",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "Parallel endpoint/termination flow; signals; shared grace, small hook extension, force deletion; no cluster run"
+  },
+  {
+    "id": "cloud.k8s134-hooks",
+    "title": "Kubernetes 1.34 — Container Lifecycle Hooks",
+    "url": "https://v1-34.docs.kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/",
+    "type": "documentation",
+    "version": "Kubernetes v1.34 documentation snapshot; accessed 2026-10-03",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "preStop before termination signal, shared budget, possible duplicate delivery; exec environment requirement"
+  },
+  {
+    "id": "cloud.k8s134-endpoints",
+    "title": "Kubernetes 1.34 — EndpointSlices",
+    "url": "https://v1-34.docs.kubernetes.io/docs/concepts/services-networking/endpoint-slices/",
+    "type": "documentation",
+    "version": "Kubernetes v1.34 documentation snapshot; accessed 2026-10-03",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "ready/serving/terminating meanings; publishNotReadyAddresses exception; consumer-specific behavior"
+  },
+  {
+    "id": "cloud.k8s134-endpoint-source",
+    "title": "Kubernetes v1.34.0 — endpointslice podToEndpoint",
+    "url": "https://github.com/kubernetes/kubernetes/blob/v1.34.0/staging/src/k8s.io/endpointslice/utils.go",
+    "type": "source",
+    "version": "Fixed upstream tag v1.34.0",
+    "accessedAt": "2026-10-03",
+    "license": "Apache-2.0",
+    "notes": "podToEndpoint: serving from Pod Ready, terminating from deletion timestamp, ready with publishNotReadyAddresses override; no source excerpt copied"
+  },
+  {
+    "id": "cloud.k8s134-service-proxy",
+    "title": "Kubernetes 1.34 — Virtual IPs and Service Proxies",
+    "url": "https://v1-34.docs.kubernetes.io/docs/reference/networking/virtual-ips/",
+    "type": "documentation",
+    "version": "Kubernetes v1.34 documentation snapshot; accessed 2026-10-03",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "Traffic to terminating endpoints; Local-policy load-balancer draining; not a global propagation bound"
+  },
+  {
+    "id": "cloud.k8s134-proxy-source",
+    "title": "Kubernetes v1.34.0 — proxy CategorizeEndpoints",
+    "url": "https://github.com/kubernetes/kubernetes/blob/v1.34.0/pkg/proxy/topology.go",
+    "type": "source",
+    "version": "Fixed upstream tag v1.34.0",
+    "accessedAt": "2026-10-03",
+    "license": "Apache-2.0",
+    "notes": "Cluster fallback when no Ready endpoints; Local fallback when no local Ready endpoints; serving AND terminating required; no source excerpt copied"
+  },
+  {
+    "id": "cloud.k8s134-deployment",
+    "title": "Kubernetes 1.34 — Deployments",
+    "url": "https://v1-34.docs.kubernetes.io/docs/concepts/workloads/controllers/deployment/",
+    "type": "documentation",
+    "version": "Kubernetes v1.34 documentation snapshot; accessed 2026-10-03",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "maxUnavailable/maxSurge and minReadySeconds; availability is not request-drain evidence"
+  }
+]
