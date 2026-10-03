@@ -97,7 +97,7 @@ flowchart LR
 
 CPU profile 是样本；短窗口可能没有捕捉某个执行者。block profile 需先启用，`SetBlockProfileRate(1)` 尝试记录每次相关阻塞事件，会带来额外成本。trace 可以导出 `net`、`sync`、`syscall`、`sched` 等不同视角；`sched` 看可运行后的调度延迟，`net` 看网络阻塞，不能混成同一个“等待时间”。[pprof API](https://pkg.go.dev/runtime/pprof@go1.27.1) · [采样设置](https://pkg.go.dev/runtime@go1.27.1#SetBlockProfileRate) · [trace 导出类型](https://pkg.go.dev/cmd/trace@go1.27.1)
 
-有限进程统一启用 profile 与 trace 方便教学对照。因此数字包含探针开销，不能拿 CPU 百分比给业务算法排性能名次。生产排查应先确定请求窗口、采集成本和权限，再选择足够回答问题的证据。
+有限进程统一启用 profile 与 trace 方便教学对照。数字因此包含探针开销，不能拿 CPU 百分比给业务算法排性能名次。生产排查应先确定请求窗口、采集成本和权限，再选择足够回答问题的证据。
 
 ## 4. 四份输入，对应四种可以区分的观察 {#four-scenarios}
 

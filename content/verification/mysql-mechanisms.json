@@ -142,7 +142,8 @@
       "Integrated D/M article metadata, category guides, optional and required reading roles, aliases and public evidence references",
       "24 Node regressions,109 generated HTML pages,420 canonical search sections and 46 intent targets",
       "Five D Code Hike blocks and two M blocks, exact source excerpts and six Mermaid diagrams",
-      "One source ZIP entry per shared lab; dated MySQL NOT_RUN freeze note links to the actual audited run"
+      "One source ZIP entry per shared lab; dated MySQL NOT_RUN freeze note links to the actual audited run",
+      "本次仅按固定白名单调整中文正文；重新执行实际 Code Hike、源码片段与 Mermaid 静态检查。旧实验运行和原静态输出保留各自的历史源码身份。"
     ],
     "limitations": [
       "No new MySQL/broker/Redis/etcd/Python/Java runtime execution in integration",
@@ -152,7 +153,7 @@
     "sourceFiles": [
       {
         "path": "docs/knowledge/data/indexes/composite-index-access-paths.md",
-        "sha256": "05b6913c8ec397736aa0dbfc14f8143a5086f8d163de8234b849372afac7986b"
+        "sha256": "94b7b1e48fe80e892d68d236d05b8fe11d28399956f29a51531ba7263d8a38e1"
       },
       {
         "path": "docs/knowledge/data/transactions/mvcc-read-views.md",
@@ -173,6 +174,10 @@
       {
         "path": "content/records/data-messaging/integration-static.json",
         "sha256": "bb90aed1701461b66f6f95768d52f762d853543788680bcfac09c95b3f47cb22"
+      },
+      {
+        "path": "content/records/editorial-tone-20261003/static-recheck.json",
+        "sha256": "9391a2e5117613ef4a60c97abecd5f3058a9ef1300c37304d75a7a89f3a655d9"
       }
     ],
     "recordedAt": "2026-10-03T07:54:56.618152+00:00",
@@ -197,6 +202,81 @@
           "sha256": "ff9a4a22df2569a9b135d19ac8aeb12cf9bc9893deca1e5f6ffb1a6da0f5693f"
         }
       ]
+    },
+    "priorStaticRecord": {
+      "repositoryCommit": "bc759c7d64725462f79a84a7ed954687bee41795",
+      "record": {
+        "id": "mysql-mechanisms.snippet-check",
+        "title": "真实Code Hike与可访问Mermaid/正文结构检查",
+        "kind": "static-checked",
+        "status": "pass",
+        "scope": [
+          "Integrated D/M article metadata, category guides, optional and required reading roles, aliases and public evidence references",
+          "24 Node regressions,109 generated HTML pages,420 canonical search sections and 46 intent targets",
+          "Five D Code Hike blocks and two M blocks, exact source excerpts and six Mermaid diagrams",
+          "One source ZIP entry per shared lab; dated MySQL NOT_RUN freeze note links to the actual audited run"
+        ],
+        "limitations": [
+          "No new MySQL/broker/Redis/etcd/Python/Java runtime execution in integration",
+          "Original MySQL proof remains bound to run37102894207 attempt1 and checkout44a2821a2782057b039e5511dd84f092c745be2c",
+          "Whole-tree independent review, remote CI and actual browser checks are separate gates"
+        ],
+        "sourceFiles": [
+          {
+            "path": "docs/knowledge/data/indexes/composite-index-access-paths.md",
+            "sha256": "05b6913c8ec397736aa0dbfc14f8143a5086f8d163de8234b849372afac7986b"
+          },
+          {
+            "path": "docs/knowledge/data/transactions/mvcc-read-views.md",
+            "sha256": "b65ee7ee3811903bd94f95cf415c0d7744bd8ef6b10bf99baf8c78cbe8ee825f"
+          },
+          {
+            "path": "content/snippets/mysql-mechanisms.json",
+            "sha256": "76ffa7d8b776c3bb485c48c91e604788078b13eeedce7f672b3509e49fe86ef1"
+          }
+        ],
+        "commands": [
+          {
+            "command": "npm run check",
+            "exitCode": 0
+          }
+        ],
+        "artifacts": [
+          {
+            "path": "content/records/data-messaging/integration-static.json",
+            "sha256": "bb90aed1701461b66f6f95768d52f762d853543788680bcfac09c95b3f47cb22"
+          }
+        ],
+        "recordedAt": "2026-10-03T07:54:56.618152+00:00",
+        "independentlyReviewed": false,
+        "revision": "D-M-integration-1",
+        "resourceGroup": "mysql-mechanisms",
+        "historicalAuthorChecks": {
+          "scope": [
+            "使用现站Code Hike1.1.0编译全部五个代码块，两个steps清理后与完整SQL文件逐字匹配",
+            "Mermaid11.17.2实际parse三幅含accTitle/accDescr的图；元数据、单H1与引用ID检查"
+          ],
+          "commands": [
+            {
+              "command": "node checks/verify-content.mjs",
+              "exitCode": 0,
+              "environment": "WIKI_ROOT points to the existing read-only wiki dependency installation; command run from author package"
+            }
+          ],
+          "artifacts": [
+            {
+              "path": "content/records/mysql-mechanisms/content-check.json",
+              "sha256": "ff9a4a22df2569a9b135d19ac8aeb12cf9bc9893deca1e5f6ffb1a6da0f5693f"
+            }
+          ]
+        }
+      }
+    },
+    "editorialRecheck": {
+      "recordedAt": "2026-10-03T19:15:28.487553+00:00",
+      "path": "content/records/editorial-tone-20261003/static-recheck.json",
+      "sha256": "9391a2e5117613ef4a60c97abecd5f3058a9ef1300c37304d75a7a89f3a655d9",
+      "runtimeRerun": false
     }
   },
   {

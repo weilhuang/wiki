@@ -575,7 +575,8 @@
     "scope": [
       "Integrated AOP/Boot metadata, two category guides and optional Spring route branches",
       "Exact six Code Hike excerpts with retained source tabs, clean-code SHA256, step/range checks and four Mermaid diagrams",
-      "24 Node regressions, 102 generated HTML pages, 375 canonical search sections and 33 intent targets"
+      "24 Node regressions, 102 generated HTML pages, 375 canonical search sections and 33 intent targets",
+      "本次仅按固定白名单调整中文正文；重新执行实际 Code Hike、源码片段与 Mermaid 静态检查。旧实验运行和原静态输出保留各自的历史源码身份。"
     ],
     "limitations": [
       "This is Node/static/SSR integration evidence, not a new Java execution",
@@ -600,7 +601,7 @@
       },
       {
         "path": "docs/knowledge/frameworks/spring-aop/proxy-dispatch.md",
-        "sha256": "eb7b0167ae248d8e4bbd72e5272c678cadf8fe0f85ad3dc99593ba3503ea6bb9"
+        "sha256": "65a80b67af6009215224f6345f99adc81539c243434f71c41b6c34025869d834"
       },
       {
         "path": "docs/knowledge/frameworks/spring-boot/conditional-configuration.md",
@@ -625,6 +626,10 @@
       {
         "path": "labs/spring-mechanisms-lab/proof/integration-static.json",
         "sha256": "3a9d9c1674c5313ba02037d644f6df3010cc495da91f6860846ae106aaaa6c75"
+      },
+      {
+        "path": "content/records/editorial-tone-20261003/static-recheck.json",
+        "sha256": "9391a2e5117613ef4a60c97abecd5f3058a9ef1300c37304d75a7a89f3a655d9"
       }
     ],
     "recordedAt": "2026-10-03T06:43:50.287448+00:00",
@@ -672,6 +677,121 @@
         "当前及历史执行证据SHA、十个Python失败分类夹具、source-only包白名单"
       ]
     },
-    "revision": "W-integration-1"
+    "revision": "W-integration-1",
+    "priorStaticRecord": {
+      "repositoryCommit": "bc759c7d64725462f79a84a7ed954687bee41795",
+      "record": {
+        "id": "spring-mechanisms.static-check",
+        "kind": "static-checked",
+        "status": "pass",
+        "scope": [
+          "Integrated AOP/Boot metadata, two category guides and optional Spring route branches",
+          "Exact six Code Hike excerpts with retained source tabs, clean-code SHA256, step/range checks and four Mermaid diagrams",
+          "24 Node regressions, 102 generated HTML pages, 375 canonical search sections and 33 intent targets"
+        ],
+        "limitations": [
+          "This is Node/static/SSR integration evidence, not a new Java execution",
+          "Whole-tree independent review, remote CI and live browser verification are separate gates"
+        ],
+        "sourceFiles": [
+          {
+            "path": "labs/spring-mechanisms-lab/snippets.json",
+            "sha256": "bc8525b5f227f5b316bf5e695e6e1b34a03d2eb4593cdf21dd5796335618bf2a"
+          },
+          {
+            "path": "labs/spring-mechanisms-lab/result_validation.py",
+            "sha256": "2b96f273e9dd0c80dec7799f8cda249c5c27229c6e529e0587427a8ded03dba3"
+          },
+          {
+            "path": "labs/spring-mechanisms-lab/check_classifier.py",
+            "sha256": "f27a9390237c2c5d63b2d5697463f9ed9c79a06f53441d303d1a789785cc9a15"
+          },
+          {
+            "path": "labs/spring-mechanisms-lab/verify_evidence.py",
+            "sha256": "2c5db277b0c34b27f67a700d299ae24784c5601f9a5c7408b3fd7baf1be56d67"
+          },
+          {
+            "path": "docs/knowledge/frameworks/spring-aop/proxy-dispatch.md",
+            "sha256": "eb7b0167ae248d8e4bbd72e5272c678cadf8fe0f85ad3dc99593ba3503ea6bb9"
+          },
+          {
+            "path": "docs/knowledge/frameworks/spring-boot/conditional-configuration.md",
+            "sha256": "df6b438a0f2d9fef345369b4681c029e02580079d17469210533925c063910f7"
+          },
+          {
+            "path": "content/snippets/spring-mechanisms.json",
+            "sha256": "d6380a78a3c31c2f11d6730d59065c5506ba10a0e26f10861f731414e8dbe39b"
+          },
+          {
+            "path": "tests/snippets.test.mjs",
+            "sha256": "210c891494a079e29761be21f1f41b448f56082bf500272a92b7ca2b42f956ac"
+          }
+        ],
+        "commands": [
+          {
+            "command": "npm run check",
+            "exitCode": 0
+          }
+        ],
+        "artifacts": [
+          {
+            "path": "labs/spring-mechanisms-lab/proof/integration-static.json",
+            "sha256": "3a9d9c1674c5313ba02037d644f6df3010cc495da91f6860846ae106aaaa6c75"
+          }
+        ],
+        "recordedAt": "2026-10-03T06:43:50.287448+00:00",
+        "independentlyReviewed": false,
+        "resourceGroup": "spring-mechanisms",
+        "historicalAuthorChecks": {
+          "commands": [
+            {
+              "command": "node static-check.mjs $WIKI_CHECKOUT",
+              "exitCode": 0
+            },
+            {
+              "command": "python check_classifier.py",
+              "exitCode": 0
+            },
+            {
+              "command": "python verify_evidence.py --run proof/run-3",
+              "exitCode": 0
+            },
+            {
+              "command": "python verify_evidence.py --run proof/run-1",
+              "exitCode": 0
+            }
+          ],
+          "artifacts": [
+            {
+              "path": "labs/spring-mechanisms-lab/proof/static-check.json",
+              "sha256": "408e03546dd308776d6e19821a0e2708791d03beeab394e0a253f2bb0ef43241"
+            },
+            {
+              "path": "labs/spring-mechanisms-lab/proof/classifier.json",
+              "sha256": "a3fda8c94be3919fda03ff7511848136905a0d89192e550c4337a144a4709137"
+            },
+            {
+              "path": "labs/spring-mechanisms-lab/proof/evidence-check.json",
+              "sha256": "6b6878a70b1a059c807917c8340efd22826efd5c02ed4b999ab1da4fbd10904f"
+            },
+            {
+              "path": "labs/spring-mechanisms-lab/proof/history-check.json",
+              "sha256": "51a6856e8894bd3d865fc10b26c5f8c28945f96ccc91772c56c0018169ec0b87"
+            }
+          ],
+          "scope": [
+            "两个review正文的元信息/关系/链接、四个Mermaid真实解析、六段CodeHike真实编译与逐字摘录身份",
+            "当前及历史执行证据SHA、十个Python失败分类夹具、source-only包白名单"
+          ]
+        },
+        "revision": "W-integration-1"
+      }
+    },
+    "editorialRecheck": {
+      "recordedAt": "2026-10-03T19:15:28.487553+00:00",
+      "path": "content/records/editorial-tone-20261003/static-recheck.json",
+      "sha256": "9391a2e5117613ef4a60c97abecd5f3058a9ef1300c37304d75a7a89f3a655d9",
+      "runtimeRerun": false
+    }
   }
 ]

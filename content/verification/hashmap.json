@@ -246,7 +246,7 @@
     "status": "pass",
     "scope": [
       "实际 Code Hike 1.1.0 编译所有非图围栏；4个steps片段clean source逐字同步；6个Mermaid图解析；标题/metadata基础检查与shell语法",
-      "集成仅修改编辑状态和复核日期；正文技术围栏与原独审字节一致。整站静态检查另行执行。"
+      "本次仅按固定白名单调整中文正文；重新执行实际 Code Hike、源码片段与 Mermaid 静态检查。旧实验运行和原静态输出保留各自的历史源码身份。"
     ],
     "limitations": [
       "只解析图语法，未做本任务独立浏览器渲染",
@@ -255,11 +255,11 @@
     "sourceFiles": [
       {
         "path": "docs/knowledge/java/collections/hashmap.md",
-        "sha256": "9bcc7de5aa2441c07e72b94170b8c2deecb3786a186e4f7ed46166439275a896"
+        "sha256": "85f542354817d0b1f69461048657b03fbdd6afdaff002a66f0572bf229de87f1"
       },
       {
         "path": "docs/knowledge/java/collections/hashmap-source.md",
-        "sha256": "8869aba7c4eea095cd3788aba6513a18eac9506a8e08673826023cd847502ca3"
+        "sha256": "ad2d7298278aac2f3c68ae2ab527aa86c819cd2fc51365376ca8834b8506d650"
       },
       {
         "path": "labs/hashmap/snippets.json",
@@ -280,10 +280,69 @@
         "exitCode": 0
       }
     ],
-    "artifacts": [],
+    "artifacts": [
+      {
+        "path": "content/records/editorial-tone-20261003/static-recheck.json",
+        "sha256": "9391a2e5117613ef4a60c97abecd5f3058a9ef1300c37304d75a7a89f3a655d9"
+      }
+    ],
     "recordedAt": "2026-10-02T14:22:37Z",
     "revision": "R2",
-    "independentlyReviewed": true
+    "independentlyReviewed": true,
+    "priorStaticRecord": {
+      "repositoryCommit": "bc759c7d64725462f79a84a7ed954687bee41795",
+      "record": {
+        "id": "hashmap.snippet-check",
+        "kind": "static-checked",
+        "status": "pass",
+        "scope": [
+          "实际 Code Hike 1.1.0 编译所有非图围栏；4个steps片段clean source逐字同步；6个Mermaid图解析；标题/metadata基础检查与shell语法",
+          "集成仅修改编辑状态和复核日期；正文技术围栏与原独审字节一致。整站静态检查另行执行。"
+        ],
+        "limitations": [
+          "只解析图语法，未做本任务独立浏览器渲染",
+          "独立技术审校、整站链接/导航/键盘/窄屏待平台集成检查"
+        ],
+        "sourceFiles": [
+          {
+            "path": "docs/knowledge/java/collections/hashmap.md",
+            "sha256": "9bcc7de5aa2441c07e72b94170b8c2deecb3786a186e4f7ed46166439275a896"
+          },
+          {
+            "path": "docs/knowledge/java/collections/hashmap-source.md",
+            "sha256": "8869aba7c4eea095cd3788aba6513a18eac9506a8e08673826023cd847502ca3"
+          },
+          {
+            "path": "labs/hashmap/snippets.json",
+            "sha256": "a7e1cb7172ce9c41dbe10f13f56bdff38dd2d4ec20328232866805b7270ecab0"
+          },
+          {
+            "path": "labs/hashmap/tools/check-content.mjs",
+            "sha256": "3a22fc6d81e561e1c1636e7cc9164cb028adb912a032b05cfadd050fbc986dbe"
+          }
+        ],
+        "commands": [
+          {
+            "command": "node tools/check-content.mjs",
+            "exitCode": 0
+          },
+          {
+            "command": "bash -n run.sh experiments/run.sh",
+            "exitCode": 0
+          }
+        ],
+        "artifacts": [],
+        "recordedAt": "2026-10-02T14:22:37Z",
+        "revision": "R2",
+        "independentlyReviewed": true
+      }
+    },
+    "editorialRecheck": {
+      "recordedAt": "2026-10-03T19:15:28.487553+00:00",
+      "path": "content/records/editorial-tone-20261003/static-recheck.json",
+      "sha256": "9391a2e5117613ef4a60c97abecd5f3058a9ef1300c37304d75a7a89f3a655d9",
+      "runtimeRerun": false
+    }
   },
   {
     "id": "hashmap.verifier-regressions",

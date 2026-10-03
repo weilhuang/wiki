@@ -87,7 +87,7 @@ flowchart TB
 
 `TestShutdownDoesNotJoinDetachedWork` 是一个直接反例：handler 启动一个被屏障挡住的 goroutine，然后返回 202；Shutdown 成功返回时，退出 channel 仍未关闭。测试最后主动释放屏障并 join，自己不留下泄漏。成功的 Shutdown 证明的是 HTTP 域收敛，不是整个应用收敛。
 
-还有一个容易遗漏的边角：超时后调用 `Server.Close` 会关闭连接，但不能强杀仍在业务函数里运行的 handler。依赖若随即被关闭，这个 handler 可能继续使用已经关闭的资源。因此本例额外用 `Gate` 计数进入应用的 handler，封住入口后再等待其全部退出。这个应用级证据不能用连接数量替代。
+还有一个容易遗漏的边角：超时后调用 `Server.Close` 会关闭连接，但不能强杀仍在业务函数里运行的 handler。依赖若随即被关闭，这个 handler 可能继续使用已经关闭的资源。本例因此额外用 `Gate` 计数进入应用的 handler，封住入口后再等待其全部退出。这个应用级证据不能用连接数量替代。
 
 ## 把停机变成有责任边界的状态机
 

@@ -230,7 +230,7 @@ if (hiTail != null) {
 
 [computeIfAbsent 1195–1248 行](https://github.com/openjdk/jdk/blob/jdk-21%2B35/src/java.base/share/classes/java/util/HashMap.java#L1195-L1248)并不只是 `get` 后调用上面的 `putVal`。其链表路径从首节点开始循环，每个不匹配的旧节点都会令 `binCount` 加 1。完整走过 m 个旧节点后，计数是 m，而不是 m-1。
 
-如果旧链有 7 个不同键，回调产生非 null 值，新节点插在桶头，然后检查 `binCount >= 8 - 1`。因此第 8 个节点即可请求树化。表容量仍须经过 `treeifyBin` 的检查。`compute` 与 `merge` 的对应分支也有各自的遍历和插入代码，不能把一个 API 的序号作为全类定律。
+如果旧链有 7 个不同键，回调产生非 null 值，新节点插在桶头，然后检查 `binCount >= 8 - 1`。第 8 个节点因此即可请求树化。表容量仍须经过 `treeifyBin` 的检查。`compute` 与 `merge` 的对应分支也有各自的遍历和插入代码，不能把一个 API 的序号作为全类定律。
 
 读这种代码时，不要只搜到同名常量就认为语义完全相同：**计数从哪开始、在哪里增加、判断在插入前还是后、方法是否复用了 putVal，都要一起看**。实验分别运行两条入口，避免一个跑通的 `put` 用例被当成全部 API 的证据。
 

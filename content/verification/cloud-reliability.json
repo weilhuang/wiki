@@ -170,7 +170,8 @@
       "37 canonical topics across9 domains,6 reference-based routes,24 Node regressions,117 HTML outputs,463 search sections and60 intent targets",
       "Four integrated articles,4 Mermaid diagrams and4 genuine Code Hike walkthroughs; canonical source and snippet identities",
       "Go concurrency/runtime and cloud category guides; service-reliability route; shared source ZIP entries and applicable evidence scopes",
-      "Legacy anchors,canonical/404 lifecycle,visible non-code Markdown,strong rendering and source/assets preserved"
+      "Legacy anchors,canonical/404 lifecycle,visible non-code Markdown,strong rendering and source/assets preserved",
+      "本次仅按固定白名单调整中文正文；重新执行实际 Code Hike、源码片段与 Mermaid 静态检查。旧实验运行和原静态输出保留各自的历史源码身份。"
     ],
     "limitations": [
       "No new Go runtime or cloud model execution in platform integration; source-bound author and independent executions remain separate",
@@ -184,7 +185,7 @@
       },
       {
         "path": "docs/knowledge/cloud/lifecycle/readiness-draining.md",
-        "sha256": "3d81568f2d66b7a949bb977e73dff58e5bd71f724bfbe596ff2e77f596d2441f"
+        "sha256": "e19e7e9f26b67c5b0b826f7e3b0b4eb6383c269130e6315c0436a4915c78cc1a"
       },
       {
         "path": "content/snippets/cloud-reliability.json",
@@ -209,6 +210,10 @@
       {
         "path": "content/records/go-cloud/integration-static.json",
         "sha256": "53a5fa2c5813db0bd896d06abf0b4c94ddc6221c534adb94dea8a63397c3cdf1"
+      },
+      {
+        "path": "content/records/editorial-tone-20261003/static-recheck.json",
+        "sha256": "9391a2e5117613ef4a60c97abecd5f3058a9ef1300c37304d75a7a89f3a655d9"
       }
     ],
     "historicalAuthorChecks": {
@@ -239,6 +244,99 @@
           "sha256": "570ba595b3853870173a7222cc0f89411e7c61c31fb1048a837a70b93208a2ea"
         }
       ]
+    },
+    "priorStaticRecord": {
+      "repositoryCommit": "bc759c7d64725462f79a84a7ed954687bee41795",
+      "record": {
+        "recordedAt": "2026-10-03T09:31:07.540604+00:00",
+        "revision": "G-C-integration-1",
+        "independentlyReviewed": false,
+        "resourceGroup": "cloud-reliability-lab",
+        "id": "cloud.snippet-check",
+        "title": "正文片段、机制图与配置文本检查",
+        "kind": "static-checked",
+        "status": "pass",
+        "scope": [
+          "37 canonical topics across9 domains,6 reference-based routes,24 Node regressions,117 HTML outputs,463 search sections and60 intent targets",
+          "Four integrated articles,4 Mermaid diagrams and4 genuine Code Hike walkthroughs; canonical source and snippet identities",
+          "Go concurrency/runtime and cloud category guides; service-reliability route; shared source ZIP entries and applicable evidence scopes",
+          "Legacy anchors,canonical/404 lifecycle,visible non-code Markdown,strong rendering and source/assets preserved"
+        ],
+        "limitations": [
+          "No new Go runtime or cloud model execution in platform integration; source-bound author and independent executions remain separate",
+          "Kubernetes cluster behavior remains not-run; process examples and sequential models do not establish cluster guarantees",
+          "Independent whole-tree review,remote CI and deployed-browser checks are separate gates"
+        ],
+        "sourceFiles": [
+          {
+            "path": "docs/knowledge/cloud/observability/service-level-signals.md",
+            "sha256": "677d5008416a54eefc53c75de652e1b1c0457e3a952cda06e1a440f34b2d8c6c"
+          },
+          {
+            "path": "docs/knowledge/cloud/lifecycle/readiness-draining.md",
+            "sha256": "3d81568f2d66b7a949bb977e73dff58e5bd71f724bfbe596ff2e77f596d2441f"
+          },
+          {
+            "path": "content/snippets/cloud-reliability.json",
+            "sha256": "64f653a9ba06c27bfda5d7c2274587478384452019a71ddcc1ab0685d1832b59"
+          },
+          {
+            "path": "labs/cloud-reliability-lab/pod-spec-fragment.yaml",
+            "sha256": "669be8168e5f78021e4b5045e066026a2985a8b4432cb423ae1b5bf1f9052ea9"
+          },
+          {
+            "path": "content/records/cloud-reliability/author-check.mjs",
+            "sha256": "10bb3faf0826ff61d993f33b93b10656219e1306aee0ef13134f56126bc8e40d"
+          }
+        ],
+        "commands": [
+          {
+            "command": "npm run check",
+            "exitCode": 0
+          }
+        ],
+        "artifacts": [
+          {
+            "path": "content/records/go-cloud/integration-static.json",
+            "sha256": "53a5fa2c5813db0bd896d06abf0b4c94ddc6221c534adb94dea8a63397c3cdf1"
+          }
+        ],
+        "historicalAuthorChecks": {
+          "scope": [
+            "复用现站依赖；2张Mermaid在strict/htmlLabels=false下解析；3个代码块经CodeHike1.1.0编译",
+            "两份Python walkthrough去除注释后与源文件逐字相同；step范围有效；review字段、来源ID、已有主题关系与一个H1检查",
+            "配置片段YAML语法与正文逐字一致；Python源码AST解析；ZIP字节/范围检查"
+          ],
+          "commands": [
+            {
+              "command": "node records/author-check.mjs ../../../../wiki",
+              "workingDirectory": "author-package-root",
+              "exitCode": 0,
+              "output": "2 articles; 2 Mermaid diagrams; 3 Code Hike code blocks; 2 exact snippets; YAML syntax and text only"
+            }
+          ],
+          "artifacts": [
+            {
+              "path": "content/records/cloud-reliability/author-static.json",
+              "sha256": "b62f3bc554c81bc694e58bd4bc894e55263880f63f0d7e8fd3c5b785134ce9df"
+            },
+            {
+              "path": "content/records/cloud-reliability/package-check.json",
+              "sha256": "7b9bb35fa0d4682abb4a969a030fc2593e8512c153d75ee8e60f7714a21d68ed"
+            },
+            {
+              "path": "content/records/cloud-reliability/check-history.json",
+              "sha256": "570ba595b3853870173a7222cc0f89411e7c61c31fb1048a837a70b93208a2ea"
+            }
+          ]
+        }
+      }
+    },
+    "editorialRecheck": {
+      "recordedAt": "2026-10-03T19:15:28.487553+00:00",
+      "path": "content/records/editorial-tone-20261003/static-recheck.json",
+      "sha256": "9391a2e5117613ef4a60c97abecd5f3058a9ef1300c37304d75a7a89f3a655d9",
+      "runtimeRerun": false
     }
   },
   {

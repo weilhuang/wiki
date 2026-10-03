@@ -185,7 +185,7 @@ sequenceDiagram
 
 ## 不用 sleep 猜并发，也不用总数猜泄漏
 
-实验的 `testing/synctest` bubble 让可控 channel 与计时器在测试域内同步，只有相关 goroutine 稳定阻塞时虚拟时间才推进。因此测试能准确讨论“一秒预算”，却不用真的等一秒。真实 socket 不属于这种可控阻塞，网络实验放在 bubble 外运行。[synctest 文档](https://pkg.go.dev/testing/synctest@go1.27.1)给出了这条界线。
+实验的 `testing/synctest` bubble 让可控 channel 与计时器在测试域内同步，只有相关 goroutine 稳定阻塞时虚拟时间才推进。测试因此能准确讨论“一秒预算”，却不用真的等一秒。真实 socket 不属于这种可控阻塞，网络实验放在 bubble 外运行。[synctest 文档](https://pkg.go.dev/testing/synctest@go1.27.1)给出了这条界线。
 
 七项核心测试分别证实：满队列与放弃接收；panic 后清理；等待期限不等于任务取消；最大活跃数为 2 且结果保序；首错以后慢任务已退出；调用方取消后任务已退出；Pool.Done 只在所有 worker 退出后关闭。证明依据是 started/exited、活跃计数与 join，不是 `runtime.NumGoroutine()` 短暂回到某个值。运行时、HTTP transport 等合法后台协程都会影响总数，某个泄漏也可能被另一个协程正常退出抵消。
 

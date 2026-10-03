@@ -337,7 +337,8 @@
       "23 Node tests including actual Mermaid parse and Code Hike source excerpt matching",
       "91 generated HTML pages with internal link/anchor/canonical/noindex and visible Markdown checks",
       "329 canonical search sections across 24 topics; 19 actual query targets in top 3",
-      "26 historical assets and all 130 technical fences of the 20 published baseline topics preserved"
+      "26 historical assets and all 130 technical fences of the 20 published baseline topics preserved",
+      "本次仅按固定白名单调整中文正文；重新执行实际 Code Hike、源码片段与 Mermaid 静态检查。旧实验运行和原静态输出保留各自的历史源码身份。"
     ],
     "limitations": [
       "No new Python/Java runtime execution was performed by this check",
@@ -346,11 +347,11 @@
     "sourceFiles": [
       {
         "path": "docs/knowledge/foundations/operating-systems/blocking-waiting.md",
-        "sha256": "028d0aa4b98b49e5f8c3741d3e5658ae188111f05ca50be3706a04bad4cea943"
+        "sha256": "656a72b1543de9d513d5169a114deb602580843c30b548372387257101347f47"
       },
       {
         "path": "docs/knowledge/foundations/testing/assertion-counterexamples.md",
-        "sha256": "3c89fa9197a654bb5464c04fd04929811e62dedfaa7258af6e0ce019030bf282"
+        "sha256": "30e690d952ccafe950c756a993501a85a7c725cf35c91da2af3d21ad32c13672"
       },
       {
         "path": "content/snippets/foundations.json",
@@ -375,6 +376,10 @@
       {
         "path": "labs/foundations-service-lab/evidence/integration-static.json",
         "sha256": "d63a9d7a9f34f973ee9f546d02b2ef7a4044bdc44f6ace2ff2fe57c1382e625a"
+      },
+      {
+        "path": "content/records/editorial-tone-20261003/static-recheck.json",
+        "sha256": "9391a2e5117613ef4a60c97abecd5f3058a9ef1300c37304d75a7a89f3a655d9"
       }
     ],
     "recordedAt": "2026-10-03T01:29:46.944678+00:00",
@@ -423,6 +428,111 @@
       ],
       "recordedAt": "2026-10-03T01:17:43.739364+00:00",
       "context": "Author r2 snapshot; technical fences and tested executable sources retained. Published metadata, relationships and five bold-label delimiters were adjusted during integration."
+    },
+    "priorStaticRecord": {
+      "repositoryCommit": "bc759c7d64725462f79a84a7ed954687bee41795",
+      "record": {
+        "id": "foundations.static-check",
+        "kind": "static-checked",
+        "status": "pass",
+        "scope": [
+          "23 Node tests including actual Mermaid parse and Code Hike source excerpt matching",
+          "91 generated HTML pages with internal link/anchor/canonical/noindex and visible Markdown checks",
+          "329 canonical search sections across 24 topics; 19 actual query targets in top 3",
+          "26 historical assets and all 130 technical fences of the 20 published baseline topics preserved"
+        ],
+        "limitations": [
+          "No new Python/Java runtime execution was performed by this check",
+          "This record covers local static build, not remote CI, deployed browser interaction or publication"
+        ],
+        "sourceFiles": [
+          {
+            "path": "docs/knowledge/foundations/operating-systems/blocking-waiting.md",
+            "sha256": "028d0aa4b98b49e5f8c3741d3e5658ae188111f05ca50be3706a04bad4cea943"
+          },
+          {
+            "path": "docs/knowledge/foundations/testing/assertion-counterexamples.md",
+            "sha256": "3c89fa9197a654bb5464c04fd04929811e62dedfaa7258af6e0ce019030bf282"
+          },
+          {
+            "path": "content/snippets/foundations.json",
+            "sha256": "05f9e9092b18d316500332f54043cbbc8271cfdb73572439c5e40f3f2059d1d5"
+          },
+          {
+            "path": "labs/foundations-service-lab/editorial/check-content.mjs",
+            "sha256": "1cdffe3c27d850da3044a8b0b1b770c59ee66e91f6f57eebd8482b2ad1707641"
+          },
+          {
+            "path": "labs/foundations-service-lab/editorial/package.py",
+            "sha256": "3d2f1a158a7d80c063b6b737b968ae7d70cf01cf96386ffbb65446ea80f9d56d"
+          }
+        ],
+        "commands": [
+          {
+            "command": "npm run check",
+            "exitCode": 0
+          }
+        ],
+        "artifacts": [
+          {
+            "path": "labs/foundations-service-lab/evidence/integration-static.json",
+            "sha256": "d63a9d7a9f34f973ee9f546d02b2ef7a4044bdc44f6ace2ff2fe57c1382e625a"
+          }
+        ],
+        "recordedAt": "2026-10-03T01:29:46.944678+00:00",
+        "revision": "F-S-integration-1",
+        "independentlyReviewed": false,
+        "historicalAuthorChecks": {
+          "commands": [
+            {
+              "command": "node labs/foundations-service-lab/editorial/check-content.mjs <author-package-root> <existing-wiki-checkout>",
+              "exitCode": 0
+            },
+            {
+              "command": "python3 -B tools/package.py",
+              "exitCode": 0,
+              "workingDirectory": "author-package-root"
+            }
+          ],
+          "artifacts": [
+            {
+              "path": "labs/foundations-service-lab/evidence/static-check-final.json",
+              "sha256": "80c3687fc0a3c27ffad93ccfb79533830ad6b485d3d8b20e1fe494687daa0580"
+            },
+            {
+              "path": "labs/foundations-service-lab/evidence/python-syntax.json",
+              "sha256": "f7424d4254db194962c61b0e2634d4fa8d4e1677b1dc8cc08ee870711aa0c55f"
+            },
+            {
+              "path": "labs/foundations-service-lab/evidence/packaging-check.json",
+              "sha256": "1fdacc1507efc4cda499cb3e110b840ae3ae7efd3114259c3cd8c6d73e7aef3c"
+            },
+            {
+              "path": "labs/foundations-service-lab/evidence/static-check-first-attempt.json",
+              "sha256": "7998b2182ac60a228ed4f897f8e3e6883c12258756ff3ba7d6d5cd0276a23fb9"
+            },
+            {
+              "path": "labs/foundations-service-lab/evidence/evidence-mapping-check.json",
+              "sha256": "50436abf5328abff80bb48db0c8085c0ea0bebdd57cd9884a55c6e6bfa62bccd"
+            },
+            {
+              "path": "labs/foundations-service-lab/evidence/public-path-scan.json",
+              "sha256": "a4c7dcd38762415bdf8f36639093e04ffcd4a6cfc33f4cce9ae9a95a39480087"
+            }
+          ],
+          "scope": [
+            "真实Code Hike 1.1.0编译三处steps并按字节核对源码；四张Mermaid语法；元数据、一个H1、Python AST及source-only ZIP源/许可一致"
+          ],
+          "recordedAt": "2026-10-03T01:17:43.739364+00:00",
+          "context": "Author r2 snapshot; technical fences and tested executable sources retained. Published metadata, relationships and five bold-label delimiters were adjusted during integration."
+        }
+      }
+    },
+    "editorialRecheck": {
+      "recordedAt": "2026-10-03T19:15:28.487553+00:00",
+      "path": "content/records/editorial-tone-20261003/static-recheck.json",
+      "sha256": "9391a2e5117613ef4a60c97abecd5f3058a9ef1300c37304d75a7a89f3a655d9",
+      "runtimeRerun": false
     }
   }
 ]

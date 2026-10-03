@@ -189,7 +189,7 @@ public Object proceed() throws Throwable {
 
 静态匹配由 `DefaultAdvisorChainFactory` 根据 Advisor、类与方法筛选；需要本次参数的动态匹配会留在调用链里，到 `proceed` 时再判断。动态条件不满足只跳过该项，不代表整次调用失败。[链构造](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/framework/DefaultAdvisorChainFactory.java#L58-L108)
 
-通知可以完全不调用 `proceed()`，例如缓存命中直接返回；也可以抛出异常结束调用。因此“代理成功调用”不能推出“业务执行了一次”。若希望重试，不应随意在同一个有状态 invocation 上多次调用 `proceed` 并假定整条链每次重放；还要明确链克隆、幂等性与副作用。本篇不实现重试通知。[游标与调用终点](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/framework/ReflectiveMethodInvocation.java#L158-L197)
+通知可以完全不调用 `proceed()`，例如缓存命中直接返回；也可以抛出异常结束调用。“代理成功调用”因此不能推出“业务执行了一次”。若希望重试，不应随意在同一个有状态 invocation 上多次调用 `proceed` 并假定整条链每次重放；还要明确链克隆、幂等性与副作用。本篇不实现重试通知。[游标与调用终点](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/framework/ReflectiveMethodInvocation.java#L158-L197)
 
 本例的计时式通知用 finally 记录退出，因此业务抛出异常时仍能观察 B、A 的退出顺序。它不吞异常，也不把错误改成成功。
 

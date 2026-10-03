@@ -1,0 +1,257 @@
+{
+  "kind": "static-checked",
+  "status": "pass",
+  "recordedAt": "2026-10-03T19:15:28.487553+00:00",
+  "scope": [
+    "Recompile real Code Hike fences and source excerpts; parse all authored Mermaid diagrams with pinned renderer",
+    "Manual whitelist prose edits preserve frontmatter, heading identities, technical fences, source excerpts and experiment downloads; generated roadmap prose comes from its maintained template"
+  ],
+  "commands": [
+    {
+      "command": "node --test tests/codehike.test.mjs tests/snippets.test.mjs tests/mermaid.test.mjs",
+      "exitCode": 0,
+      "logSHA256": "47ebd40e5ae482d900042a2a26ca51d011756f5bbe061ee2d7fea8a2daaeab86"
+    }
+  ],
+  "limitations": [
+    "No Go, Java, database or Kubernetes experiment was rerun for these prose edits",
+    "Prior runtime and static outputs remain historical records bound to their original source snapshots",
+    "Independent release review, full site build and live browser checks are separate gates"
+  ],
+  "method": {
+    "repository": "https://github.com/larashero3-dotcom/lieflat-less-ai-tone",
+    "commit": "27d29232f10124db904ca9c0536d0b67cb3b2833",
+    "license": "MIT",
+    "application": "manual matched-rule edits; no third-party script execution"
+  },
+  "baselineCommit": "bc759c7d64725462f79a84a7ed954687bee41795",
+  "baselineURL": "https://github.com/weilhuang/wiki/tree/bc759c7d64725462f79a84a7ed954687bee41795",
+  "articleBindings": [
+    {
+      "path": "docs/cases/orders/reliability-review.md",
+      "beforeSHA256": "a31d0439bed0ec59712504a123f9d65b73df6c6e196c6b1351c0d398c363f550",
+      "sha256": "30da25a95c51ec5806500c39d31a06325c0306f0859bfa8c45e86dfdcc99c33f",
+      "technicalFencesAndHeadingsUnchanged": true
+    },
+    {
+      "path": "docs/guide/roadmap.md",
+      "beforeSHA256": "430d2398c60d48a193e73007b6aaf7a6f7f59639eaf7d772f65424f30773c77c",
+      "sha256": "c719bf1a21905e7568eb7c01713601a4a4cd68569141a0ca63547a5e81746510",
+      "technicalFencesAndHeadingsUnchanged": true
+    },
+    {
+      "path": "docs/knowledge/architecture/boundaries/module-boundaries.md",
+      "beforeSHA256": "b54ce1fe9583de2df73bb1b731054f3526fae9342c73df033bc70b0ef8f0f501",
+      "sha256": "abadfed7c3b6f546d2a05e7ff6f87443ec47e98094ce03f1737166591ee46f97",
+      "technicalFencesAndHeadingsUnchanged": true
+    },
+    {
+      "path": "docs/knowledge/cloud/lifecycle/readiness-draining.md",
+      "beforeSHA256": "3d81568f2d66b7a949bb977e73dff58e5bd71f724bfbe596ff2e77f596d2441f",
+      "sha256": "e19e7e9f26b67c5b0b826f7e3b0b4eb6383c269130e6315c0436a4915c78cc1a",
+      "technicalFencesAndHeadingsUnchanged": true
+    },
+    {
+      "path": "docs/knowledge/data/indexes/composite-index-access-paths.md",
+      "beforeSHA256": "05b6913c8ec397736aa0dbfc14f8143a5086f8d163de8234b849372afac7986b",
+      "sha256": "94b7b1e48fe80e892d68d236d05b8fe11d28399956f29a51531ba7263d8a38e1",
+      "technicalFencesAndHeadingsUnchanged": true
+    },
+    {
+      "path": "docs/knowledge/distributed/events/transactional-outbox.md",
+      "beforeSHA256": "de59186f685ed902083549e0453338b5c884daec10aad0980b70b7135e322893",
+      "sha256": "577ab277dc8e99eb40d13e7388338182b58d423b045ac91367b1827f9c3bc081",
+      "technicalFencesAndHeadingsUnchanged": true
+    },
+    {
+      "path": "docs/knowledge/foundations/operating-systems/blocking-waiting.md",
+      "beforeSHA256": "028d0aa4b98b49e5f8c3741d3e5658ae188111f05ca50be3706a04bad4cea943",
+      "sha256": "656a72b1543de9d513d5169a114deb602580843c30b548372387257101347f47",
+      "technicalFencesAndHeadingsUnchanged": true
+    },
+    {
+      "path": "docs/knowledge/foundations/testing/assertion-counterexamples.md",
+      "beforeSHA256": "3c89fa9197a654bb5464c04fd04929811e62dedfaa7258af6e0ce019030bf282",
+      "sha256": "30e690d952ccafe950c756a993501a85a7c725cf35c91da2af3d21ad32c13672",
+      "technicalFencesAndHeadingsUnchanged": true
+    },
+    {
+      "path": "docs/knowledge/frameworks/spring-aop/proxy-dispatch.md",
+      "beforeSHA256": "eb7b0167ae248d8e4bbd72e5272c678cadf8fe0f85ad3dc99593ba3503ea6bb9",
+      "sha256": "65a80b67af6009215224f6345f99adc81539c243434f71c41b6c34025869d834",
+      "technicalFencesAndHeadingsUnchanged": true
+    },
+    {
+      "path": "docs/knowledge/frameworks/spring-container/bean-definition-registration.md",
+      "beforeSHA256": "84f507f1367276698615c2e6093f765616f3875e5da80a16db29a5ba00506ffb",
+      "sha256": "04e67739178bb50775024c2070c4c7f90995cc9a961631052a2058e711a902a2",
+      "technicalFencesAndHeadingsUnchanged": true
+    },
+    {
+      "path": "docs/knowledge/frameworks/spring-transactions/proxy-call-chain.md",
+      "beforeSHA256": "43123d1d33b44e301cd187ab793ad73f412b37fe092f288371d7982a84902db1",
+      "sha256": "98d091e9df30c36049a6ce40ea6b7d76a09844aa3b7a4478044e9901b788c4fc",
+      "technicalFencesAndHeadingsUnchanged": true
+    },
+    {
+      "path": "docs/knowledge/go/concurrency/bounded-work.md",
+      "beforeSHA256": "ce30d068ef003906e4fac6606b71b32307a16e801f3590c2c350d4f3fc9f4b61",
+      "sha256": "a47ee7a4455a9d30e488807d44a1e078d2285c8dd3be1d4a715a0c164f4a47e7",
+      "technicalFencesAndHeadingsUnchanged": true
+    },
+    {
+      "path": "docs/knowledge/go/concurrency/channel-memory-ownership.md",
+      "beforeSHA256": "78d8fe7f3ab882b87e0d5ccea754d809b9e126b23b1086cca947e58723a1fe17",
+      "sha256": "11c0a2995d4fd3413306d32bc0103b3978e3b2a5617f0a9b03a58703220470a0",
+      "technicalFencesAndHeadingsUnchanged": true
+    },
+    {
+      "path": "docs/knowledge/go/concurrency/context-cancellation.md",
+      "beforeSHA256": "8c50691f694fca9b9a249672c22335c6abba98b9a86f866f033f81b5e99e314a",
+      "sha256": "8d99e16ffb44261b76f330e320e8ea5a667f0a0d52e5b13ed64ea11595f4483f",
+      "technicalFencesAndHeadingsUnchanged": true
+    },
+    {
+      "path": "docs/knowledge/go/lifecycle/graceful-shutdown.md",
+      "beforeSHA256": "ef0eb9775403e87051582d6da4fba1185da83f2aa678f5f06b3ab4a163c4d198",
+      "sha256": "8fcb4bfa9067f655635398bf6dfdfacb4d66b0d4ebf7bbff21e36df640a01f60",
+      "technicalFencesAndHeadingsUnchanged": true
+    },
+    {
+      "path": "docs/knowledge/go/runtime/scheduler-netpoll-diagnosis.md",
+      "beforeSHA256": "29019b6c98019405842f6a8cdacff11d1d763c65238e4926adf678b6590ac3f7",
+      "sha256": "30db4d87d5875036a620396100f2cc5d3ff12bb2f3094c1c2e9f5555986abe17",
+      "technicalFencesAndHeadingsUnchanged": true
+    },
+    {
+      "path": "docs/knowledge/java/collections/hashmap-source.md",
+      "beforeSHA256": "8869aba7c4eea095cd3788aba6513a18eac9506a8e08673826023cd847502ca3",
+      "sha256": "ad2d7298278aac2f3c68ae2ab527aa86c819cd2fc51365376ca8834b8506d650",
+      "technicalFencesAndHeadingsUnchanged": true
+    },
+    {
+      "path": "docs/knowledge/java/collections/hashmap.md",
+      "beforeSHA256": "9bcc7de5aa2441c07e72b94170b8c2deecb3786a186e4f7ed46166439275a896",
+      "sha256": "85f542354817d0b1f69461048657b03fbdd6afdaff002a66f0572bf229de87f1",
+      "technicalFencesAndHeadingsUnchanged": true
+    }
+  ],
+  "unchangedDownloads": [
+    {
+      "path": "docs/public/examples/architecture-review-lab.zip",
+      "sha256": "bb64897438b9689e6d19e67cb7d16d077c6d4ef5bba6472d48b859b69308d3b1"
+    },
+    {
+      "path": "docs/public/examples/architecture-review-regressions.json",
+      "sha256": "30aa0dee17ffac1d08f9dcd3bca5f32efff35995524fa989f88fa0c2e0e92e53"
+    },
+    {
+      "path": "docs/public/examples/architecture-review-results.json",
+      "sha256": "2a96751096953e7b76d4b72293d3bbd23aedf6074d174ef73a243549a50e3dfc"
+    },
+    {
+      "path": "docs/public/examples/cloud-reliability-lab.zip",
+      "sha256": "de75db02078d4dff573e7b69c170fbad020a3bd781640aee4066c5627fdeb541"
+    },
+    {
+      "path": "docs/public/examples/cloud-reliability-results.json",
+      "sha256": "08baa55539cb676755e60b5546bddb2c296ebb7e98c7cba00619157293b5a20a"
+    },
+    {
+      "path": "docs/public/examples/data-consistency-verification.json",
+      "sha256": "ca217e90a54f37750c2386c9510e235b93ba19cfb49b742f6dca496eed3793cc"
+    },
+    {
+      "path": "docs/public/examples/data-consistency.zip",
+      "sha256": "a7cbd725764ac9266042e8ba93954c6e6377065f2ea690cfd4963c42147e5e22"
+    },
+    {
+      "path": "docs/public/examples/foundations-service-lab.zip",
+      "sha256": "98435b03a3dc98d10bffa5a7a0c3463238da202366b5cfc319b981e107bb8f9b"
+    },
+    {
+      "path": "docs/public/examples/foundations-service-results.json",
+      "sha256": "483142b57f91b174429d717df532a8fdb15c01c836f84da9b062bb3bc244586e"
+    },
+    {
+      "path": "docs/public/examples/go-context-cancellation.zip",
+      "sha256": "8de924f948adc8fd7222474fad7aadccff05154e12e824d906d1fe1a7ddea429"
+    },
+    {
+      "path": "docs/public/examples/go-runtime-boundaries-lab.zip",
+      "sha256": "e63ec0bd9864cadc2a3e8d25a8dbc63e65188130c433278c7ae1fd706b7c220d"
+    },
+    {
+      "path": "docs/public/examples/go-service-lifecycle.zip",
+      "sha256": "de1a3140d6d70625f2abaf0133a78037714ceb7affcde6a20be29d02f7f92ed3"
+    },
+    {
+      "path": "docs/public/examples/hashmap-jdk21-lab.zip",
+      "sha256": "02b804cadb81930fad375fd4cce3b08eddebdc60aebda1a7c620e2e6243d741d"
+    },
+    {
+      "path": "docs/public/examples/java-service-mechanisms-lab.zip",
+      "sha256": "b3d6db08e3ff95b35e5342c35bebba882ee1fdf72ae68c4ba99e0a900629184a"
+    },
+    {
+      "path": "docs/public/examples/messaging-coordination-lab.zip",
+      "sha256": "121fcfc44bbba4ac9aec11cee25e41c2c5e0f994a185b1ff1bf6499eb305c273"
+    },
+    {
+      "path": "docs/public/examples/messaging-coordination-results.json",
+      "sha256": "0f22bcff7cd9656bd1f788dbed4e52a6f05b66f7b3b1b561440be4571f6b7846"
+    },
+    {
+      "path": "docs/public/examples/messaging-coordination-static-results.json",
+      "sha256": "edf4922ba8f736ab2e349b55504c549b5b299816ac9cf4539afcace0fc2da8c2"
+    },
+    {
+      "path": "docs/public/examples/mysql-mechanisms-lab.zip",
+      "sha256": "3af92ecbaadbd5a1db4a22612d92e5b21a7cc63bb6d91a085e899fb474d11f1e"
+    },
+    {
+      "path": "docs/public/examples/mysql-mechanisms-observations.json",
+      "sha256": "d6f4a74dc45e205be911d84a6e53ddc24ae6176acd2dc8ca14a1f91cb6a8ec4e"
+    },
+    {
+      "path": "docs/public/examples/mysql-mechanisms-source-binding.json",
+      "sha256": "13e87d27454a38257909b193cd2e31696a67a23dac9b64b81ce49680e65b257e"
+    },
+    {
+      "path": "docs/public/examples/mysql-mechanisms-verification.json",
+      "sha256": "9615e4a07bcef625efdeb0dd14c2d8dfa8601a5dc3d010185d5aa00c7c03a903"
+    },
+    {
+      "path": "docs/public/examples/order-extraction-model-results.txt",
+      "sha256": "62326aca5e0cf6bd030dae3ad2b70a972296ecfb239feabd72d75b815e0dd9cf"
+    },
+    {
+      "path": "docs/public/examples/order-extraction-protocol-model.py",
+      "sha256": "2609ab904fd4f0b6d963fd91d662399b45c1dad6c3f251e914f2ab0d3839050d"
+    },
+    {
+      "path": "docs/public/examples/security-boundaries-lab.zip",
+      "sha256": "2af589e0b0cb6ffb7545fc69b61a1f774b6c6f2ed4462bffb88556b62f663d8b"
+    },
+    {
+      "path": "docs/public/examples/spring-bean-definition-lab.zip",
+      "sha256": "37eba26c6f71ad51b8e0fe12d1311f37c940b071c350ac270d28e737b8a7ea0c"
+    },
+    {
+      "path": "docs/public/examples/spring-mechanisms-lab.zip",
+      "sha256": "e0dbb528cbded4e368a0e8a5a71ab8670d065b35091aaa73000b34139ada544f"
+    },
+    {
+      "path": "docs/public/examples/spring-service-boundaries.zip",
+      "sha256": "2b46b578290ea5f47544adcb08c53809c9cdecc6221684b45ef68a048eb30163"
+    },
+    {
+      "path": "docs/public/examples/spring-transaction-proxy.zip",
+      "sha256": "642f64c2ed79b7a1f2387fdfba496344f071de85208f4aa9a340ac1f83c47f4c"
+    }
+  ],
+  "generator": {
+    "path": "scripts/generate-views.mjs",
+    "sha256": "4efe35fcc4a393c7deddcdee8f7f4c6724fb08de74dc798a678bdf30d72d3211"
+  }
+}
