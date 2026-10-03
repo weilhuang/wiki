@@ -1,0 +1,27 @@
+services:
+  mysql:
+    image: mysql:8.4.7
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      MYSQL_DATABASE: mechanisms_lab
+    command: ["--transaction-isolation=REPEATABLE-READ", "--innodb-lock-wait-timeout=8", "--innodb-buffer-pool-size=134217728", "--max-connections=16", "--skip-log-bin"]
+    labels:
+      knowledge-station.mechanisms-owner: ${MECHANISMS_OWNER:?runner must allocate owner}
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks: [lab]
+    mem_limit: 1g
+    cpus: 1.0
+    pids_limit: 256
+    healthcheck:
+      test: ["CMD-SHELL", "grep -qx mysqld /proc/1/comm && mysqladmin --protocol=socket -uroot ping --silent"]
+      interval: 2s
+      timeout: 2s
+      retries: 60
+networks:
+  lab:
+    internal: true
+volumes:
+  mysql-data:
+    labels:
+      knowledge-station.mechanisms-owner: ${MECHANISMS_OWNER:?runner must allocate owner}

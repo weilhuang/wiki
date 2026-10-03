@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "runtime": "mysql:8.4.7",
+  "status": "NOT_RUN",
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "173879800c133ee3f54f704c759deb2a4b8ea329a31f2cc966019aace13cdd5a"
+    },
+    {
+      "path": "README.md",
+      "sha256": "08c6862cda196281f19f55bc69f1201e9a4fab6cf2f5a262da6b982db0b187a9"
+    },
+    {
+      "path": "cases.py",
+      "sha256": "6f88c2f2d5af59db6c2818f75a8875e97fe7c341078e3b2aaf2ad2f5be9d94df"
+    },
+    {
+      "path": "check_static.py",
+      "sha256": "042ae48d240617665e156efdeb64062067e45a43bbcbcc51a4396caa48402e82"
+    },
+    {
+      "path": "collect.py",
+      "sha256": "a78106d82f49e5a0895576a04e7fc2c5bab2e9031702caa0c600e4d750796199"
+    },
+    {
+      "path": "compose.yaml",
+      "sha256": "8debf4268b32231e53b89c0e419e52a7ecc2dfe361e989f979c02ecfc9eac61b"
+    },
+    {
+      "path": "driver.py",
+      "sha256": "bd0f1de09bb6341cc414621132873046e0c7bc940a54c63ec919238523901a73"
+    },
+    {
+      "path": "protocol_contract.py",
+      "sha256": "8af393a9c3936281c4ab9a825adaa079f2adb940ef521ebf29e45eee26dab737"
+    },
+    {
+      "path": "run.py",
+      "sha256": "e9b785f5c790a761541768a6d84c6e645de742c1b281a95c062baa3f39c1af31"
+    },
+    {
+      "path": "safety.py",
+      "sha256": "3a9be4a7afa68ea967e7965f6ecdf2a0bc870a55801a6ec1f4e4750bee3aab4b"
+    },
+    {
+      "path": "sql/access_paths.sql",
+      "sha256": "900069beefc88f3f1752347cee6560086bd783ce0038c524e6a404f7d5d393f9"
+    },
+    {
+      "path": "sql/current_write.sql",
+      "sha256": "6754a74c6f6a93770800111b2810d78d0330a9fbbdbe1ae10c88e68d0bc14505"
+    },
+    {
+      "path": "sql/schema.sql",
+      "sha256": "8054a993332832aaa5e8a03d0892c0d5a2a9968a4d26903ecab0eb38b606a733"
+    },
+    {
+      "path": "test_safety.py",
+      "sha256": "ad1bd5f9e605fa1b06338c736a152e5c57725d8d9d555d4a2be50f9155c827f4"
+    },
+    {
+      "path": "trace_contract.py",
+      "sha256": "b1c4233f43dceb9ce03ffd0251ce9376e4062ff7b506b49f961a23e5bc9f89cf"
+    }
+  ]
+}

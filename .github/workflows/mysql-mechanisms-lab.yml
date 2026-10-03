@@ -1,0 +1,49 @@
+name: Validate MySQL mechanisms lab
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/mysql-mechanisms-lab.yml'
+      - 'labs/mysql-mechanisms-lab/**'
+permissions:
+  contents: read
+concurrency:
+  group: mysql-mechanisms-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+jobs:
+  mysql-mechanisms:
+    if: github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+      PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1, existing pinned action
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+          submodules: false
+          lfs: false
+      - name: Validate the frozen source tree
+        run: |
+          python3 -B labs/mysql-mechanisms-lab/check_static.py
+          python3 -B labs/mysql-mechanisms-lab/test_safety.py
+      - name: Run reviewed isolated MySQL once
+        run: timeout --kill-after=15s 12m python3 -B labs/mysql-mechanisms-lab/run.py
+      - name: Stage bounded evidence
+        id: evidence
+        if: always()
+        run: |
+          python3 -B labs/mysql-mechanisms-lab/collect.py "$RUNNER_TEMP/mysql-mechanisms-evidence"
+          echo "ready=true" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1, existing pinned action
+        if: always() && steps.evidence.outputs.ready == 'true'
+        with:
+          name: mysql-mechanisms-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/mysql-mechanisms-evidence
+          retention-days: 3
+          include-hidden-files: false
+          if-no-files-found: error
+          compression-level: 6
