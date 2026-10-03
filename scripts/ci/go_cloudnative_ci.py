@@ -529,7 +529,7 @@ def collect():
     require(not UPLOAD.exists(), 'upload path already exists; refusing pre-existing content')
     # Never enable upload until a complete bounded staging directory has been validated.
     UPLOAD.mkdir(mode=0o700)
-    staged, identities, error = {}, {}, None
+    staged, raw_snapshot, identities, error = {}, {}, {}, None
     try:
         safe_path(PRIVATE)
         before = json.loads(bounded_bytes(PRIVATE / 'source-before.json'))
@@ -547,11 +547,16 @@ def collect():
             raw = bounded_bytes(path)
             body = normalize_for_upload(raw)
             require(len(body) <= PER_FILE, 'normalized file exceeds bound')
+            raw_snapshot[name] = raw
             staged[name] = body
-            identities[name] = {'raw_sha256': hashlib.sha256(raw).hexdigest(),
-                                'upload_sha256': hashlib.sha256(body).hexdigest(), 'bytes': len(body)}
+            identities[name] = {'raw_sha256': hashlib.sha256(raw).hexdigest(), 'raw_bytes': len(raw),
+                                'upload_sha256': hashlib.sha256(body).hexdigest(), 'upload_bytes': len(body),
+                                'bytes': len(body)}
+        require(sum(map(len, raw_snapshot.values())) <= TOTAL - 65536, 'raw snapshot exceeds aggregate bound')
         require(sum(map(len, staged.values())) <= TOTAL - 65536, 'upload exceeds aggregate bound')
-        details = validate_reports(staged, before)
+        # Validate original stream hashes against the same bounded byte snapshots read above.
+        # Path redaction changes displayed tails; it must not be compared with raw stream identities.
+        details = validate_reports(raw_snapshot, before)
         validation = {'status': 'pass', **details}
     except Exception as exc:
         error = exc
@@ -561,7 +566,7 @@ def collect():
     for name, data in staged.items():
         (UPLOAD / name).write_bytes(data)
     validation['files'] = identities
-    validation['normalization'] = 'Only owned execution paths replaced; raw and uploaded SHA256 retained. No outcome rewrite.'
+    validation['normalization'] = 'Original bounded in-memory snapshots validated before owned-path redaction. Each file retains raw_sha256 and upload_sha256. Command stream byte counts and SHA256 describe the original streams; displayed tails may contain redacted paths. No outcome rewrite.'
     write_json(UPLOAD / 'validation.json', validation)
     require(sum(p.stat().st_size for p in UPLOAD.iterdir()) <= TOTAL, 'staged aggregate bound exceeded')
     output = os.environ.get('GITHUB_OUTPUT')

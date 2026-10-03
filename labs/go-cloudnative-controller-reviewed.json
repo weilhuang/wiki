@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "scope": "real-envtest-api-and-single-node-kind-teaching-controller",
-  "source_id": "4a392b81884aa9d50aea181ac8fa6ff592cd2065a3247578e124b9e6744e1add",
+  "source_id": "4aff90d8892bbe28d22549c6106e386cbee7fe3c819cabc6bc3bcbe2987c00a8",
   "source_sha256": {
     ".github/workflows/go-cloudnative-bootstrap.yml": "d35fe05374cc6990774cd0f08db8c88d26cf241c40a1b338dd44a89e4e3c0ba7",
     "labs/go-cloudnative-controller/README.md": "7adffe6667cedb2280928705828ef32c7bd2f166bcc30fc40a161bcee9896581",
@@ -23,9 +23,9 @@
     "labs/go-cloudnative-controller/test-inventory.json": "5cfe000cc50301b541ac63cb7254d403561daa03702757e6ef3bba674aa5dbd7",
     "labs/go-cloudnative-controller/test/integration/manager_test.go": "8f50893ea726ead1ddb0cafbda545c85b079daf8d12a18ddc6060f621115f73d",
     "scripts/ci/go_cloudnative_assets.py": "c1165b1a5617ed4df673a9397718fd2d7c291b51e559d8515af8982d5fc3e13a",
-    "scripts/ci/go_cloudnative_ci.py": "4ee1881bf8ea02fcec183c814844457deb48f6e974abb6f58d8039ae95f8ed73",
+    "scripts/ci/go_cloudnative_ci.py": "3125e95ab15a784c975f127fcb82c08a4c97b690371c32fa8670dd8a3998ad48",
     "scripts/ci/go_cloudnative_versions.json": "0c6c11405462f73baabb70e89c9a0ad59c9205f561695d2d43edb58a214a4a48",
-    "scripts/ci/test_go_cloudnative_ci.py": "ab6fa7d9b3fef51873ccb8535a9462fa234b3dba3691546321a4d9faedbd6631"
+    "scripts/ci/test_go_cloudnative_ci.py": "416c2776465f6740ad31ecb21cf7b47f09cb6226d0d290952d85896cf85daa2a"
   },
   "execution_status_at_freeze": {
     "unit": "pass: 24 required outcomes; Go 1.27.1, 2026-10-03",

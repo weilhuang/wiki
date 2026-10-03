@@ -319,6 +319,48 @@ class CompleteEvidence(unittest.TestCase):
                     ci.run_kind()
                 run.assert_not_called()
 
+    def test_collect_validates_raw_then_uploads_only_redacted_bytes(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory); lab=root/'lab';lab.mkdir();private=root/'private';private.mkdir()
+            upload=root/'upload';output=root/'github-output'
+            files,before=self.fixture(lab)
+            report=json.loads(files['kind-report.json'])
+            command=next(c for c in report['commands'] if c['argv'][:3]==['kind','create','cluster'])
+            raw_tail='kubectl cluster-info --kubeconfig '+str(private)+'/kubeconfig\n'
+            command.update(stderr_tail=raw_tail,stderr_bytes=len(raw_tail.encode()),stderr_sha256=hashlib.sha256(raw_tail.encode()).hexdigest())
+            files['kind-report.json']=json.dumps(report).encode()
+            mapping={name:private/name for name in ci.PUBLIC_FILES | {'kind.log'}}
+            mapping.update({'kind-report.json':private/'kind/kind-report.json',
+                'kind-manager.log':private/'kind/manager.log','kind-events.json':private/'kind/events.json',
+                'kind-resources.json':private/'kind/resources.json'})
+            for name,data in files.items():
+                path=mapping[name];path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(data)
+            real_reader=ci.bounded_bytes; counts={}
+            def counted(path,*args):
+                key=str(path);counts[key]=counts.get(key,0)+1
+                return real_reader(path,*args)
+            with mock.patch.multiple(ci,TEMP=root,PRIVATE=private,UPLOAD=upload,LAB=lab), \
+                    mock.patch.object(ci,'source_identity',return_value=before), \
+                    mock.patch.object(ci,'bounded_bytes',side_effect=counted), \
+                    mock.patch.dict('os.environ',{'GITHUB_OUTPUT':str(output)}):
+                # The regression must reject comparing redacted tails with raw stream hashes.
+                transformed={n:ci.normalize_for_upload(b) for n,b in files.items()}
+                with self.assertRaisesRegex(ValueError,'short stream identity differs'):
+                    ci.validate_reports(transformed,before)
+                ci.collect()
+            validation=json.loads((upload/'validation.json').read_text())
+            self.assertEqual(validation['status'],'pass')
+            body=(upload/'kind-report.json').read_bytes();identity=validation['files']['kind-report.json']
+            self.assertNotIn(str(private).encode(),body)
+            self.assertIn(b'<private>/kubeconfig',body)
+            self.assertEqual(identity['raw_sha256'],hashlib.sha256(files['kind-report.json']).hexdigest())
+            self.assertEqual(identity['raw_bytes'],len(files['kind-report.json']))
+            self.assertEqual(identity['upload_sha256'],hashlib.sha256(body).hexdigest())
+            self.assertEqual(identity['upload_bytes'],len(body))
+            self.assertNotEqual(identity['raw_sha256'],identity['upload_sha256'])
+            self.assertEqual(counts[str(private/'kind/kind-report.json')],1)
+            self.assertEqual(output.read_text(),'upload_ready=true\n')
+
     def test_upload_existing_path_never_enables_upload(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory); output = root / 'github-output'; upload = root / 'upload'; upload.mkdir()
