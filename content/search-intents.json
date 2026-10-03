@@ -298,5 +298,45 @@
     "query": "发布502摘流排空",
     "topic": "cloud.readiness-draining",
     "anchor": "termination-order"
+  },
+  {
+    "query": "分层和六边形架构怎么选",
+    "topic": "architecture.module-boundaries",
+    "anchor": "choices"
+  },
+  {
+    "query": "接口都抽了为什么还是耦合",
+    "topic": "architecture.module-boundaries",
+    "anchor": "change-cost"
+  },
+  {
+    "query": "模块之间能共享事务吗",
+    "topic": "architecture.module-boundaries",
+    "anchor": "data-ownership"
+  },
+  {
+    "query": "mock全过数据库失败",
+    "topic": "architecture.module-boundaries",
+    "anchor": "test-slices"
+  },
+  {
+    "query": "202受理是不是取消成功",
+    "topic": "architecture.order-reliability-review",
+    "anchor": "two-options"
+  },
+  {
+    "query": "滚动发布连接数怎么算",
+    "topic": "architecture.order-reliability-review",
+    "anchor": "slo-budget"
+  },
+  {
+    "query": "回滚镜像后新状态怎么办",
+    "topic": "architecture.order-reliability-review",
+    "anchor": "rollback-forward"
+  },
+  {
+    "query": "什么时候停止拆微服务",
+    "topic": "architecture.order-reliability-review",
+    "anchor": "decision-record"
   }
 ]

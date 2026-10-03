@@ -1,0 +1,8 @@
+{
+  "command": "node records/author-check.mjs ../../../wiki",
+  "workingDirectory": "recovery-20261003/A/r3",
+  "recordedAt": "2026-10-03T10:55:37.581196+00:00",
+  "exitCode": 0,
+  "output": "{\"status\":\"pass\",\"articles\":2,\"diagrams\":2,\"codeBlocks\":3,\"snippets\":2,\"links\":9}\n",
+  "stderr": ""
+}

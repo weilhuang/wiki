@@ -1,0 +1,10 @@
+{
+  "revision": "A-r3",
+  "recordedAt": "2026-10-03T11:03:53.791619+00:00",
+  "status": "fail",
+  "failureCode": "manifest-covers-all-except-itself",
+  "missing": [
+    "private/r2-author-history/manifest.json"
+  ],
+  "note": "All listed hashes and public payload are valid; nested historical manifest was wrongly excluded by basename. No source/model/ZIP change required."
+}

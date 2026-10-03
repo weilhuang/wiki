@@ -1,0 +1,25 @@
+{
+  "reviewModelUnchanged": true,
+  "reviewModelSha256": "19513b3c31aea8d759a114f59253bff271daf6ad267b64fcfc637d7562b6bd35",
+  "r2ManifestSha256": "011c2e0f3264930f86aeb61b9daa161a97c9b97dc604b94d1e56dd7b4779e1fa",
+  "r2ReviewDecision": "HOLD",
+  "diffFiles": [
+    "articles/module-boundaries.md",
+    "articles/reliability-review.md",
+    "labs/architecture-review-lab/expected_states.py",
+    "labs/architecture-review-lab/verify.py",
+    "labs/architecture-review-lab/source_mutations.py",
+    "labs/architecture-review-lab/run_review_regressions.py",
+    "labs/architecture-review-lab/README.md",
+    "labs/architecture-review-lab/decision-record.md",
+    "records/author-check.mjs",
+    "records/package-check.py",
+    "labs/architecture-review-lab/review_regressions/async-abort-only-half-commit.patch",
+    "labs/architecture-review-lab/review_regressions/async-abort-only-half-commit.py",
+    "labs/architecture-review-lab/review_regressions/completed-outbox-rollback.patch",
+    "labs/architecture-review-lab/review_regressions/completed-outbox-rollback.py",
+    "labs/architecture-review-lab/review_regressions/revoked-replay-only-side-effect.patch",
+    "labs/architecture-review-lab/review_regressions/revoked-replay-only-side-effect.py"
+  ],
+  "diffSha256": "1c5f03d48139fccc4fab3ad62ec184c8354c489aa729ff7a440e5738ab2625d2"
+}

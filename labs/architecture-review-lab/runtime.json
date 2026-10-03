@@ -1,0 +1,10 @@
+{
+  "implementation": "CPython",
+  "version": "3.12.14",
+  "system": "Linux",
+  "dependencies": "standard library only",
+  "concurrency": "none; finite sequential inputs; fixed patches in memory",
+  "services": "none",
+  "limits": "10-second outer command deadline",
+  "revision": "A-r3-reconstructed; new execution; r2 HOLD history retained"
+}

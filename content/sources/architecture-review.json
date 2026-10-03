@@ -1,0 +1,242 @@
+[
+  {
+    "id": "architecture-a.hexagonal",
+    "title": "Hexagonal architecture: original 2005 article",
+    "url": "https://alistair.cockburn.us/hexagonal-architecture",
+    "type": "paper",
+    "version": "HaT Technical Report2005.02; displayed2005-09-04 v0.9",
+    "accessedAt": "2026-10-03",
+    "license": "Alistair Cockburn, all rights reserved",
+    "identity": {
+      "kind": "primary-source-web-document",
+      "copiedUpstreamCode": false,
+      "byteSnapshotClaimed": false
+    },
+    "notes": "端口、内外分离与隔离测试；实际网页阅读发生于同一任务，工具结果未因文件系统替换而变为一次新的访问。r2登记重建，不声称上游字节快照。"
+  },
+  {
+    "id": "architecture-a.modulith",
+    "title": "Spring Modulith — Module Structure Verification",
+    "url": "https://docs.spring.io/spring-modulith/reference/1.4/verification.html",
+    "type": "documentation",
+    "version": "1.4 branch displayed1.4.13",
+    "accessedAt": "2026-10-03",
+    "license": "Broadcom, all rights reserved",
+    "identity": {
+      "kind": "primary-source-web-document",
+      "copiedUpstreamCode": false,
+      "byteSnapshotClaimed": false
+    },
+    "notes": "模块环、内部引用、允许依赖与开放模块例外；实际网页阅读发生于同一任务，工具结果未因文件系统替换而变为一次新的访问。r2登记重建，不声称上游字节快照。"
+  },
+  {
+    "id": "architecture-a.spring-proxy",
+    "title": "Spring Framework — Proxying Mechanisms",
+    "url": "https://docs.spring.io/spring-framework/reference/6.2/core/aop/proxying.html",
+    "type": "documentation",
+    "version": "6.2 branch displayed6.2.19",
+    "accessedAt": "2026-10-03",
+    "license": "Broadcom, all rights reserved",
+    "identity": {
+      "kind": "primary-source-web-document",
+      "copiedUpstreamCode": false,
+      "byteSnapshotClaimed": false
+    },
+    "notes": "实际接收者与self invocation绕过通知；实际网页阅读发生于同一任务，工具结果未因文件系统替换而变为一次新的访问。r2登记重建，不声称上游字节快照。"
+  },
+  {
+    "id": "architecture-a.mysql-read",
+    "title": "MySQL8.4 — Consistent Nonlocking Reads",
+    "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-consistent-read.html",
+    "type": "documentation",
+    "version": "MySQL8.4 reference branch",
+    "accessedAt": "2026-10-03",
+    "license": "Oracle manual copyright/terms; link only",
+    "identity": {
+      "kind": "primary-source-web-document",
+      "copiedUpstreamCode": false,
+      "byteSnapshotClaimed": false
+    },
+    "notes": "RR一致性读视图与当前事实的区别；实际网页阅读发生于同一任务，工具结果未因文件系统替换而变为一次新的访问。r2登记重建，不声称上游字节快照。"
+  },
+  {
+    "id": "architecture-a.mysql-lock",
+    "title": "MySQL8.4 — Locking Reads",
+    "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-locking-reads.html",
+    "type": "documentation",
+    "version": "MySQL8.4 reference branch",
+    "accessedAt": "2026-10-03",
+    "license": "Oracle manual copyright/terms; link only",
+    "identity": {
+      "kind": "primary-source-web-document",
+      "copiedUpstreamCode": false,
+      "byteSnapshotClaimed": false
+    },
+    "notes": "锁定读和事务条件；不能以旧快照裁决授权；实际网页阅读发生于同一任务，工具结果未因文件系统替换而变为一次新的访问。r2登记重建，不声称上游字节快照。"
+  },
+  {
+    "id": "architecture-a.mysql-index",
+    "title": "MySQL8.4 — Multiple-Column Indexes",
+    "url": "https://dev.mysql.com/doc/refman/8.4/en/multiple-column-indexes.html",
+    "type": "documentation",
+    "version": "MySQL8.4 reference branch",
+    "accessedAt": "2026-10-03",
+    "license": "Oracle manual copyright/terms; link only",
+    "identity": {
+      "kind": "primary-source-web-document",
+      "copiedUpstreamCode": false,
+      "byteSnapshotClaimed": false
+    },
+    "notes": "组合索引前缀与完整查询形状；实际网页阅读发生于同一任务，工具结果未因文件系统替换而变为一次新的访问。r2登记重建，不声称上游字节快照。"
+  },
+  {
+    "id": "architecture-a.authorization",
+    "title": "OWASP Authorization Cheat Sheet",
+    "url": "https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html",
+    "type": "documentation",
+    "version": "living document accessed2026-10-03",
+    "accessedAt": "2026-10-03",
+    "license": "CC BY-SA4.0; footer verified",
+    "identity": {
+      "kind": "primary-source-web-document",
+      "copiedUpstreamCode": false,
+      "byteSnapshotClaimed": false
+    },
+    "notes": "默认拒绝、逐请求检查与失败退出；实际网页阅读发生于同一任务，工具结果未因文件系统替换而变为一次新的访问。r2登记重建，不声称上游字节快照。"
+  },
+  {
+    "id": "architecture-a.rfc7662",
+    "title": "RFC7662 — OAuth2.0 Token Introspection",
+    "url": "https://datatracker.ietf.org/doc/html/rfc7662",
+    "type": "specification",
+    "version": "RFC7662, October2015, section4",
+    "accessedAt": "2026-10-03",
+    "license": "IETF Trust Legal Provisions; no excerpt redistributed",
+    "identity": {
+      "kind": "primary-source-web-document",
+      "copiedUpstreamCode": false,
+      "byteSnapshotClaimed": false
+    },
+    "notes": "缓存与撤销可见性；实际网页阅读发生于同一任务，工具结果未因文件系统替换而变为一次新的访问。r2登记重建，不声称上游字节快照。"
+  },
+  {
+    "id": "architecture-a.slo",
+    "title": "Google SRE Workbook — Implementing SLOs",
+    "url": "https://sre.google/workbook/implementing-slos/",
+    "type": "documentation",
+    "version": "2018 book chapter, online edition",
+    "accessedAt": "2026-10-03",
+    "license": "CC BY-NC-ND4.0; footer verified",
+    "identity": {
+      "kind": "primary-source-web-document",
+      "copiedUpstreamCode": false,
+      "byteSnapshotClaimed": false
+    },
+    "notes": "用户事件、好事件比例与目标决策；实际网页阅读发生于同一任务，工具结果未因文件系统替换而变为一次新的访问。r2登记重建，不声称上游字节快照。"
+  },
+  {
+    "id": "architecture-a.error-budget",
+    "title": "Google SRE Workbook — Error Budget Policy",
+    "url": "https://sre.google/workbook/error-budget-policy/",
+    "type": "documentation",
+    "version": "2018 book appendix, online edition",
+    "accessedAt": "2026-10-03",
+    "license": "CC BY-NC-ND4.0 book; linked only",
+    "identity": {
+      "kind": "primary-source-web-document",
+      "copiedUpstreamCode": false,
+      "byteSnapshotClaimed": false
+    },
+    "notes": "预算与发布行动连接；本例门槛另设；实际网页阅读发生于同一任务，工具结果未因文件系统替换而变为一次新的访问。r2登记重建，不声称上游字节快照。"
+  },
+  {
+    "id": "architecture-a.executor",
+    "title": "JavaSE21 — ThreadPoolExecutor",
+    "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/ThreadPoolExecutor.html",
+    "type": "api",
+    "version": "JavaSE21 API",
+    "accessedAt": "2026-10-03",
+    "license": "Oracle API documentation copyright/terms; link only",
+    "identity": {
+      "kind": "primary-source-web-document",
+      "copiedUpstreamCode": false,
+      "byteSnapshotClaimed": false
+    },
+    "notes": "有界队列、线程增长与拒绝；实际网页阅读发生于同一任务，工具结果未因文件系统替换而变为一次新的访问。r2登记重建，不声称上游字节快照。"
+  },
+  {
+    "id": "architecture-a.rabbit-ack",
+    "title": "RabbitMQ4.1 — Confirms and Acknowledgements",
+    "url": "https://www.rabbitmq.com/docs/4.1/confirms",
+    "type": "documentation",
+    "version": "RabbitMQ4.1 documentation branch",
+    "accessedAt": "2026-10-03",
+    "license": "Broadcom, all rights reserved",
+    "identity": {
+      "kind": "primary-source-web-document",
+      "copiedUpstreamCode": false,
+      "byteSnapshotClaimed": false
+    },
+    "notes": "publisher confirm和consumer ack不同责任、丢确认重投；实际网页阅读发生于同一任务，工具结果未因文件系统替换而变为一次新的访问。r2登记重建，不声称上游字节快照。"
+  },
+  {
+    "id": "architecture-a.outbox",
+    "title": "Transactional Outbox pattern",
+    "url": "https://microservices.io/patterns/data/transactional-outbox.html",
+    "type": "documentation",
+    "version": "author-maintained pattern, accessed2026-10-03",
+    "accessedAt": "2026-10-03",
+    "license": "Chris Richardson site copyright; no redistribution grant claimed",
+    "identity": {
+      "kind": "primary-source-web-document",
+      "copiedUpstreamCode": false,
+      "byteSnapshotClaimed": false
+    },
+    "notes": "本地共同提交、relay重复与消费幂等；实际网页阅读发生于同一任务，工具结果未因文件系统替换而变为一次新的访问。r2登记重建，不声称上游字节快照。"
+  },
+  {
+    "id": "architecture-a.kubernetes",
+    "title": "Kubernetes1.34 — Pod Lifecycle",
+    "url": "https://v1-34.docs.kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/",
+    "type": "documentation",
+    "version": "v1.34 snapshot; displayed modified2025-09-24 (256934d2a8)",
+    "accessedAt": "2026-10-03",
+    "license": "Upstream documentation terms apply; linked only",
+    "identity": {
+      "kind": "primary-source-web-document",
+      "copiedUpstreamCode": false,
+      "byteSnapshotClaimed": false
+    },
+    "notes": "终止时序、preStop共享外层宽限；实际网页阅读发生于同一任务，工具结果未因文件系统替换而变为一次新的访问。r2登记重建，不声称上游字节快照。"
+  },
+  {
+    "id": "architecture-a.go-memory",
+    "title": "The Go Memory Model",
+    "url": "https://go.dev/ref/mem",
+    "type": "specification",
+    "version": "June6 2022 memory model; accessed2026-10-03",
+    "accessedAt": "2026-10-03",
+    "license": "Go documentation copyright/terms; linked only",
+    "identity": {
+      "kind": "primary-source-web-document",
+      "copiedUpstreamCode": false,
+      "byteSnapshotClaimed": false
+    },
+    "notes": "channel同步不等于业务或远端完成；实际网页阅读发生于同一任务，工具结果未因文件系统替换而变为一次新的访问。r2登记重建，不声称上游字节快照。"
+  },
+  {
+    "id": "architecture-a.etcd",
+    "title": "etcd3.6 API guarantees",
+    "url": "https://etcd.io/docs/v3.6/learning/api_guarantees/",
+    "type": "documentation",
+    "version": "etcdv3.6 documentation",
+    "accessedAt": "2026-10-03",
+    "license": "Upstream documentation terms apply; linked only",
+    "identity": {
+      "kind": "primary-source-web-document",
+      "copiedUpstreamCode": false,
+      "byteSnapshotClaimed": false
+    },
+    "notes": "revision逻辑顺序不自动保护外部资源；实际网页阅读发生于同一任务，工具结果未因文件系统替换而变为一次新的访问。r2登记重建，不声称上游字节快照。"
+  }
+]

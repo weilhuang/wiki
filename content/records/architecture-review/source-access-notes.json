@@ -1,0 +1,14 @@
+{
+  "accessedAt": "2026-10-03",
+  "scope": "16 primary web documents actually consulted in this task before filesystem replacement; tool results retained in conversation; source registry reconstructed, no byte identity claimed",
+  "failedLookups": [
+    {
+      "url": "https://docs.spring.io/spring-modulith/1.4/reference/verification.html",
+      "resolvedTo": "https://docs.spring.io/spring-modulith/reference/1.4/verification.html"
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc7662.html",
+      "resolvedTo": "https://datatracker.ietf.org/doc/html/rfc7662"
+    }
+  ]
+}
