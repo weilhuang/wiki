@@ -1,0 +1,174 @@
+{
+  "status": "pass",
+  "scope": "metadata, relations, article links, Mermaid parse, genuine Code Hike compile and exact cleaned-source identity; no whole-site build or browser QA",
+  "articles": [
+    {
+      "file": "articles/proxy-dispatch.md",
+      "id": "frameworks.aop-dispatch",
+      "canonical": "knowledge/frameworks/spring-aop/proxy-dispatch.md",
+      "sha256": "517f876e32fa05fb2147e8c288098a5d21f16bf4776c97be660e9d299dfbcb6f"
+    },
+    {
+      "file": "articles/conditional-configuration.md",
+      "id": "frameworks.boot-conditions",
+      "canonical": "knowledge/frameworks/spring-boot/conditional-configuration.md",
+      "sha256": "e94d434ea9e1e5c9d6060077e90ef5abcbf3a5369b283c0f83614bf6d818629f"
+    }
+  ],
+  "diagrams": [
+    {
+      "article": "proxy-dispatch.md",
+      "type": "flowchart-v2",
+      "sha256": "2435e6baea47dccb45f98cc8fbf73f3abe02e15231312f038eeb56c0fdb32c63"
+    },
+    {
+      "article": "proxy-dispatch.md",
+      "type": "sequence",
+      "sha256": "c149c12c89dae09cbb04b033d023a7586661741fea57f9e275e23d9d646c0aa4"
+    },
+    {
+      "article": "conditional-configuration.md",
+      "type": "flowchart-v2",
+      "sha256": "20a9a5242229e56a1c1ffded09d04bdf4efa1b3854fe49ca3e6b9e2427445e51"
+    },
+    {
+      "article": "conditional-configuration.md",
+      "type": "sequence",
+      "sha256": "a5a43fcf5f40e8001690bc7d90917f3dd8b1932a6bde1d573a44ee4b995fb803"
+    }
+  ],
+  "code": [
+    {
+      "article": "proxy-dispatch.md",
+      "lang": "java",
+      "steps": [
+        [
+          3,
+          8
+        ],
+        [
+          9,
+          13
+        ],
+        [
+          15,
+          17
+        ]
+      ],
+      "cleanSha256": "003979b47490151af7842645d13fc0a2147761b230acbf82a4297802b78e5a2c"
+    },
+    {
+      "article": "proxy-dispatch.md",
+      "lang": "java",
+      "steps": [
+        [
+          5,
+          7
+        ],
+        [
+          9,
+          11
+        ],
+        [
+          14,
+          22
+        ],
+        [
+          24,
+          28
+        ]
+      ],
+      "cleanSha256": "b97bf6ae1210cf988a13aee81ce1416b6b62ff3485b3f86189153476a435e9d2"
+    },
+    {
+      "article": "proxy-dispatch.md",
+      "lang": "java",
+      "steps": [
+        [
+          3,
+          4
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "cleanSha256": "3665352e607d736f04227f27aa100f2decba6ac65479691b65d7020db0c93c81"
+    },
+    {
+      "article": "conditional-configuration.md",
+      "lang": "text",
+      "steps": [],
+      "cleanSha256": "898867daae35dba70d9d4125c0d7a2668c48980895e92aa73b2c364d1a6e671e"
+    },
+    {
+      "article": "conditional-configuration.md",
+      "lang": "text",
+      "steps": [],
+      "cleanSha256": "794878263796013fb576d6c485107a60d9d70c4f09fa269173a7507dbc850261"
+    },
+    {
+      "article": "conditional-configuration.md",
+      "lang": "java",
+      "steps": [
+        [
+          2,
+          4
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          8,
+          11
+        ],
+        [
+          12,
+          13
+        ]
+      ],
+      "cleanSha256": "01963abcc74cfc8c64e9b6b671d4df648f661b407aa56465cd58323e64018b7c"
+    },
+    {
+      "article": "conditional-configuration.md",
+      "lang": "java",
+      "steps": [
+        [
+          1,
+          4
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "cleanSha256": "a11e535f32e46dd48632652fac5bb608ec33a0c55b962e5c054e01775a5e3b8c"
+    },
+    {
+      "article": "conditional-configuration.md",
+      "lang": "java",
+      "steps": [
+        [
+          4,
+          7
+        ],
+        [
+          8,
+          11
+        ]
+      ],
+      "cleanSha256": "6acc269debc02290b2866ae90176bb2f7b18f7cd87ddcc326edcaef7b318f1e6"
+    },
+    {
+      "article": "conditional-configuration.md",
+      "lang": "text",
+      "steps": [],
+      "cleanSha256": "2c1ec5bafa3c35c80bb3c8bd2eb8d45ca635170f205a3589e9c46fc8bf6c78fb"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+REPORT BootLab$ReceiptAuto OnClassCondition match=true @ConditionalOnClass found required class 'lab.OptionalClient'
+REPORT BootLab$ReceiptAuto#receiptStore OnBeanCondition match=true @ConditionalOnMissingBean (types: lab.BootLab$ReceiptStore; SearchStrategy: all) did not find any beans
+REPORT BootLab$ReceiptAuto OnPropertyCondition match=false @ConditionalOnProperty (receipt.enabled=true) found different value in property 'enabled'
+REPORT BootLab$ReceiptAuto OnClassCondition match=false @ConditionalOnClass did not find required class 'lab.OptionalClient'
+REPORT BootLab$ReceiptAuto#receiptStore OnBeanCondition match=false @ConditionalOnMissingBean (types: lab.BootLab$ReceiptStore; SearchStrategy: all) found beans of type 'lab.BootLab$ReceiptStore' userReceiptStore
+REPORT BootLab$TooEarlyAuto OnBeanCondition match=false @ConditionalOnBean (types: lab.BootLab$Token; SearchStrategy: all) did not find any beans of type lab.BootLab$Token
+REPORT BootLab$AfterTokenAuto OnBeanCondition match=true @ConditionalOnBean (types: lab.BootLab$Token; SearchStrategy: all) found bean 'token'
+PASS BOOT complete; all runner contexts closed; construction=[token, consumer]

@@ -4,9 +4,11 @@ export const paths = [
     stages:[
       {title:'对象与请求的责任', transition:'先确认协作者可用以及请求能否进入业务，后面的事务判断才有明确起点。', task:'画出协作者所有权和请求处理链；能解释业务尚未进入时为何返回错误。',readings:[
         {topic:'frameworks.bean-definition-registration',role:'optional',purpose:'需要追踪配置入口时，先看定义如何定位、解析和注册'},
+        {topic:'frameworks.boot-conditions',role:'optional',purpose:'排查自动配置时，比较候选条件、定义顺序与用户 Bean 退让'},
         {topic:'frameworks.bean-lifecycle',role:'required',purpose:'区分定义、实例与内部资源的生命周期'},
         {topic:'frameworks.mvc-pipeline',role:'required',purpose:'定位参数解析、异常处理和响应提交'}]},
       {title:'数据与资源的边界', transition:'业务已经进入仍不等于数据已提交；请求慢也可能来自持有连接等待，需再加入事务与资源视角。', task:'预测事务最终结果与连接归还时机，比较短事务与跨外部等待的长事务。',readings:[
+        {topic:'frameworks.aop-dispatch',role:'optional',purpose:'需要解释调用入口时，先比较代理、目标和自调用的接收者'},
         {topic:'frameworks.transaction-proxy',role:'required',purpose:'跟踪代理、回滚标记和线程绑定连接'},
         {topic:'frameworks.connection-budget',role:'required',purpose:'解释连接占用与排队，区分超时和终止'}]},
       {title:'把边界放进同一个服务',transition:'分别解释四层还不够，提交后响应失败等跨层窗口需要在同一接口中评审。',task:'提交有备选方案、失败矩阵和未覆盖项的设计评审。',readings:[

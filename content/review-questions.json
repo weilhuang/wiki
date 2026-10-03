@@ -215,5 +215,40 @@
     "task": "verify",
     "prompt": "一次分配实验产生了 GC 日志，离“内存泄漏导致请求慢”的结论还缺哪些证据？",
     "anchor": "有-gc-记录-不等于找到内存泄漏"
+  },
+  {
+    "id": "aop-receiver",
+    "topic": "frameworks.aop-dispatch",
+    "task": "understand",
+    "prompt": "同一个inner方法，外部调用与this调用的拦截器顺序为何不同？从代理和目标的身份解释。",
+    "anchor": "dispatch"
+  },
+  {
+    "id": "aop-final",
+    "topic": "frameworks.aop-dispatch",
+    "task": "compare",
+    "prompt": "final类的final接口实现为何可用JDK通知，却无法强制CGLIB？接收者和继承关系分别是什么？",
+    "anchor": "boundaries"
+  },
+  {
+    "id": "aop-short-circuit",
+    "topic": "frameworks.aop-dispatch",
+    "task": "verify",
+    "prompt": "缓存命中返回正确值却仍执行业务，应增加哪项断言才能拒绝？",
+    "anchor": "diagnosis"
+  },
+  {
+    "id": "boot-backoff",
+    "topic": "frameworks.boot-conditions",
+    "task": "diagnose",
+    "prompt": "用户Bean存在但默认实现仍出现，怎样区分类型过窄、时机过早和缺失退让？",
+    "anchor": "backoff"
+  },
+  {
+    "id": "boot-definition-order",
+    "topic": "frameworks.boot-conditions",
+    "task": "understand",
+    "prompt": "最终上下文已有Token，为什么TooEarlyAuto仍不生效？配置排序能否决定构造先后？",
+    "anchor": "ordering"
   }
 ]

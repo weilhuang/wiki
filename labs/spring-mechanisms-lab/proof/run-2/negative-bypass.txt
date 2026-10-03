@@ -1,0 +1,4 @@
+Exception in thread "main" java.lang.AssertionError: outer advice order and self invocation boundary
+	at lab.AopLab.require(AopLab.java:42)
+	at lab.AopLab.contextDispatch(AopLab.java:77)
+	at lab.AopLab.main(AopLab.java:137)

@@ -1,0 +1,677 @@
+[
+  {
+    "id": "spring-mechanisms.source-review",
+    "kind": "source-reviewed",
+    "status": "pass",
+    "scope": [
+      "固定Framework v6.2.19代理创建、实现选择、JDK/CGLIB实际入口、拦截器链、调用接收者与配置条件阶段",
+      "固定Boot v3.5.16 imports、排序、OnBean/OnClass/OnProperty、条件报告测试入口；API/参考文档版本明确"
+    ],
+    "limitations": [
+      "逐方法复核，不是框架整体审计",
+      "默认文档7.x未用于6.2结论"
+    ],
+    "sourceFiles": [
+      {
+        "path": "labs/spring-mechanisms-lab/sources/DefaultAopProxyFactory.java",
+        "sha256": "468c4185166d57166f547d8a40dc2940e8b8899783e8dfc49b4228a6c9b29f2d"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/sources/ProxyFactory.java",
+        "sha256": "f426f998a801ad63f2936a899466cba7fe5e654de4e6c030366e2f4cb801dd71"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/sources/ProxyCreatorSupport.java",
+        "sha256": "d4c6e5a792ffdf9221f2a1baa914a82ad1a5d1a743d1031d657f0900cc754a30"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/sources/JdkDynamicAopProxy.java",
+        "sha256": "584042929918b22cfd085b6da475b1df28b5ee01a182b1ef4d5a84e1321b00c1"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/sources/CglibAopProxy.java",
+        "sha256": "01eb76c9301977c452b38c08938a8dd14b6928df9ef47a92ce3b0e6a1a9b5542"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/sources/ReflectiveMethodInvocation.java",
+        "sha256": "7aec9f1c60868019200336b5f6f2b1f54b3a081732b6187b0b5cf33154211f87"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/sources/DefaultAdvisorChainFactory.java",
+        "sha256": "33fdd580a124053c859d9510e627f8c1584fe7f70c817e70cecc356c081f5477"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/sources/AbstractAutoProxyCreator.java",
+        "sha256": "474bd1be44d243845d03089bb7c9e1dbbb5142648531b9472d19330155ab7a43"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/sources/AbstractAdvisorAutoProxyCreator.java",
+        "sha256": "f88a3e5dfc7b8d6c8c72890b5fc688a19ca50e944938a45affff5251da803a46"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/sources/AopUtils.java",
+        "sha256": "905eb9ffcd645e34d2f1ff202cb9f68277bc27f6acb30c9af3a4dcf1717ddb4e"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/sources/ConfigurationClassParser.java",
+        "sha256": "cf29649c16a9196ab194e1a27c3517ec584ef181a494e1c52425b8a81fed1592"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/sources/ConfigurationClassBeanDefinitionReader.java",
+        "sha256": "76284d959cac8441b7552857c526df3999fac41beeaffaa59f882a390f25c65f"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/sources/ConditionEvaluator.java",
+        "sha256": "d6395b728418686e8838762bdd88cd68eb7d023d3c30d959b9cce073ce038bc2"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/sources/AutoConfigurationImportSelector.java",
+        "sha256": "d3043e5d5a86e3fa9501ee8d02d7b90b45bc1f47db705e1d471b77d964f21134"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/sources/AutoConfigurationSorter.java",
+        "sha256": "983425cca50cc9dea066eaaff3feb67032e05148f64374d19c3a5274a3dec81f"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/sources/AutoConfiguration.java",
+        "sha256": "5c42c61249612d23f99d06562ca18462c098fa61a35df20a4b01b9748a672629"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/sources/OnBeanCondition.java",
+        "sha256": "28dbf132ebad58d23ebb561c9b265ab213ec9a978064ad84c145c0598a58f2bf"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/sources/OnClassCondition.java",
+        "sha256": "ea4bef94a48270dc1523a1f64f2ad73ab59cc7f1ec3326b38d2bf7074f9ecc92"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/sources/OnPropertyCondition.java",
+        "sha256": "2c2a1c5c2a6c5f5ea240026a212a37eb2328efc210d46e04362485f77134803c"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/sources/ConditionalOnMissingBean.java",
+        "sha256": "1c1307fbf18f498a820c0246d83b2a82f524caf4d7543b48fe4d2e8589eb9409"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/sources/ConditionalOnClass.java",
+        "sha256": "71a5c013848de6fa6262ee94951e4712153752a7ce4815930c0c64694fb9dcfb"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/sources/AopAutoConfiguration.java",
+        "sha256": "2788be4130babb598acc6e67435769f0f75a76f420f735743d6fe52c7dae267e"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/sources/ImportCandidates.java",
+        "sha256": "1f7afa104c40f2fbff3bc5da7950b6d4a9b49edcee0fad511aef3e8098914391"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/sources/AbstractApplicationContextRunner.java",
+        "sha256": "4cb292f15c7a8d9caac462b6d2b4addc8c4bc8a6e891eebf2cc369828e40ce5c"
+      }
+    ],
+    "commands": [],
+    "artifacts": [
+      {
+        "path": "labs/spring-mechanisms-lab/source-lock.json",
+        "sha256": "4c908a1e25635cfa52b3d8d47d9ee42cc816c2305d1de83b7478f88629e98b69"
+      }
+    ],
+    "upstreamSnapshots": [
+      {
+        "path": "spring-aop/src/main/java/org/springframework/aop/framework/DefaultAopProxyFactory.java",
+        "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/framework/DefaultAopProxyFactory.java",
+        "tag": "v6.2.19",
+        "sha256": "468c4185166d57166f547d8a40dc2940e8b8899783e8dfc49b4228a6c9b29f2d",
+        "license": "Apache-2.0"
+      },
+      {
+        "path": "spring-aop/src/main/java/org/springframework/aop/framework/ProxyFactory.java",
+        "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/framework/ProxyFactory.java",
+        "tag": "v6.2.19",
+        "sha256": "f426f998a801ad63f2936a899466cba7fe5e654de4e6c030366e2f4cb801dd71",
+        "license": "Apache-2.0"
+      },
+      {
+        "path": "spring-aop/src/main/java/org/springframework/aop/framework/ProxyCreatorSupport.java",
+        "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/framework/ProxyCreatorSupport.java",
+        "tag": "v6.2.19",
+        "sha256": "d4c6e5a792ffdf9221f2a1baa914a82ad1a5d1a743d1031d657f0900cc754a30",
+        "license": "Apache-2.0"
+      },
+      {
+        "path": "spring-aop/src/main/java/org/springframework/aop/framework/JdkDynamicAopProxy.java",
+        "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/framework/JdkDynamicAopProxy.java",
+        "tag": "v6.2.19",
+        "sha256": "584042929918b22cfd085b6da475b1df28b5ee01a182b1ef4d5a84e1321b00c1",
+        "license": "Apache-2.0"
+      },
+      {
+        "path": "spring-aop/src/main/java/org/springframework/aop/framework/CglibAopProxy.java",
+        "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/framework/CglibAopProxy.java",
+        "tag": "v6.2.19",
+        "sha256": "01eb76c9301977c452b38c08938a8dd14b6928df9ef47a92ce3b0e6a1a9b5542",
+        "license": "Apache-2.0"
+      },
+      {
+        "path": "spring-aop/src/main/java/org/springframework/aop/framework/ReflectiveMethodInvocation.java",
+        "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/framework/ReflectiveMethodInvocation.java",
+        "tag": "v6.2.19",
+        "sha256": "7aec9f1c60868019200336b5f6f2b1f54b3a081732b6187b0b5cf33154211f87",
+        "license": "Apache-2.0"
+      },
+      {
+        "path": "spring-aop/src/main/java/org/springframework/aop/framework/DefaultAdvisorChainFactory.java",
+        "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/framework/DefaultAdvisorChainFactory.java",
+        "tag": "v6.2.19",
+        "sha256": "33fdd580a124053c859d9510e627f8c1584fe7f70c817e70cecc356c081f5477",
+        "license": "Apache-2.0"
+      },
+      {
+        "path": "spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/AbstractAutoProxyCreator.java",
+        "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/AbstractAutoProxyCreator.java",
+        "tag": "v6.2.19",
+        "sha256": "474bd1be44d243845d03089bb7c9e1dbbb5142648531b9472d19330155ab7a43",
+        "license": "Apache-2.0"
+      },
+      {
+        "path": "spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/AbstractAdvisorAutoProxyCreator.java",
+        "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/AbstractAdvisorAutoProxyCreator.java",
+        "tag": "v6.2.19",
+        "sha256": "f88a3e5dfc7b8d6c8c72890b5fc688a19ca50e944938a45affff5251da803a46",
+        "license": "Apache-2.0"
+      },
+      {
+        "path": "spring-aop/src/main/java/org/springframework/aop/support/AopUtils.java",
+        "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/support/AopUtils.java",
+        "tag": "v6.2.19",
+        "sha256": "905eb9ffcd645e34d2f1ff202cb9f68277bc27f6acb30c9af3a4dcf1717ddb4e",
+        "license": "Apache-2.0"
+      },
+      {
+        "path": "spring-context/src/main/java/org/springframework/context/annotation/ConfigurationClassParser.java",
+        "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-context/src/main/java/org/springframework/context/annotation/ConfigurationClassParser.java",
+        "tag": "v6.2.19",
+        "sha256": "cf29649c16a9196ab194e1a27c3517ec584ef181a494e1c52425b8a81fed1592",
+        "license": "Apache-2.0"
+      },
+      {
+        "path": "spring-context/src/main/java/org/springframework/context/annotation/ConfigurationClassBeanDefinitionReader.java",
+        "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-context/src/main/java/org/springframework/context/annotation/ConfigurationClassBeanDefinitionReader.java",
+        "tag": "v6.2.19",
+        "sha256": "76284d959cac8441b7552857c526df3999fac41beeaffaa59f882a390f25c65f",
+        "license": "Apache-2.0"
+      },
+      {
+        "path": "spring-context/src/main/java/org/springframework/context/annotation/ConditionEvaluator.java",
+        "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-context/src/main/java/org/springframework/context/annotation/ConditionEvaluator.java",
+        "tag": "v6.2.19",
+        "sha256": "d6395b728418686e8838762bdd88cd68eb7d023d3c30d959b9cce073ce038bc2",
+        "license": "Apache-2.0"
+      },
+      {
+        "path": "spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/AutoConfigurationImportSelector.java",
+        "url": "https://github.com/spring-projects/spring-boot/blob/v3.5.16/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/AutoConfigurationImportSelector.java",
+        "tag": "v3.5.16",
+        "sha256": "d3043e5d5a86e3fa9501ee8d02d7b90b45bc1f47db705e1d471b77d964f21134",
+        "license": "Apache-2.0"
+      },
+      {
+        "path": "spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/AutoConfigurationSorter.java",
+        "url": "https://github.com/spring-projects/spring-boot/blob/v3.5.16/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/AutoConfigurationSorter.java",
+        "tag": "v3.5.16",
+        "sha256": "983425cca50cc9dea066eaaff3feb67032e05148f64374d19c3a5274a3dec81f",
+        "license": "Apache-2.0"
+      },
+      {
+        "path": "spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/AutoConfiguration.java",
+        "url": "https://github.com/spring-projects/spring-boot/blob/v3.5.16/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/AutoConfiguration.java",
+        "tag": "v3.5.16",
+        "sha256": "5c42c61249612d23f99d06562ca18462c098fa61a35df20a4b01b9748a672629",
+        "license": "Apache-2.0"
+      },
+      {
+        "path": "spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/condition/OnBeanCondition.java",
+        "url": "https://github.com/spring-projects/spring-boot/blob/v3.5.16/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/condition/OnBeanCondition.java",
+        "tag": "v3.5.16",
+        "sha256": "28dbf132ebad58d23ebb561c9b265ab213ec9a978064ad84c145c0598a58f2bf",
+        "license": "Apache-2.0"
+      },
+      {
+        "path": "spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/condition/OnClassCondition.java",
+        "url": "https://github.com/spring-projects/spring-boot/blob/v3.5.16/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/condition/OnClassCondition.java",
+        "tag": "v3.5.16",
+        "sha256": "ea4bef94a48270dc1523a1f64f2ad73ab59cc7f1ec3326b38d2bf7074f9ecc92",
+        "license": "Apache-2.0"
+      },
+      {
+        "path": "spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/condition/OnPropertyCondition.java",
+        "url": "https://github.com/spring-projects/spring-boot/blob/v3.5.16/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/condition/OnPropertyCondition.java",
+        "tag": "v3.5.16",
+        "sha256": "2c2a1c5c2a6c5f5ea240026a212a37eb2328efc210d46e04362485f77134803c",
+        "license": "Apache-2.0"
+      },
+      {
+        "path": "spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/condition/ConditionalOnMissingBean.java",
+        "url": "https://github.com/spring-projects/spring-boot/blob/v3.5.16/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/condition/ConditionalOnMissingBean.java",
+        "tag": "v3.5.16",
+        "sha256": "1c1307fbf18f498a820c0246d83b2a82f524caf4d7543b48fe4d2e8589eb9409",
+        "license": "Apache-2.0"
+      },
+      {
+        "path": "spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/condition/ConditionalOnClass.java",
+        "url": "https://github.com/spring-projects/spring-boot/blob/v3.5.16/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/condition/ConditionalOnClass.java",
+        "tag": "v3.5.16",
+        "sha256": "71a5c013848de6fa6262ee94951e4712153752a7ce4815930c0c64694fb9dcfb",
+        "license": "Apache-2.0"
+      },
+      {
+        "path": "spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/aop/AopAutoConfiguration.java",
+        "url": "https://github.com/spring-projects/spring-boot/blob/v3.5.16/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/aop/AopAutoConfiguration.java",
+        "tag": "v3.5.16",
+        "sha256": "2788be4130babb598acc6e67435769f0f75a76f420f735743d6fe52c7dae267e",
+        "license": "Apache-2.0"
+      },
+      {
+        "path": "spring-boot-project/spring-boot/src/main/java/org/springframework/boot/context/annotation/ImportCandidates.java",
+        "url": "https://github.com/spring-projects/spring-boot/blob/v3.5.16/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/context/annotation/ImportCandidates.java",
+        "tag": "v3.5.16",
+        "sha256": "1f7afa104c40f2fbff3bc5da7950b6d4a9b49edcee0fad511aef3e8098914391",
+        "license": "Apache-2.0"
+      },
+      {
+        "path": "spring-boot-project/spring-boot-test/src/main/java/org/springframework/boot/test/context/runner/AbstractApplicationContextRunner.java",
+        "url": "https://github.com/spring-projects/spring-boot/blob/v3.5.16/spring-boot-project/spring-boot-test/src/main/java/org/springframework/boot/test/context/runner/AbstractApplicationContextRunner.java",
+        "tag": "v3.5.16",
+        "sha256": "4cb292f15c7a8d9caac462b6d2b4addc8c4bc8a6e891eebf2cc369828e40ce5c",
+        "license": "Apache-2.0"
+      }
+    ],
+    "recordedAt": "2026-10-03T02:19:00Z",
+    "independentlyReviewed": true,
+    "resourceGroup": "spring-mechanisms"
+  },
+  {
+    "id": "spring-mechanisms.aop-run",
+    "kind": "executed",
+    "status": "pass",
+    "scope": [
+      "真实AnnotationConfigApplicationContext的JDK/CGLIB代理：目标/代理与单例身份、Bean数量、业务进入、完整A/B顺序、自调用/private边界、返回this处理、原始异常",
+      "ProxyFactory真实final接口调用、强制类代理准确根因、缓存短路；没有启动Web"
+    ],
+    "limitations": [
+      "非Web、非AOT、非AspectJ，不验证生产性能",
+      "实验业务无后台线程；子线程失败分类是Python夹具，未做真实JVM线程故障注入",
+      "没有执行操作系统超时/清理失败的实时注入；有序终止实现经源码复核与分类夹具检查"
+    ],
+    "sourceFiles": [
+      {
+        "path": "labs/spring-mechanisms-lab/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+        "sha256": "794878263796013fb576d6c485107a60d9d70c4f09fa269173a7507dbc850261"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/src/lab/AopLab.java",
+        "sha256": "4ecbfe00c829c754c1bcc8b34e0df5dafbdb2d173f24c617e9926eee39bb3a89"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/src/lab/BootLab.java",
+        "sha256": "15aa45e4fd83d7b91cf08801d3e3458864c7fdba07e8f54c288e28b909327aaf"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/src/lab/OptionalClient.java",
+        "sha256": "615fbab87d8fdf54d6e95ed28c468c4a20cf5600de625938fdc7dedbb6f35475"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/run.py",
+        "sha256": "818d07cdfd272fc414b061ef05972b7df362ffea59e7e7bacd0fcc6a08ee5a54"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/result_validation.py",
+        "sha256": "2b96f273e9dd0c80dec7799f8cda249c5c27229c6e529e0587427a8ded03dba3"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/dependencies.lock.json",
+        "sha256": "9be1147012e4adb9d70b5a9f7849de35fec3b4f0b56cad1d047ecbc8001ab97c"
+      }
+    ],
+    "commands": [
+      {
+        "command": "java -version",
+        "exitCode": 0
+      },
+      {
+        "command": "javac -version",
+        "exitCode": 0
+      },
+      {
+        "command": "javac -J-Xmx64m -J-XX:ActiveProcessorCount=2 --release 21 -cp $LOCKED_CLASSPATH -d $BUILD_CLASSES src/lab/*.java",
+        "exitCode": 0
+      },
+      {
+        "command": "java -Xmx64m -XX:ActiveProcessorCount=2 -cp $BUILD_CLASSES:$LOCKED_CLASSPATH lab.AopLab none",
+        "exitCode": 0
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "labs/spring-mechanisms-lab/proof/run-3/result.json",
+        "sha256": "b4535eaf07f357bd61140315f4ec84772e69862c531cdb46a5c31f4293aef7ed"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/proof/run-3/termination.json",
+        "sha256": "a12a0eb25116c90f8ace66a27296ebc6b1be26b176787fb0f8a48a04c9e11a38"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/proof/run-3/java-version.txt",
+        "sha256": "5b4412738541184e84f6b2d7520d4f4a7c2a455f60650491464c61adcbbbdeb0"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/proof/run-3/javac-version.txt",
+        "sha256": "2df6b9c76e710158266aeaae8f3578eaed8ddd747a2272483506ad9a8a5e644a"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/proof/run-3/compile.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/proof/run-3/aop.txt",
+        "sha256": "adda035ac1b8ac01a14085b565a820fbd89c7dc49869e81cf7e272a1c22d42fa"
+      },
+      {
+        "path": "docs/public/examples/spring-mechanisms-lab.zip",
+        "sha256": "e0dbb528cbded4e368a0e8a5a71ab8670d065b35091aaa73000b34139ada544f"
+      }
+    ],
+    "recordedAt": "2026-10-03T02:18:55Z",
+    "independentlyReviewed": true,
+    "resourceGroup": "spring-mechanisms"
+  },
+  {
+    "id": "spring-mechanisms.boot-run",
+    "kind": "executed",
+    "status": "pass",
+    "scope": [
+      "真实ApplicationContextRunner：默认、property=false、FilteredClassLoader、用户对象退让；数量/具体类型/身份/构造次数/原因报告",
+      "定义处理先后与Token依赖构造次序、OnBean时点、一次真实EnableAutoConfiguration读取imports"
+    ],
+    "limitations": [
+      "非Web、非AOT、非AspectJ，不验证生产性能",
+      "实验业务无后台线程；子线程失败分类是Python夹具，未做真实JVM线程故障注入",
+      "没有执行操作系统超时/清理失败的实时注入；有序终止实现经源码复核与分类夹具检查"
+    ],
+    "sourceFiles": [
+      {
+        "path": "labs/spring-mechanisms-lab/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+        "sha256": "794878263796013fb576d6c485107a60d9d70c4f09fa269173a7507dbc850261"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/src/lab/AopLab.java",
+        "sha256": "4ecbfe00c829c754c1bcc8b34e0df5dafbdb2d173f24c617e9926eee39bb3a89"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/src/lab/BootLab.java",
+        "sha256": "15aa45e4fd83d7b91cf08801d3e3458864c7fdba07e8f54c288e28b909327aaf"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/src/lab/OptionalClient.java",
+        "sha256": "615fbab87d8fdf54d6e95ed28c468c4a20cf5600de625938fdc7dedbb6f35475"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/run.py",
+        "sha256": "818d07cdfd272fc414b061ef05972b7df362ffea59e7e7bacd0fcc6a08ee5a54"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/result_validation.py",
+        "sha256": "2b96f273e9dd0c80dec7799f8cda249c5c27229c6e529e0587427a8ded03dba3"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/dependencies.lock.json",
+        "sha256": "9be1147012e4adb9d70b5a9f7849de35fec3b4f0b56cad1d047ecbc8001ab97c"
+      }
+    ],
+    "commands": [
+      {
+        "command": "java -version",
+        "exitCode": 0
+      },
+      {
+        "command": "javac -version",
+        "exitCode": 0
+      },
+      {
+        "command": "javac -J-Xmx64m -J-XX:ActiveProcessorCount=2 --release 21 -cp $LOCKED_CLASSPATH -d $BUILD_CLASSES src/lab/*.java",
+        "exitCode": 0
+      },
+      {
+        "command": "java -Xmx64m -XX:ActiveProcessorCount=2 -cp $BUILD_CLASSES:$LOCKED_CLASSPATH lab.BootLab none",
+        "exitCode": 0
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "labs/spring-mechanisms-lab/proof/run-3/result.json",
+        "sha256": "b4535eaf07f357bd61140315f4ec84772e69862c531cdb46a5c31f4293aef7ed"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/proof/run-3/termination.json",
+        "sha256": "a12a0eb25116c90f8ace66a27296ebc6b1be26b176787fb0f8a48a04c9e11a38"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/proof/run-3/java-version.txt",
+        "sha256": "5b4412738541184e84f6b2d7520d4f4a7c2a455f60650491464c61adcbbbdeb0"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/proof/run-3/javac-version.txt",
+        "sha256": "2df6b9c76e710158266aeaae8f3578eaed8ddd747a2272483506ad9a8a5e644a"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/proof/run-3/compile.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/proof/run-3/boot.txt",
+        "sha256": "e8d6fbdada3b1085608dea257ca73821643e222eea8f84754eead123c71828bf"
+      }
+    ],
+    "recordedAt": "2026-10-03T02:18:55Z",
+    "independentlyReviewed": true,
+    "resourceGroup": "spring-mechanisms"
+  },
+  {
+    "id": "spring-mechanisms.counterexamples",
+    "kind": "executed",
+    "status": "pass",
+    "scope": [
+      "三个具体错误变体：原始目标绕过通知、缓存命中后仍执行业务、删除missing-bean导致双实现",
+      "全部编译及启动成功后到达准确业务AssertionError；非编译/启动失败"
+    ],
+    "limitations": [
+      "非Web、非AOT、非AspectJ，不验证生产性能",
+      "实验业务无后台线程；子线程失败分类是Python夹具，未做真实JVM线程故障注入",
+      "没有执行操作系统超时/清理失败的实时注入；有序终止实现经源码复核与分类夹具检查"
+    ],
+    "sourceFiles": [
+      {
+        "path": "labs/spring-mechanisms-lab/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+        "sha256": "794878263796013fb576d6c485107a60d9d70c4f09fa269173a7507dbc850261"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/src/lab/AopLab.java",
+        "sha256": "4ecbfe00c829c754c1bcc8b34e0df5dafbdb2d173f24c617e9926eee39bb3a89"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/src/lab/BootLab.java",
+        "sha256": "15aa45e4fd83d7b91cf08801d3e3458864c7fdba07e8f54c288e28b909327aaf"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/src/lab/OptionalClient.java",
+        "sha256": "615fbab87d8fdf54d6e95ed28c468c4a20cf5600de625938fdc7dedbb6f35475"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/run.py",
+        "sha256": "818d07cdfd272fc414b061ef05972b7df362ffea59e7e7bacd0fcc6a08ee5a54"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/result_validation.py",
+        "sha256": "2b96f273e9dd0c80dec7799f8cda249c5c27229c6e529e0587427a8ded03dba3"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/dependencies.lock.json",
+        "sha256": "9be1147012e4adb9d70b5a9f7849de35fec3b4f0b56cad1d047ecbc8001ab97c"
+      }
+    ],
+    "commands": [
+      {
+        "command": "java -Xmx64m -XX:ActiveProcessorCount=2 -cp $BUILD_CLASSES:$LOCKED_CLASSPATH lab.AopLab bypass-proxy",
+        "exitCode": 1,
+        "expectation": "expected-rejection",
+        "expectedExitCode": 1,
+        "expectedAssertion": "outer advice order and self invocation boundary"
+      },
+      {
+        "command": "java -Xmx64m -XX:ActiveProcessorCount=2 -cp $BUILD_CLASSES:$LOCKED_CLASSPATH lab.AopLab proceed-on-cache-hit",
+        "exitCode": 1,
+        "expectation": "expected-rejection",
+        "expectedExitCode": 1,
+        "expectedAssertion": "cache hit must skip business"
+      },
+      {
+        "command": "java -Xmx64m -XX:ActiveProcessorCount=2 -cp $BUILD_CLASSES:$LOCKED_CLASSPATH lab.BootLab remove-backoff",
+        "exitCode": 1,
+        "expectation": "expected-rejection",
+        "expectedExitCode": 1,
+        "expectedAssertion": "user bean identity and single implementation"
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "labs/spring-mechanisms-lab/proof/run-3/result.json",
+        "sha256": "b4535eaf07f357bd61140315f4ec84772e69862c531cdb46a5c31f4293aef7ed"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/proof/run-3/termination.json",
+        "sha256": "a12a0eb25116c90f8ace66a27296ebc6b1be26b176787fb0f8a48a04c9e11a38"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/proof/run-3/negative-bypass.txt",
+        "sha256": "3c9cf91c55093070a3f7feb634c80b1420fd225393ca9e05e08e8a4d8e74e97f"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/proof/run-3/negative-cache.txt",
+        "sha256": "476d7e92557276c506ad0abf9380a7128c0368b44114d623f14d89c18b73662d"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/proof/run-3/negative-backoff.txt",
+        "sha256": "b2b1082cdd81bfc4944cb55f7f5d2891e26a6967f1204056fd5ec330fdcf5053"
+      }
+    ],
+    "recordedAt": "2026-10-03T02:18:55Z",
+    "independentlyReviewed": true,
+    "resourceGroup": "spring-mechanisms"
+  },
+  {
+    "id": "spring-mechanisms.static-check",
+    "kind": "static-checked",
+    "status": "pass",
+    "scope": [
+      "Integrated AOP/Boot metadata, two category guides and optional Spring route branches",
+      "Exact six Code Hike excerpts with retained source tabs, clean-code SHA256, step/range checks and four Mermaid diagrams",
+      "24 Node regressions, 102 generated HTML pages, 375 canonical search sections and 33 intent targets"
+    ],
+    "limitations": [
+      "This is Node/static/SSR integration evidence, not a new Java execution",
+      "Whole-tree independent review, remote CI and live browser verification are separate gates"
+    ],
+    "sourceFiles": [
+      {
+        "path": "labs/spring-mechanisms-lab/snippets.json",
+        "sha256": "bc8525b5f227f5b316bf5e695e6e1b34a03d2eb4593cdf21dd5796335618bf2a"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/result_validation.py",
+        "sha256": "2b96f273e9dd0c80dec7799f8cda249c5c27229c6e529e0587427a8ded03dba3"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/check_classifier.py",
+        "sha256": "f27a9390237c2c5d63b2d5697463f9ed9c79a06f53441d303d1a789785cc9a15"
+      },
+      {
+        "path": "labs/spring-mechanisms-lab/verify_evidence.py",
+        "sha256": "2c5db277b0c34b27f67a700d299ae24784c5601f9a5c7408b3fd7baf1be56d67"
+      },
+      {
+        "path": "docs/knowledge/frameworks/spring-aop/proxy-dispatch.md",
+        "sha256": "eb7b0167ae248d8e4bbd72e5272c678cadf8fe0f85ad3dc99593ba3503ea6bb9"
+      },
+      {
+        "path": "docs/knowledge/frameworks/spring-boot/conditional-configuration.md",
+        "sha256": "df6b438a0f2d9fef345369b4681c029e02580079d17469210533925c063910f7"
+      },
+      {
+        "path": "content/snippets/spring-mechanisms.json",
+        "sha256": "d6380a78a3c31c2f11d6730d59065c5506ba10a0e26f10861f731414e8dbe39b"
+      },
+      {
+        "path": "tests/snippets.test.mjs",
+        "sha256": "210c891494a079e29761be21f1f41b448f56082bf500272a92b7ca2b42f956ac"
+      }
+    ],
+    "commands": [
+      {
+        "command": "npm run check",
+        "exitCode": 0
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "labs/spring-mechanisms-lab/proof/integration-static.json",
+        "sha256": "3a9d9c1674c5313ba02037d644f6df3010cc495da91f6860846ae106aaaa6c75"
+      }
+    ],
+    "recordedAt": "2026-10-03T06:43:50.287448+00:00",
+    "independentlyReviewed": false,
+    "resourceGroup": "spring-mechanisms",
+    "historicalAuthorChecks": {
+      "commands": [
+        {
+          "command": "node static-check.mjs $WIKI_CHECKOUT",
+          "exitCode": 0
+        },
+        {
+          "command": "python check_classifier.py",
+          "exitCode": 0
+        },
+        {
+          "command": "python verify_evidence.py --run proof/run-3",
+          "exitCode": 0
+        },
+        {
+          "command": "python verify_evidence.py --run proof/run-1",
+          "exitCode": 0
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "labs/spring-mechanisms-lab/proof/static-check.json",
+          "sha256": "408e03546dd308776d6e19821a0e2708791d03beeab394e0a253f2bb0ef43241"
+        },
+        {
+          "path": "labs/spring-mechanisms-lab/proof/classifier.json",
+          "sha256": "a3fda8c94be3919fda03ff7511848136905a0d89192e550c4337a144a4709137"
+        },
+        {
+          "path": "labs/spring-mechanisms-lab/proof/evidence-check.json",
+          "sha256": "6b6878a70b1a059c807917c8340efd22826efd5c02ed4b999ab1da4fbd10904f"
+        },
+        {
+          "path": "labs/spring-mechanisms-lab/proof/history-check.json",
+          "sha256": "51a6856e8894bd3d865fc10b26c5f8c28945f96ccc91772c56c0018169ec0b87"
+        }
+      ],
+      "scope": [
+        "两个review正文的元信息/关系/链接、四个Mermaid真实解析、六段CodeHike真实编译与逐字摘录身份",
+        "当前及历史执行证据SHA、十个Python失败分类夹具、source-only包白名单"
+      ]
+    },
+    "revision": "W-integration-1"
+  }
+]

@@ -9,7 +9,8 @@
     "http": "HTTP",
     "mysql": "MySQL",
     "innodb": "InnoDB",
-    "redis": "Redis"
+    "redis": "Redis",
+    "spring-boot": "Spring Boot"
   },
   "mechanism": {
     "ioc": "IoC",
@@ -45,7 +46,10 @@
     "session": "会话",
     "revocation": "凭据撤销",
     "authorization": "对象授权",
-    "tenant-isolation": "租户隔离"
+    "tenant-isolation": "租户隔离",
+    "aop": "AOP代理",
+    "dispatch": "调用分派",
+    "conditional-configuration": "条件装配"
   },
   "task": {
     "understand": "理解机制",

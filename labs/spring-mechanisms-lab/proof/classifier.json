@@ -1,0 +1,20 @@
+{
+  "status": "pass",
+  "accepted": [
+    "valid-counterexample",
+    "valid-completion"
+  ],
+  "rejected": [
+    "unexpected-success",
+    "wrong-exception-same-message",
+    "nested-cause-only",
+    "compiler-failure",
+    "vm-start-failure",
+    "ordinary-thread-failure",
+    "child-and-expected-main",
+    "missing-business-completion",
+    "timeout",
+    "cleanup-failure"
+  ],
+  "scope": "Python classifier fixtures; not live JVM/thread/cleanup fault injection"
+}

@@ -1,0 +1,92 @@
+[
+  {
+    "id": "spring-mechanisms.factory",
+    "article": "articles/proxy-dispatch.md",
+    "file": "sources/DefaultAopProxyFactory.java",
+    "lines": [
+      59,
+      76
+    ],
+    "transform": "dedent",
+    "sourceSha256": "468c4185166d57166f547d8a40dc2940e8b8899783e8dfc49b4228a6c9b29f2d",
+    "cleanCodeSha256": "003979b47490151af7842645d13fc0a2147761b230acbf82a4297802b78e5a2c",
+    "source": "labs/spring-mechanisms-lab/sources/DefaultAopProxyFactory.java",
+    "doc": "docs/knowledge/frameworks/spring-aop/proxy-dispatch.md",
+    "language": "java"
+  },
+  {
+    "id": "spring-mechanisms.proceed",
+    "article": "articles/proxy-dispatch.md",
+    "file": "sources/ReflectiveMethodInvocation.java",
+    "lines": [
+      158,
+      186
+    ],
+    "transform": "dedent",
+    "sourceSha256": "7aec9f1c60868019200336b5f6f2b1f54b3a081732b6187b0b5cf33154211f87",
+    "cleanCodeSha256": "b97bf6ae1210cf988a13aee81ce1416b6b62ff3485b3f86189153476a435e9d2",
+    "source": "labs/spring-mechanisms-lab/sources/ReflectiveMethodInvocation.java",
+    "doc": "docs/knowledge/frameworks/spring-aop/proxy-dispatch.md",
+    "language": "java"
+  },
+  {
+    "id": "spring-mechanisms.trace",
+    "article": "articles/proxy-dispatch.md",
+    "file": "src/lab/AopLab.java",
+    "lines": [
+      44,
+      53
+    ],
+    "transform": "dedent",
+    "sourceSha256": "4ecbfe00c829c754c1bcc8b34e0df5dafbdb2d173f24c617e9926eee39bb3a89",
+    "cleanCodeSha256": "3665352e607d736f04227f27aa100f2decba6ac65479691b65d7020db0c93c81",
+    "source": "labs/spring-mechanisms-lab/src/lab/AopLab.java",
+    "doc": "docs/knowledge/frameworks/spring-aop/proxy-dispatch.md",
+    "language": "java"
+  },
+  {
+    "id": "spring-mechanisms.imports",
+    "article": "articles/conditional-configuration.md",
+    "file": "sources/AutoConfigurationImportSelector.java",
+    "lines": [
+      137,
+      150
+    ],
+    "transform": "dedent",
+    "sourceSha256": "d3043e5d5a86e3fa9501ee8d02d7b90b45bc1f47db705e1d471b77d964f21134",
+    "cleanCodeSha256": "01963abcc74cfc8c64e9b6b671d4df648f661b407aa56465cd58323e64018b7c",
+    "source": "labs/spring-mechanisms-lab/sources/AutoConfigurationImportSelector.java",
+    "doc": "docs/knowledge/frameworks/spring-boot/conditional-configuration.md",
+    "language": "java"
+  },
+  {
+    "id": "spring-mechanisms.receipt",
+    "article": "articles/conditional-configuration.md",
+    "file": "src/lab/BootLab.java",
+    "lines": [
+      29,
+      36
+    ],
+    "transform": "dedent",
+    "sourceSha256": "15aa45e4fd83d7b91cf08801d3e3458864c7fdba07e8f54c288e28b909327aaf",
+    "cleanCodeSha256": "a11e535f32e46dd48632652fac5bb608ec33a0c55b962e5c054e01775a5e3b8c",
+    "source": "labs/spring-mechanisms-lab/src/lab/BootLab.java",
+    "doc": "docs/knowledge/frameworks/spring-boot/conditional-configuration.md",
+    "language": "java"
+  },
+  {
+    "id": "spring-mechanisms.order",
+    "article": "articles/conditional-configuration.md",
+    "file": "src/lab/BootLab.java",
+    "lines": [
+      46,
+      56
+    ],
+    "transform": "dedent",
+    "sourceSha256": "15aa45e4fd83d7b91cf08801d3e3458864c7fdba07e8f54c288e28b909327aaf",
+    "cleanCodeSha256": "6acc269debc02290b2866ae90176bb2f7b18f7cd87ddcc326edcaef7b318f1e6",
+    "source": "labs/spring-mechanisms-lab/src/lab/BootLab.java",
+    "doc": "docs/knowledge/frameworks/spring-boot/conditional-configuration.md",
+    "language": "java"
+  }
+]

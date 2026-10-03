@@ -1,0 +1,17 @@
+REPORT BootLab$ReceiptAuto OnClassCondition match=true @ConditionalOnClass found required class 'lab.OptionalClient'
+REPORT BootLab$ReceiptAuto#receiptStore OnBeanCondition match=true @ConditionalOnMissingBean (types: lab.BootLab$ReceiptStore; SearchStrategy: all) did not find any beans
+REPORT BootLab$ReceiptAuto OnPropertyCondition match=false @ConditionalOnProperty (receipt.enabled=true) found different value in property 'enabled'
+REPORT BootLab$ReceiptAuto OnClassCondition match=false @ConditionalOnClass did not find required class 'lab.OptionalClient'
+Exception in thread "main" java.lang.AssertionError: user bean identity and single implementation
+	at lab.BootLab.require(BootLab.java:67)
+	at lab.BootLab.lambda$main$5(BootLab.java:119)
+	at org.springframework.boot.test.context.runner.AbstractApplicationContextRunner.accept(AbstractApplicationContextRunner.java:469)
+	at org.springframework.boot.test.context.runner.AbstractApplicationContextRunner.consumeAssertableContext(AbstractApplicationContextRunner.java:385)
+	at org.springframework.boot.test.context.runner.AbstractApplicationContextRunner.lambda$run$0(AbstractApplicationContextRunner.java:363)
+	at org.springframework.boot.test.util.TestPropertyValues.lambda$applyToSystemProperties$1(TestPropertyValues.java:174)
+	at org.springframework.boot.test.util.TestPropertyValues.applyToSystemProperties(TestPropertyValues.java:188)
+	at org.springframework.boot.test.util.TestPropertyValues.applyToSystemProperties(TestPropertyValues.java:173)
+	at org.springframework.boot.test.context.runner.AbstractApplicationContextRunner.lambda$run$1(AbstractApplicationContextRunner.java:363)
+	at org.springframework.boot.test.context.runner.AbstractApplicationContextRunner.withContextClassLoader(AbstractApplicationContextRunner.java:391)
+	at org.springframework.boot.test.context.runner.AbstractApplicationContextRunner.run(AbstractApplicationContextRunner.java:362)
+	at lab.BootLab.main(BootLab.java:116)

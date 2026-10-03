@@ -1,0 +1,9 @@
+[
+  {
+    "phase": "license preparation",
+    "status": "failed then corrected",
+    "scope": "Python preparation only; no Java ran",
+    "reason": "Expected uppercase spring-core-LICENSE.txt, while JAR carries lowercase license.txt. Kept embedded files unchanged and selected the Boot Apache LICENSE text.",
+    "runtimeEvidenceAffected": false
+  }
+]
