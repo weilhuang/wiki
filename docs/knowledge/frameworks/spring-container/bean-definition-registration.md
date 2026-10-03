@@ -242,7 +242,7 @@ public static void registerBeanDefinition(
 
 ### loadBeanDefinitions 返回的数字是什么
 
-XML 读取器在文档注册前后分别读取定义总数，返回两者之差。因此第一次加载本例返回 1；明确允许覆盖时，用第二个 XML 替换同名定义可以返回 0，即使第二份配置确实生效了。它不是构造对象数，也不能简单解释为“读取到几个 `<bean>`”。[计数实现](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/xml/XmlBeanDefinitionReader.java#L517-L521)
+XML 读取器在文档注册前后分别读取定义总数，返回两者之差。第一次加载本例因此返回 1；明确允许覆盖时，用第二个 XML 替换同名定义可以返回 0，即使第二份配置确实生效了。它不是构造对象数，也不能简单解释为“读取到几个 `<bean>`”。[计数实现](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/xml/XmlBeanDefinitionReader.java#L517-L521)
 
 <a id="instance-boundary"></a>
 
@@ -352,7 +352,7 @@ sequenceDiagram
 
 实验给上下文增加一个 BeanFactoryPostProcessor，在它运行时确认 `Catalog.constructions == 0`，修改 `catalog` 定义的属性，再取对象断言 `label == "rewritten"`。这比仅说“模板方法方便扩展”更具体：**留出元数据窗口，才能在创建业务对象前改变配方。**
 
-后处理器也可能主动调用 `getBean`，提早创建对象并改变正常时机。因此“BeanFactoryPostProcessor 阶段绝不会创建任何 Bean”不是可靠口诀。本例的观察回调只读状态，变更回调只改定义；没有主动获取业务对象。扩展点的顺序由[刷新模板](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-context/src/main/java/org/springframework/context/support/AbstractApplicationContext.java#L601-L628)约束，完整的排序、再入注册和代理链不在本页展开。
+后处理器也可能主动调用 `getBean`，提早创建对象并改变正常时机。“BeanFactoryPostProcessor 阶段绝不会创建任何 Bean”因此不是可靠口诀。本例的观察回调只读状态，变更回调只改定义；没有主动获取业务对象。扩展点的顺序由[刷新模板](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-context/src/main/java/org/springframework/context/support/AbstractApplicationContext.java#L601-L628)约束，完整的排序、再入注册和代理链不在本页展开。
 
 ### BeanFactory 与 FactoryBean 不是两个拼法
 

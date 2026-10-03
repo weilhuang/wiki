@@ -153,7 +153,8 @@
       "37 canonical topics across9 domains,6 reference-based routes,24 Node regressions,117 HTML outputs,463 search sections and60 intent targets",
       "Four integrated articles,4 Mermaid diagrams and4 genuine Code Hike walkthroughs; canonical source and snippet identities",
       "Go concurrency/runtime and cloud category guides; service-reliability route; shared source ZIP entries and applicable evidence scopes",
-      "Legacy anchors,canonical/404 lifecycle,visible non-code Markdown,strong rendering and source/assets preserved"
+      "Legacy anchors,canonical/404 lifecycle,visible non-code Markdown,strong rendering and source/assets preserved",
+      "本次仅按固定白名单调整中文正文；重新执行实际 Code Hike、源码片段与 Mermaid 静态检查。旧实验运行和原静态输出保留各自的历史源码身份。"
     ],
     "limitations": [
       "No new Go runtime or cloud model execution in platform integration; source-bound author and independent executions remain separate",
@@ -163,11 +164,11 @@
     "sourceFiles": [
       {
         "path": "docs/knowledge/go/concurrency/channel-memory-ownership.md",
-        "sha256": "78d8fe7f3ab882b87e0d5ccea754d809b9e126b23b1086cca947e58723a1fe17"
+        "sha256": "11c0a2995d4fd3413306d32bc0103b3978e3b2a5617f0a9b03a58703220470a0"
       },
       {
         "path": "docs/knowledge/go/runtime/scheduler-netpoll-diagnosis.md",
-        "sha256": "29019b6c98019405842f6a8cdacff11d1d763c65238e4926adf678b6590ac3f7"
+        "sha256": "30db4d87d5875036a620396100f2cc5d3ff12bb2f3094c1c2e9f5555986abe17"
       },
       {
         "path": "content/snippets/go-runtime.json",
@@ -188,6 +189,10 @@
       {
         "path": "content/records/go-cloud/integration-static.json",
         "sha256": "53a5fa2c5813db0bd896d06abf0b4c94ddc6221c534adb94dea8a63397c3cdf1"
+      },
+      {
+        "path": "content/records/editorial-tone-20261003/static-recheck.json",
+        "sha256": "9391a2e5117613ef4a60c97abecd5f3058a9ef1300c37304d75a7a89f3a655d9"
       }
     ],
     "historicalAuthorChecks": {
@@ -208,6 +213,88 @@
           "sha256": "1e33aa91cc76980d388880cf755e754c729c566cc71309dcaa6aac9cb550e9bd"
         }
       ]
+    },
+    "priorStaticRecord": {
+      "repositoryCommit": "bc759c7d64725462f79a84a7ed954687bee41795",
+      "record": {
+        "recordedAt": "2026-10-03T09:31:07.540604+00:00",
+        "revision": "G-C-integration-1",
+        "independentlyReviewed": false,
+        "versions": [
+          "Go 1.27.1 linux/amd64",
+          "GOMAXPROCS=2, standard library only"
+        ],
+        "id": "go-runtime.static",
+        "kind": "static-checked",
+        "status": "pass",
+        "title": "Go 两篇正文的片段、图与canonical静态检查",
+        "scope": [
+          "37 canonical topics across9 domains,6 reference-based routes,24 Node regressions,117 HTML outputs,463 search sections and60 intent targets",
+          "Four integrated articles,4 Mermaid diagrams and4 genuine Code Hike walkthroughs; canonical source and snippet identities",
+          "Go concurrency/runtime and cloud category guides; service-reliability route; shared source ZIP entries and applicable evidence scopes",
+          "Legacy anchors,canonical/404 lifecycle,visible non-code Markdown,strong rendering and source/assets preserved"
+        ],
+        "limitations": [
+          "No new Go runtime or cloud model execution in platform integration; source-bound author and independent executions remain separate",
+          "Kubernetes cluster behavior remains not-run; process examples and sequential models do not establish cluster guarantees",
+          "Independent whole-tree review,remote CI and deployed-browser checks are separate gates"
+        ],
+        "sourceFiles": [
+          {
+            "path": "docs/knowledge/go/concurrency/channel-memory-ownership.md",
+            "sha256": "78d8fe7f3ab882b87e0d5ccea754d809b9e126b23b1086cca947e58723a1fe17"
+          },
+          {
+            "path": "docs/knowledge/go/runtime/scheduler-netpoll-diagnosis.md",
+            "sha256": "29019b6c98019405842f6a8cdacff11d1d763c65238e4926adf678b6590ac3f7"
+          },
+          {
+            "path": "content/snippets/go-runtime.json",
+            "sha256": "6bc5882b11900ecb09818af7cc01baa5f8ca1377d8cdca1e05d404caaedc9bce"
+          },
+          {
+            "path": "labs/go-runtime-boundaries-lab/editorial/static-check.mjs",
+            "sha256": "608fa04e61ac3b18a2c0776f111ac40e46522ed6cfa3ac9ad61df35df92b35d5"
+          }
+        ],
+        "commands": [
+          {
+            "command": "npm run check",
+            "exitCode": 0
+          }
+        ],
+        "artifacts": [
+          {
+            "path": "content/records/go-cloud/integration-static.json",
+            "sha256": "53a5fa2c5813db0bd896d06abf0b4c94ddc6221c534adb94dea8a63397c3cdf1"
+          }
+        ],
+        "historicalAuthorChecks": {
+          "scope": [
+            "两篇单H1/review元信息、四维受控tag与既有canonical关系/链接",
+            "真实Code Hike 1.1.0两段清洁源码逐字匹配、七步范围；Mermaid11.17.2两图strict解析和无障碍描述"
+          ],
+          "commands": [
+            {
+              "command": "node checks/static-check.mjs . SITE_ROOT",
+              "exitCode": 0,
+              "workingDirectory": "author-staging"
+            }
+          ],
+          "artifacts": [
+            {
+              "path": "labs/go-runtime-boundaries-lab/editorial/static-result.json",
+              "sha256": "1e33aa91cc76980d388880cf755e754c729c566cc71309dcaa6aac9cb550e9bd"
+            }
+          ]
+        }
+      }
+    },
+    "editorialRecheck": {
+      "recordedAt": "2026-10-03T19:15:28.487553+00:00",
+      "path": "content/records/editorial-tone-20261003/static-recheck.json",
+      "sha256": "9391a2e5117613ef4a60c97abecd5f3058a9ef1300c37304d75a7a89f3a655d9",
+      "runtimeRerun": false
     }
   },
   {

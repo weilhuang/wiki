@@ -162,7 +162,7 @@ ICP 常用于还需要取完整行的二级索引访问。它不是把索引重�
 
 本次强制非覆盖查询确实出现 `index_condition`，而前两条覆盖查询为 `using_index=true`。这支持把 ICP 与覆盖分开阅读；记录没有测量聚簇页访问次数或物理 I/O，因此不能由这几个字段计算“回表到底多贵”。跨 state 的普通查询也确实出现 filesort，返回顺序为 `1101、1201、1102、1202……1106、1206`。[本次字段与行序](/examples/mysql-mechanisms-observations.json)
 
-还有事务可见性这个限制：即使所需用户列都在二级索引中，某些删除标记或较新修改状态仍需要访问聚簇记录并检查版本。因此“覆盖”适合描述可从索引取得列的访问机会，而不是对所有事务情形的物理访问次数承诺。[二级索引与 MVCC](https://dev.mysql.com/doc/refman/8.4/en/innodb-multi-versioning.html) · [读取边界](../transactions/mvcc-read-views.md)
+还有事务可见性这个限制：即使所需用户列都在二级索引中，某些删除标记或较新修改状态仍需要访问聚簇记录并检查版本。“覆盖”因此适合描述可从索引取得列的访问机会，而不是对所有事务情形的物理访问次数承诺。[二级索引与 MVCC](https://dev.mysql.com/doc/refman/8.4/en/innodb-multi-versioning.html) · [读取边界](../transactions/mvcc-read-views.md)
 
 ## 5. 读执行计划时先提出五个问题 {#read-plan}
 

@@ -176,7 +176,7 @@ flowchart TB
 
 串行 relay 容易解释与验证，但吞吐会受一条慢交付拖累。扩成多个 worker 有两种常见选择：短事务认领后带租约发送，或持锁读取一批待发记录直到交付结束。后者简单，却把网络等待变成数据库长事务；前者减少持锁时间，但必须处理过期接管和旧 worker 的迟到确认。
 
-租约方案至少需要 owner token、到期时间和带 token 的条件完成更新。租约过期不是“旧 worker 不可能继续发送”的证明；它仍可能恢复并产生重复。因此租约用于协调工作，不替代 event_id 和消费去重。`SKIP LOCKED` 可以帮助工作队列避免等待，但它给出不完整视图，不能用它做业务一致性查询；相关限制见 [MySQL Locking Reads](https://dev.mysql.com/doc/refman/8.4/en/innodb-locking-reads.html)。这些多 worker 设计没有在本项目实现或通过测试。
+租约方案至少需要 owner token、到期时间和带 token 的条件完成更新。租约过期不是“旧 worker 不可能继续发送”的证明；它仍可能恢复并产生重复。租约因此用于协调工作，不替代 event_id 和消费去重。`SKIP LOCKED` 可以帮助工作队列避免等待，但它给出不完整视图，不能用它做业务一致性查询；相关限制见 [MySQL Locking Reads](https://dev.mysql.com/doc/refman/8.4/en/innodb-locking-reads.html)。这些多 worker 设计没有在本项目实现或通过测试。
 
 同样，`ORDER BY created_at,event_id` 只是这个串行查询的读取顺序，不是跨分区、跨进程的全局顺序保证。订单投影使用完整快照和单调版本，可以拒绝较旧快照覆盖较新状态；若事件表示“库存再减一”这样的增量，跳过旧版本可能永久丢步骤，必须额外检测序号缺口、等待缺失事件或重建权威状态。
 

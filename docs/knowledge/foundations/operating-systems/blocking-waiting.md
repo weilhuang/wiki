@@ -165,7 +165,7 @@ sequenceDiagram
 
 文字版：发出字节的控制方是推进者，接收线程是等待者。实验还检查三个 socket 对象的 `fileno()` 均为 -1，线程不再存活。它没有测远端网络、丢包、TLS 或服务吞吐。
 
-`recv(2)` 可能只返回当前可用的一部分字节；TCP 不保留一次 `send` 对应一次 `recv` 的消息边界。因此实验的 `recv_exact` 循环累计长度，遇到 EOF 立即失败，并让多次接收共享一个总截止时间。若每次重试都重新给完整超时，一个不断只发一点数据的对端就可能无限延长整体等待。[Python socket.recv](https://docs.python.org/3.12/library/socket.html#socket.socket.recv) · [固定 socket 文档](https://github.com/python/cpython/blob/v3.12.14/Doc/library/socket.rst)
+`recv(2)` 可能只返回当前可用的一部分字节；TCP 不保留一次 `send` 对应一次 `recv` 的消息边界。实验的 `recv_exact` 因此循环累计长度，遇到 EOF 立即失败，并让多次接收共享一个总截止时间。若每次重试都重新给完整超时，一个不断只发一点数据的对端就可能无限延长整体等待。[Python socket.recv](https://docs.python.org/3.12/library/socket.html#socket.socket.recv) · [固定 socket 文档](https://github.com/python/cpython/blob/v3.12.14/Doc/library/socket.rst)
 
 `select` 的零超时检查只是那一刻的可读性观察。真实多读者程序里，别的线程可能抢先消费数据；本实验把接收权限定给一个读者，并且控制方是唯一发送者。这些条件才使实验观察容易解释。[Python select](https://docs.python.org/3.12/library/select.html#select.select)
 

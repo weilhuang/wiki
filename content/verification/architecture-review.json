@@ -313,7 +313,8 @@
       "39 canonical topics across9 domains,7 reference-based routes;24 Node regressions,121 HTML outputs,492 search sections and68 intent targets",
       "Two new articles with2 accessible Mermaid diagrams,2 genuine Code Hike walkthroughs and8 authored steps;97 diagrams and61 walkthroughs site-wide",
       "37 previously published article files and all191 technical fences byte-identical; historical downloads, evidence, dependencies and workflows preserved",
-      "Architecture category/domain guides,seven review questions,eight search intents and a reference route; original model and ZIP bytes unchanged"
+      "Architecture category/domain guides,seven review questions,eight search intents and a reference route; original model and ZIP bytes unchanged",
+      "本次仅按固定白名单调整中文正文；重新执行实际 Code Hike、源码片段与 Mermaid 静态检查。旧实验运行和原静态输出保留各自的历史源码身份。"
     ],
     "limitations": [
       "Integration changes publication metadata and adds relations to already published knowledge; original technical bodies,model execution and archive identities remain separate",
@@ -323,11 +324,11 @@
     "sourceFiles": [
       {
         "path": "docs/knowledge/architecture/boundaries/module-boundaries.md",
-        "sha256": "b54ce1fe9583de2df73bb1b731054f3526fae9342c73df033bc70b0ef8f0f501"
+        "sha256": "abadfed7c3b6f546d2a05e7ff6f87443ec47e98094ce03f1737166591ee46f97"
       },
       {
         "path": "docs/cases/orders/reliability-review.md",
-        "sha256": "a31d0439bed0ec59712504a123f9d65b73df6c6e196c6b1351c0d398c363f550"
+        "sha256": "30da25a95c51ec5806500c39d31a06325c0306f0859bfa8c45e86dfdcc99c33f"
       },
       {
         "path": "content/snippets/architecture-review.json",
@@ -352,6 +353,10 @@
       {
         "path": "content/records/architecture-review/integration-static.json",
         "sha256": "59aebeb96fc13d1850175ad327b2936e1b653378510cc0b96dde6f15f13b16d9"
+      },
+      {
+        "path": "content/records/editorial-tone-20261003/static-recheck.json",
+        "sha256": "9391a2e5117613ef4a60c97abecd5f3058a9ef1300c37304d75a7a89f3a655d9"
       }
     ],
     "historicalAuthorChecks": {
@@ -414,7 +419,132 @@
         }
       ]
     },
-    "publicationMetadataNote": "status/reviewedAt与已上线知识关系的整合；正文技术围栏及原运行不变，整站验证另记。"
+    "publicationMetadataNote": "status/reviewedAt与已上线知识关系的整合；正文技术围栏及原运行不变，整站验证另记。",
+    "priorStaticRecord": {
+      "repositoryCommit": "bc759c7d64725462f79a84a7ed954687bee41795",
+      "record": {
+        "recordedAt": "2026-10-03T11:20:05.466057+00:00",
+        "revision": "A-integration-1",
+        "independentlyReviewed": false,
+        "resourceGroup": "architecture-review-lab",
+        "id": "architecture-a.static",
+        "title": "r3正文与新源码ZIP检查",
+        "kind": "static-checked",
+        "status": "pass",
+        "scope": [
+          "39 canonical topics across9 domains,7 reference-based routes;24 Node regressions,121 HTML outputs,492 search sections and68 intent targets",
+          "Two new articles with2 accessible Mermaid diagrams,2 genuine Code Hike walkthroughs and8 authored steps;97 diagrams and61 walkthroughs site-wide",
+          "37 previously published article files and all191 technical fences byte-identical; historical downloads, evidence, dependencies and workflows preserved",
+          "Architecture category/domain guides,seven review questions,eight search intents and a reference route; original model and ZIP bytes unchanged"
+        ],
+        "limitations": [
+          "Integration changes publication metadata and adds relations to already published knowledge; original technical bodies,model execution and archive identities remain separate",
+          "No real identity provider,database,broker,cluster,production load,migration or rollback execution",
+          "Independent whole-tree review,remote CI and deployed-browser checks remain separate gates"
+        ],
+        "sourceFiles": [
+          {
+            "path": "docs/knowledge/architecture/boundaries/module-boundaries.md",
+            "sha256": "b54ce1fe9583de2df73bb1b731054f3526fae9342c73df033bc70b0ef8f0f501"
+          },
+          {
+            "path": "docs/cases/orders/reliability-review.md",
+            "sha256": "a31d0439bed0ec59712504a123f9d65b73df6c6e196c6b1351c0d398c363f550"
+          },
+          {
+            "path": "content/snippets/architecture-review.json",
+            "sha256": "8211dbd684242dcaaaf46fcf4d54dc509d8a28ef44d519ed7828147c09993070"
+          },
+          {
+            "path": "content/records/architecture-review/author-check.mjs",
+            "sha256": "17219394c3bb3b77aae30482d9bad928eeb9f299f0c379fcb0a21a86b4d057f2"
+          },
+          {
+            "path": "content/records/architecture-review/package-check.py",
+            "sha256": "3e12a1439e0444173a99e7a12aa3ae67eb88ad3bc383cdbdd25e7417449ea276"
+          }
+        ],
+        "commands": [
+          {
+            "command": "npm run check",
+            "exitCode": 0
+          }
+        ],
+        "artifacts": [
+          {
+            "path": "content/records/architecture-review/integration-static.json",
+            "sha256": "59aebeb96fc13d1850175ad327b2936e1b653378510cc0b96dde6f15f13b16d9"
+          }
+        ],
+        "historicalAuthorChecks": {
+          "scope": [
+            "新CodeHike1.1.0编译3围栏，两份完整Python片段逐字匹配，8step；Mermaid11.17.2 strict解析2可访问图",
+            "review元数据、稳定ID/canonical、来源与问题锚点、未激活future关系检查",
+            "12个Python源AST、独立literal与JSON一致、21个ZIP成员逐字/哈希绑定",
+            "公开文本与ZIP扫描私有路径、凭据模式、缓存、依赖和运行产物"
+          ],
+          "commands": [
+            {
+              "command": "node records/author-check.mjs ../../../wiki",
+              "workingDirectory": "recovery-20261003/A/r3",
+              "exitCode": 0,
+              "output": "{\"status\":\"pass\",\"articles\":2,\"diagrams\":2,\"codeBlocks\":3,\"snippets\":2,\"links\":9}\n",
+              "stderr": ""
+            },
+            {
+              "command": "python3 -B records/package-check.py",
+              "workingDirectory": "recovery-20261003/A/r3",
+              "exitCode": 0,
+              "output": "{\"revision\": \"A-r3-reconstructed\", \"status\": \"pass\", \"textFiles\": 47, \"pythonAST\": 12, \"zipMembers\": 21, \"independentExpectedStates\": true, \"scope\": \"ZIP member byte binding; AST; public private-path/credential-pattern/cache scan\", \"limitations\": [\"pattern scan cannot guarantee all secrets absent\", \"no business code executed\", \"final delivery and manifest checked separately after generation\"], \"archiveSha256\": \"bb64897438b9689e6d19e67cb7d16d077c6d4ef5bba6472d48b859b69308d3b1\"}\n",
+              "stderr": ""
+            }
+          ],
+          "artifacts": [
+            {
+              "path": "content/records/architecture-review/author-static.json",
+              "sha256": "18666c3d2491252ed4778200100156285194bc4a378dabea45533a0e7cbb95e6"
+            },
+            {
+              "path": "content/records/architecture-review/package-check.json",
+              "sha256": "f6d641c0aa3acaffafa90134f0a97f65b3e72441f165f5f6c172191f3f5a8642"
+            },
+            {
+              "path": "content/records/architecture-review/archive-binding.json",
+              "sha256": "5df6b5bc2a56a8bb41381955427a17e6192dcb73b3c236f6371b4338226cb9da"
+            }
+          ],
+          "sourceFiles": [
+            {
+              "path": "docs/knowledge/architecture/boundaries/module-boundaries.md",
+              "sha256": "8643fc60f77de74395ae1c96e753a51052f90468120cb1b42c4ad2004305ac9a"
+            },
+            {
+              "path": "docs/cases/orders/reliability-review.md",
+              "sha256": "ae2f1c1b26084ed459772d8ddc46b93035677251102c773104da219c7633f77b"
+            },
+            {
+              "path": "content/snippets/architecture-review.json",
+              "sha256": "8211dbd684242dcaaaf46fcf4d54dc509d8a28ef44d519ed7828147c09993070"
+            },
+            {
+              "path": "content/records/architecture-review/author-check.mjs",
+              "sha256": "17219394c3bb3b77aae30482d9bad928eeb9f299f0c379fcb0a21a86b4d057f2"
+            },
+            {
+              "path": "content/records/architecture-review/package-check.py",
+              "sha256": "3e12a1439e0444173a99e7a12aa3ae67eb88ad3bc383cdbdd25e7417449ea276"
+            }
+          ]
+        },
+        "publicationMetadataNote": "status/reviewedAt与已上线知识关系的整合；正文技术围栏及原运行不变，整站验证另记。"
+      }
+    },
+    "editorialRecheck": {
+      "recordedAt": "2026-10-03T19:15:28.487553+00:00",
+      "path": "content/records/editorial-tone-20261003/static-recheck.json",
+      "sha256": "9391a2e5117613ef4a60c97abecd5f3058a9ef1300c37304d75a7a89f3a655d9",
+      "runtimeRerun": false
+    }
   },
   {
     "recordedAt": "2026-10-03T10:59:06.256083+00:00",

@@ -152,7 +152,7 @@ flowchart TB
 | 框架装配 | 持有目标而非代理、选错Bean | 实际对象、拦截器进入、业务副作用 | 全部生产配置 |
 | 跨进程/混合版本 | 丢响应、重投、旧载荷不兼容 | 各端持久事实与稳定身份 | 生产容量、任意分区、灾难恢复 |
 
-[Spring6.2代理文档](https://docs.spring.io/spring-framework/reference/6.2/core/aop/proxying.html)说明目标内部self invocation不会再次经过代理通知。因此“方法有注解”不是原子性结果。应通过真实容器入口注入失败，再检查订单与Outbox是否共同回滚；可对照[代理分派](/knowledge/frameworks/spring-aop/proxy-dispatch.html)及[事务调用链](/knowledge/frameworks/spring-transactions/proxy-call-chain.html)。本包没有重跑这些实验。
+[Spring6.2代理文档](https://docs.spring.io/spring-framework/reference/6.2/core/aop/proxying.html)说明目标内部self invocation不会再次经过代理通知。“方法有注解”因此不是原子性结果。应通过真实容器入口注入失败，再检查订单与Outbox是否共同回滚；可对照[代理分派](/knowledge/frameworks/spring-aop/proxy-dispatch.html)及[事务调用链](/knowledge/frameworks/spring-transactions/proxy-call-chain.html)。本包没有重跑这些实验。
 
 数据库方面，“曾经读到owner=Alice”不是提交时的权限依据。MySQL RR一致性读会复用视图；写入裁决需要合适的锁、条件更新及行数检查，还要覆盖独立成员关系的变化。只比较订单version也不够，因为成员撤销可能不改订单。[一致性读](https://dev.mysql.com/doc/refman/8.4/en/innodb-consistent-read.html) · [锁定读](https://dev.mysql.com/doc/refman/8.4/en/innodb-locking-reads.html)
 
