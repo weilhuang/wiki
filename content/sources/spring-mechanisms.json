@@ -1,0 +1,278 @@
+[
+  {
+    "id": "w.spring6219.DefaultAopProxyFactory",
+    "title": "DefaultAopProxyFactory.java v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/framework/DefaultAopProxyFactory.java",
+    "type": "source",
+    "version": "v6.2.19",
+    "accessedAt": "2026-10-03",
+    "license": "Apache-2.0",
+    "notes": "固定官方tag源码；快照路径与SHA见source-reviewed记录，复核范围限正文引用方法"
+  },
+  {
+    "id": "w.spring6219.ProxyFactory",
+    "title": "ProxyFactory.java v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/framework/ProxyFactory.java",
+    "type": "source",
+    "version": "v6.2.19",
+    "accessedAt": "2026-10-03",
+    "license": "Apache-2.0",
+    "notes": "固定官方tag源码；快照路径与SHA见source-reviewed记录，复核范围限正文引用方法"
+  },
+  {
+    "id": "w.spring6219.ProxyCreatorSupport",
+    "title": "ProxyCreatorSupport.java v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/framework/ProxyCreatorSupport.java",
+    "type": "source",
+    "version": "v6.2.19",
+    "accessedAt": "2026-10-03",
+    "license": "Apache-2.0",
+    "notes": "固定官方tag源码；快照路径与SHA见source-reviewed记录，复核范围限正文引用方法"
+  },
+  {
+    "id": "w.spring6219.JdkDynamicAopProxy",
+    "title": "JdkDynamicAopProxy.java v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/framework/JdkDynamicAopProxy.java",
+    "type": "source",
+    "version": "v6.2.19",
+    "accessedAt": "2026-10-03",
+    "license": "Apache-2.0",
+    "notes": "固定官方tag源码；快照路径与SHA见source-reviewed记录，复核范围限正文引用方法"
+  },
+  {
+    "id": "w.spring6219.CglibAopProxy",
+    "title": "CglibAopProxy.java v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/framework/CglibAopProxy.java",
+    "type": "source",
+    "version": "v6.2.19",
+    "accessedAt": "2026-10-03",
+    "license": "Apache-2.0",
+    "notes": "固定官方tag源码；快照路径与SHA见source-reviewed记录，复核范围限正文引用方法"
+  },
+  {
+    "id": "w.spring6219.ReflectiveMethodInvocation",
+    "title": "ReflectiveMethodInvocation.java v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/framework/ReflectiveMethodInvocation.java",
+    "type": "source",
+    "version": "v6.2.19",
+    "accessedAt": "2026-10-03",
+    "license": "Apache-2.0",
+    "notes": "固定官方tag源码；快照路径与SHA见source-reviewed记录，复核范围限正文引用方法"
+  },
+  {
+    "id": "w.spring6219.DefaultAdvisorChainFactory",
+    "title": "DefaultAdvisorChainFactory.java v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/framework/DefaultAdvisorChainFactory.java",
+    "type": "source",
+    "version": "v6.2.19",
+    "accessedAt": "2026-10-03",
+    "license": "Apache-2.0",
+    "notes": "固定官方tag源码；快照路径与SHA见source-reviewed记录，复核范围限正文引用方法"
+  },
+  {
+    "id": "w.spring6219.AbstractAutoProxyCreator",
+    "title": "AbstractAutoProxyCreator.java v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/AbstractAutoProxyCreator.java",
+    "type": "source",
+    "version": "v6.2.19",
+    "accessedAt": "2026-10-03",
+    "license": "Apache-2.0",
+    "notes": "固定官方tag源码；快照路径与SHA见source-reviewed记录，复核范围限正文引用方法"
+  },
+  {
+    "id": "w.spring6219.AbstractAdvisorAutoProxyCreator",
+    "title": "AbstractAdvisorAutoProxyCreator.java v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/AbstractAdvisorAutoProxyCreator.java",
+    "type": "source",
+    "version": "v6.2.19",
+    "accessedAt": "2026-10-03",
+    "license": "Apache-2.0",
+    "notes": "固定官方tag源码；快照路径与SHA见source-reviewed记录，复核范围限正文引用方法"
+  },
+  {
+    "id": "w.spring6219.AopUtils",
+    "title": "AopUtils.java v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/support/AopUtils.java",
+    "type": "source",
+    "version": "v6.2.19",
+    "accessedAt": "2026-10-03",
+    "license": "Apache-2.0",
+    "notes": "固定官方tag源码；快照路径与SHA见source-reviewed记录，复核范围限正文引用方法"
+  },
+  {
+    "id": "w.spring6219.ConfigurationClassParser",
+    "title": "ConfigurationClassParser.java v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-context/src/main/java/org/springframework/context/annotation/ConfigurationClassParser.java",
+    "type": "source",
+    "version": "v6.2.19",
+    "accessedAt": "2026-10-03",
+    "license": "Apache-2.0",
+    "notes": "固定官方tag源码；快照路径与SHA见source-reviewed记录，复核范围限正文引用方法"
+  },
+  {
+    "id": "w.spring6219.ConfigurationClassBeanDefinitionReader",
+    "title": "ConfigurationClassBeanDefinitionReader.java v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-context/src/main/java/org/springframework/context/annotation/ConfigurationClassBeanDefinitionReader.java",
+    "type": "source",
+    "version": "v6.2.19",
+    "accessedAt": "2026-10-03",
+    "license": "Apache-2.0",
+    "notes": "固定官方tag源码；快照路径与SHA见source-reviewed记录，复核范围限正文引用方法"
+  },
+  {
+    "id": "w.spring6219.ConditionEvaluator",
+    "title": "ConditionEvaluator.java v6.2.19",
+    "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-context/src/main/java/org/springframework/context/annotation/ConditionEvaluator.java",
+    "type": "source",
+    "version": "v6.2.19",
+    "accessedAt": "2026-10-03",
+    "license": "Apache-2.0",
+    "notes": "固定官方tag源码；快照路径与SHA见source-reviewed记录，复核范围限正文引用方法"
+  },
+  {
+    "id": "w.boot3516.AutoConfigurationImportSelector",
+    "title": "AutoConfigurationImportSelector.java v3.5.16",
+    "url": "https://github.com/spring-projects/spring-boot/blob/v3.5.16/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/AutoConfigurationImportSelector.java",
+    "type": "source",
+    "version": "v3.5.16",
+    "accessedAt": "2026-10-03",
+    "license": "Apache-2.0",
+    "notes": "固定官方tag源码；快照路径与SHA见source-reviewed记录，复核范围限正文引用方法"
+  },
+  {
+    "id": "w.boot3516.AutoConfigurationSorter",
+    "title": "AutoConfigurationSorter.java v3.5.16",
+    "url": "https://github.com/spring-projects/spring-boot/blob/v3.5.16/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/AutoConfigurationSorter.java",
+    "type": "source",
+    "version": "v3.5.16",
+    "accessedAt": "2026-10-03",
+    "license": "Apache-2.0",
+    "notes": "固定官方tag源码；快照路径与SHA见source-reviewed记录，复核范围限正文引用方法"
+  },
+  {
+    "id": "w.boot3516.AutoConfiguration",
+    "title": "AutoConfiguration.java v3.5.16",
+    "url": "https://github.com/spring-projects/spring-boot/blob/v3.5.16/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/AutoConfiguration.java",
+    "type": "source",
+    "version": "v3.5.16",
+    "accessedAt": "2026-10-03",
+    "license": "Apache-2.0",
+    "notes": "固定官方tag源码；快照路径与SHA见source-reviewed记录，复核范围限正文引用方法"
+  },
+  {
+    "id": "w.boot3516.OnBeanCondition",
+    "title": "OnBeanCondition.java v3.5.16",
+    "url": "https://github.com/spring-projects/spring-boot/blob/v3.5.16/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/condition/OnBeanCondition.java",
+    "type": "source",
+    "version": "v3.5.16",
+    "accessedAt": "2026-10-03",
+    "license": "Apache-2.0",
+    "notes": "固定官方tag源码；快照路径与SHA见source-reviewed记录，复核范围限正文引用方法"
+  },
+  {
+    "id": "w.boot3516.OnClassCondition",
+    "title": "OnClassCondition.java v3.5.16",
+    "url": "https://github.com/spring-projects/spring-boot/blob/v3.5.16/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/condition/OnClassCondition.java",
+    "type": "source",
+    "version": "v3.5.16",
+    "accessedAt": "2026-10-03",
+    "license": "Apache-2.0",
+    "notes": "固定官方tag源码；快照路径与SHA见source-reviewed记录，复核范围限正文引用方法"
+  },
+  {
+    "id": "w.boot3516.OnPropertyCondition",
+    "title": "OnPropertyCondition.java v3.5.16",
+    "url": "https://github.com/spring-projects/spring-boot/blob/v3.5.16/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/condition/OnPropertyCondition.java",
+    "type": "source",
+    "version": "v3.5.16",
+    "accessedAt": "2026-10-03",
+    "license": "Apache-2.0",
+    "notes": "固定官方tag源码；快照路径与SHA见source-reviewed记录，复核范围限正文引用方法"
+  },
+  {
+    "id": "w.boot3516.ConditionalOnMissingBean",
+    "title": "ConditionalOnMissingBean.java v3.5.16",
+    "url": "https://github.com/spring-projects/spring-boot/blob/v3.5.16/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/condition/ConditionalOnMissingBean.java",
+    "type": "source",
+    "version": "v3.5.16",
+    "accessedAt": "2026-10-03",
+    "license": "Apache-2.0",
+    "notes": "固定官方tag源码；快照路径与SHA见source-reviewed记录，复核范围限正文引用方法"
+  },
+  {
+    "id": "w.boot3516.ConditionalOnClass",
+    "title": "ConditionalOnClass.java v3.5.16",
+    "url": "https://github.com/spring-projects/spring-boot/blob/v3.5.16/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/condition/ConditionalOnClass.java",
+    "type": "source",
+    "version": "v3.5.16",
+    "accessedAt": "2026-10-03",
+    "license": "Apache-2.0",
+    "notes": "固定官方tag源码；快照路径与SHA见source-reviewed记录，复核范围限正文引用方法"
+  },
+  {
+    "id": "w.boot3516.AopAutoConfiguration",
+    "title": "AopAutoConfiguration.java v3.5.16",
+    "url": "https://github.com/spring-projects/spring-boot/blob/v3.5.16/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/aop/AopAutoConfiguration.java",
+    "type": "source",
+    "version": "v3.5.16",
+    "accessedAt": "2026-10-03",
+    "license": "Apache-2.0",
+    "notes": "固定官方tag源码；快照路径与SHA见source-reviewed记录，复核范围限正文引用方法"
+  },
+  {
+    "id": "w.boot3516.ImportCandidates",
+    "title": "ImportCandidates.java v3.5.16",
+    "url": "https://github.com/spring-projects/spring-boot/blob/v3.5.16/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/context/annotation/ImportCandidates.java",
+    "type": "source",
+    "version": "v3.5.16",
+    "accessedAt": "2026-10-03",
+    "license": "Apache-2.0",
+    "notes": "固定官方tag源码；快照路径与SHA见source-reviewed记录，复核范围限正文引用方法"
+  },
+  {
+    "id": "w.boot3516.AbstractApplicationContextRunner",
+    "title": "AbstractApplicationContextRunner.java v3.5.16",
+    "url": "https://github.com/spring-projects/spring-boot/blob/v3.5.16/spring-boot-project/spring-boot-test/src/main/java/org/springframework/boot/test/context/runner/AbstractApplicationContextRunner.java",
+    "type": "source",
+    "version": "v3.5.16",
+    "accessedAt": "2026-10-03",
+    "license": "Apache-2.0",
+    "notes": "固定官方tag源码；快照路径与SHA见source-reviewed记录，复核范围限正文引用方法"
+  },
+  {
+    "id": "w.spring6219.proxy-reference",
+    "title": "Spring Framework 6.2 代理语义",
+    "url": "https://docs.spring.io/spring-framework/reference/6.2/core/aop/proxying.html",
+    "type": "documentation",
+    "version": "访问时标示6.2.19；系列文档可更新",
+    "accessedAt": "2026-10-03",
+    "license": null
+  },
+  {
+    "id": "w.boot3516.reference",
+    "title": "Spring Boot 3.5 创建自动配置",
+    "url": "https://docs.spring.io/spring-boot/3.5/reference/features/developing-auto-configuration.html",
+    "type": "documentation",
+    "version": "访问时标示3.5.16；系列文档可更新",
+    "accessedAt": "2026-10-03",
+    "license": null
+  },
+  {
+    "id": "w.boot3516.missing-bean-api",
+    "title": "ConditionalOnMissingBean API 3.5.16",
+    "url": "https://docs.spring.io/spring-boot/3.5/api/java/org/springframework/boot/autoconfigure/condition/ConditionalOnMissingBean.html",
+    "type": "api",
+    "version": "3.5.16",
+    "accessedAt": "2026-10-03",
+    "license": null
+  },
+  {
+    "id": "w.boot3516.order-api",
+    "title": "AutoConfigureOrder API 3.5.16",
+    "url": "https://docs.spring.io/spring-boot/3.5/api/java/org/springframework/boot/autoconfigure/AutoConfigureOrder.html",
+    "type": "api",
+    "version": "3.5.16",
+    "accessedAt": "2026-10-03",
+    "license": null
+  }
+]

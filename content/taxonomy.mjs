@@ -20,11 +20,11 @@ export const taxonomy = [
   ] },
   { id:'frameworks', title:'框架与服务通信', summary:'沿请求进入、对象创建、代理调用和资源使用，解释应用框架与通信协议如何影响业务行为。', prerequisites:'基本函数调用、异常、HTTP 和 SQL；源码页明确固定版本与实际实现。', boundary:'框架定义调用与资源边界，不能替代数据库隔离、消息交付或业务幂等协议。', categories:[
     ['spring-container','Spring 容器','区分定义注册、实例创建、依赖注入、初始化和销毁。','IoC 基础、复杂定义与自定义命名空间、作用域扩展、循环依赖'],
-    ['spring-aop','Spring AOP','从代理入口和接收者身份理解拦截器链。','JDK/CGLIB、切点、Advisor、自调用、异步上下文'],
+    ['spring-aop','Spring AOP','从代理入口和接收者身份理解拦截器链。','复杂切点、动态 TargetSource、AspectJ、异步上下文'],
     ['spring-transactions','Spring 事务','把方法调用映射到连接上的事务，并跟踪正常与异常完成。','JDBC 本地事务、传播行为、同步回调、响应式边界'],
     ['spring-mvc','Servlet 与 MVC','沿处理器选择、参数、业务调用到响应提交解释请求链。','转换与校验、异常映射、异步请求、WebFlux'],
     ['data-access','数据访问与连接','连接占用、等待和事务范围共同决定服务资源成本。','JDBC、HikariCP、MyBatis、JPA、flush/N+1'],
-    ['spring-boot','Spring Boot','配置来源、条件装配和应用生命周期各自回答不同问题。','自动配置、配置绑定、Actuator、启动就绪'],
+    ['spring-boot','Spring Boot','配置来源、条件装配和应用生命周期各自回答不同问题。','配置绑定、Actuator、完整启动生命周期、AOT'],
     ['network','网络与 I/O','连接、传输与应用响应是不同层次的观察。','DNS、TCP、TLS、epoll、Reactor、连接复用'],
     ['api-rpc','HTTP API 与 RPC','建立错误、超时、重试和版本兼容的通信合同。','HTTP/2/3、gRPC、Netty、IDL、deadline、流控']
   ] },

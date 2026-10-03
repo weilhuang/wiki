@@ -1,0 +1,44 @@
+{
+  "kind": "static-checked",
+  "status": "pass",
+  "recordedAt": "2026-10-03T06:43:50.287448+00:00",
+  "commands": [
+    {
+      "command": "npm run check",
+      "exitCode": 0
+    }
+  ],
+  "scope": [
+    "Integrated AOP/Boot metadata, two category guides and optional Spring route branches",
+    "Exact six Code Hike excerpts with retained source tabs, clean-code SHA256, step/range checks and four Mermaid diagrams",
+    "24 Node regressions, 102 generated HTML pages, 375 canonical search sections and 33 intent targets"
+  ],
+  "limits": [
+    "This is Node/static/SSR integration evidence, not a new Java execution",
+    "Whole-tree independent review, remote CI and live browser verification are separate gates"
+  ],
+  "sourceFiles": [
+    {
+      "path": "docs/knowledge/frameworks/spring-aop/proxy-dispatch.md",
+      "sha256": "eb7b0167ae248d8e4bbd72e5272c678cadf8fe0f85ad3dc99593ba3503ea6bb9"
+    },
+    {
+      "path": "docs/knowledge/frameworks/spring-boot/conditional-configuration.md",
+      "sha256": "df6b438a0f2d9fef345369b4681c029e02580079d17469210533925c063910f7"
+    },
+    {
+      "path": "content/snippets/spring-mechanisms.json",
+      "sha256": "d6380a78a3c31c2f11d6730d59065c5506ba10a0e26f10861f731414e8dbe39b"
+    },
+    {
+      "path": "tests/snippets.test.mjs",
+      "sha256": "210c891494a079e29761be21f1f41b448f56082bf500272a92b7ca2b42f956ac"
+    }
+  ],
+  "integrationFailure": {
+    "phase": "first Node check",
+    "result": "source excerpt matcher did not remove common tab indentation",
+    "fix": "matcher now removes only an exact common whitespace prefix; regression protects relative indentation and declared clean-code SHA256",
+    "sourceOrArticleChanges": "none"
+  }
+}

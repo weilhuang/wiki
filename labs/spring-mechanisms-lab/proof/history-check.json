@@ -1,0 +1,5 @@
+{
+  "status": "pass",
+  "run": "proof/run-1",
+  "scope": "exact source hashes, recorded exits and complete logs, upstream snapshot hashes, recorded no-lab-process observation"
+}

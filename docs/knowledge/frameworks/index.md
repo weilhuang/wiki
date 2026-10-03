@@ -44,9 +44,11 @@ search: false
 
 从代理入口和接收者身份理解拦截器链。
 
-本分类正文仍在规划，当前不提供空文章链接。
+[分类导读](/knowledge/frameworks/spring-aop/)
 
-后续范围：JDK/CGLIB、切点、Advisor、自调用、异步上下文。
+- [AOP 的接收者是谁：JDK、CGLIB 与拦截器分派](/knowledge/frameworks/spring-aop/proxy-dispatch.html)：从容器返回的对象追到真实业务接收者，用两种代理、final、自调用和短路解释哪些调用经过拦截器。
+
+后续范围：复杂切点、动态 TargetSource、AspectJ、异步上下文。
 
 ### Spring 事务
 
@@ -82,9 +84,11 @@ search: false
 
 配置来源、条件装配和应用生命周期各自回答不同问题。
 
-本分类正文仍在规划，当前不提供空文章链接。
+[分类导读](/knowledge/frameworks/spring-boot/)
 
-后续范围：自动配置、配置绑定、Actuator、启动就绪。
+- [自动配置为何生效：条件、顺序与退让](/knowledge/frameworks/spring-boot/conditional-configuration.html)：沿 imports 候选、条件阶段和定义注册追踪默认 Bean，用类路径、属性和用户 Bean 的变化解释装配结果与条件报告。
+
+后续范围：配置绑定、Actuator、完整启动生命周期、AOT。
 
 ### 网络与 I/O
 
@@ -104,4 +108,4 @@ search: false
 
 ## 如何与其他领域连接
 
-[事务代理](/knowledge/frameworks/spring-transactions/proxy-call-chain.html)解释哪条连接参与提交；[库存不变量](/knowledge/data/transactions/inventory-invariants.html)再检查数据库里的业务承诺。[连接预算](/knowledge/frameworks/data-access/connection-budget.html)则把框架范围接到[等待排障](/troubleshooting/connection-waiting.html)。
+[条件装配](/knowledge/frameworks/spring-boot/conditional-configuration.html)决定哪些定义进入容器，[AOP 分派](/knowledge/frameworks/spring-aop/proxy-dispatch.html)决定经代理的一次调用怎样进入目标。[事务代理](/knowledge/frameworks/spring-transactions/proxy-call-chain.html)解释哪条连接参与提交；[库存不变量](/knowledge/data/transactions/inventory-invariants.html)再检查数据库里的业务承诺。[连接预算](/knowledge/frameworks/data-access/connection-budget.html)则把框架范围接到[等待排障](/troubleshooting/connection-waiting.html)。

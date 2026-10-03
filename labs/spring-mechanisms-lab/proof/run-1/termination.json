@@ -1,0 +1,5 @@
+{
+  "matchingLabJavaProcesses": 0,
+  "check": "process command is java or javac and command line contains this lab path or its main class",
+  "status": "pass"
+}

@@ -43,14 +43,14 @@ search: false
 
 沿请求进入、对象创建、代理调用和资源使用，解释应用框架与通信协议如何影响业务行为。
 
-[框架与服务通信](/knowledge/frameworks/) · 已有 5 篇可读主题
+[框架与服务通信](/knowledge/frameworks/) · 已有 7 篇可读主题
 
 - [Spring 容器](/knowledge/frameworks/spring-container/)：区分定义注册、实例创建、依赖注入、初始化和销毁。
-- Spring AOP（规划）：从代理入口和接收者身份理解拦截器链。
+- [Spring AOP](/knowledge/frameworks/spring-aop/)：从代理入口和接收者身份理解拦截器链。
 - [Spring 事务](/knowledge/frameworks/spring-transactions/)：把方法调用映射到连接上的事务，并跟踪正常与异常完成。
 - [Servlet 与 MVC](/knowledge/frameworks/spring-mvc/)：沿处理器选择、参数、业务调用到响应提交解释请求链。
 - [数据访问与连接](/knowledge/frameworks/data-access/)：连接占用、等待和事务范围共同决定服务资源成本。
-- Spring Boot（规划）：配置来源、条件装配和应用生命周期各自回答不同问题。
+- [Spring Boot](/knowledge/frameworks/spring-boot/)：配置来源、条件装配和应用生命周期各自回答不同问题。
 - 网络与 I/O（规划）：连接、传输与应用响应是不同层次的观察。
 - HTTP API 与 RPC（规划）：建立错误、超时、重试和版本兼容的通信合同。
 

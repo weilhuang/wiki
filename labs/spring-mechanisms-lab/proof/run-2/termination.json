@@ -1,0 +1,5 @@
+{
+  "matchingLabJavaProcesses": 0,
+  "status": "pass",
+  "check": "executable java/javac and lab path/main class filter"
+}

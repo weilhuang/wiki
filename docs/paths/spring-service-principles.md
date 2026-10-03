@@ -22,6 +22,7 @@ Java 调用与异常；HTTP 请求响应；SQL 提交与回滚。这些是进入
 先确认协作者可用以及请求能否进入业务，后面的事务判断才有明确起点。
 
 - [BeanDefinition 从哪里来：定位、解析、注册与实例化的边界](/knowledge/frameworks/spring-container/bean-definition-registration.html)（选读）：需要追踪配置入口时，先看定义如何定位、解析和注册
+- [自动配置为何生效：条件、顺序与退让](/knowledge/frameworks/spring-boot/conditional-configuration.html)（选读）：排查自动配置时，比较候选条件、定义顺序与用户 Bean 退让
 - [容器创建与对象所有权：Bean 何时可用，谁负责关闭](/knowledge/frameworks/spring-container/bean-lifecycle.html)（主线）：区分定义、实例与内部资源的生命周期
 - [请求完成链：MVC 在哪里选择处理器、转换异常和提交响应](/knowledge/frameworks/spring-mvc/request-pipeline.html)（主线）：定位参数解析、异常处理和响应提交
 
@@ -31,6 +32,7 @@ Java 调用与异常；HTTP 请求响应；SQL 提交与回滚。这些是进入
 
 业务已经进入仍不等于数据已提交；请求慢也可能来自持有连接等待，需再加入事务与资源视角。
 
+- [AOP 的接收者是谁：JDK、CGLIB 与拦截器分派](/knowledge/frameworks/spring-aop/proxy-dispatch.html)（选读）：需要解释调用入口时，先比较代理、目标和自调用的接收者
 - [Spring 事务调用链：从代理入口到数据库连接](/knowledge/frameworks/spring-transactions/proxy-call-chain.html)（主线）：跟踪代理、回滚标记和线程绑定连接
 - [连接池与事务预算：请求卡住时，资源被谁占住](/knowledge/frameworks/data-access/connection-budget.html)（主线）：解释连接占用与排队，区分超时和终止
 

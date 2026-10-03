@@ -123,5 +123,45 @@
     "query": "GC 日志能证明内存泄漏吗",
     "topic": "java.jvm-diagnosis",
     "anchor": "有-gc-记录-不等于找到内存泄漏"
+  },
+  {
+    "query": "为什么切面没执行",
+    "topic": "frameworks.aop-dispatch",
+    "anchor": "diagnosis"
+  },
+  {
+    "query": "CGLIB也有自调用问题吗",
+    "topic": "frameworks.aop-dispatch",
+    "anchor": "boundaries"
+  },
+  {
+    "query": "final方法能被代理吗",
+    "topic": "frameworks.aop-dispatch",
+    "anchor": "boundaries"
+  },
+  {
+    "query": "代理对象的this是谁",
+    "topic": "frameworks.aop-dispatch",
+    "anchor": "dispatch"
+  },
+  {
+    "query": "自动配置不生效",
+    "topic": "frameworks.boot-conditions",
+    "anchor": "report"
+  },
+  {
+    "query": "ConditionalOnMissingBean不退让",
+    "topic": "frameworks.boot-conditions",
+    "anchor": "backoff"
+  },
+  {
+    "query": "自动配置排序就是Bean创建顺序吗",
+    "topic": "frameworks.boot-conditions",
+    "anchor": "ordering"
+  },
+  {
+    "query": "OnBean能看到后来注册的Bean吗",
+    "topic": "frameworks.boot-conditions",
+    "anchor": "phases"
   }
 ]

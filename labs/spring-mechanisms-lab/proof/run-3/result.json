@@ -1,0 +1,131 @@
+{
+  "status": "pass",
+  "failure": null,
+  "cleanupError": null,
+  "sourceFiles": [
+    {
+      "path": "resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports",
+      "sha256": "794878263796013fb576d6c485107a60d9d70c4f09fa269173a7507dbc850261"
+    },
+    {
+      "path": "src/lab/AopLab.java",
+      "sha256": "4ecbfe00c829c754c1bcc8b34e0df5dafbdb2d173f24c617e9926eee39bb3a89"
+    },
+    {
+      "path": "src/lab/BootLab.java",
+      "sha256": "15aa45e4fd83d7b91cf08801d3e3458864c7fdba07e8f54c288e28b909327aaf"
+    },
+    {
+      "path": "src/lab/OptionalClient.java",
+      "sha256": "615fbab87d8fdf54d6e95ed28c468c4a20cf5600de625938fdc7dedbb6f35475"
+    },
+    {
+      "path": "run.py",
+      "sha256": "818d07cdfd272fc414b061ef05972b7df362ffea59e7e7bacd0fcc6a08ee5a54"
+    },
+    {
+      "path": "result_validation.py",
+      "sha256": "2b96f273e9dd0c80dec7799f8cda249c5c27229c6e529e0587427a8ded03dba3"
+    },
+    {
+      "path": "dependencies.lock.json",
+      "sha256": "9be1147012e4adb9d70b5a9f7849de35fec3b4f0b56cad1d047ecbc8001ab97c"
+    }
+  ],
+  "commands": [
+    {
+      "name": "java-version",
+      "command": "java -version",
+      "exitCode": 0,
+      "timedOut": false,
+      "cleanupError": null,
+      "operationError": null,
+      "log": "java-version.txt",
+      "expectedExitCode": 0,
+      "status": "pass"
+    },
+    {
+      "name": "javac-version",
+      "command": "javac -version",
+      "exitCode": 0,
+      "timedOut": false,
+      "cleanupError": null,
+      "operationError": null,
+      "log": "javac-version.txt",
+      "expectedExitCode": 0,
+      "status": "pass"
+    },
+    {
+      "name": "compile",
+      "command": "javac -J-Xmx64m -J-XX:ActiveProcessorCount=2 --release 21 -cp $LOCKED_CLASSPATH -d $BUILD_CLASSES src/lab/*.java",
+      "exitCode": 0,
+      "timedOut": false,
+      "cleanupError": null,
+      "operationError": null,
+      "log": "compile.txt",
+      "expectedExitCode": 0,
+      "status": "pass"
+    },
+    {
+      "name": "aop",
+      "command": "java -Xmx64m -XX:ActiveProcessorCount=2 -cp $BUILD_CLASSES:$LOCKED_CLASSPATH lab.AopLab none",
+      "exitCode": 0,
+      "timedOut": false,
+      "cleanupError": null,
+      "operationError": null,
+      "log": "aop.txt",
+      "expectedExitCode": 0,
+      "expectedMarker": "PASS AOP complete",
+      "status": "pass"
+    },
+    {
+      "name": "boot",
+      "command": "java -Xmx64m -XX:ActiveProcessorCount=2 -cp $BUILD_CLASSES:$LOCKED_CLASSPATH lab.BootLab none",
+      "exitCode": 0,
+      "timedOut": false,
+      "cleanupError": null,
+      "operationError": null,
+      "log": "boot.txt",
+      "expectedExitCode": 0,
+      "expectedMarker": "PASS BOOT complete; all runner contexts closed; construction=[token, consumer]",
+      "status": "pass"
+    },
+    {
+      "name": "negative-bypass",
+      "command": "java -Xmx64m -XX:ActiveProcessorCount=2 -cp $BUILD_CLASSES:$LOCKED_CLASSPATH lab.AopLab bypass-proxy",
+      "exitCode": 1,
+      "timedOut": false,
+      "cleanupError": null,
+      "operationError": null,
+      "log": "negative-bypass.txt",
+      "expectedExitCode": 1,
+      "expectedAssertion": "outer advice order and self invocation boundary",
+      "status": "pass"
+    },
+    {
+      "name": "negative-cache",
+      "command": "java -Xmx64m -XX:ActiveProcessorCount=2 -cp $BUILD_CLASSES:$LOCKED_CLASSPATH lab.AopLab proceed-on-cache-hit",
+      "exitCode": 1,
+      "timedOut": false,
+      "cleanupError": null,
+      "operationError": null,
+      "log": "negative-cache.txt",
+      "expectedExitCode": 1,
+      "expectedAssertion": "cache hit must skip business",
+      "status": "pass"
+    },
+    {
+      "name": "negative-backoff",
+      "command": "java -Xmx64m -XX:ActiveProcessorCount=2 -cp $BUILD_CLASSES:$LOCKED_CLASSPATH lab.BootLab remove-backoff",
+      "exitCode": 1,
+      "timedOut": false,
+      "cleanupError": null,
+      "operationError": null,
+      "log": "negative-backoff.txt",
+      "expectedExitCode": 1,
+      "expectedAssertion": "user bean identity and single implementation",
+      "status": "pass"
+    }
+  ],
+  "elapsedSeconds": 3.424
+}

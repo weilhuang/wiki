@@ -1,0 +1,22 @@
+{
+  "java": "Temurin 21.0.12.1+1-LTS",
+  "release": 21,
+  "framework": "6.2.19",
+  "boot": "3.5.16",
+  "javaHeapMiB": 64,
+  "activeProcessorCount": 2,
+  "serial": true,
+  "ports": [],
+  "services": [],
+  "latestRun": "proof/run-3",
+  "historicalRuns": [
+    "proof/run-1",
+    "proof/run-2"
+  ],
+  "run1Seconds": 3.285,
+  "run2Seconds": 3.12,
+  "run3Seconds": 3.424,
+  "outcome": "pass",
+  "runtimeLease": "released",
+  "liveLabJavaProcessesAtRelease": 0
+}

@@ -203,6 +203,21 @@ search: false
 
 </details>
 
+### Spring 机制实验：代理接收者、条件装配与退让 {#experiment-spring-mechanisms}
+
+[下载源码包](/examples/spring-mechanisms-lab.zip)。历史运行范围：真实AnnotationConfigApplicationContext的JDK/CGLIB代理：目标/代理与单例身份、Bean数量、业务进入、完整A/B顺序、自调用/private边界、返回this处理、原始异常；ProxyFactory真实final接口调用、强制类代理准确根因、缓存短路；没有启动Web；真实ApplicationContextRunner：默认、property=false、FilteredClassLoader、用户对象退让；数量/具体类型/身份/构造次数/原因报告；定义处理先后与Token依赖构造次序、OnBean时点、一次真实EnableAutoConfiguration读取imports；三个具体错误变体：原始目标绕过通知、缓存命中后仍执行业务、删除missing-bean导致双实现；全部编译及启动成功后到达准确业务AssertionError；非编译/启动失败。
+
+关联知识：[AOP 的接收者是谁：JDK、CGLIB 与拦截器分派](/knowledge/frameworks/spring-aop/proxy-dispatch.html)、[自动配置为何生效：条件、顺序与退让](/knowledge/frameworks/spring-boot/conditional-configuration.html)。
+
+<details class="verification-appendix">
+<summary>版本、下载身份与未覆盖范围</summary>
+
+- SHA256：e0dbb528cbded4e368a0e8a5a71ab8670d065b35091aaa73000b34139ada544f
+- 未覆盖：非Web、非AOT、非AspectJ，不验证生产性能；实验业务无后台线程；子线程失败分类是Python夹具，未做真实JVM线程故障注入；没有执行操作系统超时/清理失败的实时注入；有序终止实现经源码复核与分类夹具检查
+- 此处汇总已有运行记录；收录到目录不会增加实验覆盖范围
+
+</details>
+
 ## 自己运行前
 
 先阅读每个包的 README、版本和清理说明，使用隔离教学环境。不要把故障注入指向业务数据库；不要把凭据、真实用户资料或生产日志放进练习产物。运行失败时记录它实际失败的层次，不以“没有异常”替代业务结果。
