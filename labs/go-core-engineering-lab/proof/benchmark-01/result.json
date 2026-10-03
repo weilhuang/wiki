@@ -1,0 +1,557 @@
+{
+  "phase": "benchmark",
+  "status": "pass",
+  "executionLevel": "real-go-standard-library",
+  "sourceFiles": [
+    {
+      "path": "README.md",
+      "sha256": "1c357bba450f28bdda6cf15949548bdc07187d63663e160b541e65ce6e7ecc06"
+    },
+    {
+      "path": "boundary.go",
+      "sha256": "1865ea403aac40344cbe6e34c35ab00d387d46de39b5673a61462541dddcd235"
+    },
+    {
+      "path": "boundary_test.go",
+      "sha256": "2f73c9bf322ad231a1e6ecd6d2ef96fcc944a607b914f1eb61f26913a4cf099e"
+    },
+    {
+      "path": "cmd/demo/main.go",
+      "sha256": "c078f43c3049f70c060bb7810a86988cd31d2003348f25a63f8aec337fbefed8"
+    },
+    {
+      "path": "cmd/demo/main_test.go",
+      "sha256": "d04ba940dc613f32173cd8a0e0d10637f2d4f0e3ae97156cd87122a9dd56a84f"
+    },
+    {
+      "path": "evidence.py",
+      "sha256": "3b51facdf23a2e20fcc8bf7c53f4a7e9998c42b5f221d8645370cdd4919cbf0c"
+    },
+    {
+      "path": "evidence_test.py",
+      "sha256": "cd49f0444c05643d35cde63f55bbe318edbc5f4c2a5d1f7a8fdbed085068ce7c"
+    },
+    {
+      "path": "go.mod",
+      "sha256": "74b5fc1efa073bd54266bef32c02e130abd5d395d94e5c8c38f3220139bc442a"
+    },
+    {
+      "path": "go.sum",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "methods.go",
+      "sha256": "dae56cca2bcf0a92fa4197f49243104e758a3c4a92c018e565e7f41f63c29698"
+    },
+    {
+      "path": "snapshot.go",
+      "sha256": "e5b67af987d0c4f2c4d8091f05383797d881403129c98bbd212a0a88c75456a6"
+    },
+    {
+      "path": "snapshot_test.go",
+      "sha256": "117e17a5e65a8a1fc382008eec45176543806130cbd95b6e4cb9e1b4419a4401"
+    },
+    {
+      "path": "testdata/deterministic-seed.json",
+      "sha256": "ca63a24dd11099729107b97eb8129adca4b753b3433746324508c6bbe3a7db52"
+    },
+    {
+      "path": "testdata/fuzz/FuzzValidateKey/018a003fcb773a8c",
+      "sha256": "018a003fcb773a8c914f938f0d7cff2c9eea107045d617ab65d29e2c8ec03fd5"
+    },
+    {
+      "path": "testdata/fuzz/FuzzValidateKey/25beaf5d20f1eed9",
+      "sha256": "25beaf5d20f1eed94577e8c891765ab9e49a9db8c073f3a0c725dc1762451646"
+    },
+    {
+      "path": "testdata/fuzz/FuzzValidateKey/26e89b11780e48f8",
+      "sha256": "26e89b11780e48f88786e2eb1c2abe60173678c1eaba65e87267772f90c85cee"
+    },
+    {
+      "path": "testdata/fuzz/FuzzValidateKey/e3ca5d3d65c8f8ef",
+      "sha256": "e3ca5d3d65c8f8ef8accaa352b52021f32781fdfb696e681441127bfe8efa3cf"
+    },
+    {
+      "path": "testdata/fuzz/FuzzValidateKey/fd092373507012da",
+      "sha256": "fd092373507012da476b676ab3967d3c63322b100c9952a039f2f72de67add7d"
+    },
+    {
+      "path": "testdata/fuzz-flag-probe/flag_test.go",
+      "sha256": "30c97447009bea289e2a951c7350fd7ba0d68e56e4bc0749c0b3d143889f2a3b"
+    },
+    {
+      "path": "testdata/fuzz-flag-probe/go.mod",
+      "sha256": "fb35bc2253e491cc5906206f3b56a6ac769d6b951d51b716790dd94f74abc690"
+    },
+    {
+      "path": "testdata/fuzz-flag-probe/go.sum",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "testdata/fuzz-zero-source-chain.json",
+      "sha256": "056dc4b7fc59bc59673d434ec971a2f74b533878d4df7f36aad23f9f4403f321"
+    },
+    {
+      "path": "testdata/mutations.json",
+      "sha256": "c1e4e8f4a9b07bb4df2ea0c5c36a9f7dde6ec9216bcc4b42130aa9288ead1eaf"
+    },
+    {
+      "path": "testdata/required-checks.json",
+      "sha256": "78c4f7de32f0e1e0b04208d9a2842fcfb5a24753d00bb6fc22d24a88012369cc"
+    },
+    {
+      "path": "testdata/seed-corpus.json",
+      "sha256": "8337188804509c7b0df317a7f290b191141c158944f2ef166bed37371517b40c"
+    },
+    {
+      "path": "verify.py",
+      "sha256": "5a3aac468b58d632117e29e3031a3bef55a8a0022edc7c53d7cf1363366fc86e"
+    }
+  ],
+  "commands": [
+    {
+      "label": "version",
+      "command": [
+        "<GO>",
+        "version"
+      ],
+      "workingDirectory": "<LAB>",
+      "environment": {
+        "GOTOOLCHAIN": "local",
+        "GOMAXPROCS": "2",
+        "GOWORK": "off",
+        "GOFLAGS": "-p=1 -mod=readonly -buildvcs=false -trimpath",
+        "GOPROXY": "off",
+        "GOENV": "off",
+        "GOMEMLIMIT": "384MiB",
+        "GOPATH": "<CACHE>/gopath",
+        "GOMODCACHE": "<CACHE>/gomod",
+        "GOCACHE": "<CACHE>/gobuild"
+      },
+      "exitCode": 0,
+      "timeout": false,
+      "resourceStop": null,
+      "sampledPeakRSSBytes": 1126400,
+      "sampledPeakProcesses": 1,
+      "elapsedSeconds": 0.003,
+      "log": "version.txt",
+      "logSHA256": "f554cfdb85411c2bb1d503df3f53dfbad1f753eb8271938833166a5d26a7547c",
+      "processResult": "exit-zero"
+    },
+    {
+      "label": "benchmark-sample-1",
+      "command": [
+        "<GO>",
+        "test",
+        "-json",
+        "-run=^$",
+        "-bench=^BenchmarkCloneBytes$",
+        "-benchmem",
+        "-benchtime=100x",
+        "-count=1",
+        "-cpu=2",
+        "-timeout=45s",
+        "."
+      ],
+      "workingDirectory": "<LAB>",
+      "environment": {
+        "GOTOOLCHAIN": "local",
+        "GOMAXPROCS": "2",
+        "GOWORK": "off",
+        "GOFLAGS": "-p=1 -mod=readonly -buildvcs=false -trimpath",
+        "GOPROXY": "off",
+        "GOENV": "off",
+        "GOMEMLIMIT": "384MiB",
+        "GOPATH": "<CACHE>/gopath",
+        "GOMODCACHE": "<CACHE>/gomod",
+        "GOCACHE": "<CACHE>/gobuild"
+      },
+      "exitCode": 0,
+      "timeout": false,
+      "resourceStop": null,
+      "sampledPeakRSSBytes": 31825920,
+      "sampledPeakProcesses": 1,
+      "elapsedSeconds": 0.279,
+      "log": "benchmark-sample-1.txt",
+      "logSHA256": "b41ced5ec14557407aaa9369757c5ad170d3e96be62c792debe56d475f84c4f3",
+      "processResult": "exit-zero",
+      "acceptance": {
+        "accepted": true,
+        "mode": "one-bounded-benchmark-sample",
+        "measurements": {
+          "BenchmarkCloneBytes/make-copy/64B-2": {
+            "iterations": 100,
+            "metrics": {
+              "ns/op": 21.53,
+              "MB/s": 2972.6,
+              "B/op": 64.0,
+              "allocs/op": 1.0
+            }
+          },
+          "BenchmarkCloneBytes/append/64B-2": {
+            "iterations": 100,
+            "metrics": {
+              "ns/op": 25.23,
+              "MB/s": 2536.66,
+              "B/op": 64.0,
+              "allocs/op": 1.0
+            }
+          },
+          "BenchmarkCloneBytes/make-copy/4KiB-2": {
+            "iterations": 100,
+            "metrics": {
+              "ns/op": 1245.0,
+              "MB/s": 3289.85,
+              "B/op": 4096.0,
+              "allocs/op": 1.0
+            }
+          },
+          "BenchmarkCloneBytes/append/4KiB-2": {
+            "iterations": 100,
+            "metrics": {
+              "ns/op": 438.9,
+              "MB/s": 9333.49,
+              "B/op": 4096.0,
+              "allocs/op": 1.0
+            }
+          }
+        },
+        "note": "One sample per command; sample identities and count are checked by the runner. No ranking claim.",
+        "sample": 1
+      }
+    },
+    {
+      "label": "benchmark-sample-2",
+      "command": [
+        "<GO>",
+        "test",
+        "-json",
+        "-run=^$",
+        "-bench=^BenchmarkCloneBytes$",
+        "-benchmem",
+        "-benchtime=100x",
+        "-count=1",
+        "-cpu=2",
+        "-timeout=45s",
+        "."
+      ],
+      "workingDirectory": "<LAB>",
+      "environment": {
+        "GOTOOLCHAIN": "local",
+        "GOMAXPROCS": "2",
+        "GOWORK": "off",
+        "GOFLAGS": "-p=1 -mod=readonly -buildvcs=false -trimpath",
+        "GOPROXY": "off",
+        "GOENV": "off",
+        "GOMEMLIMIT": "384MiB",
+        "GOPATH": "<CACHE>/gopath",
+        "GOMODCACHE": "<CACHE>/gomod",
+        "GOCACHE": "<CACHE>/gobuild"
+      },
+      "exitCode": 0,
+      "timeout": false,
+      "resourceStop": null,
+      "sampledPeakRSSBytes": 28385280,
+      "sampledPeakProcesses": 1,
+      "elapsedSeconds": 0.28,
+      "log": "benchmark-sample-2.txt",
+      "logSHA256": "9a1121eaf5936888d97f85a3c0f71a9a5875064cc6f3721d247d5ddc9b0ece5e",
+      "processResult": "exit-zero",
+      "acceptance": {
+        "accepted": true,
+        "mode": "one-bounded-benchmark-sample",
+        "measurements": {
+          "BenchmarkCloneBytes/make-copy/64B-2": {
+            "iterations": 100,
+            "metrics": {
+              "ns/op": 31.44,
+              "MB/s": 2035.62,
+              "B/op": 64.0,
+              "allocs/op": 1.0
+            }
+          },
+          "BenchmarkCloneBytes/append/64B-2": {
+            "iterations": 100,
+            "metrics": {
+              "ns/op": 24.04,
+              "MB/s": 2662.23,
+              "B/op": 64.0,
+              "allocs/op": 1.0
+            }
+          },
+          "BenchmarkCloneBytes/make-copy/4KiB-2": {
+            "iterations": 100,
+            "metrics": {
+              "ns/op": 1842.0,
+              "MB/s": 2223.28,
+              "B/op": 4096.0,
+              "allocs/op": 1.0
+            }
+          },
+          "BenchmarkCloneBytes/append/4KiB-2": {
+            "iterations": 100,
+            "metrics": {
+              "ns/op": 916.4,
+              "MB/s": 4469.86,
+              "B/op": 4096.0,
+              "allocs/op": 1.0
+            }
+          }
+        },
+        "note": "One sample per command; sample identities and count are checked by the runner. No ranking claim.",
+        "sample": 2
+      }
+    },
+    {
+      "label": "benchmark-sample-3",
+      "command": [
+        "<GO>",
+        "test",
+        "-json",
+        "-run=^$",
+        "-bench=^BenchmarkCloneBytes$",
+        "-benchmem",
+        "-benchtime=100x",
+        "-count=1",
+        "-cpu=2",
+        "-timeout=45s",
+        "."
+      ],
+      "workingDirectory": "<LAB>",
+      "environment": {
+        "GOTOOLCHAIN": "local",
+        "GOMAXPROCS": "2",
+        "GOWORK": "off",
+        "GOFLAGS": "-p=1 -mod=readonly -buildvcs=false -trimpath",
+        "GOPROXY": "off",
+        "GOENV": "off",
+        "GOMEMLIMIT": "384MiB",
+        "GOPATH": "<CACHE>/gopath",
+        "GOMODCACHE": "<CACHE>/gomod",
+        "GOCACHE": "<CACHE>/gobuild"
+      },
+      "exitCode": 0,
+      "timeout": false,
+      "resourceStop": null,
+      "sampledPeakRSSBytes": 31789056,
+      "sampledPeakProcesses": 1,
+      "elapsedSeconds": 0.286,
+      "log": "benchmark-sample-3.txt",
+      "logSHA256": "9e2b59793b2c9ba3f67e4b4443085da1a76e4f75ba8a05a07edee0341215e6e7",
+      "processResult": "exit-zero",
+      "acceptance": {
+        "accepted": true,
+        "mode": "one-bounded-benchmark-sample",
+        "measurements": {
+          "BenchmarkCloneBytes/make-copy/64B-2": {
+            "iterations": 100,
+            "metrics": {
+              "ns/op": 19.43,
+              "MB/s": 3293.88,
+              "B/op": 64.0,
+              "allocs/op": 1.0
+            }
+          },
+          "BenchmarkCloneBytes/append/64B-2": {
+            "iterations": 100,
+            "metrics": {
+              "ns/op": 24.34,
+              "MB/s": 2629.42,
+              "B/op": 64.0,
+              "allocs/op": 1.0
+            }
+          },
+          "BenchmarkCloneBytes/make-copy/4KiB-2": {
+            "iterations": 100,
+            "metrics": {
+              "ns/op": 1354.0,
+              "MB/s": 3023.99,
+              "B/op": 4096.0,
+              "allocs/op": 1.0
+            }
+          },
+          "BenchmarkCloneBytes/append/4KiB-2": {
+            "iterations": 100,
+            "metrics": {
+              "ns/op": 286.7,
+              "MB/s": 14285.71,
+              "B/op": 4096.0,
+              "allocs/op": 1.0
+            }
+          }
+        },
+        "note": "One sample per command; sample identities and count are checked by the runner. No ranking claim.",
+        "sample": 3
+      }
+    }
+  ],
+  "cleanup": {
+    "temporaryCopiesRemoved": true,
+    "cache": "dedicated external cache retained; no server/database/container created"
+  },
+  "limits": {
+    "wallSeconds": 156,
+    "GOMAXPROCS": 2,
+    "packageParallelism": 1,
+    "GOMEMLIMIT": "384MiB (soft)",
+    "sampledRSSLimitBytes": 1073741824,
+    "sampledProcessLimit": 16,
+    "samplingSeconds": 0.25
+  },
+  "fuzzScope": "required saved-seed identities and bounded exploration checked separately; exploration order is not deterministic",
+  "requiredInventorySHA256": "78c4f7de32f0e1e0b04208d9a2842fcfb5a24753d00bb6fc22d24a88012369cc",
+  "seedCorpusReview": {
+    "accepted": true,
+    "mode": "fixed-seed-corpus-byte-review",
+    "replayIdentities": 12,
+    "uniqueCorpusBytes": 10,
+    "intentionalDuplicateContentGroups": [
+      [
+        "FuzzValidateKey/25beaf5d20f1eed9",
+        "FuzzValidateKey/seed#5"
+      ],
+      [
+        "FuzzValidateKey/26e89b11780e48f8",
+        "FuzzValidateKey/seed#6"
+      ]
+    ],
+    "note": "Replay requires each identity once. Coverage warmup deduplicates bytes and may include extra discovery-cache entries."
+  },
+  "version": "go version go1.27.1 linux/amd64",
+  "benchmarkSamples": [
+    {
+      "accepted": true,
+      "mode": "one-bounded-benchmark-sample",
+      "measurements": {
+        "BenchmarkCloneBytes/make-copy/64B-2": {
+          "iterations": 100,
+          "metrics": {
+            "ns/op": 21.53,
+            "MB/s": 2972.6,
+            "B/op": 64.0,
+            "allocs/op": 1.0
+          }
+        },
+        "BenchmarkCloneBytes/append/64B-2": {
+          "iterations": 100,
+          "metrics": {
+            "ns/op": 25.23,
+            "MB/s": 2536.66,
+            "B/op": 64.0,
+            "allocs/op": 1.0
+          }
+        },
+        "BenchmarkCloneBytes/make-copy/4KiB-2": {
+          "iterations": 100,
+          "metrics": {
+            "ns/op": 1245.0,
+            "MB/s": 3289.85,
+            "B/op": 4096.0,
+            "allocs/op": 1.0
+          }
+        },
+        "BenchmarkCloneBytes/append/4KiB-2": {
+          "iterations": 100,
+          "metrics": {
+            "ns/op": 438.9,
+            "MB/s": 9333.49,
+            "B/op": 4096.0,
+            "allocs/op": 1.0
+          }
+        }
+      },
+      "note": "One sample per command; sample identities and count are checked by the runner. No ranking claim.",
+      "sample": 1
+    },
+    {
+      "accepted": true,
+      "mode": "one-bounded-benchmark-sample",
+      "measurements": {
+        "BenchmarkCloneBytes/make-copy/64B-2": {
+          "iterations": 100,
+          "metrics": {
+            "ns/op": 31.44,
+            "MB/s": 2035.62,
+            "B/op": 64.0,
+            "allocs/op": 1.0
+          }
+        },
+        "BenchmarkCloneBytes/append/64B-2": {
+          "iterations": 100,
+          "metrics": {
+            "ns/op": 24.04,
+            "MB/s": 2662.23,
+            "B/op": 64.0,
+            "allocs/op": 1.0
+          }
+        },
+        "BenchmarkCloneBytes/make-copy/4KiB-2": {
+          "iterations": 100,
+          "metrics": {
+            "ns/op": 1842.0,
+            "MB/s": 2223.28,
+            "B/op": 4096.0,
+            "allocs/op": 1.0
+          }
+        },
+        "BenchmarkCloneBytes/append/4KiB-2": {
+          "iterations": 100,
+          "metrics": {
+            "ns/op": 916.4,
+            "MB/s": 4469.86,
+            "B/op": 4096.0,
+            "allocs/op": 1.0
+          }
+        }
+      },
+      "note": "One sample per command; sample identities and count are checked by the runner. No ranking claim.",
+      "sample": 2
+    },
+    {
+      "accepted": true,
+      "mode": "one-bounded-benchmark-sample",
+      "measurements": {
+        "BenchmarkCloneBytes/make-copy/64B-2": {
+          "iterations": 100,
+          "metrics": {
+            "ns/op": 19.43,
+            "MB/s": 3293.88,
+            "B/op": 64.0,
+            "allocs/op": 1.0
+          }
+        },
+        "BenchmarkCloneBytes/append/64B-2": {
+          "iterations": 100,
+          "metrics": {
+            "ns/op": 24.34,
+            "MB/s": 2629.42,
+            "B/op": 64.0,
+            "allocs/op": 1.0
+          }
+        },
+        "BenchmarkCloneBytes/make-copy/4KiB-2": {
+          "iterations": 100,
+          "metrics": {
+            "ns/op": 1354.0,
+            "MB/s": 3023.99,
+            "B/op": 4096.0,
+            "allocs/op": 1.0
+          }
+        },
+        "BenchmarkCloneBytes/append/4KiB-2": {
+          "iterations": 100,
+          "metrics": {
+            "ns/op": 286.7,
+            "MB/s": 14285.71,
+            "B/op": 4096.0,
+            "allocs/op": 1.0
+          }
+        }
+      },
+      "note": "One sample per command; sample identities and count are checked by the runner. No ranking claim.",
+      "sample": 3
+    }
+  ],
+  "interpretation": "bounded smoke measurement only; no speed ranking, service throughput, or statistical significance claim",
+  "sourceUnchanged": true
+}

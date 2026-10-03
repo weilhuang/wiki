@@ -1,0 +1,13 @@
+{
+  "recordedAt": "2026-10-03T20:27:02.970146+00:00",
+  "status": "failed-static-wrapper-precheck",
+  "goCommandsStarted": 0,
+  "phaseEvidenceDirectoriesCreated": 0,
+  "mistypedWrapperExpectedSHA256": "b6aeac35db72c57680880c65ac44e98dcea403876b2b8a4665e797cd943d9",
+  "actualCandidateSHA256": "b6aeac35db72c57680880c65ac44e98dcea403303876b2b8a4665e797cd943d9",
+  "reviewedCandidateSHA256": "b6aeac35db72c57680880c65ac44e98dcea403303876b2b8a4665e797cd943d9",
+  "allReviewedFileBindingsStillMatch": true,
+  "originalError": "Traceback (most recent call last):\n  File \"<stdin>\", line 5, in <module>\nAssertionError\n",
+  "cause": "The outer wrapper transcription omitted 303 in its SHA literal. This is not a candidate source mismatch or a runtime phase result.",
+  "nextStep": "Stopped without retry; request permission to retry corrected outer wrapper under the existing bounded sequence."
+}

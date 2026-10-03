@@ -425,5 +425,26 @@
     "task": "design",
     "prompt": "什么事实推翻L，什么条件允许停止拆分？",
     "anchor": "decision-record"
+  },
+  {
+    "id": "go-core-1",
+    "topic": "go.values-aliasing",
+    "task": "verify",
+    "prompt": "把容量从2改到3，旧别名的观察值怎样变？",
+    "anchor": "append-and-capacity"
+  },
+  {
+    "id": "go-core-2",
+    "topic": "go.interfaces-errors",
+    "task": "verify",
+    "prompt": "为什么成功分支必须返回nil接口而不是带类型的nil？",
+    "anchor": "typed-nil"
+  },
+  {
+    "id": "go-core-3",
+    "topic": "go.reproducible-testing",
+    "task": "verify",
+    "prompt": "编译失败与命中特定CONTRACT断言的失败有什么不同？",
+    "anchor": "semantic-counterexamples"
   }
 ]

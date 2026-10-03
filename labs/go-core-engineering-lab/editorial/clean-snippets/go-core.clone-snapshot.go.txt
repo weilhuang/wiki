@@ -1,0 +1,16 @@
+func CloneSnapshot(src Snapshot) Snapshot {
+	dst := Snapshot{Name: src.Name}
+	if src.Labels != nil {
+		dst.Labels = make(map[string]string, len(src.Labels))
+		for k, v := range src.Labels {
+			dst.Labels[k] = v
+		}
+	}
+	if src.Chunks != nil {
+		dst.Chunks = make([][]byte, len(src.Chunks))
+		for i, chunk := range src.Chunks {
+			dst.Chunks[i] = CloneBytes(chunk)
+		}
+	}
+	return dst
+}

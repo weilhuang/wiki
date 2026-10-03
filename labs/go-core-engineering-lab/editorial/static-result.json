@@ -1,0 +1,42 @@
+{
+  "kind": "static-checked",
+  "status": "pass",
+  "command": "python3 check_static.py --wiki <EXISTING_WIKI>",
+  "exitCode": 0,
+  "checks": [
+    "frontmatter, source IDs, anchored headings, diagrams and local links: docs/knowledge/go/engineering/reproducible-testing.md",
+    "frontmatter, source IDs, anchored headings, diagrams and local links: docs/knowledge/go/language/interfaces-errors.md",
+    "frontmatter, source IDs, anchored headings, diagrams and local links: docs/knowledge/go/language/values-aliasing.md",
+    "exact Code Hike source: go-core.slices-clone",
+    "exact Code Hike source: go-core.clone-snapshot",
+    "exact Code Hike source: go-core.errors-is",
+    "exact Code Hike source: go-core.error-response",
+    "exact Code Hike source: go-core.clone-isolation",
+    "exact Code Hike source: go-core.benchmark-clone",
+    "four unique semantic replacements; not executed by static check",
+    "Python runner parses; no Go execution",
+    "official fixed-version snapshot hashes: 14",
+    "review questions resolve to explicit anchors",
+    "source-only ZIP members exactly match lab source bytes"
+  ],
+  "notRun": [
+    "Go compilation/execution",
+    "Code Hike/VitePress compile",
+    "Mermaid renderer",
+    "browser QA"
+  ],
+  "sourceFiles": [
+    {
+      "path": "docs/knowledge/go/engineering/reproducible-testing.md",
+      "sha256": "33c1ddb53ed567c3b9440b68628a0045afe9d19b7a2cac1ebf9890adc2cb4533"
+    },
+    {
+      "path": "docs/knowledge/go/language/interfaces-errors.md",
+      "sha256": "bc9b48067b946104c17e50b4cf13f8d78c48a3f7522bce6aa8e39e4a5669239f"
+    },
+    {
+      "path": "docs/knowledge/go/language/values-aliasing.md",
+      "sha256": "3bab1c49415d330ad9bf1ce9fe2e370ec81292e28e7338c04feda69f2b352941"
+    }
+  ]
+}

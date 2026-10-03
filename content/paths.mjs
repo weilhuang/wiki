@@ -18,6 +18,9 @@ export const paths = [
     entry:['Go 函数、error 与 defer','channel 与 goroutine','HTTP 请求响应'], goal:'为请求、工作、下游调用和进程退出定义所有者、等待上限与资源收尾。',
     stages:[
       {title:'先把请求合同写清',transition:'从公开输入和响应开始，先知道服务承诺什么，再讨论请求取消后的工作。',task:'用同一输入分别预测公开响应、业务进入和副作用。',readings:[
+        {topic:'go.values-aliasing',role:'optional',purpose:'需要补语言基础时，先判断复制以后哪些存储仍然共享'},
+        {topic:'go.interfaces-errors',role:'optional',purpose:'需要澄清返回边界时，区分接口 nil、错误身份与公开响应'},
+        {topic:'go.reproducible-testing',role:'optional',purpose:'用固定源码、测试清单与语义反例复现判断；有基础可直接进入请求主线'},
         {topic:'go.http-contract',role:'required',purpose:'建立入口拒绝顺序与完整响应合同'},
         {topic:'go.channel-memory-ownership',role:'optional',purpose:'需要解释交接规则时，先区分收发同步、对象别名和工作结束'},
         {topic:'go.context-cancellation',role:'required',purpose:'区分取消信号、工作退出和业务提交'}]},

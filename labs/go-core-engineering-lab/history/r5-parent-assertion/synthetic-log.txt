@@ -1,0 +1,207 @@
+{"Time": "2026-10-04T04:28:47.937167391+08:00", "Action": "start", "Package": "example.com/go-core-engineering-lab"}
+{"Time": "2026-10-04T04:28:47.940111886+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey"}
+{"Time": "2026-10-04T04:28:47.940159386+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey", "Output": "=== RUN   TestValidateKey\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.940761104+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/one-byte"}
+{"Time": "2026-10-04T04:28:47.940766371+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/one-byte", "Output": "=== RUN   TestValidateKey/one-byte\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.940786421+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/one-byte", "Output": "    boundary_test.go:37: CONTRACT[nil-success] valid key=\"a\" returned dynamic error type *corelab.FieldError\n", "OutputType": "error"}
+{"Time": "2026-10-04T04:28:47.940794413+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/one-byte", "Output": "--- FAIL: TestValidateKey/one-byte (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.940804648+08:00", "Action": "fail", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/one-byte", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.94081297+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/mixed"}
+{"Time": "2026-10-04T04:28:47.940815694+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/mixed", "Output": "=== RUN   TestValidateKey/mixed\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.940818969+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/mixed", "Output": "    boundary_test.go:37: CONTRACT[nil-success] valid key=\"demo-42\" returned dynamic error type *corelab.FieldError\n", "OutputType": "error"}
+{"Time": "2026-10-04T04:28:47.940823045+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/mixed", "Output": "--- FAIL: TestValidateKey/mixed (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.940834863+08:00", "Action": "fail", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/mixed", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.940837947+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/maximum"}
+{"Time": "2026-10-04T04:28:47.940840571+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/maximum", "Output": "=== RUN   TestValidateKey/maximum\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.940844056+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/maximum", "Output": "    boundary_test.go:37: CONTRACT[nil-success] valid key=\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\" returned dynamic error type *corelab.FieldError\n", "OutputType": "error"}
+{"Time": "2026-10-04T04:28:47.940848673+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/maximum", "Output": "--- FAIL: TestValidateKey/maximum (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.940851707+08:00", "Action": "fail", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/maximum", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.940854461+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/empty"}
+{"Time": "2026-10-04T04:28:47.940856655+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/empty", "Output": "=== RUN   TestValidateKey/empty\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.94086015+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/empty", "Output": "--- PASS: TestValidateKey/empty (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.940897205+08:00", "Action": "pass", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/empty", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.94090064+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/too-long"}
+{"Time": "2026-10-04T04:28:47.940902713+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/too-long", "Output": "=== RUN   TestValidateKey/too-long\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.940912978+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/too-long", "Output": "--- PASS: TestValidateKey/too-long (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.940916082+08:00", "Action": "pass", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/too-long", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.940918185+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/numeric-prefix"}
+{"Time": "2026-10-04T04:28:47.940920489+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/numeric-prefix", "Output": "=== RUN   TestValidateKey/numeric-prefix\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.940935301+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/numeric-prefix", "Output": "--- PASS: TestValidateKey/numeric-prefix (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.940938125+08:00", "Action": "pass", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/numeric-prefix", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.940949141+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/uppercase"}
+{"Time": "2026-10-04T04:28:47.940952656+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/uppercase", "Output": "=== RUN   TestValidateKey/uppercase\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.940957313+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/uppercase", "Output": "--- PASS: TestValidateKey/uppercase (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.940968199+08:00", "Action": "pass", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/uppercase", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.940971154+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/unicode"}
+{"Time": "2026-10-04T04:28:47.940973327+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/unicode", "Output": "=== RUN   TestValidateKey/unicode\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.940983902+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/unicode", "Output": "--- PASS: TestValidateKey/unicode (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.940987127+08:00", "Action": "pass", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/unicode", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.940989891+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/slash"}
+{"Time": "2026-10-04T04:28:47.940992165+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/slash", "Output": "=== RUN   TestValidateKey/slash\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.940995269+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/slash", "Output": "--- PASS: TestValidateKey/slash (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.940998374+08:00", "Action": "pass", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/slash", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.941006776+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/trailing-dash-allowed"}
+{"Time": "2026-10-04T04:28:47.94100937+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/trailing-dash-allowed", "Output": "=== RUN   TestValidateKey/trailing-dash-allowed\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.94102286+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/trailing-dash-allowed", "Output": "    boundary_test.go:37: CONTRACT[nil-success] valid key=\"a-\" returned dynamic error type *corelab.FieldError\n", "OutputType": "error"}
+{"Time": "2026-10-04T04:28:47.941027116+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/trailing-dash-allowed", "Output": "--- FAIL: TestValidateKey/trailing-dash-allowed (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941035859+08:00", "Action": "fail", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey/trailing-dash-allowed", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.941039404+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey", "Output": "--- FAIL: TestValidateKey (0.00s)\n", "OutputType": "frame"}
+{"Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey", "Output": "    boundary_test.go:46: CONTRACT[unrelated] unexpected additional parent assertion\n"}
+{"Time": "2026-10-04T04:28:47.941051212+08:00", "Action": "fail", "Package": "example.com/go-core-engineering-lab", "Test": "TestValidateKey", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.941054166+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "TestLoadErrorChain"}
+{"Time": "2026-10-04T04:28:47.94105669+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestLoadErrorChain", "Output": "=== RUN   TestLoadErrorChain\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941060305+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestLoadErrorChain", "Output": "    boundary_test.go:62: CONTRACT[not-found-identity] missing: load snapshot: nil field error\n", "OutputType": "error"}
+{"Time": "2026-10-04T04:28:47.941064431+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestLoadErrorChain", "Output": "--- FAIL: TestLoadErrorChain (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941067436+08:00", "Action": "fail", "Package": "example.com/go-core-engineering-lab", "Test": "TestLoadErrorChain", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.941069919+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "TestWriteError"}
+{"Time": "2026-10-04T04:28:47.941072273+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestWriteError", "Output": "=== RUN   TestWriteError\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.94108374+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "TestWriteError/invalid"}
+{"Time": "2026-10-04T04:28:47.941086203+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestWriteError/invalid", "Output": "=== RUN   TestWriteError/invalid\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941089528+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestWriteError/invalid", "Output": "--- PASS: TestWriteError/invalid (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941092463+08:00", "Action": "pass", "Package": "example.com/go-core-engineering-lab", "Test": "TestWriteError/invalid", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.941095157+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "TestWriteError/missing"}
+{"Time": "2026-10-04T04:28:47.94109762+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestWriteError/missing", "Output": "=== RUN   TestWriteError/missing\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941101226+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestWriteError/missing", "Output": "--- PASS: TestWriteError/missing (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941103839+08:00", "Action": "pass", "Package": "example.com/go-core-engineering-lab", "Test": "TestWriteError/missing", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.941106143+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "TestWriteError/unknown"}
+{"Time": "2026-10-04T04:28:47.941116698+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestWriteError/unknown", "Output": "=== RUN   TestWriteError/unknown\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941120634+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestWriteError/unknown", "Output": "--- PASS: TestWriteError/unknown (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.94112436+08:00", "Action": "pass", "Package": "example.com/go-core-engineering-lab", "Test": "TestWriteError/unknown", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.941127194+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "TestWriteError/canceled-wins"}
+{"Time": "2026-10-04T04:28:47.941130018+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestWriteError/canceled-wins", "Output": "=== RUN   TestWriteError/canceled-wins\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941133704+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestWriteError/canceled-wins", "Output": "--- PASS: TestWriteError/canceled-wins (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941145421+08:00", "Action": "pass", "Package": "example.com/go-core-engineering-lab", "Test": "TestWriteError/canceled-wins", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.941148235+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "TestWriteError/deadline-wins"}
+{"Time": "2026-10-04T04:28:47.941150949+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestWriteError/deadline-wins", "Output": "=== RUN   TestWriteError/deadline-wins\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941154544+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestWriteError/deadline-wins", "Output": "--- PASS: TestWriteError/deadline-wins (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941157709+08:00", "Action": "pass", "Package": "example.com/go-core-engineering-lab", "Test": "TestWriteError/deadline-wins", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.941160743+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestWriteError", "Output": "--- PASS: TestWriteError (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941163357+08:00", "Action": "pass", "Package": "example.com/go-core-engineering-lab", "Test": "TestWriteError", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.941166151+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "TestJoinTraversal"}
+{"Time": "2026-10-04T04:28:47.941168475+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestJoinTraversal", "Output": "=== RUN   TestJoinTraversal\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941172371+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestJoinTraversal", "Output": "--- PASS: TestJoinTraversal (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941183497+08:00", "Action": "pass", "Package": "example.com/go-core-engineering-lab", "Test": "TestJoinTraversal", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.941186191+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "TestMethodsAndTypedNil"}
+{"Time": "2026-10-04T04:28:47.941188995+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestMethodsAndTypedNil", "Output": "=== RUN   TestMethodsAndTypedNil\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941193121+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestMethodsAndTypedNil", "Output": "--- PASS: TestMethodsAndTypedNil (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941195905+08:00", "Action": "pass", "Package": "example.com/go-core-engineering-lab", "Test": "TestMethodsAndTypedNil", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.941198429+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "TestAppendAliasing"}
+{"Time": "2026-10-04T04:28:47.941200722+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestAppendAliasing", "Output": "=== RUN   TestAppendAliasing\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941203496+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "TestAppendAliasing/reuse"}
+{"Time": "2026-10-04T04:28:47.941205359+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestAppendAliasing/reuse", "Output": "=== RUN   TestAppendAliasing/reuse\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941209165+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestAppendAliasing/reuse", "Output": "--- PASS: TestAppendAliasing/reuse (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.9412127+08:00", "Action": "pass", "Package": "example.com/go-core-engineering-lab", "Test": "TestAppendAliasing/reuse", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.941215745+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "TestAppendAliasing/full-slice-forces-growth"}
+{"Time": "2026-10-04T04:28:47.941218469+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestAppendAliasing/full-slice-forces-growth", "Output": "=== RUN   TestAppendAliasing/full-slice-forces-growth\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941222665+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestAppendAliasing/full-slice-forces-growth", "Output": "--- PASS: TestAppendAliasing/full-slice-forces-growth (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941225649+08:00", "Action": "pass", "Package": "example.com/go-core-engineering-lab", "Test": "TestAppendAliasing/full-slice-forces-growth", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.941228674+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestAppendAliasing", "Output": "--- PASS: TestAppendAliasing (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941241442+08:00", "Action": "pass", "Package": "example.com/go-core-engineering-lab", "Test": "TestAppendAliasing", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.941244417+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "TestCopyOverlapAndNil"}
+{"Time": "2026-10-04T04:28:47.94124674+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestCopyOverlapAndNil", "Output": "=== RUN   TestCopyOverlapAndNil\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941256264+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestCopyOverlapAndNil", "Output": "--- PASS: TestCopyOverlapAndNil (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.94126035+08:00", "Action": "pass", "Package": "example.com/go-core-engineering-lab", "Test": "TestCopyOverlapAndNil", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.941263495+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "TestCloneShape"}
+{"Time": "2026-10-04T04:28:47.941265718+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestCloneShape", "Output": "=== RUN   TestCloneShape\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941268593+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "TestCloneShape/nil"}
+{"Time": "2026-10-04T04:28:47.941270946+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestCloneShape/nil", "Output": "=== RUN   TestCloneShape/nil\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.94127378+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestCloneShape/nil", "Output": "--- PASS: TestCloneShape/nil (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941276935+08:00", "Action": "pass", "Package": "example.com/go-core-engineering-lab", "Test": "TestCloneShape/nil", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.941279469+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "TestCloneShape/allocated-empty"}
+{"Time": "2026-10-04T04:28:47.941281452+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestCloneShape/allocated-empty", "Output": "=== RUN   TestCloneShape/allocated-empty\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941285077+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestCloneShape/allocated-empty", "Output": "--- PASS: TestCloneShape/allocated-empty (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941287911+08:00", "Action": "pass", "Package": "example.com/go-core-engineering-lab", "Test": "TestCloneShape/allocated-empty", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.941290595+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "TestCloneShape/nested-shapes"}
+{"Time": "2026-10-04T04:28:47.941292878+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestCloneShape/nested-shapes", "Output": "=== RUN   TestCloneShape/nested-shapes\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941296384+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestCloneShape/nested-shapes", "Output": "--- PASS: TestCloneShape/nested-shapes (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941299178+08:00", "Action": "pass", "Package": "example.com/go-core-engineering-lab", "Test": "TestCloneShape/nested-shapes", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.941302412+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestCloneShape", "Output": "--- PASS: TestCloneShape (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941305918+08:00", "Action": "pass", "Package": "example.com/go-core-engineering-lab", "Test": "TestCloneShape", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.941308682+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "TestCloneBytesStrategies"}
+{"Time": "2026-10-04T04:28:47.941310995+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestCloneBytesStrategies", "Output": "=== RUN   TestCloneBytesStrategies\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.94131446+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestCloneBytesStrategies", "Output": "--- PASS: TestCloneBytesStrategies (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941317565+08:00", "Action": "pass", "Package": "example.com/go-core-engineering-lab", "Test": "TestCloneBytesStrategies", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.941320219+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "TestCloneIsolation"}
+{"Time": "2026-10-04T04:28:47.941322432+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestCloneIsolation", "Output": "=== RUN   TestCloneIsolation\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941325677+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestCloneIsolation", "Output": "--- PASS: TestCloneIsolation (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941335191+08:00", "Action": "pass", "Package": "example.com/go-core-engineering-lab", "Test": "TestCloneIsolation", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.941337875+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "TestStoreOwnership"}
+{"Time": "2026-10-04T04:28:47.941339998+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestStoreOwnership", "Output": "=== RUN   TestStoreOwnership\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941351565+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestStoreOwnership", "Output": "--- PASS: TestStoreOwnership (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941360328+08:00", "Action": "pass", "Package": "example.com/go-core-engineering-lab", "Test": "TestStoreOwnership", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.941363252+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "TestConcurrentStore"}
+{"Time": "2026-10-04T04:28:47.941376972+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestConcurrentStore", "Output": "=== RUN   TestConcurrentStore\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941381559+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestConcurrentStore", "Output": "--- PASS: TestConcurrentStore (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941384243+08:00", "Action": "pass", "Package": "example.com/go-core-engineering-lab", "Test": "TestConcurrentStore", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.941387408+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "TestCloneDeterministicCorpus"}
+{"Time": "2026-10-04T04:28:47.941389601+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestCloneDeterministicCorpus", "Output": "=== RUN   TestCloneDeterministicCorpus\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941400758+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "TestCloneDeterministicCorpus", "Output": "--- PASS: TestCloneDeterministicCorpus (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941404113+08:00", "Action": "pass", "Package": "example.com/go-core-engineering-lab", "Test": "TestCloneDeterministicCorpus", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.941417312+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey"}
+{"Time": "2026-10-04T04:28:47.941419856+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey", "Output": "=== RUN   FuzzValidateKey\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.94142251+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/seed#0"}
+{"Time": "2026-10-04T04:28:47.941424633+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/seed#0", "Output": "=== RUN   FuzzValidateKey/seed#0\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941428028+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/seed#0", "Output": "--- PASS: FuzzValidateKey/seed#0 (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941439064+08:00", "Action": "pass", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/seed#0", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.941441648+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/seed#1"}
+{"Time": "2026-10-04T04:28:47.941443651+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/seed#1", "Output": "=== RUN   FuzzValidateKey/seed#1\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941446996+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/seed#1", "Output": "    boundary_test.go:154: CONTRACT[nil-success] accepted grammar returned *corelab.FieldError\n", "OutputType": "error"}
+{"Time": "2026-10-04T04:28:47.941451032+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/seed#1", "Output": "--- FAIL: FuzzValidateKey/seed#1 (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941453796+08:00", "Action": "fail", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/seed#1", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.94145629+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/seed#2"}
+{"Time": "2026-10-04T04:28:47.941458573+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/seed#2", "Output": "=== RUN   FuzzValidateKey/seed#2\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941461477+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/seed#2", "Output": "    boundary_test.go:154: CONTRACT[nil-success] accepted grammar returned *corelab.FieldError\n", "OutputType": "error"}
+{"Time": "2026-10-04T04:28:47.941471071+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/seed#2", "Output": "--- FAIL: FuzzValidateKey/seed#2 (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941474166+08:00", "Action": "fail", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/seed#2", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.941476599+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/seed#3"}
+{"Time": "2026-10-04T04:28:47.941478713+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/seed#3", "Output": "=== RUN   FuzzValidateKey/seed#3\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941481767+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/seed#3", "Output": "--- PASS: FuzzValidateKey/seed#3 (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941489979+08:00", "Action": "pass", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/seed#3", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.941492713+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/seed#4"}
+{"Time": "2026-10-04T04:28:47.941495077+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/seed#4", "Output": "=== RUN   FuzzValidateKey/seed#4\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941498542+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/seed#4", "Output": "--- PASS: FuzzValidateKey/seed#4 (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941501466+08:00", "Action": "pass", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/seed#4", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.941503669+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/seed#5"}
+{"Time": "2026-10-04T04:28:47.941505572+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/seed#5", "Output": "=== RUN   FuzzValidateKey/seed#5\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941508346+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/seed#5", "Output": "    boundary_test.go:154: CONTRACT[nil-success] accepted grammar returned *corelab.FieldError\n", "OutputType": "error"}
+{"Time": "2026-10-04T04:28:47.941511621+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/seed#5", "Output": "--- FAIL: FuzzValidateKey/seed#5 (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941515026+08:00", "Action": "fail", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/seed#5", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.94151736+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/seed#6"}
+{"Time": "2026-10-04T04:28:47.941520024+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/seed#6", "Output": "=== RUN   FuzzValidateKey/seed#6\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941523178+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/seed#6", "Output": "--- PASS: FuzzValidateKey/seed#6 (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941525832+08:00", "Action": "pass", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/seed#6", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.941528386+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/018a003fcb773a8c"}
+{"Time": "2026-10-04T04:28:47.941530479+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/018a003fcb773a8c", "Output": "=== RUN   FuzzValidateKey/018a003fcb773a8c\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941539562+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/018a003fcb773a8c", "Output": "--- PASS: FuzzValidateKey/018a003fcb773a8c (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941542587+08:00", "Action": "pass", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/018a003fcb773a8c", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.941545151+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/25beaf5d20f1eed9"}
+{"Time": "2026-10-04T04:28:47.941547324+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/25beaf5d20f1eed9", "Output": "=== RUN   FuzzValidateKey/25beaf5d20f1eed9\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941554655+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/25beaf5d20f1eed9", "Output": "    boundary_test.go:154: CONTRACT[nil-success] accepted grammar returned *corelab.FieldError\n", "OutputType": "error"}
+{"Time": "2026-10-04T04:28:47.941564519+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/25beaf5d20f1eed9", "Output": "--- FAIL: FuzzValidateKey/25beaf5d20f1eed9 (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941567494+08:00", "Action": "fail", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/25beaf5d20f1eed9", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.941570027+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/26e89b11780e48f8"}
+{"Time": "2026-10-04T04:28:47.94157217+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/26e89b11780e48f8", "Output": "=== RUN   FuzzValidateKey/26e89b11780e48f8\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941575325+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/26e89b11780e48f8", "Output": "--- PASS: FuzzValidateKey/26e89b11780e48f8 (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941583968+08:00", "Action": "pass", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/26e89b11780e48f8", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.941586562+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/e3ca5d3d65c8f8ef"}
+{"Time": "2026-10-04T04:28:47.941588695+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/e3ca5d3d65c8f8ef", "Output": "=== RUN   FuzzValidateKey/e3ca5d3d65c8f8ef\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941597518+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/e3ca5d3d65c8f8ef", "Output": "    boundary_test.go:154: CONTRACT[nil-success] accepted grammar returned *corelab.FieldError\n", "OutputType": "error"}
+{"Time": "2026-10-04T04:28:47.941601113+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/e3ca5d3d65c8f8ef", "Output": "--- FAIL: FuzzValidateKey/e3ca5d3d65c8f8ef (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941611839+08:00", "Action": "fail", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/e3ca5d3d65c8f8ef", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.941614863+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/fd092373507012da"}
+{"Time": "2026-10-04T04:28:47.941617157+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/fd092373507012da", "Output": "=== RUN   FuzzValidateKey/fd092373507012da\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941620642+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/fd092373507012da", "Output": "--- PASS: FuzzValidateKey/fd092373507012da (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941623426+08:00", "Action": "pass", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey/fd092373507012da", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.94162625+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey", "Output": "--- FAIL: FuzzValidateKey (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.941628994+08:00", "Action": "fail", "Package": "example.com/go-core-engineering-lab", "Test": "FuzzValidateKey", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:47.941641523+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Output": "FAIL\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.942004003+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab", "Output": "FAIL\texample.com/go-core-engineering-lab\t0.004s\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:47.942027728+08:00", "Action": "fail", "Package": "example.com/go-core-engineering-lab", "Elapsed": 0.005}
+{"Time": "2026-10-04T04:28:48.103780625+08:00", "Action": "start", "Package": "example.com/go-core-engineering-lab/cmd/demo"}
+{"Time": "2026-10-04T04:28:48.105979635+08:00", "Action": "run", "Package": "example.com/go-core-engineering-lab/cmd/demo", "Test": "TestDemoOutput"}
+{"Time": "2026-10-04T04:28:48.106013365+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab/cmd/demo", "Test": "TestDemoOutput", "Output": "=== RUN   TestDemoOutput\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:48.106026364+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab/cmd/demo", "Test": "TestDemoOutput", "Output": "--- PASS: TestDemoOutput (0.00s)\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:48.106039804+08:00", "Action": "pass", "Package": "example.com/go-core-engineering-lab/cmd/demo", "Test": "TestDemoOutput", "Elapsed": 0}
+{"Time": "2026-10-04T04:28:48.106044921+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab/cmd/demo", "Output": "PASS\n", "OutputType": "frame"}
+{"Time": "2026-10-04T04:28:48.106212363+08:00", "Action": "output", "Package": "example.com/go-core-engineering-lab/cmd/demo", "Output": "ok  \texample.com/go-core-engineering-lab/cmd/demo\t0.002s\n"}
+{"Time": "2026-10-04T04:28:48.106227165+08:00", "Action": "pass", "Package": "example.com/go-core-engineering-lab/cmd/demo", "Elapsed": 0.002}

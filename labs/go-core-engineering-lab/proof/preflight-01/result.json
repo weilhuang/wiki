@@ -1,0 +1,270 @@
+{
+  "phase": "preflight",
+  "status": "pass",
+  "executionLevel": "real-go-standard-library",
+  "sourceFiles": [
+    {
+      "path": "README.md",
+      "sha256": "1c357bba450f28bdda6cf15949548bdc07187d63663e160b541e65ce6e7ecc06"
+    },
+    {
+      "path": "boundary.go",
+      "sha256": "1865ea403aac40344cbe6e34c35ab00d387d46de39b5673a61462541dddcd235"
+    },
+    {
+      "path": "boundary_test.go",
+      "sha256": "2f73c9bf322ad231a1e6ecd6d2ef96fcc944a607b914f1eb61f26913a4cf099e"
+    },
+    {
+      "path": "cmd/demo/main.go",
+      "sha256": "c078f43c3049f70c060bb7810a86988cd31d2003348f25a63f8aec337fbefed8"
+    },
+    {
+      "path": "cmd/demo/main_test.go",
+      "sha256": "d04ba940dc613f32173cd8a0e0d10637f2d4f0e3ae97156cd87122a9dd56a84f"
+    },
+    {
+      "path": "evidence.py",
+      "sha256": "3b51facdf23a2e20fcc8bf7c53f4a7e9998c42b5f221d8645370cdd4919cbf0c"
+    },
+    {
+      "path": "evidence_test.py",
+      "sha256": "cd49f0444c05643d35cde63f55bbe318edbc5f4c2a5d1f7a8fdbed085068ce7c"
+    },
+    {
+      "path": "go.mod",
+      "sha256": "74b5fc1efa073bd54266bef32c02e130abd5d395d94e5c8c38f3220139bc442a"
+    },
+    {
+      "path": "go.sum",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "methods.go",
+      "sha256": "dae56cca2bcf0a92fa4197f49243104e758a3c4a92c018e565e7f41f63c29698"
+    },
+    {
+      "path": "snapshot.go",
+      "sha256": "e5b67af987d0c4f2c4d8091f05383797d881403129c98bbd212a0a88c75456a6"
+    },
+    {
+      "path": "snapshot_test.go",
+      "sha256": "117e17a5e65a8a1fc382008eec45176543806130cbd95b6e4cb9e1b4419a4401"
+    },
+    {
+      "path": "testdata/deterministic-seed.json",
+      "sha256": "ca63a24dd11099729107b97eb8129adca4b753b3433746324508c6bbe3a7db52"
+    },
+    {
+      "path": "testdata/fuzz/FuzzValidateKey/018a003fcb773a8c",
+      "sha256": "018a003fcb773a8c914f938f0d7cff2c9eea107045d617ab65d29e2c8ec03fd5"
+    },
+    {
+      "path": "testdata/fuzz/FuzzValidateKey/25beaf5d20f1eed9",
+      "sha256": "25beaf5d20f1eed94577e8c891765ab9e49a9db8c073f3a0c725dc1762451646"
+    },
+    {
+      "path": "testdata/fuzz/FuzzValidateKey/26e89b11780e48f8",
+      "sha256": "26e89b11780e48f88786e2eb1c2abe60173678c1eaba65e87267772f90c85cee"
+    },
+    {
+      "path": "testdata/fuzz/FuzzValidateKey/e3ca5d3d65c8f8ef",
+      "sha256": "e3ca5d3d65c8f8ef8accaa352b52021f32781fdfb696e681441127bfe8efa3cf"
+    },
+    {
+      "path": "testdata/fuzz/FuzzValidateKey/fd092373507012da",
+      "sha256": "fd092373507012da476b676ab3967d3c63322b100c9952a039f2f72de67add7d"
+    },
+    {
+      "path": "testdata/fuzz-flag-probe/flag_test.go",
+      "sha256": "30c97447009bea289e2a951c7350fd7ba0d68e56e4bc0749c0b3d143889f2a3b"
+    },
+    {
+      "path": "testdata/fuzz-flag-probe/go.mod",
+      "sha256": "fb35bc2253e491cc5906206f3b56a6ac769d6b951d51b716790dd94f74abc690"
+    },
+    {
+      "path": "testdata/fuzz-flag-probe/go.sum",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "testdata/fuzz-zero-source-chain.json",
+      "sha256": "056dc4b7fc59bc59673d434ec971a2f74b533878d4df7f36aad23f9f4403f321"
+    },
+    {
+      "path": "testdata/mutations.json",
+      "sha256": "c1e4e8f4a9b07bb4df2ea0c5c36a9f7dde6ec9216bcc4b42130aa9288ead1eaf"
+    },
+    {
+      "path": "testdata/required-checks.json",
+      "sha256": "78c4f7de32f0e1e0b04208d9a2842fcfb5a24753d00bb6fc22d24a88012369cc"
+    },
+    {
+      "path": "testdata/seed-corpus.json",
+      "sha256": "8337188804509c7b0df317a7f290b191141c158944f2ef166bed37371517b40c"
+    },
+    {
+      "path": "verify.py",
+      "sha256": "5a3aac468b58d632117e29e3031a3bef55a8a0022edc7c53d7cf1363366fc86e"
+    }
+  ],
+  "commands": [
+    {
+      "label": "version",
+      "command": [
+        "<GO>",
+        "version"
+      ],
+      "workingDirectory": "<LAB>",
+      "environment": {
+        "GOTOOLCHAIN": "local",
+        "GOMAXPROCS": "2",
+        "GOWORK": "off",
+        "GOFLAGS": "-p=1 -mod=readonly -buildvcs=false -trimpath",
+        "GOPROXY": "off",
+        "GOENV": "off",
+        "GOMEMLIMIT": "384MiB",
+        "GOPATH": "<CACHE>/gopath",
+        "GOMODCACHE": "<CACHE>/gomod",
+        "GOCACHE": "<CACHE>/gobuild"
+      },
+      "exitCode": 0,
+      "timeout": false,
+      "resourceStop": null,
+      "sampledPeakRSSBytes": 1187840,
+      "sampledPeakProcesses": 1,
+      "elapsedSeconds": 0.003,
+      "log": "version.txt",
+      "logSHA256": "f554cfdb85411c2bb1d503df3f53dfbad1f753eb8271938833166a5d26a7547c",
+      "processResult": "exit-zero"
+    },
+    {
+      "label": "environment",
+      "command": [
+        "<GO>",
+        "env",
+        "GOVERSION",
+        "GOOS",
+        "GOARCH",
+        "CGO_ENABLED"
+      ],
+      "workingDirectory": "<LAB>",
+      "environment": {
+        "GOTOOLCHAIN": "local",
+        "GOMAXPROCS": "2",
+        "GOWORK": "off",
+        "GOFLAGS": "-p=1 -mod=readonly -buildvcs=false -trimpath",
+        "GOPROXY": "off",
+        "GOENV": "off",
+        "GOMEMLIMIT": "384MiB",
+        "GOPATH": "<CACHE>/gopath",
+        "GOMODCACHE": "<CACHE>/gomod",
+        "GOCACHE": "<CACHE>/gobuild"
+      },
+      "exitCode": 0,
+      "timeout": false,
+      "resourceStop": null,
+      "sampledPeakRSSBytes": 1290240,
+      "sampledPeakProcesses": 1,
+      "elapsedSeconds": 0.002,
+      "log": "environment.txt",
+      "logSHA256": "d0ddd312b22f29ec423d387aeb93473f19dba771aa6ca697ca1d426e00091995",
+      "processResult": "exit-zero"
+    },
+    {
+      "label": "modules",
+      "command": [
+        "<GO>",
+        "list",
+        "-m",
+        "all"
+      ],
+      "workingDirectory": "<LAB>",
+      "environment": {
+        "GOTOOLCHAIN": "local",
+        "GOMAXPROCS": "2",
+        "GOWORK": "off",
+        "GOFLAGS": "-p=1 -mod=readonly -buildvcs=false -trimpath",
+        "GOPROXY": "off",
+        "GOENV": "off",
+        "GOMEMLIMIT": "384MiB",
+        "GOPATH": "<CACHE>/gopath",
+        "GOMODCACHE": "<CACHE>/gomod",
+        "GOCACHE": "<CACHE>/gobuild"
+      },
+      "exitCode": 0,
+      "timeout": false,
+      "resourceStop": null,
+      "sampledPeakRSSBytes": 1273856,
+      "sampledPeakProcesses": 1,
+      "elapsedSeconds": 0.002,
+      "log": "modules.txt",
+      "logSHA256": "f0a301bff31de31b5bef596df38cda747ff653bb81952edd0aa87ce51a9c4d4a",
+      "processResult": "exit-zero"
+    },
+    {
+      "label": "module-verify",
+      "command": [
+        "<GO>",
+        "mod",
+        "verify"
+      ],
+      "workingDirectory": "<LAB>",
+      "environment": {
+        "GOTOOLCHAIN": "local",
+        "GOMAXPROCS": "2",
+        "GOWORK": "off",
+        "GOFLAGS": "-p=1 -mod=readonly -buildvcs=false -trimpath",
+        "GOPROXY": "off",
+        "GOENV": "off",
+        "GOMEMLIMIT": "384MiB",
+        "GOPATH": "<CACHE>/gopath",
+        "GOMODCACHE": "<CACHE>/gomod",
+        "GOCACHE": "<CACHE>/gobuild"
+      },
+      "exitCode": 0,
+      "timeout": false,
+      "resourceStop": null,
+      "sampledPeakRSSBytes": 1286144,
+      "sampledPeakProcesses": 1,
+      "elapsedSeconds": 0.002,
+      "log": "module-verify.txt",
+      "logSHA256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd",
+      "processResult": "exit-zero"
+    }
+  ],
+  "cleanup": {
+    "temporaryCopiesRemoved": true,
+    "cache": "dedicated external cache retained; no server/database/container created"
+  },
+  "limits": {
+    "wallSeconds": 164,
+    "GOMAXPROCS": 2,
+    "packageParallelism": 1,
+    "GOMEMLIMIT": "384MiB (soft)",
+    "sampledRSSLimitBytes": 1073741824,
+    "sampledProcessLimit": 16,
+    "samplingSeconds": 0.25
+  },
+  "fuzzScope": "required saved-seed identities and bounded exploration checked separately; exploration order is not deterministic",
+  "requiredInventorySHA256": "78c4f7de32f0e1e0b04208d9a2842fcfb5a24753d00bb6fc22d24a88012369cc",
+  "seedCorpusReview": {
+    "accepted": true,
+    "mode": "fixed-seed-corpus-byte-review",
+    "replayIdentities": 12,
+    "uniqueCorpusBytes": 10,
+    "intentionalDuplicateContentGroups": [
+      [
+        "FuzzValidateKey/25beaf5d20f1eed9",
+        "FuzzValidateKey/seed#5"
+      ],
+      [
+        "FuzzValidateKey/26e89b11780e48f8",
+        "FuzzValidateKey/seed#6"
+      ]
+    ],
+    "note": "Replay requires each identity once. Coverage warmup deduplicates bytes and may include extra discovery-cache entries."
+  },
+  "version": "go version go1.27.1 linux/amd64",
+  "sourceUnchanged": true
+}

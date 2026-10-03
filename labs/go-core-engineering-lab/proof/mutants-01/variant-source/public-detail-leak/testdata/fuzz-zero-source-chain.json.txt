@@ -1,0 +1,107 @@
+{
+  "version": "go1.27.1",
+  "reviewType": "Static source-chain checks and explicit policy truth-table; not execution of Go parsing or a new fuzz run.",
+  "links": [
+    {
+      "id": "allow-zero-default",
+      "path": "testdata/upstream/go1.27.1/src/testing/fuzz.go",
+      "sha256": "f26c1704f1c914b29197f7e4a5099c94cb53bd8fed9ec09dd70d2c5a6ee9879c",
+      "requiredSourceFragments": [
+        "minimizeDuration = durationOrCountFlag{d: 60 * time.Second, allowZero: true}"
+      ],
+      "claim": "Default is60s; zero is permitted for this particular flag.",
+      "url": "https://github.com/golang/go/blob/go1.27.1/src/testing/fuzz.go"
+    },
+    {
+      "id": "parse-zero-clears-default",
+      "path": "testdata/upstream/go1.27.1/src/testing/benchmark.go",
+      "sha256": "ce7b0158ea5c5b0911cfb14ba50c0f1fdc631bf86ec6a5b5530d0f3aaac0ba20",
+      "requiredSourceFragments": [
+        "if strings.HasSuffix(s, \"x\") {",
+        "if err != nil || n < 0 || (!f.allowZero && n == 0) {",
+        "*f = durationOrCountFlag{n: int(n)}"
+      ],
+      "claim": "Parsing0x assigns count0 and leaves duration at the zero value, rather than restoring60s.",
+      "url": "https://github.com/golang/go/blob/go1.27.1/src/testing/benchmark.go"
+    },
+    {
+      "id": "testing-forwards-zero",
+      "path": "testdata/upstream/go1.27.1/src/testing/fuzz.go",
+      "sha256": "f26c1704f1c914b29197f7e4a5099c94cb53bd8fed9ec09dd70d2c5a6ee9879c",
+      "requiredSourceFragments": [
+        "err := f.fstate.deps.CoordinateFuzzing(",
+        "minimizeDuration.d,",
+        "int64(minimizeDuration.n),"
+      ],
+      "claim": "F.Fuzz passes the parsed zero duration/count.",
+      "url": "https://github.com/golang/go/blob/go1.27.1/src/testing/fuzz.go"
+    },
+    {
+      "id": "testdeps-forwards-zero",
+      "path": "testdata/upstream/go1.27.1/src/testing/internal/testdeps/deps.go",
+      "sha256": "2c1f01f11691b2742e0d926ae60bafc71c96b2cacd7ccdf93f54244d770dc4d4",
+      "requiredSourceFragments": [
+        "MinimizeTimeout: minimizeTimeout,",
+        "MinimizeLimit:   minimizeLimit,"
+      ],
+      "claim": "TestDeps passes both values unchanged into the coordinator options.",
+      "url": "https://github.com/golang/go/blob/go1.27.1/src/testing/internal/testdeps/deps.go"
+    },
+    {
+      "id": "coordinator-disables-zero",
+      "path": "testdata/upstream/go1.27.1/src/internal/fuzz/fuzz.go",
+      "sha256": "db5a9c6f3b26220eb9fb1c144caf012a555c6adef785cb9d185426e508d9d2aa",
+      "requiredSourceFragments": [
+        "if opts.MinimizeLimit > 0 || opts.MinimizeTimeout > 0 {",
+        "c.minimizationAllowed = true",
+        "return c.minimizationAllowed &&"
+      ],
+      "claim": "The zero-initialized permission cannot become true when both parsed values are0.",
+      "url": "https://github.com/golang/go/blob/go1.27.1/src/internal/fuzz/fuzz.go"
+    },
+    {
+      "id": "both-dispatches-gated",
+      "path": "testdata/upstream/go1.27.1/src/internal/fuzz/fuzz.go",
+      "sha256": "db5a9c6f3b26220eb9fb1c144caf012a555c6adef785cb9d185426e508d9d2aa",
+      "requiredSourceFragments": [
+        "if c.canMinimize() && result.canMinimize {",
+        "if c.canMinimize() && result.canMinimize && c.crashMinimizing == nil {"
+      ],
+      "claim": "Both failure and new-coverage minimization dispatches require canMinimize.",
+      "url": "https://github.com/golang/go/blob/go1.27.1/src/internal/fuzz/fuzz.go"
+    },
+    {
+      "id": "normal-worker-counter",
+      "path": "testdata/upstream/go1.27.1/src/internal/fuzz/worker.go",
+      "sha256": "6416ccc2b7bba6a986ca4beacde58dc2d6f4e648e0a9a1858af66b2123cd6f3a",
+      "requiredSourceFragments": [
+        "mem.header().count++",
+        "return args.Limit > 0 && mem.header().count >= args.Limit",
+        "if shouldStop() {"
+      ],
+      "claim": "Ordinary mutation calls are counted and stop-checked; this analysis does not reuse minimizer inner-loop assumptions.",
+      "url": "https://github.com/golang/go/blob/go1.27.1/src/internal/fuzz/worker.go"
+    }
+  ],
+  "cases": [
+    {
+      "name": "omitted default",
+      "durationSeconds": 60,
+      "count": 0,
+      "expectedMinimizerAllowed": true
+    },
+    {
+      "name": "32x",
+      "durationSeconds": 0,
+      "count": 32,
+      "expectedMinimizerAllowed": true
+    },
+    {
+      "name": "0x",
+      "durationSeconds": 0,
+      "count": 0,
+      "expectedMinimizerAllowed": false
+    }
+  ],
+  "zeroIsNotUnlimited": "A worker limit0 can mean unlimited only after dispatch. With both coordinator options0, dispatch is disabled before the worker minimizer can be called."
+}

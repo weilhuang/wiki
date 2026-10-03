@@ -30,14 +30,14 @@ search: false
 
 围绕函数合同、并发所有权、标准库服务和进程生命周期组织 Go 知识。先解释谁启动、谁等待、谁关闭，再讨论工具选择。
 
-[Go 工程](/knowledge/go/) · 已有 7 篇可读主题
+[Go 工程](/knowledge/go/) · 已有 10 篇可读主题
 
-- 语言核心（规划）：用具体值和控制流澄清语言约定。
+- [语言核心](/knowledge/go/language/)：从值复制与别名进入 slice/map，再用动态类型和接收者解释接口、nil 与 error 链。
 - [并发协作与设计](/knowledge/go/concurrency/)：先区分数据同步、对象交接与工作结束，再限制并发与队列。
 - [HTTP 服务与客户端](/knowledge/go/http/)：输入、响应、Body、连接和预算共同构成调用合同。
 - [运行时](/knowledge/go/runtime/)：从可观察行为进入调度、netpoll、GC 和分配实现。
 - [进程生命周期](/knowledge/go/lifecycle/)：先停止接纳，再等待已有工作，最后释放依赖。
-- 框架与工程（规划）：框架比较先说明它增加的状态和责任。
+- [框架与工程](/knowledge/go/engineering/)：用固定模块、明确测试清单与语义反例建立可复现入口，再比较框架增加的状态和责任。
 
 ## 框架与服务通信
 

@@ -1,0 +1,94 @@
+{
+  "schema": 1,
+  "sourceContract": "Go1.27.1 internal/fuzz.addCorpusEntries hashes corpus bytes; coverage warmup uses unique corpus entries. Replay still names every f.Add and saved-file identity.",
+  "expectedReplayIdentities": 12,
+  "expectedUniqueCorpusBytes": 10,
+  "expectedDuplicateGroups": [
+    [
+      "FuzzValidateKey/25beaf5d20f1eed9",
+      "FuzzValidateKey/seed#5"
+    ],
+    [
+      "FuzzValidateKey/26e89b11780e48f8",
+      "FuzzValidateKey/seed#6"
+    ]
+  ],
+  "fAddSourceIdentity": {
+    "path": "boundary_test.go",
+    "sha256": "2f73c9bf322ad231a1e6ecd6d2ef96fcc944a607b914f1eb61f26913a4cf099e"
+  },
+  "entries": [
+    {
+      "identity": "FuzzValidateKey/seed#0",
+      "origin": "f.Add",
+      "corpusText": "go test fuzz v1\nstring(\"\")\n",
+      "sha256": "5838cdfae7b16cde2707c04599b62223e7bade8dafdd8a1c53b8f881e8f79d99"
+    },
+    {
+      "identity": "FuzzValidateKey/seed#1",
+      "origin": "f.Add",
+      "corpusText": "go test fuzz v1\nstring(\"a\")\n",
+      "sha256": "ff9f899cf2252ff1f370909c46a8a82bf7cf48771ef5e4b6e777a8ee57734b87"
+    },
+    {
+      "identity": "FuzzValidateKey/seed#2",
+      "origin": "f.Add",
+      "corpusText": "go test fuzz v1\nstring(\"demo-42\")\n",
+      "sha256": "d2d44cb2df0b73b10ecc8b0fcc7a0c78e1bebec19e86c67243e8f06b616a7dda"
+    },
+    {
+      "identity": "FuzzValidateKey/seed#3",
+      "origin": "f.Add",
+      "corpusText": "go test fuzz v1\nstring(\"private/key\")\n",
+      "sha256": "c11c0f8b413da8c9b06e0fd56f5d18601dd70b83751225b48ebee635092f5b14"
+    },
+    {
+      "identity": "FuzzValidateKey/seed#4",
+      "origin": "f.Add",
+      "corpusText": "go test fuzz v1\nstring(\"演示\")\n",
+      "sha256": "8d6ac3df5db5cd4eec046a0aaeaadc0ba89a9b7d5ab5a9b628cb9cdedb6b6405"
+    },
+    {
+      "identity": "FuzzValidateKey/seed#5",
+      "origin": "f.Add",
+      "corpusText": "go test fuzz v1\nstring(\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\")\n",
+      "sha256": "25beaf5d20f1eed94577e8c891765ab9e49a9db8c073f3a0c725dc1762451646"
+    },
+    {
+      "identity": "FuzzValidateKey/seed#6",
+      "origin": "f.Add",
+      "corpusText": "go test fuzz v1\nstring(\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\")\n",
+      "sha256": "26e89b11780e48f88786e2eb1c2abe60173678c1eaba65e87267772f90c85cee"
+    },
+    {
+      "identity": "FuzzValidateKey/018a003fcb773a8c",
+      "origin": "file",
+      "path": "testdata/fuzz/FuzzValidateKey/018a003fcb773a8c",
+      "sha256": "018a003fcb773a8c914f938f0d7cff2c9eea107045d617ab65d29e2c8ec03fd5"
+    },
+    {
+      "identity": "FuzzValidateKey/25beaf5d20f1eed9",
+      "origin": "file",
+      "path": "testdata/fuzz/FuzzValidateKey/25beaf5d20f1eed9",
+      "sha256": "25beaf5d20f1eed94577e8c891765ab9e49a9db8c073f3a0c725dc1762451646"
+    },
+    {
+      "identity": "FuzzValidateKey/26e89b11780e48f8",
+      "origin": "file",
+      "path": "testdata/fuzz/FuzzValidateKey/26e89b11780e48f8",
+      "sha256": "26e89b11780e48f88786e2eb1c2abe60173678c1eaba65e87267772f90c85cee"
+    },
+    {
+      "identity": "FuzzValidateKey/e3ca5d3d65c8f8ef",
+      "origin": "file",
+      "path": "testdata/fuzz/FuzzValidateKey/e3ca5d3d65c8f8ef",
+      "sha256": "e3ca5d3d65c8f8ef8accaa352b52021f32781fdfb696e681441127bfe8efa3cf"
+    },
+    {
+      "identity": "FuzzValidateKey/fd092373507012da",
+      "origin": "file",
+      "path": "testdata/fuzz/FuzzValidateKey/fd092373507012da",
+      "sha256": "fd092373507012da476b676ab3967d3c63322b100c9952a039f2f72de67add7d"
+    }
+  ]
+}

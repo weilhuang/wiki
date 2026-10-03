@@ -1,0 +1,33 @@
+test_changed_corpus_bytes_are_rejected (__main__.AcceptanceFixtures.test_changed_corpus_bytes_are_rejected) ... ok
+test_complete_benchmark_sample (__main__.AcceptanceFixtures.test_complete_benchmark_sample) ... ok
+test_complete_suite (__main__.AcceptanceFixtures.test_complete_suite) ... ok
+test_coverage_warmup_uses_distinct_contents_not_replay_names (__main__.AcceptanceFixtures.test_coverage_warmup_uses_distinct_contents_not_replay_names) ... ok
+test_duplicate_benchmark (__main__.AcceptanceFixtures.test_duplicate_benchmark) ... ok
+test_duplicate_pass (__main__.AcceptanceFixtures.test_duplicate_pass) ... ok
+test_duplicate_run (__main__.AcceptanceFixtures.test_duplicate_run) ... ok
+test_expected_test_rejects_unclassified_non_test_go_helper (__main__.AcceptanceFixtures.test_expected_test_rejects_unclassified_non_test_go_helper) ... ok
+test_fuzz_requires_transition_and_budget (__main__.AcceptanceFixtures.test_fuzz_requires_transition_and_budget) ... ok
+test_missing_allocation_metric (__main__.AcceptanceFixtures.test_missing_allocation_metric) ... ok
+test_missing_benchmark (__main__.AcceptanceFixtures.test_missing_benchmark) ... ok
+test_missing_named_test (__main__.AcceptanceFixtures.test_missing_named_test) ... ok
+test_missing_package_completion (__main__.AcceptanceFixtures.test_missing_package_completion) ... ok
+test_missing_saved_seed (__main__.AcceptanceFixtures.test_missing_saved_seed) ... ok
+test_panic_never_counts_as_semantic_rejection (__main__.AcceptanceFixtures.test_panic_never_counts_as_semantic_rejection) ... ok
+test_parent_failure_propagation_without_direct_assertion (__main__.AcceptanceFixtures.test_parent_failure_propagation_without_direct_assertion) ... ok
+test_real_fixed_seed_bytes_have_twelve_identities_and_ten_contents (__main__.AcceptanceFixtures.test_real_fixed_seed_bytes_have_twelve_identities_and_ten_contents) ... ok
+test_renamed_or_extra_test (__main__.AcceptanceFixtures.test_renamed_or_extra_test) ... ok
+test_repeated_correct_child_marker_does_not_hide_parent_assertion (__main__.AcceptanceFixtures.test_repeated_correct_child_marker_does_not_hide_parent_assertion) ... ok
+test_seed_only_is_not_exploration (__main__.AcceptanceFixtures.test_seed_only_is_not_exploration) ... ok
+test_seed_replay_has_its_own_inventory (__main__.AcceptanceFixtures.test_seed_replay_has_its_own_inventory) ... ok
+test_semantic_marker_must_match_failed_identity (__main__.AcceptanceFixtures.test_semantic_marker_must_match_failed_identity) ... ok
+test_skip_is_not_success (__main__.AcceptanceFixtures.test_skip_is_not_success) ... ok
+test_skipped_benchmark (__main__.AcceptanceFixtures.test_skipped_benchmark) ... ok
+test_unknown_parent_marker_is_not_child_propagation (__main__.AcceptanceFixtures.test_unknown_parent_marker_is_not_child_propagation) ... ok
+test_unmarked_helper_parent_assertion_is_rejected (__main__.AcceptanceFixtures.test_unmarked_helper_parent_assertion_is_rejected) ... ok
+test_unmatched_benchmark_exit_zero_still_lacks_required_rows (__main__.AcceptanceFixtures.test_unmatched_benchmark_exit_zero_still_lacks_required_rows) ... ok
+test_wrong_iterations (__main__.AcceptanceFixtures.test_wrong_iterations) ... ok
+
+----------------------------------------------------------------------
+Ran 28 tests in 0.005s
+
+OK

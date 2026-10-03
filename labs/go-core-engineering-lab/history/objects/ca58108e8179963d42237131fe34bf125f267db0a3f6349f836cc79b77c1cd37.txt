@@ -1,0 +1,202 @@
+package corelab_test
+
+import (
+	"bytes"
+	"encoding/json"
+	"math/rand/v2"
+	"reflect"
+	"slices"
+	"sync"
+	"testing"
+
+	corelab "example.com/go-core-engineering-lab"
+)
+
+func TestAppendAliasing(t *testing.T) {
+	tests := []struct {
+		name    string
+		limited bool
+		wantOld []int
+	}{
+		{"reuse", false, []int{10, 20, 99, 40}},
+		{"full-slice-forces-growth", true, []int{10, 20, 30, 40}},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			base := []int{10, 20, 30, 40}
+			view := base[:2]
+			if tt.limited {
+				view = base[:2:2]
+			}
+			grown := append(view, 99)
+			if !slices.Equal(base, tt.wantOld) || !slices.Equal(grown, []int{10, 20, 99}) || len(view) != 2 {
+				t.Fatalf("base=%v grown=%v view=%v", base, grown, view)
+			}
+			grown[0] = 77
+			wantFirst := 77
+			if tt.limited {
+				wantFirst = 10
+			}
+			if base[0] != wantFirst || view[0] != wantFirst {
+				t.Fatalf("old aliases after grown write: base=%v view=%v", base, view)
+			}
+		})
+	}
+}
+
+func TestCopyOverlapAndNil(t *testing.T) {
+	x := []int{1, 2, 3, 4}
+	if n := copy(x[1:], x[:3]); n != 3 || !slices.Equal(x, []int{1, 1, 2, 3}) {
+		t.Fatalf("overlap result=%v", x)
+	}
+	var m map[string]int
+	if value, ok := m["missing"]; value != 0 || ok {
+		t.Fatalf("nil lookup=%d,%t", value, ok)
+	}
+	empty := map[string]int{"zero": 0}
+	if value, ok := empty["zero"]; value != 0 || !ok {
+		t.Fatalf("present zero=%d,%t", value, ok)
+	}
+	delete(m, "missing") // Safe for a nil map.
+	defer func() {
+		if recover() == nil {
+			t.Fatal("assignment to nil map must panic")
+		}
+	}()
+	m["new"] = 1 // This is a language-rule fixture, not a successful business rejection.
+}
+
+func TestCloneShape(t *testing.T) {
+	tests := []struct {
+		name  string
+		input corelab.Snapshot
+	}{
+		{"nil", corelab.Snapshot{Name: "nil"}},
+		{"allocated-empty", corelab.Snapshot{Labels: map[string]string{}, Chunks: [][]byte{}}},
+		{"nested-shapes", corelab.Snapshot{Chunks: [][]byte{nil, {}, []byte("abc")}}},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got := corelab.CloneSnapshot(tt.input)
+			if !reflect.DeepEqual(got, tt.input) {
+				t.Fatalf("CONTRACT[clone-shape] got=%#v want=%#v", got, tt.input)
+			}
+		})
+	}
+	for _, tt := range []struct {
+		input []int
+		want  string
+	}{{nil, "null"}, {[]int{}, "[]"}} {
+		got, err := json.Marshal(tt.input)
+		if err != nil || string(got) != tt.want {
+			t.Fatalf("JSON shape: got=%s err=%v want=%s", got, err, tt.want)
+		}
+	}
+}
+
+func TestCloneIsolation(t *testing.T) {
+	shared := []byte("A42")
+	src := corelab.Snapshot{Name: "demo", Labels: map[string]string{"tier": "test"}, Chunks: [][]byte{shared, shared}}
+	dst := corelab.CloneSnapshot(src)
+	src.Labels["tier"] = "changed-input"
+	shared[0] = 'X'
+	if dst.Labels["tier"] != "test" || string(dst.Chunks[0]) != "A42" || string(dst.Chunks[1]) != "A42" {
+		t.Fatalf("CONTRACT[clone-isolation] input write leaked: dst=%+v chunks=%q", dst, dst.Chunks)
+	}
+	dst.Labels["tier"] = "changed-output"
+	dst.Chunks[0][0] = 'Y'
+	if src.Labels["tier"] != "changed-input" || string(src.Chunks[0]) != "X42" || string(src.Chunks[1]) != "X42" || string(dst.Chunks[1]) != "A42" {
+		t.Fatalf("CONTRACT[clone-isolation] output write leaked: src=%q dst=%q", src.Chunks, dst.Chunks)
+	}
+}
+
+func TestStoreOwnership(t *testing.T) {
+	var store corelab.Store
+	in := corelab.Snapshot{Name: "demo", Labels: map[string]string{"tier": "test"}, Chunks: [][]byte{[]byte("A42")}}
+	store.Put(in)
+	in.Labels["tier"] = "input"
+	in.Chunks[0][0] = 'X'
+	first := store.Get()
+	first.Labels["tier"] = "output"
+	first.Chunks[0][0] = 'Y'
+	got := store.Get()
+	if got.Labels["tier"] != "test" || string(got.Chunks[0]) != "A42" {
+		t.Fatalf("CONTRACT[store-ownership] got labels=%v chunks=%q", got.Labels, got.Chunks)
+	}
+}
+
+func TestConcurrentStore(t *testing.T) {
+	var store corelab.Store
+	store.Put(corelab.Snapshot{Chunks: [][]byte{{0, 0}}})
+	var wg sync.WaitGroup
+	for worker := 0; worker < 4; worker++ {
+		wg.Add(1)
+		go func(id byte) {
+			defer wg.Done()
+			for range 32 {
+				// Input belongs only to this worker; mutation happens after Put.
+				in := corelab.Snapshot{Chunks: [][]byte{{id, id}}}
+				store.Put(in)
+				in.Chunks[0][0] = 255
+				got := store.Get()
+				if len(got.Chunks) != 1 || len(got.Chunks[0]) != 2 || got.Chunks[0][0] != got.Chunks[0][1] {
+					t.Errorf("CONTRACT[store-consistency] torn snapshot=%q", got.Chunks)
+					return
+				}
+				got.Chunks[0][0] = 254 // Every returned value must be private.
+			}
+		}(byte(worker))
+	}
+	wg.Wait()
+}
+
+func TestCloneDeterministicCorpus(t *testing.T) {
+	// This is reproducible generated testing, distinct from Go's fuzz scheduler.
+	rng := rand.New(rand.NewPCG(20261003, 17))
+	for i := 0; i < 128; i++ {
+		input := make([]byte, rng.IntN(129))
+		for j := range input {
+			input[j] = byte(rng.Uint32())
+		}
+		for name, clone := range map[string]func([]byte) []byte{"make-copy": corelab.CloneBytes, "append": corelab.CloneBytesAppend} {
+			got := clone(input)
+			if !bytes.Equal(got, input) || got == nil {
+				t.Fatalf("case=%d strategy=%s: value/shape mismatch", i, name)
+			}
+			if len(got) > 0 {
+				before := input[0]
+				got[0] ^= 255
+				if input[0] != before {
+					t.Fatalf("CONTRACT[clone-isolation] case=%d strategy=%s shares input", i, name)
+				}
+			}
+		}
+	}
+}
+
+var byteSink []byte
+
+func BenchmarkCloneBytes(b *testing.B) {
+	for _, size := range []int{64, 4096} {
+		input := bytes.Repeat([]byte{'a'}, size)
+		for _, strategy := range []struct {
+			name string
+			fn   func([]byte) []byte
+		}{{"make-copy", corelab.CloneBytes}, {"append", corelab.CloneBytesAppend}} {
+			b.Run(strategy.name+"/"+sizeName(size), func(b *testing.B) {
+				b.ReportAllocs()
+				b.SetBytes(int64(size))
+				for b.Loop() {
+					byteSink = strategy.fn(input)
+				}
+			})
+		}
+	}
+}
+
+func sizeName(n int) string {
+	if n == 64 {
+		return "64B"
+	}
+	return "4KiB"
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "mutant": "clone-alias",
+    "path": "proof/mutants-01/reconstructed-variant-source/clone-alias/snapshot.go.txt",
+    "sha256": "fea0bb9f09cbddfa87970fbedbead6255ae48ab493a2b30059328daaa491473c",
+    "originalSourceSHA256": "e5b67af987d0c4f2c4d8091f05383797d881403129c98bbd212a0a88c75456a6",
+    "sourceRecord": "Reconstructed after temporary cleanup from the bound original bytes and exact unique replacement in testdata/mutations.json. Not labeled as a captured temporary file.",
+    "matchesHashRecordedDuringRun": true
+  },
+  {
+    "mutant": "typed-nil",
+    "path": "proof/mutants-01/reconstructed-variant-source/typed-nil/boundary.go.txt",
+    "sha256": "7d69611140563674f943af0e9a80623d4e50be7c400bc9c2c804d911c970d9dc",
+    "originalSourceSHA256": "1865ea403aac40344cbe6e34c35ab00d387d46de39b5673a61462541dddcd235",
+    "sourceRecord": "Reconstructed after temporary cleanup from the bound original bytes and exact unique replacement in testdata/mutations.json. Not labeled as a captured temporary file.",
+    "matchesHashRecordedDuringRun": null
+  }
+]

@@ -1,0 +1,124 @@
+{
+  "schema": 1,
+  "purpose": "Manually reviewed required execution identities; never inferred from the test result being accepted.",
+  "package": "example.com/go-core-engineering-lab",
+  "defaultSuite": {
+    "example.com/go-core-engineering-lab": [
+      "TestValidateKey",
+      "TestLoadErrorChain",
+      "TestWriteError",
+      "TestJoinTraversal",
+      "TestMethodsAndTypedNil",
+      "TestAppendAliasing",
+      "TestCopyOverlapAndNil",
+      "TestCloneShape",
+      "TestCloneBytesStrategies",
+      "TestCloneIsolation",
+      "TestStoreOwnership",
+      "TestConcurrentStore",
+      "TestCloneDeterministicCorpus",
+      "FuzzValidateKey",
+      "TestValidateKey/one-byte",
+      "TestValidateKey/mixed",
+      "TestValidateKey/maximum",
+      "TestValidateKey/empty",
+      "TestValidateKey/too-long",
+      "TestValidateKey/numeric-prefix",
+      "TestValidateKey/uppercase",
+      "TestValidateKey/unicode",
+      "TestValidateKey/slash",
+      "TestValidateKey/trailing-dash-allowed",
+      "TestWriteError/invalid",
+      "TestWriteError/missing",
+      "TestWriteError/unknown",
+      "TestWriteError/canceled-wins",
+      "TestWriteError/deadline-wins",
+      "TestAppendAliasing/reuse",
+      "TestAppendAliasing/full-slice-forces-growth",
+      "TestCloneShape/nil",
+      "TestCloneShape/allocated-empty",
+      "TestCloneShape/nested-shapes",
+      "FuzzValidateKey/seed#0",
+      "FuzzValidateKey/seed#1",
+      "FuzzValidateKey/seed#2",
+      "FuzzValidateKey/seed#3",
+      "FuzzValidateKey/seed#4",
+      "FuzzValidateKey/seed#5",
+      "FuzzValidateKey/seed#6",
+      "FuzzValidateKey/018a003fcb773a8c",
+      "FuzzValidateKey/25beaf5d20f1eed9",
+      "FuzzValidateKey/26e89b11780e48f8",
+      "FuzzValidateKey/e3ca5d3d65c8f8ef",
+      "FuzzValidateKey/fd092373507012da"
+    ],
+    "example.com/go-core-engineering-lab/cmd/demo": [
+      "TestDemoOutput"
+    ]
+  },
+  "fuzzReplay": {
+    "example.com/go-core-engineering-lab": [
+      "FuzzValidateKey",
+      "FuzzValidateKey/seed#0",
+      "FuzzValidateKey/seed#1",
+      "FuzzValidateKey/seed#2",
+      "FuzzValidateKey/seed#3",
+      "FuzzValidateKey/seed#4",
+      "FuzzValidateKey/seed#5",
+      "FuzzValidateKey/seed#6",
+      "FuzzValidateKey/018a003fcb773a8c",
+      "FuzzValidateKey/25beaf5d20f1eed9",
+      "FuzzValidateKey/26e89b11780e48f8",
+      "FuzzValidateKey/e3ca5d3d65c8f8ef",
+      "FuzzValidateKey/fd092373507012da"
+    ]
+  },
+  "fuzzExplore": {
+    "target": "FuzzValidateKey",
+    "workers": 1,
+    "executionLimit": 256,
+    "minimumWarmupCorpusEntries": 10,
+    "replayIdentityCount": 12,
+    "seedCorpusManifest": "testdata/seed-corpus.json",
+    "autoMinimization": "disabled-by-0x",
+    "counterMeaning": "Total reported callbacks in this fuzz command, including coverage warmup; separate seed-replay identities are outside this count.",
+    "requireExactReportedTotal": 256
+  },
+  "benchmark": {
+    "names": [
+      "BenchmarkCloneBytes/make-copy/64B-2",
+      "BenchmarkCloneBytes/append/64B-2",
+      "BenchmarkCloneBytes/make-copy/4KiB-2",
+      "BenchmarkCloneBytes/append/4KiB-2"
+    ],
+    "iterations": 100,
+    "independentSamples": 3,
+    "requiredUnits": [
+      "ns/op",
+      "MB/s",
+      "B/op",
+      "allocs/op"
+    ]
+  },
+  "fuzzFlagProbe": {
+    "directory": "testdata/fuzz-flag-probe",
+    "package": "example.com/go-core-fuzz-flag-probe",
+    "test": "TestFuzzMinimizationFlagParsing",
+    "cases": [
+      {
+        "name": "default",
+        "argument": null,
+        "normalized": "1m0s"
+      },
+      {
+        "name": "count32",
+        "argument": "32x",
+        "normalized": "32x"
+      },
+      {
+        "name": "disabled",
+        "argument": "0x",
+        "normalized": "0s"
+      }
+    ]
+  }
+}

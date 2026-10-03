@@ -1,0 +1,454 @@
+{
+  "phase": "fuzz",
+  "status": "pass",
+  "executionLevel": "real-go-standard-library",
+  "sourceFiles": [
+    {
+      "path": "README.md",
+      "sha256": "1c357bba450f28bdda6cf15949548bdc07187d63663e160b541e65ce6e7ecc06"
+    },
+    {
+      "path": "boundary.go",
+      "sha256": "1865ea403aac40344cbe6e34c35ab00d387d46de39b5673a61462541dddcd235"
+    },
+    {
+      "path": "boundary_test.go",
+      "sha256": "2f73c9bf322ad231a1e6ecd6d2ef96fcc944a607b914f1eb61f26913a4cf099e"
+    },
+    {
+      "path": "cmd/demo/main.go",
+      "sha256": "c078f43c3049f70c060bb7810a86988cd31d2003348f25a63f8aec337fbefed8"
+    },
+    {
+      "path": "cmd/demo/main_test.go",
+      "sha256": "d04ba940dc613f32173cd8a0e0d10637f2d4f0e3ae97156cd87122a9dd56a84f"
+    },
+    {
+      "path": "evidence.py",
+      "sha256": "3b51facdf23a2e20fcc8bf7c53f4a7e9998c42b5f221d8645370cdd4919cbf0c"
+    },
+    {
+      "path": "evidence_test.py",
+      "sha256": "cd49f0444c05643d35cde63f55bbe318edbc5f4c2a5d1f7a8fdbed085068ce7c"
+    },
+    {
+      "path": "go.mod",
+      "sha256": "74b5fc1efa073bd54266bef32c02e130abd5d395d94e5c8c38f3220139bc442a"
+    },
+    {
+      "path": "go.sum",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "methods.go",
+      "sha256": "dae56cca2bcf0a92fa4197f49243104e758a3c4a92c018e565e7f41f63c29698"
+    },
+    {
+      "path": "snapshot.go",
+      "sha256": "e5b67af987d0c4f2c4d8091f05383797d881403129c98bbd212a0a88c75456a6"
+    },
+    {
+      "path": "snapshot_test.go",
+      "sha256": "117e17a5e65a8a1fc382008eec45176543806130cbd95b6e4cb9e1b4419a4401"
+    },
+    {
+      "path": "testdata/deterministic-seed.json",
+      "sha256": "ca63a24dd11099729107b97eb8129adca4b753b3433746324508c6bbe3a7db52"
+    },
+    {
+      "path": "testdata/fuzz/FuzzValidateKey/018a003fcb773a8c",
+      "sha256": "018a003fcb773a8c914f938f0d7cff2c9eea107045d617ab65d29e2c8ec03fd5"
+    },
+    {
+      "path": "testdata/fuzz/FuzzValidateKey/25beaf5d20f1eed9",
+      "sha256": "25beaf5d20f1eed94577e8c891765ab9e49a9db8c073f3a0c725dc1762451646"
+    },
+    {
+      "path": "testdata/fuzz/FuzzValidateKey/26e89b11780e48f8",
+      "sha256": "26e89b11780e48f88786e2eb1c2abe60173678c1eaba65e87267772f90c85cee"
+    },
+    {
+      "path": "testdata/fuzz/FuzzValidateKey/e3ca5d3d65c8f8ef",
+      "sha256": "e3ca5d3d65c8f8ef8accaa352b52021f32781fdfb696e681441127bfe8efa3cf"
+    },
+    {
+      "path": "testdata/fuzz/FuzzValidateKey/fd092373507012da",
+      "sha256": "fd092373507012da476b676ab3967d3c63322b100c9952a039f2f72de67add7d"
+    },
+    {
+      "path": "testdata/fuzz-flag-probe/flag_test.go",
+      "sha256": "30c97447009bea289e2a951c7350fd7ba0d68e56e4bc0749c0b3d143889f2a3b"
+    },
+    {
+      "path": "testdata/fuzz-flag-probe/go.mod",
+      "sha256": "fb35bc2253e491cc5906206f3b56a6ac769d6b951d51b716790dd94f74abc690"
+    },
+    {
+      "path": "testdata/fuzz-flag-probe/go.sum",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "testdata/fuzz-zero-source-chain.json",
+      "sha256": "056dc4b7fc59bc59673d434ec971a2f74b533878d4df7f36aad23f9f4403f321"
+    },
+    {
+      "path": "testdata/mutations.json",
+      "sha256": "c1e4e8f4a9b07bb4df2ea0c5c36a9f7dde6ec9216bcc4b42130aa9288ead1eaf"
+    },
+    {
+      "path": "testdata/required-checks.json",
+      "sha256": "78c4f7de32f0e1e0b04208d9a2842fcfb5a24753d00bb6fc22d24a88012369cc"
+    },
+    {
+      "path": "testdata/seed-corpus.json",
+      "sha256": "8337188804509c7b0df317a7f290b191141c158944f2ef166bed37371517b40c"
+    },
+    {
+      "path": "verify.py",
+      "sha256": "5a3aac468b58d632117e29e3031a3bef55a8a0022edc7c53d7cf1363366fc86e"
+    }
+  ],
+  "commands": [
+    {
+      "label": "version",
+      "command": [
+        "<GO>",
+        "version"
+      ],
+      "workingDirectory": "<LAB>",
+      "environment": {
+        "GOTOOLCHAIN": "local",
+        "GOMAXPROCS": "2",
+        "GOWORK": "off",
+        "GOFLAGS": "-p=1 -mod=readonly -buildvcs=false -trimpath",
+        "GOPROXY": "off",
+        "GOENV": "off",
+        "GOMEMLIMIT": "384MiB",
+        "GOPATH": "<CACHE>/gopath",
+        "GOMODCACHE": "<CACHE>/gomod",
+        "GOCACHE": "<CACHE>/gobuild"
+      },
+      "exitCode": 0,
+      "timeout": false,
+      "resourceStop": null,
+      "sampledPeakRSSBytes": 1048576,
+      "sampledPeakProcesses": 1,
+      "elapsedSeconds": 0.003,
+      "log": "version.txt",
+      "logSHA256": "f554cfdb85411c2bb1d503df3f53dfbad1f753eb8271938833166a5d26a7547c",
+      "processResult": "exit-zero"
+    },
+    {
+      "label": "fuzz-flag-default",
+      "command": [
+        "<GO>",
+        "test",
+        "-json",
+        "-run=^TestFuzzMinimizationFlagParsing$",
+        "-count=1",
+        "-timeout=10s",
+        ".",
+        "-args",
+        "-want-minimize=1m0s"
+      ],
+      "workingDirectory": "<LAB>/testdata/fuzz-flag-probe",
+      "environment": {
+        "GOTOOLCHAIN": "local",
+        "GOMAXPROCS": "2",
+        "GOWORK": "off",
+        "GOFLAGS": "-p=1 -mod=readonly -buildvcs=false -trimpath",
+        "GOPROXY": "off",
+        "GOENV": "off",
+        "GOMEMLIMIT": "384MiB",
+        "GOPATH": "<CACHE>/gopath",
+        "GOMODCACHE": "<CACHE>/gomod",
+        "GOCACHE": "<CACHE>/gobuild"
+      },
+      "exitCode": 0,
+      "timeout": false,
+      "resourceStop": null,
+      "sampledPeakRSSBytes": 1114112,
+      "sampledPeakProcesses": 1,
+      "elapsedSeconds": 0.147,
+      "log": "fuzz-flag-default.txt",
+      "logSHA256": "981dfe144987cec7d5082e65b8613a7da4b9742d9f8dd8766a58f5627b2eeffc",
+      "processResult": "exit-zero",
+      "acceptance": {
+        "accepted": true,
+        "mode": "actual-testing-flag-parser-probe",
+        "case": "default",
+        "normalized": "1m0s",
+        "notClaimed": "This probe alone does not execute a minimizer; dispatch is established by the pinned source chain and the separately recorded fuzz command."
+      }
+    },
+    {
+      "label": "fuzz-flag-count32",
+      "command": [
+        "<GO>",
+        "test",
+        "-json",
+        "-run=^TestFuzzMinimizationFlagParsing$",
+        "-count=1",
+        "-timeout=10s",
+        ".",
+        "-args",
+        "-want-minimize=32x",
+        "-test.fuzzminimizetime=32x"
+      ],
+      "workingDirectory": "<LAB>/testdata/fuzz-flag-probe",
+      "environment": {
+        "GOTOOLCHAIN": "local",
+        "GOMAXPROCS": "2",
+        "GOWORK": "off",
+        "GOFLAGS": "-p=1 -mod=readonly -buildvcs=false -trimpath",
+        "GOPROXY": "off",
+        "GOENV": "off",
+        "GOMEMLIMIT": "384MiB",
+        "GOPATH": "<CACHE>/gopath",
+        "GOMODCACHE": "<CACHE>/gomod",
+        "GOCACHE": "<CACHE>/gobuild"
+      },
+      "exitCode": 0,
+      "timeout": false,
+      "resourceStop": null,
+      "sampledPeakRSSBytes": 655360,
+      "sampledPeakProcesses": 1,
+      "elapsedSeconds": 0.16,
+      "log": "fuzz-flag-count32.txt",
+      "logSHA256": "f6f960c127aad6c33862390694f7b9f3cdcc0ca8f0ac7e2dc85eaf62199b8f97",
+      "processResult": "exit-zero",
+      "acceptance": {
+        "accepted": true,
+        "mode": "actual-testing-flag-parser-probe",
+        "case": "count32",
+        "normalized": "32x",
+        "notClaimed": "This probe alone does not execute a minimizer; dispatch is established by the pinned source chain and the separately recorded fuzz command."
+      }
+    },
+    {
+      "label": "fuzz-flag-disabled",
+      "command": [
+        "<GO>",
+        "test",
+        "-json",
+        "-run=^TestFuzzMinimizationFlagParsing$",
+        "-count=1",
+        "-timeout=10s",
+        ".",
+        "-args",
+        "-want-minimize=0s",
+        "-test.fuzzminimizetime=0x"
+      ],
+      "workingDirectory": "<LAB>/testdata/fuzz-flag-probe",
+      "environment": {
+        "GOTOOLCHAIN": "local",
+        "GOMAXPROCS": "2",
+        "GOWORK": "off",
+        "GOFLAGS": "-p=1 -mod=readonly -buildvcs=false -trimpath",
+        "GOPROXY": "off",
+        "GOENV": "off",
+        "GOMEMLIMIT": "384MiB",
+        "GOPATH": "<CACHE>/gopath",
+        "GOMODCACHE": "<CACHE>/gomod",
+        "GOCACHE": "<CACHE>/gobuild"
+      },
+      "exitCode": 0,
+      "timeout": false,
+      "resourceStop": null,
+      "sampledPeakRSSBytes": 1253376,
+      "sampledPeakProcesses": 1,
+      "elapsedSeconds": 0.146,
+      "log": "fuzz-flag-disabled.txt",
+      "logSHA256": "35ac14e4a803e666528c5aba54def4c6736428d4f3ab35a366f62cc97904e7d6",
+      "processResult": "exit-zero",
+      "acceptance": {
+        "accepted": true,
+        "mode": "actual-testing-flag-parser-probe",
+        "case": "disabled",
+        "normalized": "0s",
+        "notClaimed": "This probe alone does not execute a minimizer; dispatch is established by the pinned source chain and the separately recorded fuzz command."
+      }
+    },
+    {
+      "label": "seed-replay",
+      "command": [
+        "<GO>",
+        "test",
+        "-json",
+        "-run=^FuzzValidateKey$",
+        "-count=1",
+        "-timeout=30s",
+        "."
+      ],
+      "workingDirectory": "<LAB>",
+      "environment": {
+        "GOTOOLCHAIN": "local",
+        "GOMAXPROCS": "2",
+        "GOWORK": "off",
+        "GOFLAGS": "-p=1 -mod=readonly -buildvcs=false -trimpath",
+        "GOPROXY": "off",
+        "GOENV": "off",
+        "GOMEMLIMIT": "384MiB",
+        "GOPATH": "<CACHE>/gopath",
+        "GOMODCACHE": "<CACHE>/gomod",
+        "GOCACHE": "<CACHE>/gobuild"
+      },
+      "exitCode": 0,
+      "timeout": false,
+      "resourceStop": null,
+      "sampledPeakRSSBytes": 31199232,
+      "sampledPeakProcesses": 1,
+      "elapsedSeconds": 0.291,
+      "log": "seed-replay.txt",
+      "logSHA256": "fc4a63c1a62c9c2b49829b92022e479cd5cd6e9b7e9b12e8ee648ee65e01d752",
+      "processResult": "exit-zero",
+      "acceptance": {
+        "accepted": true,
+        "mode": "saved-seed-replay",
+        "requiredIdentities": [
+          "example.com/go-core-engineering-lab::FuzzValidateKey",
+          "example.com/go-core-engineering-lab::FuzzValidateKey/018a003fcb773a8c",
+          "example.com/go-core-engineering-lab::FuzzValidateKey/25beaf5d20f1eed9",
+          "example.com/go-core-engineering-lab::FuzzValidateKey/26e89b11780e48f8",
+          "example.com/go-core-engineering-lab::FuzzValidateKey/e3ca5d3d65c8f8ef",
+          "example.com/go-core-engineering-lab::FuzzValidateKey/fd092373507012da",
+          "example.com/go-core-engineering-lab::FuzzValidateKey/seed#0",
+          "example.com/go-core-engineering-lab::FuzzValidateKey/seed#1",
+          "example.com/go-core-engineering-lab::FuzzValidateKey/seed#2",
+          "example.com/go-core-engineering-lab::FuzzValidateKey/seed#3",
+          "example.com/go-core-engineering-lab::FuzzValidateKey/seed#4",
+          "example.com/go-core-engineering-lab::FuzzValidateKey/seed#5",
+          "example.com/go-core-engineering-lab::FuzzValidateKey/seed#6"
+        ],
+        "skipped": [],
+        "duplicates": []
+      }
+    },
+    {
+      "label": "fuzz",
+      "command": [
+        "<GO>",
+        "test",
+        "-json",
+        "-run=^$",
+        "-fuzz=^FuzzValidateKey$",
+        "-fuzztime=256x",
+        "-fuzzminimizetime=0x",
+        "-parallel=1",
+        "-timeout=60s",
+        "."
+      ],
+      "workingDirectory": "<LAB>",
+      "environment": {
+        "GOTOOLCHAIN": "local",
+        "GOMAXPROCS": "2",
+        "GOWORK": "off",
+        "GOFLAGS": "-p=1 -mod=readonly -buildvcs=false -trimpath",
+        "GOPROXY": "off",
+        "GOENV": "off",
+        "GOMEMLIMIT": "384MiB",
+        "GOPATH": "<CACHE>/gopath",
+        "GOMODCACHE": "<CACHE>/gomod",
+        "GOCACHE": "<CACHE>/gobuild"
+      },
+      "exitCode": 0,
+      "timeout": false,
+      "resourceStop": null,
+      "sampledPeakRSSBytes": 29392896,
+      "sampledPeakProcesses": 1,
+      "elapsedSeconds": 0.389,
+      "log": "fuzz.txt",
+      "logSHA256": "2d496917dcf28116a38472c397959709139df695ccc91956cb298aa7b7e811ff",
+      "processResult": "exit-zero",
+      "acceptance": {
+        "accepted": true,
+        "mode": "bounded-exploration",
+        "savedSeedReplayRequiredSeparately": true,
+        "baselineInputs": 21,
+        "workers": 1,
+        "finalExecutions": 256,
+        "note": "Progress snapshots may repeat. Named run/pass identities may not. Exploration order is not fixed."
+      }
+    }
+  ],
+  "cleanup": {
+    "temporaryCopiesRemoved": true,
+    "cache": "dedicated external cache retained; no server/database/container created"
+  },
+  "limits": {
+    "wallSeconds": 157,
+    "GOMAXPROCS": 2,
+    "packageParallelism": 1,
+    "GOMEMLIMIT": "384MiB (soft)",
+    "sampledRSSLimitBytes": 1073741824,
+    "sampledProcessLimit": 16,
+    "samplingSeconds": 0.25
+  },
+  "fuzzScope": "required saved-seed identities and bounded exploration checked separately; exploration order is not deterministic",
+  "requiredInventorySHA256": "78c4f7de32f0e1e0b04208d9a2842fcfb5a24753d00bb6fc22d24a88012369cc",
+  "seedCorpusReview": {
+    "accepted": true,
+    "mode": "fixed-seed-corpus-byte-review",
+    "replayIdentities": 12,
+    "uniqueCorpusBytes": 10,
+    "intentionalDuplicateContentGroups": [
+      [
+        "FuzzValidateKey/25beaf5d20f1eed9",
+        "FuzzValidateKey/seed#5"
+      ],
+      [
+        "FuzzValidateKey/26e89b11780e48f8",
+        "FuzzValidateKey/seed#6"
+      ]
+    ],
+    "note": "Replay requires each identity once. Coverage warmup deduplicates bytes and may include extra discovery-cache entries."
+  },
+  "version": "go version go1.27.1 linux/amd64",
+  "discoveryCorpus": [
+    {
+      "path": "discovery-corpus/02d10cf434fc0914",
+      "sha256": "02d10cf434fc0914fc40d30407b56519a2b5c5e2ca7790229d7675f7012f2ecc"
+    },
+    {
+      "path": "discovery-corpus/0ab30894c7ea2ee8",
+      "sha256": "0ab30894c7ea2ee8f749607ad980a9e89bcd7817dd7779633e892733269d5d69"
+    },
+    {
+      "path": "discovery-corpus/79a53ecb9e802641",
+      "sha256": "79a53ecb9e8026413c36bb07112dfb331075b2c1e9c0f293043d2c72391bb9f5"
+    },
+    {
+      "path": "discovery-corpus/975bc32a0c5103b0",
+      "sha256": "975bc32a0c5103b02545e061986f6e0c224270037e4fc9e98a39ccb9306976a1"
+    },
+    {
+      "path": "discovery-corpus/9fe2f0a3f0799e8f",
+      "sha256": "9fe2f0a3f0799e8fa7e51c5c6a64575c49a804b38028e4b72f81fe6aea67b257"
+    },
+    {
+      "path": "discovery-corpus/a5341e16712613ca",
+      "sha256": "a5341e16712613cae7714a7d99e31f110c0a1713c058bbfea781d9835ade6896"
+    },
+    {
+      "path": "discovery-corpus/bca5a2a110277987",
+      "sha256": "bca5a2a110277987a8321141cf26e321de8e849d9ef60593496feed46c903599"
+    },
+    {
+      "path": "discovery-corpus/da9bf8e50c8de29d",
+      "sha256": "da9bf8e50c8de29df82016eeb81d9cfde1096e0639b2bf43b24bb78426a4ac05"
+    },
+    {
+      "path": "discovery-corpus/f7d774048ada30d0",
+      "sha256": "f7d774048ada30d0b90795b843471413d1506dcbc74c4de673e8c919dc6de85b"
+    },
+    {
+      "path": "discovery-corpus/f9aa00e9260fb543",
+      "sha256": "f9aa00e9260fb543254bfb527fe35861a0e72ddbb709ab992bc780b1af011540"
+    },
+    {
+      "path": "discovery-corpus/fad42edb60c8f96c",
+      "sha256": "fad42edb60c8f96cfb81305fd7363a74e5c53ad474eaef4944f0a6670d8935d9"
+    }
+  ],
+  "sourceUnchanged": true
+}

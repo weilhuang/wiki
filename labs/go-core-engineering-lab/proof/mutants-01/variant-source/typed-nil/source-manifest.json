@@ -1,0 +1,136 @@
+{
+  "mutant": "typed-nil",
+  "capture": "before Go execution and before acceptance classification",
+  "files": [
+    {
+      "originalPath": "README.md",
+      "capturedPath": "variant-source/typed-nil/README.md.txt",
+      "sha256": "1c357bba450f28bdda6cf15949548bdc07187d63663e160b541e65ce6e7ecc06"
+    },
+    {
+      "originalPath": "boundary.go",
+      "capturedPath": "variant-source/typed-nil/boundary.go.txt",
+      "sha256": "7d69611140563674f943af0e9a80623d4e50be7c400bc9c2c804d911c970d9dc"
+    },
+    {
+      "originalPath": "boundary_test.go",
+      "capturedPath": "variant-source/typed-nil/boundary_test.go.txt",
+      "sha256": "2f73c9bf322ad231a1e6ecd6d2ef96fcc944a607b914f1eb61f26913a4cf099e"
+    },
+    {
+      "originalPath": "cmd/demo/main.go",
+      "capturedPath": "variant-source/typed-nil/cmd/demo/main.go.txt",
+      "sha256": "c078f43c3049f70c060bb7810a86988cd31d2003348f25a63f8aec337fbefed8"
+    },
+    {
+      "originalPath": "cmd/demo/main_test.go",
+      "capturedPath": "variant-source/typed-nil/cmd/demo/main_test.go.txt",
+      "sha256": "d04ba940dc613f32173cd8a0e0d10637f2d4f0e3ae97156cd87122a9dd56a84f"
+    },
+    {
+      "originalPath": "evidence.py",
+      "capturedPath": "variant-source/typed-nil/evidence.py.txt",
+      "sha256": "3b51facdf23a2e20fcc8bf7c53f4a7e9998c42b5f221d8645370cdd4919cbf0c"
+    },
+    {
+      "originalPath": "evidence_test.py",
+      "capturedPath": "variant-source/typed-nil/evidence_test.py.txt",
+      "sha256": "cd49f0444c05643d35cde63f55bbe318edbc5f4c2a5d1f7a8fdbed085068ce7c"
+    },
+    {
+      "originalPath": "go.mod",
+      "capturedPath": "variant-source/typed-nil/go.mod.txt",
+      "sha256": "74b5fc1efa073bd54266bef32c02e130abd5d395d94e5c8c38f3220139bc442a"
+    },
+    {
+      "originalPath": "go.sum",
+      "capturedPath": "variant-source/typed-nil/go.sum.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "originalPath": "methods.go",
+      "capturedPath": "variant-source/typed-nil/methods.go.txt",
+      "sha256": "dae56cca2bcf0a92fa4197f49243104e758a3c4a92c018e565e7f41f63c29698"
+    },
+    {
+      "originalPath": "snapshot.go",
+      "capturedPath": "variant-source/typed-nil/snapshot.go.txt",
+      "sha256": "e5b67af987d0c4f2c4d8091f05383797d881403129c98bbd212a0a88c75456a6"
+    },
+    {
+      "originalPath": "snapshot_test.go",
+      "capturedPath": "variant-source/typed-nil/snapshot_test.go.txt",
+      "sha256": "117e17a5e65a8a1fc382008eec45176543806130cbd95b6e4cb9e1b4419a4401"
+    },
+    {
+      "originalPath": "testdata/deterministic-seed.json",
+      "capturedPath": "variant-source/typed-nil/testdata/deterministic-seed.json.txt",
+      "sha256": "ca63a24dd11099729107b97eb8129adca4b753b3433746324508c6bbe3a7db52"
+    },
+    {
+      "originalPath": "testdata/fuzz/FuzzValidateKey/018a003fcb773a8c",
+      "capturedPath": "variant-source/typed-nil/testdata/fuzz/FuzzValidateKey/018a003fcb773a8c.txt",
+      "sha256": "018a003fcb773a8c914f938f0d7cff2c9eea107045d617ab65d29e2c8ec03fd5"
+    },
+    {
+      "originalPath": "testdata/fuzz/FuzzValidateKey/25beaf5d20f1eed9",
+      "capturedPath": "variant-source/typed-nil/testdata/fuzz/FuzzValidateKey/25beaf5d20f1eed9.txt",
+      "sha256": "25beaf5d20f1eed94577e8c891765ab9e49a9db8c073f3a0c725dc1762451646"
+    },
+    {
+      "originalPath": "testdata/fuzz/FuzzValidateKey/26e89b11780e48f8",
+      "capturedPath": "variant-source/typed-nil/testdata/fuzz/FuzzValidateKey/26e89b11780e48f8.txt",
+      "sha256": "26e89b11780e48f88786e2eb1c2abe60173678c1eaba65e87267772f90c85cee"
+    },
+    {
+      "originalPath": "testdata/fuzz/FuzzValidateKey/e3ca5d3d65c8f8ef",
+      "capturedPath": "variant-source/typed-nil/testdata/fuzz/FuzzValidateKey/e3ca5d3d65c8f8ef.txt",
+      "sha256": "e3ca5d3d65c8f8ef8accaa352b52021f32781fdfb696e681441127bfe8efa3cf"
+    },
+    {
+      "originalPath": "testdata/fuzz/FuzzValidateKey/fd092373507012da",
+      "capturedPath": "variant-source/typed-nil/testdata/fuzz/FuzzValidateKey/fd092373507012da.txt",
+      "sha256": "fd092373507012da476b676ab3967d3c63322b100c9952a039f2f72de67add7d"
+    },
+    {
+      "originalPath": "testdata/fuzz-flag-probe/flag_test.go",
+      "capturedPath": "variant-source/typed-nil/testdata/fuzz-flag-probe/flag_test.go.txt",
+      "sha256": "30c97447009bea289e2a951c7350fd7ba0d68e56e4bc0749c0b3d143889f2a3b"
+    },
+    {
+      "originalPath": "testdata/fuzz-flag-probe/go.mod",
+      "capturedPath": "variant-source/typed-nil/testdata/fuzz-flag-probe/go.mod.txt",
+      "sha256": "fb35bc2253e491cc5906206f3b56a6ac769d6b951d51b716790dd94f74abc690"
+    },
+    {
+      "originalPath": "testdata/fuzz-flag-probe/go.sum",
+      "capturedPath": "variant-source/typed-nil/testdata/fuzz-flag-probe/go.sum.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "originalPath": "testdata/fuzz-zero-source-chain.json",
+      "capturedPath": "variant-source/typed-nil/testdata/fuzz-zero-source-chain.json.txt",
+      "sha256": "056dc4b7fc59bc59673d434ec971a2f74b533878d4df7f36aad23f9f4403f321"
+    },
+    {
+      "originalPath": "testdata/mutations.json",
+      "capturedPath": "variant-source/typed-nil/testdata/mutations.json.txt",
+      "sha256": "c1e4e8f4a9b07bb4df2ea0c5c36a9f7dde6ec9216bcc4b42130aa9288ead1eaf"
+    },
+    {
+      "originalPath": "testdata/required-checks.json",
+      "capturedPath": "variant-source/typed-nil/testdata/required-checks.json.txt",
+      "sha256": "78c4f7de32f0e1e0b04208d9a2842fcfb5a24753d00bb6fc22d24a88012369cc"
+    },
+    {
+      "originalPath": "testdata/seed-corpus.json",
+      "capturedPath": "variant-source/typed-nil/testdata/seed-corpus.json.txt",
+      "sha256": "8337188804509c7b0df317a7f290b191141c158944f2ef166bed37371517b40c"
+    },
+    {
+      "originalPath": "verify.py",
+      "capturedPath": "variant-source/typed-nil/verify.py.txt",
+      "sha256": "5a3aac468b58d632117e29e3031a3bef55a8a0022edc7c53d7cf1363366fc86e"
+    }
+  ]
+}

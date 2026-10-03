@@ -1,0 +1,17 @@
+func BenchmarkCloneBytes(b *testing.B) {
+	for _, size := range []int{64, 4096} {
+		input := bytes.Repeat([]byte{'a'}, size)
+		for _, strategy := range []struct {
+			name string
+			fn   func([]byte) []byte
+		}{{"make-copy", corelab.CloneBytes}, {"append", corelab.CloneBytesAppend}} {
+			b.Run(strategy.name+"/"+sizeName(size), func(b *testing.B) {
+				b.ReportAllocs()
+				b.SetBytes(int64(size))
+				for b.Loop() {
+					byteSink = strategy.fn(input)
+				}
+			})
+		}
+	}
+}

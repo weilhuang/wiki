@@ -1,0 +1,68 @@
+// Package corelab is an in-memory teaching fixture, not a service or controller.
+package corelab
+
+import "sync"
+
+// Snapshot owns its mutable members only when created with CloneSnapshot.
+// The contract preserves nil versus allocated-empty containers.
+type Snapshot struct {
+	Name   string
+	Labels map[string]string
+	Chunks [][]byte
+}
+
+// CloneBytes preserves nilness and never shares mutable elements with src.
+func CloneBytes(src []byte) []byte {
+	if src == nil {
+		return nil
+	}
+	return src
+}
+
+// CloneSnapshot copies every mutable level in this particular data structure.
+// It does not preserve internal alias topology; equal chunks become independent.
+func CloneSnapshot(src Snapshot) Snapshot {
+	dst := Snapshot{Name: src.Name}
+	if src.Labels != nil {
+		dst.Labels = make(map[string]string, len(src.Labels))
+		for k, v := range src.Labels {
+			dst.Labels[k] = v
+		}
+	}
+	if src.Chunks != nil {
+		dst.Chunks = make([][]byte, len(src.Chunks))
+		for i, chunk := range src.Chunks {
+			dst.Chunks[i] = CloneBytes(chunk)
+		}
+	}
+	return dst
+}
+
+// CloneBytesAppend has the same value/nilness/isolation contract as CloneBytes.
+// Capacity is deliberately outside that contract.
+func CloneBytesAppend(src []byte) []byte {
+	if src == nil {
+		return nil
+	}
+	return append([]byte{}, src...)
+}
+
+// Store must not be copied after first use. Its zero value is ready for use.
+// Callers must not concurrently mutate a Put input while Put is copying it.
+type Store struct {
+	mu    sync.RWMutex
+	value Snapshot
+}
+
+func (s *Store) Put(value Snapshot) {
+	owned := CloneSnapshot(value)
+	s.mu.Lock()
+	s.value = owned
+	s.mu.Unlock()
+}
+
+func (s *Store) Get() Snapshot {
+	s.mu.RLock()
+	defer s.mu.RUnlock()
+	return CloneSnapshot(s.value)
+}

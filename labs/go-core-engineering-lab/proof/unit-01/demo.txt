@@ -1,0 +1,2 @@
+input=X42 snapshot=A42
+invalid=true field=true status=400 code=invalid_argument
