@@ -14,7 +14,7 @@ HTTP 错误体精确为 {"error":{"code":"CODE"}}；媒体类型固定 applicati
 
 HTTP 库存不足/操作冲突为409，not_found为404，context.Canceled为499 canceled，deadline为504 deadline_exceeded，commit结果未知为503 outcome_unknown，其余仓储错误为500 internal。499只在响应通道尚可写时可观察；客户端主动断开不保证收到任何正文。
 
-gRPC Reserve/Get/ List 是 proto3。Reserve/Get 成功返回相同业务 payload；服务端生成的应用错误 status.message 固定公开码，details恰好一个 reservation.v1.PublicError(code=公开码)。映射分别为 Unauthenticated、PermissionDenied、InvalidArgument、NotFound、AlreadyExists(operation_conflict)、FailedPrecondition(out_of_stock)、Canceled、DeadlineExceeded、Unavailable(outcome_unknown)、Internal。失败 detail 不含底层错误。客户端先行超时/取消可能由gRPC本地生成状态：本实验精确检查 DeadlineExceeded/"context deadline exceeded" 或 Canceled/"context canceled"，details为空；不能要求已经断开的响应送达服务端detail。List 输入 limit 1..32；按 operation_id ASCII升序返回本主体快照，含 confirmed/rejected，有限条数、不分页、不持续订阅。服务端请求默认上限2秒，客户端更早deadline保留；流只有一个发送循环，无无界生产goroutine；Send错误立即返回。loopback TCP 明文只证明本实验的传输合同。
+gRPC Reserve/Get/ List 是 proto3。Reserve/Get 成功返回相同业务 payload；服务端生成的应用错误 status.message 固定公开码，details恰好一个 reservation.v1.PublicError(code=公开码)。映射分别为 Unauthenticated、PermissionDenied、InvalidArgument、NotFound、AlreadyExists(operation_conflict)、FailedPrecondition(out_of_stock)、Canceled、DeadlineExceeded、Unavailable(outcome_unknown)、Internal。失败 detail 不含底层错误。客户端先行超时/取消可能由gRPC本地生成状态：本实验精确检查 DeadlineExceeded/"context deadline exceeded" 或 Canceled/"context canceled"，details为空；不能要求已经断开的响应送达服务端detail。List 输入 limit 1..32；按 operation_id ASCII升序返回本主体快照，含 confirmed/rejected，有限条数、不分页、不持续订阅。服务端为应用查询派生2秒预算，客户端更早deadline保留；List的派生context覆盖查询及发送前检查，但已阻塞的stream.Send仍受原RPC context或Stop控制，不能称为独立的端到端2秒硬上限。流只有一个发送循环，无无界生产goroutine；Send错误立即返回。loopback TCP 明文只证明本实验的传输合同。
 
 ## 持久化不变量
 
@@ -31,6 +31,8 @@ gRPC Reserve/Get/ List 是 proto3。Reserve/Get 成功返回相同业务 payload
 
 HTTP/Gin与gRPC各自解读协议→同一个domain.Service→Repository接口→SQLStore/GORMStore→真实MySQL。公开DTO与数据库行类型分离。本例没有删除商品的入口，故operations.sku未加外键；若同时保留claim先行顺序与外键，两个事务可能各持商品共享外键锁再升级写锁，形成死锁。增加商品删除/API或外键时必须重审锁顺序与整笔事务重试，不能照搬本例。回调Hooks仅为测试可控交错/错误注入，默认进程永不配置故障；日志只写公开错误码。
 
-HTTP与gRPC监听由同一进程拥有；健康/live 仅表示进程活着，/ready 在开始关闭后为503并检查短预算Ping。SIGTERM先撤ready、停止接纳，再在SHUTDOWN_GRACE窗口内等待已接纳调用（默认5秒，合法配置50ms..30s）；到期强制关闭并非零退出。自有goroutine显式等待，池最后Close。
+HTTP与gRPC监听由同一进程拥有；健康/live 仅表示进程活着，/ready 在开始关闭后为503并检查短预算Ping。SIGTERM先撤ready、停止接纳，再在SHUTDOWN_GRACE窗口内等待已接纳调用（默认5秒，合法配置50ms..30s）；到期强制关闭并非零退出。Runtime显式等待两个Serve循环及HTTP/gRPC关闭调用，池最后Close。HTTP Close不承诺全部活动handler已返回；P04通过实际子进程Wait证明该进程已经退出，不能以此宣称MySQL服务端线程同时消失。
 
 验证边界：真实TCP HTTP/gRPC + MySQL语义；可控Send错误单独标为协议适配单元测试。ACK丢失测试仅切断一次COMMIT响应，独立观察已提交结果，不能推论所有网络分区。慢消费测试只检查有限快照、取消及自有工作有界，不声称测得HTTP/2窗口背压或生产吞吐。
+
+P04保持外部商品行锁跨越SIGTERM、精确exit=1/stderr及客户端EOF；锁未释放时的MySQL thread/transaction/wait计数仅记录事实，不要求它必须存在或已消失。进程退出后才释放测试拥有的行锁，再在1秒观察context内要求已捕获的processlist/thread/transaction/wait/data-lock身份全部消失；独立会话在释放前后均检查stock=10、operations=0、已提交pending=0。释放锁不增加COMMIT，也不用KILL制造清理。socket关闭和池关闭不是同步终止数据库执行的保证。

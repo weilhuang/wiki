@@ -123,6 +123,55 @@ func (f *fixture) waitAnyLock() int64 {
 	}, "PROCESS_ACCEPTED_BARRIER")
 	return connectionID
 }
+
+type processDBTarget struct {
+	connectionID  int64
+	threadID      int64
+	transactionID string
+}
+
+func (f *fixture) waitProcessDBTarget() processDBTarget {
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
+	defer cancel()
+	var target processDBTarget
+	waitFor(f.t, ctx, func() bool {
+		var threads, transactions int
+		err := f.admin.QueryRowContext(ctx, "SELECT COUNT(DISTINCT w.REQUESTING_THREAD_ID), COUNT(DISTINCT w.REQUESTING_ENGINE_TRANSACTION_ID), COALESCE(MAX(t.PROCESSLIST_ID),0), COALESCE(MAX(w.REQUESTING_THREAD_ID),0), COALESCE(CAST(MAX(w.REQUESTING_ENGINE_TRANSACTION_ID) AS CHAR),'') FROM performance_schema.data_lock_waits w JOIN performance_schema.threads t ON t.THREAD_ID=w.REQUESTING_THREAD_ID JOIN performance_schema.data_locks l ON l.ENGINE_LOCK_ID=w.REQUESTING_ENGINE_LOCK_ID WHERE l.OBJECT_SCHEMA=? AND l.OBJECT_NAME='products'", f.schema).Scan(&threads, &transactions, &target.connectionID, &target.threadID, &target.transactionID)
+		must(f.t, err, "forced database target observation")
+		if threads == 0 {
+			return false
+		}
+		equal(f.t, threads, 1, "FORCED_DB_ONE_THREAD")
+		equal(f.t, transactions, 1, "FORCED_DB_ONE_TRANSACTION")
+		if target.connectionID <= 0 || target.threadID <= 0 || target.transactionID == "" || target.transactionID == "0" {
+			f.t.Fatal("FORCED_DB_TARGET_IDENTITY")
+		}
+		return true
+	}, "FORCED_DB_LOCK_BARRIER")
+	return target
+}
+
+type processDBState struct {
+	processes, threads, transactions, waits, locks int
+}
+
+func (f *fixture) processDBState(ctx context.Context, target processDBTarget) processDBState {
+	var state processDBState
+	err := f.admin.QueryRowContext(ctx, "SELECT (SELECT COUNT(*) FROM information_schema.PROCESSLIST WHERE ID=?), (SELECT COUNT(*) FROM performance_schema.threads WHERE THREAD_ID=?), (SELECT COUNT(*) FROM information_schema.INNODB_TRX WHERE TRX_ID=?), (SELECT COUNT(*) FROM performance_schema.data_lock_waits WHERE REQUESTING_THREAD_ID=? OR REQUESTING_ENGINE_TRANSACTION_ID=?), (SELECT COUNT(*) FROM performance_schema.data_locks WHERE THREAD_ID=? OR ENGINE_TRANSACTION_ID=?)", target.connectionID, target.threadID, target.transactionID, target.threadID, target.transactionID, target.threadID, target.transactionID).Scan(&state.processes, &state.threads, &state.transactions, &state.waits, &state.locks)
+	must(f.t, err, "forced database state observation")
+	return state
+}
+
+func (f *fixture) forcedFacts(ctx context.Context) {
+	var stock int64
+	var operations, pending int
+	err := f.observer.QueryRowContext(ctx, "SELECT (SELECT stock FROM products WHERE sku='book'), (SELECT COUNT(*) FROM operations), (SELECT COUNT(*) FROM operations WHERE state='pending')").Scan(&stock, &operations, &pending)
+	must(f.t, err, "forced independent facts")
+	equal(f.t, stock, int64(10), "FORCED_PERSISTED_STOCK")
+	equal(f.t, operations, 0, "FORCED_PERSISTED_OPERATIONS")
+	equal(f.t, pending, 0, "FORCED_NO_COMMITTED_PENDING")
+}
+
 func TestProcess(t *testing.T) {
 	t.Run("P01", func(t *testing.T) {
 		f := newFixture(t, "sql", 10)
@@ -256,7 +305,7 @@ func TestProcess(t *testing.T) {
 		}
 		clientDone := make(chan response, 1)
 		go func() { resp, e := (&http.Client{Timeout: 4 * time.Second}).Do(req); clientDone <- response{resp, e} }()
-		connectionID := f.waitAnyLock()
+		target := f.waitProcessDBTarget()
 		must(t, c.cmd.Process.Signal(syscall.SIGTERM), "forced SIGTERM")
 		// Keep the database lock until the real child process has exited.
 		refuses(t, c.httpAddr)
@@ -282,15 +331,20 @@ func TestProcess(t *testing.T) {
 		if !errors.Is(got.err, io.EOF) {
 			t.Fatalf("FORCED_HTTP_ERROR: expected EOF, got %T", got.err)
 		}
+		// Client exit does not synchronously remove a MySQL thread waiting on our lock.
+		// Record either state without requiring the server thread to remain present.
+		before, beforeCancel := context.WithTimeout(context.Background(), time.Second)
+		defer beforeCancel()
+		observed := f.processDBState(before, target)
+		t.Logf("FORCED_DB_BEFORE_RELEASE processes=%d threads=%d transactions=%d waits=%d locks=%d", observed.processes, observed.threads, observed.transactions, observed.waits, observed.locks)
+		f.forcedFacts(before)
+		release()
 		ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 		defer cancel()
 		waitFor(t, ctx, func() bool {
-			var n int
-			must(t, f.admin.QueryRowContext(ctx, "SELECT COUNT(*) FROM information_schema.PROCESSLIST WHERE ID=?", connectionID).Scan(&n), "forced DB connection removal")
-			return n == 0
-		}, "FORCED_DB_CONNECTION_GONE")
-		release()
-		f.facts(10, 0)
+			return f.processDBState(ctx, target) == (processDBState{})
+		}, "FORCED_DB_RESOURCES_GONE")
+		f.forcedFacts(ctx)
 		refuses(t, c.httpAddr)
 		refuses(t, c.grpcAddr)
 		// Wait reaped the actual default-entry child; its owned listener processes ended with it.

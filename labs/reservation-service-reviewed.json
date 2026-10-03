@@ -1,15 +1,15 @@
 {
   "scope": "real-mysql-http-grpc-reservation-service",
-  "sourceID": "9276fe6e5e3a3786efb5507bcd699c16e656c289014e0441b52fcd91cda2f171",
+  "sourceID": "b6631d034fa7785890a772bca1881f23d85dcffcb9c2319460b7d920a475d8a1",
   "sourceSHA256": {
     "labs/reservation-service/LICENSE": "6a4c39d86baab9062765b8216d5dea94c1c9535f864b0d9863c053be9244f1f5",
-    "labs/reservation-service/README.md": "9ed02da52d3a0b3755f8f798999fe6b6014e3aa69eafd389ab1244d233eea291",
-    "labs/reservation-service/acceptance-matrix.json": "f0f3dccb1396db3e2f101e4c7a9247cfc09437f92ce4c8b1e5fc2b78bd4e8da0",
+    "labs/reservation-service/README.md": "a823f183726522f1be3653b67baf665dd135642c9c96a350823a509b07707b2d",
+    "labs/reservation-service/acceptance-matrix.json": "7996744b762d75940d75d26fc8d9da3c715463c66d74b2c6d797e7b2d2aa48bc",
     "labs/reservation-service/api/reservation/v1/reservation.pb.go": "1710a657dfda9a48c4f6cd074c42f70ccd4292d4e5014ccfa2a2fe634c2a414d",
     "labs/reservation-service/api/reservation/v1/reservation.proto": "de796a7da3b2e84e34b29ab23342f316d2f1aa4ac2a83f72dd518cb9087008a8",
     "labs/reservation-service/api/reservation/v1/reservation_grpc.pb.go": "f6a929520338e381d9dc1177dd017bf18e189fa9df6804a872c38e97aabb5f26",
     "labs/reservation-service/cmd/reservationd/main.go": "660272288f77944c9d85d65d41ef0392bba7afa006469f05a73908f11ab9bf59",
-    "labs/reservation-service/contract.md": "d3a893b1723b36b3da75e26c89d6161fbfcd0dd5217e4184af0979b74438b90c",
+    "labs/reservation-service/contract.md": "75dd431531360018acbf5606d9333d057455cbafd42b4e10044f097491922f5b",
     "labs/reservation-service/go.mod": "640d27443e00814a0dffcd34ff96eea56c7f57bf660287154566546b82ad41f8",
     "labs/reservation-service/go.sum": "919a9c28b6664abf50b94cbe89b6affc149d8a21c4eb67c8c6962162ecdf1c02",
     "labs/reservation-service/internal/domain/service.go": "c618422c104527a2cb40d078c4938502508bfa9dfed97826ad75e9b282535d9f",
@@ -54,12 +54,12 @@
     "labs/reservation-service/tests/fixture_test.go": "dc9b7aa35ae276e6de52b14a38a054e3d2133e41e7efb15be5fa6ef9ebaba16d",
     "labs/reservation-service/tests/grpc_test.go": "de77e91637b0e82ab7f9a09e12bf8b56cf5ea5fb5ea117d1ff4107f7e625cd2f",
     "labs/reservation-service/tests/http_test.go": "6fde04823a4748930537891231b56b7bbe850c5a14f9a34fcfd146e792aad886",
-    "labs/reservation-service/tests/process_test.go": "d267df85e12061e743d19b30b1e288e2f2fe09347b349bcbe56523bbff2479b5",
+    "labs/reservation-service/tests/process_test.go": "1bf588b777adf42b46a757f975d3b4669983e814c774ca4d31908ecfe33a1a26",
     ".github/workflows/reservation-service.yml": "c96f7a7a39c01865cfdb1558cf8ceaa654b6e91e9fadc116a9b7c31e19c4ada6"
   },
-  "reviewStatus": "pending independent r2 review; no CI authorization conveyed by this file",
-  "revision": "r2",
-  "previousSourceID": "3f01c208bfadbc4d70d42368655f10dc81abd2b00358c0cb7103ebd14148b055",
+  "reviewStatus": "pending independent r3 review; no CI authorization conveyed by this file",
+  "revision": "r3",
+  "previousSourceID": "9276fe6e5e3a3786efb5507bcd699c16e656c289014e0441b52fcd91cda2f171",
   "requiredIntegrationCases": [
     "TestIntegration/gorm/D01",
     "TestIntegration/gorm/D02",
@@ -123,5 +123,5 @@
   "requiredUnitCases": [
     "TestG07StreamSendError"
   ],
-  "execution": "real TCP/MySQL and process cases NOT_RUN; local compile/adapter evidence separate"
+  "execution": "r3 modified process test NOT_COMPILED and NOT_RUN; unchanged production Go/module hashes retain separate r2 history; r2 first real run P04 failed, other 57 integration leaves passed; mutants not reached"
 }

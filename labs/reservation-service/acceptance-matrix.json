@@ -343,7 +343,7 @@
       "id": "P04",
       "suite": "Process",
       "backends": [],
-      "assertion": "真实reservationd正常公开SHUTDOWN_GRACE=250ms；MySQL锁等待证明请求已接纳，保持锁跨SIGTERM；精确exit1/stderr和客户端EOF、独立会话无提交、双端口拒绝、子进程Wait回收",
+      "assertion": "真实reservationd公开SHUTDOWN_GRACE=250ms；捕获自有schema的真实锁等待连接/线程/事务身份，保持锁跨SIGTERM、精确exit1/stderr和客户端EOF；释放前状态仅观察且独立无提交，释放后1秒context内分别确认processlist/thread/transaction/wait/data_locks消失，再独立确认stock10/op0/pending0；双端口拒绝与子进程Wait回收",
       "level": "real-process-mysql",
       "status": "NOT_RUN"
     }
@@ -398,5 +398,5 @@
       "status": "NOT_RUN"
     }
   ],
-  "revision": "r2"
+  "revision": "r3: P04 lock-release causal ordering; all cases and semantic targets preserved"
 }

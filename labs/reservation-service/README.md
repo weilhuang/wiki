@@ -22,9 +22,9 @@ Go 1.27.1；Gin 1.12.0；gorm 1.31.2；gorm-mysql 1.6.0；go-sql-driver/mysql 1.
 
 ## 健康与关闭
 
-启动先Ping数据库并探测显式schema列，失败会退出；它不会自动迁移。GET /live 返回进程活性；GET /ready 在短预算内Ping数据库，并在开始关闭时返回不就绪。数据库失败不能由/live代替。HTTP/gRPC数据入口使用2秒服务端预算，客户端更早deadline不会被延长。
+启动先Ping数据库并探测显式schema列，失败会退出；它不会自动迁移。GET /live 返回进程活性；GET /ready 在短预算内Ping数据库，并在开始关闭时返回不就绪。数据库失败不能由/live代替。HTTP在解码后派生2秒应用预算，gRPC对应用查询与每次发送前检查派生2秒预算，客户端更早deadline不会被延长。已阻塞的stream.Send使用原RPC context，不能由这个派生预算独自中断。
 
-SIGTERM或SIGINT先撤销ready，然后同时关闭HTTP/gRPC的新请求入口，并在SHUTDOWN_GRACE窗口内等待已接纳调用（默认5秒，合法范围50ms..30s）。超时强制关闭，进程非零退出。进程等待自有serve/stop goroutine，再关闭数据库池。调用context不直接绑定信号，避免收到SIGTERM就提前取消原本应排空的请求。
+SIGTERM或SIGINT先撤销ready，然后同时关闭HTTP/gRPC的新请求入口，并在SHUTDOWN_GRACE窗口内等待已接纳调用（默认5秒，合法范围50ms..30s）。超时强制关闭，进程非零退出。Runtime等待自己登记的两个Serve循环和关闭调用，再关闭数据库池。HTTP强制Close不保证所有handler已经返回；进程的Wait终态与MySQL服务端的清理是分开的观察。调用context不直接绑定信号，避免收到SIGTERM就提前取消原本应排空的请求。
 
 ## 教学API
 
@@ -50,3 +50,7 @@ scripts/verify_results.py拒绝缺用例、skip、重复、空执行、失败和
 标准public runner的job上限25分钟，第一步记录job开始时间。run_ci.py内部最多650秒，其中正常工作最多530秒、清理90秒、最终记录15秒、余量15秒；外层655秒TERM和最多5秒KILL确保整次脚本不超过660秒。collect和upload分别有1分钟、2分钟界限，并由整job余量校验保护。protoc下载在独立可终止进程组内，拥有40秒墙钟预算。
 
 普通日志最多占24MiB；另留8MiB给清理与最终证据。诊断、容器删除和网络删除独立尽力执行，任何错误累积为失败。缺失判据分别匹配本次准确容器/网络名，任意非零或无关No-such错误都不证明资源不存在。独立collector分别累计raw/public实际总量，各自不超过32MiB；上传只包含脱敏副本。
+
+## r3 P04 的进程退出与数据库收尾
+
+r2首次真实CI的57个集成叶通过，P04在外部行锁仍被测试持有时等待MySQL连接消失，超时失败；该记录不改写成通过。r3仍保持行锁跨越SIGTERM和精确进程退出，释放前记录数据库残留状态并断言无已提交变化，再释放本次行锁。在1秒有界context内检查预先捕获的数据库进程、线程、事务、等待和锁全部消失，最后再从独立会话确认无提交。进程退出不意味着远端数据库立刻停止执行；这里不承诺取消后一条数据库指令都不会继续执行。r3修改过的测试尚未编译或实际运行。
