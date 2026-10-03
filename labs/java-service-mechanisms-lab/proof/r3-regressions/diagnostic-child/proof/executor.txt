@@ -1,0 +1,6 @@
+admission A=worker B=queue C=worker D=rejected; shutdown drained A/B/C exactly once
+execute exception=uncaught+hook; submit exception=Future.get cause; submit hook Throwable=null
+shutdownNow interrupted running task; returned exact queued FutureTask; owner cancelled pending Future
+offer/shutdown race: offered then shutdown then recheck removed+rejected; task never ran
+EXECUTOR_CLEANUP ordinary workers joined; scenario pools terminated
+EXECUTOR_OK

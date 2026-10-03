@@ -1,5 +1,5 @@
 export const domainBridges = {
-  java:'对象和集合机制决定本进程如何保存状态；进入[Spring 容器](/knowledge/frameworks/spring-container/)时，继续追踪谁创建和持有这些对象。需要解释资源等待，转到[连接预算](/knowledge/frameworks/data-access/connection-budget.html)，不能用集合线程安全代替外部资源合同。',
+  java:'[安全发布](/knowledge/java/juc-foundations/jmm-safe-publication.html)与[任务接纳](/knowledge/java/juc-execution/executor-admission.html)解释本进程交接状态与工作；[线程证据](/knowledge/java/jvm-diagnostics/thread-gc-diagnosis.html)再帮助定位执行与等待。进入[Spring 容器](/knowledge/frameworks/spring-container/)时，继续追踪谁创建和持有这些对象。需要解释资源等待，转到[连接预算](/knowledge/frameworks/data-access/connection-budget.html)，不能用集合线程安全代替外部资源合同。',
   go:'[context 取消](/knowledge/go/concurrency/context-cancellation.html)只能解释信号和工作；写入结果未知时，继续进入[业务幂等](/knowledge/distributed/reliable-interactions/idempotency.html)。[进程停机](/knowledge/go/lifecycle/graceful-shutdown.html)定义本机责任，平台摘流与集群行为仍在云原生领域另行建立。',
   frameworks:'[事务代理](/knowledge/frameworks/spring-transactions/proxy-call-chain.html)解释哪条连接参与提交；[库存不变量](/knowledge/data/transactions/inventory-invariants.html)再检查数据库里的业务承诺。[连接预算](/knowledge/frameworks/data-access/connection-budget.html)则把框架范围接到[等待排障](/troubleshooting/connection-waiting.html)。',
   data:'本地事实提交后，[Outbox](/knowledge/distributed/events/transactional-outbox.html)保存跨组件交接责任；[缓存新鲜度](/knowledge/data/cache/invalidation-freshness.html)解释读取为何仍会落后。最终用[联合恢复](/cases/orders/consistency-recovery.html)核对权威事实与派生结果。',
@@ -17,5 +17,6 @@ export const experimentTitles = {
   'legacy.data-consistency':'订单数据一致性实验：库存、幂等、事件、缓存与恢复',
   'foundations-service-lab':'等待条件与断言实验：线程、TCP loopback 和受控交错',
   'security-boundaries':'身份与对象授权模型：撤销、租户、动作和提交版本',
+  'java-service-mechanisms':'Java 机制实验：安全发布、任务接纳与线程诊断',
   'spring-definition.execution':'BeanDefinition 定位、注册与创建实验'
 }

@@ -73,6 +73,22 @@ search: false
 
 </details>
 
+### Java 并发与运行时实验：发布、线程池、线程与 GC 观察 {#experiment-java-service-mechanisms}
+
+[下载源码包](/examples/java-service-mechanisms-lab.zip)。历史运行范围：One-shot volatile publication observed 42；Barrier-controlled split read-modify-write produced 1; AtomicInteger produced 2；All registered workers join; ChildFailures retains primary failure, appends distinct child causes, and deduplicates Throwable identity；A/B/C/D worker/queue/rejection and orderly shutdown exact-once task results；execute uncaught exception vs submit Future cause and afterExecute Throwable；shutdownNow returned exact pending Future wrapper; explicit cancellation; running task interrupt response；Controlled successful offer/shutdown/recheck/remove/reject race and termination；Ordinary worker failures and completed Future failures collected; expected execute exception isolated by exact type/message/count; all registered threads joined；Wrong volatile atomicity, max-first and drain-cancels claims fail with first exception line exactly java.lang.AssertionError and exact expected message；Compilation/startup or other exception types do not count as expected rejection；Two actual instrumented ThreadMXBean platform-thread snapshots with identity/state/full stack/monitor owner；Actual per-thread CPU time deltas and SerialGC log from bounded allocation；Four workers and watchdog joined; no child failure; complete final success marker and diagnostic process exit0；Independent-review-equivalent atomic and diagnostic source mutations fail after intended side effects with original cause and all threads joined；Ordinary executor late throw, wrong Future cause, and ordinary FutureTask error also fail with exact Caused by and cleanup; no circular-reference output；No surviving lab JVM after sequential mutations；ObservedPool proves cooperative release/shutdown/await does not invoke shutdownNow or interrupt the worker；A deliberately unreleased owned worker triggers the bounded three-second timeout, one force stop, ended worker and suppressed cleanup failure while preserving primary identity；Same Throwable emitted once, genuinely distinct children retained, and child already in primary cause graph not duplicated。
+
+关联知识：[线程池如何接纳任务：线程、队列与拒绝](/knowledge/java/juc-execution/executor-admission.html)、[JMM 与安全发布：什么先于什么](/knowledge/java/juc-foundations/jmm-safe-publication.html)、[从线程与 GC 证据区分慢请求](/knowledge/java/jvm-diagnostics/thread-gc-diagnosis.html)。
+
+<details class="verification-appendix">
+<summary>版本、下载身份与未覆盖范围</summary>
+
+- 版本：OpenJDK jdk-21+35 source；Temurin 21.0.12.1+1-LTS execution；Temurin 21.0.12.1+1-LTS
+- SHA256：b3d6db08e3ff95b35e5342c35bebba882ee1fdf72ae68c4ba99e0a900629184a
+- 未覆盖：Execution is not proof of all JMM outcomes；No forced unsafe-publication reorder reproduction; no performance claim；Fixed platform-thread implementation; no capacity benchmark；No custom ThreadFactory failure or exhaustive policy/virtual-thread coverage；These refute named claims, not all incorrect executor/JMM implementations；Application-internal instrumentation, not successful external jcmd attach；No production request workload, virtual threads, JFR, heap-dump root analysis, or collector performance ranking；ActiveProcessorCount is a JVM setting, not an OS CPU quota; Xmx is not process RSS cap；Source mutation checks target ordinary child/Future error propagation, not every possible harness defect；Finite harness contract checks, not throughput or schedule stress tests
+- 此处汇总已有运行记录；收录到目录不会增加实验覆盖范围
+
+</details>
+
 ### Spring 服务边界实验：容器、MVC 与连接 {#experiment-spring-service-boundaries}
 
 [下载源码包](/examples/spring-service-boundaries.zip)。历史运行范围：4 组容器生命周期实验；5 组连接资源实验；8 个真实回环 HTTP 请求，同时核对业务副作用。

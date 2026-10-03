@@ -1,0 +1,5 @@
+EXECUTOR_CLEANUP ordinary workers joined; scenario pools terminated
+Exception in thread "main" java.lang.AssertionError: MAX_FIRST_CLAIM expected=2 actual=1
+	at ExecutorLab.require(ExecutorLab.java:9)
+	at ExecutorLab.admission(ExecutorLab.java:38)
+	at ExecutorLab.main(ExecutorLab.java:144)

@@ -1,0 +1,5 @@
+publication observed=42; guarantee comes from JLS, not this run
+volatile split read-modify-write result=1; both readers saw 0
+atomic increment result=2
+JMM_CLEANUP all workers joined
+JMM_OK

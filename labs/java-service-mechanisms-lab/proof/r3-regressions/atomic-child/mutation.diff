@@ -1,0 +1,11 @@
+--- a/src/JmmLab.java
++++ b/src/JmmLab.java
+@@ -47,7 +47,7 @@
+     }
+     static void atomicIncrement() throws Exception {
+         AtomicInteger total = new AtomicInteger();
+-        Thread a = children.thread(total::incrementAndGet, "atomic-a");
++        Thread a = children.thread(() -> { total.incrementAndGet(); throw new IllegalStateException("REVIEWER_CHILD_ATOMIC_FAILURE"); }, "atomic-a");
+         Thread b = children.thread(total::incrementAndGet, "atomic-b");
+         a.start(); b.start(); join(a); join(b);
+         require(total.get() == 2, "ATOMIC_TOTAL");

@@ -1,0 +1,11 @@
+admission A=worker B=queue C=worker D=rejected; shutdown drained A/B/C exactly once
+EXECUTOR_CLEANUP ordinary workers joined; scenario pools terminated
+Exception in thread "main" java.lang.AssertionError: wrong Future cause
+	at ExecutorLab.exceptions(ExecutorLab.java:85)
+	at ExecutorLab.main(ExecutorLab.java:146)
+Caused by: java.lang.IllegalArgumentException: REVIEWER_FUTURE_WRONG_CAUSE
+	at ExecutorLab.lambda$exceptions$8(ExecutorLab.java:81)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)

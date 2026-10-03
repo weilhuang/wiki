@@ -18,6 +18,7 @@ search: false
 ## 从局部关系开始
 
 - Java 对象相等性（独立专题规划） → [HashMap](/knowledge/java/collections/hashmap.html) → 并发容器与缓存选型（规划）
+- [安全发布](/knowledge/java/juc-foundations/jmm-safe-publication.html) → [任务接纳与结果](/knowledge/java/juc-execution/executor-admission.html) → [线程与 GC 诊断](/knowledge/java/jvm-diagnostics/thread-gc-diagnosis.html)；集合与并发两条线在[Java 核心机制路线](/paths/java-core.html)中汇合
 - [容器对象](/knowledge/frameworks/spring-container/bean-lifecycle.html) → [请求完成](/knowledge/frameworks/spring-mvc/request-pipeline.html) → [事务](/knowledge/frameworks/spring-transactions/proxy-call-chain.html)与[连接](/knowledge/frameworks/data-access/connection-budget.html) → [本地服务边界](/cases/orders/local-service-boundary.html)
 - [取消信号](/knowledge/go/concurrency/context-cancellation.html) → [工作退出与等待](/knowledge/go/concurrency/bounded-work.html) → [下游预算](/knowledge/go/http/client-budgets.html) → [进程排空](/knowledge/go/lifecycle/graceful-shutdown.html)
 - [库存不变量](/knowledge/data/transactions/inventory-invariants.html) → [幂等](/knowledge/distributed/reliable-interactions/idempotency.html) → [Outbox](/knowledge/distributed/events/transactional-outbox.html) → [缓存](/knowledge/data/cache/invalidation-freshness.html) → [联合恢复](/cases/orders/consistency-recovery.html)

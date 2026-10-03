@@ -1,0 +1,1073 @@
+[
+  {
+    "id": "java-mechanisms.source-review",
+    "kind": "source-reviewed",
+    "status": "pass",
+    "scope": [
+      "JLS21 synchronization/final rules and concurrency API contracts reviewed separately from observed execution",
+      "Fixed OpenJDK execute/addWorker/runWorker/submit/FutureTask/shutdown branches and licenses",
+      "Three GA source files byte-equal to corresponding runtime src.zip entries"
+    ],
+    "limitations": [
+      "Only three source files compared; not a whole-JDK build identity assertion"
+    ],
+    "sourceFiles": [
+      {
+        "path": "labs/java-service-mechanisms-lab/sources/AbstractExecutorService-jdk-21+35.java",
+        "sha256": "e478cc6c8cd5befcca790b07453c79edd26a0dc249a3bd7c159e882f961681a9"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/sources/AbstractExecutorService-runtime-21.0.12.1.java",
+        "sha256": "e478cc6c8cd5befcca790b07453c79edd26a0dc249a3bd7c159e882f961681a9"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/sources/FutureTask-jdk-21+35.java",
+        "sha256": "05f98dffdf1fcb2f06772e7a82521bf948f766b50f5fbffd37bdab880a5cfcd7"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/sources/FutureTask-runtime-21.0.12.1.java",
+        "sha256": "05f98dffdf1fcb2f06772e7a82521bf948f766b50f5fbffd37bdab880a5cfcd7"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/sources/ThreadPoolExecutor-jdk-21+35.java",
+        "sha256": "c95cd4ef67c936350fb6b85db3f7858a1185ddeac62bf00f4236efe6b5fd2427"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/sources/ThreadPoolExecutor-runtime-21.0.12.1.java",
+        "sha256": "c95cd4ef67c936350fb6b85db3f7858a1185ddeac62bf00f4236efe6b5fd2427"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/source-review.json",
+        "sha256": "39bd423a86f699410ffb8d5029da73462c1cfea47c39feb44414686651e2261a"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/sources.json",
+        "sha256": "fb266c13481fbd5f3eadf3bddff98f0da30feeb320762844c58c33149de0ca28"
+      }
+    ],
+    "commands": [
+      {
+        "command": "sha256sum sources/*-jdk-21+35.java sources/*-runtime-21.0.12.1.java",
+        "exitCode": 0
+      }
+    ],
+    "artifacts": [],
+    "recordedAt": "2026-10-03",
+    "independentlyReviewed": true,
+    "resourceGroup": "java-service-mechanisms",
+    "versions": [
+      "OpenJDK jdk-21+35 source",
+      "Temurin 21.0.12.1+1-LTS execution"
+    ],
+    "revision": "r3"
+  },
+  {
+    "id": "java-mechanisms.snippets",
+    "kind": "static-checked",
+    "status": "pass",
+    "scope": [
+      "Integrated three article metadata and relations, three classification guides and Java reading route",
+      "Pinned Mermaid parsing and Code Hike clean-code/source/range matching",
+      "23 Node regressions, 98 generated HTML pages, 354 canonical search sections and 25 intent targets",
+      "Existing assets, canonical and alias links, historical headings, strong rendering and metadata checks"
+    ],
+    "limitations": [
+      "This is a Node/static/SSR integration record; it is not a new Java execution",
+      "Independent whole-tree review, remote CI and live browser checks are separate release gates"
+    ],
+    "sourceFiles": [
+      {
+        "path": "labs/java-service-mechanisms-lab/editorial/static-check.mjs",
+        "sha256": "375eb0412eb35496647b3c1e8839067afdbd8894da58c775f27b059a52c475be"
+      },
+      {
+        "path": "content/snippets/java-mechanisms.json",
+        "sha256": "c308de6523f2914a849f0f64f0a3a80c68ef9f7f1366f9a35084e5fe7ce14e3e"
+      },
+      {
+        "path": "docs/knowledge/java/juc-execution/executor-admission.md",
+        "sha256": "e6b43a39e78b62ec50f30541ea9a22a48d389d21549552d11ca66f6e589ee5f3"
+      },
+      {
+        "path": "docs/knowledge/java/juc-foundations/jmm-safe-publication.md",
+        "sha256": "303b0a2a52a538c05b5aa195a3d04cb0557dcd667e3b32f4db4a70eb3fe5277e"
+      },
+      {
+        "path": "docs/knowledge/java/jvm-diagnostics/thread-gc-diagnosis.md",
+        "sha256": "2faa3b37a763f7a65b241fc95c3b77c5cf402bde3c75451d1c021a0dc16784e7"
+      }
+    ],
+    "commands": [
+      {
+        "command": "npm run check",
+        "exitCode": 0
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "labs/java-service-mechanisms-lab/editorial/integration-static.json",
+        "sha256": "ef2c435faf0b4fac9aacf6f797e281a1128390e60537a3bd05ff2765a9a5accb"
+      }
+    ],
+    "recordedAt": "2026-10-03T06:33:30.016194+00:00",
+    "independentlyReviewed": false,
+    "resourceGroup": "java-service-mechanisms",
+    "versions": [
+      "OpenJDK jdk-21+35 source",
+      "Temurin 21.0.12.1+1-LTS execution"
+    ],
+    "revision": "J-integration-1",
+    "historicalAuthorChecks": {
+      "commands": [
+        {
+          "command": "node static-check.mjs <existing-wiki-checkout>",
+          "exitCode": 0
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "labs/java-service-mechanisms-lab/editorial/static-check.json",
+          "sha256": "93beb777c6096a4db1a779381152a60e2e7d824d88e11295bb35b9526280af94"
+        }
+      ],
+      "scope": [
+        "All three article schemas, existing and intra-package relations, canonical direct links",
+        "Pinned Mermaid parser with accessible descriptions",
+        "Pinned real Code Hike compilation and exact source extraction hash identity"
+      ]
+    }
+  },
+  {
+    "id": "java-mechanisms.jmm-run",
+    "kind": "executed",
+    "status": "pass",
+    "scope": [
+      "One-shot volatile publication observed 42",
+      "Barrier-controlled split read-modify-write produced 1; AtomicInteger produced 2",
+      "All registered workers join; ChildFailures retains primary failure, appends distinct child causes, and deduplicates Throwable identity"
+    ],
+    "limitations": [
+      "Execution is not proof of all JMM outcomes",
+      "No forced unsafe-publication reorder reproduction; no performance claim"
+    ],
+    "sourceFiles": [
+      {
+        "path": "labs/java-service-mechanisms-lab/src/DiagnosticLab.java",
+        "sha256": "cab33673d3774da559f516e06fdb409f9916b48f6e57a47605f9b9dfdb8b2421"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/src/ExecutorLab.java",
+        "sha256": "334091edca8f3b8bdd53d709f7a6d13ddec7022be5b94066f744deb8e25746f7"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/src/JmmLab.java",
+        "sha256": "870ed2ee2fac3a6127347c074129f2af908546ec330af9dff6b2865fa24803ed"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/src/Publication.java",
+        "sha256": "3610abe8aab151b62f9dd79d6f3d8e3079d8f7abb27bf169926ff831d0c924d7"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/run.py",
+        "sha256": "9f9055dde202c71db55ec100a507f602e3f7df3578b8392cde2bffe01cab1bd4"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/src/ChildFailures.java",
+        "sha256": "6e950477f6999f89223801383e6fe65ee8dad52cbd1c32e04c15fa63706525e6"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/src/HarnessContracts.java",
+        "sha256": "03277a1b6523dc73c5cd913b589d1f27cab01779ae2e3ccb8aa45b4662a492d2"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/src/PoolCleanup.java",
+        "sha256": "67b6f31277527ce9afba2279b44c3ff7c5d206b489c8a6c21925443cb63ce6fe"
+      }
+    ],
+    "commands": [
+      {
+        "command": "python3 run.py --output proof/run-r4",
+        "exitCode": 0
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/run-r4/jmm.txt",
+        "sha256": "b4c1bf7671e192662c866a64fbefa6db4c9e736c70d62335342fc8c3381519fb"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/run-r4/java-version.txt",
+        "sha256": "5b4412738541184e84f6b2d7520d4f4a7c2a455f60650491464c61adcbbbdeb0"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/run-r4/javac-version.txt",
+        "sha256": "2df6b9c76e710158266aeaae8f3578eaed8ddd747a2272483506ad9a8a5e644a"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/run-r4/result.json",
+        "sha256": "2882c58ca0e539bce00fa604d2bc8e1f4d39747e82cb8fa38f1244655b0f7d67"
+      },
+      {
+        "path": "docs/public/examples/java-service-mechanisms-lab.zip",
+        "sha256": "b3d6db08e3ff95b35e5342c35bebba882ee1fdf72ae68c4ba99e0a900629184a"
+      }
+    ],
+    "recordedAt": "2026-10-03",
+    "independentlyReviewed": true,
+    "resourceGroup": "java-service-mechanisms",
+    "versions": [
+      "OpenJDK jdk-21+35 source",
+      "Temurin 21.0.12.1+1-LTS execution"
+    ],
+    "revision": "r3",
+    "title": "Java 并发与运行时实验：发布、线程池、线程与 GC 观察"
+  },
+  {
+    "id": "java-mechanisms.executor-run",
+    "kind": "executed",
+    "status": "pass",
+    "scope": [
+      "A/B/C/D worker/queue/rejection and orderly shutdown exact-once task results",
+      "execute uncaught exception vs submit Future cause and afterExecute Throwable",
+      "shutdownNow returned exact pending Future wrapper; explicit cancellation; running task interrupt response",
+      "Controlled successful offer/shutdown/recheck/remove/reject race and termination",
+      "Ordinary worker failures and completed Future failures collected; expected execute exception isolated by exact type/message/count; all registered threads joined",
+      "Ordinary worker failures and completed Future failures collected; expected execute exception isolated by exact type/message/count; all registered threads joined"
+    ],
+    "limitations": [
+      "Fixed platform-thread implementation; no capacity benchmark",
+      "No custom ThreadFactory failure or exhaustive policy/virtual-thread coverage"
+    ],
+    "sourceFiles": [
+      {
+        "path": "labs/java-service-mechanisms-lab/src/DiagnosticLab.java",
+        "sha256": "cab33673d3774da559f516e06fdb409f9916b48f6e57a47605f9b9dfdb8b2421"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/src/ExecutorLab.java",
+        "sha256": "334091edca8f3b8bdd53d709f7a6d13ddec7022be5b94066f744deb8e25746f7"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/src/JmmLab.java",
+        "sha256": "870ed2ee2fac3a6127347c074129f2af908546ec330af9dff6b2865fa24803ed"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/src/Publication.java",
+        "sha256": "3610abe8aab151b62f9dd79d6f3d8e3079d8f7abb27bf169926ff831d0c924d7"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/run.py",
+        "sha256": "9f9055dde202c71db55ec100a507f602e3f7df3578b8392cde2bffe01cab1bd4"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/src/ChildFailures.java",
+        "sha256": "6e950477f6999f89223801383e6fe65ee8dad52cbd1c32e04c15fa63706525e6"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/src/HarnessContracts.java",
+        "sha256": "03277a1b6523dc73c5cd913b589d1f27cab01779ae2e3ccb8aa45b4662a492d2"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/src/PoolCleanup.java",
+        "sha256": "67b6f31277527ce9afba2279b44c3ff7c5d206b489c8a6c21925443cb63ce6fe"
+      }
+    ],
+    "commands": [
+      {
+        "command": "python3 run.py --output proof/run-r4",
+        "exitCode": 0
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/run-r4/executor.txt",
+        "sha256": "1a43142806e638dde88dc162e18ff008932e2f83c2070e3ad8bdca8824c4a1a6"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/run-r4/result.json",
+        "sha256": "2882c58ca0e539bce00fa604d2bc8e1f4d39747e82cb8fa38f1244655b0f7d67"
+      },
+      {
+        "path": "docs/public/examples/java-service-mechanisms-lab.zip",
+        "sha256": "b3d6db08e3ff95b35e5342c35bebba882ee1fdf72ae68c4ba99e0a900629184a"
+      }
+    ],
+    "recordedAt": "2026-10-03",
+    "independentlyReviewed": true,
+    "resourceGroup": "java-service-mechanisms",
+    "versions": [
+      "OpenJDK jdk-21+35 source",
+      "Temurin 21.0.12.1+1-LTS execution"
+    ],
+    "revision": "r3"
+  },
+  {
+    "id": "java-mechanisms.negative-run",
+    "kind": "executed",
+    "status": "pass",
+    "scope": [
+      "Wrong volatile atomicity, max-first and drain-cancels claims fail with first exception line exactly java.lang.AssertionError and exact expected message",
+      "Compilation/startup or other exception types do not count as expected rejection"
+    ],
+    "limitations": [
+      "These refute named claims, not all incorrect executor/JMM implementations"
+    ],
+    "sourceFiles": [
+      {
+        "path": "labs/java-service-mechanisms-lab/src/DiagnosticLab.java",
+        "sha256": "cab33673d3774da559f516e06fdb409f9916b48f6e57a47605f9b9dfdb8b2421"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/src/ExecutorLab.java",
+        "sha256": "334091edca8f3b8bdd53d709f7a6d13ddec7022be5b94066f744deb8e25746f7"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/src/JmmLab.java",
+        "sha256": "870ed2ee2fac3a6127347c074129f2af908546ec330af9dff6b2865fa24803ed"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/src/Publication.java",
+        "sha256": "3610abe8aab151b62f9dd79d6f3d8e3079d8f7abb27bf169926ff831d0c924d7"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/run.py",
+        "sha256": "9f9055dde202c71db55ec100a507f602e3f7df3578b8392cde2bffe01cab1bd4"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/src/ChildFailures.java",
+        "sha256": "6e950477f6999f89223801383e6fe65ee8dad52cbd1c32e04c15fa63706525e6"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/src/HarnessContracts.java",
+        "sha256": "03277a1b6523dc73c5cd913b589d1f27cab01779ae2e3ccb8aa45b4662a492d2"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/src/PoolCleanup.java",
+        "sha256": "67b6f31277527ce9afba2279b44c3ff7c5d206b489c8a6c21925443cb63ce6fe"
+      }
+    ],
+    "commands": [
+      {
+        "command": "java <bounded-flags> -cp <temporary-classes> JmmLab wrong-volatile-is-atomic",
+        "exitCode": 1,
+        "expectation": "expected-rejection",
+        "expectedExitCode": 1
+      },
+      {
+        "command": "java <bounded-flags> -cp <temporary-classes> ExecutorLab wrong-max-first",
+        "exitCode": 1,
+        "expectation": "expected-rejection",
+        "expectedExitCode": 1
+      },
+      {
+        "command": "java <bounded-flags> -cp <temporary-classes> ExecutorLab wrong-drain-cancels",
+        "exitCode": 1,
+        "expectation": "expected-rejection",
+        "expectedExitCode": 1
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/run-r4/negative-volatile.txt",
+        "sha256": "1afa9da2163b752cd8972b83211e1fc4767f00d3aa19d23e0631306638884cbc"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/run-r4/negative-max-first.txt",
+        "sha256": "2b0d33e7dc91dfdfcb2730462927ded5941d8e2e371cc49fafbb016b57881600"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/run-r4/negative-drain.txt",
+        "sha256": "08bcd1964a9b48eb68afff7825731fb414709275912c45356b91cd8fbda1ad4c"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/run-r4/result.json",
+        "sha256": "2882c58ca0e539bce00fa604d2bc8e1f4d39747e82cb8fa38f1244655b0f7d67"
+      },
+      {
+        "path": "docs/public/examples/java-service-mechanisms-lab.zip",
+        "sha256": "b3d6db08e3ff95b35e5342c35bebba882ee1fdf72ae68c4ba99e0a900629184a"
+      }
+    ],
+    "recordedAt": "2026-10-03",
+    "independentlyReviewed": true,
+    "resourceGroup": "java-service-mechanisms",
+    "versions": [
+      "OpenJDK jdk-21+35 source",
+      "Temurin 21.0.12.1+1-LTS execution"
+    ],
+    "revision": "r3"
+  },
+  {
+    "id": "java-mechanisms.diagnostic-run",
+    "kind": "executed",
+    "status": "pass",
+    "scope": [
+      "Two actual instrumented ThreadMXBean platform-thread snapshots with identity/state/full stack/monitor owner",
+      "Actual per-thread CPU time deltas and SerialGC log from bounded allocation",
+      "Four workers and watchdog joined; no child failure; complete final success marker and diagnostic process exit0"
+    ],
+    "limitations": [
+      "Application-internal instrumentation, not successful external jcmd attach",
+      "No production request workload, virtual threads, JFR, heap-dump root analysis, or collector performance ranking",
+      "ActiveProcessorCount is a JVM setting, not an OS CPU quota; Xmx is not process RSS cap"
+    ],
+    "sourceFiles": [
+      {
+        "path": "labs/java-service-mechanisms-lab/src/DiagnosticLab.java",
+        "sha256": "cab33673d3774da559f516e06fdb409f9916b48f6e57a47605f9b9dfdb8b2421"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/src/ExecutorLab.java",
+        "sha256": "334091edca8f3b8bdd53d709f7a6d13ddec7022be5b94066f744deb8e25746f7"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/src/JmmLab.java",
+        "sha256": "870ed2ee2fac3a6127347c074129f2af908546ec330af9dff6b2865fa24803ed"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/src/Publication.java",
+        "sha256": "3610abe8aab151b62f9dd79d6f3d8e3079d8f7abb27bf169926ff831d0c924d7"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/run.py",
+        "sha256": "9f9055dde202c71db55ec100a507f602e3f7df3578b8392cde2bffe01cab1bd4"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/src/ChildFailures.java",
+        "sha256": "6e950477f6999f89223801383e6fe65ee8dad52cbd1c32e04c15fa63706525e6"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/src/HarnessContracts.java",
+        "sha256": "03277a1b6523dc73c5cd913b589d1f27cab01779ae2e3ccb8aa45b4662a492d2"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/src/PoolCleanup.java",
+        "sha256": "67b6f31277527ce9afba2279b44c3ff7c5d206b489c8a6c21925443cb63ce6fe"
+      }
+    ],
+    "commands": [
+      {
+        "command": "python3 run.py --output proof/run-r4",
+        "exitCode": 0
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/run-r4/threads-before.txt",
+        "sha256": "476f96c9969bbf01beee0573c5a6a7474ea27b190d95d28a27f00ee4a615ee7c"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/run-r4/threads-after.txt",
+        "sha256": "476f96c9969bbf01beee0573c5a6a7474ea27b190d95d28a27f00ee4a615ee7c"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/run-r4/diagnostic.txt",
+        "sha256": "074b1c82e310e260e6b81b301ba80c212727a2ae75cfea4d12d5b3a3906b3dc7"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/run-r4/diagnostic-summary.json",
+        "sha256": "14bc47975faa6c3f549fb4be38fad831ffffca1c661a26af287a33044b83b091"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/run-r4/gc.log",
+        "sha256": "b6fd7378e55b71f3a575d3ad61a6b9593761d526e26bd9f06b6bc642c37c8c84"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/run-r4/result.json",
+        "sha256": "2882c58ca0e539bce00fa604d2bc8e1f4d39747e82cb8fa38f1244655b0f7d67"
+      },
+      {
+        "path": "docs/public/examples/java-service-mechanisms-lab.zip",
+        "sha256": "b3d6db08e3ff95b35e5342c35bebba882ee1fdf72ae68c4ba99e0a900629184a"
+      }
+    ],
+    "recordedAt": "2026-10-03",
+    "independentlyReviewed": true,
+    "resourceGroup": "java-service-mechanisms",
+    "versions": [
+      "OpenJDK jdk-21+35 source",
+      "Temurin 21.0.12.1+1-LTS execution"
+    ],
+    "revision": "r3"
+  },
+  {
+    "id": "java-mechanisms.diagnostic-judgment",
+    "kind": "static-checked",
+    "status": "pass",
+    "scope": [
+      "Actual saved monitor/GC/attach evidence rejects three unsupported causal claims",
+      "Actual run.py output parser tested with same-message wrong exception type, wrong thread, compile/startup error, unexpected success and wrong first exception",
+      "Actual positive/interactive runner validators reject unexpected child diagnostics, missing/duplicate final success markers and nonzero exit",
+      "Actual positive/interactive runner validators reject unexpected child diagnostics, missing/duplicate final success markers and nonzero exit"
+    ],
+    "limitations": [
+      "Pure Python with stubbed subprocess; no new JVM run",
+      "Artifact checks do not diagnose production latency"
+    ],
+    "sourceFiles": [
+      {
+        "path": "labs/java-service-mechanisms-lab/check_evidence.py",
+        "sha256": "ab26f419cc054558bfc23ad1dcd9401010c75d244531cb2961e413aeab6d757a"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/run.py",
+        "sha256": "9f9055dde202c71db55ec100a507f602e3f7df3578b8392cde2bffe01cab1bd4"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/run-r4/threads-before.txt",
+        "sha256": "476f96c9969bbf01beee0573c5a6a7474ea27b190d95d28a27f00ee4a615ee7c"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/run-r4/threads-after.txt",
+        "sha256": "476f96c9969bbf01beee0573c5a6a7474ea27b190d95d28a27f00ee4a615ee7c"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/run-r4/gc.log",
+        "sha256": "b6fd7378e55b71f3a575d3ad61a6b9593761d526e26bd9f06b6bc642c37c8c84"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/jcmd-attempt.json",
+        "sha256": "7bda5223ef01ec1904f99cfdc1d501ed64ef5a1de1b0ee8a1f947e04351c8b22"
+      }
+    ],
+    "commands": [
+      {
+        "command": "python3 check_evidence.py",
+        "exitCode": 0
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/evidence-check.json",
+        "sha256": "afaa72cfe2ac8c12faf88e53f2b1ed67b9ad3cc43096b6a38d06f1baa8b45a45"
+      }
+    ],
+    "recordedAt": "2026-10-03",
+    "independentlyReviewed": true,
+    "resourceGroup": "java-service-mechanisms",
+    "versions": [
+      "OpenJDK jdk-21+35 source",
+      "Temurin 21.0.12.1+1-LTS execution"
+    ],
+    "revision": "r3"
+  },
+  {
+    "id": "java-mechanisms.jcmd-attempt",
+    "kind": "executed",
+    "status": "fail",
+    "scope": [
+      "Attempted external jcmd Thread.print after controlled READY"
+    ],
+    "limitations": [
+      "Timed out at 8 seconds; no successful external thread dump collected",
+      "No established root cause of attach failure; changed to permitted in-process MXBean instrumentation",
+      "Original raw failure retained privately; public summary only removes private absolute paths"
+    ],
+    "sourceFiles": [
+      {
+        "path": "labs/java-service-mechanisms-lab/sources/history/jcmd-attempt/src/DiagnosticLab.java",
+        "sha256": "5de6c9152feba81ffce41d68735f96d6e3177a2ac6c0cdda8049c3fe66bd8cdb"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/sources/history/jcmd-attempt/run.py",
+        "sha256": "94f5d1e0eba866fe7c59654c1a4a370bbf0c255129932a7fd143455cecad8ccd"
+      }
+    ],
+    "commands": [
+      {
+        "command": "python3 run.py --output proof/run-r1",
+        "exitCode": 1
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/jcmd-attempt.json",
+        "sha256": "7bda5223ef01ec1904f99cfdc1d501ed64ef5a1de1b0ee8a1f947e04351c8b22"
+      }
+    ],
+    "recordedAt": "2026-10-03",
+    "independentlyReviewed": true,
+    "resourceGroup": "java-service-mechanisms",
+    "versions": [
+      "OpenJDK jdk-21+35 source",
+      "Temurin 21.0.12.1+1-LTS execution"
+    ],
+    "revision": "r3"
+  },
+  {
+    "id": "java-mechanisms.child-failure-regressions",
+    "kind": "executed",
+    "status": "pass",
+    "scope": [
+      "Independent-review-equivalent atomic and diagnostic source mutations fail after intended side effects with original cause and all threads joined",
+      "Ordinary executor late throw, wrong Future cause, and ordinary FutureTask error also fail with exact Caused by and cleanup; no circular-reference output",
+      "No surviving lab JVM after sequential mutations"
+    ],
+    "limitations": [
+      "Source mutation checks target ordinary child/Future error propagation, not every possible harness defect"
+    ],
+    "sourceFiles": [
+      {
+        "path": "labs/java-service-mechanisms-lab/src/ChildFailures.java",
+        "sha256": "6e950477f6999f89223801383e6fe65ee8dad52cbd1c32e04c15fa63706525e6"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/src/DiagnosticLab.java",
+        "sha256": "cab33673d3774da559f516e06fdb409f9916b48f6e57a47605f9b9dfdb8b2421"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/src/ExecutorLab.java",
+        "sha256": "334091edca8f3b8bdd53d709f7a6d13ddec7022be5b94066f744deb8e25746f7"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/src/HarnessContracts.java",
+        "sha256": "03277a1b6523dc73c5cd913b589d1f27cab01779ae2e3ccb8aa45b4662a492d2"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/src/JmmLab.java",
+        "sha256": "870ed2ee2fac3a6127347c074129f2af908546ec330af9dff6b2865fa24803ed"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/src/PoolCleanup.java",
+        "sha256": "67b6f31277527ce9afba2279b44c3ff7c5d206b489c8a6c21925443cb63ce6fe"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/src/Publication.java",
+        "sha256": "3610abe8aab151b62f9dd79d6f3d8e3079d8f7abb27bf169926ff831d0c924d7"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/run.py",
+        "sha256": "9f9055dde202c71db55ec100a507f602e3f7df3578b8392cde2bffe01cab1bd4"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/regression_probes.py",
+        "sha256": "0c91114fd3d7ae2e75defac8db5024c92fe8afc1c2f60c21b5021d469c021240"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/verify_revision.py",
+        "sha256": "9bc0db9a90e28e27081c0799e64d670c2aca3c16c0985e33a585e1d24f36483e"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/atomic-child/src/ChildFailures.java",
+        "sha256": "6e950477f6999f89223801383e6fe65ee8dad52cbd1c32e04c15fa63706525e6"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/atomic-child/src/DiagnosticLab.java",
+        "sha256": "cab33673d3774da559f516e06fdb409f9916b48f6e57a47605f9b9dfdb8b2421"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/atomic-child/src/ExecutorLab.java",
+        "sha256": "334091edca8f3b8bdd53d709f7a6d13ddec7022be5b94066f744deb8e25746f7"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/atomic-child/src/HarnessContracts.java",
+        "sha256": "03277a1b6523dc73c5cd913b589d1f27cab01779ae2e3ccb8aa45b4662a492d2"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/atomic-child/src/JmmLab.java",
+        "sha256": "20e938afbc403110a24193708c7cc486b8217b1ce87c47f927393919e2b69c7d"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/atomic-child/src/PoolCleanup.java",
+        "sha256": "67b6f31277527ce9afba2279b44c3ff7c5d206b489c8a6c21925443cb63ce6fe"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/atomic-child/src/Publication.java",
+        "sha256": "3610abe8aab151b62f9dd79d6f3d8e3079d8f7abb27bf169926ff831d0c924d7"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/atomic-child/run.py",
+        "sha256": "9f9055dde202c71db55ec100a507f602e3f7df3578b8392cde2bffe01cab1bd4"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/diagnostic-child/src/ChildFailures.java",
+        "sha256": "6e950477f6999f89223801383e6fe65ee8dad52cbd1c32e04c15fa63706525e6"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/diagnostic-child/src/DiagnosticLab.java",
+        "sha256": "a677718bb13f22cd9867fffc15490c6e11051feeea56b04edaa2df4c115d5ac2"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/diagnostic-child/src/ExecutorLab.java",
+        "sha256": "334091edca8f3b8bdd53d709f7a6d13ddec7022be5b94066f744deb8e25746f7"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/diagnostic-child/src/HarnessContracts.java",
+        "sha256": "03277a1b6523dc73c5cd913b589d1f27cab01779ae2e3ccb8aa45b4662a492d2"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/diagnostic-child/src/JmmLab.java",
+        "sha256": "870ed2ee2fac3a6127347c074129f2af908546ec330af9dff6b2865fa24803ed"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/diagnostic-child/src/PoolCleanup.java",
+        "sha256": "67b6f31277527ce9afba2279b44c3ff7c5d206b489c8a6c21925443cb63ce6fe"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/diagnostic-child/src/Publication.java",
+        "sha256": "3610abe8aab151b62f9dd79d6f3d8e3079d8f7abb27bf169926ff831d0c924d7"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/diagnostic-child/run.py",
+        "sha256": "9f9055dde202c71db55ec100a507f602e3f7df3578b8392cde2bffe01cab1bd4"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/executor-child/src/ChildFailures.java",
+        "sha256": "6e950477f6999f89223801383e6fe65ee8dad52cbd1c32e04c15fa63706525e6"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/executor-child/src/DiagnosticLab.java",
+        "sha256": "cab33673d3774da559f516e06fdb409f9916b48f6e57a47605f9b9dfdb8b2421"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/executor-child/src/ExecutorLab.java",
+        "sha256": "0b60b05b9d2a0108f9b9ec38efd5cd1b0776f1f77310d79aca19e83d2930c13a"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/executor-child/src/HarnessContracts.java",
+        "sha256": "03277a1b6523dc73c5cd913b589d1f27cab01779ae2e3ccb8aa45b4662a492d2"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/executor-child/src/JmmLab.java",
+        "sha256": "870ed2ee2fac3a6127347c074129f2af908546ec330af9dff6b2865fa24803ed"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/executor-child/src/PoolCleanup.java",
+        "sha256": "67b6f31277527ce9afba2279b44c3ff7c5d206b489c8a6c21925443cb63ce6fe"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/executor-child/src/Publication.java",
+        "sha256": "3610abe8aab151b62f9dd79d6f3d8e3079d8f7abb27bf169926ff831d0c924d7"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/executor-child/run.py",
+        "sha256": "9f9055dde202c71db55ec100a507f602e3f7df3578b8392cde2bffe01cab1bd4"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/ordinary-future-child/src/ChildFailures.java",
+        "sha256": "6e950477f6999f89223801383e6fe65ee8dad52cbd1c32e04c15fa63706525e6"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/ordinary-future-child/src/DiagnosticLab.java",
+        "sha256": "cab33673d3774da559f516e06fdb409f9916b48f6e57a47605f9b9dfdb8b2421"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/ordinary-future-child/src/ExecutorLab.java",
+        "sha256": "c62c5df38b2be7a2206ed9be054ace22f6f05da044fd52c2585f826dc3c41f47"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/ordinary-future-child/src/HarnessContracts.java",
+        "sha256": "03277a1b6523dc73c5cd913b589d1f27cab01779ae2e3ccb8aa45b4662a492d2"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/ordinary-future-child/src/JmmLab.java",
+        "sha256": "870ed2ee2fac3a6127347c074129f2af908546ec330af9dff6b2865fa24803ed"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/ordinary-future-child/src/PoolCleanup.java",
+        "sha256": "67b6f31277527ce9afba2279b44c3ff7c5d206b489c8a6c21925443cb63ce6fe"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/ordinary-future-child/src/Publication.java",
+        "sha256": "3610abe8aab151b62f9dd79d6f3d8e3079d8f7abb27bf169926ff831d0c924d7"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/ordinary-future-child/run.py",
+        "sha256": "9f9055dde202c71db55ec100a507f602e3f7df3578b8392cde2bffe01cab1bd4"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/future-wrong-cause/src/ChildFailures.java",
+        "sha256": "6e950477f6999f89223801383e6fe65ee8dad52cbd1c32e04c15fa63706525e6"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/future-wrong-cause/src/DiagnosticLab.java",
+        "sha256": "cab33673d3774da559f516e06fdb409f9916b48f6e57a47605f9b9dfdb8b2421"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/future-wrong-cause/src/ExecutorLab.java",
+        "sha256": "0b5e7099a990c37bced99f5681733e8c373106d59b5f3ec73dc65d8e948b6744"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/future-wrong-cause/src/HarnessContracts.java",
+        "sha256": "03277a1b6523dc73c5cd913b589d1f27cab01779ae2e3ccb8aa45b4662a492d2"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/future-wrong-cause/src/JmmLab.java",
+        "sha256": "870ed2ee2fac3a6127347c074129f2af908546ec330af9dff6b2865fa24803ed"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/future-wrong-cause/src/PoolCleanup.java",
+        "sha256": "67b6f31277527ce9afba2279b44c3ff7c5d206b489c8a6c21925443cb63ce6fe"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/future-wrong-cause/src/Publication.java",
+        "sha256": "3610abe8aab151b62f9dd79d6f3d8e3079d8f7abb27bf169926ff831d0c924d7"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/future-wrong-cause/run.py",
+        "sha256": "9f9055dde202c71db55ec100a507f602e3f7df3578b8392cde2bffe01cab1bd4"
+      }
+    ],
+    "commands": [
+      {
+        "command": "python3 verify_revision.py",
+        "exitCode": 0
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/result.json",
+        "sha256": "24e07d3c73982ff2d1f4471dffa9f5f07e77cd4cbfd4516fec926f4aa981af5c"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/atomic-child/mutation.diff",
+        "sha256": "1afc25d79f493c5c47097ea150b40f307d8b96fa67006746d527d0b6feeaea43"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/atomic-child/runner.txt",
+        "sha256": "22a2f5db30734c6c51641d834edb71954e435946b83149480bb61df065e05fb8"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/atomic-child/proof/result.json",
+        "sha256": "64dc159f9147ebf78813525d29a72551e604f9866813610601fbf4f4ba66e251"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/atomic-child/proof/jmm.txt",
+        "sha256": "97172d93790083389a3b9f6ef5b57d82f08b00eb60ee75fd1937b1a63eac6a65"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/diagnostic-child/mutation.diff",
+        "sha256": "67037919c422d9727e23abeb26be85a7a0258015ac95ccb0bc504b982c0a059d"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/diagnostic-child/runner.txt",
+        "sha256": "357d79ff189967bf00e794c0390ca50df5733b3a6beacab23e3ef0b3a26dd1fa"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/diagnostic-child/proof/result.json",
+        "sha256": "409efe709c2f89bd60d0a077b37da34855e44dfba7f1470b1ca2c2336b4f3d6c"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/diagnostic-child/proof/diagnostic.txt",
+        "sha256": "4777b5632fb4892b1301205a6bc05b919b9683aa94f1902fc5d87430fe04b2dd"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/executor-child/mutation.diff",
+        "sha256": "82128f7f773a557aee5bdffab4e2cb4475363a25c1c3fb400b1a6df2f3808c29"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/executor-child/runner.txt",
+        "sha256": "b40f3e25aec2b64789f8c42051c2832673bc0469b6ae84fd3e221a855e7fa4f4"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/executor-child/proof/result.json",
+        "sha256": "6465027a149ac3dd8ba008b0e4496972b95bacaf77ebb0d4534d52aae3e554ce"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/executor-child/proof/executor.txt",
+        "sha256": "4103c3a3cb58817105ddbf634ef853964bb0c0c72a130230cafd59b7464a2f4a"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/ordinary-future-child/mutation.diff",
+        "sha256": "c2571070d700c293743bc7b1814b143c1c3a8afb74978139fadcbf576dd6508f"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/ordinary-future-child/runner.txt",
+        "sha256": "b40f3e25aec2b64789f8c42051c2832673bc0469b6ae84fd3e221a855e7fa4f4"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/ordinary-future-child/proof/result.json",
+        "sha256": "6465027a149ac3dd8ba008b0e4496972b95bacaf77ebb0d4534d52aae3e554ce"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/ordinary-future-child/proof/executor.txt",
+        "sha256": "d8aa8b205984077599cdac42e52e40d10ddf6d08f66d4b3fb5a69bbd36f45dd5"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/future-wrong-cause/mutation.diff",
+        "sha256": "825db61b4b22e9844564dbf7a545e1b0606cbed19571779d0017ca17028730c8"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/future-wrong-cause/runner.txt",
+        "sha256": "b40f3e25aec2b64789f8c42051c2832673bc0469b6ae84fd3e221a855e7fa4f4"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/future-wrong-cause/proof/result.json",
+        "sha256": "6465027a149ac3dd8ba008b0e4496972b95bacaf77ebb0d4534d52aae3e554ce"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/r3-regressions/future-wrong-cause/proof/executor.txt",
+        "sha256": "4c4476c1f4406376b2d7d8c1bf699f59cba63c99148eee9bf74da5f31450b7c7"
+      },
+      {
+        "path": "docs/public/examples/java-service-mechanisms-lab.zip",
+        "sha256": "b3d6db08e3ff95b35e5342c35bebba882ee1fdf72ae68c4ba99e0a900629184a"
+      }
+    ],
+    "recordedAt": "2026-10-03",
+    "revision": "r3",
+    "independentlyReviewed": true,
+    "resourceGroup": "java-service-mechanisms",
+    "versions": [
+      "Temurin 21.0.12.1+1-LTS"
+    ]
+  },
+  {
+    "id": "java-mechanisms.cleanup-contracts",
+    "kind": "executed",
+    "status": "pass",
+    "scope": [
+      "ObservedPool proves cooperative release/shutdown/await does not invoke shutdownNow or interrupt the worker",
+      "A deliberately unreleased owned worker triggers the bounded three-second timeout, one force stop, ended worker and suppressed cleanup failure while preserving primary identity",
+      "Same Throwable emitted once, genuinely distinct children retained, and child already in primary cause graph not duplicated"
+    ],
+    "limitations": [
+      "Finite harness contract checks, not throughput or schedule stress tests"
+    ],
+    "sourceFiles": [
+      {
+        "path": "labs/java-service-mechanisms-lab/src/HarnessContracts.java",
+        "sha256": "03277a1b6523dc73c5cd913b589d1f27cab01779ae2e3ccb8aa45b4662a492d2"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/src/PoolCleanup.java",
+        "sha256": "67b6f31277527ce9afba2279b44c3ff7c5d206b489c8a6c21925443cb63ce6fe"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/src/ChildFailures.java",
+        "sha256": "6e950477f6999f89223801383e6fe65ee8dad52cbd1c32e04c15fa63706525e6"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/run.py",
+        "sha256": "9f9055dde202c71db55ec100a507f602e3f7df3578b8392cde2bffe01cab1bd4"
+      }
+    ],
+    "commands": [
+      {
+        "command": "java <bounded-flags> -cp <temporary-classes> HarnessContracts",
+        "exitCode": 0
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/run-r4/harness-contracts.txt",
+        "sha256": "c73cf6e24fb20008967e66f54033e315f16961a9a8d02a6cd016917624cc76a5"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/run-r4/result.json",
+        "sha256": "2882c58ca0e539bce00fa604d2bc8e1f4d39747e82cb8fa38f1244655b0f7d67"
+      },
+      {
+        "path": "docs/public/examples/java-service-mechanisms-lab.zip",
+        "sha256": "b3d6db08e3ff95b35e5342c35bebba882ee1fdf72ae68c4ba99e0a900629184a"
+      }
+    ],
+    "recordedAt": "2026-10-03",
+    "revision": "r3",
+    "independentlyReviewed": true,
+    "resourceGroup": "java-service-mechanisms"
+  },
+  {
+    "id": "java-mechanisms.r2-review-failure",
+    "kind": "executed",
+    "status": "fail",
+    "scope": [
+      "First unchanged r2 independent baseline failed exact attribution for wrong-max-first because cleanup interrupted A and replaced the primary",
+      "Directed ordinary execute failure exposed duplicate same-Throwable cause/suppressed graph"
+    ],
+    "limitations": [
+      "Historical r2 failure retained without rerun replacement",
+      "Reviewer future-wrong-cause and ordinary-future-child were NOT_RUN at r2; r3 has separate author and independent runtime verification; this record retains the earlier failure"
+    ],
+    "sourceFiles": [
+      {
+        "path": "labs/java-service-mechanisms-lab/sources/history/r2-review/run.py",
+        "sha256": "e0940910b842c9a628d4747d22d321036cd9acf819f15a791eee1ecc40f5ecc5"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/sources/history/r2-review/runtime_probes.py",
+        "sha256": "2face29fa257ac058d5096bd7cbc5ba390ceb9f8d149429160c713d3c4188125"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/sources/history/r2-review/src/ChildFailures.java",
+        "sha256": "f63984ab9911191f21cd23b3eb76f047980cf77a3916115ba48472409c59a2ad"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/sources/history/r2-review/src/DiagnosticLab.java",
+        "sha256": "d53a6186fff80498dda10da9b80a8cfb84b97360de186f518181678f53d883db"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/sources/history/r2-review/src/ExecutorLab.java",
+        "sha256": "8d7e7703390ab85fa07e7dccc9482c2fbdaabc2f4fac96f255bcbe392facfa1d"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/sources/history/r2-review/src/JmmLab.java",
+        "sha256": "17c7c729fb13ba8d5f93b27228f3e489121c3af611bea7861d1caf42aa87b3e9"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/sources/history/r2-review/src/Publication.java",
+        "sha256": "3610abe8aab151b62f9dd79d6f3d8e3079d8f7abb27bf169926ff831d0c924d7"
+      }
+    ],
+    "commands": [
+      {
+        "command": "python3 runtime_probes.py",
+        "exitCode": 1
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/history/r2-review/baseline-negative-max-first.txt",
+        "sha256": "1b7a644862e6d3eafcc149da77a66470dca45ad5a34a5bcdbdb3905a81c4b3f1"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/history/r2-review/baseline-result.json",
+        "sha256": "49973351e18e6c35c23166a6a7b50e2b8fe788035f3cdc6e6b9771dab6ac7390"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/history/r2-review/executor-child-exception.txt",
+        "sha256": "67988c556cba04bf4a6be4906dcd06a72e1ab1cd1d8e38f2311ecc192ae72b1b"
+      },
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/history/r2-review/failure-summary.json",
+        "sha256": "d1232e7d95b7465afcfd68a5652625e54722732d43eb2bb7136a1f5d47713e16"
+      }
+    ],
+    "recordedAt": "2026-10-03",
+    "revision": "r2-historical",
+    "independentlyReviewed": true
+  },
+  {
+    "id": "java-mechanisms.packaging",
+    "kind": "static-checked",
+    "status": "pass",
+    "scope": [
+      "Explicit source/license/metadata/text-evidence path allowlist excludes hidden attach files, caches and binaries",
+      "Known attach/class/cache/heap-dump/shared-library fixtures rejected; final lab has no excluded runtime residue"
+    ],
+    "limitations": [
+      "Source and text evidence only; no compiled artifacts"
+    ],
+    "sourceFiles": [
+      {
+        "path": "labs/java-service-mechanisms-lab/package_public.py",
+        "sha256": "8d5e5422f566776198d68ccfffb0fba14e145983df0edcf343ef3162dc35c1a0"
+      }
+    ],
+    "commands": [
+      {
+        "command": "python3 package_public.py --output <new-public-archive>",
+        "exitCode": 0
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "labs/java-service-mechanisms-lab/proof/package-check.json",
+        "sha256": "9acb3dd0af0859e4bbcc04a53396aa3b50b53e0dec9afde3748771c786ec3896"
+      }
+    ],
+    "recordedAt": "2026-10-03",
+    "revision": "r3",
+    "independentlyReviewed": true
+  }
+]

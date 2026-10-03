@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "<mutant-lab>/run.py", line 72, in <module>
+    run(command('JmmLab'), 'jmm.txt', required=(
+  File "<mutant-lab>/run.py", line 34, in run
+    raise AssertionError(f'{name}: wrong exit or missing target diagnostic')
+AssertionError: jmm.txt: wrong exit or missing target diagnostic

@@ -1,0 +1,15 @@
+admission A=worker B=queue C=worker D=rejected; shutdown drained A/B/C exactly once
+execute exception=uncaught+hook; submit exception=Future.get cause; submit hook Throwable=null
+shutdownNow interrupted running task; returned exact queued FutureTask; owner cancelled pending Future
+offer/shutdown race: offered then shutdown then recheck removed+rejected; task never ran
+EXECUTOR_CLEANUP ordinary workers joined; scenario pools terminated
+Exception in thread "main" java.lang.AssertionError: UNEXPECTED_CHILD_FAILURE thread=ordinary-worker-1
+	at ChildFailures.throwIfAny(ChildFailures.java:39)
+	at ExecutorLab.main(ExecutorLab.java:152)
+	Suppressed: java.lang.IllegalStateException: REVIEWER_CHILD_EXECUTOR_FAILURE
+		at ExecutorLab.lambda$admission$0(ExecutorLab.java:37)
+		at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+		at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+		at ChildFailures.lambda$thread$0(ChildFailures.java:18)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: [CIRCULAR REFERENCE: java.lang.IllegalStateException: REVIEWER_CHILD_EXECUTOR_FAILURE]

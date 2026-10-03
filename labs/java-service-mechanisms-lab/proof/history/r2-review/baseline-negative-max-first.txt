@@ -1,0 +1,17 @@
+EXECUTOR_CLEANUP ordinary workers joined; scenario pools terminated
+Exception in thread "main" java.lang.AssertionError: UNEXPECTED_CHILD_FAILURE thread=ordinary-worker-1
+	at ChildFailures.throwIfAny(ChildFailures.java:39)
+	at ExecutorLab.main(ExecutorLab.java:152)
+	Suppressed: java.lang.AssertionError: java.lang.InterruptedException
+		at ExecutorLab.await(ExecutorLab.java:13)
+		at ExecutorLab.lambda$admission$0(ExecutorLab.java:37)
+		at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+		at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+		at ChildFailures.lambda$thread$0(ChildFailures.java:18)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+	Caused by: java.lang.InterruptedException
+		at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer.tryAcquireSharedNanos(AbstractQueuedSynchronizer.java:1167)
+		at java.base/java.util.concurrent.CountDownLatch.await(CountDownLatch.java:276)
+		at ExecutorLab.await(ExecutorLab.java:12)
+		... 5 more
+Caused by: [CIRCULAR REFERENCE: java.lang.AssertionError: java.lang.InterruptedException]

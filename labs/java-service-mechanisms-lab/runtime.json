@@ -1,0 +1,15 @@
+{
+  "implementor": "Eclipse Adoptium",
+  "runtime": "21.0.12.1+1-LTS",
+  "javac": "21.0.12.1",
+  "sourceTagExplained": "jdk-21+35",
+  "os": "Linux",
+  "architecture": "x86_64",
+  "notCovered": [
+    "GA binary",
+    "virtual threads",
+    "external jcmd attach success",
+    "JFR",
+    "performance comparisons"
+  ]
+}

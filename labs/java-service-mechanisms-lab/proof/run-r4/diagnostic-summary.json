@@ -1,0 +1,23 @@
+{
+  "status": "pass",
+  "cpuDeltaNs": {
+    "lab-cpu-busy": 291709471,
+    "lab-monitor-holder": 0,
+    "lab-monitor-blocked": 23024,
+    "lab-latch-waiter": 0
+  },
+  "gcPauseEvents": 30,
+  "bounds": {
+    "maxHeapMiB": 64,
+    "activeProcessors": 2,
+    "applicationWorkers": 4,
+    "allocationPayloadMiB": 256,
+    "retainedArrayPayloadMiB": 2
+  },
+  "limitations": [
+    "Controlled platform-thread process; no production workload or throughput claim",
+    "Thread snapshots come from same-process ThreadMXBean, not successful jcmd attach",
+    "CPU deltas and durations are observations of this run",
+    "GC pause is not evidence of a leak or request-level latency causation"
+  ]
+}

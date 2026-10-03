@@ -1,0 +1,218 @@
+{
+  "status": "pass",
+  "records": [
+    {
+      "case": "atomic-child",
+      "status": "expected-failure",
+      "runnerExitCode": 1,
+      "resultStatus": "fail",
+      "requiredCause": "java.lang.IllegalStateException: REVIEWER_CHILD_ATOMIC_FAILURE",
+      "cleanupMarker": "JMM_CLEANUP all workers joined",
+      "sourceFiles": [
+        {
+          "path": "atomic-child/src/ChildFailures.java",
+          "sha256": "6e950477f6999f89223801383e6fe65ee8dad52cbd1c32e04c15fa63706525e6"
+        },
+        {
+          "path": "atomic-child/src/DiagnosticLab.java",
+          "sha256": "cab33673d3774da559f516e06fdb409f9916b48f6e57a47605f9b9dfdb8b2421"
+        },
+        {
+          "path": "atomic-child/src/ExecutorLab.java",
+          "sha256": "334091edca8f3b8bdd53d709f7a6d13ddec7022be5b94066f744deb8e25746f7"
+        },
+        {
+          "path": "atomic-child/src/HarnessContracts.java",
+          "sha256": "03277a1b6523dc73c5cd913b589d1f27cab01779ae2e3ccb8aa45b4662a492d2"
+        },
+        {
+          "path": "atomic-child/src/JmmLab.java",
+          "sha256": "20e938afbc403110a24193708c7cc486b8217b1ce87c47f927393919e2b69c7d"
+        },
+        {
+          "path": "atomic-child/src/PoolCleanup.java",
+          "sha256": "67b6f31277527ce9afba2279b44c3ff7c5d206b489c8a6c21925443cb63ce6fe"
+        },
+        {
+          "path": "atomic-child/src/Publication.java",
+          "sha256": "3610abe8aab151b62f9dd79d6f3d8e3079d8f7abb27bf169926ff831d0c924d7"
+        },
+        {
+          "path": "atomic-child/run.py",
+          "sha256": "9f9055dde202c71db55ec100a507f602e3f7df3578b8392cde2bffe01cab1bd4"
+        }
+      ]
+    },
+    {
+      "case": "diagnostic-child",
+      "status": "expected-failure",
+      "runnerExitCode": 1,
+      "resultStatus": "fail",
+      "requiredCause": "java.lang.IllegalStateException: REVIEWER_CHILD_DIAGNOSTIC_FAILURE",
+      "cleanupMarker": "CLEANUP all four workers joined; watchdog joined",
+      "sourceFiles": [
+        {
+          "path": "diagnostic-child/src/ChildFailures.java",
+          "sha256": "6e950477f6999f89223801383e6fe65ee8dad52cbd1c32e04c15fa63706525e6"
+        },
+        {
+          "path": "diagnostic-child/src/DiagnosticLab.java",
+          "sha256": "a677718bb13f22cd9867fffc15490c6e11051feeea56b04edaa2df4c115d5ac2"
+        },
+        {
+          "path": "diagnostic-child/src/ExecutorLab.java",
+          "sha256": "334091edca8f3b8bdd53d709f7a6d13ddec7022be5b94066f744deb8e25746f7"
+        },
+        {
+          "path": "diagnostic-child/src/HarnessContracts.java",
+          "sha256": "03277a1b6523dc73c5cd913b589d1f27cab01779ae2e3ccb8aa45b4662a492d2"
+        },
+        {
+          "path": "diagnostic-child/src/JmmLab.java",
+          "sha256": "870ed2ee2fac3a6127347c074129f2af908546ec330af9dff6b2865fa24803ed"
+        },
+        {
+          "path": "diagnostic-child/src/PoolCleanup.java",
+          "sha256": "67b6f31277527ce9afba2279b44c3ff7c5d206b489c8a6c21925443cb63ce6fe"
+        },
+        {
+          "path": "diagnostic-child/src/Publication.java",
+          "sha256": "3610abe8aab151b62f9dd79d6f3d8e3079d8f7abb27bf169926ff831d0c924d7"
+        },
+        {
+          "path": "diagnostic-child/run.py",
+          "sha256": "9f9055dde202c71db55ec100a507f602e3f7df3578b8392cde2bffe01cab1bd4"
+        }
+      ]
+    },
+    {
+      "case": "executor-child",
+      "status": "expected-failure",
+      "runnerExitCode": 1,
+      "resultStatus": "fail",
+      "requiredCause": "java.lang.IllegalStateException: REVIEWER_CHILD_EXECUTOR_FAILURE",
+      "cleanupMarker": "EXECUTOR_CLEANUP ordinary workers joined; scenario pools terminated",
+      "sourceFiles": [
+        {
+          "path": "executor-child/src/ChildFailures.java",
+          "sha256": "6e950477f6999f89223801383e6fe65ee8dad52cbd1c32e04c15fa63706525e6"
+        },
+        {
+          "path": "executor-child/src/DiagnosticLab.java",
+          "sha256": "cab33673d3774da559f516e06fdb409f9916b48f6e57a47605f9b9dfdb8b2421"
+        },
+        {
+          "path": "executor-child/src/ExecutorLab.java",
+          "sha256": "0b60b05b9d2a0108f9b9ec38efd5cd1b0776f1f77310d79aca19e83d2930c13a"
+        },
+        {
+          "path": "executor-child/src/HarnessContracts.java",
+          "sha256": "03277a1b6523dc73c5cd913b589d1f27cab01779ae2e3ccb8aa45b4662a492d2"
+        },
+        {
+          "path": "executor-child/src/JmmLab.java",
+          "sha256": "870ed2ee2fac3a6127347c074129f2af908546ec330af9dff6b2865fa24803ed"
+        },
+        {
+          "path": "executor-child/src/PoolCleanup.java",
+          "sha256": "67b6f31277527ce9afba2279b44c3ff7c5d206b489c8a6c21925443cb63ce6fe"
+        },
+        {
+          "path": "executor-child/src/Publication.java",
+          "sha256": "3610abe8aab151b62f9dd79d6f3d8e3079d8f7abb27bf169926ff831d0c924d7"
+        },
+        {
+          "path": "executor-child/run.py",
+          "sha256": "9f9055dde202c71db55ec100a507f602e3f7df3578b8392cde2bffe01cab1bd4"
+        }
+      ]
+    },
+    {
+      "case": "ordinary-future-child",
+      "status": "expected-failure",
+      "runnerExitCode": 1,
+      "resultStatus": "fail",
+      "requiredCause": "java.lang.IllegalStateException: REVIEWER_ORDINARY_FUTURE_FAILURE",
+      "cleanupMarker": "EXECUTOR_CLEANUP ordinary workers joined; scenario pools terminated",
+      "sourceFiles": [
+        {
+          "path": "ordinary-future-child/src/ChildFailures.java",
+          "sha256": "6e950477f6999f89223801383e6fe65ee8dad52cbd1c32e04c15fa63706525e6"
+        },
+        {
+          "path": "ordinary-future-child/src/DiagnosticLab.java",
+          "sha256": "cab33673d3774da559f516e06fdb409f9916b48f6e57a47605f9b9dfdb8b2421"
+        },
+        {
+          "path": "ordinary-future-child/src/ExecutorLab.java",
+          "sha256": "c62c5df38b2be7a2206ed9be054ace22f6f05da044fd52c2585f826dc3c41f47"
+        },
+        {
+          "path": "ordinary-future-child/src/HarnessContracts.java",
+          "sha256": "03277a1b6523dc73c5cd913b589d1f27cab01779ae2e3ccb8aa45b4662a492d2"
+        },
+        {
+          "path": "ordinary-future-child/src/JmmLab.java",
+          "sha256": "870ed2ee2fac3a6127347c074129f2af908546ec330af9dff6b2865fa24803ed"
+        },
+        {
+          "path": "ordinary-future-child/src/PoolCleanup.java",
+          "sha256": "67b6f31277527ce9afba2279b44c3ff7c5d206b489c8a6c21925443cb63ce6fe"
+        },
+        {
+          "path": "ordinary-future-child/src/Publication.java",
+          "sha256": "3610abe8aab151b62f9dd79d6f3d8e3079d8f7abb27bf169926ff831d0c924d7"
+        },
+        {
+          "path": "ordinary-future-child/run.py",
+          "sha256": "9f9055dde202c71db55ec100a507f602e3f7df3578b8392cde2bffe01cab1bd4"
+        }
+      ]
+    },
+    {
+      "case": "future-wrong-cause",
+      "status": "expected-failure",
+      "runnerExitCode": 1,
+      "resultStatus": "fail",
+      "requiredCause": "java.lang.IllegalArgumentException: REVIEWER_FUTURE_WRONG_CAUSE",
+      "cleanupMarker": "EXECUTOR_CLEANUP ordinary workers joined; scenario pools terminated",
+      "sourceFiles": [
+        {
+          "path": "future-wrong-cause/src/ChildFailures.java",
+          "sha256": "6e950477f6999f89223801383e6fe65ee8dad52cbd1c32e04c15fa63706525e6"
+        },
+        {
+          "path": "future-wrong-cause/src/DiagnosticLab.java",
+          "sha256": "cab33673d3774da559f516e06fdb409f9916b48f6e57a47605f9b9dfdb8b2421"
+        },
+        {
+          "path": "future-wrong-cause/src/ExecutorLab.java",
+          "sha256": "0b5e7099a990c37bced99f5681733e8c373106d59b5f3ec73dc65d8e948b6744"
+        },
+        {
+          "path": "future-wrong-cause/src/HarnessContracts.java",
+          "sha256": "03277a1b6523dc73c5cd913b589d1f27cab01779ae2e3ccb8aa45b4662a492d2"
+        },
+        {
+          "path": "future-wrong-cause/src/JmmLab.java",
+          "sha256": "870ed2ee2fac3a6127347c074129f2af908546ec330af9dff6b2865fa24803ed"
+        },
+        {
+          "path": "future-wrong-cause/src/PoolCleanup.java",
+          "sha256": "67b6f31277527ce9afba2279b44c3ff7c5d206b489c8a6c21925443cb63ce6fe"
+        },
+        {
+          "path": "future-wrong-cause/src/Publication.java",
+          "sha256": "3610abe8aab151b62f9dd79d6f3d8e3079d8f7abb27bf169926ff831d0c924d7"
+        },
+        {
+          "path": "future-wrong-cause/run.py",
+          "sha256": "9f9055dde202c71db55ec100a507f602e3f7df3578b8392cde2bffe01cab1bd4"
+        }
+      ]
+    }
+  ],
+  "sourceScriptSha256": "0c91114fd3d7ae2e75defac8db5024c92fe8afc1c2f60c21b5021d469c021240",
+  "survivingLabJvms": [],
+  "limits": "Five sequential source mutants; existing JDK; 64MiB heap/2 ActiveProcessorCount; no binary artifacts"
+}

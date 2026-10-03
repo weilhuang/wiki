@@ -60,9 +60,11 @@ Spring 的装配和事务属于框架；数据库并发属于数据与存储。J
 
 把原子性、可见性、顺序和等待分开，才有条件判断线程安全。
 
-本分类正文仍在规划，当前不提供空文章链接。
+[分类导读](/knowledge/java/juc-foundations/)
 
-后续范围：竞态、happens-before、安全发布、线程中断。
+- [JMM 与安全发布：什么先于什么](/knowledge/java/juc-foundations/jmm-safe-publication.html)：从 value=42 与 ready 标志推导可见性，区分 happens-before、安全发布、final 与复合动作的原子性
+
+后续范围：线程中断、复杂对象不变式、跨线程协议的更多反例。
 
 ### 同步与并发容器
 
@@ -76,9 +78,11 @@ Spring 的装配和事务属于框架；数据库并发属于数据与存储。J
 
 任务的接纳、排队、运行和取消有不同资源成本。
 
-本分类正文仍在规划，当前不提供空文章链接。
+[分类导读](/knowledge/java/juc-execution/)
 
-后续范围：线程池、拒绝策略、Future、虚拟线程。
+- [线程池如何接纳任务：线程、队列与拒绝](/knowledge/java/juc-execution/executor-admission.html)：沿 JDK21 execute、FutureTask 与 shutdown 的真实分支解释任务接纳、异常归属和关闭后的责任
+
+后续范围：更多拒绝策略与 ThreadFactory 失败、CompletableFuture、ForkJoin、虚拟线程。
 
 ### JVM 执行与内存
 
@@ -92,10 +96,12 @@ Spring 的装配和事务属于框架；数据库并发属于数据与存储。J
 
 从负载和现象提出假设，再选择线程、分配或内存证据。
 
-本分类正文仍在规划，当前不提供空文章链接。
+[分类导读](/knowledge/java/jvm-diagnostics/)
+
+- [从线程与 GC 证据区分慢请求](/knowledge/java/jvm-diagnostics/thread-gc-diagnosis.html)：用真实平台线程快照、CPU 时间增量与 GC 日志，区分计算、monitor 阻塞、条件等待和分配压力
 
 后续范围：JFR、GC 日志、OOM、堆外内存。
 
 ## 如何与其他领域连接
 
-对象和集合机制决定本进程如何保存状态；进入[Spring 容器](/knowledge/frameworks/spring-container/)时，继续追踪谁创建和持有这些对象。需要解释资源等待，转到[连接预算](/knowledge/frameworks/data-access/connection-budget.html)，不能用集合线程安全代替外部资源合同。
+[安全发布](/knowledge/java/juc-foundations/jmm-safe-publication.html)与[任务接纳](/knowledge/java/juc-execution/executor-admission.html)解释本进程交接状态与工作；[线程证据](/knowledge/java/jvm-diagnostics/thread-gc-diagnosis.html)再帮助定位执行与等待。进入[Spring 容器](/knowledge/frameworks/spring-container/)时，继续追踪谁创建和持有这些对象。需要解释资源等待，转到[连接预算](/knowledge/frameworks/data-access/connection-budget.html)，不能用集合线程安全代替外部资源合同。

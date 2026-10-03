@@ -173,5 +173,47 @@
     "task": "verify",
     "prompt": "启动失败与业务反例都非零退出，怎样证明拒绝来自目标错误？",
     "anchor": "failure-attribution"
+  },
+  {
+    "id": "jmm-volatile-update",
+    "topic": "java.jmm-safe-publication",
+    "task": "understand",
+    "prompt": "两个线程都对 volatile 计数加一，为什么仍可能只增加一次？怎样区分可见性和复合动作的原子性？",
+    "anchor": "可见性不等于复合动作原子性"
+  },
+  {
+    "id": "jmm-final-publish",
+    "topic": "java.jmm-safe-publication",
+    "task": "design",
+    "prompt": "final 字段的初始化保证能否替代整个对象的安全发布，又是否保护后续可变字段？",
+    "anchor": "final-帮到哪一步"
+  },
+  {
+    "id": "executor-queue-before-max",
+    "topic": "java.executor-admission",
+    "task": "source-reading",
+    "prompt": "工作线程已经达到 corePoolSize，但 maximumPoolSize 还很大，为什么后续任务仍在排队？",
+    "anchor": "沿真实-execute-走一次"
+  },
+  {
+    "id": "executor-future-owner",
+    "topic": "java.executor-admission",
+    "task": "design",
+    "prompt": "shutdownNow 返回一个尚未开始的 FutureTask 后，谁还需要处理它的完成状态和等待者？",
+    "anchor": "关闭改变的是任务所有权和进展"
+  },
+  {
+    "id": "jvm-state-cpu",
+    "topic": "java.jvm-diagnosis",
+    "task": "diagnose",
+    "prompt": "线程快照显示 RUNNABLE，下一项什么观察有助于区分持续计算和其他等待？为什么需要核对同一线程身份？",
+    "anchor": "对同一线程比较-cpu-增量"
+  },
+  {
+    "id": "jvm-gc-claim",
+    "topic": "java.jvm-diagnosis",
+    "task": "verify",
+    "prompt": "一次分配实验产生了 GC 日志，离“内存泄漏导致请求慢”的结论还缺哪些证据？",
+    "anchor": "有-gc-记录-不等于找到内存泄漏"
   }
 ]

@@ -1,0 +1,18 @@
+{
+  "status": "pass",
+  "policy": "Explicit paths for source, licenses, metadata and text evidence only; no hidden/runtime/cache/binary files",
+  "deniedFixturePaths": [
+    ".attach_pid143",
+    ".attach_pid999",
+    "src/Bad.class",
+    "src/.cache.java",
+    "__pycache__/run.pyc",
+    "proof/run-r4/heap.hprof",
+    "proof/run-r4/lib.so",
+    "unrelated.txt",
+    "../secret",
+    "/tmp/private",
+    "proof/.attach_pid1"
+  ],
+  "excludedFiles": []
+}

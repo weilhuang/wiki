@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "<mutant-lab>/run.py", line 108, in <module>
+    diagnostic_ok(p.returncode, text)
+  File "<mutant-lab>/run.py", line 42, in diagnostic_ok
+    raise AssertionError('unexpected diagnostic process failure')
+AssertionError: unexpected diagnostic process failure

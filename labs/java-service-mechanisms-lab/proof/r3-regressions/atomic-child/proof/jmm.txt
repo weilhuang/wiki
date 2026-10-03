@@ -1,0 +1,12 @@
+publication observed=42; guarantee comes from JLS, not this run
+volatile split read-modify-write result=1; both readers saw 0
+atomic increment result=2
+JMM_CLEANUP all workers joined
+Exception in thread "main" java.lang.AssertionError: UNEXPECTED_CHILD_FAILURE thread=atomic-a
+	at ChildFailures.mergeInto(ChildFailures.java:51)
+	at ChildFailures.finish(ChildFailures.java:60)
+	at JmmLab.main(JmmLab.java:70)
+Caused by: java.lang.IllegalStateException: REVIEWER_CHILD_ATOMIC_FAILURE
+	at JmmLab.lambda$atomicIncrement$2(JmmLab.java:50)
+	at ChildFailures.lambda$thread$0(ChildFailures.java:18)
+	at java.base/java.lang.Thread.run(Thread.java:1583)

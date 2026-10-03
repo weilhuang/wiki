@@ -1,0 +1,4 @@
+JMM_CLEANUP all workers joined
+Exception in thread "main" java.lang.AssertionError: VOLATILE_COMPOUND_CLAIM expected=2 actual=1
+	at JmmLab.require(JmmLab.java:9)
+	at JmmLab.main(JmmLab.java:62)

@@ -1,0 +1,11 @@
+--- a/src/ExecutorLab.java
++++ b/src/ExecutorLab.java
+@@ -30,7 +30,7 @@
+         CountDownLatch release = new CountDownLatch(1);
+         List<String> done = Collections.synchronizedList(new ArrayList<>());
+         try (PoolCleanup cleanup = new PoolCleanup(p, release)) {
+-            p.execute(() -> { aStarted.countDown(); await(release); done.add("A"); });
++            p.execute(() -> { aStarted.countDown(); await(release); done.add("A"); throw new IllegalStateException("REVIEWER_CHILD_EXECUTOR_FAILURE"); });
+             await(aStarted);
+             Runnable b = () -> done.add("B");
+             p.execute(b);

@@ -46,9 +46,21 @@ export const paths = [
       {title:'用反例检查拒绝是否真的生效',transition:'正常用户能成功只证明一条路径。要把缺少动作限制、过期身份和旧准备重复提交等错误逐项变成可识别的失败。',task:'运行有限策略模型，核对允许或拒绝、精确副作用和版本；说明模型尚未覆盖的密码学、身份供应商与真实数据库执行。',readings:[
         {topic:'foundations.assertion-counterexamples',role:'optional',purpose:'需要编写验证器时，区分业务反例、启动错误和资源收尾'}]}
     ] }
+  ,{ id:'java-core', title:'Java 核心机制', source:'paths/java-core.md', status:'published',
+    entry:['能阅读 Java 引用、字段、方法与异常','知道线程可以共享对象；每篇补足具体同步概念'], goal:'从键与对象状态进入跨线程可见性，再跟踪任务接纳、结果所有权与运行时证据。',
+    stages:[
+      {title:'先说明保存的是什么状态',transition:'集合的相等性和结构回答状态怎样存放，跨线程使用还要加入发布边界；两者不能互相替代。',task:'说明一个可变键如何破坏查找，再画出把包含集合的对象交给另一线程时需要的发布关系。',readings:[
+        {topic:'java.hashmap',role:'required',purpose:'从键身份、桶与扩容理解普通容器的约定'},
+        {topic:'java.hashmap-source',role:'optional',purpose:'需要核对具体分支时追踪 put、resize 与不同树化入口'},
+        {topic:'java.jmm-safe-publication',role:'required',purpose:'区分可见性、原子性、final 与安全发布'}]},
+      {title:'再交接工作和结果',transition:'对象可见只解决输入的一部分问题，任务仍需要被接纳、执行、观察结果并在关闭时收尾。',task:'给四个受控任务画接纳分支，分别核对线程、队列、异常与 Future 的最终责任。',readings:[
+        {topic:'java.executor-admission',role:'required',purpose:'沿真实 execute、FutureTask 与关闭分支解释任务所有权'}]},
+      {title:'让证据区分相似的慢请求',transition:'理解任务在哪里排队和执行之后，才有条件把线程栈与 CPU、GC 的观察接回请求，而不是看到状态就下结论。',task:'比较两个线程快照和同一线程的 CPU 增量，列出仍缺失的业务、负载或时间窗口信息。',readings:[
+        {topic:'java.jvm-diagnosis',role:'required',purpose:'区分计算、monitor 阻塞、条件等待与分配压力'},
+        {topic:'foundations.blocking-waiting',role:'optional',purpose:'需要跨出 JVM 时，把等待条件继续追到连接或下游持有者'}]}
+    ] }
 ]
 export const plannedPaths = [
-  {id:'java-core',title:'Java 核心机制',goal:'从对象相等性、集合和并发走到运行时诊断',missing:'JMM、执行器与 JVM 诊断尚未形成完整路线'},
   {id:'performance',title:'性能诊断',goal:'用负载和证据区分排队、连接、SQL 与运行时瓶颈',missing:'观测模型、SQL 和 profile 专题仍待补齐'},
   {id:'architecture-evolution',title:'系统设计与演进',goal:'从约束比较结构，再安排可逆迁移',missing:'先提供完整案例；通用建模和迁移专题继续补充'}
 ]

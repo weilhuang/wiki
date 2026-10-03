@@ -1,0 +1,62 @@
+[
+  {
+    "id": "java-mechanisms.publication",
+    "article": "articles/jmm-safe-publication.md",
+    "file": "src/Publication.java",
+    "lines": [
+      3,
+      18
+    ],
+    "transform": "none",
+    "sourceSha256": "3610abe8aab151b62f9dd79d6f3d8e3079d8f7abb27bf169926ff831d0c924d7",
+    "cleanCodeSha256": "9ac65c0054a1f6a7bf55717eb0cb73c0a7566f74e6da3f7b1f43f6a0819a8e1c",
+    "source": "labs/java-service-mechanisms-lab/src/Publication.java",
+    "doc": "docs/knowledge/java/juc-foundations/jmm-safe-publication.md",
+    "language": "java"
+  },
+  {
+    "id": "java-mechanisms.execute",
+    "article": "articles/executor-admission.md",
+    "file": "sources/ThreadPoolExecutor-jdk-21+35.java",
+    "lines": [
+      1339,
+      1377
+    ],
+    "transform": "dedent",
+    "sourceSha256": "c95cd4ef67c936350fb6b85db3f7858a1185ddeac62bf00f4236efe6b5fd2427",
+    "cleanCodeSha256": "6cc5ce104f6bdf19773c25a4531410b3f46f9a3ae13c39b9be8ddb828506588a",
+    "source": "labs/java-service-mechanisms-lab/sources/ThreadPoolExecutor-jdk-21+35.java",
+    "doc": "docs/knowledge/java/juc-execution/executor-admission.md",
+    "language": "java"
+  },
+  {
+    "id": "java-mechanisms.submit",
+    "article": "articles/executor-admission.md",
+    "file": "sources/AbstractExecutorService-jdk-21+35.java",
+    "lines": [
+      120,
+      126
+    ],
+    "transform": "dedent",
+    "sourceSha256": "e478cc6c8cd5befcca790b07453c79edd26a0dc249a3bd7c159e882f961681a9",
+    "cleanCodeSha256": "62bbafb30a583b051c485acb252a010efd44b6dd0ee49f211179eae0d8878f9f",
+    "source": "labs/java-service-mechanisms-lab/sources/AbstractExecutorService-jdk-21+35.java",
+    "doc": "docs/knowledge/java/juc-execution/executor-admission.md",
+    "language": "java"
+  },
+  {
+    "id": "java-mechanisms.allocate",
+    "article": "articles/thread-gc-diagnosis.md",
+    "file": "src/DiagnosticLab.java",
+    "lines": [
+      22,
+      31
+    ],
+    "transform": "dedent",
+    "sourceSha256": "cab33673d3774da559f516e06fdb409f9916b48f6e57a47605f9b9dfdb8b2421",
+    "cleanCodeSha256": "030a222550276b23fce684b054a4c3692e14ffbb10d265e1493a17c853a47bba",
+    "source": "labs/java-service-mechanisms-lab/src/DiagnosticLab.java",
+    "doc": "docs/knowledge/java/jvm-diagnostics/thread-gc-diagnosis.md",
+    "language": "java"
+  }
+]

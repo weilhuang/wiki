@@ -1,0 +1,59 @@
+{
+  "status": "fail",
+  "error": "unexpected diagnostic process failure",
+  "records": [
+    {
+      "artifact": "java-version.txt",
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "artifact": "javac-version.txt",
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "artifact": "compile.txt",
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "artifact": "harness-contracts.txt",
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "artifact": "jmm.txt",
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "artifact": "executor.txt",
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "artifact": "negative-volatile.txt",
+      "exitCode": 1,
+      "expectedExitCode": 1,
+      "requiredToken": "VOLATILE_COMPOUND_CLAIM expected=2 actual=1"
+    },
+    {
+      "artifact": "negative-max-first.txt",
+      "exitCode": 1,
+      "expectedExitCode": 1,
+      "requiredToken": "MAX_FIRST_CLAIM expected=2 actual=1"
+    },
+    {
+      "artifact": "negative-drain.txt",
+      "exitCode": 1,
+      "expectedExitCode": 1,
+      "requiredToken": "DRAIN_CANCEL_CLAIM Future remained NEW"
+    },
+    {
+      "artifact": "diagnostic.txt",
+      "exitCode": 1,
+      "expectedExitCode": 0
+    }
+  ]
+}

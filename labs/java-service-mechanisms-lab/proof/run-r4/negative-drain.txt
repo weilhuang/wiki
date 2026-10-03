@@ -1,0 +1,5 @@
+EXECUTOR_CLEANUP ordinary workers joined; scenario pools terminated
+Exception in thread "main" java.lang.AssertionError: DRAIN_CANCEL_CLAIM Future remained NEW
+	at ExecutorLab.require(ExecutorLab.java:9)
+	at ExecutorLab.shutdownNowOwnership(ExecutorLab.java:105)
+	at ExecutorLab.main(ExecutorLab.java:145)
