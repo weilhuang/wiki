@@ -24,6 +24,7 @@ search: false
 - [索引访问路径](/knowledge/data/indexes/composite-index-access-paths.html) → [MVCC 读取边界](/knowledge/data/transactions/mvcc-read-views.html) → [库存不变量](/knowledge/data/transactions/inventory-invariants.html) → [幂等](/knowledge/distributed/reliable-interactions/idempotency.html) → [Outbox](/knowledge/distributed/events/transactional-outbox.html) → [消息确认](/knowledge/distributed/messaging/delivery-ack-boundaries.html) → [缓存](/knowledge/data/cache/invalidation-freshness.html) → [联合恢复](/cases/orders/consistency-recovery.html)
 - [等待条件](/knowledge/foundations/operating-systems/blocking-waiting.html) → [结果与时序断言](/knowledge/foundations/testing/assertion-counterexamples.html) → [对象授权的反例](/knowledge/security/authorization/object-tenant-authorization.html#negative-tests)
 - [可信身份与撤销](/knowledge/security/authentication/authentication-boundaries.html) → [租户、对象与动作](/knowledge/security/authorization/object-tenant-authorization.html) → [接收端 fencing](/knowledge/distributed/coordination/lease-fencing.html)；身份建立与授权的系统阅读见[身份与多租户路线](/paths/identity-tenancy.html)
+- [模块与事实边界](/knowledge/architecture/boundaries/module-boundaries.html) → [订单拆分与迁移](/cases/architecture/order-service-extraction.html) → [取消流程综合评审](/cases/orders/reliability-review.html)；在[系统设计与演进路线](/paths/architecture-evolution.html)中联合权限、服务目标、发布预算与恢复条件
 
 <div id="九个主题怎样分工" class="legacy-anchor" aria-hidden="true"></div>
 

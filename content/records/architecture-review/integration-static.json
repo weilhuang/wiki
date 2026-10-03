@@ -1,0 +1,49 @@
+{
+  "kind": "static-checked",
+  "status": "pass",
+  "recordedAt": "2026-10-03T11:20:05.466057+00:00",
+  "scope": [
+    "39 canonical topics across9 domains,7 reference-based routes;24 Node regressions,121 HTML outputs,492 search sections and68 intent targets",
+    "Two new articles with2 accessible Mermaid diagrams,2 genuine Code Hike walkthroughs and8 authored steps;97 diagrams and61 walkthroughs site-wide",
+    "37 previously published article files and all191 technical fences byte-identical; historical downloads, evidence, dependencies and workflows preserved",
+    "Architecture category/domain guides,seven review questions,eight search intents and a reference route; original model and ZIP bytes unchanged"
+  ],
+  "limitations": [
+    "Integration changes publication metadata and adds relations to already published knowledge; original technical bodies,model execution and archive identities remain separate",
+    "No real identity provider,database,broker,cluster,production load,migration or rollback execution",
+    "Independent whole-tree review,remote CI and deployed-browser checks remain separate gates"
+  ],
+  "sourceFiles": [
+    {
+      "path": "docs/knowledge/architecture/boundaries/module-boundaries.md",
+      "sha256": "b54ce1fe9583de2df73bb1b731054f3526fae9342c73df033bc70b0ef8f0f501"
+    },
+    {
+      "path": "docs/cases/orders/reliability-review.md",
+      "sha256": "a31d0439bed0ec59712504a123f9d65b73df6c6e196c6b1351c0d398c363f550"
+    },
+    {
+      "path": "content/snippets/architecture-review.json",
+      "sha256": "8211dbd684242dcaaaf46fcf4d54dc509d8a28ef44d519ed7828147c09993070"
+    },
+    {
+      "path": "content/records/architecture-review/author-check.mjs",
+      "sha256": "17219394c3bb3b77aae30482d9bad928eeb9f299f0c379fcb0a21a86b4d057f2"
+    },
+    {
+      "path": "content/records/architecture-review/package-check.py",
+      "sha256": "3e12a1439e0444173a99e7a12aa3ae67eb88ad3bc383cdbdd25e7417449ea276"
+    }
+  ],
+  "commands": [
+    {
+      "command": "npm run check",
+      "exitCode": 0
+    }
+  ],
+  "edits": [
+    "status/reviewedAt publication fields; reader-facing scope shortened without expanding claims; full provenance retained in appendices",
+    "four related edges to published Go/cloud topics; technical article bodies unchanged",
+    "substantive architecture guides and route; existing roadmap heading retained at a semantic destination"
+  ]
+}

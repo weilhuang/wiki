@@ -1,0 +1,240 @@
+[
+  {
+    "name": "async-abort-only-half-commit",
+    "failureCode": "async-abort-full-state",
+    "patch": "async-abort-only-half-commit.patch",
+    "probe": "async-abort-only-half-commit.py",
+    "results": [
+      {
+        "target": "baseline",
+        "exitCode": 0,
+        "stdout": {
+          "status": "PASS"
+        },
+        "stderr": ""
+      },
+      {
+        "target": "destructive-probes/async-abort-only-half-commit",
+        "exitCode": 1,
+        "stdout": {
+          "actual": {
+            "acks": [],
+            "audit": [],
+            "available": {
+              "blue": 0,
+              "red": 0
+            },
+            "fences": {},
+            "operations": {},
+            "orders": {
+              "blue/o1": {
+                "epoch": 1,
+                "owner": "mallory",
+                "status": "CONFIRMED",
+                "version": 1
+              },
+              "red/o1": {
+                "epoch": 1,
+                "owner": "alice",
+                "status": "CANCEL_PENDING",
+                "version": 2
+              }
+            },
+            "outbox": {},
+            "receipts": {},
+            "releaseEffects": [],
+            "reserved": {
+              "blue/o1": true,
+              "red/o1": true
+            }
+          },
+          "code": "async-abort-full-state",
+          "expected": {
+            "acks": [],
+            "audit": [],
+            "available": {
+              "blue": 0,
+              "red": 0
+            },
+            "fences": {},
+            "operations": {},
+            "orders": {
+              "blue/o1": {
+                "epoch": 1,
+                "owner": "mallory",
+                "status": "CONFIRMED",
+                "version": 1
+              },
+              "red/o1": {
+                "epoch": 1,
+                "owner": "alice",
+                "status": "CONFIRMED",
+                "version": 1
+              }
+            },
+            "outbox": {},
+            "receipts": {},
+            "releaseEffects": [],
+            "reserved": {
+              "blue/o1": true,
+              "red/o1": true
+            }
+          },
+          "status": "FAIL"
+        },
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "revoked-replay-only-side-effect",
+    "failureCode": "revoked-replay-full-state",
+    "patch": "revoked-replay-only-side-effect.patch",
+    "probe": "revoked-replay-only-side-effect.py",
+    "results": [
+      {
+        "target": "baseline",
+        "exitCode": 0,
+        "stdout": {
+          "status": "PASS"
+        },
+        "stderr": ""
+      },
+      {
+        "target": "destructive-probes/revoked-replay-only-side-effect",
+        "exitCode": 1,
+        "stdout": {
+          "actual": {
+            "acks": [],
+            "audit": [
+              {
+                "action": "cancel-accepted",
+                "actor": "alice",
+                "key": "red/o1"
+              },
+              {
+                "wrong": "replay-effect"
+              }
+            ],
+            "available": {
+              "blue": 0,
+              "red": 1
+            },
+            "fences": {},
+            "operations": {
+              "red/alice/c1": {
+                "fingerprint": [
+                  "o1",
+                  "customer-request",
+                  "local"
+                ],
+                "result": "CANCELLED"
+              }
+            },
+            "orders": {
+              "blue/o1": {
+                "epoch": 1,
+                "owner": "mallory",
+                "status": "CONFIRMED",
+                "version": 1
+              },
+              "red/o1": {
+                "epoch": 1,
+                "owner": "alice",
+                "status": "CANCELLED",
+                "version": 2
+              }
+            },
+            "outbox": {},
+            "receipts": {},
+            "releaseEffects": [
+              "red/o1"
+            ],
+            "reserved": {
+              "blue/o1": true,
+              "red/o1": false
+            }
+          },
+          "code": "revoked-replay-full-state",
+          "expected": {
+            "acks": [],
+            "audit": [
+              {
+                "action": "cancel-accepted",
+                "actor": "alice",
+                "key": "red/o1"
+              }
+            ],
+            "available": {
+              "blue": 0,
+              "red": 1
+            },
+            "fences": {},
+            "operations": {
+              "red/alice/c1": {
+                "fingerprint": [
+                  "o1",
+                  "customer-request",
+                  "local"
+                ],
+                "result": "CANCELLED"
+              }
+            },
+            "orders": {
+              "blue/o1": {
+                "epoch": 1,
+                "owner": "mallory",
+                "status": "CONFIRMED",
+                "version": 1
+              },
+              "red/o1": {
+                "epoch": 1,
+                "owner": "alice",
+                "status": "CANCELLED",
+                "version": 2
+              }
+            },
+            "outbox": {},
+            "receipts": {},
+            "releaseEffects": [
+              "red/o1"
+            ],
+            "reserved": {
+              "blue/o1": true,
+              "red/o1": false
+            }
+          },
+          "status": "FAIL"
+        },
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "completed-outbox-rollback",
+    "failureCode": "completed-outbox-rejects-v1",
+    "patch": "completed-outbox-rollback.patch",
+    "probe": "completed-outbox-rollback.py",
+    "results": [
+      {
+        "target": "baseline",
+        "exitCode": 0,
+        "stdout": {
+          "status": "PASS"
+        },
+        "stderr": ""
+      },
+      {
+        "target": "destructive-probes/completed-outbox-rollback",
+        "exitCode": 1,
+        "stdout": {
+          "actual": true,
+          "code": "completed-outbox-rejects-v1",
+          "expected": false,
+          "status": "FAIL"
+        },
+        "stderr": ""
+      }
+    ]
+  }
+]

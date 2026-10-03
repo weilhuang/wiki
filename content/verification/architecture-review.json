@@ -1,0 +1,448 @@
+[
+  {
+    "recordedAt": "2026-10-03T10:59:06.256083+00:00",
+    "revision": "A-r3-reconstructed",
+    "independentlyReviewed": true,
+    "resourceGroup": "architecture-review-lab",
+    "id": "architecture-a.sources",
+    "title": "模块与订单评审一手来源复核",
+    "kind": "source-reviewed",
+    "status": "pass",
+    "scope": [
+      "同一任务实际查阅16份官方规范/手册或原作者资料；固定版本分支、规范或书章身份",
+      "代码、图、题面与数值原创；上游只链接，r3不改变机制来源"
+    ],
+    "limitations": [
+      "版本分支/动态网页不声称字节不变；没有虚构摘录行号或上游SHA",
+      "沿用同一任务的实际来源阅读；r3修改验证覆盖，不伪称重新访问所有网页"
+    ],
+    "sourceFiles": [
+      {
+        "path": "content/sources/architecture-review.json",
+        "sha256": "5b6a8735977ceac47fa69558f48adba3b35c5a7e938401bb6e623605a0071585"
+      },
+      {
+        "path": "content/records/architecture-review/source-access-notes.json",
+        "sha256": "15e2252361db27c93ac231664d3bed818387595399ad715bb23e0420ef835c13"
+      }
+    ],
+    "commands": [],
+    "artifacts": []
+  },
+  {
+    "recordedAt": "2026-10-03T10:59:06.256083+00:00",
+    "revision": "A-r3-reconstructed",
+    "independentlyReviewed": true,
+    "resourceGroup": "architecture-review-lab",
+    "id": "architecture-a.models",
+    "title": "r3完整状态与精确源破坏反例运行",
+    "kind": "executed",
+    "status": "pass",
+    "scope": [
+      "新CPython3.12.14/Linux标准库运行，有限顺序输入，每条命令外部10秒截止",
+      "19正常场景、19精确错误实现/配置、6验证器回归；三条新增原补丁反例单独exit2并逐值核对身份与expected/actual",
+      "新增async失败、撤权重放、完成后Outbox回退的独立literal完整状态；原operation_identity也补拒绝后状态断言",
+      "review_model.py与r2逐字相同；三个原审补丁严格作用于内存源码副本；代码启动/语法/错误原因或状态不匹配不能算通过"
+    ],
+    "limitations": [
+      "r2曾因三个缺口HOLD，其旧公开套件假绿保留，不作为r3通过证明",
+      "原子方法、可信主体/成员/事件/token为模型前提，不证明真实数据库、身份、网络或并发",
+      "一租户一库存单位、一次取消；没有履约退款、删除重建、真实回退或生产SLO/容量",
+      "样板停止表是人工架构判断的范围条件，不是此业务状态模型自动选择L/E",
+      "重建provenance保留；不声称丢失r1字节等价"
+    ],
+    "sourceFiles": [
+      {
+        "path": "labs/architecture-review-lab/boundaries.py",
+        "sha256": "4d0ad891d8f807957213165a887da02e601dc98635d5817e14e0940e09ebeb5d"
+      },
+      {
+        "path": "labs/architecture-review-lab/expected_states.py",
+        "sha256": "c8a5e523e018b77a47b787834a0844580c77cd8512ec7ca88e0120dd78fae313"
+      },
+      {
+        "path": "labs/architecture-review-lab/review_model.py",
+        "sha256": "19513b3c31aea8d759a114f59253bff271daf6ad267b64fcfc637d7562b6bd35"
+      },
+      {
+        "path": "labs/architecture-review-lab/review_regressions/async-abort-only-half-commit.patch",
+        "sha256": "0c86991bbd035f4d76f9d9e6c9b915153c50e3883e2cae194b16ce6feee818e9"
+      },
+      {
+        "path": "labs/architecture-review-lab/review_regressions/async-abort-only-half-commit.py",
+        "sha256": "e1e853a3021217c51f9cc3bb842254bb972ec42f6692ab0bd382f94ddd5a0606"
+      },
+      {
+        "path": "labs/architecture-review-lab/review_regressions/completed-outbox-rollback.patch",
+        "sha256": "1a32d2014cb12bd3690a72fc325cf7d2cb76ae59c17b43ee4c28c003f88edb17"
+      },
+      {
+        "path": "labs/architecture-review-lab/review_regressions/completed-outbox-rollback.py",
+        "sha256": "7fe1692a2b2bce2d36c4b544be67b33780a97900a98cdccdde193d86a7b884be"
+      },
+      {
+        "path": "labs/architecture-review-lab/review_regressions/revoked-replay-only-side-effect.patch",
+        "sha256": "a305f29323244a0b3c682b84410797181029854db2be1c31b70945642bffdaa9"
+      },
+      {
+        "path": "labs/architecture-review-lab/review_regressions/revoked-replay-only-side-effect.py",
+        "sha256": "3fa134a80fdf33dd88c6f27d0cbb403d0277825840e30df181b0df415288dac4"
+      },
+      {
+        "path": "labs/architecture-review-lab/source_mutations.py",
+        "sha256": "02770b2cf35e5b47753d4aee71acdf455a52126f9bd5993224eb74b6858dee1d"
+      },
+      {
+        "path": "labs/architecture-review-lab/verify.py",
+        "sha256": "aaf0f87316aa890883f2a518f957d7aeca7a28a8225063768c75aa189a440cf1"
+      },
+      {
+        "path": "labs/architecture-review-lab/walk_boundaries.py",
+        "sha256": "d3e7424c6a865f2b124d7bcf91aa04e14ad19b532b01ac17f35aace40848cb0b"
+      },
+      {
+        "path": "labs/architecture-review-lab/walk_review.py",
+        "sha256": "09a7108c3e0c71797d55517fcb76cc62cec701c4370da5e465bdbbf2ed177437"
+      },
+      {
+        "path": "labs/architecture-review-lab/runtime.json",
+        "sha256": "fd2ca5de4d3d99485ca5def902bb446f0258995f03371a3662ed566aac15b4dc"
+      },
+      {
+        "path": "labs/architecture-review-lab/mutant-oracles.json",
+        "sha256": "095cf8da24fb7969b398a39c92227fbb460bd14eab280de9056e30d9d45f0eb6"
+      }
+    ],
+    "commands": [
+      {
+        "command": "python3 --version",
+        "workingDirectory": "labs/architecture-review-lab",
+        "exitCode": 0,
+        "output": "Python 3.12.14\n",
+        "stderr": ""
+      },
+      {
+        "command": "timeout 10s python3 -B walk_boundaries.py",
+        "workingDirectory": "labs/architecture-review-lab",
+        "exitCode": 0,
+        "output": "[]\n['foreign-write:reports->orders']\n['internal-access:reports->orders']\n['module-cycle']\n",
+        "stderr": ""
+      },
+      {
+        "command": "timeout 10s python3 -B walk_review.py",
+        "workingDirectory": "labs/architecture-review-lab",
+        "exitCode": 0,
+        "output": "PENDING\nCANCEL_PENDING\nACK_LOST\n['red/o1']\nRELEASED\n['red/o1']\nCANCELLED\nCANCELLED\nFalse\n",
+        "stderr": ""
+      },
+      {
+        "command": "timeout 10s python3 -B verify.py --output results.json",
+        "workingDirectory": "labs/architecture-review-lab",
+        "exitCode": 0,
+        "output": "19 model cases; 19 target rejections; 6 unrelated outcomes refused\n",
+        "stderr": ""
+      },
+      {
+        "command": "timeout 10s python3 -B verify.py --mutant async-abort-only-half-commit",
+        "workingDirectory": "labs/architecture-review-lab",
+        "exitCode": 2,
+        "output": "{\"case\": \"async_atomic\", \"failure\": {\"actual\": {\"acks\": [], \"audit\": [], \"available\": {\"blue\": 0, \"red\": 0}, \"fences\": {}, \"operations\": {}, \"orders\": {\"blue/o1\": {\"epoch\": 1, \"owner\": \"mallory\", \"status\": \"CONFIRMED\", \"version\": 1}, \"red/o1\": {\"epoch\": 1, \"owner\": \"alice\", \"status\": \"CANCEL_PENDING\", \"version\": 2}}, \"outbox\": {}, \"receipts\": {}, \"releaseEffects\": [], \"reserved\": {\"blue/o1\": true, \"red/o1\": true}}, \"code\": \"async-abort-full-state\", \"expected\": {\"acks\": [], \"audit\": [], \"available\": {\"blue\": 0, \"red\": 0}, \"fences\": {}, \"operations\": {}, \"orders\": {\"blue/o1\": {\"epoch\": 1, \"owner\": \"mallory\", \"status\": \"CONFIRMED\", \"version\": 1}, \"red/o1\": {\"epoch\": 1, \"owner\": \"alice\", \"status\": \"CONFIRMED\", \"version\": 1}}, \"outbox\": {}, \"receipts\": {}, \"releaseEffects\": [], \"reserved\": {\"blue/o1\": true, \"red/o1\": true}}, \"type\": \"CheckFailure\"}, \"mutant\": \"async-abort-only-half-commit\", \"status\": \"target-rejected\"}\n",
+        "stderr": "",
+        "expectation": "expected-rejection",
+        "expectedExitCode": 2
+      },
+      {
+        "command": "timeout 10s python3 -B verify.py --mutant revoked-replay-only-side-effect",
+        "workingDirectory": "labs/architecture-review-lab",
+        "exitCode": 2,
+        "output": "{\"case\": \"revoked_replay\", \"failure\": {\"actual\": {\"acks\": [], \"audit\": [{\"action\": \"cancel-accepted\", \"actor\": \"alice\", \"key\": \"red/o1\"}, {\"wrong\": \"replay-effect\"}], \"available\": {\"blue\": 0, \"red\": 1}, \"fences\": {}, \"operations\": {\"red/alice/c1\": {\"fingerprint\": [\"o1\", \"customer-request\", \"local\"], \"result\": \"CANCELLED\"}}, \"orders\": {\"blue/o1\": {\"epoch\": 1, \"owner\": \"mallory\", \"status\": \"CONFIRMED\", \"version\": 1}, \"red/o1\": {\"epoch\": 1, \"owner\": \"alice\", \"status\": \"CANCELLED\", \"version\": 2}}, \"outbox\": {}, \"receipts\": {}, \"releaseEffects\": [\"red/o1\"], \"reserved\": {\"blue/o1\": true, \"red/o1\": false}}, \"code\": \"revoked-replay-full-state\", \"expected\": {\"acks\": [], \"audit\": [{\"action\": \"cancel-accepted\", \"actor\": \"alice\", \"key\": \"red/o1\"}], \"available\": {\"blue\": 0, \"red\": 1}, \"fences\": {}, \"operations\": {\"red/alice/c1\": {\"fingerprint\": [\"o1\", \"customer-request\", \"local\"], \"result\": \"CANCELLED\"}}, \"orders\": {\"blue/o1\": {\"epoch\": 1, \"owner\": \"mallory\", \"status\": \"CONFIRMED\", \"version\": 1}, \"red/o1\": {\"epoch\": 1, \"owner\": \"alice\", \"status\": \"CANCELLED\", \"version\": 2}}, \"outbox\": {}, \"receipts\": {}, \"releaseEffects\": [\"red/o1\"], \"reserved\": {\"blue/o1\": true, \"red/o1\": false}}, \"type\": \"CheckFailure\"}, \"mutant\": \"revoked-replay-only-side-effect\", \"status\": \"target-rejected\"}\n",
+        "stderr": "",
+        "expectation": "expected-rejection",
+        "expectedExitCode": 2
+      },
+      {
+        "command": "timeout 10s python3 -B verify.py --mutant completed-outbox-rollback",
+        "workingDirectory": "labs/architecture-review-lab",
+        "exitCode": 2,
+        "output": "{\"case\": \"completed_rollback\", \"failure\": {\"actual\": {\"allowed\": true, \"state\": {\"acks\": [\"red/o1/cancel/2\"], \"audit\": [{\"action\": \"cancel-accepted\", \"actor\": \"alice\", \"key\": \"red/o1\"}], \"available\": {\"blue\": 0, \"red\": 1}, \"fences\": {\"red/o1\": 7}, \"operations\": {\"red/alice/c1\": {\"fingerprint\": [\"o1\", \"customer-request\", \"async\"], \"result\": \"CANCELLED\"}}, \"orders\": {\"blue/o1\": {\"epoch\": 1, \"owner\": \"mallory\", \"status\": \"CONFIRMED\", \"version\": 1}, \"red/o1\": {\"epoch\": 1, \"owner\": \"alice\", \"status\": \"CANCELLED\", \"version\": 3}}, \"outbox\": {\"red/o1/cancel/2\": {\"key\": \"red/o1\", \"operation\": \"red/alice/c1\", \"version\": 2}}, \"receipts\": {\"red/o1/cancel/2\": {\"key\": \"red/o1\", \"version\": 2}}, \"releaseEffects\": [\"red/o1\"], \"reserved\": {\"blue/o1\": true, \"red/o1\": false}}}, \"code\": \"completed-outbox-rejects-v1\", \"expected\": {\"allowed\": false, \"state\": {\"acks\": [\"red/o1/cancel/2\"], \"audit\": [{\"action\": \"cancel-accepted\", \"actor\": \"alice\", \"key\": \"red/o1\"}], \"available\": {\"blue\": 0, \"red\": 1}, \"fences\": {\"red/o1\": 7}, \"operations\": {\"red/alice/c1\": {\"fingerprint\": [\"o1\", \"customer-request\", \"async\"], \"result\": \"CANCELLED\"}}, \"orders\": {\"blue/o1\": {\"epoch\": 1, \"owner\": \"mallory\", \"status\": \"CONFIRMED\", \"version\": 1}, \"red/o1\": {\"epoch\": 1, \"owner\": \"alice\", \"status\": \"CANCELLED\", \"version\": 3}}, \"outbox\": {\"red/o1/cancel/2\": {\"key\": \"red/o1\", \"operation\": \"red/alice/c1\", \"version\": 2}}, \"receipts\": {\"red/o1/cancel/2\": {\"key\": \"red/o1\", \"version\": 2}}, \"releaseEffects\": [\"red/o1\"], \"reserved\": {\"blue/o1\": true, \"red/o1\": false}}}, \"type\": \"CheckFailure\"}, \"mutant\": \"completed-outbox-rollback\", \"status\": \"target-rejected\"}\n",
+        "stderr": "",
+        "expectation": "expected-rejection",
+        "expectedExitCode": 2
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "docs/public/examples/architecture-review-results.json",
+        "sha256": "2a96751096953e7b76d4b72293d3bbd23aedf6074d174ef73a243549a50e3dfc"
+      },
+      {
+        "path": "docs/public/examples/architecture-review-lab.zip",
+        "sha256": "bb64897438b9689e6d19e67cb7d16d077c6d4ef5bba6472d48b859b69308d3b1"
+      },
+      {
+        "path": "labs/architecture-review-lab/source-manifest.json",
+        "sha256": "85d035efc92bede7d9a70b8a0e33c39e5accea1688cf82b78a531e87b6e5425d"
+      }
+    ],
+    "versions": [
+      "CPython3.12.14",
+      "Linux; standard library only"
+    ]
+  },
+  {
+    "recordedAt": "2026-10-03T10:59:06.256083+00:00",
+    "revision": "A-r3-reconstructed",
+    "independentlyReviewed": true,
+    "resourceGroup": "architecture-review-lab",
+    "id": "architecture-a.review-regressions",
+    "title": "独审三个原破坏件对公开新套件的重检",
+    "kind": "executed",
+    "status": "pass",
+    "scope": [
+      "原审.patch/.py逐字带入，正确模型三个最小探针均exit0",
+      "将原.patch写入自动清理的源码副本后，默认公开verify.py和原最小探针均exit1，错误身份及完整expected/actual逐值匹配",
+      "单独公开复现入口run_review_regressions.py；10秒子命令/30秒外层截止，无网络/服务/安装",
+      "改坏的默认套件不写成功结果文件；临时副本清理"
+    ],
+    "limitations": [
+      "作者执行后，独立复审已从r4源码包重跑正确控制、三个原破坏补丁及原探针；两类入口均在预期状态拒绝坏实现。该复审不增加真实系统执行范围",
+      "仅三项明确破坏件，不代表全覆盖；不把运行/语法错误当目标故障",
+      "历史r2独审HOLD和假绿是修订原因，并非r3当前源码的执行结果"
+    ],
+    "sourceFiles": [
+      {
+        "path": "labs/architecture-review-lab/boundaries.py",
+        "sha256": "4d0ad891d8f807957213165a887da02e601dc98635d5817e14e0940e09ebeb5d"
+      },
+      {
+        "path": "labs/architecture-review-lab/expected_states.py",
+        "sha256": "c8a5e523e018b77a47b787834a0844580c77cd8512ec7ca88e0120dd78fae313"
+      },
+      {
+        "path": "labs/architecture-review-lab/review_model.py",
+        "sha256": "19513b3c31aea8d759a114f59253bff271daf6ad267b64fcfc637d7562b6bd35"
+      },
+      {
+        "path": "labs/architecture-review-lab/review_regressions/async-abort-only-half-commit.patch",
+        "sha256": "0c86991bbd035f4d76f9d9e6c9b915153c50e3883e2cae194b16ce6feee818e9"
+      },
+      {
+        "path": "labs/architecture-review-lab/review_regressions/async-abort-only-half-commit.py",
+        "sha256": "e1e853a3021217c51f9cc3bb842254bb972ec42f6692ab0bd382f94ddd5a0606"
+      },
+      {
+        "path": "labs/architecture-review-lab/review_regressions/completed-outbox-rollback.patch",
+        "sha256": "1a32d2014cb12bd3690a72fc325cf7d2cb76ae59c17b43ee4c28c003f88edb17"
+      },
+      {
+        "path": "labs/architecture-review-lab/review_regressions/completed-outbox-rollback.py",
+        "sha256": "7fe1692a2b2bce2d36c4b544be67b33780a97900a98cdccdde193d86a7b884be"
+      },
+      {
+        "path": "labs/architecture-review-lab/review_regressions/revoked-replay-only-side-effect.patch",
+        "sha256": "a305f29323244a0b3c682b84410797181029854db2be1c31b70945642bffdaa9"
+      },
+      {
+        "path": "labs/architecture-review-lab/review_regressions/revoked-replay-only-side-effect.py",
+        "sha256": "3fa134a80fdf33dd88c6f27d0cbb403d0277825840e30df181b0df415288dac4"
+      },
+      {
+        "path": "labs/architecture-review-lab/run_review_regressions.py",
+        "sha256": "08c12a6253d760c58a3b238428fb78ee691c961bfa20539fecdf3c7739f9aef2"
+      },
+      {
+        "path": "labs/architecture-review-lab/source_mutations.py",
+        "sha256": "02770b2cf35e5b47753d4aee71acdf455a52126f9bd5993224eb74b6858dee1d"
+      },
+      {
+        "path": "labs/architecture-review-lab/verify.py",
+        "sha256": "aaf0f87316aa890883f2a518f957d7aeca7a28a8225063768c75aa189a440cf1"
+      },
+      {
+        "path": "labs/architecture-review-lab/walk_boundaries.py",
+        "sha256": "d3e7424c6a865f2b124d7bcf91aa04e14ad19b532b01ac17f35aace40848cb0b"
+      },
+      {
+        "path": "labs/architecture-review-lab/walk_review.py",
+        "sha256": "09a7108c3e0c71797d55517fcb76cc62cec701c4370da5e465bdbbf2ed177437"
+      }
+    ],
+    "commands": [
+      {
+        "command": "timeout 30s python3 -B run_review_regressions.py --output review-regression-results.json",
+        "workingDirectory": "labs/architecture-review-lab",
+        "exitCode": 0,
+        "output": "3 original patches: baseline probes exit0; patched public suites and independent probes exit1 at exact targets\n",
+        "stderr": ""
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "docs/public/examples/architecture-review-regressions.json",
+        "sha256": "30aa0dee17ffac1d08f9dcd3bca5f32efff35995524fa989f88fa0c2e0e92e53"
+      },
+      {
+        "path": "content/records/architecture-review/r2-falsegreen-history.json",
+        "sha256": "7d8d0dfa3e64c3a2851d19f9a666fa7b784b0d7c00b42f3e39b8490a438c70fc"
+      },
+      {
+        "path": "content/records/architecture-review/r2-independent-probes.json",
+        "sha256": "518a8be69948d6db909138441a1c259bbde18c745831ddf3cedef7e11fe3bf6e"
+      },
+      {
+        "path": "content/records/architecture-review/r2-r3-change-identity.json",
+        "sha256": "45108ee39c5b560c804f2388d9012432a812a89e8e1cbad6500e995447638519"
+      }
+    ],
+    "historicalAuthorLimitations": [
+      "这是作者对原审补丁的新执行；仍需要原独立审阅者复核r3",
+      "仅三项明确破坏件，不代表全覆盖；不把运行/语法错误当目标故障",
+      "历史r2独审HOLD和假绿是修订原因，并非r3当前源码的执行结果"
+    ]
+  },
+  {
+    "recordedAt": "2026-10-03T11:20:05.466057+00:00",
+    "revision": "A-integration-1",
+    "independentlyReviewed": false,
+    "resourceGroup": "architecture-review-lab",
+    "id": "architecture-a.static",
+    "title": "r3正文与新源码ZIP检查",
+    "kind": "static-checked",
+    "status": "pass",
+    "scope": [
+      "39 canonical topics across9 domains,7 reference-based routes;24 Node regressions,121 HTML outputs,492 search sections and68 intent targets",
+      "Two new articles with2 accessible Mermaid diagrams,2 genuine Code Hike walkthroughs and8 authored steps;97 diagrams and61 walkthroughs site-wide",
+      "37 previously published article files and all191 technical fences byte-identical; historical downloads, evidence, dependencies and workflows preserved",
+      "Architecture category/domain guides,seven review questions,eight search intents and a reference route; original model and ZIP bytes unchanged"
+    ],
+    "limitations": [
+      "Integration changes publication metadata and adds relations to already published knowledge; original technical bodies,model execution and archive identities remain separate",
+      "No real identity provider,database,broker,cluster,production load,migration or rollback execution",
+      "Independent whole-tree review,remote CI and deployed-browser checks remain separate gates"
+    ],
+    "sourceFiles": [
+      {
+        "path": "docs/knowledge/architecture/boundaries/module-boundaries.md",
+        "sha256": "b54ce1fe9583de2df73bb1b731054f3526fae9342c73df033bc70b0ef8f0f501"
+      },
+      {
+        "path": "docs/cases/orders/reliability-review.md",
+        "sha256": "a31d0439bed0ec59712504a123f9d65b73df6c6e196c6b1351c0d398c363f550"
+      },
+      {
+        "path": "content/snippets/architecture-review.json",
+        "sha256": "8211dbd684242dcaaaf46fcf4d54dc509d8a28ef44d519ed7828147c09993070"
+      },
+      {
+        "path": "content/records/architecture-review/author-check.mjs",
+        "sha256": "17219394c3bb3b77aae30482d9bad928eeb9f299f0c379fcb0a21a86b4d057f2"
+      },
+      {
+        "path": "content/records/architecture-review/package-check.py",
+        "sha256": "3e12a1439e0444173a99e7a12aa3ae67eb88ad3bc383cdbdd25e7417449ea276"
+      }
+    ],
+    "commands": [
+      {
+        "command": "npm run check",
+        "exitCode": 0
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "content/records/architecture-review/integration-static.json",
+        "sha256": "59aebeb96fc13d1850175ad327b2936e1b653378510cc0b96dde6f15f13b16d9"
+      }
+    ],
+    "historicalAuthorChecks": {
+      "scope": [
+        "新CodeHike1.1.0编译3围栏，两份完整Python片段逐字匹配，8step；Mermaid11.17.2 strict解析2可访问图",
+        "review元数据、稳定ID/canonical、来源与问题锚点、未激活future关系检查",
+        "12个Python源AST、独立literal与JSON一致、21个ZIP成员逐字/哈希绑定",
+        "公开文本与ZIP扫描私有路径、凭据模式、缓存、依赖和运行产物"
+      ],
+      "commands": [
+        {
+          "command": "node records/author-check.mjs ../../../wiki",
+          "workingDirectory": "recovery-20261003/A/r3",
+          "exitCode": 0,
+          "output": "{\"status\":\"pass\",\"articles\":2,\"diagrams\":2,\"codeBlocks\":3,\"snippets\":2,\"links\":9}\n",
+          "stderr": ""
+        },
+        {
+          "command": "python3 -B records/package-check.py",
+          "workingDirectory": "recovery-20261003/A/r3",
+          "exitCode": 0,
+          "output": "{\"revision\": \"A-r3-reconstructed\", \"status\": \"pass\", \"textFiles\": 47, \"pythonAST\": 12, \"zipMembers\": 21, \"independentExpectedStates\": true, \"scope\": \"ZIP member byte binding; AST; public private-path/credential-pattern/cache scan\", \"limitations\": [\"pattern scan cannot guarantee all secrets absent\", \"no business code executed\", \"final delivery and manifest checked separately after generation\"], \"archiveSha256\": \"bb64897438b9689e6d19e67cb7d16d077c6d4ef5bba6472d48b859b69308d3b1\"}\n",
+          "stderr": ""
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "content/records/architecture-review/author-static.json",
+          "sha256": "18666c3d2491252ed4778200100156285194bc4a378dabea45533a0e7cbb95e6"
+        },
+        {
+          "path": "content/records/architecture-review/package-check.json",
+          "sha256": "f6d641c0aa3acaffafa90134f0a97f65b3e72441f165f5f6c172191f3f5a8642"
+        },
+        {
+          "path": "content/records/architecture-review/archive-binding.json",
+          "sha256": "5df6b5bc2a56a8bb41381955427a17e6192dcb73b3c236f6371b4338226cb9da"
+        }
+      ],
+      "sourceFiles": [
+        {
+          "path": "docs/knowledge/architecture/boundaries/module-boundaries.md",
+          "sha256": "8643fc60f77de74395ae1c96e753a51052f90468120cb1b42c4ad2004305ac9a"
+        },
+        {
+          "path": "docs/cases/orders/reliability-review.md",
+          "sha256": "ae2f1c1b26084ed459772d8ddc46b93035677251102c773104da219c7633f77b"
+        },
+        {
+          "path": "content/snippets/architecture-review.json",
+          "sha256": "8211dbd684242dcaaaf46fcf4d54dc509d8a28ef44d519ed7828147c09993070"
+        },
+        {
+          "path": "content/records/architecture-review/author-check.mjs",
+          "sha256": "17219394c3bb3b77aae30482d9bad928eeb9f299f0c379fcb0a21a86b4d057f2"
+        },
+        {
+          "path": "content/records/architecture-review/package-check.py",
+          "sha256": "3e12a1439e0444173a99e7a12aa3ae67eb88ad3bc383cdbdd25e7417449ea276"
+        }
+      ]
+    },
+    "publicationMetadataNote": "status/reviewedAt与已上线知识关系的整合；正文技术围栏及原运行不变，整站验证另记。"
+  },
+  {
+    "recordedAt": "2026-10-03T10:59:06.256083+00:00",
+    "revision": "A-r3-reconstructed",
+    "independentlyReviewed": false,
+    "resourceGroup": "architecture-review-lab",
+    "id": "architecture-a.external-not-run",
+    "title": "真实系统与发布未执行",
+    "kind": "executed",
+    "status": "not-run",
+    "scope": [
+      "真实身份/IdP/签名、Java/Spring/Modulith、Go、MySQL多会话、broker网络、可信token协调器、Kubernetes/发布",
+      "生产SLO/容量、实际迁移/回退/前向修复、整站build/CI/部署/浏览器"
+    ],
+    "limitations": [
+      "不能仅据此包批准真实流量；既有站内实验只关联，不算A新执行"
+    ],
+    "sourceFiles": [
+      {
+        "path": "labs/architecture-review-lab/README.md",
+        "sha256": "bb1e49ade550d11734b22e398a1d4303b9f2bc98656b3057a2694abe98077fe2"
+      },
+      {
+        "path": "labs/architecture-review-lab/decision-record.md",
+        "sha256": "846f435800b4c71fb6e86d367e4396aeb5a171fffdfbb8a6e69ce36fab35587b"
+      }
+    ],
+    "commands": [],
+    "artifacts": []
+  }
+]

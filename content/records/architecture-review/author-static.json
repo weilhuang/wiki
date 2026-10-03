@@ -1,0 +1,85 @@
+{
+  "revision": "A-r3-reconstructed",
+  "status": "pass",
+  "articles": [
+    {
+      "id": "architecture.module-boundaries",
+      "target": "docs/knowledge/architecture/boundaries/module-boundaries.md",
+      "sha256": "8643fc60f77de74395ae1c96e753a51052f90468120cb1b42c4ad2004305ac9a"
+    },
+    {
+      "id": "architecture.order-reliability-review",
+      "target": "docs/cases/orders/reliability-review.md",
+      "sha256": "ae2f1c1b26084ed459772d8ddc46b93035677251102c773104da219c7633f77b"
+    }
+  ],
+  "diagrams": [
+    {
+      "article": "module-boundaries.md",
+      "type": "flowchart-v2",
+      "sha256": "8584389203753352fa6394c9ff463e8b33d65c043b8bf64a3a48cd40906e0974"
+    },
+    {
+      "article": "reliability-review.md",
+      "type": "sequence",
+      "sha256": "0c25d107607f9531a8627c2278b0762cd65939e61b31ad2a52e0397df58a3e64"
+    }
+  ],
+  "snippets": [
+    {
+      "id": "architecture-a.boundaries-walk",
+      "sourceSha256": "d3e7424c6a865f2b124d7bcf91aa04e14ad19b532b01ac17f35aace40848cb0b",
+      "steps": 4
+    },
+    {
+      "id": "architecture-a.review-walk",
+      "sourceSha256": "09a7108c3e0c71797d55517fcb76cc62cec701c4370da5e465bdbbf2ed177437",
+      "steps": 4
+    }
+  ],
+  "links": [
+    {
+      "article": "module-boundaries.md",
+      "href": "/cases/orders/reliability-review.html"
+    },
+    {
+      "article": "module-boundaries.md",
+      "href": "/knowledge/frameworks/spring-aop/proxy-dispatch.html"
+    },
+    {
+      "article": "module-boundaries.md",
+      "href": "/knowledge/frameworks/spring-transactions/proxy-call-chain.html"
+    },
+    {
+      "article": "module-boundaries.md",
+      "href": "/examples/architecture-review-lab.zip"
+    },
+    {
+      "article": "module-boundaries.md",
+      "href": "/examples/architecture-review-results.json"
+    },
+    {
+      "article": "reliability-review.md",
+      "href": "/cases/architecture/order-service-extraction.html"
+    },
+    {
+      "article": "reliability-review.md",
+      "href": "/examples/architecture-review-lab.zip"
+    },
+    {
+      "article": "reliability-review.md",
+      "href": "/examples/architecture-review-results.json"
+    },
+    {
+      "article": "reliability-review.md",
+      "href": "/examples/architecture-review-regressions.json"
+    }
+  ],
+  "codeBlocks": 3,
+  "limitations": [
+    "no full build",
+    "no browser/SSR/search",
+    "no framework runtime",
+    "new r3 checks do not prove lost r1 equivalence"
+  ]
+}

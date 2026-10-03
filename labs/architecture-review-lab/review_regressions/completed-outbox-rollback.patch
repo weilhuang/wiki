@@ -1,0 +1,11 @@
+--- a/review_model.py
++++ b/review_model.py
+@@ -136,7 +136,7 @@
+         if self.variant == "unsafe-rollback":
+             return True
+         # v1 cannot represent PENDING or take over the new outbox responsibility.
+-        return not self.state["outbox"] and all(
++        return all(
+             order["status"] != "CANCEL_PENDING" for order in self.state["orders"].values())
+ 
+ 

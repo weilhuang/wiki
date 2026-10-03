@@ -16,6 +16,7 @@ search: false
 - [优雅停机评审：停止接单以后，哪些工作还欠着](/knowledge/go/lifecycle/graceful-shutdown.html)：把请求、后台任务、客户端连接与进程退出连接成可验证的生命周期，用真实信号子进程检验排空和强制结束。
 - [一致性恢复演练：订单、库存、事件与读模型如何对账](/cases/orders/consistency-recovery.html)：把并发、未知结果、重投、消费中断与陈旧缓存放进同一恢复演练，用联合查询、ADR、运行手册和兼容迁移完成设计评审。
 - [订单服务评审：把对象、HTTP、事务和资源合同接起来](/cases/orders/local-service-boundary.html)：以六类可重复故障审查订单创建服务，提交包含失败矩阵、资源责任、回归证据与演进限制的一页架构决策。
+- [订单演进评审：权限、服务目标与事实所有权](/cases/orders/reliability-review.html)：在保留本地订单写入的起点上，评审取消与库存释放交接，写清权限矩阵、用户目标、发布峰值、失败责任以及何时只能前向修复
 - [订单模块要不要拆成服务：从不拆的理由到可回退的迁移](/cases/architecture/order-service-extraction.html)：用同一个订单案例比较模块化单体、查询与异步能力抽离、独立订单服务，把数据所有权、失败语义、资源成本和停止条件写成可评审的决定
 
 ## 排障入口

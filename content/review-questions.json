@@ -376,5 +376,54 @@
     "task": "verify",
     "prompt": "EndpointSlice ready已为false，迟到请求仍到应用时，分别需要什么观察证明路由与进程边界？",
     "anchor": "finite-model"
+  },
+  {
+    "id": "architecture-a-four",
+    "topic": "architecture.module-boundaries",
+    "task": "compare",
+    "prompt": "为何模块、数据、事务和部署边界不能互代？",
+    "anchor": "four-boundaries"
+  },
+  {
+    "id": "architecture-a-remote",
+    "topic": "architecture.module-boundaries",
+    "task": "design",
+    "prompt": "库存由本地变远程，同名端口为何仍需改失败语义？",
+    "anchor": "counterfactual"
+  },
+  {
+    "id": "architecture-a-mock",
+    "topic": "architecture.module-boundaries",
+    "task": "verify",
+    "prompt": "mock全过但取消半提交，需要哪个测试切面和状态断言？",
+    "anchor": "test-slices"
+  },
+  {
+    "id": "architecture-a-auth",
+    "topic": "architecture.order-reliability-review",
+    "task": "verify",
+    "prompt": "普通成员、客服和relay各能做什么，拒绝时哪些状态不变？",
+    "anchor": "permission-matrix"
+  },
+  {
+    "id": "architecture-a-surge",
+    "topic": "architecture.order-reliability-review",
+    "task": "diagnose",
+    "prompt": "稳态72连接为什么不能证明发布符合100的预算？",
+    "anchor": "slo-budget"
+  },
+  {
+    "id": "architecture-a-rollback",
+    "topic": "architecture.order-reliability-review",
+    "task": "recover",
+    "prompt": "最终状态已取消但还有新交接账，旧镜像为什么不能接管？",
+    "anchor": "rollback-forward"
+  },
+  {
+    "id": "architecture-a-stop",
+    "topic": "architecture.order-reliability-review",
+    "task": "design",
+    "prompt": "什么事实推翻L，什么条件允许停止拆分？",
+    "anchor": "decision-record"
   }
 ]

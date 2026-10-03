@@ -24,6 +24,24 @@ search: false
 
 ## 可下载的完整实验
 
+### 架构评审模型：模块依赖、取消裁决、发布预算与恢复门槛 {#experiment-architecture-review-lab}
+
+[查看运行结果](/examples/architecture-review-results.json) · [下载源码包](/examples/architecture-review-lab.zip) · [查看运行结果](/examples/architecture-review-regressions.json)。历史运行范围：新CPython3.12.14/Linux标准库运行，有限顺序输入，每条命令外部10秒截止；19正常场景、19精确错误实现/配置、6验证器回归；三条新增原补丁反例单独exit2并逐值核对身份与expected/actual；新增async失败、撤权重放、完成后Outbox回退的独立literal完整状态；原operation_identity也补拒绝后状态断言；review_model.py与r2逐字相同；三个原审补丁严格作用于内存源码副本；代码启动/语法/错误原因或状态不匹配不能算通过；原审.patch/.py逐字带入，正确模型三个最小探针均exit0；将原.patch写入自动清理的源码副本后，默认公开verify.py和原最小探针均exit1，错误身份及完整expected/actual逐值匹配；单独公开复现入口run_review_regressions.py；10秒子命令/30秒外层截止，无网络/服务/安装；改坏的默认套件不写成功结果文件；临时副本清理。
+
+关联知识：[模块边界如何抵抗变化：依赖、数据与测试](/knowledge/architecture/boundaries/module-boundaries.html)、[订单演进评审：权限、服务目标与事实所有权](/cases/orders/reliability-review.html)。
+
+<details class="verification-appendix">
+<summary>版本、下载身份与未覆盖范围</summary>
+
+- 版本：CPython3.12.14；Linux; standard library only
+- SHA256：2a96751096953e7b76d4b72293d3bbd23aedf6074d174ef73a243549a50e3dfc
+- SHA256：bb64897438b9689e6d19e67cb7d16d077c6d4ef5bba6472d48b859b69308d3b1
+- SHA256：30aa0dee17ffac1d08f9dcd3bca5f32efff35995524fa989f88fa0c2e0e92e53
+- 未覆盖：r2曾因三个缺口HOLD，其旧公开套件假绿保留，不作为r3通过证明；原子方法、可信主体/成员/事件/token为模型前提，不证明真实数据库、身份、网络或并发；一租户一库存单位、一次取消；没有履约退款、删除重建、真实回退或生产SLO/容量；样板停止表是人工架构判断的范围条件，不是此业务状态模型自动选择L/E；重建provenance保留；不声称丢失r1字节等价；作者执行后，独立复审已从r4源码包重跑正确控制、三个原破坏补丁及原探针；两类入口均在预期状态拒绝坏实现。该复审不增加真实系统执行范围；仅三项明确破坏件，不代表全覆盖；不把运行/语法错误当目标故障；历史r2独审HOLD和假绿是修订原因，并非r3当前源码的执行结果
+- 此处汇总已有运行记录；收录到目录不会增加实验覆盖范围
+
+</details>
+
 ### 订单模块演进的顺序协议模型 {#experiment-architecture-order-extraction-model}
 
 [下载完整模型](/examples/order-extraction-protocol-model.py) · [查看运行结果](/examples/order-extraction-model-results.txt)。历史运行范围：R2，Python 3.12.14，标准库，单进程顺序内存模型；原13测试入口加强固定业务事实、停写期拒绝与历史版本指纹等断言，13项通过。

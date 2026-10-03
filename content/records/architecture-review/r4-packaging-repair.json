@@ -1,0 +1,14 @@
+{
+  "revision": "A-r4-packaging-only",
+  "recordedAt": "2026-10-03T11:03:53.798305+00:00",
+  "status": "pass",
+  "checks": [
+    "all r3 payloadFiles hashes remain exact",
+    "source ZIP remains exact r3 bytes",
+    "only top-level current manifest excluded by path",
+    "r3 failure retained; no business rerun claimed"
+  ],
+  "priorDeliverySha256": "5e197a399a3005cdb391e218529afbf920d39b57dbb77a5867b23595b2329b81",
+  "priorManifestSha256": "876505f237dcc53b6ac87c35caaba40c6a47c280086ce33ad03d14366347c319",
+  "sourceZipSha256": "bb64897438b9689e6d19e67cb7d16d077c6d4ef5bba6472d48b859b69308d3b1"
+}

@@ -1,0 +1,11 @@
+--- a/review_model.py
++++ b/review_model.py
+@@ -49,6 +49,8 @@
+         if mode not in {"local", "async"}:
+             raise ValueError("unknown cancellation mode")
+         if not self.allowed(actor, tenant, order_id, now):
++            if self.state["operations"]:
++                self.state["audit"].append({"wrong":"replay-effect"})
+             return "DENIED"
+         key = tenant + "/" + order_id
+         operation = tenant + "/" + actor + "/" + operation_id

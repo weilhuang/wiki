@@ -1,0 +1,22 @@
+[
+  {
+    "id": "architecture-a.boundaries-walk",
+    "doc": "docs/knowledge/architecture/boundaries/module-boundaries.md",
+    "source": "labs/architecture-review-lab/walk_boundaries.py",
+    "language": "python",
+    "version": "CPython3.12.14",
+    "type": "executable",
+    "annotations": "in-document",
+    "sourceSha256": "d3e7424c6a865f2b124d7bcf91aa04e14ad19b532b01ac17f35aace40848cb0b"
+  },
+  {
+    "id": "architecture-a.review-walk",
+    "doc": "docs/cases/orders/reliability-review.md",
+    "source": "labs/architecture-review-lab/walk_review.py",
+    "language": "python",
+    "version": "CPython3.12.14",
+    "type": "executable",
+    "annotations": "in-document",
+    "sourceSha256": "09a7108c3e0c71797d55517fcb76cc62cec701c4370da5e465bdbbf2ed177437"
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "revision": "A-r3-reconstructed",
+  "recordedAt": "2026-10-03T11:01:09.916111+00:00",
+  "status": "pass",
+  "checks": [
+    "r2 entire frozen manifest remains unchanged",
+    "review_model.py identical to r2",
+    "authored delta exactly matches r2-to-r3 text diff",
+    "every verification source/artifact hash resolves through integration mapping",
+    "all current public files including metadata scanned for private paths/credential patterns/caches"
+  ],
+  "publicTextFiles": 50,
+  "limitations": [
+    "metadata/payload checks only, not another business run",
+    "pattern scan is not exhaustive secret detection"
+  ]
+}

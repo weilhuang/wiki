@@ -1,0 +1,1463 @@
+{
+  "revision": "A-r3-reconstructed",
+  "status": "pass",
+  "execution": "new finite sequential execution; synthetic inputs",
+  "correct": [
+    {
+      "case": "authorization",
+      "status": "pass",
+      "observation": {
+        "rows": 9,
+        "denialPreservesFullState": true
+      }
+    },
+    {
+      "case": "revoked",
+      "status": "pass",
+      "observation": {
+        "result": "DENIED",
+        "stateUnchanged": true
+      }
+    },
+    {
+      "case": "stale",
+      "status": "pass",
+      "observation": {
+        "result": "STALE_VERSION",
+        "stateUnchanged": true
+      }
+    },
+    {
+      "case": "atomic",
+      "status": "pass",
+      "observation": {
+        "result": "STORAGE_ABORT",
+        "stateUnchanged": true
+      }
+    },
+    {
+      "case": "handoff",
+      "status": "pass",
+      "observation": {
+        "status": "CANCEL_PENDING",
+        "outbox": [
+          "red/o1/cancel/2"
+        ],
+        "reserved": true
+      }
+    },
+    {
+      "case": "failed_worker",
+      "status": "pass",
+      "observation": {
+        "result": "WORKER_ABORT",
+        "acks": [],
+        "effects": []
+      }
+    },
+    {
+      "case": "redelivery",
+      "status": "pass",
+      "observation": {
+        "effects": [
+          "red/o1"
+        ],
+        "available": 1,
+        "status": "CANCELLED",
+        "version": 3
+      }
+    },
+    {
+      "case": "fencing",
+      "status": "pass",
+      "observation": {
+        "result": "STALE_TOKEN",
+        "stateUnchanged": true
+      }
+    },
+    {
+      "case": "tenant_fence",
+      "status": "pass",
+      "observation": {
+        "available": {
+          "red": 1,
+          "blue": 1
+        },
+        "fences": {
+          "red/o1": 9,
+          "blue/o1": 1
+        }
+      }
+    },
+    {
+      "case": "rollback",
+      "status": "pass",
+      "observation": {
+        "beforeNewWrites": true,
+        "afterNewWrites": false
+      }
+    },
+    {
+      "case": "budget",
+      "status": "pass",
+      "observation": {
+        "surge1": 88,
+        "surge2": 104,
+        "limit": 100
+      }
+    },
+    {
+      "case": "denominator",
+      "status": "pass",
+      "observation": {
+        "total": 10000,
+        "bad": 6,
+        "allowed": "10",
+        "remaining": "4",
+        "ratio": "4997/5000"
+      }
+    },
+    {
+      "case": "operation_identity",
+      "status": "pass",
+      "observation": {
+        "replay": "CANCELLED",
+        "conflict": "KEY_CONFLICT",
+        "revokedReplay": "DENIED"
+      }
+    },
+    {
+      "case": "fact_identity",
+      "status": "pass",
+      "observation": {
+        "missing": "NO_RELEASE_FACT",
+        "wrongTenant": "NO_RELEASE_FACT"
+      }
+    },
+    {
+      "case": "grant_scope",
+      "status": "pass",
+      "observation": {
+        "read": false,
+        "delete": false,
+        "oldEpoch": "DENIED"
+      }
+    },
+    {
+      "case": "boundaries",
+      "status": "pass",
+      "observation": {
+        "errors": [],
+        "scope": "declarations only"
+      }
+    },
+    {
+      "case": "async_atomic",
+      "status": "pass",
+      "observation": {
+        "result": "STORAGE_ABORT",
+        "state": {
+          "orders": {
+            "red/o1": {
+              "owner": "alice",
+              "status": "CONFIRMED",
+              "version": 1,
+              "epoch": 1
+            },
+            "blue/o1": {
+              "owner": "mallory",
+              "status": "CONFIRMED",
+              "version": 1,
+              "epoch": 1
+            }
+          },
+          "reserved": {
+            "red/o1": true,
+            "blue/o1": true
+          },
+          "available": {
+            "red": 0,
+            "blue": 0
+          },
+          "operations": {},
+          "outbox": {},
+          "receipts": {},
+          "fences": {},
+          "audit": [],
+          "releaseEffects": [],
+          "acks": []
+        }
+      }
+    },
+    {
+      "case": "revoked_replay",
+      "status": "pass",
+      "observation": {
+        "result": "DENIED",
+        "state": {
+          "orders": {
+            "red/o1": {
+              "owner": "alice",
+              "status": "CANCELLED",
+              "version": 2,
+              "epoch": 1
+            },
+            "blue/o1": {
+              "owner": "mallory",
+              "status": "CONFIRMED",
+              "version": 1,
+              "epoch": 1
+            }
+          },
+          "reserved": {
+            "red/o1": false,
+            "blue/o1": true
+          },
+          "available": {
+            "red": 1,
+            "blue": 0
+          },
+          "operations": {
+            "red/alice/c1": {
+              "fingerprint": [
+                "o1",
+                "customer-request",
+                "local"
+              ],
+              "result": "CANCELLED"
+            }
+          },
+          "outbox": {},
+          "receipts": {},
+          "fences": {},
+          "audit": [
+            {
+              "actor": "alice",
+              "key": "red/o1",
+              "action": "cancel-accepted"
+            }
+          ],
+          "releaseEffects": [
+            "red/o1"
+          ],
+          "acks": []
+        }
+      }
+    },
+    {
+      "case": "completed_rollback",
+      "status": "pass",
+      "observation": {
+        "allowed": false,
+        "state": {
+          "orders": {
+            "red/o1": {
+              "owner": "alice",
+              "status": "CANCELLED",
+              "version": 3,
+              "epoch": 1
+            },
+            "blue/o1": {
+              "owner": "mallory",
+              "status": "CONFIRMED",
+              "version": 1,
+              "epoch": 1
+            }
+          },
+          "reserved": {
+            "red/o1": false,
+            "blue/o1": true
+          },
+          "available": {
+            "red": 1,
+            "blue": 0
+          },
+          "operations": {
+            "red/alice/c1": {
+              "fingerprint": [
+                "o1",
+                "customer-request",
+                "async"
+              ],
+              "result": "CANCELLED"
+            }
+          },
+          "outbox": {
+            "red/o1/cancel/2": {
+              "key": "red/o1",
+              "version": 2,
+              "operation": "red/alice/c1"
+            }
+          },
+          "receipts": {
+            "red/o1/cancel/2": {
+              "key": "red/o1",
+              "version": 2
+            }
+          },
+          "fences": {
+            "red/o1": 7
+          },
+          "audit": [
+            {
+              "actor": "alice",
+              "key": "red/o1",
+              "action": "cancel-accepted"
+            }
+          ],
+          "releaseEffects": [
+            "red/o1"
+          ],
+          "acks": [
+            "red/o1/cancel/2"
+          ]
+        }
+      }
+    }
+  ],
+  "mutants": [
+    {
+      "mutant": "allow-member",
+      "case": "authorization",
+      "status": "target-rejected",
+      "failure": {
+        "type": "CheckFailure",
+        "code": "denial-has-no-effects",
+        "expected": {
+          "result": "DENIED",
+          "state": {
+            "orders": {
+              "red/o1": {
+                "owner": "alice",
+                "status": "CONFIRMED",
+                "version": 1,
+                "epoch": 1
+              },
+              "blue/o1": {
+                "owner": "mallory",
+                "status": "CONFIRMED",
+                "version": 1,
+                "epoch": 1
+              }
+            },
+            "reserved": {
+              "red/o1": true,
+              "blue/o1": true
+            },
+            "available": {
+              "red": 0,
+              "blue": 0
+            },
+            "operations": {},
+            "outbox": {},
+            "receipts": {},
+            "fences": {},
+            "audit": [],
+            "releaseEffects": [],
+            "acks": []
+          }
+        },
+        "actual": {
+          "result": "CANCELLED",
+          "state": {
+            "orders": {
+              "red/o1": {
+                "owner": "alice",
+                "status": "CANCELLED",
+                "version": 2,
+                "epoch": 1
+              },
+              "blue/o1": {
+                "owner": "mallory",
+                "status": "CONFIRMED",
+                "version": 1,
+                "epoch": 1
+              }
+            },
+            "reserved": {
+              "red/o1": false,
+              "blue/o1": true
+            },
+            "available": {
+              "red": 1,
+              "blue": 0
+            },
+            "operations": {
+              "red/bob/c1": {
+                "fingerprint": [
+                  "o1",
+                  "customer-request",
+                  "local"
+                ],
+                "result": "CANCELLED"
+              }
+            },
+            "outbox": {},
+            "receipts": {},
+            "fences": {},
+            "audit": [
+              {
+                "actor": "bob",
+                "key": "red/o1",
+                "action": "cancel-accepted"
+              }
+            ],
+            "releaseEffects": [
+              "red/o1"
+            ],
+            "acks": []
+          }
+        }
+      }
+    },
+    {
+      "mutant": "skip-current-membership",
+      "case": "revoked",
+      "status": "target-rejected",
+      "failure": {
+        "type": "CheckFailure",
+        "code": "current-membership",
+        "expected": {
+          "result": "DENIED",
+          "state": {
+            "orders": {
+              "red/o1": {
+                "owner": "alice",
+                "status": "CONFIRMED",
+                "version": 1,
+                "epoch": 1
+              },
+              "blue/o1": {
+                "owner": "mallory",
+                "status": "CONFIRMED",
+                "version": 1,
+                "epoch": 1
+              }
+            },
+            "reserved": {
+              "red/o1": true,
+              "blue/o1": true
+            },
+            "available": {
+              "red": 0,
+              "blue": 0
+            },
+            "operations": {},
+            "outbox": {},
+            "receipts": {},
+            "fences": {},
+            "audit": [],
+            "releaseEffects": [],
+            "acks": []
+          }
+        },
+        "actual": {
+          "result": "CANCELLED",
+          "state": {
+            "orders": {
+              "red/o1": {
+                "owner": "alice",
+                "status": "CANCELLED",
+                "version": 2,
+                "epoch": 1
+              },
+              "blue/o1": {
+                "owner": "mallory",
+                "status": "CONFIRMED",
+                "version": 1,
+                "epoch": 1
+              }
+            },
+            "reserved": {
+              "red/o1": false,
+              "blue/o1": true
+            },
+            "available": {
+              "red": 1,
+              "blue": 0
+            },
+            "operations": {
+              "red/alice/c1": {
+                "fingerprint": [
+                  "o1",
+                  "customer-request",
+                  "local"
+                ],
+                "result": "CANCELLED"
+              }
+            },
+            "outbox": {},
+            "receipts": {},
+            "fences": {},
+            "audit": [
+              {
+                "actor": "alice",
+                "key": "red/o1",
+                "action": "cancel-accepted"
+              }
+            ],
+            "releaseEffects": [
+              "red/o1"
+            ],
+            "acks": []
+          }
+        }
+      }
+    },
+    {
+      "mutant": "ignore-version",
+      "case": "stale",
+      "status": "target-rejected",
+      "failure": {
+        "type": "CheckFailure",
+        "code": "current-version",
+        "expected": {
+          "result": "STALE_VERSION",
+          "state": {
+            "orders": {
+              "red/o1": {
+                "owner": "alice",
+                "status": "CONFIRMED",
+                "version": 2,
+                "epoch": 1
+              },
+              "blue/o1": {
+                "owner": "mallory",
+                "status": "CONFIRMED",
+                "version": 1,
+                "epoch": 1
+              }
+            },
+            "reserved": {
+              "red/o1": true,
+              "blue/o1": true
+            },
+            "available": {
+              "red": 0,
+              "blue": 0
+            },
+            "operations": {},
+            "outbox": {},
+            "receipts": {},
+            "fences": {},
+            "audit": [],
+            "releaseEffects": [],
+            "acks": []
+          }
+        },
+        "actual": {
+          "result": "CANCELLED",
+          "state": {
+            "orders": {
+              "red/o1": {
+                "owner": "alice",
+                "status": "CANCELLED",
+                "version": 3,
+                "epoch": 1
+              },
+              "blue/o1": {
+                "owner": "mallory",
+                "status": "CONFIRMED",
+                "version": 1,
+                "epoch": 1
+              }
+            },
+            "reserved": {
+              "red/o1": false,
+              "blue/o1": true
+            },
+            "available": {
+              "red": 1,
+              "blue": 0
+            },
+            "operations": {
+              "red/alice/c1": {
+                "fingerprint": [
+                  "o1",
+                  "customer-request",
+                  "local"
+                ],
+                "result": "CANCELLED"
+              }
+            },
+            "outbox": {},
+            "receipts": {},
+            "fences": {},
+            "audit": [
+              {
+                "actor": "alice",
+                "key": "red/o1",
+                "action": "cancel-accepted"
+              }
+            ],
+            "releaseEffects": [
+              "red/o1"
+            ],
+            "acks": []
+          }
+        }
+      }
+    },
+    {
+      "mutant": "split-local-commit",
+      "case": "atomic",
+      "status": "target-rejected",
+      "failure": {
+        "type": "CheckFailure",
+        "code": "local-atomicity",
+        "expected": {
+          "result": "STORAGE_ABORT",
+          "state": {
+            "orders": {
+              "red/o1": {
+                "owner": "alice",
+                "status": "CONFIRMED",
+                "version": 1,
+                "epoch": 1
+              },
+              "blue/o1": {
+                "owner": "mallory",
+                "status": "CONFIRMED",
+                "version": 1,
+                "epoch": 1
+              }
+            },
+            "reserved": {
+              "red/o1": true,
+              "blue/o1": true
+            },
+            "available": {
+              "red": 0,
+              "blue": 0
+            },
+            "operations": {},
+            "outbox": {},
+            "receipts": {},
+            "fences": {},
+            "audit": [],
+            "releaseEffects": [],
+            "acks": []
+          }
+        },
+        "actual": {
+          "result": "STORAGE_ABORT",
+          "state": {
+            "orders": {
+              "red/o1": {
+                "owner": "alice",
+                "status": "CANCELLED",
+                "version": 2,
+                "epoch": 1
+              },
+              "blue/o1": {
+                "owner": "mallory",
+                "status": "CONFIRMED",
+                "version": 1,
+                "epoch": 1
+              }
+            },
+            "reserved": {
+              "red/o1": true,
+              "blue/o1": true
+            },
+            "available": {
+              "red": 0,
+              "blue": 0
+            },
+            "operations": {},
+            "outbox": {},
+            "receipts": {},
+            "fences": {},
+            "audit": [],
+            "releaseEffects": [],
+            "acks": []
+          }
+        }
+      }
+    },
+    {
+      "mutant": "missing-outbox",
+      "case": "handoff",
+      "status": "target-rejected",
+      "failure": {
+        "type": "CheckFailure",
+        "code": "pending-has-responsibility",
+        "expected": {
+          "red/o1/cancel/2": {
+            "key": "red/o1",
+            "version": 2,
+            "operation": "red/alice/c1"
+          }
+        },
+        "actual": {}
+      }
+    },
+    {
+      "mutant": "premature-final",
+      "case": "handoff",
+      "status": "target-rejected",
+      "failure": {
+        "type": "CheckFailure",
+        "code": "pending-not-final",
+        "expected": {
+          "owner": "alice",
+          "status": "CANCEL_PENDING",
+          "version": 2,
+          "epoch": 1
+        },
+        "actual": {
+          "owner": "alice",
+          "status": "CANCELLED",
+          "version": 2,
+          "epoch": 1
+        }
+      }
+    },
+    {
+      "mutant": "ack-first",
+      "case": "failed_worker",
+      "status": "target-rejected",
+      "failure": {
+        "type": "CheckFailure",
+        "code": "ack-after-commit",
+        "expected": {
+          "result": "WORKER_ABORT",
+          "state": {
+            "orders": {
+              "red/o1": {
+                "owner": "alice",
+                "status": "CANCEL_PENDING",
+                "version": 2,
+                "epoch": 1
+              },
+              "blue/o1": {
+                "owner": "mallory",
+                "status": "CONFIRMED",
+                "version": 1,
+                "epoch": 1
+              }
+            },
+            "reserved": {
+              "red/o1": true,
+              "blue/o1": true
+            },
+            "available": {
+              "red": 0,
+              "blue": 0
+            },
+            "operations": {
+              "red/alice/c1": {
+                "fingerprint": [
+                  "o1",
+                  "customer-request",
+                  "async"
+                ],
+                "result": "PENDING"
+              }
+            },
+            "outbox": {
+              "red/o1/cancel/2": {
+                "key": "red/o1",
+                "version": 2,
+                "operation": "red/alice/c1"
+              }
+            },
+            "receipts": {},
+            "fences": {},
+            "audit": [
+              {
+                "actor": "alice",
+                "key": "red/o1",
+                "action": "cancel-accepted"
+              }
+            ],
+            "releaseEffects": [],
+            "acks": []
+          }
+        },
+        "actual": {
+          "result": "WORKER_ABORT",
+          "state": {
+            "orders": {
+              "red/o1": {
+                "owner": "alice",
+                "status": "CANCEL_PENDING",
+                "version": 2,
+                "epoch": 1
+              },
+              "blue/o1": {
+                "owner": "mallory",
+                "status": "CONFIRMED",
+                "version": 1,
+                "epoch": 1
+              }
+            },
+            "reserved": {
+              "red/o1": true,
+              "blue/o1": true
+            },
+            "available": {
+              "red": 0,
+              "blue": 0
+            },
+            "operations": {
+              "red/alice/c1": {
+                "fingerprint": [
+                  "o1",
+                  "customer-request",
+                  "async"
+                ],
+                "result": "PENDING"
+              }
+            },
+            "outbox": {
+              "red/o1/cancel/2": {
+                "key": "red/o1",
+                "version": 2,
+                "operation": "red/alice/c1"
+              }
+            },
+            "receipts": {},
+            "fences": {},
+            "audit": [
+              {
+                "actor": "alice",
+                "key": "red/o1",
+                "action": "cancel-accepted"
+              }
+            ],
+            "releaseEffects": [],
+            "acks": [
+              "red/o1/cancel/2"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "mutant": "repeat-release",
+      "case": "redelivery",
+      "status": "target-rejected",
+      "failure": {
+        "type": "CheckFailure",
+        "code": "one-release-effect",
+        "expected": {
+          "effects": [
+            "red/o1"
+          ],
+          "available": {
+            "red": 1,
+            "blue": 0
+          }
+        },
+        "actual": {
+          "effects": [
+            "red/o1",
+            "red/o1"
+          ],
+          "available": {
+            "red": 2,
+            "blue": 0
+          }
+        }
+      }
+    },
+    {
+      "mutant": "ignore-fence",
+      "case": "fencing",
+      "status": "target-rejected",
+      "failure": {
+        "type": "CheckFailure",
+        "code": "resource-rejects-old-token",
+        "expected": {
+          "result": "STALE_TOKEN",
+          "state": {
+            "orders": {
+              "red/o1": {
+                "owner": "alice",
+                "status": "CANCEL_PENDING",
+                "version": 2,
+                "epoch": 1
+              },
+              "blue/o1": {
+                "owner": "mallory",
+                "status": "CONFIRMED",
+                "version": 1,
+                "epoch": 1
+              }
+            },
+            "reserved": {
+              "red/o1": true,
+              "blue/o1": true
+            },
+            "available": {
+              "red": 0,
+              "blue": 0
+            },
+            "operations": {
+              "red/alice/c1": {
+                "fingerprint": [
+                  "o1",
+                  "customer-request",
+                  "async"
+                ],
+                "result": "PENDING"
+              }
+            },
+            "outbox": {
+              "red/o1/cancel/2": {
+                "key": "red/o1",
+                "version": 2,
+                "operation": "red/alice/c1"
+              }
+            },
+            "receipts": {},
+            "fences": {
+              "red/o1": 8
+            },
+            "audit": [
+              {
+                "actor": "alice",
+                "key": "red/o1",
+                "action": "cancel-accepted"
+              }
+            ],
+            "releaseEffects": [],
+            "acks": []
+          }
+        },
+        "actual": {
+          "result": "RELEASED",
+          "state": {
+            "orders": {
+              "red/o1": {
+                "owner": "alice",
+                "status": "CANCEL_PENDING",
+                "version": 2,
+                "epoch": 1
+              },
+              "blue/o1": {
+                "owner": "mallory",
+                "status": "CONFIRMED",
+                "version": 1,
+                "epoch": 1
+              }
+            },
+            "reserved": {
+              "red/o1": false,
+              "blue/o1": true
+            },
+            "available": {
+              "red": 1,
+              "blue": 0
+            },
+            "operations": {
+              "red/alice/c1": {
+                "fingerprint": [
+                  "o1",
+                  "customer-request",
+                  "async"
+                ],
+                "result": "PENDING"
+              }
+            },
+            "outbox": {
+              "red/o1/cancel/2": {
+                "key": "red/o1",
+                "version": 2,
+                "operation": "red/alice/c1"
+              }
+            },
+            "receipts": {
+              "red/o1/cancel/2": {
+                "key": "red/o1",
+                "version": 2
+              }
+            },
+            "fences": {
+              "red/o1": 8
+            },
+            "audit": [
+              {
+                "actor": "alice",
+                "key": "red/o1",
+                "action": "cancel-accepted"
+              }
+            ],
+            "releaseEffects": [
+              "red/o1"
+            ],
+            "acks": [
+              "red/o1/cancel/2"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "mutant": "forget-tenant",
+      "case": "tenant_fence",
+      "status": "target-rejected",
+      "failure": {
+        "type": "CheckFailure",
+        "code": "independent-resource-token",
+        "expected": "RELEASED",
+        "actual": "STALE_TOKEN"
+      }
+    },
+    {
+      "mutant": "unsafe-rollback",
+      "case": "rollback",
+      "status": "target-rejected",
+      "failure": {
+        "type": "CheckFailure",
+        "code": "rollback-requires-compatible-state",
+        "expected": false,
+        "actual": true
+      }
+    },
+    {
+      "mutant": "ignore-surge",
+      "case": "budget",
+      "status": "target-rejected",
+      "failure": {
+        "type": "CheckFailure",
+        "code": "expanded-surge-budget",
+        "expected": {
+          "used": 104,
+          "limit": 100,
+          "fits": false
+        },
+        "actual": {
+          "used": 72,
+          "limit": 100,
+          "fits": true
+        }
+      }
+    },
+    {
+      "mutant": "exclude-rejections",
+      "case": "denominator",
+      "status": "target-rejected",
+      "failure": {
+        "type": "CheckFailure",
+        "code": "rejections-remain-in-denominator",
+        "expected": {
+          "total": 10000,
+          "bad": 6,
+          "allowed": "10",
+          "remaining": "4",
+          "ratio": "4997/5000"
+        },
+        "actual": {
+          "total": 9998,
+          "bad": 4,
+          "allowed": "4999/500",
+          "remaining": "2999/500",
+          "ratio": "4997/4999"
+        }
+      }
+    },
+    {
+      "mutant": "internal-import",
+      "case": "boundaries",
+      "status": "target-rejected",
+      "failure": {
+        "type": "CheckFailure",
+        "code": "declared-boundaries",
+        "expected": [],
+        "actual": [
+          "internal-access:reports->orders"
+        ]
+      }
+    },
+    {
+      "mutant": "foreign-write",
+      "case": "boundaries",
+      "status": "target-rejected",
+      "failure": {
+        "type": "CheckFailure",
+        "code": "declared-boundaries",
+        "expected": [],
+        "actual": [
+          "foreign-write:reports->orders"
+        ]
+      }
+    },
+    {
+      "mutant": "cycle",
+      "case": "boundaries",
+      "status": "target-rejected",
+      "failure": {
+        "type": "CheckFailure",
+        "code": "declared-boundaries",
+        "expected": [],
+        "actual": [
+          "module-cycle"
+        ]
+      }
+    },
+    {
+      "mutant": "async-abort-only-half-commit",
+      "case": "async_atomic",
+      "status": "target-rejected",
+      "failure": {
+        "type": "CheckFailure",
+        "code": "async-abort-full-state",
+        "expected": {
+          "orders": {
+            "red/o1": {
+              "owner": "alice",
+              "status": "CONFIRMED",
+              "version": 1,
+              "epoch": 1
+            },
+            "blue/o1": {
+              "owner": "mallory",
+              "status": "CONFIRMED",
+              "version": 1,
+              "epoch": 1
+            }
+          },
+          "reserved": {
+            "red/o1": true,
+            "blue/o1": true
+          },
+          "available": {
+            "red": 0,
+            "blue": 0
+          },
+          "operations": {},
+          "outbox": {},
+          "receipts": {},
+          "fences": {},
+          "audit": [],
+          "releaseEffects": [],
+          "acks": []
+        },
+        "actual": {
+          "orders": {
+            "red/o1": {
+              "owner": "alice",
+              "status": "CANCEL_PENDING",
+              "version": 2,
+              "epoch": 1
+            },
+            "blue/o1": {
+              "owner": "mallory",
+              "status": "CONFIRMED",
+              "version": 1,
+              "epoch": 1
+            }
+          },
+          "reserved": {
+            "red/o1": true,
+            "blue/o1": true
+          },
+          "available": {
+            "red": 0,
+            "blue": 0
+          },
+          "operations": {},
+          "outbox": {},
+          "receipts": {},
+          "fences": {},
+          "audit": [],
+          "releaseEffects": [],
+          "acks": []
+        }
+      }
+    },
+    {
+      "mutant": "revoked-replay-only-side-effect",
+      "case": "revoked_replay",
+      "status": "target-rejected",
+      "failure": {
+        "type": "CheckFailure",
+        "code": "revoked-replay-full-state",
+        "expected": {
+          "orders": {
+            "red/o1": {
+              "owner": "alice",
+              "status": "CANCELLED",
+              "version": 2,
+              "epoch": 1
+            },
+            "blue/o1": {
+              "owner": "mallory",
+              "status": "CONFIRMED",
+              "version": 1,
+              "epoch": 1
+            }
+          },
+          "reserved": {
+            "red/o1": false,
+            "blue/o1": true
+          },
+          "available": {
+            "red": 1,
+            "blue": 0
+          },
+          "operations": {
+            "red/alice/c1": {
+              "fingerprint": [
+                "o1",
+                "customer-request",
+                "local"
+              ],
+              "result": "CANCELLED"
+            }
+          },
+          "outbox": {},
+          "receipts": {},
+          "fences": {},
+          "audit": [
+            {
+              "actor": "alice",
+              "key": "red/o1",
+              "action": "cancel-accepted"
+            }
+          ],
+          "releaseEffects": [
+            "red/o1"
+          ],
+          "acks": []
+        },
+        "actual": {
+          "orders": {
+            "red/o1": {
+              "owner": "alice",
+              "status": "CANCELLED",
+              "version": 2,
+              "epoch": 1
+            },
+            "blue/o1": {
+              "owner": "mallory",
+              "status": "CONFIRMED",
+              "version": 1,
+              "epoch": 1
+            }
+          },
+          "reserved": {
+            "red/o1": false,
+            "blue/o1": true
+          },
+          "available": {
+            "red": 1,
+            "blue": 0
+          },
+          "operations": {
+            "red/alice/c1": {
+              "fingerprint": [
+                "o1",
+                "customer-request",
+                "local"
+              ],
+              "result": "CANCELLED"
+            }
+          },
+          "outbox": {},
+          "receipts": {},
+          "fences": {},
+          "audit": [
+            {
+              "actor": "alice",
+              "key": "red/o1",
+              "action": "cancel-accepted"
+            },
+            {
+              "wrong": "replay-effect"
+            }
+          ],
+          "releaseEffects": [
+            "red/o1"
+          ],
+          "acks": []
+        }
+      }
+    },
+    {
+      "mutant": "completed-outbox-rollback",
+      "case": "completed_rollback",
+      "status": "target-rejected",
+      "failure": {
+        "type": "CheckFailure",
+        "code": "completed-outbox-rejects-v1",
+        "expected": {
+          "allowed": false,
+          "state": {
+            "orders": {
+              "red/o1": {
+                "owner": "alice",
+                "status": "CANCELLED",
+                "version": 3,
+                "epoch": 1
+              },
+              "blue/o1": {
+                "owner": "mallory",
+                "status": "CONFIRMED",
+                "version": 1,
+                "epoch": 1
+              }
+            },
+            "reserved": {
+              "red/o1": false,
+              "blue/o1": true
+            },
+            "available": {
+              "red": 1,
+              "blue": 0
+            },
+            "operations": {
+              "red/alice/c1": {
+                "fingerprint": [
+                  "o1",
+                  "customer-request",
+                  "async"
+                ],
+                "result": "CANCELLED"
+              }
+            },
+            "outbox": {
+              "red/o1/cancel/2": {
+                "key": "red/o1",
+                "version": 2,
+                "operation": "red/alice/c1"
+              }
+            },
+            "receipts": {
+              "red/o1/cancel/2": {
+                "key": "red/o1",
+                "version": 2
+              }
+            },
+            "fences": {
+              "red/o1": 7
+            },
+            "audit": [
+              {
+                "actor": "alice",
+                "key": "red/o1",
+                "action": "cancel-accepted"
+              }
+            ],
+            "releaseEffects": [
+              "red/o1"
+            ],
+            "acks": [
+              "red/o1/cancel/2"
+            ]
+          }
+        },
+        "actual": {
+          "allowed": true,
+          "state": {
+            "orders": {
+              "red/o1": {
+                "owner": "alice",
+                "status": "CANCELLED",
+                "version": 3,
+                "epoch": 1
+              },
+              "blue/o1": {
+                "owner": "mallory",
+                "status": "CONFIRMED",
+                "version": 1,
+                "epoch": 1
+              }
+            },
+            "reserved": {
+              "red/o1": false,
+              "blue/o1": true
+            },
+            "available": {
+              "red": 1,
+              "blue": 0
+            },
+            "operations": {
+              "red/alice/c1": {
+                "fingerprint": [
+                  "o1",
+                  "customer-request",
+                  "async"
+                ],
+                "result": "CANCELLED"
+              }
+            },
+            "outbox": {
+              "red/o1/cancel/2": {
+                "key": "red/o1",
+                "version": 2,
+                "operation": "red/alice/c1"
+              }
+            },
+            "receipts": {
+              "red/o1/cancel/2": {
+                "key": "red/o1",
+                "version": 2
+              }
+            },
+            "fences": {
+              "red/o1": 7
+            },
+            "audit": [
+              {
+                "actor": "alice",
+                "key": "red/o1",
+                "action": "cancel-accepted"
+              }
+            ],
+            "releaseEffects": [
+              "red/o1"
+            ],
+            "acks": [
+              "red/o1/cancel/2"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "verifierRegressions": [
+    {
+      "probe": "startup-error",
+      "status": "refused",
+      "reason": "unrelated failure: ImportError"
+    },
+    {
+      "probe": "syntax-error",
+      "status": "refused",
+      "reason": "unrelated failure: SyntaxError"
+    },
+    {
+      "probe": "wrong-assertion",
+      "status": "refused",
+      "reason": "wrong failure identity or expected/actual state signature"
+    },
+    {
+      "probe": "silent-success",
+      "status": "refused",
+      "reason": "mutant escaped target oracle"
+    },
+    {
+      "probe": "empty-difference",
+      "status": "refused",
+      "reason": "wrong failure identity or expected/actual state signature"
+    },
+    {
+      "probe": "right-code-wrong-state",
+      "status": "refused",
+      "reason": "wrong failure identity or expected/actual state signature"
+    }
+  ],
+  "notRun": [
+    "database",
+    "broker",
+    "network",
+    "threads",
+    "identity provider",
+    "framework",
+    "Kubernetes",
+    "production SLO"
+  ]
+}

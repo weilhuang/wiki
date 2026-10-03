@@ -1,0 +1,11 @@
+--- a/review_model.py
++++ b/review_model.py
+@@ -70,6 +70,8 @@
+         if self.variant == "split-local-commit" and mode == "local":
+             self.state["orders"][key] = deepcopy(target)
+         if fault == "after-order":
++            if mode == "async":
++                self.state["orders"][key] = deepcopy(target)
+             return "STORAGE_ABORT"
+         event_id = key + "/cancel/" + str(target["version"])
+         if mode == "local":

@@ -1,0 +1,20 @@
+# 来源和许可
+
+实际查阅2026-10-03。只有官方/规范/原作者资料。版本分支可能更新；没有复制上游源码、图或整篇正文，不虚构原源码行号、SHA或再分发权。MIT仅覆盖本包原创代码与材料。
+
+- [Hexagonal architecture: original 2005 article](https://alistair.cockburn.us/hexagonal-architecture)：HaT Technical Report2005.02; displayed2005-09-04 v0.9；Alistair Cockburn, all rights reserved。范围：端口、内外分离与隔离测试；实际网页阅读发生于同一任务，工具结果未因文件系统替换而变为一次新的访问。r2登记重建，不声称上游字节快照。
+- [Spring Modulith — Module Structure Verification](https://docs.spring.io/spring-modulith/reference/1.4/verification.html)：1.4 branch displayed1.4.13；Broadcom, all rights reserved。范围：模块环、内部引用、允许依赖与开放模块例外；实际网页阅读发生于同一任务，工具结果未因文件系统替换而变为一次新的访问。r2登记重建，不声称上游字节快照。
+- [Spring Framework — Proxying Mechanisms](https://docs.spring.io/spring-framework/reference/6.2/core/aop/proxying.html)：6.2 branch displayed6.2.19；Broadcom, all rights reserved。范围：实际接收者与self invocation绕过通知；实际网页阅读发生于同一任务，工具结果未因文件系统替换而变为一次新的访问。r2登记重建，不声称上游字节快照。
+- [MySQL8.4 — Consistent Nonlocking Reads](https://dev.mysql.com/doc/refman/8.4/en/innodb-consistent-read.html)：MySQL8.4 reference branch；Oracle manual copyright/terms; link only。范围：RR一致性读视图与当前事实的区别；实际网页阅读发生于同一任务，工具结果未因文件系统替换而变为一次新的访问。r2登记重建，不声称上游字节快照。
+- [MySQL8.4 — Locking Reads](https://dev.mysql.com/doc/refman/8.4/en/innodb-locking-reads.html)：MySQL8.4 reference branch；Oracle manual copyright/terms; link only。范围：锁定读和事务条件；不能以旧快照裁决授权；实际网页阅读发生于同一任务，工具结果未因文件系统替换而变为一次新的访问。r2登记重建，不声称上游字节快照。
+- [MySQL8.4 — Multiple-Column Indexes](https://dev.mysql.com/doc/refman/8.4/en/multiple-column-indexes.html)：MySQL8.4 reference branch；Oracle manual copyright/terms; link only。范围：组合索引前缀与完整查询形状；实际网页阅读发生于同一任务，工具结果未因文件系统替换而变为一次新的访问。r2登记重建，不声称上游字节快照。
+- [OWASP Authorization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html)：living document accessed2026-10-03；CC BY-SA4.0; footer verified。范围：默认拒绝、逐请求检查与失败退出；实际网页阅读发生于同一任务，工具结果未因文件系统替换而变为一次新的访问。r2登记重建，不声称上游字节快照。
+- [RFC7662 — OAuth2.0 Token Introspection](https://datatracker.ietf.org/doc/html/rfc7662)：RFC7662, October2015, section4；IETF Trust Legal Provisions; no excerpt redistributed。范围：缓存与撤销可见性；实际网页阅读发生于同一任务，工具结果未因文件系统替换而变为一次新的访问。r2登记重建，不声称上游字节快照。
+- [Google SRE Workbook — Implementing SLOs](https://sre.google/workbook/implementing-slos/)：2018 book chapter, online edition；CC BY-NC-ND4.0; footer verified。范围：用户事件、好事件比例与目标决策；实际网页阅读发生于同一任务，工具结果未因文件系统替换而变为一次新的访问。r2登记重建，不声称上游字节快照。
+- [Google SRE Workbook — Error Budget Policy](https://sre.google/workbook/error-budget-policy/)：2018 book appendix, online edition；CC BY-NC-ND4.0 book; linked only。范围：预算与发布行动连接；本例门槛另设；实际网页阅读发生于同一任务，工具结果未因文件系统替换而变为一次新的访问。r2登记重建，不声称上游字节快照。
+- [JavaSE21 — ThreadPoolExecutor](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/ThreadPoolExecutor.html)：JavaSE21 API；Oracle API documentation copyright/terms; link only。范围：有界队列、线程增长与拒绝；实际网页阅读发生于同一任务，工具结果未因文件系统替换而变为一次新的访问。r2登记重建，不声称上游字节快照。
+- [RabbitMQ4.1 — Confirms and Acknowledgements](https://www.rabbitmq.com/docs/4.1/confirms)：RabbitMQ4.1 documentation branch；Broadcom, all rights reserved。范围：publisher confirm和consumer ack不同责任、丢确认重投；实际网页阅读发生于同一任务，工具结果未因文件系统替换而变为一次新的访问。r2登记重建，不声称上游字节快照。
+- [Transactional Outbox pattern](https://microservices.io/patterns/data/transactional-outbox.html)：author-maintained pattern, accessed2026-10-03；Chris Richardson site copyright; no redistribution grant claimed。范围：本地共同提交、relay重复与消费幂等；实际网页阅读发生于同一任务，工具结果未因文件系统替换而变为一次新的访问。r2登记重建，不声称上游字节快照。
+- [Kubernetes1.34 — Pod Lifecycle](https://v1-34.docs.kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/)：v1.34 snapshot; displayed modified2025-09-24 (256934d2a8)；Upstream documentation terms apply; linked only。范围：终止时序、preStop共享外层宽限；实际网页阅读发生于同一任务，工具结果未因文件系统替换而变为一次新的访问。r2登记重建，不声称上游字节快照。
+- [The Go Memory Model](https://go.dev/ref/mem)：June6 2022 memory model; accessed2026-10-03；Go documentation copyright/terms; linked only。范围：channel同步不等于业务或远端完成；实际网页阅读发生于同一任务，工具结果未因文件系统替换而变为一次新的访问。r2登记重建，不声称上游字节快照。
+- [etcd3.6 API guarantees](https://etcd.io/docs/v3.6/learning/api_guarantees/)：etcdv3.6 documentation；Upstream documentation terms apply; linked only。范围：revision逻辑顺序不自动保护外部资源；实际网页阅读发生于同一任务，工具结果未因文件系统替换而变为一次新的访问。r2登记重建，不声称上游字节快照。

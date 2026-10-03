@@ -1,0 +1,8 @@
+{
+  "command": "python3 -B records/package-check.py",
+  "workingDirectory": "recovery-20261003/A/r3",
+  "recordedAt": "2026-10-03T10:57:08.564605+00:00",
+  "exitCode": 0,
+  "output": "{\"revision\": \"A-r3-reconstructed\", \"status\": \"pass\", \"textFiles\": 47, \"pythonAST\": 12, \"zipMembers\": 21, \"independentExpectedStates\": true, \"scope\": \"ZIP member byte binding; AST; public private-path/credential-pattern/cache scan\", \"limitations\": [\"pattern scan cannot guarantee all secrets absent\", \"no business code executed\", \"final delivery and manifest checked separately after generation\"], \"archiveSha256\": \"bb64897438b9689e6d19e67cb7d16d077c6d4ef5bba6472d48b859b69308d3b1\"}\n",
+  "stderr": ""
+}
