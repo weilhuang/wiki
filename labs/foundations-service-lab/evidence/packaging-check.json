@@ -1,0 +1,12 @@
+{
+  "status": "pass",
+  "zip": {
+    "path": "artifacts/foundations-service-lab.zip",
+    "sha256": "98435b03a3dc98d10bffa5a7a0c3463238da202366b5cfc319b981e107bb8f9b"
+  },
+  "sourceBytesUnchanged": true,
+  "licenseBytesUnchanged": true,
+  "sourceOnly": true,
+  "manifestSha256": "ebb6cba45a51ec0c849a387e68cff86b774c5096165040170ee775e60110d7fe",
+  "files": 10
+}

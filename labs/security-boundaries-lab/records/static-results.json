@@ -1,0 +1,28 @@
+{
+  "status": "pass",
+  "articles": [
+    {
+      "id": "security.authentication-boundaries",
+      "diagrams": 2,
+      "codeHikeStepsBlocks": 1,
+      "singleH1": true,
+      "status": "review",
+      "sourceIdentity": "clean snippet equals complete lab source"
+    },
+    {
+      "id": "security.object-tenant-authorization",
+      "diagrams": 2,
+      "codeHikeStepsBlocks": 1,
+      "singleH1": true,
+      "status": "review",
+      "sourceIdentity": "clean snippet equals complete lab source"
+    }
+  ],
+  "limitations": [
+    "Parser/compiler validation only; no browser interaction, full site build or deployment"
+  ],
+  "versions": {
+    "mermaid": "11.17.2",
+    "codehike": "1.1.0"
+  }
+}

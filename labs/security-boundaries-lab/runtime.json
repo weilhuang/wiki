@@ -1,0 +1,20 @@
+{
+  "package": "security-boundaries-lab",
+  "revision": "r2",
+  "pythonExecuted": "3.12.14",
+  "dependencies": [],
+  "standardLibraryOnly": true,
+  "executionModel": "finite sequential decision model with explicit integer time",
+  "atomicityAssumed": "current authorization recheck and business write inside commit_update",
+  "identityPrecondition": "trusted adapter has verified credentials/cryptography; dataclasses are fixtures, not a proof of identity",
+  "notImplemented": [
+    "authentication",
+    "cryptography",
+    "real IdP",
+    "OIDC flow",
+    "HTTP server",
+    "database transaction",
+    "multi-node revocation",
+    "production logging"
+  ]
+}

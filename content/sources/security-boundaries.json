@@ -1,0 +1,102 @@
+[
+  {
+    "id": "security.owasp-session",
+    "title": "OWASP Session Management Cheat Sheet",
+    "url": "https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html",
+    "type": "documentation",
+    "version": "动态网页；2026-10-03 核对",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "不透明会话引用、服务端状态、登录/提权更新标识、退出服务端失效、Cookie 属性边界；未引用随机数实现代码"
+  },
+  {
+    "id": "security.owasp-authorization",
+    "title": "OWASP Authorization Cheat Sheet",
+    "url": "https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html",
+    "type": "documentation",
+    "version": "动态网页；2026-10-03 核对",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "默认拒绝、每次请求检查、对象/属性/关系授权与正确检查位置；订单策略为原创业务设定"
+  },
+  {
+    "id": "security.owasp-api1-2023",
+    "title": "OWASP API Security Top 10 2023 — API1 BOLA",
+    "url": "https://api-security.owasp.org/editions/2023/en/0xa1-broken-object-level-authorization/",
+    "type": "documentation",
+    "version": "2023 edition",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "对象 ID 类型与对象级权限；UUID 不替代权限检查"
+  },
+  {
+    "id": "security.rfc6750",
+    "title": "RFC 6750 — OAuth 2.0 Bearer Token Usage",
+    "url": "https://www.rfc-editor.org/rfc/rfc6750.html",
+    "type": "specification",
+    "version": "RFC 6750, October 2012",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "§1.2 bearer 持有语义与传输/存储保护；没有采用其旧 TLS 版本作为当前部署建议"
+  },
+  {
+    "id": "security.rfc7519",
+    "title": "RFC 7519 — JSON Web Token",
+    "url": "https://www.rfc-editor.org/rfc/rfc7519.html",
+    "type": "specification",
+    "version": "RFC 7519, May 2015",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "§§4.1.3–4.1.5 aud、exp、nbf；可选通用声明与教学必填配置区分；时间零宽限模型"
+  },
+  {
+    "id": "security.rfc8725",
+    "title": "RFC 8725 — JWT Best Current Practices",
+    "url": "https://www.rfc-editor.org/rfc/rfc8725.html",
+    "type": "specification",
+    "version": "RFC 8725, February 2020",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "§§3.1、3.8–3.12 算法、签发者密钥绑定、受众、用途与不信任传入声明；没有实现密码学"
+  },
+  {
+    "id": "security.rfc7009",
+    "title": "RFC 7009 — OAuth 2.0 Token Revocation",
+    "url": "https://www.rfc-editor.org/rfc/rfc7009.html",
+    "type": "specification",
+    "version": "RFC 7009, August 2013",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "§3 自包含与引用型令牌的撤销代价；短时令牌与后端状态交互"
+  },
+  {
+    "id": "security.rfc7662",
+    "title": "RFC 7662 — OAuth 2.0 Token Introspection",
+    "url": "https://www.rfc-editor.org/rfc/rfc7662.html",
+    "type": "specification",
+    "version": "RFC 7662, October 2015",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "§4 active 缓存可能陈旧，若 exp 存在不得缓存越过 exp；没有真实 introspection 网络调用"
+  },
+  {
+    "id": "security.oidc-core",
+    "title": "OpenID Connect Core 1.0 incorporating errata set 2",
+    "url": "https://openid.net/specs/openid-connect-core-1_0.html",
+    "type": "specification",
+    "version": "OpenID Connect Core 1.0, errata set 2",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "§2 与 §3.1.3.7 ID Token 的认证声明、受众和用途；仅核对该区分，不声称完整流程复核或实测"
+  },
+  {
+    "id": "security.rfc8693",
+    "title": "RFC 8693 — OAuth 2.0 Token Exchange",
+    "url": "https://www.rfc-editor.org/rfc/rfc8693.html",
+    "type": "specification",
+    "version": "RFC 8693, January 2020",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "§4.1 当前 actor 与 subject/历史 actor 的区分；业务委托模型原创，不实现 token exchange"
+  }
+]

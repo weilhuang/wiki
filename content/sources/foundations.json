@@ -1,0 +1,145 @@
+[
+  {
+    "id": "foundations.linux-pthreads",
+    "title": "Linux pthreads(7)",
+    "url": "https://man7.org/linux/man-pages/man7/pthreads.7.html",
+    "type": "documentation",
+    "version": "Linux man-pages，动态手册；2026-10-02 首次核对",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "进程内共享堆/全局内存、文件描述符与线程独有栈；不将资源所有权约定等同 OS 属性",
+    "reviewMethod": "实际 web.open/find 查阅；仅语义参考，没有复制上游源码"
+  },
+  {
+    "id": "foundations.linux-recv",
+    "title": "Linux recv(2)",
+    "url": "https://man7.org/linux/man-pages/man2/recv.2.html",
+    "type": "documentation",
+    "version": "Linux man-pages，动态手册",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "阻塞接收、非阻塞无数据错误、部分返回；没有运行内核源码",
+    "reviewMethod": "实际 web.open/find 查阅；仅语义参考，没有复制上游源码"
+  },
+  {
+    "id": "foundations.linux-close",
+    "title": "Linux close(2)",
+    "url": "https://man7.org/linux/man-pages/man2/close.2.html",
+    "type": "documentation",
+    "version": "Linux man-pages，动态手册",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "多线程 close 与阻塞 I/O 的 open file description 引用及描述符复用限制",
+    "reviewMethod": "实际 web.open/find 查阅；仅语义参考，没有复制上游源码"
+  },
+  {
+    "id": "foundations.linux-proc-stat",
+    "title": "Linux proc_pid_stat(5)",
+    "url": "https://man7.org/linux/man-pages/man5/proc_pid_stat.5.html",
+    "type": "documentation",
+    "version": "Linux man-pages，动态手册",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "状态字母与累计 CPU 字段；没有实际采集 /proc 或调度轨迹",
+    "reviewMethod": "实际 web.open/find 查阅；仅语义参考，没有复制上游源码"
+  },
+  {
+    "id": "foundations.linux-fork",
+    "title": "Linux fork(2)",
+    "url": "https://man7.org/linux/man-pages/man2/fork.2.html",
+    "type": "documentation",
+    "version": "Linux man-pages，动态手册",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "父子地址空间与继承描述符/open file description 区别；未执行 fork 实验",
+    "reviewMethod": "实际 web.open/find 查阅；仅语义参考，没有复制上游源码"
+  },
+  {
+    "id": "foundations.python-threading",
+    "title": "CPython v3.12.14 threading documentation",
+    "url": "https://github.com/python/cpython/blob/v3.12.14/Doc/library/threading.rst",
+    "type": "documentation",
+    "version": "CPython v3.12.14；另对照在线3.12文档（查阅时3.12.15）",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "Event set/wait、Lock/RLock、join/is_alive、excepthook、GIL 限定；未复制标准库实现",
+    "reviewMethod": "实际 web.open/find 查阅；仅语义参考，没有复制上游源码"
+  },
+  {
+    "id": "foundations.python-queue",
+    "title": "CPython v3.12.14 queue documentation",
+    "url": "https://github.com/python/cpython/blob/v3.12.14/Doc/library/queue.rst",
+    "type": "documentation",
+    "version": "CPython v3.12.14；在线3.12对照",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "get/get_nowait/Empty、空状态不保证后续 get、有限队列",
+    "reviewMethod": "实际 web.open/find 查阅；仅语义参考，没有复制上游源码"
+  },
+  {
+    "id": "foundations.python-socket",
+    "title": "CPython v3.12.14 socket documentation",
+    "url": "https://github.com/python/cpython/blob/v3.12.14/Doc/library/socket.rst",
+    "type": "documentation",
+    "version": "CPython v3.12.14；在线3.12对照",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "recv字节数、EOF、timeout、close；TCP与读取单位不同",
+    "reviewMethod": "实际 web.open/find 查阅；仅语义参考，没有复制上游源码"
+  },
+  {
+    "id": "foundations.python-time",
+    "title": "CPython v3.12.14 time documentation",
+    "url": "https://github.com/python/cpython/blob/v3.12.14/Doc/library/time.rst",
+    "type": "documentation",
+    "version": "CPython v3.12.14；在线3.12对照",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "thread_time、perf_counter、monotonic；计时记录不作容量或公平性结论",
+    "reviewMethod": "实际 web.open/find 查阅；仅语义参考，没有复制上游源码"
+  },
+  {
+    "id": "foundations.python-select",
+    "title": "Python 3.12 select",
+    "url": "https://docs.python.org/3.12/library/select.html#select.select",
+    "type": "documentation",
+    "version": "Python 3.12 在线文档；查阅时3.12.15",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "零超时可读性检查，不证明内核停驻状态",
+    "reviewMethod": "实际 web.open/find 查阅；仅语义参考，没有复制上游源码"
+  },
+  {
+    "id": "foundations.python-subprocess",
+    "title": "Python 3.12 subprocess.run",
+    "url": "https://docs.python.org/3.12/library/subprocess.html#subprocess.run",
+    "type": "documentation",
+    "version": "Python 3.12 在线文档；查阅时3.12.15",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "run/capture_output/returncode/timeout与TimeoutExpired；进程创建阶段有平台限制",
+    "reviewMethod": "实际 web.open/find 查阅；仅语义参考，没有复制上游源码"
+  },
+  {
+    "id": "foundations.python-unittest",
+    "title": "Python 3.12 unittest exception assertions",
+    "url": "https://docs.python.org/3.12/library/unittest.html#unittest.TestCase.assertRaises",
+    "type": "documentation",
+    "version": "Python 3.12 在线文档；查阅时3.12.15",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "核对期望异常类型与消息能力；本实验未采用unittest框架",
+    "reviewMethod": "实际 web.open/find 查阅；仅语义参考，没有复制上游源码"
+  },
+  {
+    "id": "foundations.python-assert",
+    "title": "Python 3.12 assert statement",
+    "url": "https://docs.python.org/3.12/reference/simple_stmts.html#the-assert-statement",
+    "type": "documentation",
+    "version": "Python 3.12 在线文档；查阅时3.12.15",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "优化模式可移除assert；教学业务断言使用显式异常",
+    "reviewMethod": "实际 web.open/find 查阅；仅语义参考，没有复制上游源码"
+  }
+]

@@ -1,0 +1,30 @@
+{
+  "status": "pass",
+  "method": "ast.parse; no bytecode output",
+  "sourceFiles": [
+    {
+      "path": "labs/foundations-service-lab/assertions.py",
+      "sha256": "11f10c6dad5fa195a7b0519c532fe9ef549a5a8edc4eddc6244819c7cb7d75a5"
+    },
+    {
+      "path": "labs/foundations-service-lab/causal_walkthrough.py",
+      "sha256": "aabf640641c3ec12ebea845295bc90e681927aa8a1e2c4c2db2ed22e07726ab3"
+    },
+    {
+      "path": "labs/foundations-service-lab/service.py",
+      "sha256": "67dacfd8969f97dd07ba37918c022cf6867c9e480ecbb5b527571b106b655ea4"
+    },
+    {
+      "path": "labs/foundations-service-lab/verify.py",
+      "sha256": "4835052f863feb966f2bc460fe4737a1eae1bb95381a7ca97a387c9a9bf7cffd"
+    },
+    {
+      "path": "labs/foundations-service-lab/verify_regressions.py",
+      "sha256": "299b4ea922775a28163f77a1057f2f88d92d2b0ca762ac1e7825784e4cac6922"
+    },
+    {
+      "path": "labs/foundations-service-lab/waiting.py",
+      "sha256": "ec833c641d5bf0c2e2db98808497d76eb8fc5926d29d5971de91b722c365541e"
+    }
+  ]
+}

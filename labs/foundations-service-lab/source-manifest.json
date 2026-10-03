@@ -1,0 +1,42 @@
+{
+  "format": 1,
+  "scope": "Source bundle, excluding this manifest",
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "836187344bfe5574912fd3de5fda21e9fa6108bb04e41629a4de29a63fdcb449"
+    },
+    {
+      "path": "README.md",
+      "sha256": "64f86d1ecb894c32e35cda33a82e8baaa7b1de09c76ca20dac422ca002091ebc"
+    },
+    {
+      "path": "assertions.py",
+      "sha256": "11f10c6dad5fa195a7b0519c532fe9ef549a5a8edc4eddc6244819c7cb7d75a5"
+    },
+    {
+      "path": "causal_walkthrough.py",
+      "sha256": "aabf640641c3ec12ebea845295bc90e681927aa8a1e2c4c2db2ed22e07726ab3"
+    },
+    {
+      "path": "service.py",
+      "sha256": "67dacfd8969f97dd07ba37918c022cf6867c9e480ecbb5b527571b106b655ea4"
+    },
+    {
+      "path": "verify.py",
+      "sha256": "4835052f863feb966f2bc460fe4737a1eae1bb95381a7ca97a387c9a9bf7cffd"
+    },
+    {
+      "path": "verify_regressions.py",
+      "sha256": "299b4ea922775a28163f77a1057f2f88d92d2b0ca762ac1e7825784e4cac6922"
+    },
+    {
+      "path": "versions.json",
+      "sha256": "07302e0dac1ca67a33ff75fdb931e158e12050486fbf5b7d9b448cbfa0765e4a"
+    },
+    {
+      "path": "waiting.py",
+      "sha256": "ec833c641d5bf0c2e2db98808497d76eb8fc5926d29d5971de91b722c365541e"
+    }
+  ]
+}

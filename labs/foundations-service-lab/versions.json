@@ -1,0 +1,1 @@
+{"implementation":"CPython","executedVersion":"3.12.14","platform":"Linux","dependencies":"standard-library-only","upstreamDocumentationTag":"v3.12.14","runtimeInstallationPerformed":false,"network":"127.0.0.1 ephemeral TCP only","notCovered":["Linux scheduler guarantees","production resource cleanup","HTTP","database","cross-process shared memory","performance capacity"]}

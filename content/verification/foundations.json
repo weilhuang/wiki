@@ -1,0 +1,428 @@
+[
+  {
+    "id": "foundations.source-review",
+    "kind": "source-reviewed",
+    "status": "pass",
+    "scope": [
+      "通过 web 工具逐项核对上述一手来源；固定 CPython v3.12.14 文档入口与动态在线文档区分记录"
+    ],
+    "limitations": [
+      "不构成上游完整源码审核",
+      "Linux手册并未绑定本次运行内核版本",
+      "未复制上游代码；应用与实验代码为原创"
+    ],
+    "sourceFiles": [
+      {
+        "path": "content/sources/foundations.json",
+        "sha256": "8766f64aaeb6ad2cdbdf1b94fff11f24089ecb1e322481133f7190df86ecdd81"
+      }
+    ],
+    "commands": [],
+    "artifacts": [],
+    "recordedAt": "2026-10-03T00:22:49.245356+00:00",
+    "revision": "F-r1",
+    "independentlyReviewed": true
+  },
+  {
+    "id": "foundations.waiting-run",
+    "kind": "executed",
+    "status": "pass",
+    "scope": [
+      "CPython 3.12.14/Linux 固定计算、锁/空队列因果条件及真实TCP loopback；核对数据与线程/socket释放"
+    ],
+    "limitations": [
+      "事件不能证明线程当时已进入内核睡眠",
+      "无远端网络/数据库/HTTP",
+      "时间数值只记录不设性能阈值",
+      "不证明调度公平性或生产容量"
+    ],
+    "sourceFiles": [
+      {
+        "path": "labs/foundations-service-lab/assertions.py",
+        "sha256": "11f10c6dad5fa195a7b0519c532fe9ef549a5a8edc4eddc6244819c7cb7d75a5"
+      },
+      {
+        "path": "labs/foundations-service-lab/causal_walkthrough.py",
+        "sha256": "aabf640641c3ec12ebea845295bc90e681927aa8a1e2c4c2db2ed22e07726ab3"
+      },
+      {
+        "path": "labs/foundations-service-lab/service.py",
+        "sha256": "67dacfd8969f97dd07ba37918c022cf6867c9e480ecbb5b527571b106b655ea4"
+      },
+      {
+        "path": "labs/foundations-service-lab/verify.py",
+        "sha256": "4835052f863feb966f2bc460fe4737a1eae1bb95381a7ca97a387c9a9bf7cffd"
+      },
+      {
+        "path": "labs/foundations-service-lab/waiting.py",
+        "sha256": "ec833c641d5bf0c2e2db98808497d76eb8fc5926d29d5971de91b722c365541e"
+      },
+      {
+        "path": "labs/foundations-service-lab/verify_regressions.py",
+        "sha256": "299b4ea922775a28163f77a1057f2f88d92d2b0ca762ac1e7825784e4cac6922"
+      }
+    ],
+    "commands": [
+      {
+        "command": "python3 -B verify.py",
+        "exitCode": 0,
+        "workingDirectory": "labs/foundations-service-lab"
+      },
+      {
+        "command": "python3 -B waiting.py",
+        "exitCode": 0,
+        "workingDirectory": "labs/foundations-service-lab",
+        "invokedBy": "verify.py"
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "docs/public/examples/foundations-service-results.json",
+        "sha256": "483142b57f91b174429d717df532a8fdb15c01c836f84da9b062bb3bc244586e"
+      },
+      {
+        "path": "docs/public/examples/foundations-service-lab.zip",
+        "sha256": "98435b03a3dc98d10bffa5a7a0c3463238da202366b5cfc319b981e107bb8f9b"
+      }
+    ],
+    "resourceGroup": "foundations-service-lab",
+    "title": "等待条件与断言实验：线程、TCP loopback 和受控交错",
+    "recordedAt": "2026-10-03T01:17:43.739364+00:00",
+    "revision": "r2",
+    "independentlyReviewed": true,
+    "versions": [
+      "CPython 3.12.14 / Linux，有限标准库与loopback实验"
+    ]
+  },
+  {
+    "id": "foundations.assertion-run",
+    "kind": "executed",
+    "status": "pass",
+    "scope": [
+      "两个事件控制交错，在computed和join后核对精确结果/副作用；同步观察done实际发布时的资源状态",
+      "五个原有坏实现命中精确预期原因列表；leak同时命中PUBLISH_ORDER与RESOURCE"
+    ],
+    "limitations": [
+      "资源和回执为内存模型，不是真实服务",
+      "correct只代表指定正常路径，不包含生产异常恢复",
+      "不穷尽并发交错或证明无数据竞争"
+    ],
+    "sourceFiles": [
+      {
+        "path": "labs/foundations-service-lab/assertions.py",
+        "sha256": "11f10c6dad5fa195a7b0519c532fe9ef549a5a8edc4eddc6244819c7cb7d75a5"
+      },
+      {
+        "path": "labs/foundations-service-lab/causal_walkthrough.py",
+        "sha256": "aabf640641c3ec12ebea845295bc90e681927aa8a1e2c4c2db2ed22e07726ab3"
+      },
+      {
+        "path": "labs/foundations-service-lab/service.py",
+        "sha256": "67dacfd8969f97dd07ba37918c022cf6867c9e480ecbb5b527571b106b655ea4"
+      },
+      {
+        "path": "labs/foundations-service-lab/verify.py",
+        "sha256": "4835052f863feb966f2bc460fe4737a1eae1bb95381a7ca97a387c9a9bf7cffd"
+      },
+      {
+        "path": "labs/foundations-service-lab/waiting.py",
+        "sha256": "ec833c641d5bf0c2e2db98808497d76eb8fc5926d29d5971de91b722c365541e"
+      },
+      {
+        "path": "labs/foundations-service-lab/verify_regressions.py",
+        "sha256": "299b4ea922775a28163f77a1057f2f88d92d2b0ca762ac1e7825784e4cac6922"
+      }
+    ],
+    "commands": [
+      {
+        "command": "python3 -B assertions.py correct cancel-first",
+        "exitCode": 0,
+        "workingDirectory": "labs/foundations-service-lab"
+      },
+      {
+        "command": "python3 -B assertions.py correct commit-first",
+        "exitCode": 0,
+        "workingDirectory": "labs/foundations-service-lab"
+      },
+      {
+        "command": "python3 -B assertions.py wrong-result commit-first",
+        "exitCode": 1,
+        "workingDirectory": "labs/foundations-service-lab",
+        "expectation": "expected-rejection",
+        "expectedExitCode": 1,
+        "expectedViolation": "RESULT"
+      },
+      {
+        "command": "python3 -B assertions.py duplicate commit-first",
+        "exitCode": 1,
+        "workingDirectory": "labs/foundations-service-lab",
+        "expectation": "expected-rejection",
+        "expectedExitCode": 1,
+        "expectedViolation": "SIDE_EFFECT"
+      },
+      {
+        "command": "python3 -B assertions.py ignore-cancel cancel-first",
+        "exitCode": 1,
+        "workingDirectory": "labs/foundations-service-lab",
+        "expectation": "expected-rejection",
+        "expectedExitCode": 1,
+        "expectedViolation": "CANCEL_EFFECT"
+      },
+      {
+        "command": "python3 -B assertions.py early-done commit-first",
+        "exitCode": 1,
+        "workingDirectory": "labs/foundations-service-lab",
+        "expectation": "expected-rejection",
+        "expectedExitCode": 1,
+        "expectedViolation": "PUBLISH_ORDER"
+      },
+      {
+        "command": "python3 -B assertions.py leak commit-first",
+        "exitCode": 1,
+        "workingDirectory": "labs/foundations-service-lab",
+        "expectation": "expected-rejection",
+        "expectedExitCode": 1,
+        "expectedViolation": "RESOURCE"
+      },
+      {
+        "command": "python3 -B causal_walkthrough.py",
+        "exitCode": 0,
+        "workingDirectory": "labs/foundations-service-lab"
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "docs/public/examples/foundations-service-results.json",
+        "sha256": "483142b57f91b174429d717df532a8fdb15c01c836f84da9b062bb3bc244586e"
+      },
+      {
+        "path": "docs/public/examples/foundations-service-lab.zip",
+        "sha256": "98435b03a3dc98d10bffa5a7a0c3463238da202366b5cfc319b981e107bb8f9b"
+      }
+    ],
+    "resourceGroup": "foundations-service-lab",
+    "title": "两种交错与目标错误断言",
+    "recordedAt": "2026-10-03T01:17:43.739364+00:00",
+    "revision": "r2",
+    "independentlyReviewed": true,
+    "versions": [
+      "CPython 3.12.14 / Linux，有限标准库与loopback实验"
+    ]
+  },
+  {
+    "id": "foundations.grader-guards",
+    "kind": "executed",
+    "status": "pass",
+    "scope": [
+      "真实启动失败必须精确匹配RuntimeError与injected startup failure，返回error/退出2且不得冒充业务负例",
+      "错误退出码、原因或缺字段不能假绿；额外启动身份源码变异由r2回归实际拒绝"
+    ],
+    "limitations": [
+      "验证器保护有限，不是完整故障注入工具",
+      "启动异常作为基础设施异常记录，未冒认为目标业务反例"
+    ],
+    "sourceFiles": [
+      {
+        "path": "labs/foundations-service-lab/assertions.py",
+        "sha256": "11f10c6dad5fa195a7b0519c532fe9ef549a5a8edc4eddc6244819c7cb7d75a5"
+      },
+      {
+        "path": "labs/foundations-service-lab/causal_walkthrough.py",
+        "sha256": "aabf640641c3ec12ebea845295bc90e681927aa8a1e2c4c2db2ed22e07726ab3"
+      },
+      {
+        "path": "labs/foundations-service-lab/service.py",
+        "sha256": "67dacfd8969f97dd07ba37918c022cf6867c9e480ecbb5b527571b106b655ea4"
+      },
+      {
+        "path": "labs/foundations-service-lab/verify.py",
+        "sha256": "4835052f863feb966f2bc460fe4737a1eae1bb95381a7ca97a387c9a9bf7cffd"
+      },
+      {
+        "path": "labs/foundations-service-lab/waiting.py",
+        "sha256": "ec833c641d5bf0c2e2db98808497d76eb8fc5926d29d5971de91b722c365541e"
+      },
+      {
+        "path": "labs/foundations-service-lab/verify_regressions.py",
+        "sha256": "299b4ea922775a28163f77a1057f2f88d92d2b0ca762ac1e7825784e4cac6922"
+      }
+    ],
+    "commands": [
+      {
+        "command": "python3 -B verify.py",
+        "exitCode": 0,
+        "workingDirectory": "labs/foundations-service-lab"
+      },
+      {
+        "command": "python3 -B assertions.py startup-error commit-first",
+        "exitCode": 2,
+        "expectedExitCode": 2,
+        "expectation": "expected-rejection",
+        "expectedStatus": "error",
+        "workingDirectory": "labs/foundations-service-lab",
+        "invokedBy": "verify.py"
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "docs/public/examples/foundations-service-results.json",
+        "sha256": "483142b57f91b174429d717df532a8fdb15c01c836f84da9b062bb3bc244586e"
+      }
+    ],
+    "resourceGroup": "foundations-service-lab",
+    "title": "反例执行器失败归因保护",
+    "recordedAt": "2026-10-03T01:17:43.739364+00:00",
+    "revision": "r2",
+    "independentlyReviewed": true,
+    "versions": [
+      "CPython 3.12.14 / Linux，有限标准库与loopback实验"
+    ]
+  },
+  {
+    "id": "foundations.verifier-regressions",
+    "kind": "executed",
+    "status": "pass",
+    "scope": [
+      "r2三项真实service.py源变异：清理许可后提前发布done、中间结果错误后恢复、启动异常类型/消息替换",
+      "前两项分别命中PUBLISH_ORDER/RESULT且完成有界清理；第三项因精确启动归因不符拒绝，均非语法/启动失败冒充业务负例"
+    ],
+    "limitations": [
+      "任务资源和effects是内存模型；不证明操作系统所有调度或真实数据库/HTTP行为",
+      "同步发布观察器只作用于本实验可控制的Event对象；不保证任意外部系统可获得同样观察面"
+    ],
+    "sourceFiles": [
+      {
+        "path": "labs/foundations-service-lab/service.py",
+        "sha256": "67dacfd8969f97dd07ba37918c022cf6867c9e480ecbb5b527571b106b655ea4"
+      },
+      {
+        "path": "labs/foundations-service-lab/assertions.py",
+        "sha256": "11f10c6dad5fa195a7b0519c532fe9ef549a5a8edc4eddc6244819c7cb7d75a5"
+      },
+      {
+        "path": "labs/foundations-service-lab/verify.py",
+        "sha256": "4835052f863feb966f2bc460fe4737a1eae1bb95381a7ca97a387c9a9bf7cffd"
+      },
+      {
+        "path": "labs/foundations-service-lab/verify_regressions.py",
+        "sha256": "299b4ea922775a28163f77a1057f2f88d92d2b0ca762ac1e7825784e4cac6922"
+      }
+    ],
+    "commands": [
+      {
+        "command": "python3 -B verify_regressions.py",
+        "exitCode": 0
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "docs/public/examples/foundations-service-results.json",
+        "sha256": "483142b57f91b174429d717df532a8fdb15c01c836f84da9b062bb3bc244586e"
+      }
+    ],
+    "resourceGroup": "foundations-service-lab",
+    "title": "进程等待与因果断言有限实验",
+    "versions": [
+      "CPython 3.12.14 / Linux"
+    ],
+    "recordedAt": "2026-10-03T01:17:43.739364+00:00",
+    "revision": "r2",
+    "independentlyReviewed": true
+  },
+  {
+    "id": "foundations.static-check",
+    "kind": "static-checked",
+    "status": "pass",
+    "scope": [
+      "23 Node tests including actual Mermaid parse and Code Hike source excerpt matching",
+      "91 generated HTML pages with internal link/anchor/canonical/noindex and visible Markdown checks",
+      "329 canonical search sections across 24 topics; 19 actual query targets in top 3",
+      "26 historical assets and all 130 technical fences of the 20 published baseline topics preserved"
+    ],
+    "limitations": [
+      "No new Python/Java runtime execution was performed by this check",
+      "This record covers local static build, not remote CI, deployed browser interaction or publication"
+    ],
+    "sourceFiles": [
+      {
+        "path": "docs/knowledge/foundations/operating-systems/blocking-waiting.md",
+        "sha256": "028d0aa4b98b49e5f8c3741d3e5658ae188111f05ca50be3706a04bad4cea943"
+      },
+      {
+        "path": "docs/knowledge/foundations/testing/assertion-counterexamples.md",
+        "sha256": "3c89fa9197a654bb5464c04fd04929811e62dedfaa7258af6e0ce019030bf282"
+      },
+      {
+        "path": "content/snippets/foundations.json",
+        "sha256": "05f9e9092b18d316500332f54043cbbc8271cfdb73572439c5e40f3f2059d1d5"
+      },
+      {
+        "path": "labs/foundations-service-lab/editorial/check-content.mjs",
+        "sha256": "1cdffe3c27d850da3044a8b0b1b770c59ee66e91f6f57eebd8482b2ad1707641"
+      },
+      {
+        "path": "labs/foundations-service-lab/editorial/package.py",
+        "sha256": "3d2f1a158a7d80c063b6b737b968ae7d70cf01cf96386ffbb65446ea80f9d56d"
+      }
+    ],
+    "commands": [
+      {
+        "command": "npm run check",
+        "exitCode": 0
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "labs/foundations-service-lab/evidence/integration-static.json",
+        "sha256": "d63a9d7a9f34f973ee9f546d02b2ef7a4044bdc44f6ace2ff2fe57c1382e625a"
+      }
+    ],
+    "recordedAt": "2026-10-03T01:29:46.944678+00:00",
+    "revision": "F-S-integration-1",
+    "independentlyReviewed": false,
+    "historicalAuthorChecks": {
+      "commands": [
+        {
+          "command": "node labs/foundations-service-lab/editorial/check-content.mjs <author-package-root> <existing-wiki-checkout>",
+          "exitCode": 0
+        },
+        {
+          "command": "python3 -B tools/package.py",
+          "exitCode": 0,
+          "workingDirectory": "author-package-root"
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "labs/foundations-service-lab/evidence/static-check-final.json",
+          "sha256": "80c3687fc0a3c27ffad93ccfb79533830ad6b485d3d8b20e1fe494687daa0580"
+        },
+        {
+          "path": "labs/foundations-service-lab/evidence/python-syntax.json",
+          "sha256": "f7424d4254db194962c61b0e2634d4fa8d4e1677b1dc8cc08ee870711aa0c55f"
+        },
+        {
+          "path": "labs/foundations-service-lab/evidence/packaging-check.json",
+          "sha256": "1fdacc1507efc4cda499cb3e110b840ae3ae7efd3114259c3cd8c6d73e7aef3c"
+        },
+        {
+          "path": "labs/foundations-service-lab/evidence/static-check-first-attempt.json",
+          "sha256": "7998b2182ac60a228ed4f897f8e3e6883c12258756ff3ba7d6d5cd0276a23fb9"
+        },
+        {
+          "path": "labs/foundations-service-lab/evidence/evidence-mapping-check.json",
+          "sha256": "50436abf5328abff80bb48db0c8085c0ea0bebdd57cd9884a55c6e6bfa62bccd"
+        },
+        {
+          "path": "labs/foundations-service-lab/evidence/public-path-scan.json",
+          "sha256": "a4c7dcd38762415bdf8f36639093e04ffcd4a6cfc33f4cce9ae9a95a39480087"
+        }
+      ],
+      "scope": [
+        "真实Code Hike 1.1.0编译三处steps并按字节核对源码；四张Mermaid语法；元数据、一个H1、Python AST及source-only ZIP源/许可一致"
+      ],
+      "recordedAt": "2026-10-03T01:17:43.739364+00:00",
+      "context": "Author r2 snapshot; technical fences and tested executable sources retained. Published metadata, relationships and five bold-label delimiters were adjusted during integration."
+    }
+  }
+]

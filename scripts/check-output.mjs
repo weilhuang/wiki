@@ -94,5 +94,13 @@ for(const [source,anchors]of Object.entries(inPlaceAnchors)){
   for(const anchor of anchors){const matches=[...dom.window.document.querySelectorAll('[id]')].filter(el=>el.id===anchor.id);if(matches.length!==1||!matches[0].nextElementSibling)errors.push(`${source}: in-place semantic anchor missing/duplicated: ${anchor.id}`)}
   dom.window.close()
 }
+const extensionBaseline=JSON.parse(readFileSync('tests/fixtures/extension-baseline-headings.json','utf8'))
+for(const [file,ids] of Object.entries(extensionBaseline.pages)){
+  const path=join(dist,file)
+  if(!existsSync(path)){errors.push(`${file}: published baseline page missing`);continue}
+  const dom=new JSDOM(readFileSync(path,'utf8'))
+  for(const id of ids){const matches=[...dom.window.document.querySelectorAll('[id]')].filter(el=>el.id===id);if(matches.length!==1)errors.push(`${file}: published baseline heading missing/duplicated: ${id}`)}
+  dom.window.close()
+}
 if (errors.length) throw new Error(errors.join('\n'))
 console.log(`Output: ${pages.length} HTML pages, non-code bold rendering, internal links/assets, language, canonical curriculum, legacy anchors, feed, sitemap and 404 passed`)

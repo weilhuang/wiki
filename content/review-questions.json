@@ -131,5 +131,47 @@
     "task": "compare",
     "prompt": "什么证据会让“不拆订单写服务”的决定改变？新写发生后还怎样回退？",
     "anchor": "decision-matrix"
+  },
+  {
+    "id": "session-revocation",
+    "topic": "security.authentication-boundaries",
+    "task": "understand",
+    "prompt": "同一令牌刚被撤销，为什么在线检查拒绝而离线校验或旧缓存仍可能接受？",
+    "anchor": "revocation-visibility"
+  },
+  {
+    "id": "tenant-object-scope",
+    "topic": "security.object-tenant-authorization",
+    "task": "design",
+    "prompt": "用户是red租户成员，为什么仍不能读取red中的所有订单？委托又需要哪些限制？",
+    "anchor": "four-dimensions"
+  },
+  {
+    "id": "authorization-before-commit",
+    "topic": "security.object-tenant-authorization",
+    "task": "verify",
+    "prompt": "准备修改后，对象归属或成员资格改变，提交时分别需要重新核对什么？",
+    "anchor": "check-and-use"
+  },
+  {
+    "id": "waiting-owner",
+    "topic": "foundations.blocking-waiting",
+    "task": "diagnose",
+    "prompt": "连接池全部借出且持有者正在等 HTTP，为什么加工作线程未必改善？",
+    "anchor": "choose-a-change"
+  },
+  {
+    "id": "publication-window",
+    "topic": "foundations.assertion-counterexamples",
+    "task": "verify",
+    "prompt": "门闩前 done 为 false，最终资源也已关闭，为什么仍可能漏掉先发布 done 再清理？还需观察哪个时刻？",
+    "anchor": "state-boundaries"
+  },
+  {
+    "id": "negative-attribution",
+    "topic": "foundations.assertion-counterexamples",
+    "task": "verify",
+    "prompt": "启动失败与业务反例都非零退出，怎样证明拒绝来自目标错误？",
+    "anchor": "failure-attribution"
   }
 ]
