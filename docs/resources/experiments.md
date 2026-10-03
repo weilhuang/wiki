@@ -171,6 +171,43 @@ search: false
 
 </details>
 
+### 消息与协调模型：确认、重投、毒消息与旧持有者 {#experiment-messaging-coordination-lab}
+
+[查看运行结果](/examples/messaging-coordination-results.json) · [下载源码包](/examples/messaging-coordination-lab.zip)。历史运行范围：CPython3.12.14/Linux有限标准库顺序模型；10个正确场景和14个目标错误变体，两个文章walkthrough均实际运行；明确确认丢失、提交后重投、毒消息隔离与按键缺口；接收端旧token拒绝、同token多操作/同操作重放、主体/资源范围、水位恢复与离线epoch切换；返回stale/conflict却仍产生副作用的两个变体由状态断言拒绝；6类验证器误识别探针均拒绝。
+
+关联知识：[租约过期以后：旧持有者为什么仍需 fencing](/knowledge/distributed/coordination/lease-fencing.html)、[确认了什么：投递、重投、顺序与消费提交](/knowledge/distributed/messaging/delivery-ack-boundaries.html)。
+
+<details class="verification-appendix">
+<summary>版本、下载身份与未覆盖范围</summary>
+
+- 版本：CPython 3.12.14 / Linux / standard library
+- SHA256：0f22bcff7cd9656bd1f788dbed4e52a6f05b66f7b3b1b561440be4571f6b7846
+- SHA256：121fcfc44bbba4ac9aec11cee25e41c2c5e0f994a185b1ff1bf6499eb305c273
+- 未覆盖：Store.committed为逻辑持久JSON快照；transaction原子性与restart保留字节是模型前提，不是磁盘或数据库保证；无真实broker、producer协议、Kafka offset实现、重平衡、复制、共识、网络分区或进程崩溃；身份已经可信，Authority.issued模拟核验授予；没有密码学、IdP或真实鉴权；逻辑时钟与串行事件安排，不穷举所有并发交错；epoch恢复要求先隔离旧写入者；毒消息的A2故意作为业务缺口保留ready，非资源泄漏；全部24个受控子进程已结束；源码ZIP生成不代表重新运行；结果仅绑定所列源码字节
+- 此处汇总已有运行记录；收录到目录不会增加实验覆盖范围
+
+</details>
+
+### MySQL 机制实验：索引访问路径与多会话读视图 {#experiment-mysql-mechanisms}
+
+[查看运行结果](/examples/mysql-mechanisms-verification.json) · [查看运行结果](/examples/mysql-mechanisms-observations.json) · [下载源码包](/examples/mysql-mechanisms-lab.zip)。历史运行范围：固定harness-r4在标准公共Ubuntu runner执行官方MySQL8.4.7；run37102894207 attempt1；真实证据独审191/191通过；固定36订单+2库存、每mode三个真实持续会话；完整五mode协议、基线39固定值断言通过；无hint与人为约束索引计划分开；实际范围、覆盖、ICP、skip scan、filesort和EXPLAIN ANALYZE记录；普通BEGIN/显式快照、RR/RC、当前锁定读与自己写入、ROW_COUNT、引擎锁等待屏障、提交/回滚的实际值；三项指定语义错误各退出42；1064语法控制单独退出43；19命令身份与退出、全部会话和本轮资源清理通过。
+
+关联知识：[组合索引与访问路径：执行计划说明了什么](/knowledge/data/indexes/composite-index-access-paths.html)、[MVCC 的读取边界：快照、当前读与写入](/knowledge/data/transactions/mvcc-read-views.html)。
+
+源码包内 NOT_RUN 是执行前冻结时的说明；同一份源码随后已在 MySQL 8.4.7 上完成一次真实多会话实验。[2026-10-03 的验证摘要](/examples/mysql-mechanisms-verification.json)与[逐值观察表](/examples/mysql-mechanisms-observations.json)绑定那次测试快照，不代表复制、容量或生产环境已验证。
+
+<details class="verification-appendix">
+<summary>版本、下载身份与未覆盖范围</summary>
+
+- 版本：MySQL 8.4.7 / MySQL Community Server - GPL；official mysql:8.4.7; mysql@sha256:0426ec38c7a10aa45ba383887df7878f74ee70e2fd589c7b69207f3577901903；sha256:0de4015d5b1f0fa462e43b48c29f8f66eacdd16d11e07aedf3b13533adadd504；linux/amd64; GitHub-hosted ubuntu-24.04 image 20260927.320.1
+- SHA256：9615e4a07bcef625efdeb0dd14c2d8dfa8601a5dc3d010185d5aa00c7c03a903
+- SHA256：d6f4a74dc45e205be911d84a6e53ddc24ae6176acd2dc8ca14a1f91cb6a8ec4e
+- SHA256：3af92ecbaadbd5a1db4a22612d92e5b21a7cc63bb6d91a085e899fb474d11f1e
+- 未覆盖：一次固定源码、镜像、linux/amd64和36+2行数据的有限执行；计划选择/skip scan/cost/time不跨数据分布泛化；不验证生产性能、复制、故障切换、崩溃恢复、DDL、全部隔离与锁形态或InnoDB内部函数采样；这份记录仅覆盖列出的有限实验；其他版本、业务负载和失败模型仍需各自验证；GitHub原始artifact审计时到期时间2026-10-06T06:24:02Z；公开摘要保留原始执行审计字节；派生观察表与源码ZIP绑定随后已单独复核；source-manifest与README保留运行前冻结not-run字节；运行后状态仅在此记录及独立摘要更新；不借用旧数据一致性23case或安全检查的合成trace冒认本次SQL证据
+- 此处汇总已有运行记录；收录到目录不会增加实验覆盖范围
+
+</details>
+
 ### 身份与对象授权模型：撤销、租户、动作和提交版本 {#experiment-security-boundaries}
 
 [下载源码包](/examples/security-boundaries-lab.zip)。历史运行范围：Python 3.12.14 标准库，固定整数时间、有限顺序状态模型；声明配置与 nbf/exp 边界；当前状态与旧缓存对撤销的可见差异；90 个固定主体/租户/对象/动作组合与独立允许集合逐项比对，拒绝读无正文，拒绝写无业务副作用；成员撤销、动作处理器绑定、归属转移、委托期限/撤销/对象/接收者/代次及提交重查；r2：在线/缓存声明和时间边界、inactive与未来观察、空委托动作、同主体陈旧准备与重复提交；逐项核对正文、备注、修订号和事件；11 个故意错误的允许变体实际运行，子进程预期退出 3 且 assertion 精确为 WRONG_ALLOW:变体名；超时、崩溃、语法/启动错误、错误 JSON、额外 stderr 或错误断言均不算通过；陈旧允许变体实际写入已转移订单，拒绝断言同时观察结果、数据和业务事件；六种实际model.py源码变异逐项运行强化后的verify.py，均因精确目标AssertionError退出1；检查空委托动作、在线声明配置、缓存inactive/未来观察、提交修订比较和递增；同主体陈旧准备及重复提交须无额外副作用；四项纯分类器反例拒绝RuntimeError、SyntaxError、ModuleNotFoundError及意外退出0。

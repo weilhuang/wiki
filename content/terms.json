@@ -10,7 +10,10 @@
     "mysql": "MySQL",
     "innodb": "InnoDB",
     "redis": "Redis",
-    "spring-boot": "Spring Boot"
+    "spring-boot": "Spring Boot",
+    "rabbitmq": "RabbitMQ",
+    "kafka": "Kafka",
+    "etcd": "etcd"
   },
   "mechanism": {
     "ioc": "IoC",
@@ -49,7 +52,9 @@
     "tenant-isolation": "租户隔离",
     "aop": "AOP代理",
     "dispatch": "调用分派",
-    "conditional-configuration": "条件装配"
+    "conditional-configuration": "条件装配",
+    "indexing": "索引与访问路径",
+    "fencing": "资源端栅栏"
   },
   "task": {
     "understand": "理解机制",

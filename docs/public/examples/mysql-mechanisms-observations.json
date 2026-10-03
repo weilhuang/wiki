@@ -1,0 +1,1161 @@
+{
+  "schema_version": 1,
+  "status": "AUTHOR_DERIVED_FROM_AUDITED_EXECUTION",
+  "content_review": "pending",
+  "run": {
+    "url": "https://github.com/weilhuang/wiki/actions/runs/37102894207",
+    "id": 37102894207,
+    "attempt": 1,
+    "event": "pull_request",
+    "pr_url": "https://github.com/weilhuang/wiki/pull/9",
+    "pr_draft_at_audit": true,
+    "repository": "weilhuang/wiki",
+    "head_sha": "8d741c9cdb9f0dde4a37ba6468119bc79ac63687",
+    "base_sha": "6ed477b626238d88fed5af1a652bdd777377d67b",
+    "checkout_sha": "44a2821a2782057b039e5511dd84f092c745be2c",
+    "tree_sha": "ee1cb9687e005f04b78aac5e983476056fbc6dbe",
+    "started_at": "2026-10-03T06:23:30Z",
+    "last_updated_at": "2026-10-03T06:24:06Z",
+    "job_completed_at": "2026-10-03T06:24:05Z"
+  },
+  "environment": {
+    "runner": "GitHub-hosted ubuntu-24.04",
+    "runner_image_version": "20260927.320.1",
+    "mysql_version": "8.4.7",
+    "mysql_version_comment": "MySQL Community Server - GPL",
+    "requested": "mysql:8.4.7",
+    "id": "sha256:0de4015d5b1f0fa462e43b48c29f8f66eacdd16d11e07aedf3b13533adadd504",
+    "repo_digests": [
+      "mysql@sha256:0426ec38c7a10aa45ba383887df7878f74ee70e2fd589c7b69207f3577901903"
+    ],
+    "platform": "linux/amd64"
+  },
+  "fixture": {
+    "orders_rows": 36,
+    "inventory_rows": 2,
+    "mysql_nodes": 1,
+    "experiment_connections_per_mode": 3
+  },
+  "provenance": {
+    "public_summary_url": "/examples/mysql-mechanisms-verification.json",
+    "public_summary_sha256": "9615e4a07bcef625efdeb0dd14c2d8dfa8601a5dc3d010185d5aa00c7c03a903",
+    "audited_observations_sha256": "5dc9fe4dc56a6353ba2034e41405b75134cd06a4cb9f1b3263f5ca37be903718",
+    "baseline_trace_sha256": "7a6ef9f3460bdd0cc199e0c2f84776e1f446e194933271f3a1c210ce190b2cf4"
+  },
+  "baseline_assertions": [
+    {
+      "sequence": 28,
+      "kind": "assertion",
+      "assertion": "index.fixture-count",
+      "expected": [
+        "36"
+      ],
+      "observed": [
+        "36"
+      ]
+    },
+    {
+      "sequence": 40,
+      "kind": "assertion",
+      "assertion": "index.ordinary-covering.rows",
+      "expected": [
+        "1103\t3",
+        "1104\t4",
+        "1105\t5",
+        "1106\t6"
+      ],
+      "observed": [
+        "1103\t3",
+        "1104\t4",
+        "1105\t5",
+        "1106\t6"
+      ]
+    },
+    {
+      "sequence": 46,
+      "kind": "assertion",
+      "assertion": "index.constrained-covering.rows",
+      "expected": [
+        "1103\t3",
+        "1104\t4",
+        "1105\t5",
+        "1106\t6"
+      ],
+      "observed": [
+        "1103\t3",
+        "1104\t4",
+        "1105\t5",
+        "1106\t6"
+      ]
+    },
+    {
+      "sequence": 52,
+      "kind": "assertion",
+      "assertion": "index.constrained-noncovering.rows",
+      "expected": [
+        "1103\t3\tt1-s1-d3",
+        "1104\t4\tt1-s1-d4",
+        "1105\t5\tt1-s1-d5",
+        "1106\t6\tt1-s1-d6"
+      ],
+      "observed": [
+        "1103\t3\tt1-s1-d3",
+        "1104\t4\tt1-s1-d4",
+        "1105\t5\tt1-s1-d5",
+        "1106\t6\tt1-s1-d6"
+      ]
+    },
+    {
+      "sequence": 61,
+      "kind": "assertion",
+      "assertion": "index.range-residual.rows",
+      "expected": [
+        "1103",
+        "1203"
+      ],
+      "observed": [
+        "1103",
+        "1203"
+      ]
+    },
+    {
+      "sequence": 67,
+      "kind": "assertion",
+      "assertion": "index.missing-left-prefix.rows",
+      "expected": [
+        "1103",
+        "2103"
+      ],
+      "observed": [
+        "1103",
+        "2103"
+      ]
+    },
+    {
+      "sequence": 73,
+      "kind": "assertion",
+      "assertion": "index.cross-state-sort.rows",
+      "expected": [
+        "1101\t1",
+        "1201\t1",
+        "1102\t2",
+        "1202\t2",
+        "1103\t3",
+        "1203\t3",
+        "1104\t4",
+        "1204\t4",
+        "1105\t5",
+        "1205\t5",
+        "1106\t6",
+        "1206\t6"
+      ],
+      "observed": [
+        "1101\t1",
+        "1201\t1",
+        "1102\t2",
+        "1202\t2",
+        "1103\t3",
+        "1203\t3",
+        "1104\t4",
+        "1204\t4",
+        "1105\t5",
+        "1205\t5",
+        "1106\t6",
+        "1206\t6"
+      ]
+    },
+    {
+      "sequence": 86,
+      "kind": "assertion",
+      "assertion": "reset.rows",
+      "expected": [
+        "1\t10",
+        "2\t20"
+      ],
+      "observed": [
+        "1\t10",
+        "2\t20"
+      ]
+    },
+    {
+      "sequence": 97,
+      "kind": "assertion",
+      "assertion": "B.changed-two",
+      "expected": [
+        "2"
+      ],
+      "observed": [
+        "2"
+      ]
+    },
+    {
+      "sequence": 103,
+      "kind": "assertion",
+      "assertion": "begin.first-read-after-B",
+      "expected": [
+        "1\t11",
+        "2\t21"
+      ],
+      "observed": [
+        "1\t11",
+        "2\t21"
+      ]
+    },
+    {
+      "sequence": 116,
+      "kind": "assertion",
+      "assertion": "reset.rows",
+      "expected": [
+        "1\t10",
+        "2\t20"
+      ],
+      "observed": [
+        "1\t10",
+        "2\t20"
+      ]
+    },
+    {
+      "sequence": 127,
+      "kind": "assertion",
+      "assertion": "B.changed-two",
+      "expected": [
+        "2"
+      ],
+      "observed": [
+        "2"
+      ]
+    },
+    {
+      "sequence": 133,
+      "kind": "assertion",
+      "assertion": "explicit-snapshot.before-B",
+      "expected": [
+        "1\t10",
+        "2\t20"
+      ],
+      "observed": [
+        "1\t10",
+        "2\t20"
+      ]
+    },
+    {
+      "sequence": 148,
+      "kind": "assertion",
+      "assertion": "reset.rows",
+      "expected": [
+        "1\t10",
+        "2\t20"
+      ],
+      "observed": [
+        "1\t10",
+        "2\t20"
+      ]
+    },
+    {
+      "sequence": 155,
+      "kind": "assertion",
+      "assertion": "rr.first",
+      "expected": [
+        "1\t10",
+        "2\t20"
+      ],
+      "observed": [
+        "1\t10",
+        "2\t20"
+      ]
+    },
+    {
+      "sequence": 163,
+      "kind": "assertion",
+      "assertion": "B.changed-two",
+      "expected": [
+        "2"
+      ],
+      "observed": [
+        "2"
+      ]
+    },
+    {
+      "sequence": 169,
+      "kind": "assertion",
+      "assertion": "rr.repeat",
+      "expected": [
+        "1\t10",
+        "2\t20"
+      ],
+      "observed": [
+        "1\t10",
+        "2\t20"
+      ]
+    },
+    {
+      "sequence": 174,
+      "kind": "assertion",
+      "assertion": "rr.after-commit",
+      "expected": [
+        "1\t11",
+        "2\t21"
+      ],
+      "observed": [
+        "1\t11",
+        "2\t21"
+      ]
+    },
+    {
+      "sequence": 187,
+      "kind": "assertion",
+      "assertion": "reset.rows",
+      "expected": [
+        "1\t10",
+        "2\t20"
+      ],
+      "observed": [
+        "1\t10",
+        "2\t20"
+      ]
+    },
+    {
+      "sequence": 194,
+      "kind": "assertion",
+      "assertion": "rc.first",
+      "expected": [
+        "1\t10",
+        "2\t20"
+      ],
+      "observed": [
+        "1\t10",
+        "2\t20"
+      ]
+    },
+    {
+      "sequence": 201,
+      "kind": "assertion",
+      "assertion": "B.changed-two",
+      "expected": [
+        "2"
+      ],
+      "observed": [
+        "2"
+      ]
+    },
+    {
+      "sequence": 207,
+      "kind": "assertion",
+      "assertion": "rc.refresh",
+      "expected": [
+        "1\t11",
+        "2\t21"
+      ],
+      "observed": [
+        "1\t11",
+        "2\t21"
+      ]
+    },
+    {
+      "sequence": 222,
+      "kind": "assertion",
+      "assertion": "reset.rows",
+      "expected": [
+        "1\t10",
+        "2\t20"
+      ],
+      "observed": [
+        "1\t10",
+        "2\t20"
+      ]
+    },
+    {
+      "sequence": 229,
+      "kind": "assertion",
+      "assertion": "own.initial-snapshot",
+      "expected": [
+        "1\t10",
+        "2\t20"
+      ],
+      "observed": [
+        "1\t10",
+        "2\t20"
+      ]
+    },
+    {
+      "sequence": 236,
+      "kind": "assertion",
+      "assertion": "B.changed-two",
+      "expected": [
+        "2"
+      ],
+      "observed": [
+        "2"
+      ]
+    },
+    {
+      "sequence": 242,
+      "kind": "assertion",
+      "assertion": "current.locking-value",
+      "expected": [
+        "7"
+      ],
+      "observed": [
+        "7"
+      ]
+    },
+    {
+      "sequence": 245,
+      "kind": "assertion",
+      "assertion": "current.does-not-refresh-view",
+      "expected": [
+        "1\t10",
+        "2\t20"
+      ],
+      "observed": [
+        "1\t10",
+        "2\t20"
+      ]
+    },
+    {
+      "sequence": 248,
+      "kind": "assertion",
+      "assertion": "own.affected",
+      "expected": [
+        "1"
+      ],
+      "observed": [
+        "1"
+      ]
+    },
+    {
+      "sequence": 251,
+      "kind": "assertion",
+      "assertion": "own.mixed-view",
+      "expected": [
+        "1\t5",
+        "2\t20"
+      ],
+      "observed": [
+        "1\t5",
+        "2\t20"
+      ]
+    },
+    {
+      "sequence": 254,
+      "kind": "assertion",
+      "assertion": "own.uncommitted-hidden",
+      "expected": [
+        "1\t7",
+        "2\t17"
+      ],
+      "observed": [
+        "1\t7",
+        "2\t17"
+      ]
+    },
+    {
+      "sequence": 259,
+      "kind": "assertion",
+      "assertion": "own.rollback-restores",
+      "expected": [
+        "1\t7",
+        "2\t17"
+      ],
+      "observed": [
+        "1\t7",
+        "2\t17"
+      ]
+    },
+    {
+      "sequence": 266,
+      "kind": "assertion",
+      "assertion": "own.commit-affected",
+      "expected": [
+        "1"
+      ],
+      "observed": [
+        "1"
+      ]
+    },
+    {
+      "sequence": 271,
+      "kind": "assertion",
+      "assertion": "own.commit-visible",
+      "expected": [
+        "1\t5",
+        "2\t17"
+      ],
+      "observed": [
+        "1\t5",
+        "2\t17"
+      ]
+    },
+    {
+      "sequence": 284,
+      "kind": "assertion",
+      "assertion": "reset.rows",
+      "expected": [
+        "1\t10",
+        "2\t20"
+      ],
+      "observed": [
+        "1\t10",
+        "2\t20"
+      ]
+    },
+    {
+      "sequence": 291,
+      "kind": "assertion",
+      "assertion": "lock.A-value",
+      "expected": [
+        "10"
+      ],
+      "observed": [
+        "10"
+      ]
+    },
+    {
+      "sequence": 302,
+      "kind": "assertion",
+      "assertion": "lock.A-affected",
+      "expected": [
+        "1"
+      ],
+      "observed": [
+        "1"
+      ]
+    },
+    {
+      "sequence": 306,
+      "kind": "assertion",
+      "assertion": "lock.B-affected-after-release",
+      "expected": [
+        "1"
+      ],
+      "observed": [
+        "1"
+      ]
+    },
+    {
+      "sequence": 309,
+      "kind": "assertion",
+      "assertion": "lock.B-current-after-release",
+      "expected": [
+        "5"
+      ],
+      "observed": [
+        "5"
+      ]
+    },
+    {
+      "sequence": 314,
+      "kind": "assertion",
+      "assertion": "lock.B-rollback",
+      "expected": [
+        "1\t8",
+        "2\t20"
+      ],
+      "observed": [
+        "1\t8",
+        "2\t20"
+      ]
+    }
+  ],
+  "baseline_plans": [
+    {
+      "sequence": 37,
+      "kind": "explain",
+      "query": "ordinary-covering",
+      "constrained": false,
+      "plan": {
+        "query_block": {
+          "select_id": 1,
+          "cost_info": {
+            "query_cost": "1.06"
+          },
+          "ordering_operation": {
+            "using_filesort": false,
+            "table": {
+              "table_name": "orders",
+              "access_type": "range",
+              "possible_keys": [
+                "idx_tenant_state_created"
+              ],
+              "key": "idx_tenant_state_created",
+              "used_key_parts": [
+                "tenant_id",
+                "state",
+                "created_at"
+              ],
+              "key_length": "9",
+              "rows_examined_per_scan": 4,
+              "rows_produced_per_join": 4,
+              "filtered": "100.00",
+              "using_index": true,
+              "cost_info": {
+                "read_cost": "0.66",
+                "eval_cost": "0.40",
+                "prefix_cost": "1.06",
+                "data_read_per_join": "1K"
+              },
+              "used_columns": [
+                "order_id",
+                "tenant_id",
+                "state",
+                "created_at"
+              ],
+              "attached_condition": "((`mechanisms_lab`.`orders`.`state` = 1) and (`mechanisms_lab`.`orders`.`tenant_id` = 1) and (`mechanisms_lab`.`orders`.`created_at` >= 3))"
+            }
+          }
+        }
+      }
+    },
+    {
+      "sequence": 43,
+      "kind": "explain",
+      "query": "constrained-covering",
+      "constrained": true,
+      "plan": {
+        "query_block": {
+          "select_id": 1,
+          "cost_info": {
+            "query_cost": "0.46"
+          },
+          "ordering_operation": {
+            "using_filesort": false,
+            "table": {
+              "table_name": "orders",
+              "access_type": "range",
+              "possible_keys": [
+                "idx_tenant_state_created"
+              ],
+              "key": "idx_tenant_state_created",
+              "used_key_parts": [
+                "tenant_id",
+                "state",
+                "created_at"
+              ],
+              "key_length": "9",
+              "rows_examined_per_scan": 1,
+              "rows_produced_per_join": 1,
+              "filtered": "100.00",
+              "using_index": true,
+              "cost_info": {
+                "read_cost": "0.36",
+                "eval_cost": "0.10",
+                "prefix_cost": "0.46",
+                "data_read_per_join": "280"
+              },
+              "used_columns": [
+                "order_id",
+                "tenant_id",
+                "state",
+                "created_at"
+              ],
+              "attached_condition": "((`mechanisms_lab`.`orders`.`state` = 1) and (`mechanisms_lab`.`orders`.`tenant_id` = 1) and (`mechanisms_lab`.`orders`.`created_at` >= 3))"
+            }
+          }
+        }
+      }
+    },
+    {
+      "sequence": 49,
+      "kind": "explain",
+      "query": "constrained-noncovering",
+      "constrained": true,
+      "plan": {
+        "query_block": {
+          "select_id": 1,
+          "cost_info": {
+            "query_cost": "0.71"
+          },
+          "ordering_operation": {
+            "using_filesort": false,
+            "table": {
+              "table_name": "orders",
+              "access_type": "range",
+              "possible_keys": [
+                "idx_tenant_state_created"
+              ],
+              "key": "idx_tenant_state_created",
+              "used_key_parts": [
+                "tenant_id",
+                "state",
+                "created_at"
+              ],
+              "key_length": "9",
+              "rows_examined_per_scan": 1,
+              "rows_produced_per_join": 1,
+              "filtered": "100.00",
+              "index_condition": "((`mechanisms_lab`.`orders`.`state` = 1) and (`mechanisms_lab`.`orders`.`tenant_id` = 1) and (`mechanisms_lab`.`orders`.`created_at` >= 3))",
+              "cost_info": {
+                "read_cost": "0.61",
+                "eval_cost": "0.10",
+                "prefix_cost": "0.71",
+                "data_read_per_join": "280"
+              },
+              "used_columns": [
+                "order_id",
+                "tenant_id",
+                "state",
+                "created_at",
+                "note"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "sequence": 55,
+      "kind": "explain_analyze",
+      "query": "constrained-covering",
+      "rows": [
+        "-> Filter: ((orders.state = 1) and (orders.tenant_id = 1) and (orders.created_at >= 3))  (cost=0.46 rows=1) (actual time=0.0105..0.016 rows=4 loops=1)",
+        "    -> Covering index range scan on orders using idx_tenant_state_created over (tenant_id = 1 AND state = 1 AND 3 <= created_at)  (cost=0.46 rows=1) (actual time=0.00926..0.0142 rows=4 loops=1)",
+        ""
+      ]
+    },
+    {
+      "sequence": 58,
+      "kind": "explain",
+      "query": "range-residual",
+      "constrained": true,
+      "plan": {
+        "query_block": {
+          "select_id": 1,
+          "cost_info": {
+            "query_cost": "3.26"
+          },
+          "ordering_operation": {
+            "using_filesort": true,
+            "cost_info": {
+              "sort_cost": "1.00"
+            },
+            "table": {
+              "table_name": "orders",
+              "access_type": "range",
+              "possible_keys": [
+                "idx_tenant_state_created"
+              ],
+              "key": "idx_tenant_state_created",
+              "used_key_parts": [
+                "tenant_id",
+                "state"
+              ],
+              "key_length": "9",
+              "rows_examined_per_scan": 10,
+              "rows_produced_per_join": 1,
+              "filtered": "10.00",
+              "using_index": true,
+              "cost_info": {
+                "read_cost": "2.16",
+                "eval_cost": "0.10",
+                "prefix_cost": "2.26",
+                "data_read_per_join": "280"
+              },
+              "used_columns": [
+                "order_id",
+                "tenant_id",
+                "state",
+                "created_at"
+              ],
+              "attached_condition": "((`mechanisms_lab`.`orders`.`created_at` = 3) and (`mechanisms_lab`.`orders`.`tenant_id` = 1) and (`mechanisms_lab`.`orders`.`state` >= 1))"
+            }
+          }
+        }
+      }
+    },
+    {
+      "sequence": 64,
+      "kind": "explain",
+      "query": "missing-left-prefix",
+      "constrained": false,
+      "plan": {
+        "query_block": {
+          "select_id": 1,
+          "cost_info": {
+            "query_cost": "6.25"
+          },
+          "ordering_operation": {
+            "using_filesort": true,
+            "cost_info": {
+              "sort_cost": "1.20"
+            },
+            "table": {
+              "table_name": "orders",
+              "access_type": "range",
+              "possible_keys": [
+                "idx_tenant_state_created"
+              ],
+              "key": "idx_tenant_state_created",
+              "used_key_parts": [
+                "tenant_id",
+                "state"
+              ],
+              "key_length": "5",
+              "rows_examined_per_scan": 12,
+              "rows_produced_per_join": 1,
+              "filtered": "10.00",
+              "using_index_for_skip_scan": true,
+              "cost_info": {
+                "read_cost": "4.93",
+                "eval_cost": "0.12",
+                "prefix_cost": "5.05",
+                "data_read_per_join": "336"
+              },
+              "used_columns": [
+                "order_id",
+                "state",
+                "created_at"
+              ],
+              "attached_condition": "((`mechanisms_lab`.`orders`.`created_at` = 3) and (`mechanisms_lab`.`orders`.`state` = 1))"
+            }
+          }
+        }
+      }
+    },
+    {
+      "sequence": 70,
+      "kind": "explain",
+      "query": "cross-state-sort",
+      "constrained": false,
+      "plan": {
+        "query_block": {
+          "select_id": 1,
+          "cost_info": {
+            "query_cost": "14.66"
+          },
+          "ordering_operation": {
+            "using_filesort": true,
+            "cost_info": {
+              "sort_cost": "12.00"
+            },
+            "table": {
+              "table_name": "orders",
+              "access_type": "range",
+              "possible_keys": [
+                "idx_tenant_state_created"
+              ],
+              "key": "idx_tenant_state_created",
+              "used_key_parts": [
+                "tenant_id",
+                "state"
+              ],
+              "key_length": "5",
+              "rows_examined_per_scan": 12,
+              "rows_produced_per_join": 12,
+              "filtered": "100.00",
+              "using_index": true,
+              "cost_info": {
+                "read_cost": "1.46",
+                "eval_cost": "1.20",
+                "prefix_cost": "2.66",
+                "data_read_per_join": "3K"
+              },
+              "used_columns": [
+                "order_id",
+                "tenant_id",
+                "state",
+                "created_at"
+              ],
+              "attached_condition": "((`mechanisms_lab`.`orders`.`tenant_id` = 1) and (`mechanisms_lab`.`orders`.`state` >= 1))"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "semantic_controls": [
+    {
+      "mode": "mutant-missing-tenant",
+      "assertion": "index.ordinary-covering.rows",
+      "expected": [
+        "1103\t3",
+        "1104\t4",
+        "1105\t5",
+        "1106\t6"
+      ],
+      "observed": [
+        "1103\t3",
+        "2103\t3",
+        "1104\t4",
+        "2104\t4",
+        "1105\t5",
+        "2105\t5",
+        "1106\t6",
+        "2106\t6"
+      ],
+      "exit_code": 42
+    },
+    {
+      "mode": "mutant-rc-for-rr",
+      "assertion": "rr.repeat",
+      "expected": [
+        "1\t10",
+        "2\t20"
+      ],
+      "observed": [
+        "1\t11",
+        "2\t21"
+      ],
+      "exit_code": 42
+    },
+    {
+      "mode": "mutant-stale-write",
+      "assertion": "own.mixed-view",
+      "expected": [
+        "1\t5",
+        "2\t20"
+      ],
+      "observed": [
+        "1\t8",
+        "2\t20"
+      ],
+      "exit_code": 42
+    }
+  ],
+  "syntax_control": {
+    "mode": "control-sql-error",
+    "status": "SQL_FAILURE",
+    "mysql_error": 1064,
+    "exit_code": 43,
+    "semantic_counterexample": false
+  },
+  "lock_handoff": {
+    "connection_ids": {
+      "observer": "9",
+      "A": "10",
+      "B": "11"
+    },
+    "events": [
+      {
+        "sequence": 288,
+        "kind": "sql_result",
+        "session": "A",
+        "connection_id": "10",
+        "rows": []
+      },
+      {
+        "sequence": 289,
+        "kind": "sql_send",
+        "session": "A",
+        "sql": "SELECT available FROM inventory WHERE sku=1 FOR UPDATE"
+      },
+      {
+        "sequence": 290,
+        "kind": "sql_result",
+        "session": "A",
+        "connection_id": "10",
+        "rows": [
+          "10"
+        ]
+      },
+      {
+        "sequence": 291,
+        "kind": "assertion",
+        "assertion": "lock.A-value",
+        "expected": [
+          "10"
+        ],
+        "observed": [
+          "10"
+        ]
+      },
+      {
+        "sequence": 292,
+        "kind": "sql_send",
+        "session": "B",
+        "sql": "SET SESSION TRANSACTION ISOLATION LEVEL REPEATABLE READ"
+      },
+      {
+        "sequence": 293,
+        "kind": "sql_result",
+        "session": "B",
+        "connection_id": "11",
+        "rows": []
+      },
+      {
+        "sequence": 294,
+        "kind": "sql_send",
+        "session": "B",
+        "sql": "START TRANSACTION"
+      },
+      {
+        "sequence": 295,
+        "kind": "sql_result",
+        "session": "B",
+        "connection_id": "11",
+        "rows": []
+      },
+      {
+        "sequence": 296,
+        "kind": "sql_send",
+        "session": "B",
+        "sql": "UPDATE inventory SET available=available-3 WHERE sku=1 AND available>=3; SELECT ROW_COUNT()"
+      },
+      {
+        "sequence": 297,
+        "kind": "sql_send",
+        "session": "observer",
+        "sql": "SELECT COUNT(*) FROM performance_schema.data_lock_waits w JOIN performance_schema.threads r ON w.REQUESTING_THREAD_ID=r.THREAD_ID JOIN performance_schema.threads b ON w.BLOCKING_THREAD_ID=b.THREAD_ID WHERE r.PROCESSLIST_ID=11 AND b.PROCESSLIST_ID=10"
+      },
+      {
+        "sequence": 298,
+        "kind": "sql_result",
+        "session": "observer",
+        "connection_id": "9",
+        "rows": [
+          "1"
+        ]
+      },
+      {
+        "sequence": 299,
+        "kind": "barrier",
+        "name": "B_waits_for_A_engine_lock",
+        "rows": [
+          "1"
+        ],
+        "waiting_connection": "11",
+        "blocking_connection": "10"
+      },
+      {
+        "sequence": 300,
+        "kind": "sql_send",
+        "session": "A",
+        "sql": "UPDATE inventory SET available=available-2 WHERE sku=1; SELECT ROW_COUNT()"
+      },
+      {
+        "sequence": 301,
+        "kind": "sql_result",
+        "session": "A",
+        "connection_id": "10",
+        "rows": [
+          "1"
+        ]
+      },
+      {
+        "sequence": 302,
+        "kind": "assertion",
+        "assertion": "lock.A-affected",
+        "expected": [
+          "1"
+        ],
+        "observed": [
+          "1"
+        ]
+      },
+      {
+        "sequence": 303,
+        "kind": "sql_send",
+        "session": "A",
+        "sql": "COMMIT"
+      },
+      {
+        "sequence": 304,
+        "kind": "sql_result",
+        "session": "A",
+        "connection_id": "10",
+        "rows": []
+      },
+      {
+        "sequence": 305,
+        "kind": "sql_result",
+        "session": "B",
+        "connection_id": "11",
+        "rows": [
+          "1"
+        ]
+      },
+      {
+        "sequence": 306,
+        "kind": "assertion",
+        "assertion": "lock.B-affected-after-release",
+        "expected": [
+          "1"
+        ],
+        "observed": [
+          "1"
+        ]
+      },
+      {
+        "sequence": 307,
+        "kind": "sql_send",
+        "session": "B",
+        "sql": "SELECT available FROM inventory WHERE sku=1"
+      },
+      {
+        "sequence": 308,
+        "kind": "sql_result",
+        "session": "B",
+        "connection_id": "11",
+        "rows": [
+          "5"
+        ]
+      },
+      {
+        "sequence": 309,
+        "kind": "assertion",
+        "assertion": "lock.B-current-after-release",
+        "expected": [
+          "5"
+        ],
+        "observed": [
+          "5"
+        ]
+      },
+      {
+        "sequence": 310,
+        "kind": "sql_send",
+        "session": "B",
+        "sql": "ROLLBACK"
+      },
+      {
+        "sequence": 311,
+        "kind": "sql_result",
+        "session": "B",
+        "connection_id": "11",
+        "rows": []
+      },
+      {
+        "sequence": 312,
+        "kind": "sql_send",
+        "session": "observer",
+        "sql": "SELECT sku, available FROM inventory ORDER BY sku"
+      },
+      {
+        "sequence": 313,
+        "kind": "sql_result",
+        "session": "observer",
+        "connection_id": "9",
+        "rows": [
+          "1\t8",
+          "2\t20"
+        ]
+      },
+      {
+        "sequence": 314,
+        "kind": "assertion",
+        "assertion": "lock.B-rollback",
+        "expected": [
+          "1\t8",
+          "2\t20"
+        ],
+        "observed": [
+          "1\t8",
+          "2\t20"
+        ]
+      }
+    ]
+  },
+  "cleanup": {
+    "all_sessions_clean": true,
+    "owned_project_cleanup_ok": true,
+    "remaining_containers": [],
+    "remaining_volumes": [],
+    "remaining_networks": []
+  },
+  "limitations": [
+    "Exact values and plans copied from independently audited observations, not generated by a model",
+    "This derived durable table is pending content review; the independent public summary is preserved as separate unchanged bytes",
+    "One bounded run of fixed source, MySQL image and linux/amd64 platform; no plan or performance guarantee",
+    "Only included SQL frames and assertions were observed; unissued reads in pedagogical reasoning are not claimed as execution",
+    "No full logs, private paths, environment dumps or credentials are included"
+  ]
+}

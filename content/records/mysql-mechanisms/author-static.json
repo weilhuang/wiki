@@ -1,0 +1,23 @@
+{
+  "revision": "D-harness-r4",
+  "status": "STATIC_CHECKED",
+  "runtime": "Python 3.12.14",
+  "commands": [
+    {
+      "command": "python3 -B labs/mysql-mechanisms-lab/check_static.py",
+      "exitCode": 0
+    },
+    {
+      "command": "python3 -B labs/mysql-mechanisms-lab/test_safety.py",
+      "exitCode": 0
+    }
+  ],
+  "controls": 11,
+  "mysqlExecution": "NOT_RUN",
+  "sourceManifestSha256": "e787bedb50929fd0a05c11c7c52ec643896a271129da27c3cfe3bc2ca8460e0f",
+  "limitations": [
+    "纯标准库控制流与文件/格式检查",
+    "未连接Docker或数据库",
+    "独立harness-r4审查仅批准精确源码与一次有限真实CI尝试，非SQL已通过"
+  ]
+}

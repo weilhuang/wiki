@@ -2,8 +2,8 @@ export const domainBridges = {
   java:'[安全发布](/knowledge/java/juc-foundations/jmm-safe-publication.html)与[任务接纳](/knowledge/java/juc-execution/executor-admission.html)解释本进程交接状态与工作；[线程证据](/knowledge/java/jvm-diagnostics/thread-gc-diagnosis.html)再帮助定位执行与等待。进入[Spring 容器](/knowledge/frameworks/spring-container/)时，继续追踪谁创建和持有这些对象。需要解释资源等待，转到[连接预算](/knowledge/frameworks/data-access/connection-budget.html)，不能用集合线程安全代替外部资源合同。',
   go:'[context 取消](/knowledge/go/concurrency/context-cancellation.html)只能解释信号和工作；写入结果未知时，继续进入[业务幂等](/knowledge/distributed/reliable-interactions/idempotency.html)。[进程停机](/knowledge/go/lifecycle/graceful-shutdown.html)定义本机责任，平台摘流与集群行为仍在云原生领域另行建立。',
   frameworks:'[条件装配](/knowledge/frameworks/spring-boot/conditional-configuration.html)决定哪些定义进入容器，[AOP 分派](/knowledge/frameworks/spring-aop/proxy-dispatch.html)决定经代理的一次调用怎样进入目标。[事务代理](/knowledge/frameworks/spring-transactions/proxy-call-chain.html)解释哪条连接参与提交；[库存不变量](/knowledge/data/transactions/inventory-invariants.html)再检查数据库里的业务承诺。[连接预算](/knowledge/frameworks/data-access/connection-budget.html)则把框架范围接到[等待排障](/troubleshooting/connection-waiting.html)。',
-  data:'本地事实提交后，[Outbox](/knowledge/distributed/events/transactional-outbox.html)保存跨组件交接责任；[缓存新鲜度](/knowledge/data/cache/invalidation-freshness.html)解释读取为何仍会落后。最终用[联合恢复](/cases/orders/consistency-recovery.html)核对权威事实与派生结果。',
-  distributed:'[幂等](/knowledge/distributed/reliable-interactions/idempotency.html)把重复尝试接回一份本地裁决；[Outbox](/knowledge/distributed/events/transactional-outbox.html)把提交后的责任交给另一参与者。是否值得引入这条边界，应回到[架构领域](/knowledge/architecture/)的约束与替代方案。',
+  data:'[索引访问路径](/knowledge/data/indexes/composite-index-access-paths.html)解释怎样找到候选，[MVCC 读取边界](/knowledge/data/transactions/mvcc-read-views.html)解释能看到哪个版本。本地事实提交后，[Outbox](/knowledge/distributed/events/transactional-outbox.html)保存跨组件交接责任；[缓存新鲜度](/knowledge/data/cache/invalidation-freshness.html)解释读取为何仍会落后。最终用[联合恢复](/cases/orders/consistency-recovery.html)核对权威事实与派生结果。',
+  distributed:'[幂等](/knowledge/distributed/reliable-interactions/idempotency.html)把重复尝试接回本地裁决，[Outbox](/knowledge/distributed/events/transactional-outbox.html)保存待交接责任。[确认边界](/knowledge/distributed/messaging/delivery-ack-boundaries.html)继续区分保存、投递与消费提交；[租约与fencing](/knowledge/distributed/coordination/lease-fencing.html)解释接管之后旧工作如何被资源拒绝。目标对象还需经过[主体与租户授权](/knowledge/security/authorization/object-tenant-authorization.html)。',
   architecture:'先用[本地服务案例](/cases/orders/local-service-boundary.html)画出 HTTP、数据库和资源边界，再用[恢复案例](/cases/orders/consistency-recovery.html)检查跨组件责任。机制变成独立服务之后新增的网络与运维责任，需要明确成本，不能只画部署框。',
   cloud:'从[Go 进程停机](/knowledge/go/lifecycle/graceful-shutdown.html)理解所有权，再到[连接等待排障](/troubleshooting/connection-waiting.html)练习假设与证据；这些结果不会自动成为集群保证。恢复数据时回到[订单联合对账](/cases/orders/consistency-recovery.html)，服务存活只是一个信号。',
   security:'[会话与令牌](/knowledge/security/authentication/authentication-boundaries.html)确定哪些身份声明可以信任；[对象授权](/knowledge/security/authorization/object-tenant-authorization.html)再将主体与当前订单事实联系起来。提交前权限发生变化时，需要与[库存不变量](/knowledge/data/transactions/inventory-invariants.html)中的并发裁决一起思考。错误响应与日志还要遵守[HTTP 响应边界](/knowledge/go/http/request-response-contract.html)。',
@@ -19,5 +19,7 @@ export const experimentTitles = {
   'security-boundaries':'身份与对象授权模型：撤销、租户、动作和提交版本',
   'java-service-mechanisms':'Java 机制实验：安全发布、任务接纳与线程诊断',
   'spring-mechanisms.aop-run':'Spring 机制实验：代理接收者、条件装配与退让',
+  'mysql-mechanisms.real-run':'MySQL 机制实验：索引访问路径与多会话读视图',
+  'messaging.protocol-run':'消息与协调模型：确认、重投、毒消息与旧持有者',
   'spring-definition.execution':'BeanDefinition 定位、注册与创建实验'
 }

@@ -1,0 +1,303 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "evidence_kind": "REAL_MYSQL_CI_EXECUTION",
+  "audited_at_utc": "2026-10-03T06:35:37Z",
+  "run": {
+    "url": "https://github.com/weilhuang/wiki/actions/runs/37102894207",
+    "id": 37102894207,
+    "attempt": 1,
+    "event": "pull_request",
+    "pr_url": "https://github.com/weilhuang/wiki/pull/9",
+    "pr_draft_at_audit": true,
+    "repository": "weilhuang/wiki",
+    "head_sha": "8d741c9cdb9f0dde4a37ba6468119bc79ac63687",
+    "base_sha": "6ed477b626238d88fed5af1a652bdd777377d67b",
+    "checkout_sha": "44a2821a2782057b039e5511dd84f092c745be2c",
+    "tree_sha": "ee1cb9687e005f04b78aac5e983476056fbc6dbe",
+    "started_at": "2026-10-03T06:23:30Z",
+    "last_updated_at": "2026-10-03T06:24:06Z",
+    "job_completed_at": "2026-10-03T06:24:05Z"
+  },
+  "source": {
+    "revision": "D-harness-r4",
+    "freeze_sha256": "8fcf0a393bded54c2e7b1dfa071c267d86db3b4d56a1463cd5df89d09a997b54",
+    "manifest_sha256": "e787bedb50929fd0a05c11c7c52ec643896a271129da27c3cfe3bc2ca8460e0f",
+    "workflow_path": ".github/workflows/mysql-mechanisms-lab.yml",
+    "workflow_sha256": "61e9f209ff50d056b8d9256cb82d5a4ccfc4ea2496ba2320fb276fd891197cec",
+    "source_zip_sha256": null,
+    "source_zip_note": "This audit did not inspect a SourceZIP; do not substitute the CI evidence ZIP digest"
+  },
+  "evidence": {
+    "artifact_id": 11266183383,
+    "url": "https://github.com/weilhuang/wiki/actions/runs/37102894207/artifacts/11266183383",
+    "zip_sha256": "6b2ce2dc761d863e7f30675c4a1c397e806e993f9ed04c7a6d0b682cf5d22ffa",
+    "zip_bytes": 30726,
+    "files": 32,
+    "uncompressed_bytes": 186232,
+    "manifest_sha256": "3b8b4bb3920378e0b27906c7b2a26e701c264145adb925eec2e19c9f029a2ffc",
+    "github_expires_at": "2026-10-06T06:24:02Z"
+  },
+  "environment": {
+    "runner": "GitHub-hosted ubuntu-24.04",
+    "runner_image_version": "20260927.320.1",
+    "mysql_version": "8.4.7",
+    "mysql_version_comment": "MySQL Community Server - GPL",
+    "requested": "mysql:8.4.7",
+    "id": "sha256:0de4015d5b1f0fa462e43b48c29f8f66eacdd16d11e07aedf3b13533adadd504",
+    "repo_digests": [
+      "mysql@sha256:0426ec38c7a10aa45ba383887df7878f74ee70e2fd589c7b69207f3577901903"
+    ],
+    "platform": "linux/amd64"
+  },
+  "fixture": {
+    "orders_rows": 36,
+    "inventory_rows": 2,
+    "mysql_nodes": 1,
+    "experiment_connections_per_mode": 3
+  },
+  "modes": {
+    "baseline": {
+      "status": "PASS",
+      "exit_code": 0,
+      "events": 324,
+      "sql_requests": 125,
+      "sql_results": 125,
+      "assertions": 39,
+      "connection_ids": {
+        "observer": "9",
+        "A": "10",
+        "B": "11"
+      },
+      "server_identity": [
+        "8.4.7\tMySQL Community Server - GPL\tREPEATABLE-READ\t1"
+      ],
+      "trace_sha256": "7a6ef9f3460bdd0cc199e0c2f84776e1f446e194933271f3a1c210ce190b2cf4",
+      "sessions_clean": true
+    },
+    "mutant-missing-tenant": {
+      "status": "SEMANTIC_MISMATCH",
+      "exit_code": 42,
+      "events": 49,
+      "sql_requests": 18,
+      "sql_results": 18,
+      "assertions": 2,
+      "connection_ids": {
+        "observer": "12",
+        "A": "13",
+        "B": "14"
+      },
+      "server_identity": [
+        "8.4.7\tMySQL Community Server - GPL\tREPEATABLE-READ\t1"
+      ],
+      "trace_sha256": "6b6e33ff022d42f28cbe4a793c4a566531ee83e6dc9bfb41baabe904a41a7c10",
+      "sessions_clean": true
+    },
+    "mutant-rc-for-rr": {
+      "status": "SEMANTIC_MISMATCH",
+      "exit_code": 42,
+      "events": 178,
+      "sql_requests": 68,
+      "sql_results": 68,
+      "assertions": 17,
+      "connection_ids": {
+        "observer": "15",
+        "A": "16",
+        "B": "17"
+      },
+      "server_identity": [
+        "8.4.7\tMySQL Community Server - GPL\tREPEATABLE-READ\t1"
+      ],
+      "trace_sha256": "c21eea1fd4a3d6cb56a91bad6ab07a6952c22bd3c177d6188d36095ac4ef1ad5",
+      "sessions_clean": true
+    },
+    "mutant-stale-write": {
+      "status": "SEMANTIC_MISMATCH",
+      "exit_code": 42,
+      "events": 260,
+      "sql_requests": 100,
+      "sql_results": 100,
+      "assertions": 29,
+      "connection_ids": {
+        "observer": "18",
+        "A": "19",
+        "B": "20"
+      },
+      "server_identity": [
+        "8.4.7\tMySQL Community Server - GPL\tREPEATABLE-READ\t1"
+      ],
+      "trace_sha256": "da4a89db2b3eaeb76253726a3a8180cbbf084262444d877d60ce918fe19b4298",
+      "sessions_clean": true
+    },
+    "control-sql-error": {
+      "status": "SQL_FAILURE",
+      "exit_code": 43,
+      "events": 31,
+      "sql_requests": 12,
+      "sql_results": 12,
+      "assertions": 0,
+      "connection_ids": {
+        "observer": "21",
+        "A": "22",
+        "B": "23"
+      },
+      "server_identity": [
+        "8.4.7\tMySQL Community Server - GPL\tREPEATABLE-READ\t1"
+      ],
+      "trace_sha256": "22b9fc94e4d9dfaff3235745043100d46b3993700f5e70eef58478bb13ab6a86",
+      "sessions_clean": true
+    }
+  },
+  "semantic_controls": [
+    {
+      "mode": "mutant-missing-tenant",
+      "assertion": "index.ordinary-covering.rows",
+      "expected": [
+        "1103\t3",
+        "1104\t4",
+        "1105\t5",
+        "1106\t6"
+      ],
+      "observed": [
+        "1103\t3",
+        "2103\t3",
+        "1104\t4",
+        "2104\t4",
+        "1105\t5",
+        "2105\t5",
+        "1106\t6",
+        "2106\t6"
+      ],
+      "exit_code": 42
+    },
+    {
+      "mode": "mutant-rc-for-rr",
+      "assertion": "rr.repeat",
+      "expected": [
+        "1\t10",
+        "2\t20"
+      ],
+      "observed": [
+        "1\t11",
+        "2\t21"
+      ],
+      "exit_code": 42
+    },
+    {
+      "mode": "mutant-stale-write",
+      "assertion": "own.mixed-view",
+      "expected": [
+        "1\t5",
+        "2\t20"
+      ],
+      "observed": [
+        "1\t8",
+        "2\t20"
+      ],
+      "exit_code": 42
+    }
+  ],
+  "syntax_control": {
+    "mode": "control-sql-error",
+    "status": "SQL_FAILURE",
+    "mysql_error": 1064,
+    "exit_code": 43,
+    "semantic_counterexample": false
+  },
+  "index_observations": [
+    {
+      "query": "ordinary-covering",
+      "access_type": "range",
+      "index": "idx_tenant_state_created",
+      "used_key_parts": [
+        "tenant_id",
+        "state",
+        "created_at"
+      ],
+      "using_index": true,
+      "using_filesort": false
+    },
+    {
+      "query": "constrained-covering",
+      "forced": true,
+      "access_type": "range",
+      "using_index": true,
+      "using_filesort": false
+    },
+    {
+      "query": "constrained-noncovering",
+      "forced": true,
+      "access_type": "range",
+      "index_condition_present": true,
+      "required_nonindexed_column": "note"
+    },
+    {
+      "query": "range-residual",
+      "forced": true,
+      "used_key_parts": [
+        "tenant_id",
+        "state"
+      ],
+      "residual_column": "created_at",
+      "using_filesort": true
+    },
+    {
+      "query": "missing-left-prefix",
+      "forced": false,
+      "access_type": "range",
+      "using_index_for_skip_scan": true,
+      "using_filesort": true
+    },
+    {
+      "query": "cross-state-sort",
+      "forced": false,
+      "access_type": "range",
+      "using_filesort": true
+    }
+  ],
+  "explain_analyze": {
+    "query": "constrained-covering",
+    "estimated_rows": 1,
+    "actual_rows": 4,
+    "loops": 1,
+    "performance_comparison_claim": false
+  },
+  "cleanup": {
+    "project": "ks-mechanisms-8eb5f8d067c54d86860cf324232df1f3",
+    "owner": "8eb5f8d067c54d86860cf324232df1f3",
+    "container": "1b67d51bc1d692ea02d95f1290e7e46525f023700e9dba995a3fb8dc8099163d",
+    "cleanup_ok": true,
+    "containers_after": [],
+    "volumes_after": [],
+    "networks_after": []
+  },
+  "command_count": 19,
+  "command_outcomes": {
+    "baseline": 0,
+    "mutant-missing-tenant": 42,
+    "mutant-rc-for-rr": 42,
+    "mutant-stale-write": 42,
+    "control-sql-error": 43,
+    "all_other_commands": 0,
+    "all_outcomes": "normal_exit"
+  },
+  "limitations": [
+    "One bounded execution of this exact source, image, platform and 36+2-row fixture",
+    "Index choice, skip scan, cost and timing are observations, not invariants across data distributions or versions",
+    "No performance ranking or production capacity conclusions",
+    "No replica, failover, crash recovery, DDL or complete isolation-level coverage",
+    "No claim that source-reviewed InnoDB internal functions were traced or executed by this harness",
+    "This audit approves the execution evidence only; it does not approve merging, article/site publication or award D14 points",
+    "SourceZIP and CI evidence ZIP have distinct identities; SourceZIP was not audited here",
+    "GitHub artifact expires; public references require authorized durable preservation of verified evidence"
+  ],
+  "review": {
+    "decision": "APPROVE_EXECUTION_EVIDENCE",
+    "checks_passed": 191,
+    "checks_total": 191,
+    "local_database_rerun": false,
+    "article_publication_authorized": false,
+    "site_publication_authorized": false,
+    "data14_points_awarded": false
+  }
+}

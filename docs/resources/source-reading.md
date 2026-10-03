@@ -22,6 +22,7 @@ search: false
 - [BeanDefinition 从哪里来：定位、解析、注册与实例化的边界](/knowledge/frameworks/spring-container/bean-definition-registration.html)：跟随一个 XML 输入跨过 Spring 6.2.19 的真实类型分派，观察定义表、别名表与实例缓存如何变化，再连接注解和 Boot 入口。
 - [请求完成链：MVC 在哪里选择处理器、转换异常和提交响应](/knowledge/frameworks/spring-mvc/request-pipeline.html)：用真实回环 HTTP 请求追踪 Filter、DispatcherServlet、参数校验、异常解析与响应提交，分清 HTTP 结果和业务副作用。
 - [Spring 事务调用链：从代理入口到数据库连接](/knowledge/frameworks/spring-transactions/proxy-call-chain.html)：用十个可运行场景追踪自调用、线程绑定连接、rollback-only 和事务传播，解释异常与最终数据为什么会不一致。
+- [租约过期以后：旧持有者为什么仍需 fencing](/knowledge/distributed/coordination/lease-fencing.html)：用暂停后恢复的两个工作者解释租约与资源端栅栏，追踪单调 token、同租约多操作、重放去重和水位恢复的边界
 
 ## 一次阅读要留下什么
 

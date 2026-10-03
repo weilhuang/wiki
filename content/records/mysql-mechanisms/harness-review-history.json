@@ -1,0 +1,53 @@
+{
+  "mysqlExecution": "NOT_RUN",
+  "revisions": [
+    {
+      "revision": "D-harness-r1",
+      "independentDecision": "HOLD",
+      "sourceManifestSha256": "b5d48a16eefa9c122e6ba374fe38ec204d8efb7f55aa892bdabc1d13b12209c6",
+      "findings": [
+        "祖先路径及目标边界不足",
+        "不完整证据可伪PASS",
+        "部分构造和close异常漏清理",
+        "总超时预算不足",
+        "命令归因和版本错误分类不全"
+      ],
+      "limits": "独立纯Python控制流检查，不是数据库执行"
+    },
+    {
+      "revision": "D-harness-r2",
+      "independentDecision": "HOLD",
+      "sourceManifestSha256": "6faff00e292dfb837ed30516a27a400d9a7c0c814cda84b3d5424c99bcbe3350",
+      "findings": [
+        "原r1全部已知对抗项关闭",
+        "新增空业务trace伪PASS",
+        "失败诊断日志与事件门控不足",
+        "校验后symlink替换窗口",
+        "新增manifest遗漏于总预算"
+      ],
+      "limits": "独立纯Python控制流检查，不是数据库执行"
+    },
+    {
+      "revision": "D-harness-r3",
+      "independentDecision": "HOLD",
+      "sourceManifestSha256": "fcd6ec40613ec74b46bea28384826666e47f76cea62ae69c4157fe3ae668b366",
+      "authorCheck": "static parse and 10 finite stdlib control-flow regressions passed",
+      "limits": "尚未独审通过，尚未启动真实MySQL",
+      "findings": [
+        "原已知旁路关闭且完整正向模式可接纳",
+        "仍可删除事务开始/隔离帧",
+        "仍可前置连接close",
+        "FIFO在类型核对前等待"
+      ]
+    },
+    {
+      "revision": "D-harness-r4",
+      "independentDecision": "APPROVE",
+      "sourceManifestSha256": "e787bedb50929fd0a05c11c7c52ec643896a271129da27c3cfe3bc2ca8460e0f",
+      "authorCheck": "static parse and 11 finite stdlib control-flow regressions; 17 complete-protocol validator controls",
+      "limits": "仅17个精确源码/新workflow原字节与一次有限标准公共runner尝试获准；MySQL仍NOT_RUN，正文/14点/发布未批准",
+      "independentControlChecks": 62,
+      "reviewDecisionSha256": "51b80b14c42490feac48ab5e727c3b382b385dcf44092fa9b6826fe388c8c46c"
+    }
+  ]
+}

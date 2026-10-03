@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "status": "AUTHOR_CHECKED_SOURCE_BINDING",
+  "independently_reviewed": false,
+  "revision": "D-content-r3",
+  "archive": {
+    "url": "/examples/mysql-mechanisms-lab.zip",
+    "sha256": "3af92ecbaadbd5a1db4a22612d92e5b21a7cc63bb6d91a085e899fb474d11f1e",
+    "bytes": 34511,
+    "members": 16
+  },
+  "harness_revision": "D-harness-r4",
+  "source_manifest_sha256": "e787bedb50929fd0a05c11c7c52ec643896a271129da27c3cfe3bc2ca8460e0f",
+  "harness_freeze_sha256": "8fcf0a393bded54c2e7b1dfa071c267d86db3b4d56a1463cd5df89d09a997b54",
+  "run": {
+    "url": "https://github.com/weilhuang/wiki/actions/runs/37102894207",
+    "id": 37102894207,
+    "attempt": 1,
+    "event": "pull_request",
+    "pr_url": "https://github.com/weilhuang/wiki/pull/9",
+    "pr_draft_at_audit": true,
+    "repository": "weilhuang/wiki",
+    "head_sha": "8d741c9cdb9f0dde4a37ba6468119bc79ac63687",
+    "base_sha": "6ed477b626238d88fed5af1a652bdd777377d67b",
+    "checkout_sha": "44a2821a2782057b039e5511dd84f092c745be2c",
+    "tree_sha": "ee1cb9687e005f04b78aac5e983476056fbc6dbe",
+    "started_at": "2026-10-03T06:23:30Z",
+    "last_updated_at": "2026-10-03T06:24:06Z",
+    "job_completed_at": "2026-10-03T06:24:05Z"
+  },
+  "public_execution_summary": {
+    "url": "/examples/mysql-mechanisms-verification.json",
+    "sha256": "9615e4a07bcef625efdeb0dd14c2d8dfa8601a5dc3d010185d5aa00c7c03a903"
+  },
+  "audited_remote_source_binding_sha256": "920cd626923d5a870c7e187e8e3a31435a9b67f64cc4534d02900ce01b1dacea",
+  "members": [
+    {
+      "zip_member": "mysql-mechanisms-lab/LICENSE",
+      "source_path": "labs/mysql-mechanisms-lab/LICENSE",
+      "bytes": 1087,
+      "sha256": "173879800c133ee3f54f704c759deb2a4b8ea329a31f2cc966019aace13cdd5a",
+      "git_blob_sha1": "ef528da69d40ccf9e622feaf701382ea1501b045"
+    },
+    {
+      "zip_member": "mysql-mechanisms-lab/README.md",
+      "source_path": "labs/mysql-mechanisms-lab/README.md",
+      "bytes": 6903,
+      "sha256": "08c6862cda196281f19f55bc69f1201e9a4fab6cf2f5a262da6b982db0b187a9",
+      "git_blob_sha1": "28a066bcf8903e6a787c9b6f37b6b1d0c242ea9b"
+    },
+    {
+      "zip_member": "mysql-mechanisms-lab/cases.py",
+      "source_path": "labs/mysql-mechanisms-lab/cases.py",
+      "bytes": 12374,
+      "sha256": "6f88c2f2d5af59db6c2818f75a8875e97fe7c341078e3b2aaf2ad2f5be9d94df",
+      "git_blob_sha1": "dc8e40754da0c0755c5f5868f32ab50e20b451df"
+    },
+    {
+      "zip_member": "mysql-mechanisms-lab/check_static.py",
+      "source_path": "labs/mysql-mechanisms-lab/check_static.py",
+      "bytes": 1820,
+      "sha256": "042ae48d240617665e156efdeb64062067e45a43bbcbcc51a4396caa48402e82",
+      "git_blob_sha1": "cc834d72d474c069e36a88c4b5b3e6b33739eee6"
+    },
+    {
+      "zip_member": "mysql-mechanisms-lab/collect.py",
+      "source_path": "labs/mysql-mechanisms-lab/collect.py",
+      "bytes": 11740,
+      "sha256": "a78106d82f49e5a0895576a04e7fc2c5bab2e9031702caa0c600e4d750796199",
+      "git_blob_sha1": "acc6fb7340134bef3042d918f7e0fccca55d3ebc"
+    },
+    {
+      "zip_member": "mysql-mechanisms-lab/compose.yaml",
+      "source_path": "labs/mysql-mechanisms-lab/compose.yaml",
+      "bytes": 871,
+      "sha256": "8debf4268b32231e53b89c0e419e52a7ecc2dfe361e989f979c02ecfc9eac61b",
+      "git_blob_sha1": "367a80221dd9475026c4867799f0aedc40f9de2a"
+    },
+    {
+      "zip_member": "mysql-mechanisms-lab/driver.py",
+      "source_path": "labs/mysql-mechanisms-lab/driver.py",
+      "bytes": 5701,
+      "sha256": "bd0f1de09bb6341cc414621132873046e0c7bc940a54c63ec919238523901a73",
+      "git_blob_sha1": "f17782ddb64cf662eb2643e74ac6f9dbeaf23068"
+    },
+    {
+      "zip_member": "mysql-mechanisms-lab/protocol_contract.py",
+      "source_path": "labs/mysql-mechanisms-lab/protocol_contract.py",
+      "bytes": 8088,
+      "sha256": "8af393a9c3936281c4ab9a825adaa079f2adb940ef521ebf29e45eee26dab737",
+      "git_blob_sha1": "6b3917d3a399583c8ccf42a7b60cf2386eb3271c"
+    },
+    {
+      "zip_member": "mysql-mechanisms-lab/run.py",
+      "source_path": "labs/mysql-mechanisms-lab/run.py",
+      "bytes": 10206,
+      "sha256": "e9b785f5c790a761541768a6d84c6e645de742c1b281a95c062baa3f39c1af31",
+      "git_blob_sha1": "5c900deb617772fbce505cb41ffc54303acfafe9"
+    },
+    {
+      "zip_member": "mysql-mechanisms-lab/safety.py",
+      "source_path": "labs/mysql-mechanisms-lab/safety.py",
+      "bytes": 14194,
+      "sha256": "3a9be4a7afa68ea967e7965f6ecdf2a0bc870a55801a6ec1f4e4750bee3aab4b",
+      "git_blob_sha1": "0600aee646d23a9dd0feccaa33831e30db8f60cd"
+    },
+    {
+      "zip_member": "mysql-mechanisms-lab/source-manifest.json",
+      "source_path": "labs/mysql-mechanisms-lab/source-manifest.json",
+      "bytes": 1987,
+      "sha256": "e787bedb50929fd0a05c11c7c52ec643896a271129da27c3cfe3bc2ca8460e0f",
+      "git_blob_sha1": "ced4c14ff017d66aec228673c07a6f719c4b1f3d"
+    },
+    {
+      "zip_member": "mysql-mechanisms-lab/sql/access_paths.sql",
+      "source_path": "labs/mysql-mechanisms-lab/sql/access_paths.sql",
+      "bytes": 461,
+      "sha256": "900069beefc88f3f1752347cee6560086bd783ce0038c524e6a404f7d5d393f9",
+      "git_blob_sha1": "3cfa8d8637f4db54fdd377f63d822df43d18fe8a"
+    },
+    {
+      "zip_member": "mysql-mechanisms-lab/sql/current_write.sql",
+      "source_path": "labs/mysql-mechanisms-lab/sql/current_write.sql",
+      "bytes": 101,
+      "sha256": "6754a74c6f6a93770800111b2810d78d0330a9fbbdbe1ae10c88e68d0bc14505",
+      "git_blob_sha1": "fea9693678a9cbf877126d757a188282fe2e7d44"
+    },
+    {
+      "zip_member": "mysql-mechanisms-lab/sql/schema.sql",
+      "source_path": "labs/mysql-mechanisms-lab/sql/schema.sql",
+      "bytes": 455,
+      "sha256": "8054a993332832aaa5e8a03d0892c0d5a2a9968a4d26903ecab0eb38b606a733",
+      "git_blob_sha1": "febfd8710abea05902f9ab34c5f274cb54c92695"
+    },
+    {
+      "zip_member": "mysql-mechanisms-lab/test_safety.py",
+      "source_path": "labs/mysql-mechanisms-lab/test_safety.py",
+      "bytes": 5739,
+      "sha256": "ad1bd5f9e605fa1b06338c736a152e5c57725d8d9d555d4a2be50f9155c827f4",
+      "git_blob_sha1": "6ba65e3e8bc4acbc328cea079204b79fdce053a4"
+    },
+    {
+      "zip_member": "mysql-mechanisms-lab/trace_contract.py",
+      "source_path": "labs/mysql-mechanisms-lab/trace_contract.py",
+      "bytes": 6741,
+      "sha256": "b1c4233f43dceb9ce03ffd0251ce9376e4062ff7b506b49f961a23e5bc9f89cf",
+      "git_blob_sha1": "969dbb7574288cfffa0070a56f202391c2886c5e"
+    }
+  ],
+  "scope": [
+    "Every ZIP member read, CRC checked, unique regular relative path; no extra members",
+    "All 16 member byte sequences equal frozen harness-r4 and this package source tree",
+    "Each member SHA256 and Git blob SHA1 matches the independently audited remote source tree",
+    "Original ZIP bytes retained; no evidence logs, Docker images, dependencies or binaries"
+  ],
+  "limitations": [
+    "This author archive check is distinct from the independent real CI audit, which did not inspect the source ZIP",
+    "The frozen README and source-manifest NOT_RUN status describe the pre-execution snapshot; current execution status is in the separately bound public summary",
+    "The CI evidence ZIP has SHA256 6b2ce2dc761d863e7f30675c4a1c397e806e993f9ed04c7a6d0b682cf5d22ffa and is not this source archive",
+    "No database or services were started for this archive binding"
+  ]
+}

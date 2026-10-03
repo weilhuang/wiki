@@ -53,9 +53,11 @@ search: false
 
 先定义确认含义，再比较队列、日志与消费模型。
 
-本分类正文仍在规划，当前不提供空文章链接。
+[分类导读](/knowledge/distributed/messaging/)
 
-后续范围：Kafka、RocketMQ、RabbitMQ、顺序、重试死信。
+- [确认了什么：投递、重投、顺序与消费提交](/knowledge/distributed/messaging/delivery-ack-boundaries.html)：沿一条订单事件区分生产确认、broker 保存、消费者收到与业务提交，再推导丢确认、毒消息和按键顺序的恢复选择
+
+后续范围：真实 broker 实验、分区重平衡、跨副本故障恢复、RocketMQ。
 
 ### 消息恢复与运维
 
@@ -69,9 +71,11 @@ search: false
 
 把故障模型、时钟假设和所有权有效期写清。
 
-本分类正文仍在规划，当前不提供空文章链接。
+[分类导读](/knowledge/distributed/coordination/)
 
-后续范围：Raft、quorum、租约、fencing、分布式锁。
+- [租约过期以后：旧持有者为什么仍需 fencing](/knowledge/distributed/coordination/lease-fencing.html)：用暂停后恢复的两个工作者解释租约与资源端栅栏，追踪单调 token、同租约多操作、重放去重和水位恢复的边界
+
+后续范围：Raft、quorum、选主、真实协调服务与故障恢复。
 
 ### 跨边界数据协作
 
@@ -91,4 +95,4 @@ search: false
 
 ## 如何与其他领域连接
 
-[幂等](/knowledge/distributed/reliable-interactions/idempotency.html)把重复尝试接回一份本地裁决；[Outbox](/knowledge/distributed/events/transactional-outbox.html)把提交后的责任交给另一参与者。是否值得引入这条边界，应回到[架构领域](/knowledge/architecture/)的约束与替代方案。
+[幂等](/knowledge/distributed/reliable-interactions/idempotency.html)把重复尝试接回本地裁决，[Outbox](/knowledge/distributed/events/transactional-outbox.html)保存待交接责任。[确认边界](/knowledge/distributed/messaging/delivery-ack-boundaries.html)继续区分保存、投递与消费提交；[租约与fencing](/knowledge/distributed/coordination/lease-fencing.html)解释接管之后旧工作如何被资源拒绝。目标对象还需经过[主体与租户授权](/knowledge/security/authorization/object-tenant-authorization.html)。

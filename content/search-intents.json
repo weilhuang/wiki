@@ -163,5 +163,70 @@
     "query": "OnBean能看到后来注册的Bean吗",
     "topic": "frameworks.boot-conditions",
     "anchor": "phases"
+  },
+  {
+    "query": "联合索引最左匹配以后范围列失效吗",
+    "topic": "data.index-access-paths",
+    "anchor": "range-and-filter"
+  },
+  {
+    "query": "EXPLAIN有索引为什么还慢",
+    "topic": "data.index-access-paths",
+    "anchor": "read-plan"
+  },
+  {
+    "query": "FORCE INDEX能证明优化器选择吗",
+    "topic": "data.index-access-paths",
+    "anchor": "optimizer-choice"
+  },
+  {
+    "query": "BEGIN就创建快照吗",
+    "topic": "data.mvcc-read-views",
+    "anchor": "first-consistent-read"
+  },
+  {
+    "query": "FOR UPDATE以后快照会更新吗",
+    "topic": "data.mvcc-read-views",
+    "anchor": "locking-read"
+  },
+  {
+    "query": "RR为什么能读到自己刚写的值",
+    "topic": "data.mvcc-read-views",
+    "anchor": "own-writes"
+  },
+  {
+    "query": "消息确认了为什么没消费",
+    "topic": "distributed.delivery-ack-boundaries",
+    "anchor": "boundaries"
+  },
+  {
+    "query": "消费成功后又收到同一消息",
+    "topic": "distributed.delivery-ack-boundaries",
+    "anchor": "commit-window"
+  },
+  {
+    "query": "毒消息跳过后顺序怎么办",
+    "topic": "distributed.delivery-ack-boundaries",
+    "anchor": "poison"
+  },
+  {
+    "query": "Kafka异步处理offset提交",
+    "topic": "distributed.delivery-ack-boundaries",
+    "anchor": "commit-window"
+  },
+  {
+    "query": "分布式锁过期后旧线程还在写",
+    "topic": "distributed.lease-fencing",
+    "anchor": "lease-gap"
+  },
+  {
+    "query": "同一个fencing token重试",
+    "topic": "distributed.lease-fencing",
+    "anchor": "receiver"
+  },
+  {
+    "query": "接收端重启丢失watermark",
+    "topic": "distributed.lease-fencing",
+    "anchor": "scope-recovery"
   }
 ]

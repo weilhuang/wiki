@@ -1,0 +1,119 @@
+{
+  "status": "pass",
+  "articles": [
+    {
+      "path": "docs/knowledge/distributed/messaging/delivery-ack-boundaries.md",
+      "sha256": "5662f18e7ca7328c3a18ab9f57edb10ff3e9db4bb3ef8c5319f7e7685004e6a2",
+      "id": "distributed.delivery-ack-boundaries"
+    },
+    {
+      "path": "docs/knowledge/distributed/coordination/lease-fencing.md",
+      "sha256": "978d0f2f73cc88fbe5a5587433352c6099d017798a7f9e661362b5da2769b829",
+      "id": "distributed.lease-fencing"
+    }
+  ],
+  "snippets": [
+    {
+      "id": "messaging.delivery-walk",
+      "sourceSha256": "58ce0e555a04003abc7532a235876c5a80fcb36cf5728e7beb7b3bdd62cdb60e",
+      "steps": [
+        [
+          3,
+          9
+        ],
+        [
+          11,
+          16
+        ],
+        [
+          17,
+          23
+        ]
+      ]
+    },
+    {
+      "id": "messaging.fencing-walk",
+      "sourceSha256": "f0dd5b9f9e466f1c78c77031537c4bd13e310c10c0509d4b1c9623fcf1bb8ded",
+      "steps": [
+        [
+          3,
+          7
+        ],
+        [
+          9,
+          12
+        ],
+        [
+          13,
+          22
+        ]
+      ]
+    }
+  ],
+  "diagrams": [
+    {
+      "doc": "docs/knowledge/distributed/messaging/delivery-ack-boundaries.md",
+      "type": "sequence",
+      "sha256": "075bfc13f35e3071996b67b0304a33627f22a65290bc1b0b872930ce952be74e"
+    },
+    {
+      "doc": "docs/knowledge/distributed/messaging/delivery-ack-boundaries.md",
+      "type": "flowchart-v2",
+      "sha256": "8ad23958e74ac7ec16f8e4e1ee0c6651abc6359cd45a2fcfb8ddf27c4c6e4caa"
+    },
+    {
+      "doc": "docs/knowledge/distributed/coordination/lease-fencing.md",
+      "type": "sequence",
+      "sha256": "238a6edb72e28c69b8c287723bd4a4b99399a8d92f4e6f2dbcec1dddcb356c05"
+    }
+  ],
+  "links": [
+    {
+      "doc": "docs/knowledge/distributed/messaging/delivery-ack-boundaries.md",
+      "href": "/knowledge/distributed/events/transactional-outbox.html"
+    },
+    {
+      "doc": "docs/knowledge/distributed/messaging/delivery-ack-boundaries.md",
+      "href": "../coordination/lease-fencing.md"
+    },
+    {
+      "doc": "docs/knowledge/distributed/messaging/delivery-ack-boundaries.md",
+      "href": "/knowledge/security/authorization/object-tenant-authorization.html"
+    },
+    {
+      "doc": "docs/knowledge/distributed/messaging/delivery-ack-boundaries.md",
+      "href": "/examples/messaging-coordination-lab.zip"
+    },
+    {
+      "doc": "docs/knowledge/distributed/messaging/delivery-ack-boundaries.md",
+      "href": "/examples/messaging-coordination-results.json"
+    },
+    {
+      "doc": "docs/knowledge/distributed/coordination/lease-fencing.md",
+      "href": "/knowledge/go/concurrency/context-cancellation.html"
+    },
+    {
+      "doc": "docs/knowledge/distributed/coordination/lease-fencing.md",
+      "href": "/knowledge/security/authorization/object-tenant-authorization.html"
+    },
+    {
+      "doc": "docs/knowledge/distributed/coordination/lease-fencing.md",
+      "href": "/knowledge/distributed/reliable-interactions/idempotency.html"
+    },
+    {
+      "doc": "docs/knowledge/distributed/coordination/lease-fencing.md",
+      "href": "/examples/messaging-coordination-lab.zip"
+    },
+    {
+      "doc": "docs/knowledge/distributed/coordination/lease-fencing.md",
+      "href": "/examples/messaging-coordination-results.json"
+    }
+  ],
+  "limitations": [
+    "Static parse/byte checks only; full VitePress build and browser acceptance belong to integration"
+  ],
+  "publicPathScan": {
+    "status": "pass",
+    "textFilesScanned": 18
+  }
+}

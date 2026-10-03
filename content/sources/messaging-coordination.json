@@ -1,0 +1,132 @@
+[
+  {
+    "id": "messaging.rabbit-confirms41",
+    "title": "RabbitMQ Consumer Acknowledgements and Publisher Confirms",
+    "url": "https://www.rabbitmq.com/docs/4.1/confirms",
+    "type": "documentation",
+    "version": "RabbitMQ 4.1 versioned online documentation",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "确认方向、unroutable/mandatory return、确认保存条件、delivery tag作用域、连接关闭重投；在线页可维护，未宣称不可变快照或实测"
+  },
+  {
+    "id": "messaging.rabbit-queues41",
+    "title": "RabbitMQ Queues",
+    "url": "https://www.rabbitmq.com/docs/4.1/queues",
+    "type": "documentation",
+    "version": "RabbitMQ 4.1 versioned online documentation",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "单channel发布、初次投递、竞争消费者/重投/优先级下的顺序；durable与persistent的区别"
+  },
+  {
+    "id": "messaging.rabbit-quorum41",
+    "title": "RabbitMQ Quorum Queues",
+    "url": "https://www.rabbitmq.com/docs/4.1/quorum-queues",
+    "type": "documentation",
+    "version": "RabbitMQ 4.1 versioned online documentation",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "Poison Message Handling与可选dead-lettering的不同保证；页面含后续维护补充，正文不采用4.3特有变更"
+  },
+  {
+    "id": "messaging.rabbit-dlx41",
+    "title": "RabbitMQ Dead Letter Exchanges",
+    "url": "https://www.rabbitmq.com/docs/4.1/dlx",
+    "type": "documentation",
+    "version": "RabbitMQ 4.1 versioned online documentation",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "Safety：转发也可失败，默认内部发布与quorum可选at-least-once不同"
+  },
+  {
+    "id": "messaging.kafka-producer40",
+    "title": "Kafka Producer Configs",
+    "url": "https://kafka.apache.org/40/configuration/producer-configs/",
+    "type": "documentation",
+    "version": "Kafka 4.0 documentation",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "acks、enable.idempotence、partitioner.class/ignore.keys；不将producer幂等当业务端到端恰好一次"
+  },
+  {
+    "id": "messaging.kafka-topics40",
+    "title": "Kafka Topic-Level Configs",
+    "url": "https://kafka.apache.org/40/configuration/topic-level-configs/",
+    "type": "documentation",
+    "version": "Kafka 4.0 documentation",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "min.insync.replicas与acks=all、flush.messages/ms区别；没有将ISR确认等同逐条fsync"
+  },
+  {
+    "id": "messaging.kafka-consumer402",
+    "title": "KafkaConsumer API",
+    "url": "https://kafka.apache.org/40/javadoc/org/apache/kafka/clients/consumer/KafkaConsumer.html",
+    "type": "api",
+    "version": "Kafka 4.0.2 API (page title)",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "position与committed position、下一条读取位置、手动提交与异步处理边界；本文offset空洞例为原创应用推理"
+  },
+  {
+    "id": "messaging.kafka-producer-source402",
+    "title": "KafkaProducer.java at tag 4.0.2",
+    "url": "https://github.com/apache/kafka/blob/4.0.2/clients/src/main/java/org/apache/kafka/clients/producer/KafkaProducer.java",
+    "type": "source",
+    "version": "Apache Kafka tag 4.0.2",
+    "accessedAt": "2026-10-03",
+    "license": "Apache-2.0",
+    "notes": "通过官方仓库raw入口实查L155-L179附近：producer协议重试与应用重新send、会话范围、事务能力。只叙述，不复制上游代码"
+  },
+  {
+    "id": "messaging.kafka-design40",
+    "title": "Kafka Design: Message Delivery Semantics",
+    "url": "https://kafka.apache.org/40/design/design/",
+    "type": "documentation",
+    "version": "Kafka 4.0 documentation",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "Kafka输出topic+消费offset事务与外部系统合作边界；不将Kafka事务扩大到SQL/外部API"
+  },
+  {
+    "id": "coordination.etcd-api36",
+    "title": "etcd v3 API Reference",
+    "url": "https://etcd.io/docs/v3.6/dev-guide/api_reference_v3/",
+    "type": "api",
+    "version": "etcd v3.6 versioned documentation",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "LeaseGrant/KeepAlive到期删除关联key、CreateRevision、Txn比较；正文grant真实性为模型前提"
+  },
+  {
+    "id": "coordination.etcd-guarantees36",
+    "title": "etcd API Guarantees",
+    "url": "https://etcd.io/docs/v3.6/learning/api_guarantees/",
+    "type": "documentation",
+    "version": "etcd v3.6 versioned documentation",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "Lease APIs、operation completed与未知结果、递增Revision、同事务共享revision；不声称外部资源自动受etcd事务保护"
+  },
+  {
+    "id": "coordination.etcd-mutex360",
+    "title": "etcd concurrency mutex.go",
+    "url": "https://github.com/etcd-io/etcd/blob/v3.6.0/client/v3/concurrency/mutex.go",
+    "type": "source",
+    "version": "etcd tag v3.6.0",
+    "accessedAt": "2026-10-03",
+    "license": "Apache-2.0",
+    "notes": "经raw官方仓库实查Lock、tryAcquire、IsOwner（约L68-L150）：lease绑定key、创建revision排序、session key重用、比较条件。无上游代码摘录"
+  },
+  {
+    "id": "coordination.etcd-session360",
+    "title": "etcd concurrency session.go",
+    "url": "https://github.com/etcd-io/etcd/blob/v3.6.0/client/v3/concurrency/session.go",
+    "type": "source",
+    "version": "etcd tag v3.6.0",
+    "accessedAt": "2026-10-03",
+    "license": "Apache-2.0",
+    "notes": "经raw官方仓库实查NewSession保活循环与Ctx/Done信号；没有把本地终止信号等同外部写取消。无上游代码摘录"
+  }
+]

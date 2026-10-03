@@ -1,0 +1,168 @@
+[
+  {
+    "id": "mysql84.multiple-index",
+    "title": "MySQL 8.4 Reference Manual: Multiple-Column Indexes",
+    "url": "https://dev.mysql.com/doc/refman/8.4/en/multiple-column-indexes.html",
+    "type": "documentation",
+    "version": "MySQL 8.4 系列手册（滚动维护；非8.4.7字节快照）",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "左前缀与元组顺序；教学36行示例为原创",
+    "reviewMethod": "实际web.open/find核对；语义参考，不复制上游文章或代码"
+  },
+  {
+    "id": "mysql84.range",
+    "title": "MySQL 8.4 Reference Manual: Range Optimization",
+    "url": "https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html",
+    "type": "documentation",
+    "version": "MySQL 8.4 系列手册（滚动维护；非8.4.7字节快照）",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "多列范围构造、残余条件、skip scan限制、FORCE INDEX与估计",
+    "reviewMethod": "实际web.open/find核对；语义参考，不复制上游文章或代码"
+  },
+  {
+    "id": "mysql84.index-types",
+    "title": "MySQL 8.4 Reference Manual: Clustered and Secondary Indexes",
+    "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-index-types.html",
+    "type": "documentation",
+    "version": "MySQL 8.4 系列手册（滚动维护；非8.4.7字节快照）",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "聚簇行与二级索引包含主键的结构",
+    "reviewMethod": "实际web.open/find核对；语义参考，不复制上游文章或代码"
+  },
+  {
+    "id": "mysql84.icp",
+    "title": "MySQL 8.4 Reference Manual: Index Condition Pushdown Optimization",
+    "url": "https://dev.mysql.com/doc/refman/8.4/en/index-condition-pushdown-optimization.html",
+    "type": "documentation",
+    "version": "MySQL 8.4 系列手册（滚动维护；非8.4.7字节快照）",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "ICP适用访问方法和二级索引、完整行读取之前的过滤",
+    "reviewMethod": "实际web.open/find核对；语义参考，不复制上游文章或代码"
+  },
+  {
+    "id": "mysql84.order-by",
+    "title": "MySQL 8.4 Reference Manual: ORDER BY Optimization",
+    "url": "https://dev.mysql.com/doc/refman/8.4/en/order-by-optimization.html",
+    "type": "documentation",
+    "version": "MySQL 8.4 系列手册（滚动维护；非8.4.7字节快照）",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "常量前缀、跨段顺序、成本与filesort边界",
+    "reviewMethod": "实际web.open/find核对；语义参考，不复制上游文章或代码"
+  },
+  {
+    "id": "mysql84.explain",
+    "title": "MySQL 8.4 Reference Manual: EXPLAIN Statement",
+    "url": "https://dev.mysql.com/doc/refman/8.4/en/explain.html",
+    "type": "documentation",
+    "version": "MySQL 8.4 系列手册（滚动维护；非8.4.7字节快照）",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "EXPLAIN ANALYZE实际运行、迭代器计数及计时范围",
+    "reviewMethod": "实际web.open/find核对；语义参考，不复制上游文章或代码"
+  },
+  {
+    "id": "mysql84.explain-output",
+    "title": "MySQL 8.4 Reference Manual: EXPLAIN Output Format",
+    "url": "https://dev.mysql.com/doc/refman/8.4/en/explain-output.html",
+    "type": "documentation",
+    "version": "MySQL 8.4 系列手册（滚动维护；非8.4.7字节快照）",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "access_type/key/key_len/rows/filtered与Extra的解释边界",
+    "reviewMethod": "实际web.open/find核对；语义参考，不复制上游文章或代码"
+  },
+  {
+    "id": "mysql84.statistics",
+    "title": "MySQL 8.4 Reference Manual: Persistent Optimizer Statistics",
+    "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-persistent-stats.html",
+    "type": "documentation",
+    "version": "MySQL 8.4 系列手册（滚动维护；非8.4.7字节快照）",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "ANALYZE和持久统计仍为估计，非计划固定保证",
+    "reviewMethod": "实际web.open/find核对；语义参考，不复制上游文章或代码"
+  },
+  {
+    "id": "mysql84.multi-versioning",
+    "title": "MySQL 8.4 Reference Manual: InnoDB Multi-Versioning",
+    "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-multi-versioning.html",
+    "type": "documentation",
+    "version": "MySQL 8.4 系列手册（滚动维护；非8.4.7字节快照）",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "事务ID与undo、purge、二级索引可见性对覆盖的限制",
+    "reviewMethod": "实际web.open/find核对；语义参考，不复制上游文章或代码"
+  },
+  {
+    "id": "mysql84.consistent-read",
+    "title": "MySQL 8.4 Reference Manual: Consistent Nonlocking Reads",
+    "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-consistent-read.html",
+    "type": "documentation",
+    "version": "MySQL 8.4 系列手册（滚动维护；非8.4.7字节快照）",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "RR首次一致性读、RC语句视图、自己的修改与非历史组合",
+    "reviewMethod": "实际web.open/find核对；语义参考，不复制上游文章或代码"
+  },
+  {
+    "id": "mysql84.locking-read",
+    "title": "MySQL 8.4 Reference Manual: Locking Reads",
+    "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-locking-reads.html",
+    "type": "documentation",
+    "version": "MySQL 8.4 系列手册（滚动维护；非8.4.7字节快照）",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "FOR UPDATE当前可锁记录、旧版本不可锁、事务锁释放",
+    "reviewMethod": "实际web.open/find核对；语义参考，不复制上游文章或代码"
+  },
+  {
+    "id": "mysql84.isolation",
+    "title": "MySQL 8.4 Reference Manual: Transaction Isolation Levels",
+    "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-transaction-isolation-levels.html",
+    "type": "documentation",
+    "version": "MySQL 8.4 系列手册（滚动维护；非8.4.7字节快照）",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "RR/RC读取规则、UPDATE半一致性及锁范围的限制",
+    "reviewMethod": "实际web.open/find核对；语义参考，不复制上游文章或代码"
+  },
+  {
+    "id": "mysql84.commit",
+    "title": "MySQL 8.4 Reference Manual: START TRANSACTION, COMMIT, and ROLLBACK",
+    "url": "https://dev.mysql.com/doc/refman/8.4/en/commit.html",
+    "type": "documentation",
+    "version": "MySQL 8.4 系列手册（滚动维护；非8.4.7字节快照）",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "WITH CONSISTENT SNAPSHOT不改变隔离级别以及事务边界",
+    "reviewMethod": "实际web.open/find核对；语义参考，不复制上游文章或代码"
+  },
+  {
+    "id": "mysql847.read-view",
+    "title": "MySQL mysql-8.4.7: ReadView and changes_visible",
+    "url": "https://github.com/mysql/mysql-server/blob/mysql-8.4.7/storage/innobase/include/read0types.h",
+    "type": "source",
+    "version": "mysql-8.4.7 tag",
+    "accessedAt": "2026-10-03",
+    "license": "上游MySQL GPL许可与附加声明；未复制/分发上游源码",
+    "licenseUrl": "https://github.com/mysql/mysql-server/blob/mysql-8.4.7/LICENSE",
+    "notes": "实际核对changes_visible中的创建者例外、m_up_limit_id/m_low_limit_id比较与m_ids活跃事务集合；正文仅原创中文解释，没有原源码节选，没有声称采样内部字段",
+    "reviewMethod": "web.open/find读取固定tag的官方仓库；未下载原始源码字节，不提供伪造文件SHA或行号"
+  },
+  {
+    "id": "mysql84.row-count",
+    "title": "MySQL 8.4 Reference Manual: ROW_COUNT and CONNECTION_ID",
+    "url": "https://dev.mysql.com/doc/refman/8.4/en/information-functions.html#function_row-count",
+    "type": "documentation",
+    "version": "MySQL 8.4 系列手册（滚动维护）",
+    "accessedAt": "2026-10-03",
+    "license": null,
+    "notes": "ROW_COUNT、改变行/匹配行与CLIENT_FOUND_ROWS的范围；连接ID的身份用途",
+    "reviewMethod": "实际web.open/find核对；未复制上游代码"
+  }
+]

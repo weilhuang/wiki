@@ -1,0 +1,1923 @@
+{
+  "cleanup": {
+    "servers_started": 0,
+    "subprocesses_joined": 24,
+    "temporary_resources": 0,
+    "threads_started": 0
+  },
+  "independentlyReviewed": false,
+  "limitations": [
+    "No real broker, DB, Redis, etcd, disk crash, rebalance or partition",
+    "Logical commit snapshots assume atomicity and retained bytes",
+    "Trusted identities and issuance proofs are model inputs"
+  ],
+  "model": "finite sequential logical snapshots",
+  "negative": [
+    {
+      "command": "python3 -B scenario_runner.py --scenario lost-confirm --variant no-dedup",
+      "exitCode": 1,
+      "expectation": "expected-rejection",
+      "expectedExitCode": 1,
+      "expectedReason": "DUPLICATE_MESSAGE_EFFECT",
+      "result": {
+        "code": "DUPLICATE_MESSAGE_EFFECT",
+        "error_type": "Violation",
+        "observed": {
+          "after_lost_confirm": {
+            "records": [
+              {
+                "attempts": 0,
+                "message": {
+                  "delta": 5,
+                  "event_id": "E1",
+                  "key": "shop-a/order-7",
+                  "poison": false,
+                  "sequence": null
+                },
+                "serial": 1,
+                "state": "ready"
+              }
+            ]
+          },
+          "broker": {
+            "records": [
+              {
+                "attempts": 1,
+                "message": {
+                  "delta": 5,
+                  "event_id": "E1",
+                  "key": "shop-a/order-7",
+                  "poison": false,
+                  "sequence": null
+                },
+                "serial": 1,
+                "state": "done"
+              },
+              {
+                "attempts": 1,
+                "message": {
+                  "delta": 5,
+                  "event_id": "E1",
+                  "key": "shop-a/order-7",
+                  "poison": false,
+                  "sequence": null
+                },
+                "serial": 2,
+                "state": "done"
+              }
+            ]
+          },
+          "consumer": {
+            "effects": [
+              {
+                "delta": 5,
+                "event_id": "E1",
+                "key": "shop-a/order-7",
+                "sequence": null
+              },
+              {
+                "delta": 5,
+                "event_id": "E1",
+                "key": "shop-a/order-7",
+                "sequence": null
+              }
+            ],
+            "inbox": {
+              "orders-view-v1:E1": {
+                "delta": 5,
+                "event_id": "E1",
+                "key": "shop-a/order-7",
+                "poison": false,
+                "sequence": null
+              }
+            },
+            "totals": {
+              "shop-a/order-7": 10
+            },
+            "versions": {}
+          },
+          "consumer_answers": [
+            "applied",
+            "applied"
+          ],
+          "handler_calls": 2,
+          "publisher_answers": [
+            "unknown",
+            "confirmed"
+          ],
+          "unsettled_tags": 0
+        },
+        "scenario": "lost-confirm",
+        "status": "rejected",
+        "variant": "no-dedup"
+      }
+    },
+    {
+      "command": "python3 -B scenario_runner.py --scenario commit-before-ack --variant ack-before-commit",
+      "exitCode": 1,
+      "expectation": "expected-rejection",
+      "expectedExitCode": 1,
+      "expectedReason": "BUSINESS_COMMIT_BOUNDARY",
+      "result": {
+        "code": "BUSINESS_COMMIT_BOUNDARY",
+        "error_type": "Violation",
+        "observed": {
+          "after_restart": {
+            "broker": {
+              "records": [
+                {
+                  "attempts": 1,
+                  "message": {
+                    "delta": 5,
+                    "event_id": "E1",
+                    "key": "shop-a/order-7",
+                    "poison": false,
+                    "sequence": null
+                  },
+                  "serial": 1,
+                  "state": "done"
+                }
+              ]
+            },
+            "consumer": {
+              "effects": [],
+              "inbox": {},
+              "totals": {},
+              "versions": {}
+            },
+            "handler_calls": 0,
+            "unsettled_tags": 0
+          },
+          "before_failure": {
+            "broker": {
+              "records": [
+                {
+                  "attempts": 1,
+                  "message": {
+                    "delta": 5,
+                    "event_id": "E1",
+                    "key": "shop-a/order-7",
+                    "poison": false,
+                    "sequence": null
+                  },
+                  "serial": 1,
+                  "state": "done"
+                }
+              ]
+            },
+            "consumer": {
+              "effects": [],
+              "inbox": {},
+              "totals": {},
+              "versions": {}
+            },
+            "handler_calls": 0,
+            "unsettled_tags": 0
+          },
+          "redelivery_answers": []
+        },
+        "scenario": "commit-before-ack",
+        "status": "rejected",
+        "variant": "ack-before-commit"
+      }
+    },
+    {
+      "command": "python3 -B scenario_runner.py --scenario commit-before-ack --variant effect-before-receipt",
+      "exitCode": 1,
+      "expectation": "expected-rejection",
+      "expectedExitCode": 1,
+      "expectedReason": "BUSINESS_COMMIT_BOUNDARY",
+      "result": {
+        "code": "BUSINESS_COMMIT_BOUNDARY",
+        "error_type": "Violation",
+        "observed": {
+          "after_restart": {
+            "broker": {
+              "records": [
+                {
+                  "attempts": 2,
+                  "message": {
+                    "delta": 5,
+                    "event_id": "E1",
+                    "key": "shop-a/order-7",
+                    "poison": false,
+                    "sequence": null
+                  },
+                  "serial": 1,
+                  "state": "done"
+                }
+              ]
+            },
+            "consumer": {
+              "effects": [
+                {
+                  "delta": 5,
+                  "event_id": "E1",
+                  "key": "shop-a/order-7",
+                  "sequence": null
+                },
+                {
+                  "delta": 5,
+                  "event_id": "E1",
+                  "key": "shop-a/order-7",
+                  "sequence": null
+                }
+              ],
+              "inbox": {
+                "orders-view-v1:E1": {
+                  "delta": 5,
+                  "event_id": "E1",
+                  "key": "shop-a/order-7",
+                  "poison": false,
+                  "sequence": null
+                }
+              },
+              "totals": {
+                "shop-a/order-7": 10
+              },
+              "versions": {}
+            },
+            "handler_calls": 1,
+            "unsettled_tags": 0
+          },
+          "before_failure": {
+            "broker": {
+              "records": [
+                {
+                  "attempts": 1,
+                  "message": {
+                    "delta": 5,
+                    "event_id": "E1",
+                    "key": "shop-a/order-7",
+                    "poison": false,
+                    "sequence": null
+                  },
+                  "serial": 1,
+                  "state": "unacked"
+                }
+              ]
+            },
+            "consumer": {
+              "effects": [
+                {
+                  "delta": 5,
+                  "event_id": "E1",
+                  "key": "shop-a/order-7",
+                  "sequence": null
+                }
+              ],
+              "inbox": {},
+              "totals": {
+                "shop-a/order-7": 5
+              },
+              "versions": {}
+            },
+            "handler_calls": 1,
+            "unsettled_tags": 1
+          },
+          "redelivery_answers": [
+            "applied"
+          ]
+        },
+        "scenario": "commit-before-ack",
+        "status": "rejected",
+        "variant": "effect-before-receipt"
+      }
+    },
+    {
+      "command": "python3 -B scenario_runner.py --scenario poison-and-order --variant discard-poison",
+      "exitCode": 1,
+      "expectation": "expected-rejection",
+      "expectedExitCode": 1,
+      "expectedReason": "POISON_EVIDENCE_MISSING",
+      "result": {
+        "code": "POISON_EVIDENCE_MISSING",
+        "error_type": "Violation",
+        "observed": {
+          "broker": {
+            "records": [
+              {
+                "attempts": 2,
+                "message": {
+                  "delta": 5,
+                  "event_id": "A1",
+                  "key": "A",
+                  "poison": true,
+                  "sequence": 1
+                },
+                "serial": 1,
+                "state": "done"
+              },
+              {
+                "attempts": 1,
+                "message": {
+                  "delta": 5,
+                  "event_id": "A2",
+                  "key": "A",
+                  "poison": false,
+                  "sequence": 2
+                },
+                "serial": 2,
+                "state": "ready"
+              },
+              {
+                "attempts": 1,
+                "message": {
+                  "delta": 5,
+                  "event_id": "B1",
+                  "key": "B",
+                  "poison": false,
+                  "sequence": 1
+                },
+                "serial": 3,
+                "state": "done"
+              }
+            ]
+          },
+          "consumer": {
+            "effects": [
+              {
+                "delta": 5,
+                "event_id": "B1",
+                "key": "B",
+                "sequence": 1
+              }
+            ],
+            "inbox": {
+              "orders-view-v1:B1": {
+                "delta": 5,
+                "event_id": "B1",
+                "key": "B",
+                "poison": false,
+                "sequence": 1
+              }
+            },
+            "totals": {
+              "B": 5
+            },
+            "versions": {
+              "B": 1
+            }
+          },
+          "gap_answer": "gap",
+          "handler_calls": 4,
+          "parking": {
+            "records": {}
+          },
+          "unsettled_tags": 0
+        },
+        "scenario": "poison-and-order",
+        "status": "rejected",
+        "variant": "discard-poison"
+      }
+    },
+    {
+      "command": "python3 -B scenario_runner.py --scenario poison-and-order --variant ignore-gap",
+      "exitCode": 1,
+      "expectation": "expected-rejection",
+      "expectedExitCode": 1,
+      "expectedReason": "KEY_ORDER_BROKEN",
+      "result": {
+        "code": "KEY_ORDER_BROKEN",
+        "error_type": "Violation",
+        "observed": {
+          "broker": {
+            "records": [
+              {
+                "attempts": 3,
+                "message": {
+                  "delta": 5,
+                  "event_id": "A1",
+                  "key": "A",
+                  "poison": true,
+                  "sequence": 1
+                },
+                "serial": 1,
+                "state": "done"
+              },
+              {
+                "attempts": 1,
+                "message": {
+                  "delta": 5,
+                  "event_id": "A2",
+                  "key": "A",
+                  "poison": false,
+                  "sequence": 2
+                },
+                "serial": 2,
+                "state": "done"
+              },
+              {
+                "attempts": 1,
+                "message": {
+                  "delta": 5,
+                  "event_id": "B1",
+                  "key": "B",
+                  "poison": false,
+                  "sequence": 1
+                },
+                "serial": 3,
+                "state": "done"
+              }
+            ]
+          },
+          "consumer": {
+            "effects": [
+              {
+                "delta": 5,
+                "event_id": "A2",
+                "key": "A",
+                "sequence": 2
+              },
+              {
+                "delta": 5,
+                "event_id": "B1",
+                "key": "B",
+                "sequence": 1
+              }
+            ],
+            "inbox": {
+              "orders-view-v1:A2": {
+                "delta": 5,
+                "event_id": "A2",
+                "key": "A",
+                "poison": false,
+                "sequence": 2
+              },
+              "orders-view-v1:B1": {
+                "delta": 5,
+                "event_id": "B1",
+                "key": "B",
+                "poison": false,
+                "sequence": 1
+              }
+            },
+            "totals": {
+              "A": 5,
+              "B": 5
+            },
+            "versions": {
+              "A": 2,
+              "B": 1
+            }
+          },
+          "gap_answer": "applied",
+          "handler_calls": 4,
+          "parking": {
+            "records": {
+              "A1": {
+                "attempts": 2,
+                "message": {
+                  "delta": 5,
+                  "event_id": "A1",
+                  "key": "A",
+                  "poison": true,
+                  "sequence": 1
+                },
+                "reason": "poison"
+              }
+            }
+          },
+          "unsettled_tags": 0
+        },
+        "scenario": "poison-and-order",
+        "status": "rejected",
+        "variant": "ignore-gap"
+      }
+    },
+    {
+      "command": "python3 -B scenario_runner.py --scenario fencing-takeover --variant no-fence",
+      "exitCode": 1,
+      "expectation": "expected-rejection",
+      "expectedExitCode": 1,
+      "expectedReason": "STALE_HOLDER_EFFECT",
+      "result": {
+        "code": "STALE_HOLDER_EFFECT",
+        "error_type": "Violation",
+        "observed": {
+          "local_check_before_pause": true,
+          "new_answer": {
+            "status": "applied",
+            "value": 10
+          },
+          "old_answer": {
+            "status": "applied",
+            "value": 109
+          },
+          "old_valid_now": false,
+          "resource": {
+            "effects": [
+              {
+                "delta": 10,
+                "key": "shop-a/order-7:g1",
+                "operation": "new-write",
+                "token": 2
+              },
+              {
+                "delta": 99,
+                "key": "shop-a/order-7:g1",
+                "operation": "late-write",
+                "token": 1
+              }
+            ],
+            "epoch": 1,
+            "operations": {
+              "shop-a/order-7:g1:late-write": {
+                "fingerprint": {
+                  "delta": 99,
+                  "key": "shop-a/order-7:g1"
+                },
+                "value": 109
+              },
+              "shop-a/order-7:g1:new-write": {
+                "fingerprint": {
+                  "delta": 10,
+                  "key": "shop-a/order-7:g1"
+                },
+                "value": 10
+              }
+            },
+            "values": {
+              "shop-a/order-7:g1": 109
+            },
+            "watermarks": {
+              "shop-a/order-7:g1": 2
+            }
+          }
+        },
+        "scenario": "fencing-takeover",
+        "status": "rejected",
+        "variant": "no-fence"
+      }
+    },
+    {
+      "command": "python3 -B scenario_runner.py --scenario fencing-takeover --variant lie-stale",
+      "exitCode": 1,
+      "expectation": "expected-rejection",
+      "expectedExitCode": 1,
+      "expectedReason": "STALE_HOLDER_EFFECT",
+      "result": {
+        "code": "STALE_HOLDER_EFFECT",
+        "error_type": "Violation",
+        "observed": {
+          "local_check_before_pause": true,
+          "new_answer": {
+            "status": "applied",
+            "value": 10
+          },
+          "old_answer": {
+            "status": "stale"
+          },
+          "old_valid_now": false,
+          "resource": {
+            "effects": [
+              {
+                "delta": 10,
+                "key": "shop-a/order-7:g1",
+                "operation": "new-write",
+                "token": 2
+              },
+              {
+                "delta": 99,
+                "key": "shop-a/order-7:g1",
+                "operation": "late-write",
+                "token": 1
+              }
+            ],
+            "epoch": 1,
+            "operations": {
+              "shop-a/order-7:g1:late-write": {
+                "fingerprint": {
+                  "delta": 99,
+                  "key": "shop-a/order-7:g1"
+                },
+                "value": 109
+              },
+              "shop-a/order-7:g1:new-write": {
+                "fingerprint": {
+                  "delta": 10,
+                  "key": "shop-a/order-7:g1"
+                },
+                "value": 10
+              }
+            },
+            "values": {
+              "shop-a/order-7:g1": 109
+            },
+            "watermarks": {
+              "shop-a/order-7:g1": 2
+            }
+          }
+        },
+        "scenario": "fencing-takeover",
+        "status": "rejected",
+        "variant": "lie-stale"
+      }
+    },
+    {
+      "command": "python3 -B scenario_runner.py --scenario same-token --variant reject-equal",
+      "exitCode": 1,
+      "expectation": "expected-rejection",
+      "expectedExitCode": 1,
+      "expectedReason": "SAME_OPERATION_REPLAY",
+      "result": {
+        "code": "SAME_OPERATION_REPLAY",
+        "error_type": "Violation",
+        "observed": {
+          "first": {
+            "status": "applied",
+            "value": 5
+          },
+          "persisted": {
+            "effects": [
+              {
+                "delta": 5,
+                "key": "R:g1",
+                "operation": "op-1",
+                "token": 1
+              }
+            ],
+            "epoch": 1,
+            "operations": {
+              "R:g1:op-1": {
+                "fingerprint": {
+                  "delta": 5,
+                  "key": "R:g1"
+                },
+                "value": 5
+              }
+            },
+            "values": {
+              "R:g1": 5
+            },
+            "watermarks": {
+              "R:g1": 1
+            }
+          },
+          "replay": {
+            "status": "stale"
+          },
+          "resource": {
+            "effects": [
+              {
+                "delta": 5,
+                "key": "R:g1",
+                "operation": "op-1",
+                "token": 1
+              }
+            ],
+            "epoch": 1,
+            "operations": {
+              "R:g1:op-1": {
+                "fingerprint": {
+                  "delta": 5,
+                  "key": "R:g1"
+                },
+                "value": 5
+              }
+            },
+            "values": {
+              "R:g1": 5
+            },
+            "watermarks": {
+              "R:g1": 1
+            }
+          }
+        },
+        "scenario": "same-token",
+        "status": "rejected",
+        "variant": "reject-equal"
+      }
+    },
+    {
+      "command": "python3 -B scenario_runner.py --scenario same-token --variant no-operation-dedup",
+      "exitCode": 1,
+      "expectation": "expected-rejection",
+      "expectedExitCode": 1,
+      "expectedReason": "SAME_OPERATION_REPLAY",
+      "result": {
+        "code": "SAME_OPERATION_REPLAY",
+        "error_type": "Violation",
+        "observed": {
+          "first": {
+            "status": "applied",
+            "value": 5
+          },
+          "persisted": {
+            "effects": [
+              {
+                "delta": 5,
+                "key": "R:g1",
+                "operation": "op-1",
+                "token": 1
+              }
+            ],
+            "epoch": 1,
+            "operations": {
+              "R:g1:op-1": {
+                "fingerprint": {
+                  "delta": 5,
+                  "key": "R:g1"
+                },
+                "value": 5
+              }
+            },
+            "values": {
+              "R:g1": 5
+            },
+            "watermarks": {
+              "R:g1": 1
+            }
+          },
+          "replay": {
+            "status": "applied",
+            "value": 10
+          },
+          "resource": {
+            "effects": [
+              {
+                "delta": 5,
+                "key": "R:g1",
+                "operation": "op-1",
+                "token": 1
+              },
+              {
+                "delta": 5,
+                "key": "R:g1",
+                "operation": "op-1",
+                "token": 1
+              }
+            ],
+            "epoch": 1,
+            "operations": {
+              "R:g1:op-1": {
+                "fingerprint": {
+                  "delta": 5,
+                  "key": "R:g1"
+                },
+                "value": 10
+              }
+            },
+            "values": {
+              "R:g1": 10
+            },
+            "watermarks": {
+              "R:g1": 1
+            }
+          }
+        },
+        "scenario": "same-token",
+        "status": "rejected",
+        "variant": "no-operation-dedup"
+      }
+    },
+    {
+      "command": "python3 -B scenario_runner.py --scenario same-token --variant effect-before-operation",
+      "exitCode": 1,
+      "expectation": "expected-rejection",
+      "expectedExitCode": 1,
+      "expectedReason": "SAME_OPERATION_REPLAY",
+      "result": {
+        "code": "SAME_OPERATION_REPLAY",
+        "error_type": "Violation",
+        "observed": {
+          "first": {
+            "status": "applied",
+            "value": 5
+          },
+          "persisted": {
+            "effects": [
+              {
+                "delta": 5,
+                "key": "R:g1",
+                "operation": "op-1",
+                "token": 1
+              }
+            ],
+            "epoch": 1,
+            "operations": {},
+            "values": {
+              "R:g1": 5
+            },
+            "watermarks": {
+              "R:g1": 1
+            }
+          },
+          "replay": {
+            "status": "applied",
+            "value": 10
+          },
+          "resource": {
+            "effects": [
+              {
+                "delta": 5,
+                "key": "R:g1",
+                "operation": "op-1",
+                "token": 1
+              },
+              {
+                "delta": 5,
+                "key": "R:g1",
+                "operation": "op-1",
+                "token": 1
+              }
+            ],
+            "epoch": 1,
+            "operations": {},
+            "values": {
+              "R:g1": 10
+            },
+            "watermarks": {
+              "R:g1": 1
+            }
+          }
+        },
+        "scenario": "same-token",
+        "status": "rejected",
+        "variant": "effect-before-operation"
+      }
+    },
+    {
+      "command": "python3 -B scenario_runner.py --scenario same-token --variant lie-conflict",
+      "exitCode": 1,
+      "expectation": "expected-rejection",
+      "expectedExitCode": 1,
+      "expectedReason": "OPERATION_PAYLOAD_CONFLICT",
+      "result": {
+        "code": "OPERATION_PAYLOAD_CONFLICT",
+        "error_type": "Violation",
+        "observed": {
+          "after": {
+            "effects": [
+              {
+                "delta": 5,
+                "key": "R:g1",
+                "operation": "op-1",
+                "token": 1
+              },
+              {
+                "delta": 7,
+                "key": "R:g1",
+                "operation": "op-2",
+                "token": 1
+              },
+              {
+                "delta": 999,
+                "key": "R:g1",
+                "operation": "op-1",
+                "token": 1
+              }
+            ],
+            "epoch": 1,
+            "operations": {
+              "R:g1:op-1": {
+                "fingerprint": {
+                  "delta": 999,
+                  "key": "R:g1"
+                },
+                "value": 1011
+              },
+              "R:g1:op-2": {
+                "fingerprint": {
+                  "delta": 7,
+                  "key": "R:g1"
+                },
+                "value": 12
+              }
+            },
+            "values": {
+              "R:g1": 1011
+            },
+            "watermarks": {
+              "R:g1": 1
+            }
+          },
+          "answer": {
+            "status": "conflict"
+          },
+          "before": {
+            "effects": [
+              {
+                "delta": 5,
+                "key": "R:g1",
+                "operation": "op-1",
+                "token": 1
+              },
+              {
+                "delta": 7,
+                "key": "R:g1",
+                "operation": "op-2",
+                "token": 1
+              }
+            ],
+            "epoch": 1,
+            "operations": {
+              "R:g1:op-1": {
+                "fingerprint": {
+                  "delta": 5,
+                  "key": "R:g1"
+                },
+                "value": 5
+              },
+              "R:g1:op-2": {
+                "fingerprint": {
+                  "delta": 7,
+                  "key": "R:g1"
+                },
+                "value": 12
+              }
+            },
+            "values": {
+              "R:g1": 12
+            },
+            "watermarks": {
+              "R:g1": 1
+            }
+          }
+        },
+        "scenario": "same-token",
+        "status": "rejected",
+        "variant": "lie-conflict"
+      }
+    },
+    {
+      "command": "python3 -B scenario_runner.py --scenario resource-scope --variant global-watermark",
+      "exitCode": 1,
+      "expectation": "expected-rejection",
+      "expectedExitCode": 1,
+      "expectedReason": "RESOURCE_SCOPE_COUPLED",
+      "result": {
+        "code": "RESOURCE_SCOPE_COUPLED",
+        "error_type": "Violation",
+        "observed": {
+          "answer": {
+            "status": "stale"
+          },
+          "resource": {
+            "effects": [
+              {
+                "delta": 9,
+                "key": "shop-a/S:g1",
+                "operation": "op-1",
+                "token": 2
+              }
+            ],
+            "epoch": 1,
+            "operations": {
+              "shop-a/S:g1:op-1": {
+                "fingerprint": {
+                  "delta": 9,
+                  "key": "shop-a/S:g1"
+                },
+                "value": 9
+              }
+            },
+            "values": {
+              "shop-a/S:g1": 9
+            },
+            "watermarks": {
+              "shop-a/S:g1": 2
+            }
+          }
+        },
+        "scenario": "resource-scope",
+        "status": "rejected",
+        "variant": "global-watermark"
+      }
+    },
+    {
+      "command": "python3 -B scenario_runner.py --scenario resource-scope --variant trust-token",
+      "exitCode": 1,
+      "expectation": "expected-rejection",
+      "expectedExitCode": 1,
+      "expectedReason": "GRANT_IDENTITY_BYPASS",
+      "result": {
+        "code": "GRANT_IDENTITY_BYPASS",
+        "error_type": "Violation",
+        "observed": {
+          "attempts": [
+            {
+              "status": "applied",
+              "value": 109
+            },
+            {
+              "status": "applied",
+              "value": 100
+            },
+            {
+              "status": "applied",
+              "value": 100
+            },
+            {
+              "status": "applied",
+              "value": 209
+            }
+          ],
+          "resource": {
+            "effects": [
+              {
+                "delta": 9,
+                "key": "shop-a/S:g1",
+                "operation": "op-1",
+                "token": 2
+              },
+              {
+                "delta": 4,
+                "key": "shop-a/R:g1",
+                "operation": "op-1",
+                "token": 1
+              },
+              {
+                "delta": 100,
+                "key": "shop-a/S:g1",
+                "operation": "evil-owner",
+                "token": 2
+              },
+              {
+                "delta": 100,
+                "key": "shop-b/R:g1",
+                "operation": "evil-scope",
+                "token": 2
+              },
+              {
+                "delta": 100,
+                "key": "shop-a/S:g2",
+                "operation": "evil-generation",
+                "token": 2
+              },
+              {
+                "delta": 100,
+                "key": "shop-a/S:g1",
+                "operation": "evil-token",
+                "token": 1000
+              }
+            ],
+            "epoch": 1,
+            "operations": {
+              "shop-a/R:g1:op-1": {
+                "fingerprint": {
+                  "delta": 4,
+                  "key": "shop-a/R:g1"
+                },
+                "value": 4
+              },
+              "shop-a/S:g1:evil-owner": {
+                "fingerprint": {
+                  "delta": 100,
+                  "key": "shop-a/S:g1"
+                },
+                "value": 109
+              },
+              "shop-a/S:g1:evil-token": {
+                "fingerprint": {
+                  "delta": 100,
+                  "key": "shop-a/S:g1"
+                },
+                "value": 209
+              },
+              "shop-a/S:g1:op-1": {
+                "fingerprint": {
+                  "delta": 9,
+                  "key": "shop-a/S:g1"
+                },
+                "value": 9
+              },
+              "shop-a/S:g2:evil-generation": {
+                "fingerprint": {
+                  "delta": 100,
+                  "key": "shop-a/S:g2"
+                },
+                "value": 100
+              },
+              "shop-b/R:g1:evil-scope": {
+                "fingerprint": {
+                  "delta": 100,
+                  "key": "shop-b/R:g1"
+                },
+                "value": 100
+              }
+            },
+            "values": {
+              "shop-a/R:g1": 4,
+              "shop-a/S:g1": 209,
+              "shop-a/S:g2": 100,
+              "shop-b/R:g1": 100
+            },
+            "watermarks": {
+              "shop-a/R:g1": 1,
+              "shop-a/S:g1": 1000,
+              "shop-a/S:g2": 2,
+              "shop-b/R:g1": 2
+            }
+          }
+        },
+        "scenario": "resource-scope",
+        "status": "rejected",
+        "variant": "trust-token"
+      }
+    },
+    {
+      "command": "python3 -B scenario_runner.py --scenario retained-watermark --variant forget-watermark",
+      "exitCode": 1,
+      "expectation": "expected-rejection",
+      "expectedExitCode": 1,
+      "expectedReason": "WATERMARK_ROLLBACK",
+      "result": {
+        "code": "WATERMARK_ROLLBACK",
+        "error_type": "Violation",
+        "observed": {
+          "after": {
+            "effects": [
+              {
+                "delta": 10,
+                "key": "R:g1",
+                "operation": "new",
+                "token": 2
+              },
+              {
+                "delta": 99,
+                "key": "R:g1",
+                "operation": "late",
+                "token": 1
+              }
+            ],
+            "epoch": 1,
+            "operations": {
+              "R:g1:late": {
+                "fingerprint": {
+                  "delta": 99,
+                  "key": "R:g1"
+                },
+                "value": 109
+              },
+              "R:g1:new": {
+                "fingerprint": {
+                  "delta": 10,
+                  "key": "R:g1"
+                },
+                "value": 10
+              }
+            },
+            "values": {
+              "R:g1": 109
+            },
+            "watermarks": {
+              "R:g1": 1
+            }
+          },
+          "answer": {
+            "status": "applied",
+            "value": 109
+          },
+          "before": {
+            "effects": [
+              {
+                "delta": 10,
+                "key": "R:g1",
+                "operation": "new",
+                "token": 2
+              }
+            ],
+            "epoch": 1,
+            "operations": {
+              "R:g1:new": {
+                "fingerprint": {
+                  "delta": 10,
+                  "key": "R:g1"
+                },
+                "value": 10
+              }
+            },
+            "values": {
+              "R:g1": 10
+            },
+            "watermarks": {
+              "R:g1": 2
+            }
+          }
+        },
+        "scenario": "retained-watermark",
+        "status": "rejected",
+        "variant": "forget-watermark"
+      }
+    }
+  ],
+  "platform": "Linux",
+  "positive": [
+    {
+      "command": "python3 -B scenario_runner.py --scenario lost-confirm --variant correct",
+      "exitCode": 0,
+      "result": {
+        "observed": {
+          "after_lost_confirm": {
+            "records": [
+              {
+                "attempts": 0,
+                "message": {
+                  "delta": 5,
+                  "event_id": "E1",
+                  "key": "shop-a/order-7",
+                  "poison": false,
+                  "sequence": null
+                },
+                "serial": 1,
+                "state": "ready"
+              }
+            ]
+          },
+          "broker": {
+            "records": [
+              {
+                "attempts": 1,
+                "message": {
+                  "delta": 5,
+                  "event_id": "E1",
+                  "key": "shop-a/order-7",
+                  "poison": false,
+                  "sequence": null
+                },
+                "serial": 1,
+                "state": "done"
+              },
+              {
+                "attempts": 1,
+                "message": {
+                  "delta": 5,
+                  "event_id": "E1",
+                  "key": "shop-a/order-7",
+                  "poison": false,
+                  "sequence": null
+                },
+                "serial": 2,
+                "state": "done"
+              }
+            ]
+          },
+          "consumer": {
+            "effects": [
+              {
+                "delta": 5,
+                "event_id": "E1",
+                "key": "shop-a/order-7",
+                "sequence": null
+              }
+            ],
+            "inbox": {
+              "orders-view-v1:E1": {
+                "delta": 5,
+                "event_id": "E1",
+                "key": "shop-a/order-7",
+                "poison": false,
+                "sequence": null
+              }
+            },
+            "totals": {
+              "shop-a/order-7": 5
+            },
+            "versions": {}
+          },
+          "consumer_answers": [
+            "applied",
+            "duplicate"
+          ],
+          "handler_calls": 2,
+          "publisher_answers": [
+            "unknown",
+            "confirmed"
+          ],
+          "unsettled_tags": 0
+        },
+        "scenario": "lost-confirm",
+        "status": "pass",
+        "variant": "correct"
+      }
+    },
+    {
+      "command": "python3 -B scenario_runner.py --scenario commit-before-ack --variant correct",
+      "exitCode": 0,
+      "result": {
+        "observed": {
+          "after_restart": {
+            "broker": {
+              "records": [
+                {
+                  "attempts": 2,
+                  "message": {
+                    "delta": 5,
+                    "event_id": "E1",
+                    "key": "shop-a/order-7",
+                    "poison": false,
+                    "sequence": null
+                  },
+                  "serial": 1,
+                  "state": "done"
+                }
+              ]
+            },
+            "consumer": {
+              "effects": [
+                {
+                  "delta": 5,
+                  "event_id": "E1",
+                  "key": "shop-a/order-7",
+                  "sequence": null
+                }
+              ],
+              "inbox": {
+                "orders-view-v1:E1": {
+                  "delta": 5,
+                  "event_id": "E1",
+                  "key": "shop-a/order-7",
+                  "poison": false,
+                  "sequence": null
+                }
+              },
+              "totals": {
+                "shop-a/order-7": 5
+              },
+              "versions": {}
+            },
+            "handler_calls": 1,
+            "unsettled_tags": 0
+          },
+          "before_failure": {
+            "broker": {
+              "records": [
+                {
+                  "attempts": 1,
+                  "message": {
+                    "delta": 5,
+                    "event_id": "E1",
+                    "key": "shop-a/order-7",
+                    "poison": false,
+                    "sequence": null
+                  },
+                  "serial": 1,
+                  "state": "unacked"
+                }
+              ]
+            },
+            "consumer": {
+              "effects": [
+                {
+                  "delta": 5,
+                  "event_id": "E1",
+                  "key": "shop-a/order-7",
+                  "sequence": null
+                }
+              ],
+              "inbox": {
+                "orders-view-v1:E1": {
+                  "delta": 5,
+                  "event_id": "E1",
+                  "key": "shop-a/order-7",
+                  "poison": false,
+                  "sequence": null
+                }
+              },
+              "totals": {
+                "shop-a/order-7": 5
+              },
+              "versions": {}
+            },
+            "handler_calls": 1,
+            "unsettled_tags": 1
+          },
+          "redelivery_answers": [
+            "duplicate"
+          ]
+        },
+        "scenario": "commit-before-ack",
+        "status": "pass",
+        "variant": "correct"
+      }
+    },
+    {
+      "command": "python3 -B scenario_runner.py --scenario poison-and-order --variant correct",
+      "exitCode": 0,
+      "result": {
+        "observed": {
+          "broker": {
+            "records": [
+              {
+                "attempts": 3,
+                "message": {
+                  "delta": 5,
+                  "event_id": "A1",
+                  "key": "A",
+                  "poison": true,
+                  "sequence": 1
+                },
+                "serial": 1,
+                "state": "done"
+              },
+              {
+                "attempts": 1,
+                "message": {
+                  "delta": 5,
+                  "event_id": "A2",
+                  "key": "A",
+                  "poison": false,
+                  "sequence": 2
+                },
+                "serial": 2,
+                "state": "ready"
+              },
+              {
+                "attempts": 1,
+                "message": {
+                  "delta": 5,
+                  "event_id": "B1",
+                  "key": "B",
+                  "poison": false,
+                  "sequence": 1
+                },
+                "serial": 3,
+                "state": "done"
+              }
+            ]
+          },
+          "consumer": {
+            "effects": [
+              {
+                "delta": 5,
+                "event_id": "B1",
+                "key": "B",
+                "sequence": 1
+              }
+            ],
+            "inbox": {
+              "orders-view-v1:B1": {
+                "delta": 5,
+                "event_id": "B1",
+                "key": "B",
+                "poison": false,
+                "sequence": 1
+              }
+            },
+            "totals": {
+              "B": 5
+            },
+            "versions": {
+              "B": 1
+            }
+          },
+          "gap_answer": "gap",
+          "handler_calls": 4,
+          "parking": {
+            "records": {
+              "A1": {
+                "attempts": 2,
+                "message": {
+                  "delta": 5,
+                  "event_id": "A1",
+                  "key": "A",
+                  "poison": true,
+                  "sequence": 1
+                },
+                "reason": "poison"
+              }
+            }
+          },
+          "unsettled_tags": 0
+        },
+        "scenario": "poison-and-order",
+        "status": "pass",
+        "variant": "correct"
+      }
+    },
+    {
+      "command": "python3 -B scenario_runner.py --scenario channel-identity --variant correct",
+      "exitCode": 0,
+      "result": {
+        "observed": {
+          "broker": {
+            "records": [
+              {
+                "attempts": 1,
+                "message": {
+                  "delta": 5,
+                  "event_id": "E1",
+                  "key": "shop-a/order-7",
+                  "poison": false,
+                  "sequence": null
+                },
+                "serial": 1,
+                "state": "ready"
+              }
+            ]
+          },
+          "rejected": "UNKNOWN_DELIVERY_TAG",
+          "unsettled_tags": 0
+        },
+        "scenario": "channel-identity",
+        "status": "pass",
+        "variant": "correct"
+      }
+    },
+    {
+      "command": "python3 -B scenario_runner.py --scenario fencing-takeover --variant correct",
+      "exitCode": 0,
+      "result": {
+        "observed": {
+          "local_check_before_pause": true,
+          "new_answer": {
+            "status": "applied",
+            "value": 10
+          },
+          "old_answer": {
+            "status": "stale"
+          },
+          "old_valid_now": false,
+          "resource": {
+            "effects": [
+              {
+                "delta": 10,
+                "key": "shop-a/order-7:g1",
+                "operation": "new-write",
+                "token": 2
+              }
+            ],
+            "epoch": 1,
+            "operations": {
+              "shop-a/order-7:g1:new-write": {
+                "fingerprint": {
+                  "delta": 10,
+                  "key": "shop-a/order-7:g1"
+                },
+                "value": 10
+              }
+            },
+            "values": {
+              "shop-a/order-7:g1": 10
+            },
+            "watermarks": {
+              "shop-a/order-7:g1": 2
+            }
+          }
+        },
+        "scenario": "fencing-takeover",
+        "status": "pass",
+        "variant": "correct"
+      }
+    },
+    {
+      "command": "python3 -B scenario_runner.py --scenario before-new-fence --variant correct",
+      "exitCode": 0,
+      "result": {
+        "observed": {
+          "answers": [
+            {
+              "status": "applied",
+              "value": 1
+            },
+            {
+              "status": "applied",
+              "value": 11
+            },
+            {
+              "status": "stale"
+            }
+          ],
+          "old_valid_now": false,
+          "resource": {
+            "effects": [
+              {
+                "delta": 1,
+                "key": "R:g1",
+                "operation": "late-before-fence",
+                "token": 1
+              },
+              {
+                "delta": 10,
+                "key": "R:g1",
+                "operation": "new-after",
+                "token": 2
+              }
+            ],
+            "epoch": 1,
+            "operations": {
+              "R:g1:late-before-fence": {
+                "fingerprint": {
+                  "delta": 1,
+                  "key": "R:g1"
+                },
+                "value": 1
+              },
+              "R:g1:new-after": {
+                "fingerprint": {
+                  "delta": 10,
+                  "key": "R:g1"
+                },
+                "value": 11
+              }
+            },
+            "values": {
+              "R:g1": 11
+            },
+            "watermarks": {
+              "R:g1": 2
+            }
+          }
+        },
+        "scenario": "before-new-fence",
+        "status": "pass",
+        "variant": "correct"
+      }
+    },
+    {
+      "command": "python3 -B scenario_runner.py --scenario same-token --variant correct",
+      "exitCode": 0,
+      "result": {
+        "observed": {
+          "answers": [
+            {
+              "status": "applied",
+              "value": 5
+            },
+            {
+              "status": "replayed",
+              "value": 5
+            },
+            {
+              "status": "applied",
+              "value": 12
+            },
+            {
+              "status": "conflict"
+            },
+            {
+              "status": "replayed",
+              "value": 5
+            }
+          ],
+          "resource": {
+            "effects": [
+              {
+                "delta": 5,
+                "key": "R:g1",
+                "operation": "op-1",
+                "token": 1
+              },
+              {
+                "delta": 7,
+                "key": "R:g1",
+                "operation": "op-2",
+                "token": 1
+              }
+            ],
+            "epoch": 1,
+            "operations": {
+              "R:g1:op-1": {
+                "fingerprint": {
+                  "delta": 5,
+                  "key": "R:g1"
+                },
+                "value": 5
+              },
+              "R:g1:op-2": {
+                "fingerprint": {
+                  "delta": 7,
+                  "key": "R:g1"
+                },
+                "value": 12
+              }
+            },
+            "values": {
+              "R:g1": 12
+            },
+            "watermarks": {
+              "R:g1": 2
+            }
+          }
+        },
+        "scenario": "same-token",
+        "status": "pass",
+        "variant": "correct"
+      }
+    },
+    {
+      "command": "python3 -B scenario_runner.py --scenario resource-scope --variant correct",
+      "exitCode": 0,
+      "result": {
+        "observed": {
+          "independent_resource": {
+            "status": "applied",
+            "value": 4
+          },
+          "rejected_grants": [
+            {
+              "status": "unauthorized"
+            },
+            {
+              "status": "unauthorized"
+            },
+            {
+              "status": "unauthorized"
+            },
+            {
+              "status": "unauthorized"
+            }
+          ],
+          "resource": {
+            "effects": [
+              {
+                "delta": 9,
+                "key": "shop-a/S:g1",
+                "operation": "op-1",
+                "token": 2
+              },
+              {
+                "delta": 4,
+                "key": "shop-a/R:g1",
+                "operation": "op-1",
+                "token": 1
+              }
+            ],
+            "epoch": 1,
+            "operations": {
+              "shop-a/R:g1:op-1": {
+                "fingerprint": {
+                  "delta": 4,
+                  "key": "shop-a/R:g1"
+                },
+                "value": 4
+              },
+              "shop-a/S:g1:op-1": {
+                "fingerprint": {
+                  "delta": 9,
+                  "key": "shop-a/S:g1"
+                },
+                "value": 9
+              }
+            },
+            "values": {
+              "shop-a/R:g1": 4,
+              "shop-a/S:g1": 9
+            },
+            "watermarks": {
+              "shop-a/R:g1": 1,
+              "shop-a/S:g1": 2
+            }
+          }
+        },
+        "scenario": "resource-scope",
+        "status": "pass",
+        "variant": "correct"
+      }
+    },
+    {
+      "command": "python3 -B scenario_runner.py --scenario retained-watermark --variant correct",
+      "exitCode": 0,
+      "result": {
+        "observed": {
+          "answer": {
+            "status": "stale"
+          },
+          "resource": {
+            "effects": [
+              {
+                "delta": 10,
+                "key": "R:g1",
+                "operation": "new",
+                "token": 2
+              }
+            ],
+            "epoch": 1,
+            "operations": {
+              "R:g1:new": {
+                "fingerprint": {
+                  "delta": 10,
+                  "key": "R:g1"
+                },
+                "value": 10
+              }
+            },
+            "values": {
+              "R:g1": 10
+            },
+            "watermarks": {
+              "R:g1": 2
+            }
+          }
+        },
+        "scenario": "retained-watermark",
+        "status": "pass",
+        "variant": "correct"
+      }
+    },
+    {
+      "command": "python3 -B scenario_runner.py --scenario issuer-reset --variant correct",
+      "exitCode": 0,
+      "result": {
+        "observed": {
+          "new_answer": {
+            "status": "applied",
+            "value": 15
+          },
+          "old_answer": {
+            "status": "wrong-epoch"
+          },
+          "resource": {
+            "effects": [
+              {
+                "delta": 5,
+                "key": "R:g1",
+                "operation": "old",
+                "token": 1
+              },
+              {
+                "delta": 10,
+                "key": "R:g1",
+                "operation": "new",
+                "token": 1
+              }
+            ],
+            "epoch": 2,
+            "operations": {
+              "R:g1:new": {
+                "fingerprint": {
+                  "delta": 10,
+                  "key": "R:g1"
+                },
+                "value": 15
+              },
+              "R:g1:old": {
+                "fingerprint": {
+                  "delta": 5,
+                  "key": "R:g1"
+                },
+                "value": 5
+              }
+            },
+            "values": {
+              "R:g1": 15
+            },
+            "watermarks": {
+              "R:g1": 1
+            }
+          }
+        },
+        "scenario": "issuer-reset",
+        "status": "pass",
+        "variant": "correct"
+      }
+    }
+  ],
+  "recordedAt": "2026-10-03T07:12:05.340437+00:00",
+  "revision": "M-r1",
+  "runtime": "3.12.14",
+  "sourceFiles": [
+    {
+      "path": "protocol_model.py",
+      "sha256": "b6f6bbb736234da52f726e8d83201dca3db1028a4916bd2327c95ec340bc612a"
+    },
+    {
+      "path": "scenarios.py",
+      "sha256": "f7e5b3599a08c4878ab6e2dc6e09e5f531288537dcd68ccc6aaefc81270c0b1e"
+    },
+    {
+      "path": "scenario_runner.py",
+      "sha256": "c43c00e3a7425ed62cedbfcca60aab663ae3ef521be08adeae9d3848fc9206a8"
+    },
+    {
+      "path": "verify.py",
+      "sha256": "49094e346c499d364b7b0a222900552fe79a522b9dcdbde28ef8298f98390b07"
+    },
+    {
+      "path": "walk_delivery.py",
+      "sha256": "58ce0e555a04003abc7532a235876c5a80fcb36cf5728e7beb7b3bdd62cdb60e"
+    },
+    {
+      "path": "walk_fencing.py",
+      "sha256": "f0dd5b9f9e466f1c78c77031537c4bd13e310c10c0509d4b1c9623fcf1bb8ded"
+    }
+  ],
+  "status": "pass",
+  "verifier_probes": [
+    {
+      "accepted_as_target_failure": false,
+      "probe": "zero-exit"
+    },
+    {
+      "accepted_as_target_failure": false,
+      "probe": "startup-error"
+    },
+    {
+      "accepted_as_target_failure": false,
+      "probe": "wrong-exception"
+    },
+    {
+      "accepted_as_target_failure": false,
+      "probe": "wrong-reason"
+    },
+    {
+      "accepted_as_target_failure": false,
+      "probe": "wrong-scenario"
+    },
+    {
+      "accepted_as_target_failure": false,
+      "probe": "missing-observation"
+    }
+  ]
+}
