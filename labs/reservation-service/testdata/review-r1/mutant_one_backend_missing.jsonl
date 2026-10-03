@@ -1,0 +1,6 @@
+{"Action": "run", "Package": "example.com/reservation-service/tests", "Test": "TestIntegration/sql/H10"}
+{"Action": "output", "Package": "example.com/reservation-service/tests", "Test": "TestIntegration/sql/H10", "Output": "    http_test.go:1: HTTP_ERROR_BODY: got private database detail want internal\n"}
+{"Action": "fail", "Package": "example.com/reservation-service/tests", "Test": "TestIntegration/sql/H10"}
+{"Action": "fail", "Package": "example.com/reservation-service/tests", "Test": "TestIntegration/sql"}
+{"Action": "fail", "Package": "example.com/reservation-service/tests", "Test": "TestIntegration"}
+{"Action": "fail", "Package": "example.com/reservation-service/tests"}

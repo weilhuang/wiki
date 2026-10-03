@@ -1,0 +1,66 @@
+name: Reservation service contract
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/reservation-service.yml'
+      - 'labs/reservation-service/**'
+      - 'labs/reservation-service-reviewed.json'
+permissions:
+  contents: read
+concurrency:
+  group: reservation-service-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+jobs:
+  verify:
+    if: github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      GOMAXPROCS: '2'
+      GOFLAGS: '-p=1 -mod=readonly -buildvcs=false'
+      GOMEMLIMIT: 768MiB
+      GOTOOLCHAIN: local
+      GOWORK: 'off'
+      PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+      PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+    steps:
+      - name: Record whole-job budget before checkout
+        timeout-minutes: 1
+        run: |
+          python3 - <<'PYCODE'
+          import os, time
+          with open(os.environ['GITHUB_ENV'], 'a') as output:
+              output.write('P2_JOB_STARTED_AT=' + str(int(time.time())) + '\n')
+          PYCODE
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        timeout-minutes: 2
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+          submodules: false
+          lfs: false
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        timeout-minutes: 3
+        with:
+          go-version: '1.27.1'
+          check-latest: false
+          cache: false
+      - name: Verify exact reviewed source and real service contracts
+        run: timeout --signal=TERM --kill-after=5s 655s python3 -B labs/reservation-service/scripts/run_ci.py --private "$RUNNER_TEMP/reservation-private"
+      - name: Independently collect bounded sanitized evidence
+        id: evidence
+        if: always()
+        timeout-minutes: 1
+        run: python3 -B labs/reservation-service/scripts/collect.py --private "$RUNNER_TEMP/reservation-private" --output "$RUNNER_TEMP/reservation-public"
+      - name: Upload only validated evidence
+        if: always() && steps.evidence.outputs.upload_ready == 'true'
+        timeout-minutes: 2
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: reservation-service-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/reservation-public/
+          if-no-files-found: error
+          retention-days: 3
+          include-hidden-files: false

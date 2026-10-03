@@ -1,0 +1,402 @@
+{
+  "schemaVersion": 1,
+  "frozenAt": "2026-10-03T20:53:00Z",
+  "cases": [
+    {
+      "id": "H01",
+      "suite": "HTTP",
+      "backends": [
+        "sql",
+        "gorm"
+      ],
+      "assertion": "POST成功精确200/application/json/四字段正文，入口计数1；独立会话stock减1和confirmed记录",
+      "level": "real-mysql-tcp",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "H02",
+      "suite": "HTTP",
+      "backends": [
+        "sql",
+        "gorm"
+      ],
+      "assertion": "缺失、错误、多值身份精确401/unauthenticated，入口0/数据库未变；坏身份+坏正文优先401",
+      "level": "real-mysql-tcp",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "H03",
+      "suite": "HTTP",
+      "backends": [
+        "sql",
+        "gorm"
+      ],
+      "assertion": "只读身份POST精确403/permission_denied，入口0/数据库未变；只读+坏正文优先403",
+      "level": "real-mysql-tcp",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "H04",
+      "suite": "HTTP",
+      "backends": [
+        "sql",
+        "gorm"
+      ],
+      "assertion": "错误/缺失媒体类型415；application/json;charset=utf-8接受；拒绝入口0",
+      "level": "real-mysql-tcp",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "H05",
+      "suite": "HTTP",
+      "backends": [
+        "sql",
+        "gorm"
+      ],
+      "assertion": "破损、重复、转义等价重复、未知键、尾随值、null、缺失字段、浮点量均精确invalid_json",
+      "level": "real-mysql-tcp",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "H06",
+      "suite": "HTTP",
+      "backends": [
+        "sql",
+        "gorm"
+      ],
+      "assertion": "1025字节为413，1024字节合法JSON可成功；主动body读错误400/body_read_failed",
+      "level": "real-mysql-tcp",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "H07",
+      "suite": "HTTP",
+      "backends": [
+        "sql",
+        "gorm"
+      ],
+      "assertion": "数量0/-1/101、非法ID/sku为400 invalid_argument且仓储没有写入",
+      "level": "real-mysql-tcp",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "H08",
+      "suite": "HTTP",
+      "backends": [
+        "sql",
+        "gorm"
+      ],
+      "assertion": "同键同参两次精确同一DTO/库存只减一次；不同参409 operation_conflict",
+      "level": "real-mysql-tcp",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "H09",
+      "suite": "HTTP",
+      "backends": [
+        "sql",
+        "gorm"
+      ],
+      "assertion": "缺货409/out_of_stock，GET返回rejected；补货后重放仍相同拒绝；他主体GET为404",
+      "level": "real-mysql-tcp",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "H10",
+      "suite": "HTTP",
+      "backends": [
+        "sql",
+        "gorm"
+      ],
+      "assertion": "隐藏内部错误500/internal无DSN/SQL；未知商品404不写入",
+      "level": "real-mysql-tcp",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "H11",
+      "suite": "HTTP",
+      "backends": [
+        "sql",
+        "gorm"
+      ],
+      "assertion": "真实HTTP锁等待→客户端取消→客户端Canceled并服务端ctx.Done→释锁→真实仓储返回→池归还→独立无写入",
+      "level": "real-mysql-tcp",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "D01",
+      "suite": "Database",
+      "backends": [
+        "sql",
+        "gorm"
+      ],
+      "assertion": "提交后独立观察会话读取stock和confirmed记录；连接InUse最终0",
+      "level": "real-mysql-tcp",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "D02",
+      "suite": "Database",
+      "backends": [
+        "sql",
+        "gorm"
+      ],
+      "assertion": "扣减后主动注入回滚，独立观察stock原值/操作不存在；SQL与GORM均验证",
+      "level": "real-mysql-tcp",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "D03",
+      "suite": "Database",
+      "backends": [
+        "sql",
+        "gorm"
+      ],
+      "assertion": "同步屏障启动两会话争最后一件；一confirmed一rejected，stock0无pending",
+      "level": "real-mysql-tcp",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "D04",
+      "suite": "Database",
+      "backends": [
+        "sql",
+        "gorm"
+      ],
+      "assertion": "同操作并发claim一实体一次扣减；第二会话实际等待唯一键后读取同结果",
+      "level": "real-mysql-tcp",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "D05",
+      "suite": "Database",
+      "backends": [
+        "sql",
+        "gorm"
+      ],
+      "assertion": "同键异参冲突，独立观察原参数/库存；主体不同键空间隔离",
+      "level": "real-mysql-tcp",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "D06",
+      "suite": "Database",
+      "backends": [
+        "sql",
+        "gorm"
+      ],
+      "assertion": "锁持有会话+仓储进入屏障后取消；释放锁等待结束，精确context错误/独立无写入/池归还",
+      "level": "real-mysql-tcp",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "D07",
+      "suite": "Database",
+      "backends": [
+        "sql",
+        "gorm"
+      ],
+      "assertion": "锁持有会话+deadline；精确deadline错误/无写入/池归还",
+      "level": "real-mysql-tcp",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "D08",
+      "suite": "Database",
+      "backends": [
+        "sql",
+        "gorm"
+      ],
+      "assertion": "行迭代、查询不到、事务错误后rows/tx归还，单连接池仍能Ping",
+      "level": "real-mysql-tcp",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "D09",
+      "suite": "Database",
+      "backends": [
+        "sql",
+        "gorm"
+      ],
+      "assertion": "COMMIT包转发后丢弃server OK；调用outcome_unknown，观察已提交，再以同键查得confirmed不重复扣减",
+      "level": "real-mysql-tcp",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "D10",
+      "suite": "Database",
+      "backends": [
+        "sql",
+        "gorm"
+      ],
+      "assertion": "真实KILL CONNECTION在扣减后提交前；调用失败，观察会话stock恢复/操作不存在",
+      "level": "real-mysql-tcp",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "G01",
+      "suite": "gRPC",
+      "backends": [
+        "sql",
+        "gorm"
+      ],
+      "assertion": "真实loopback TCP Reserve/Get字段值精确；HTTP写后gRPC读证明共用应用/持久化",
+      "level": "real-mysql-tcp",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "G02",
+      "suite": "gRPC",
+      "backends": [
+        "sql",
+        "gorm"
+      ],
+      "assertion": "认证、权限、参数、缺失、冲突、缺货、内部各精确codes/message/唯一PublicError detail",
+      "level": "real-mysql-tcp",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "G03",
+      "suite": "gRPC",
+      "backends": [
+        "sql",
+        "gorm"
+      ],
+      "assertion": "客户端deadline传到仓储取消观察，deadline状态；独立会话无写入",
+      "level": "real-mysql-tcp",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "G04",
+      "suite": "gRPC",
+      "backends": [
+        "sql",
+        "gorm"
+      ],
+      "assertion": "显式取消传到服务端，Canceled状态；独立无写入",
+      "level": "real-mysql-tcp",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "G05",
+      "suite": "gRPC",
+      "backends": [
+        "sql",
+        "gorm"
+      ],
+      "assertion": "List精确顺序/数量/状态/主体隔离，limit0/33拒绝，EOF检查不吞读错误",
+      "level": "real-mysql-tcp",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "G06",
+      "suite": "gRPC",
+      "backends": [
+        "sql",
+        "gorm"
+      ],
+      "assertion": "客户端首项后停止读并取消；服务端钩子屏障观察context取消和流退出，无额外生产goroutine",
+      "level": "real-mysql-tcp",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "G07",
+      "suite": "gRPC",
+      "backends": [],
+      "assertion": "确定Send返回错误时方法立即返回同status，不继续发送；单元假stream不能标成网络背压",
+      "level": "adapter-unit",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P01",
+      "suite": "Process",
+      "backends": [],
+      "assertion": "真实子进程SIGTERM前已接纳且被锁阻塞HTTP完成并读完整精确响应；新连接被拒绝；子进程退出0",
+      "level": "real-process-mysql",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P02",
+      "suite": "Process",
+      "backends": [],
+      "assertion": "真实子进程gRPC已接纳调用在SIGTERM后释放锁完成；随后Unavailable；检查子进程退出0",
+      "level": "real-process-mysql",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P03",
+      "suite": "Process",
+      "backends": [],
+      "assertion": "同测试进程Runtime健康端点与Shutdown，检查自有serve/stop结束、监听不可连接、DB.Close后Ping失败；不作为真实reservationd强退证据",
+      "level": "in-process-runtime-real-mysql",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "V01",
+      "suite": "Gate",
+      "backends": [],
+      "assertion": "校验器拒绝必需用例缺失/skip/重复/零用例/未知版本；删除一通过记录必须非零退出",
+      "level": "python-validator",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P04",
+      "suite": "Process",
+      "backends": [],
+      "assertion": "真实reservationd正常公开SHUTDOWN_GRACE=250ms；MySQL锁等待证明请求已接纳，保持锁跨SIGTERM；精确exit1/stderr和客户端EOF、独立会话无提交、双端口拒绝、子进程Wait回收",
+      "level": "real-process-mysql",
+      "status": "NOT_RUN"
+    }
+  ],
+  "mutants": [
+    {
+      "id": "M01",
+      "target": "internal/httpapi/http.go",
+      "violation": "公开错误码意外泄漏",
+      "case": "H10",
+      "requiredMarker": "HTTP_ERROR_BODY",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "M02",
+      "target": "internal/domain/service.go",
+      "violation": "Authorize直接放行",
+      "case": "H03",
+      "requiredMarker": "HTTP_FORBIDDEN_STATUS",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "M03",
+      "target": "internal/store/sql.go + gorm.go",
+      "violation": "扣减改用事务外连接",
+      "case": "D02",
+      "requiredMarker": "ROLLBACK_STOCK",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "M04",
+      "target": "internal/store/sql.go + gorm.go",
+      "violation": "忽略RowsAffected把零扣减标confirmed",
+      "case": "D03",
+      "requiredMarker": "LAST_ITEM_STATES",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "M05",
+      "target": "internal/store/sql.go + gorm.go",
+      "violation": "仓储抛弃调用context",
+      "case": "D06",
+      "requiredMarker": "CANCEL_IDENTITY",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "M06",
+      "target": "internal/grpcapi/grpc.go",
+      "violation": "吞掉Send错误",
+      "case": "G07",
+      "requiredMarker": "STREAM_SEND_ERROR",
+      "status": "NOT_RUN"
+    }
+  ],
+  "revision": "r2"
+}
