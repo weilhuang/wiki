@@ -152,14 +152,76 @@ func (f *fixture) waitProcessDBTarget() processDBTarget {
 }
 
 type processDBState struct {
-	processes, threads, transactions, waits, locks int
+	processes, threads, waits, locks int
 }
 
-func (f *fixture) processDBState(ctx context.Context, target processDBTarget) processDBState {
+const processDBLivePoll = 5 * time.Millisecond
+const processDBCacheIdle = 125 * time.Millisecond
+const processDBDeadline = time.Second
+const processDBLiveSamples = 200
+const processDBCacheSamples = 8
+
+func (f *fixture) processDBLive(ctx context.Context, target processDBTarget, phase string, sample int) processDBState {
 	var state processDBState
-	err := f.admin.QueryRowContext(ctx, "SELECT (SELECT COUNT(*) FROM information_schema.PROCESSLIST WHERE ID=?), (SELECT COUNT(*) FROM performance_schema.threads WHERE THREAD_ID=?), (SELECT COUNT(*) FROM information_schema.INNODB_TRX WHERE TRX_ID=?), (SELECT COUNT(*) FROM performance_schema.data_lock_waits WHERE REQUESTING_THREAD_ID=? OR REQUESTING_ENGINE_TRANSACTION_ID=?), (SELECT COUNT(*) FROM performance_schema.data_locks WHERE THREAD_ID=? OR ENGINE_TRANSACTION_ID=?)", target.connectionID, target.threadID, target.transactionID, target.threadID, target.transactionID, target.threadID, target.transactionID).Scan(&state.processes, &state.threads, &state.transactions, &state.waits, &state.locks)
-	must(f.t, err, "forced database state observation")
+	err := f.admin.QueryRowContext(ctx, "SELECT (SELECT COUNT(*) FROM information_schema.PROCESSLIST WHERE ID=?), (SELECT COUNT(*) FROM performance_schema.threads WHERE THREAD_ID=?), (SELECT COUNT(*) FROM performance_schema.data_lock_waits WHERE REQUESTING_THREAD_ID=? OR REQUESTING_ENGINE_TRANSACTION_ID=?), (SELECT COUNT(*) FROM performance_schema.data_locks WHERE THREAD_ID=? OR ENGINE_TRANSACTION_ID=?)", target.connectionID, target.threadID, target.threadID, target.transactionID, target.threadID, target.transactionID).Scan(&state.processes, &state.threads, &state.waits, &state.locks)
+	must(f.t, err, "forced live database observation")
+	f.t.Logf("FORCED_DB_LIVE phase=%s sample=%d processes=%d threads=%d waits=%d locks=%d", phase, sample, state.processes, state.threads, state.waits, state.locks)
 	return state
+}
+
+func (f *fixture) processDBTransactions(ctx context.Context, target processDBTarget) (int, time.Time) {
+	var count int
+	err := f.admin.QueryRowContext(ctx, "SELECT COUNT(*) FROM information_schema.INNODB_TRX WHERE TRX_ID=?", target.transactionID).Scan(&count)
+	completed := time.Now()
+	must(f.t, err, "forced cached transaction observation")
+	return count, completed
+}
+
+func (f *fixture) waitDBObservation(ctx context.Context, due time.Time) {
+	timer := time.NewTimer(max(0, time.Until(due)))
+	defer timer.Stop()
+	select {
+	case <-ctx.Done():
+		f.t.Fatal("FORCED_DB_OBSERVATION_DEADLINE")
+	case <-timer.C:
+	}
+	must(f.t, ctx.Err(), "forced observation budget")
+}
+
+func (f *fixture) waitProcessDBGone(ctx context.Context, target processDBTarget, lastCacheRead time.Time) {
+	started := time.Now()
+	liveGone := false
+	for sample := 0; sample < processDBLiveSamples; sample++ {
+		must(f.t, ctx.Err(), "forced live observation budget")
+		state := f.processDBLive(ctx, target, "after-release", sample)
+		if state == (processDBState{}) {
+			liveGone = true
+			break
+		}
+		f.waitDBObservation(ctx, time.Now().Add(processDBLivePoll))
+	}
+	if !liveGone {
+		f.t.Fatal("FORCED_DB_LIVE_SAMPLE_CAP")
+	}
+	// MySQL 8.4.7 trx0i_s.cc: cache refresh needs >100ms since its last read.
+	// This isolated serial suite has no other INNODB_TRX reader. Every read resets it.
+	cacheGone := false
+	for sample := 0; sample < processDBCacheSamples; sample++ {
+		f.waitDBObservation(ctx, lastCacheRead.Add(processDBCacheIdle))
+		idle := time.Since(lastCacheRead)
+		count, completed := f.processDBTransactions(ctx, target)
+		lastCacheRead = completed
+		f.t.Logf("FORCED_DB_CACHED sample=%d idle_us=%d elapsed_us=%d transactions=%d", sample, idle.Microseconds(), time.Since(started).Microseconds(), count)
+		if count == 0 {
+			cacheGone = true
+			break
+		}
+	}
+	if !cacheGone {
+		f.t.Fatal("FORCED_DB_CACHE_SAMPLE_CAP")
+	}
+	final := f.processDBLive(ctx, target, "final", 0)
+	equal(f.t, final, processDBState{}, "FORCED_DB_FINAL_LIVE")
 }
 
 func (f *fixture) forcedFacts(ctx context.Context) {
@@ -170,6 +232,7 @@ func (f *fixture) forcedFacts(ctx context.Context) {
 	equal(f.t, stock, int64(10), "FORCED_PERSISTED_STOCK")
 	equal(f.t, operations, 0, "FORCED_PERSISTED_OPERATIONS")
 	equal(f.t, pending, 0, "FORCED_NO_COMMITTED_PENDING")
+	f.t.Logf("FORCED_DB_FACTS stock=%d operations=%d pending=%d", stock, operations, pending)
 }
 
 func TestProcess(t *testing.T) {
@@ -335,15 +398,14 @@ func TestProcess(t *testing.T) {
 		// Record either state without requiring the server thread to remain present.
 		before, beforeCancel := context.WithTimeout(context.Background(), time.Second)
 		defer beforeCancel()
-		observed := f.processDBState(before, target)
-		t.Logf("FORCED_DB_BEFORE_RELEASE processes=%d threads=%d transactions=%d waits=%d locks=%d", observed.processes, observed.threads, observed.transactions, observed.waits, observed.locks)
+		observed := f.processDBLive(before, target, "before-release", 0)
+		transactions, lastCacheRead := f.processDBTransactions(before, target)
+		t.Logf("FORCED_DB_BEFORE_RELEASE processes=%d threads=%d transactions=%d waits=%d locks=%d", observed.processes, observed.threads, transactions, observed.waits, observed.locks)
 		f.forcedFacts(before)
 		release()
-		ctx, cancel := context.WithTimeout(context.Background(), time.Second)
+		ctx, cancel := context.WithTimeout(context.Background(), processDBDeadline)
 		defer cancel()
-		waitFor(t, ctx, func() bool {
-			return f.processDBState(ctx, target) == (processDBState{})
-		}, "FORCED_DB_RESOURCES_GONE")
+		f.waitProcessDBGone(ctx, target, lastCacheRead)
 		f.forcedFacts(ctx)
 		refuses(t, c.httpAddr)
 		refuses(t, c.grpcAddr)

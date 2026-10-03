@@ -36,3 +36,13 @@ HTTP与gRPC监听由同一进程拥有；健康/live 仅表示进程活着，/re
 验证边界：真实TCP HTTP/gRPC + MySQL语义；可控Send错误单独标为协议适配单元测试。ACK丢失测试仅切断一次COMMIT响应，独立观察已提交结果，不能推论所有网络分区。慢消费测试只检查有限快照、取消及自有工作有界，不声称测得HTTP/2窗口背压或生产吞吐。
 
 P04保持外部商品行锁跨越SIGTERM、精确exit=1/stderr及客户端EOF；锁未释放时的MySQL thread/transaction/wait计数仅记录事实，不要求它必须存在或已消失。进程退出后才释放测试拥有的行锁，再在1秒观察context内要求已捕获的processlist/thread/transaction/wait/data-lock身份全部消失；独立会话在释放前后均检查stock=10、operations=0、已提交pending=0。释放锁不增加COMMIT，也不用KILL制造清理。socket关闭和池关闭不是同步终止数据库执行的保证。
+
+## r4：缓存事务观察与即时资源分开
+
+MySQL 8.4.7 的 storage/innobase/trx/trx0i_s.cc 在681–698行要求距最后读取严格超过100ms才刷新INNODB_TRX缓存；893–898行每次读完重置last_read。handler/i_s.cc:820–852先尝试刷新，再填表和结束读取。因此P04不能每5ms将INNODB_TRX与即时状态一起轮询。
+
+P04释放锁后仍只拥有一个1秒context。processlist、thread、wait、data_locks以5ms间隔、最多200个样本检查，每个样本记录四项计数。INNODB_TRX单独从上次查询完成时间等待125ms，用可取消timer维持严格大于100ms的空闲间隔，最多8次，每次记录实际idle、elapsed和事务数。缓存事务归零后再要求即时四项全零，最后以独立会话精确读取stock10/op0/pending0；原exit1/stderr/EOF/双端口/进程回收都不变。
+
+本实验使用独占临时MySQL和串行测试。唯一INNODB_TRX查询在processDBTransactions，只有释放前观察及受控采样循环调用；其他fixture不得在空闲窗口读取这张全局缓存。该前提不适用于无关监控并发读取的共享实例，不承诺普遍快照新鲜度。scripts/test_cleanup.py中的7项新增检查是按固定源规则建立的确定性调度模型，拒绝5ms饥饿和100ms边界，检查截止、采样上限及Go源码绑定；它们不代表Go或MySQL执行。
+
+来源：https://github.com/mysql/mysql-server/blob/mysql-8.4.7/storage/innobase/trx/trx0i_s.cc ，SHA256 c5647626e35f64253cfa1ce84b944c9c62703f52e4390de07c1334238c6f6128；https://github.com/mysql/mysql-server/blob/mysql-8.4.7/storage/innobase/handler/i_s.cc ，SHA256 2e68bf57f2a900fe5ee65a9de581484f1f3be85afb2481fc40e3d9679951faf1。完整源只用于独立阅读，公开示例不复制上游实现。
