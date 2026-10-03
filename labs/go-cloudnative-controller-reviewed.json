@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "scope": "real-envtest-api-and-single-node-kind-teaching-controller",
-  "source_id": "91c7527bfc394833ea2d829a80db4d8743455800f8b5e68ed73b2f23bcb7e34d",
+  "source_id": "4a392b81884aa9d50aea181ac8fa6ff592cd2065a3247578e124b9e6744e1add",
   "source_sha256": {
     ".github/workflows/go-cloudnative-bootstrap.yml": "d35fe05374cc6990774cd0f08db8c88d26cf241c40a1b338dd44a89e4e3c0ba7",
     "labs/go-cloudnative-controller/README.md": "7adffe6667cedb2280928705828ef32c7bd2f166bcc30fc40a161bcee9896581",
@@ -19,13 +19,13 @@
     "labs/go-cloudnative-controller/internal/controller/reconciler_test.go": "c718d19210a15096f076f005955fd0e776531c86823eb22e971ce45bad5d5a57",
     "labs/go-cloudnative-controller/licenses/kubernetes-APACHE-2.0.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
     "labs/go-cloudnative-controller/scripts/check_kind_oracle.py": "2c092f335cf4e9d70836338335f2e54ef6a83370101231a4a0dc53842582e186",
-    "labs/go-cloudnative-controller/scripts/kind_acceptance.py": "8907badb39749e3110aef7150937bb9e54716c3f0196ce5aab89a27d0baaad66",
+    "labs/go-cloudnative-controller/scripts/kind_acceptance.py": "20a70d00d999b72f23ab89739456fcf345313393a7c60d72518eb09b034aa813",
     "labs/go-cloudnative-controller/test-inventory.json": "5cfe000cc50301b541ac63cb7254d403561daa03702757e6ef3bba674aa5dbd7",
     "labs/go-cloudnative-controller/test/integration/manager_test.go": "8f50893ea726ead1ddb0cafbda545c85b079daf8d12a18ddc6060f621115f73d",
     "scripts/ci/go_cloudnative_assets.py": "c1165b1a5617ed4df673a9397718fd2d7c291b51e559d8515af8982d5fc3e13a",
     "scripts/ci/go_cloudnative_ci.py": "4ee1881bf8ea02fcec183c814844457deb48f6e974abb6f58d8039ae95f8ed73",
     "scripts/ci/go_cloudnative_versions.json": "0c6c11405462f73baabb70e89c9a0ad59c9205f561695d2d43edb58a214a4a48",
-    "scripts/ci/test_go_cloudnative_ci.py": "a16404f1d7962bc5e15b0699c4114ecd401387c6a97bf22be99cdecb05524808"
+    "scripts/ci/test_go_cloudnative_ci.py": "ab6fa7d9b3fef51873ccb8535a9462fa234b3dba3691546321a4d9faedbd6631"
   },
   "execution_status_at_freeze": {
     "unit": "pass: 24 required outcomes; Go 1.27.1, 2026-10-03",

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Pure/synthetic checks. These are not Go, envtest or kind execution evidence."""
+import ast
 import hashlib
 import importlib.util
 import io
@@ -8,6 +9,7 @@ from pathlib import Path
 import tarfile
 import tempfile
 import unittest
+from types import SimpleNamespace
 from unittest import mock
 
 HERE = Path(__file__).parent
@@ -58,6 +60,25 @@ class IdentityAndEvents(unittest.TestCase):
     def test_manifest_hash_is_order_independent(self):
         self.assertEqual(ci.source_id({'b': '2', 'a': '1'}), ci.source_id({'a': '1', 'b': '2'}))
         self.assertNotEqual(ci.source_id({'a': '1'}), ci.source_id({'a': '2'}))
+
+class HarnessEventContract(unittest.TestCase):
+    def test_lifecycle_event_preserves_cluster_name_detail(self):
+        # Execute the actual nested event helper with in-memory dependencies only.
+        module = ast.parse((ci.LAB / 'scripts/kind_acceptance.py').read_text())
+        main = next(n for n in module.body if isinstance(n, ast.FunctionDef) and n.name == 'main')
+        event = next(n for n in main.body if isinstance(n, ast.FunctionDef) and n.name == 'event')
+        report = {'lifecycle': {'events': []}}
+        flush = mock.Mock()
+        context = {'report': report, 'started': 10.0,
+                   'time': SimpleNamespace(monotonic=lambda: 11.25), 'flush': flush}
+        exec(compile(ast.Module(body=[event], type_ignores=[]), '<actual-event-helper>', 'exec'), context)
+        for phase, status in [('cluster_create', 'attempt'), ('cluster_create', 'pass'), ('cluster_delete', 'pass')]:
+            context['event'](phase, status, name='wiki-p0-0123456789ab')
+        self.assertEqual(report['lifecycle']['events'], [
+            {'event': phase, 'status': status, 'elapsed_seconds': 1.25, 'name': 'wiki-p0-0123456789ab'}
+            for phase, status in [('cluster_create', 'attempt'), ('cluster_create', 'pass'), ('cluster_delete', 'pass')]])
+        self.assertEqual(flush.call_count, 3)
+
 
 class Assets(unittest.TestCase):
     def test_checksum_and_size_before_executable(self):

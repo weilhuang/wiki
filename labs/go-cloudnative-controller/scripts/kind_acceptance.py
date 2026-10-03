@@ -82,8 +82,8 @@ def main():
         tmp.write_text(json.dumps(report, indent=2) + '\n')
         tmp.replace(output / 'kind-report.json')
 
-    def event(name, status, **details):
-        report['lifecycle']['events'].append({'event': name, 'status': status,
+    def event(event_name, status, **details):
+        report['lifecycle']['events'].append({'event': event_name, 'status': status,
                                             'elapsed_seconds': round(time.monotonic() - started, 3), **details})
         flush()
 
