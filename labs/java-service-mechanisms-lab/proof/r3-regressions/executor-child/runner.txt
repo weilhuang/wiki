@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "<mutant-lab>/run.py", line 76, in <module>
+    run(command('ExecutorLab'), 'executor.txt', required=(
+  File "<mutant-lab>/run.py", line 34, in run
+    raise AssertionError(f'{name}: wrong exit or missing target diagnostic')
+AssertionError: executor.txt: wrong exit or missing target diagnostic

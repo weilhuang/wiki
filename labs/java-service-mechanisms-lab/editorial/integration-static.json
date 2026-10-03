@@ -1,0 +1,43 @@
+{
+  "kind": "static-checked",
+  "status": "pass",
+  "recordedAt": "2026-10-03T06:33:30.016194+00:00",
+  "commands": [
+    {
+      "command": "npm run check",
+      "exitCode": 0
+    }
+  ],
+  "scope": [
+    "Integrated three article metadata and relations, three classification guides and Java reading route",
+    "Pinned Mermaid parsing and Code Hike clean-code/source/range matching",
+    "23 Node regressions, 98 generated HTML pages, 354 canonical search sections and 25 intent targets",
+    "Existing assets, canonical and alias links, historical headings, strong rendering and metadata checks"
+  ],
+  "limits": [
+    "This is a Node/static/SSR integration record; it is not a new Java execution",
+    "Independent whole-tree review, remote CI and live browser checks are separate release gates"
+  ],
+  "files": [
+    {
+      "path": "labs/java-service-mechanisms-lab/editorial/static-check.mjs",
+      "sha256": "375eb0412eb35496647b3c1e8839067afdbd8894da58c775f27b059a52c475be"
+    },
+    {
+      "path": "content/snippets/java-mechanisms.json",
+      "sha256": "c308de6523f2914a849f0f64f0a3a80c68ef9f7f1366f9a35084e5fe7ce14e3e"
+    },
+    {
+      "path": "docs/knowledge/java/juc-execution/executor-admission.md",
+      "sha256": "e6b43a39e78b62ec50f30541ea9a22a48d389d21549552d11ca66f6e589ee5f3"
+    },
+    {
+      "path": "docs/knowledge/java/juc-foundations/jmm-safe-publication.md",
+      "sha256": "303b0a2a52a538c05b5aa195a3d04cb0557dcd667e3b32f4db4a70eb3fe5277e"
+    },
+    {
+      "path": "docs/knowledge/java/jvm-diagnostics/thread-gc-diagnosis.md",
+      "sha256": "2faa3b37a763f7a65b241fc95c3b77c5cf402bde3c75451d1c021a0dc16784e7"
+    }
+  ]
+}

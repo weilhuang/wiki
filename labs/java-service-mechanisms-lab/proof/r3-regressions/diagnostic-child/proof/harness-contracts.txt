@@ -1,0 +1,4 @@
+FAILURE_IDENTITY same Throwable once; distinct children retained; primary preserved
+COOPERATIVE_CLEANUP release then shutdown then await; no shutdownNow or interrupt
+FORCED_CLEANUP bounded timeout recorded as suppressed; worker ended
+HARNESS_CONTRACTS_OK

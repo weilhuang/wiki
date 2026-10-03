@@ -1,0 +1,145 @@
+{
+  "status": "pass",
+  "scope": "Metadata, relations, direct links, pinned Mermaid parse and Code Hike compilation, exact source snippet identity; no site build or browser review",
+  "articles": [
+    {
+      "file": "articles/jmm-safe-publication.md",
+      "id": "java.jmm-safe-publication",
+      "canonical": "knowledge/java/juc-foundations/jmm-safe-publication.md",
+      "sha256": "a1518b829a39edd8ff29b071b3f4b87e5fdfc74dce68aaf22f52bcef4a02f283"
+    },
+    {
+      "file": "articles/executor-admission.md",
+      "id": "java.executor-admission",
+      "canonical": "knowledge/java/juc-execution/executor-admission.md",
+      "sha256": "de52ff12ef90ebb1bf4d186441f61c818a4b22148198a4d2771c7b6062ff8e61"
+    },
+    {
+      "file": "articles/thread-gc-diagnosis.md",
+      "id": "java.jvm-diagnosis",
+      "canonical": "knowledge/java/jvm-diagnostics/thread-gc-diagnosis.md",
+      "sha256": "9b759dbf85f1ce2e71021d119f6960e931bf2e4733ec0a8676072a5f14186c4c"
+    }
+  ],
+  "diagrams": [
+    {
+      "article": "jmm-safe-publication.md",
+      "type": "flowchart-v2",
+      "sha256": "0c16249b4d2b41b568796f9860a325c29feaec0bdd792342b352d21c322ea380"
+    },
+    {
+      "article": "jmm-safe-publication.md",
+      "type": "sequence",
+      "sha256": "c6c9c5988f6bd9a991b94c0db43579299db7d6d9d64a8084b5f17ac8ec0d6b33"
+    },
+    {
+      "article": "executor-admission.md",
+      "type": "flowchart-v2",
+      "sha256": "3816bd5ccd280f560940f37eff8b3cbfd0d474d0f1d201e7ae0ec1cdc9c4ef02"
+    },
+    {
+      "article": "executor-admission.md",
+      "type": "sequence",
+      "sha256": "6c603e4fb5f116b4fc4c51d28677dbd0cb5aa405905f7ef4ab641705d4862daa"
+    },
+    {
+      "article": "thread-gc-diagnosis.md",
+      "type": "flowchart-v2",
+      "sha256": "c0441516f58e283bbbb122ea0d867e731f3e613aa541ed3ddac078751e73d115"
+    }
+  ],
+  "code": [
+    {
+      "article": "jmm-safe-publication.md",
+      "lang": "java",
+      "steps": [
+        [
+          2,
+          5
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          10,
+          12
+        ],
+        [
+          13,
+          15
+        ]
+      ],
+      "cleanSha256": "9ac65c0054a1f6a7bf55717eb0cb73c0a7566f74e6da3f7b1f43f6a0819a8e1c"
+    },
+    {
+      "article": "executor-admission.md",
+      "lang": "java",
+      "steps": [
+        [
+          24,
+          29
+        ],
+        [
+          30,
+          31
+        ],
+        [
+          32,
+          35
+        ],
+        [
+          37,
+          38
+        ]
+      ],
+      "cleanSha256": "6cc5ce104f6bdf19773c25a4531410b3f46f9a3ae13c39b9be8ddb828506588a"
+    },
+    {
+      "article": "executor-admission.md",
+      "lang": "java",
+      "steps": [
+        [
+          1,
+          3
+        ],
+        [
+          4,
+          6
+        ]
+      ],
+      "cleanSha256": "62bbafb30a583b051c485acb252a010efd44b6dd0ee49f211179eae0d8878f9f"
+    },
+    {
+      "article": "thread-gc-diagnosis.md",
+      "lang": "text",
+      "steps": [],
+      "cleanSha256": "9a1e92e1ee714b8d8008f3ed27a39d3fbe1e43e7d819af939ffe6a02d44667d0"
+    },
+    {
+      "article": "thread-gc-diagnosis.md",
+      "lang": "java",
+      "steps": [
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          8,
+          10
+        ]
+      ],
+      "cleanSha256": "030a222550276b23fce684b054a4c3692e14ffbb10d265e1493a17c853a47bba"
+    },
+    {
+      "article": "thread-gc-diagnosis.md",
+      "lang": "text",
+      "steps": [],
+      "cleanSha256": "e2418ec96d49ad51e260c7e35a534c25ea0228c1c2d17f47faf26554a14c892c"
+    }
+  ]
+}

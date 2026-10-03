@@ -4,9 +4,9 @@ export const taxonomy = [
     ['objects','类型与对象','用值、身份和可变性解释对象合同。','对象相等性与 hashCode、泛型与擦除、不可变对象'],
     ['collections','集合','先选操作和顺序合同，再研究数组、散列与有序结构怎样承担它。','ArrayList、LinkedHashMap、TreeMap、集合视图'],
     ['resources','异常与资源','异常传播与资源释放是两种责任，需要在同一控制流里解释。','try-with-resources、suppressed exception、资源所有权'],
-    ['juc-foundations','并发基础','把原子性、可见性、顺序和等待分开，才有条件判断线程安全。','竞态、happens-before、安全发布、线程中断'],
+    ['juc-foundations','并发基础','把原子性、可见性、顺序和等待分开，才有条件判断线程安全。','线程中断、复杂对象不变式、跨线程协议的更多反例'],
     ['juc-synchronization','同步与并发容器','比较锁、CAS、队列和快照承担的协作合同。','synchronized、volatile、AQS、ConcurrentHashMap'],
-    ['juc-execution','执行与编排','任务的接纳、排队、运行和取消有不同资源成本。','线程池、拒绝策略、Future、虚拟线程'],
+    ['juc-execution','执行与编排','任务的接纳、排队、运行和取消有不同资源成本。','更多拒绝策略与 ThreadFactory 失败、CompletableFuture、ForkJoin、虚拟线程'],
     ['jvm-runtime','JVM 执行与内存','沿加载、执行与可达性解释运行时状态，不把参数名称当作调优方法。','类加载、栈帧、JIT、对象布局、GC'],
     ['jvm-diagnostics','JVM 诊断','从负载和现象提出假设，再选择线程、分配或内存证据。','JFR、GC 日志、OOM、堆外内存']
   ] },

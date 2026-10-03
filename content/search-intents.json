@@ -93,5 +93,35 @@
     "query": "测试非零退出为什么仍可能假绿",
     "topic": "foundations.assertion-counterexamples",
     "anchor": "failure-attribution"
+  },
+  {
+    "query": "volatile 自增为什么丢失更新",
+    "topic": "java.jmm-safe-publication",
+    "anchor": "可见性不等于复合动作原子性"
+  },
+  {
+    "query": "安全发布对象 不只是引用",
+    "topic": "java.jmm-safe-publication",
+    "anchor": "安全发布的是对象状态-不只是地址"
+  },
+  {
+    "query": "最大线程数为什么不生效",
+    "topic": "java.executor-admission",
+    "anchor": "排队策略改变哪条分支"
+  },
+  {
+    "query": "submit 的异常去哪了",
+    "topic": "java.executor-admission",
+    "anchor": "execute-与-submit-异常被谁接住"
+  },
+  {
+    "query": "RUNNABLE 一定 CPU 忙吗",
+    "topic": "java.jvm-diagnosis",
+    "anchor": "对同一线程比较-cpu-增量"
+  },
+  {
+    "query": "GC 日志能证明内存泄漏吗",
+    "topic": "java.jvm-diagnosis",
+    "anchor": "有-gc-记录-不等于找到内存泄漏"
   }
 ]

@@ -1,0 +1,11 @@
+--- a/src/ExecutorLab.java
++++ b/src/ExecutorLab.java
+@@ -32,7 +32,7 @@
+         try (PoolCleanup cleanup = new PoolCleanup(p, release)) {
+             p.execute(() -> { aStarted.countDown(); await(release); done.add("A"); });
+             await(aStarted);
+-            Runnable b = () -> done.add("B");
++            Runnable b = new FutureTask<Void>(() -> { done.add("B"); throw new IllegalStateException("REVIEWER_ORDINARY_FUTURE_FAILURE"); }, null);
+             p.execute(b);
+             require(p.getPoolSize() == 1 && p.getQueue().contains(b), "B should queue before max expansion");
+             if (wrongMaxFirst) require(p.getPoolSize() == 2, "MAX_FIRST_CLAIM expected=2 actual=" + p.getPoolSize());

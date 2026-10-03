@@ -1,0 +1,69 @@
+{
+  "status": "fail",
+  "sourceRevision": "J-r2",
+  "sourceManifestSha256": "11eae5bb68927bd295eab0e1f71f756d4213803aa7d9a748254cb305fe12abdc",
+  "reviewReportSha256": "bcbda9298b5aa6a605a6217deb038063b541f51755842a82a19a53a6238cc82e",
+  "observations": [
+    {
+      "case": "unchanged baseline",
+      "runnerExitCode": 1,
+      "failedArtifact": "baseline-negative-max-first.txt",
+      "reason": "Immediate shutdownNow raced with released worker still leaving latch await; collected interruption replaced expected MAX_FIRST_CLAIM primary"
+    },
+    {
+      "case": "ordinary execute mutation",
+      "javaExitCode": 1,
+      "failedArtifact": "executor-child-exception.txt",
+      "reason": "Same Throwable collected twice, emitted as suppressed and circular-reference cause"
+    }
+  ],
+  "notRunByReviewer": [
+    "future-wrong-cause",
+    "ordinary-future-child"
+  ],
+  "sourceFiles": [
+    {
+      "path": "sources/history/r2-review/run.py",
+      "sha256": "e0940910b842c9a628d4747d22d321036cd9acf819f15a791eee1ecc40f5ecc5"
+    },
+    {
+      "path": "sources/history/r2-review/src/ChildFailures.java",
+      "sha256": "f63984ab9911191f21cd23b3eb76f047980cf77a3916115ba48472409c59a2ad"
+    },
+    {
+      "path": "sources/history/r2-review/src/DiagnosticLab.java",
+      "sha256": "d53a6186fff80498dda10da9b80a8cfb84b97360de186f518181678f53d883db"
+    },
+    {
+      "path": "sources/history/r2-review/src/ExecutorLab.java",
+      "sha256": "8d7e7703390ab85fa07e7dccc9482c2fbdaabc2f4fac96f255bcbe392facfa1d"
+    },
+    {
+      "path": "sources/history/r2-review/src/JmmLab.java",
+      "sha256": "17c7c729fb13ba8d5f93b27228f3e489121c3af611bea7861d1caf42aa87b3e9"
+    },
+    {
+      "path": "sources/history/r2-review/src/Publication.java",
+      "sha256": "3610abe8aab151b62f9dd79d6f3d8e3079d8f7abb27bf169926ff831d0c924d7"
+    },
+    {
+      "path": "sources/history/r2-review/runtime_probes.py",
+      "sha256": "2face29fa257ac058d5096bd7cbc5ba390ceb9f8d149429160c713d3c4188125"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "proof/history/r2-review/baseline-negative-max-first.txt",
+      "sha256": "1b7a644862e6d3eafcc149da77a66470dca45ad5a34a5bcdbdb3905a81c4b3f1"
+    },
+    {
+      "path": "proof/history/r2-review/baseline-result.json",
+      "sha256": "49973351e18e6c35c23166a6a7b50e2b8fe788035f3cdc6e6b9771dab6ac7390"
+    },
+    {
+      "path": "proof/history/r2-review/executor-child-exception.txt",
+      "sha256": "67988c556cba04bf4a6be4906dcd06a72e1ab1cd1d8e38f2311ecc192ae72b1b"
+    }
+  ],
+  "retention": "Original reviewer raw logs and original r1/r2 snapshots remain immutable; these selected Java outputs are byte-identical public copies"
+}

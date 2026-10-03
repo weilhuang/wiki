@@ -1,0 +1,92 @@
+{
+  "status": "pass",
+  "records": [
+    {
+      "artifact": "java-version.txt",
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "artifact": "javac-version.txt",
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "artifact": "compile.txt",
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "artifact": "harness-contracts.txt",
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "artifact": "jmm.txt",
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "artifact": "executor.txt",
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "artifact": "negative-volatile.txt",
+      "exitCode": 1,
+      "expectedExitCode": 1,
+      "requiredToken": "VOLATILE_COMPOUND_CLAIM expected=2 actual=1"
+    },
+    {
+      "artifact": "negative-max-first.txt",
+      "exitCode": 1,
+      "expectedExitCode": 1,
+      "requiredToken": "MAX_FIRST_CLAIM expected=2 actual=1"
+    },
+    {
+      "artifact": "negative-drain.txt",
+      "exitCode": 1,
+      "expectedExitCode": 1,
+      "requiredToken": "DRAIN_CANCEL_CLAIM Future remained NEW"
+    },
+    {
+      "artifact": "diagnostic.txt",
+      "exitCode": 0,
+      "expectedExitCode": 0
+    }
+  ],
+  "sourceFiles": [
+    {
+      "path": "src/ChildFailures.java",
+      "sha256": "6e950477f6999f89223801383e6fe65ee8dad52cbd1c32e04c15fa63706525e6"
+    },
+    {
+      "path": "src/DiagnosticLab.java",
+      "sha256": "cab33673d3774da559f516e06fdb409f9916b48f6e57a47605f9b9dfdb8b2421"
+    },
+    {
+      "path": "src/ExecutorLab.java",
+      "sha256": "334091edca8f3b8bdd53d709f7a6d13ddec7022be5b94066f744deb8e25746f7"
+    },
+    {
+      "path": "src/HarnessContracts.java",
+      "sha256": "03277a1b6523dc73c5cd913b589d1f27cab01779ae2e3ccb8aa45b4662a492d2"
+    },
+    {
+      "path": "src/JmmLab.java",
+      "sha256": "870ed2ee2fac3a6127347c074129f2af908546ec330af9dff6b2865fa24803ed"
+    },
+    {
+      "path": "src/PoolCleanup.java",
+      "sha256": "67b6f31277527ce9afba2279b44c3ff7c5d206b489c8a6c21925443cb63ce6fe"
+    },
+    {
+      "path": "src/Publication.java",
+      "sha256": "3610abe8aab151b62f9dd79d6f3d8e3079d8f7abb27bf169926ff831d0c924d7"
+    },
+    {
+      "path": "run.py",
+      "sha256": "9f9055dde202c71db55ec100a507f602e3f7df3578b8392cde2bffe01cab1bd4"
+    }
+  ]
+}

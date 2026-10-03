@@ -1,0 +1,131 @@
+[
+  {
+    "id": "javase21.jls17",
+    "title": "JLS 21 Chapter 17 Threads and Locks",
+    "url": "https://docs.oracle.com/javase/specs/jls/se21/html/jls-17.html",
+    "type": "specification",
+    "version": "Java SE 21 / JDK 21",
+    "accessedAt": "2026-10-03",
+    "notes": "17.3、17.4.4–17.4.5、17.5：同步边、data race、final"
+  },
+  {
+    "id": "javase21.threadpool-j",
+    "title": "Java SE21 ThreadPoolExecutor",
+    "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/ThreadPoolExecutor.html",
+    "type": "api",
+    "version": "Java SE 21 / JDK 21",
+    "accessedAt": "2026-10-03",
+    "notes": "core/maximum、队列、拒绝策略、afterExecute和监控估计"
+  },
+  {
+    "id": "javase21.executorservice-j",
+    "title": "Java SE21 ExecutorService",
+    "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/ExecutorService.html",
+    "type": "api",
+    "version": "Java SE 21 / JDK 21",
+    "accessedAt": "2026-10-03",
+    "notes": "提交和Future.get内存边界、shutdown与shutdownNow"
+  },
+  {
+    "id": "javase21.future-j",
+    "title": "Java SE21 Future",
+    "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/Future.html",
+    "type": "api",
+    "version": "Java SE 21 / JDK 21",
+    "accessedAt": "2026-10-03",
+    "notes": "get/cancel/异常结果"
+  },
+  {
+    "id": "javase21.latch-j",
+    "title": "Java SE21 CountDownLatch",
+    "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CountDownLatch.html",
+    "type": "api",
+    "version": "Java SE 21 / JDK 21",
+    "accessedAt": "2026-10-03",
+    "notes": "countDown到成功await的内存边界"
+  },
+  {
+    "id": "javase21.atomic-j",
+    "title": "Java SE21 atomic package",
+    "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/atomic/package-summary.html",
+    "type": "api",
+    "version": "Java SE 21 / JDK 21",
+    "accessedAt": "2026-10-03",
+    "notes": "单变量原子动作与内存效应"
+  },
+  {
+    "id": "javase21.thread-state-j",
+    "title": "Java SE21 Thread.State",
+    "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Thread.State.html",
+    "type": "api",
+    "version": "Java SE 21 / JDK 21",
+    "accessedAt": "2026-10-03",
+    "notes": "RUNNABLE/BLOCKED/WAITING/TIMED_WAITING定义"
+  },
+  {
+    "id": "javase21.threadmxbean-j",
+    "title": "Java SE21 ThreadMXBean",
+    "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.management/java/lang/management/ThreadMXBean.html",
+    "type": "api",
+    "version": "Java SE 21 / JDK 21",
+    "accessedAt": "2026-10-03",
+    "notes": "实际平台线程快照、锁信息和CPU时间支持/单位/限制"
+  },
+  {
+    "id": "jdk21.jcmd-j",
+    "title": "JDK21 jcmd command",
+    "url": "https://docs.oracle.com/en/java/javase/21/docs/specs/man/jcmd.html",
+    "type": "documentation",
+    "version": "Java SE 21 / JDK 21",
+    "accessedAt": "2026-10-03",
+    "notes": "Thread.print与进程诊断命令，实验外部attach未成功"
+  },
+  {
+    "id": "jdk21.java-command-j",
+    "title": "JDK21 java command",
+    "url": "https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html",
+    "type": "documentation",
+    "version": "Java SE 21 / JDK 21",
+    "accessedAt": "2026-10-03",
+    "notes": "Xms/Xmx、ActiveProcessorCount、Xlog GC日志"
+  },
+  {
+    "id": "jdk21.gc-guide-j",
+    "title": "JDK21 Introduction to Garbage Collection Tuning",
+    "url": "https://docs.oracle.com/en/java/javase/21/gctuning/introduction-garbage-collection-tuning.html",
+    "type": "documentation",
+    "version": "Java SE 21 / JDK 21",
+    "accessedAt": "2026-10-03",
+    "notes": "分配/回收/收集器选择目的与观察边界"
+  },
+  {
+    "id": "openjdk21.threadpool-j",
+    "title": "OpenJDK jdk-21+35 ThreadPoolExecutor.java",
+    "url": "https://github.com/openjdk/jdk/blob/jdk-21%2B35/src/java.base/share/classes/java/util/concurrent/ThreadPoolExecutor.java",
+    "type": "source",
+    "version": "jdk-21+35",
+    "accessedAt": "2026-10-03",
+    "license": "GPL-2.0-only WITH Classpath-exception-2.0",
+    "notes": "完整原文件与版权头保留。SHA256 c95cd4ef67c936350fb6b85db3f7858a1185ddeac62bf00f4236efe6b5fd2427；精确检查范围见 source-review.json"
+  },
+  {
+    "id": "openjdk21.abstractexecutor-j",
+    "title": "OpenJDK jdk-21+35 AbstractExecutorService.java",
+    "url": "https://github.com/openjdk/jdk/blob/jdk-21%2B35/src/java.base/share/classes/java/util/concurrent/AbstractExecutorService.java",
+    "type": "source",
+    "version": "jdk-21+35",
+    "accessedAt": "2026-10-03",
+    "license": "GPL-2.0-only WITH Classpath-exception-2.0",
+    "notes": "完整原文件与版权头保留。SHA256 e478cc6c8cd5befcca790b07453c79edd26a0dc249a3bd7c159e882f961681a9；精确检查范围见 source-review.json"
+  },
+  {
+    "id": "openjdk21.futuretask-j",
+    "title": "OpenJDK jdk-21+35 FutureTask.java",
+    "url": "https://github.com/openjdk/jdk/blob/jdk-21%2B35/src/java.base/share/classes/java/util/concurrent/FutureTask.java",
+    "type": "source",
+    "version": "jdk-21+35",
+    "accessedAt": "2026-10-03",
+    "license": "GPL-2.0-only WITH Classpath-exception-2.0",
+    "notes": "完整原文件与版权头保留。SHA256 05f98dffdf1fcb2f06772e7a82521bf948f766b50f5fbffd37bdab880a5cfcd7；精确检查范围见 source-review.json"
+  }
+]

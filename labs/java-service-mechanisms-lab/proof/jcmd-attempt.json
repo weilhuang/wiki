@@ -1,0 +1,21 @@
+{
+  "status": "fail",
+  "kind": "executed",
+  "command": "$JAVA_HOME/bin/jcmd -J-Xmx64m -J-XX:ActiveProcessorCount=2 <lab-pid> Thread.print -l",
+  "exitCode": null,
+  "reason": "timeout-after-8-seconds",
+  "runnerExitCode": 1,
+  "observed": "DiagnosticLab reached READY, jcmd did not complete within eight seconds; no successful external thread dump collected",
+  "cleanup": "Runner finally terminated the diagnostic process; no surviving lab JVM found",
+  "limits": "No system-level root cause for attach timeout established; successful run-r2 uses same-process ThreadMXBean",
+  "sourceFiles": [
+    {
+      "path": "sources/history/jcmd-attempt/src/DiagnosticLab.java",
+      "sha256": "5de6c9152feba81ffce41d68735f96d6e3177a2ac6c0cdda8049c3fe66bd8cdb"
+    },
+    {
+      "path": "sources/history/jcmd-attempt/run.py",
+      "sha256": "94f5d1e0eba866fe7c59654c1a4a370bbf0c255129932a7fd143455cecad8ccd"
+    }
+  ]
+}

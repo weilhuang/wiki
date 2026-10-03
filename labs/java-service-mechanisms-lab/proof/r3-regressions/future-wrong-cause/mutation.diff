@@ -1,0 +1,11 @@
+--- a/src/ExecutorLab.java
++++ b/src/ExecutorLab.java
+@@ -78,7 +78,7 @@
+             p.execute(() -> { throw new IllegalArgumentException("execute-boom"); });
+             await(uncaught);
+             require(uncaughtFailure.get() instanceof IllegalArgumentException && "execute-boom".equals(uncaughtFailure.get().getMessage()), "wrong uncaught failure");
+-            Future<?> f = p.submit(() -> { throw new IllegalStateException("submit-boom"); });
++            Future<?> f = p.submit(() -> { throw new IllegalArgumentException("REVIEWER_FUTURE_WRONG_CAUSE"); });
+             try { f.get(3, TimeUnit.SECONDS); throw new AssertionError("submit exception lost"); }
+             catch (ExecutionException e) {
+                 if (!(e.getCause() instanceof IllegalStateException && "submit-boom".equals(e.getCause().getMessage())))

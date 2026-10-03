@@ -1,0 +1,11 @@
+--- a/src/DiagnosticLab.java
++++ b/src/DiagnosticLab.java
+@@ -17,7 +17,7 @@
+     static void busy() {
+         long value = 1;
+         while (running) value = value * 1664525L + 1013904223L;
+-        checksum = value;
++        checksum = value; throw new IllegalStateException("REVIEWER_CHILD_DIAGNOSTIC_FAILURE");
+     }
+     static void allocate() {
+         byte[][] ring = new byte[16][];

@@ -1,0 +1,97 @@
+{
+  "status": "pass",
+  "scope": "static artifact judgment and actual runner-output parser regression; no JVM execution",
+  "rejectedClaims": {
+    "waiting-holder-holds-no-monitor": "Rejected: actual WAITING holder owns monitor matched by blocked thread",
+    "small-retained-set-means-no-gc": "Rejected: actual young GC pause records exist",
+    "external-jcmd-succeeded": "Rejected: attach attempt timed out; successful snapshots are ThreadMXBean observations"
+  },
+  "outputChecker": [
+    {
+      "case": "matching",
+      "accepted": true
+    },
+    {
+      "case": "same-text-wrong-type",
+      "accepted": false
+    },
+    {
+      "case": "wrong-thread",
+      "accepted": false
+    },
+    {
+      "case": "compile-failure",
+      "accepted": false
+    },
+    {
+      "case": "startup-failure",
+      "accepted": false
+    },
+    {
+      "case": "unexpected-success",
+      "accepted": false
+    },
+    {
+      "case": "wrong-first-exception",
+      "accepted": false
+    },
+    {
+      "case": "complete-positive",
+      "accepted": true
+    },
+    {
+      "case": "ordinary-child-exception",
+      "accepted": false
+    },
+    {
+      "case": "missing-completion",
+      "accepted": false
+    },
+    {
+      "case": "duplicate-completion",
+      "accepted": false
+    },
+    {
+      "case": "complete-diagnostic",
+      "accepted": true
+    },
+    {
+      "case": "diagnostic-child-exception",
+      "accepted": false
+    },
+    {
+      "case": "diagnostic-missing-ok",
+      "accepted": false
+    },
+    {
+      "case": "diagnostic-nonzero",
+      "accepted": false
+    }
+  ],
+  "sourceFiles": [
+    {
+      "path": "run.py",
+      "sha256": "9f9055dde202c71db55ec100a507f602e3f7df3578b8392cde2bffe01cab1bd4"
+    },
+    {
+      "path": "check_evidence.py",
+      "sha256": "ab26f419cc054558bfc23ad1dcd9401010c75d244531cb2961e413aeab6d757a"
+    },
+    {
+      "path": "proof/run-r4/threads-before.txt",
+      "sha256": "476f96c9969bbf01beee0573c5a6a7474ea27b190d95d28a27f00ee4a615ee7c"
+    },
+    {
+      "path": "proof/run-r4/threads-after.txt",
+      "sha256": "476f96c9969bbf01beee0573c5a6a7474ea27b190d95d28a27f00ee4a615ee7c"
+    },
+    {
+      "path": "proof/run-r4/gc.log",
+      "sha256": "b6fd7378e55b71f3a575d3ad61a6b9593761d526e26bd9f06b6bc642c37c8c84"
+    },
+    {
+      "path": "proof/jcmd-attempt.json",
+      "sha256": "7bda5223ef01ec1904f99cfdc1d501ed64ef5a1de1b0ee8a1f947e04351c8b22"
+    }
+  ]
+}

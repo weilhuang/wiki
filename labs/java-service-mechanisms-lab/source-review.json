@@ -1,0 +1,103 @@
+{
+  "status": "source-reviewed",
+  "recordedAt": "2026-10-03",
+  "scope": "Three fixed source files only; no assertion of whole-JDK binary equivalence",
+  "files": [
+    {
+      "file": "sources/ThreadPoolExecutor-jdk-21+35.java",
+      "sha256": "c95cd4ef67c936350fb6b85db3f7858a1185ddeac62bf00f4236efe6b5fd2427",
+      "url": "https://github.com/openjdk/jdk/blob/jdk-21%2B35/src/java.base/share/classes/java/util/concurrent/ThreadPoolExecutor.java",
+      "tag": "jdk-21+35",
+      "lineRanges": [
+        [
+          381,
+          430
+        ],
+        [
+          901,
+          994
+        ],
+        [
+          1123,
+          1159
+        ],
+        [
+          1339,
+          1377
+        ],
+        [
+          1390,
+          1404
+        ],
+        [
+          1421,
+          1437
+        ],
+        [
+          2041,
+          2143
+        ]
+      ],
+      "runtimeSource": "sources/ThreadPoolExecutor-runtime-21.0.12.1.java",
+      "runtimeSha256": "c95cd4ef67c936350fb6b85db3f7858a1185ddeac62bf00f4236efe6b5fd2427",
+      "sameBytes": true
+    },
+    {
+      "file": "sources/AbstractExecutorService-jdk-21+35.java",
+      "sha256": "e478cc6c8cd5befcca790b07453c79edd26a0dc249a3bd7c159e882f961681a9",
+      "url": "https://github.com/openjdk/jdk/blob/jdk-21%2B35/src/java.base/share/classes/java/util/concurrent/AbstractExecutorService.java",
+      "tag": "jdk-21+35",
+      "lineRanges": [
+        [
+          97,
+          126
+        ],
+        [
+          134,
+          148
+        ]
+      ],
+      "runtimeSource": "sources/AbstractExecutorService-runtime-21.0.12.1.java",
+      "runtimeSha256": "e478cc6c8cd5befcca790b07453c79edd26a0dc249a3bd7c159e882f961681a9",
+      "sameBytes": true
+    },
+    {
+      "file": "sources/FutureTask-jdk-21+35.java",
+      "sha256": "05f98dffdf1fcb2f06772e7a82521bf948f766b50f5fbffd37bdab880a5cfcd7",
+      "url": "https://github.com/openjdk/jdk/blob/jdk-21%2B35/src/java.base/share/classes/java/util/concurrent/FutureTask.java",
+      "tag": "jdk-21+35",
+      "lineRanges": [
+        [
+          79,
+          109
+        ],
+        [
+          185,
+          209
+        ],
+        [
+          299,
+          337
+        ]
+      ],
+      "runtimeSource": "sources/FutureTask-runtime-21.0.12.1.java",
+      "runtimeSha256": "05f98dffdf1fcb2f06772e7a82521bf948f766b50f5fbffd37bdab880a5cfcd7",
+      "sameBytes": true
+    }
+  ],
+  "officialReview": "JLS and API pages in sources.json opened via official web lookup; ThreadMXBean direct open initially failed, official indexed result retrieved successfully",
+  "licenseFiles": [
+    {
+      "path": "licenses/ADDITIONAL_LICENSE_INFO",
+      "sha256": "a69bce275ba7a3570af6579cb0f55682cd75fedfcd49e0e8e9022270c447c916"
+    },
+    {
+      "path": "licenses/ASSEMBLY_EXCEPTION",
+      "sha256": "75292f03bf23d3db7c985aecc191029b93883200721ed23ed34a2e601463df33"
+    },
+    {
+      "path": "licenses/LICENSE-openjdk",
+      "sha256": "4b9abebc4338048a7c2dc184e9f800deb349366bdf28eb23c2677a77b4c87726"
+    }
+  ]
+}
