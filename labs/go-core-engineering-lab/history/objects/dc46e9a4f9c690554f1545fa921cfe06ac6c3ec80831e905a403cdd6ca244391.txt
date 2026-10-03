@@ -1,0 +1,87 @@
+[
+  {
+    "originalPath": "README.md",
+    "preservedPath": "proof/preflight-01/attempted-source/README.md.txt",
+    "sha256": "1da7aa0ac948bacc0bb58d2b62d49b49382c6b21eabf6918dfec8030b9488cc5"
+  },
+  {
+    "originalPath": "boundary.go",
+    "preservedPath": "proof/preflight-01/attempted-source/boundary.go.txt",
+    "sha256": "1865ea403aac40344cbe6e34c35ab00d387d46de39b5673a61462541dddcd235"
+  },
+  {
+    "originalPath": "boundary_test.go",
+    "preservedPath": "proof/preflight-01/attempted-source/boundary_test.go.txt",
+    "sha256": "ab0a60b2e0b8e99b7c97fce2d751509a4dea77ae16dab6818a43e3460a562fa8"
+  },
+  {
+    "originalPath": "cmd/demo/main.go",
+    "preservedPath": "proof/preflight-01/attempted-source/cmd/demo/main.go.txt",
+    "sha256": "a7828c687521aa01a5cc7585adba28fe9f0364bbe7fa47c74987640e5bc3ff3d"
+  },
+  {
+    "originalPath": "go.mod",
+    "preservedPath": "proof/preflight-01/attempted-source/go.mod.txt",
+    "sha256": "ff7bfb61f3ab5b3fb0bcde9feed8ffe6aff6ad247c9935d43a3e8b091d2ff928"
+  },
+  {
+    "originalPath": "go.sum",
+    "preservedPath": "proof/preflight-01/attempted-source/go.sum.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "originalPath": "methods.go",
+    "preservedPath": "proof/preflight-01/attempted-source/methods.go.txt",
+    "sha256": "dae56cca2bcf0a92fa4197f49243104e758a3c4a92c018e565e7f41f63c29698"
+  },
+  {
+    "originalPath": "snapshot.go",
+    "preservedPath": "proof/preflight-01/attempted-source/snapshot.go.txt",
+    "sha256": "e5b67af987d0c4f2c4d8091f05383797d881403129c98bbd212a0a88c75456a6"
+  },
+  {
+    "originalPath": "snapshot_test.go",
+    "preservedPath": "proof/preflight-01/attempted-source/snapshot_test.go.txt",
+    "sha256": "ca58108e8179963d42237131fe34bf125f267db0a3f6349f836cc79b77c1cd37"
+  },
+  {
+    "originalPath": "testdata/deterministic-seed.json",
+    "preservedPath": "proof/preflight-01/attempted-source/testdata/deterministic-seed.json.txt",
+    "sha256": "ca63a24dd11099729107b97eb8129adca4b753b3433746324508c6bbe3a7db52"
+  },
+  {
+    "originalPath": "testdata/fuzz/FuzzValidateKey/018a003fcb773a8c",
+    "preservedPath": "proof/preflight-01/attempted-source/testdata/fuzz/FuzzValidateKey/018a003fcb773a8c.txt",
+    "sha256": "018a003fcb773a8c914f938f0d7cff2c9eea107045d617ab65d29e2c8ec03fd5"
+  },
+  {
+    "originalPath": "testdata/fuzz/FuzzValidateKey/25beaf5d20f1eed9",
+    "preservedPath": "proof/preflight-01/attempted-source/testdata/fuzz/FuzzValidateKey/25beaf5d20f1eed9.txt",
+    "sha256": "25beaf5d20f1eed94577e8c891765ab9e49a9db8c073f3a0c725dc1762451646"
+  },
+  {
+    "originalPath": "testdata/fuzz/FuzzValidateKey/26e89b11780e48f8",
+    "preservedPath": "proof/preflight-01/attempted-source/testdata/fuzz/FuzzValidateKey/26e89b11780e48f8.txt",
+    "sha256": "26e89b11780e48f88786e2eb1c2abe60173678c1eaba65e87267772f90c85cee"
+  },
+  {
+    "originalPath": "testdata/fuzz/FuzzValidateKey/e3ca5d3d65c8f8ef",
+    "preservedPath": "proof/preflight-01/attempted-source/testdata/fuzz/FuzzValidateKey/e3ca5d3d65c8f8ef.txt",
+    "sha256": "e3ca5d3d65c8f8ef8accaa352b52021f32781fdfb696e681441127bfe8efa3cf"
+  },
+  {
+    "originalPath": "testdata/fuzz/FuzzValidateKey/fd092373507012da",
+    "preservedPath": "proof/preflight-01/attempted-source/testdata/fuzz/FuzzValidateKey/fd092373507012da.txt",
+    "sha256": "fd092373507012da476b676ab3967d3c63322b100c9952a039f2f72de67add7d"
+  },
+  {
+    "originalPath": "testdata/mutations.json",
+    "preservedPath": "proof/preflight-01/attempted-source/testdata/mutations.json.txt",
+    "sha256": "0a620ee0d7b8f5b136872bb40917d89605c66050c27e83d5fc6dff76111ee47e"
+  },
+  {
+    "originalPath": "verify.py",
+    "preservedPath": "proof/preflight-01/attempted-source/verify.py.txt",
+    "sha256": "18a14e83175b850f0ee6f428c0e9d73c92a48c496c5e635000dfa5ae97603457"
+  }
+]

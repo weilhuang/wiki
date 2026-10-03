@@ -1,0 +1,100 @@
+[
+  {
+    "path": "LICENSE",
+    "url": "https://raw.githubusercontent.com/golang/go/go1.27.1/LICENSE",
+    "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad",
+    "bytes": 1453,
+    "result": "downloaded"
+  },
+  {
+    "path": "src/slices/slices.go",
+    "url": "https://raw.githubusercontent.com/golang/go/go1.27.1/src/slices/slices.go",
+    "sha256": "f31f8ff279a51850aa90f3cbf60f06eaf6d5452889e2b015043c91ccb3e5d403",
+    "bytes": 15003,
+    "result": "downloaded"
+  },
+  {
+    "path": "src/maps/maps.go",
+    "url": "https://raw.githubusercontent.com/golang/go/go1.27.1/src/maps/maps.go",
+    "sha256": "0f69acac135baa8b644e2479e514835b4d991bcc894916c2e34b8739a171fce2",
+    "bytes": 1976,
+    "result": "downloaded"
+  },
+  {
+    "path": "src/errors/wrap.go",
+    "url": "https://raw.githubusercontent.com/golang/go/go1.27.1/src/errors/wrap.go",
+    "sha256": "098116636610ae87dd80e49c4dbe6a2b6c37918d7e1af35ded005be621d68a40",
+    "bytes": 6124,
+    "result": "downloaded"
+  },
+  {
+    "path": "src/errors/join.go",
+    "url": "https://raw.githubusercontent.com/golang/go/go1.27.1/src/errors/join.go",
+    "sha256": "87da7c120f71d17e37f110ae1dc6af6493ec841a22ee825e13a6a8024a014dba",
+    "bytes": 1397,
+    "result": "downloaded"
+  },
+  {
+    "path": "src/cmd/go/alldocs.go",
+    "url": "https://raw.githubusercontent.com/golang/go/go1.27.1/src/cmd/go/alldocs.go",
+    "sha256": "09b0d7570c1695acc0ccad5593e3f5c2f888548cfc7f80a49933a19f3514aa69",
+    "bytes": 160461,
+    "result": "downloaded"
+  },
+  {
+    "path": "doc/go_spec.html",
+    "url": "https://raw.githubusercontent.com/golang/go/go1.27.1/doc/go_spec.html",
+    "sha256": "a249c493e0ad58ccfeac8081426d5b0e77f92b9761b95548f85c9e4d23d0a753",
+    "bytes": 296253,
+    "result": "downloaded"
+  },
+  {
+    "path": "src/internal/fuzz/fuzz.go",
+    "url": "https://raw.githubusercontent.com/golang/go/go1.27.1/src/internal/fuzz/fuzz.go",
+    "sha256": "db5a9c6f3b26220eb9fb1c144caf012a555c6adef785cb9d185426e508d9d2aa",
+    "bytes": 35105,
+    "result": "copied from verified official Go1.27.1 SDK source; not a new network fetch"
+  },
+  {
+    "path": "src/internal/fuzz/encoding.go",
+    "url": "https://raw.githubusercontent.com/golang/go/go1.27.1/src/internal/fuzz/encoding.go",
+    "sha256": "29b5285b8c5fb1dabbc006e19d92b8e937e134d96963c6a5f45b4baaac512961",
+    "bytes": 11249,
+    "result": "copied from verified official Go1.27.1 SDK source; not a new network fetch"
+  },
+  {
+    "path": "src/testing/benchmark.go",
+    "url": "https://raw.githubusercontent.com/golang/go/go1.27.1/src/testing/benchmark.go",
+    "sha256": "ce7b0158ea5c5b0911cfb14ba50c0f1fdc631bf86ec6a5b5530d0f3aaac0ba20",
+    "bytes": 30571,
+    "result": "copied from verified official Go1.27.1 SDK source; not a new network fetch"
+  },
+  {
+    "path": "src/testing/fuzz.go",
+    "url": "https://raw.githubusercontent.com/golang/go/go1.27.1/src/testing/fuzz.go",
+    "sha256": "f26c1704f1c914b29197f7e4a5099c94cb53bd8fed9ec09dd70d2c5a6ee9879c",
+    "bytes": 23724,
+    "result": "copied from verified official Go1.27.1 SDK source; not a new network fetch"
+  },
+  {
+    "path": "src/testing/internal/testdeps/deps.go",
+    "url": "https://raw.githubusercontent.com/golang/go/go1.27.1/src/testing/internal/testdeps/deps.go",
+    "sha256": "2c1f01f11691b2742e0d926ae60bafc71c96b2cacd7ccdf93f54244d770dc4d4",
+    "bytes": 6536,
+    "result": "copied from verified official Go1.27.1 SDK source; not a new network fetch"
+  },
+  {
+    "path": "src/internal/fuzz/worker.go",
+    "url": "https://raw.githubusercontent.com/golang/go/go1.27.1/src/internal/fuzz/worker.go",
+    "sha256": "6416ccc2b7bba6a986ca4beacde58dc2d6f4e648e0a9a1858af66b2123cd6f3a",
+    "bytes": 38641,
+    "result": "copied from verified official Go1.27.1 SDK source; not a new network fetch"
+  },
+  {
+    "path": "src/internal/fuzz/minimize.go",
+    "url": "https://raw.githubusercontent.com/golang/go/go1.27.1/src/internal/fuzz/minimize.go",
+    "sha256": "1f7fffe58538f34463fcc125fd713f07527aa6b7cd07603d343249e5e13e2dba",
+    "bytes": 2314,
+    "result": "copied from verified official Go1.27.1 SDK source; not a new network fetch"
+  }
+]

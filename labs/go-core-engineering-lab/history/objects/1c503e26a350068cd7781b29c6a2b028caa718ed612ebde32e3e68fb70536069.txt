@@ -1,0 +1,163 @@
+package corelab_test
+
+import (
+	"context"
+	"errors"
+	"fmt"
+	"net/http/httptest"
+	"regexp"
+	"strings"
+	"testing"
+
+	corelab "example.com/go-core-engineering-lab"
+)
+
+func TestValidateKey(t *testing.T) {
+	tests := []struct {
+		name string
+		key  string
+		ok   bool
+	}{
+		{"one-byte", "a", true},
+		{"mixed", "demo-42", true},
+		{"maximum", strings.Repeat("a", 32), true},
+		{"empty", "", false},
+		{"too-long", strings.Repeat("a", 33), false},
+		{"numeric-prefix", "1demo", false},
+		{"uppercase", "Demo", false},
+		{"unicode", "演示", false},
+		{"slash", "private/key", false},
+		{"trailing-dash-allowed", "a-", true},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			err := corelab.ValidateKey(tt.key)
+			if tt.ok {
+				if err != nil {
+					t.Fatalf("CONTRACT[nil-success] valid key=%q returned dynamic error type %T", tt.key, err)
+				}
+				return
+			}
+			var field *corelab.FieldError
+			if !errors.Is(err, corelab.ErrInvalid) || !errors.As(err, &field) || field == nil || field.Field != "key" || field.Value != tt.key {
+				t.Fatalf("CONTRACT[invalid-identity] key=%q error=%v field=%+v", tt.key, err, field)
+			}
+		})
+	}
+}
+
+func TestLoadErrorChain(t *testing.T) {
+	_, err := corelab.Load("private/key")
+	var field *corelab.FieldError
+	if !errors.Is(err, corelab.ErrInvalid) || !errors.As(err, &field) || field == nil || field.Value != "private/key" {
+		t.Fatalf("CONTRACT[error-chain] wrapper lost cause: %v (%T)", err, err)
+	}
+	if errors.Is(err, errors.New("invalid input")) {
+		t.Fatal("a matching message is not the sentinel identity")
+	}
+	if viaType, ok := errors.AsType[*corelab.FieldError](err); !ok || viaType != field {
+		t.Fatal("AsType should select the same FieldError for this chain")
+	}
+	if _, err := corelab.Load("missing"); !errors.Is(err, corelab.ErrNotFound) {
+		t.Fatalf("missing: %v", err)
+	}
+	if got, err := corelab.Load("demo"); err != nil || got.Name != "demo" {
+		t.Fatalf("CONTRACT[nil-success] success: got=%+v err=%v", got, err)
+	}
+}
+
+func TestWriteError(t *testing.T) {
+	invalid := fmt.Errorf("load secret: %w", &corelab.FieldError{Field: "key", Value: "private/key"})
+	tests := []struct {
+		name   string
+		err    error
+		status int
+		body   string
+	}{
+		{"invalid", invalid, 400, "{\"code\":\"invalid_argument\",\"message\":\"invalid key\"}\n"},
+		{"missing", fmt.Errorf("load: %w", corelab.ErrNotFound), 404, "{\"code\":\"not_found\",\"message\":\"snapshot not found\"}\n"},
+		{"unknown", errors.New("password=fictional-secret"), 500, "{\"code\":\"internal\",\"message\":\"internal error\"}\n"},
+		{"canceled-wins", errors.Join(corelab.ErrInvalid, context.Canceled), 408, "{\"code\":\"request_canceled\",\"message\":\"request canceled\"}\n"},
+		{"deadline-wins", errors.Join(corelab.ErrNotFound, context.DeadlineExceeded), 504, "{\"code\":\"deadline_exceeded\",\"message\":\"deadline exceeded\"}\n"},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			recorder := httptest.NewRecorder()
+			if err := corelab.WriteError(recorder, tt.err); err != nil {
+				t.Fatalf("write: %v", err)
+			}
+			if recorder.Code != tt.status || recorder.Header().Get("Content-Type") != "application/json" || recorder.Body.String() != tt.body {
+				t.Fatalf("CONTRACT[public-error] status=%d type=%q body=%q; want=%d,%q", recorder.Code, recorder.Header().Get("Content-Type"), recorder.Body.String(), tt.status, tt.body)
+			}
+		})
+	}
+}
+
+func TestJoinTraversal(t *testing.T) {
+	first := &corelab.FieldError{Field: "first", Value: "x"}
+	second := &corelab.FieldError{Field: "second", Value: "y"}
+	err := errors.Join(fmt.Errorf("left: %w", first), second, corelab.ErrNotFound)
+	var field *corelab.FieldError
+	if !errors.As(err, &field) || field != first || !errors.Is(err, corelab.ErrInvalid) || !errors.Is(err, corelab.ErrNotFound) {
+		t.Fatalf("join traversal: err=%v field=%+v", err, field)
+	}
+	if errors.Unwrap(err) != nil {
+		t.Fatal("errors.Unwrap accepts only Unwrap() error, not Unwrap() []error")
+	}
+	if errors.Join(nil, nil) != nil {
+		t.Fatal("all-nil Join must be nil")
+	}
+	var typedNil *corelab.FieldError
+	if errors.Join(typedNil) == nil {
+		t.Fatal("typed nil is a non-nil error interface")
+	}
+}
+
+func TestMethodsAndTypedNil(t *testing.T) {
+	c := corelab.Counter{N: 1}
+	var copied corelab.Valuer = c
+	var shared corelab.Valuer = &c
+	c.Add(2) // Addressable value: shorthand for (&c).Add(2).
+	if copied.Value() != 1 || shared.Value() != 3 {
+		t.Fatalf("receivers: copied=%d shared=%d", copied.Value(), shared.Value())
+	}
+	if _, ok := any(c).(corelab.Adder); ok {
+		t.Fatal("Counter method set must not acquire *Counter.Add")
+	}
+	if _, ok := any(&c).(corelab.Adder); !ok {
+		t.Fatal("*Counter must implement Adder")
+	}
+	var ptr *corelab.FieldError
+	var err error = ptr
+	if ptr != nil || err == nil || err.Error() != "nil field error" {
+		t.Fatalf("typed nil: ptr=%v err=%v", ptr, err)
+	}
+	chunks := [][]byte{[]byte("A42")}
+	outer := corelab.CopyValues(chunks)
+	outer[0][0] = 'X'
+	if string(chunks[0]) != "X42" {
+		t.Fatal("generic outer copy still shares mutable elements")
+	}
+}
+
+func FuzzValidateKey(f *testing.F) {
+	for _, seed := range []string{"", "a", "demo-42", "private/key", "演示", strings.Repeat("a", 32), strings.Repeat("a", 33)} {
+		f.Add(seed)
+	}
+	// Independent declarative oracle, not a call back into ValidateKey.
+	pattern := regexp.MustCompile(`^[a-z][a-z0-9-]{0,31}$`)
+	f.Fuzz(func(t *testing.T, key string) {
+		wantValid := pattern.MatchString(key)
+		err := corelab.ValidateKey(key)
+		if wantValid {
+			if err != nil {
+				t.Fatalf("CONTRACT[nil-success] accepted grammar returned %T", err)
+			}
+			return
+		}
+		var field *corelab.FieldError
+		if !errors.Is(err, corelab.ErrInvalid) || !errors.As(err, &field) || field == nil || field.Value != key {
+			t.Fatalf("CONTRACT[invalid-identity] grammar rejected %q but got %v", key, err)
+		}
+	})
+}

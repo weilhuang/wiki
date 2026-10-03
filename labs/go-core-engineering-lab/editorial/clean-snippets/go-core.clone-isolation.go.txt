@@ -1,0 +1,15 @@
+func TestCloneIsolation(t *testing.T) {
+	shared := []byte("A42")
+	src := corelab.Snapshot{Name: "demo", Labels: map[string]string{"tier": "test"}, Chunks: [][]byte{shared, shared}}
+	dst := corelab.CloneSnapshot(src)
+	src.Labels["tier"] = "changed-input"
+	shared[0] = 'X'
+	if dst.Labels["tier"] != "test" || string(dst.Chunks[0]) != "A42" || string(dst.Chunks[1]) != "A42" {
+		t.Fatalf("CONTRACT[clone-isolation] input write leaked: dst=%+v chunks=%q", dst, dst.Chunks)
+	}
+	dst.Labels["tier"] = "changed-output"
+	dst.Chunks[0][0] = 'Y'
+	if src.Labels["tier"] != "changed-input" || string(src.Chunks[0]) != "X42" || string(src.Chunks[1]) != "X42" || string(dst.Chunks[1]) != "A42" {
+		t.Fatalf("CONTRACT[clone-isolation] output write leaked: src=%q dst=%q", src.Chunks, dst.Chunks)
+	}
+}

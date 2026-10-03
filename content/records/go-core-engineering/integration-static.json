@@ -1,0 +1,15 @@
+{
+  "kind": "actual-node-static-suite",
+  "status": "pass",
+  "command": "npm test",
+  "exitCode": 0,
+  "logSha256": "c75ac48b0a31c1691e35e25da6f0ab28d0efcc583ebc16e957dbb8ec95e26162",
+  "scope": [
+    "complete Node suite including declared Code Hike source excerpts and all Mermaid parses",
+    "metadata and legacy evidence identities"
+  ],
+  "limitations": [
+    "No Go execution in this stage",
+    "No browser or image/layout claim"
+  ]
+}

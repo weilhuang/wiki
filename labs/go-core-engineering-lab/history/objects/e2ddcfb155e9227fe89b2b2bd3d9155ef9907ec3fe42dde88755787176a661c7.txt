@@ -1,0 +1,227 @@
+"""Parse observed Go output against an independently maintained required inventory.
+
+This module never runs Go and never derives expected tests from observed output.
+"""
+from collections import Counter, defaultdict
+import json
+import math
+import hashlib
+import re
+
+
+class Rejection(ValueError):
+    def __init__(self, code, detail):
+        self.code = code
+        super().__init__(code + ": " + detail)
+
+
+def require(condition, code, detail):
+    if not condition:
+        raise Rejection(code, detail)
+
+
+def parse_events(log):
+    events = []
+    for number, line in enumerate(log.splitlines(), 1):
+        if not line.strip():
+            continue
+        try:
+            event = json.loads(line)
+        except json.JSONDecodeError as error:
+            raise Rejection("NON_JSON", "line " + str(number)) from error
+        require(isinstance(event, dict) and isinstance(event.get("Action"), str), "BAD_EVENT", str(number))
+        require(event["Action"] in {"start", "run", "pause", "cont", "pass", "fail", "skip", "output", "bench"},
+                "BUILD_OR_UNKNOWN_EVENT", event["Action"])
+        require(isinstance(event.get("Package"), str), "BAD_PACKAGE", str(number))
+        if "Output" in event:
+            require(isinstance(event["Output"], str), "BAD_OUTPUT", str(number))
+        events.append(event)
+    require(bool(events), "EMPTY_OUTPUT", "no structured Go events")
+    output = "".join(e.get("Output", "") for e in events)
+    require(not any(token in output for token in ["[build failed]", "panic:", "syntax error", "undefined:", "fatal error:", "WARNING: DATA RACE"]),
+            "INFRASTRUCTURE_OR_RUNTIME_FAILURE", "build, panic, or race diagnostic is not a semantic rejection")
+    return events
+
+
+def inventory(log, required, allow_fail=False):
+    """Every named test and package must start once and terminate once, without skip."""
+    for package, names in required.items():
+        require(len(names) == len(set(names)), "DUPLICATE_REQUIREMENT", package)
+    expected = {(package, name) for package, names in required.items() for name in names}
+    events = parse_events(log)
+    starts = Counter()
+    runs = Counter()
+    terminals = defaultdict(list)
+    package_terminals = defaultdict(list)
+    outputs = defaultdict(str)
+    for event in events:
+        action, package, name = event["Action"], event["Package"], event.get("Test")
+        require(package in required, "UNEXPECTED_PACKAGE", package)
+        if name:
+            key = package, name
+            require(key in expected, "UNEXPECTED_TEST", repr(key))
+            if action == "run":
+                runs[key] += 1
+            elif action in {"pass", "fail", "skip"}:
+                terminals[key].append(action)
+            if action == "output":
+                outputs[key] += event.get("Output", "")
+        else:
+            if action == "start":
+                starts[package] += 1
+            elif action in {"pass", "fail", "skip"}:
+                package_terminals[package].append(action)
+    for key in sorted(expected):
+        require(runs[key] != 0, "MISSING_TEST", repr(key))
+        require(runs[key] == 1, "DUPLICATE_RUN", repr(key))
+        require(len(terminals[key]) != 0, "MISSING_TERMINAL", repr(key))
+        require(len(terminals[key]) == 1, "DUPLICATE_TERMINAL", repr(key))
+        require(terminals[key][0] != "skip", "SKIPPED_TEST", repr(key))
+        require(allow_fail or terminals[key] == ["pass"], "FAILED_TEST", repr(key))
+    for package in required:
+        require(starts[package] == 1, "PACKAGE_START_COUNT", package)
+        require(len(package_terminals[package]) == 1, "PACKAGE_TERMINAL_COUNT", package)
+        require(package_terminals[package][0] != "skip", "SKIPPED_PACKAGE", package)
+        failed_children = any(p == package and statuses == ["fail"] for (p, _), statuses in terminals.items())
+        want = "fail" if failed_children else "pass"
+        require(package_terminals[package] == [want], "PACKAGE_TEST_DISAGREEMENT", package)
+    return {"events": events, "outputs": outputs,
+            "failed": {key for key, statuses in terminals.items() if statuses == ["fail"]},
+            "observed": sorted(package + "::" + name for package, name in expected)}
+
+
+def check_suite(log, manifest, replay=False):
+    checked = inventory(log, manifest["fuzzReplay" if replay else "defaultSuite"])
+    return {"accepted": True, "mode": "saved-seed-replay" if replay else "default-suite",
+            "requiredIdentities": checked["observed"], "skipped": [], "duplicates": []}
+
+
+def check_seed_corpus(root, manifest):
+    """Verify saved identities and byte deduplication before interpreting warmup.
+
+    The seven f.Add encodings are fixed fixtures bound to boundary_test.go, not
+    a general Python reimplementation of Go's corpus encoder.
+    """
+    expected = manifest["fuzzExplore"]
+    seed = json.loads((root / expected["seedCorpusManifest"]).read_text())
+    source = seed["fAddSourceIdentity"]
+    require(hashlib.sha256((root / source["path"]).read_bytes()).hexdigest() == source["sha256"],
+            "FADD_SOURCE_CHANGED", source["path"])
+    identities = [entry["identity"] for entry in seed["entries"]]
+    required = set(manifest["fuzzReplay"][manifest["package"]]) - {expected["target"]}
+    require(len(identities) == len(set(identities)), "DUPLICATE_SEED_IDENTITY", "seed manifest")
+    require(set(identities) == required and len(identities) == expected["replayIdentityCount"] == seed["expectedReplayIdentities"],
+            "SEED_IDENTITY_SET_MISMATCH", repr(identities))
+    groups = defaultdict(list)
+    for entry in seed["entries"]:
+        if entry["origin"] == "file":
+            path = root / entry["path"]
+            require(path.is_file(), "MISSING_CORPUS_FILE", entry["path"])
+            data = path.read_bytes()
+        else:
+            require(entry["origin"] == "f.Add", "UNKNOWN_SEED_ORIGIN", entry["origin"])
+            data = entry["corpusText"].encode("utf-8")
+        digest = hashlib.sha256(data).hexdigest()
+        require(digest == entry["sha256"], "CORPUS_BYTES_CHANGED", entry["identity"])
+        groups[digest].append(entry["identity"])
+    duplicates = sorted(sorted(names) for names in groups.values() if len(names) > 1)
+    require(len(groups) == seed["expectedUniqueCorpusBytes"] == expected["minimumWarmupCorpusEntries"],
+            "DISTINCT_CORPUS_COUNT_MISMATCH", str(len(groups)))
+    require(duplicates == seed["expectedDuplicateGroups"], "CORPUS_DUPLICATE_GROUP_MISMATCH", repr(duplicates))
+    return {"accepted": True, "mode": "fixed-seed-corpus-byte-review",
+            "replayIdentities": len(identities), "uniqueCorpusBytes": len(groups),
+            "intentionalDuplicateContentGroups": duplicates,
+            "note": "Replay requires each identity once. Coverage warmup deduplicates bytes and may include extra discovery-cache entries."}
+
+
+def check_mutant(log, manifest, mutant):
+    checked = inventory(log, manifest["defaultSuite"], allow_fail=True)
+    failures, outputs = checked["failed"], checked["outputs"]
+    required = mutant["requiredFailure"]
+    target = required["package"], required["test"]
+    require(target in failures, "TARGET_NOT_FAILED", repr(target))
+    matched_target_marker = False
+    for package, test in failures:
+        identity = package + "::" + test
+        marker = mutant["allowedFailureMarkers"].get(identity)
+        if marker is None:
+            # A parent reports fail when its subtest fails; it need not repeat a diagnostic.
+            children = [(p, n) for p, n in failures if p == package and n.startswith(test + "/")]
+            require(bool(children), "UNEXPECTED_FAILURE", identity)
+            continue
+        output = outputs[(package, test)]
+        found = re.findall(r"CONTRACT\[[a-z-]+\]", output)
+        require(bool(found) and set(found) == {marker}, "WRONG_FAILURE_MARKER", identity)
+        assertion_lines = [line for line in output.splitlines() if re.search(r"\w+_test\.go:\d+: ", line)]
+        require(bool(assertion_lines) and all(marker in line for line in assertion_lines),
+                "UNCLASSIFIED_ASSERTION", identity)
+        if package == target[0] and (test == target[1] or test.startswith(target[1] + "/")) and marker == required["marker"]:
+            matched_target_marker = True
+    require(matched_target_marker, "TARGET_MARKER_MISSING", required["marker"])
+    return {"accepted": True, "mode": "expected-semantic-rejection", "requiredFailure": required,
+            "failedIdentities": sorted(p + "::" + n for p, n in failures)}
+
+
+def package_success(events, package):
+    require({e["Package"] for e in events} == {package}, "UNEXPECTED_PACKAGE", "measurement must use one package")
+    require(sum(e["Action"] == "start" and not e.get("Test") for e in events) == 1,
+            "PACKAGE_START_COUNT", package)
+    terminals = [e["Action"] for e in events if not e.get("Test") and e["Action"] in {"pass", "fail", "skip"}]
+    require(terminals == ["pass"], "PACKAGE_TERMINAL_COUNT", repr(terminals))
+    require(not any(e["Action"] in {"skip", "fail"} for e in events), "SKIPPED_OR_FAILED_MEASUREMENT", package)
+
+
+def check_fuzz_exploration(log, manifest):
+    expected = manifest["fuzzExplore"]
+    package = manifest["package"]
+    target = expected["target"]
+    # Exploration has one named target; saved seed identities were checked separately.
+    checked = inventory(log, {package: [target]})
+    output = "".join(e.get("Output", "") for e in checked["events"])
+    transitions = re.findall(r"(?:gathering baseline coverage|testing seed corpus): (\d+)/(\d+) completed, now fuzzing with (\d+) workers", output)
+    require(len(transitions) == 1, "FUZZ_TRANSITION_COUNT", repr(transitions))
+    done, total, workers = map(int, transitions[0])
+    require(done == total and total >= expected["minimumWarmupCorpusEntries"], "FUZZ_BASELINE_INCOMPLETE", repr(transitions[0]))
+    require(workers == expected["workers"], "FUZZ_WORKER_COUNT", str(workers))
+    execution_counts = [int(n) for n in re.findall(r"fuzz: elapsed: [^,]+, execs: (\d+) \(", output)]
+    require(bool(execution_counts), "FUZZ_EXPLORATION_MISSING", "no execution progress")
+    require(execution_counts == sorted(execution_counts), "FUZZ_PROGRESS_REGRESSED", repr(execution_counts))
+    require(execution_counts[-1] == expected["executionLimit"] and execution_counts[-1] > total,
+            "FUZZ_LIMIT_NOT_REACHED", repr(execution_counts))
+    return {"accepted": True, "mode": "bounded-exploration", "savedSeedReplayRequiredSeparately": True,
+            "baselineInputs": total, "workers": workers, "finalExecutions": execution_counts[-1],
+            "note": "Progress snapshots may repeat. Named run/pass identities may not. Exploration order is not fixed."}
+
+
+def check_benchmark(log, manifest):
+    events = parse_events(log)
+    package_success(events, manifest["package"])
+    expected = manifest["benchmark"]
+    output = "".join(e.get("Output", "") for e in events)
+    require("--- SKIP:" not in output,
+            "SKIPPED_OR_EMPTY_BENCHMARK", "benchmark was skipped or unmatched")
+    rows = {}
+    for line in output.splitlines():
+        match = re.match(r"^(Benchmark\S+)\s+(\d+)\s+(.*)$", line)
+        if not match:
+            continue  # Headers and named progress frames have no iteration count.
+        name, iterations, metrics_text = match.groups()
+        require(name in expected["names"], "UNEXPECTED_BENCHMARK", name)
+        require(name not in rows, "DUPLICATE_BENCHMARK", name)
+        require(int(iterations) == expected["iterations"], "WRONG_BENCHMARK_ITERATIONS", line)
+        pairs = metrics_text.split()
+        require(len(pairs) % 2 == 0, "BAD_BENCHMARK_METRICS", line)
+        metrics = {}
+        for value, unit in zip(pairs[::2], pairs[1::2]):
+            require(unit not in metrics, "DUPLICATE_BENCHMARK_METRIC", unit)
+            try:
+                number = float(value)
+            except ValueError as error:
+                raise Rejection("BAD_BENCHMARK_NUMBER", value) from error
+            require(math.isfinite(number) and number >= 0, "BAD_BENCHMARK_NUMBER", value)
+            metrics[unit] = number
+        require(set(metrics) == set(expected["requiredUnits"]), "MISSING_BENCHMARK_METRIC", name)
+        rows[name] = {"iterations": int(iterations), "metrics": metrics}
+    require(set(rows) == set(expected["names"]), "MISSING_BENCHMARK", repr(sorted(set(expected["names"]) - set(rows))))
+    return {"accepted": True, "mode": "one-bounded-benchmark-sample", "measurements": rows,
+            "note": "One sample per command; sample identities and count are checked by the runner. No ranking claim."}

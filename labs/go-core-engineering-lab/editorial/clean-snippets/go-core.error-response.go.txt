@@ -1,0 +1,16 @@
+func ErrorResponse(err error) (int, PublicError) {
+	switch {
+	case err == nil:
+		return http.StatusOK, PublicError{}
+	case errors.Is(err, context.Canceled):
+		return http.StatusRequestTimeout, PublicError{"request_canceled", "request canceled"}
+	case errors.Is(err, context.DeadlineExceeded):
+		return http.StatusGatewayTimeout, PublicError{"deadline_exceeded", "deadline exceeded"}
+	case errors.Is(err, ErrInvalid):
+		return http.StatusBadRequest, PublicError{"invalid_argument", "invalid key"}
+	case errors.Is(err, ErrNotFound):
+		return http.StatusNotFound, PublicError{"not_found", "snapshot not found"}
+	default:
+		return http.StatusInternalServerError, PublicError{"internal", "internal error"}
+	}
+}

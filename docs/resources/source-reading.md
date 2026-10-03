@@ -18,6 +18,8 @@ search: false
 - [线程池如何接纳任务：线程、队列与拒绝](/knowledge/java/juc-execution/executor-admission.html)：沿 JDK21 execute、FutureTask 与 shutdown 的真实分支解释任务接纳、异常归属和关闭后的责任
 - [channel 的同步与关闭：谁交接、谁结束](/knowledge/go/concurrency/channel-memory-ownership.html)：从一个重复使用的字节切片推导收发、缓冲与关闭的内存边界，再区分对象交接、select 就绪和工作结束
 - [Go 请求取消：从 context 传播到提交结果](/knowledge/go/concurrency/context-cancellation.html)：沿请求、工作 goroutine 和数据提交三条线理解 context，配合可运行实验区分取消信号、函数返回与业务结果。
+- [接口与错误：方法集、nil 与可恢复合同](/knowledge/go/language/interfaces-errors.html)：从一次成功却返回非 nil error 的调用开始，把接收者、动态类型、错误身份与公开响应分开验证
+- [值与容器：slice、map 和别名](/knowledge/go/language/values-aliasing.html)：先预测一次 append 和一次快照复制的结果，再沿可变对象的引用检查所有权、nil 形状与复用条件
 - [goroutine 为什么在等：调度、netpoll 与诊断证据](/knowledge/go/runtime/scheduler-netpoll-diagnosis.html)：沿四个有界真实进程区分计算、channel 阻塞、TCP 网络等待和工作堆积，用栈、CPU profile 与 trace 逐步缩小判断范围
 - [AOP 的接收者是谁：JDK、CGLIB 与拦截器分派](/knowledge/frameworks/spring-aop/proxy-dispatch.html)：从容器返回的对象追到真实业务接收者，用两种代理、final、自调用和短路解释哪些调用经过拦截器。
 - [自动配置为何生效：条件、顺序与退让](/knowledge/frameworks/spring-boot/conditional-configuration.html)：沿 imports 候选、条件阶段和定义注册追踪默认 Bean，用类路径、属性和用户 Bean 的变化解释装配结果与条件报告。

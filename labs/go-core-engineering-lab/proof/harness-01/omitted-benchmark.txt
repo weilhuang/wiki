@@ -1,0 +1,4 @@
+{"Time":"2026-10-04T04:35:52.765886704+08:00","Action":"start","Package":"example.com/go-core-engineering-lab"}
+{"Time":"2026-10-04T04:35:52.769278638+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Output":"PASS\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:52.769650461+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Output":"ok  \texample.com/go-core-engineering-lab\t0.003s\n"}
+{"Time":"2026-10-04T04:35:52.76966971+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Elapsed":0.004}

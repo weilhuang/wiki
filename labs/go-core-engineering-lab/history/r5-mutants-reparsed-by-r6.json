@@ -1,0 +1,93 @@
+{
+  "kind": "reparse-existing-raw-evidence; no Go execution",
+  "originalRevision": "r5",
+  "classifierRevision": "r6",
+  "mutants": [
+    {
+      "id": "clone-alias",
+      "originalLogSHA256": "014a4ace4c1a903ae04f8a08317bca84c313d2d932d682a3bed832504816ba12",
+      "acceptance": {
+        "accepted": true,
+        "mode": "expected-semantic-rejection",
+        "requiredFailure": {
+          "package": "example.com/go-core-engineering-lab",
+          "test": "TestCloneIsolation",
+          "marker": "CONTRACT[clone-isolation]"
+        },
+        "failedIdentities": [
+          "example.com/go-core-engineering-lab/cmd/demo::TestDemoOutput",
+          "example.com/go-core-engineering-lab::TestCloneBytesStrategies",
+          "example.com/go-core-engineering-lab::TestCloneDeterministicCorpus",
+          "example.com/go-core-engineering-lab::TestCloneIsolation",
+          "example.com/go-core-engineering-lab::TestConcurrentStore",
+          "example.com/go-core-engineering-lab::TestStoreOwnership"
+        ]
+      }
+    },
+    {
+      "id": "typed-nil",
+      "originalLogSHA256": "10d720e5dedd0fa7e8bdb38d0af72b7e8e6ad52a71bd4d4da7c4d50174fdac90",
+      "acceptance": {
+        "accepted": true,
+        "mode": "expected-semantic-rejection",
+        "requiredFailure": {
+          "package": "example.com/go-core-engineering-lab",
+          "test": "TestValidateKey",
+          "marker": "CONTRACT[nil-success]"
+        },
+        "failedIdentities": [
+          "example.com/go-core-engineering-lab::FuzzValidateKey",
+          "example.com/go-core-engineering-lab::FuzzValidateKey/25beaf5d20f1eed9",
+          "example.com/go-core-engineering-lab::FuzzValidateKey/e3ca5d3d65c8f8ef",
+          "example.com/go-core-engineering-lab::FuzzValidateKey/seed#1",
+          "example.com/go-core-engineering-lab::FuzzValidateKey/seed#2",
+          "example.com/go-core-engineering-lab::FuzzValidateKey/seed#5",
+          "example.com/go-core-engineering-lab::TestLoadErrorChain",
+          "example.com/go-core-engineering-lab::TestValidateKey",
+          "example.com/go-core-engineering-lab::TestValidateKey/maximum",
+          "example.com/go-core-engineering-lab::TestValidateKey/mixed",
+          "example.com/go-core-engineering-lab::TestValidateKey/one-byte",
+          "example.com/go-core-engineering-lab::TestValidateKey/trailing-dash-allowed"
+        ]
+      }
+    },
+    {
+      "id": "lost-cause",
+      "originalLogSHA256": "beddb7cf61833d5b821cb611495e45c9025166646b513832f76dc8e7c8119821",
+      "acceptance": {
+        "accepted": true,
+        "mode": "expected-semantic-rejection",
+        "requiredFailure": {
+          "package": "example.com/go-core-engineering-lab",
+          "test": "TestLoadErrorChain",
+          "marker": "CONTRACT[error-chain]"
+        },
+        "failedIdentities": [
+          "example.com/go-core-engineering-lab/cmd/demo::TestDemoOutput",
+          "example.com/go-core-engineering-lab::TestLoadErrorChain"
+        ]
+      }
+    },
+    {
+      "id": "public-detail-leak",
+      "originalLogSHA256": "b600c66d83a34c280a022c1c7f12789328b1f9ac291a3668caf4742ab12f3c6f",
+      "acceptance": {
+        "accepted": true,
+        "mode": "expected-semantic-rejection",
+        "requiredFailure": {
+          "package": "example.com/go-core-engineering-lab",
+          "test": "TestWriteError",
+          "marker": "CONTRACT[public-error]"
+        },
+        "failedIdentities": [
+          "example.com/go-core-engineering-lab::TestWriteError",
+          "example.com/go-core-engineering-lab::TestWriteError/invalid"
+        ]
+      }
+    }
+  ],
+  "independentSyntheticRejected": {
+    "code": "UNCLASSIFIED_PARENT_OUTPUT",
+    "fixtureSHA256": "c0a6dc99137295e7fb8b7832243058ccea788926b648b901df59d8e0cac04a34"
+  }
+}

@@ -1,0 +1,88 @@
+package corelab
+
+import (
+	"context"
+	"encoding/json"
+	"errors"
+	"fmt"
+	"net/http"
+)
+
+var (
+	ErrInvalid  = errors.New("invalid input")
+	ErrNotFound = errors.New("not found")
+)
+
+type FieldError struct {
+	Field string
+	Value string // Internal diagnostic detail; never copied into the public DTO.
+}
+
+func (e *FieldError) Error() string {
+	if e == nil {
+		return "nil field error"
+	}
+	return fmt.Sprintf("%s=%q: invalid input", e.Field, e.Value)
+}
+
+func (e *FieldError) Unwrap() error { return ErrInvalid }
+
+// ValidateKey accepts 1..32 ASCII bytes: [a-z][a-z0-9-]*.
+// Its public success result is a nil error interface, not a typed nil pointer.
+func ValidateKey(key string) error {
+	if len(key) < 1 || len(key) > 32 {
+		return &FieldError{Field: "key", Value: key}
+	}
+	for i := 0; i < len(key); i++ {
+		c := key[i]
+		if (c >= 'a' && c <= 'z') || (i > 0 && ((c >= '0' && c <= '9') || c == '-')) {
+			continue
+		}
+		return &FieldError{Field: "key", Value: key}
+	}
+	return nil
+}
+
+// Load demonstrates contextual wrapping; it is a fixture with no database.
+func Load(key string) (Snapshot, error) {
+	if err := ValidateKey(key); err != nil {
+		return Snapshot{}, fmt.Errorf("load snapshot: %w", err)
+	}
+	if key != "demo" {
+		return Snapshot{}, fmt.Errorf("load snapshot %q: %w", key, ErrNotFound)
+	}
+	return Snapshot{Name: "demo", Labels: map[string]string{"tier": "test"}}, nil
+}
+
+type PublicError struct {
+	Code    string `json:"code"`
+	Message string `json:"message"`
+}
+
+// ErrorResponse is a teaching policy, not a standard Go error-to-HTTP mapping.
+// Precedence for joined categories is canceled > deadline > invalid > missing.
+func ErrorResponse(err error) (int, PublicError) {
+	switch {
+	case err == nil:
+		return http.StatusOK, PublicError{}
+	case errors.Is(err, context.Canceled):
+		return http.StatusRequestTimeout, PublicError{"request_canceled", "request canceled"}
+	case errors.Is(err, context.DeadlineExceeded):
+		return http.StatusGatewayTimeout, PublicError{"deadline_exceeded", "deadline exceeded"}
+	case errors.Is(err, ErrInvalid):
+		return http.StatusBadRequest, PublicError{"invalid_argument", err.Error()}
+	case errors.Is(err, ErrNotFound):
+		return http.StatusNotFound, PublicError{"not_found", "snapshot not found"}
+	default:
+		return http.StatusInternalServerError, PublicError{"internal", "internal error"}
+	}
+}
+
+// WriteError is used only while a response is still writable. A canceled client
+// may never receive these bytes; context cancellation is not an HTTP delivery ack.
+func WriteError(w http.ResponseWriter, err error) error {
+	status, body := ErrorResponse(err)
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(status)
+	return json.NewEncoder(w).Encode(body)
+}

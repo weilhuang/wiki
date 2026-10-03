@@ -1,0 +1,81 @@
+[
+  {
+    "id": "clone-alias",
+    "file": "snapshot.go",
+    "before": "dst := make([]byte, len(src))\n\tcopy(dst, src)\n\treturn dst",
+    "after": "return src",
+    "test": "TestCloneIsolation",
+    "marker": "CONTRACT[clone-isolation]",
+    "requiredFailure": {
+      "package": "example.com/go-core-engineering-lab",
+      "test": "TestCloneIsolation",
+      "marker": "CONTRACT[clone-isolation]"
+    },
+    "allowedFailureMarkers": {
+      "example.com/go-core-engineering-lab::TestCloneIsolation": "CONTRACT[clone-isolation]",
+      "example.com/go-core-engineering-lab::TestCloneBytesStrategies": "CONTRACT[clone-isolation]",
+      "example.com/go-core-engineering-lab::TestStoreOwnership": "CONTRACT[store-ownership]",
+      "example.com/go-core-engineering-lab::TestConcurrentStore": "CONTRACT[store-consistency]",
+      "example.com/go-core-engineering-lab::TestCloneDeterministicCorpus": "CONTRACT[clone-isolation]",
+      "example.com/go-core-engineering-lab/cmd/demo::TestDemoOutput": "CONTRACT[demo-output]"
+    }
+  },
+  {
+    "id": "typed-nil",
+    "file": "boundary.go",
+    "before": "\treturn nil\n}\n\n// Load",
+    "after": "\treturn (*FieldError)(nil)\n}\n\n// Load",
+    "test": "TestValidateKey",
+    "marker": "CONTRACT[nil-success]",
+    "requiredFailure": {
+      "package": "example.com/go-core-engineering-lab",
+      "test": "TestValidateKey",
+      "marker": "CONTRACT[nil-success]"
+    },
+    "allowedFailureMarkers": {
+      "example.com/go-core-engineering-lab::TestValidateKey/one-byte": "CONTRACT[nil-success]",
+      "example.com/go-core-engineering-lab::TestValidateKey/mixed": "CONTRACT[nil-success]",
+      "example.com/go-core-engineering-lab::TestValidateKey/maximum": "CONTRACT[nil-success]",
+      "example.com/go-core-engineering-lab::TestValidateKey/trailing-dash-allowed": "CONTRACT[nil-success]",
+      "example.com/go-core-engineering-lab::TestLoadErrorChain": "CONTRACT[not-found-identity]",
+      "example.com/go-core-engineering-lab::FuzzValidateKey/seed#1": "CONTRACT[nil-success]",
+      "example.com/go-core-engineering-lab::FuzzValidateKey/seed#2": "CONTRACT[nil-success]",
+      "example.com/go-core-engineering-lab::FuzzValidateKey/seed#5": "CONTRACT[nil-success]",
+      "example.com/go-core-engineering-lab::FuzzValidateKey/25beaf5d20f1eed9": "CONTRACT[nil-success]",
+      "example.com/go-core-engineering-lab::FuzzValidateKey/e3ca5d3d65c8f8ef": "CONTRACT[nil-success]"
+    }
+  },
+  {
+    "id": "lost-cause",
+    "file": "boundary.go",
+    "before": "fmt.Errorf(\"load snapshot: %w\", err)",
+    "after": "fmt.Errorf(\"load snapshot: %v\", err)",
+    "test": "TestLoadErrorChain",
+    "marker": "CONTRACT[error-chain]",
+    "requiredFailure": {
+      "package": "example.com/go-core-engineering-lab",
+      "test": "TestLoadErrorChain",
+      "marker": "CONTRACT[error-chain]"
+    },
+    "allowedFailureMarkers": {
+      "example.com/go-core-engineering-lab::TestLoadErrorChain": "CONTRACT[error-chain]",
+      "example.com/go-core-engineering-lab/cmd/demo::TestDemoOutput": "CONTRACT[demo-output]"
+    }
+  },
+  {
+    "id": "public-detail-leak",
+    "file": "boundary.go",
+    "before": "PublicError{\"invalid_argument\", \"invalid key\"}",
+    "after": "PublicError{\"invalid_argument\", err.Error()}",
+    "test": "TestWriteError",
+    "marker": "CONTRACT[public-error]",
+    "requiredFailure": {
+      "package": "example.com/go-core-engineering-lab",
+      "test": "TestWriteError",
+      "marker": "CONTRACT[public-error]"
+    },
+    "allowedFailureMarkers": {
+      "example.com/go-core-engineering-lab::TestWriteError/invalid": "CONTRACT[public-error]"
+    }
+  }
+]

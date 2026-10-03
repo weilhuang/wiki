@@ -1,0 +1,100 @@
+{
+  "kind": "source-reviewed",
+  "status": "pass",
+  "independentlyReviewed": false,
+  "observed": {
+    "commandExitCode": 0,
+    "seedReplayIdentities": 12,
+    "fuzzWarmupEntries": 10,
+    "workers": 1,
+    "reportedExecs": 265,
+    "newInterestingReported": 4,
+    "acceptanceStatus": "fail; original exact-256 check was not satisfied"
+  },
+  "counterMeaning": "coordinator.count adds worker response counts; counts include warmup, ordinary fuzz calls and coverage/failure minimization calls; not unique generated inputs. Separate seed-replay command is outside this counter.",
+  "fixedSourceBound": {
+    "scope": "one worker, one string fuzz argument, Go1.27.1, original -fuzztime=256x -fuzzminimizetime=32x, successful worker protocol",
+    "nominalCoordinatorLimit": 256,
+    "printableCandidatesPerInnerLoop": 32,
+    "maximumLastBatchOverrun": 31,
+    "derivedCounterUpperBound": 287,
+    "reason": "minimizeBytes checks shouldStop before each byte, then tries up to 32 printable candidates without another stop check; each try increments the worker count. Earlier batch counts are included in the coordinator remaining budget.",
+    "notClaimed": "The precise nine extra calls were not traced, and this implementation analysis is not a cross-version API guarantee."
+  },
+  "proposedRepair": {
+    "commandChange": "-fuzzminimizetime=0x",
+    "effect": "Disable automatic minimization; retain raw failing/discovery inputs. Keep exact 256 acceptance for one-worker normal fuzz counting, including warmup; verify via a new authorized run.",
+    "status": "proposal only; not applied or run"
+  },
+  "resourceBounds": {
+    "testTimeoutSeconds": 60,
+    "commandTimeoutSeconds": 80,
+    "phaseWallSeconds": 165,
+    "GOMAXPROCS": 2,
+    "packageParallelism": 1,
+    "fuzzWorkers": 1,
+    "GOMEMLIMIT": "384MiB soft",
+    "sampledOwnProcessRSSLimitBytes": 1073741824,
+    "sampledOwnProcessLimit": 16,
+    "samplingIsNotKernelHardQuota": true
+  },
+  "sourceFiles": [
+    {
+      "path": "proof/fuzz-01/counting-source/src/internal/fuzz/fuzz.go.txt",
+      "sha256": "db5a9c6f3b26220eb9fb1c144caf012a555c6adef785cb9d185426e508d9d2aa",
+      "upstream": "https://github.com/golang/go/blob/go1.27.1/src/internal/fuzz/fuzz.go",
+      "tag": "go1.27.1"
+    },
+    {
+      "path": "proof/fuzz-01/counting-source/src/internal/fuzz/worker.go.txt",
+      "sha256": "6416ccc2b7bba6a986ca4beacde58dc2d6f4e648e0a9a1858af66b2123cd6f3a",
+      "upstream": "https://github.com/golang/go/blob/go1.27.1/src/internal/fuzz/worker.go",
+      "tag": "go1.27.1"
+    },
+    {
+      "path": "proof/fuzz-01/counting-source/src/internal/fuzz/minimize.go.txt",
+      "sha256": "1f7fffe58538f34463fcc125fd713f07527aa6b7cd07603d343249e5e13e2dba",
+      "upstream": "https://github.com/golang/go/blob/go1.27.1/src/internal/fuzz/minimize.go",
+      "tag": "go1.27.1"
+    },
+    {
+      "path": "proof/fuzz-01/counting-source/src/testing/benchmark.go.txt",
+      "sha256": "ce7b0158ea5c5b0911cfb14ba50c0f1fdc631bf86ec6a5b5530d0f3aaac0ba20",
+      "upstream": "https://github.com/golang/go/blob/go1.27.1/src/testing/benchmark.go",
+      "tag": "go1.27.1"
+    },
+    {
+      "path": "proof/fuzz-01/counting-source/src/testing/fuzz.go.txt",
+      "sha256": "f26c1704f1c914b29197f7e4a5099c94cb53bd8fed9ec09dd70d2c5a6ee9879c",
+      "upstream": "https://github.com/golang/go/blob/go1.27.1/src/testing/fuzz.go",
+      "tag": "go1.27.1"
+    },
+    {
+      "path": "proof/fuzz-01/counting-source/LICENSE.txt",
+      "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad",
+      "upstream": "https://github.com/golang/go/blob/go1.27.1/LICENSE",
+      "tag": "go1.27.1"
+    }
+  ],
+  "discoveryCacheSnapshot": {
+    "files": [
+      {
+        "path": "proof/fuzz-01/discovery-corpus-after-failed-acceptance/9fe2f0a3f0799e8f",
+        "sha256": "9fe2f0a3f0799e8fa7e51c5c6a64575c49a804b38028e4b72f81fe6aea67b257"
+      },
+      {
+        "path": "proof/fuzz-01/discovery-corpus-after-failed-acceptance/a5341e16712613ca",
+        "sha256": "a5341e16712613cae7714a7d99e31f110c0a1713c058bbfea781d9835ade6896"
+      },
+      {
+        "path": "proof/fuzz-01/discovery-corpus-after-failed-acceptance/bca5a2a110277987",
+        "sha256": "bca5a2a110277987a8321141cf26e321de8e849d9ef60593496feed46c903599"
+      },
+      {
+        "path": "proof/fuzz-01/discovery-corpus-after-failed-acceptance/f7d774048ada30d0",
+        "sha256": "f7d774048ada30d0b90795b843471413d1506dcbc74c4de673e8c919dc6de85b"
+      }
+    ],
+    "note": "Captured from the dedicated target cache after the failed acceptance. Does not attribute each cache entry to a particular callback or claim a deterministic exploration sequence."
+  }
+}

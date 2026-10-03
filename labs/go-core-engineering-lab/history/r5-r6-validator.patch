@@ -1,0 +1,71 @@
+--- r5/evidence.py
++++ r6/evidence.py
+@@ -154,14 +154,20 @@
+         identity = package + "::" + test
+         marker = mutant["allowedFailureMarkers"].get(identity)
+         if marker is None:
+-            # A parent reports fail when its subtest fails; it need not repeat a diagnostic.
++            # A parent's fail can propagate from a child, but its own diagnostic
++            # is a separate failure. Only exact framework lines are exempt.
+             children = [(p, n) for p, n in failures if p == package and n.startswith(test + "/")]
+             require(bool(children), "UNEXPECTED_FAILURE", identity)
++            framework = re.compile(
++                r"(?:=== (?:RUN|PAUSE|CONT|NAME)\s+" + re.escape(test)
++                + r"|--- FAIL: " + re.escape(test) + r" \([0-9]+(?:\.[0-9]+)?s\))")
++            require(all(framework.fullmatch(line.strip()) for line in outputs[(package, test)].splitlines()
++                        if line.strip()), "UNCLASSIFIED_PARENT_OUTPUT", identity)
+             continue
+         output = outputs[(package, test)]
+         found = re.findall(r"CONTRACT\[[a-z-]+\]", output)
+         require(bool(found) and set(found) == {marker}, "WRONG_FAILURE_MARKER", identity)
+-        assertion_lines = [line for line in output.splitlines() if re.search(r"\w+_test\.go:\d+: ", line)]
++        assertion_lines = [line for line in output.splitlines() if re.search(r"[^\s:]+\.go:\d+: ", line)]
+         require(bool(assertion_lines) and all(marker in line for line in assertion_lines),
+                 "UNCLASSIFIED_ASSERTION", identity)
+         if package == target[0] and (test == target[1] or test.startswith(target[1] + "/")) and marker == required["marker"]:
+--- r5/evidence_test.py
++++ r6/evidence_test.py
+@@ -105,6 +105,43 @@
+         items = suite()
+         items.insert(2, event("output", "TestValue", "panic: failure\n"))
+         self.reject("INFRASTRUCTURE_OR_RUNTIME_FAILURE", check_suite, items)
++
++    def parent_failure_fixture(self):
++        marker = "CONTRACT[value]"
++        mutant = {"requiredFailure": {"package": PACKAGE, "test": "FuzzValue", "marker": marker},
++                  "allowedFailureMarkers": {PACKAGE + "::FuzzValue/seed#0": marker}}
++        items = suite()
++        for item in items:
++            if item["Action"] == "pass" and item.get("Test") in {None, "FuzzValue", "FuzzValue/seed#0"}:
++                item["Action"] = "fail"
++        items.insert(1, event("output", "FuzzValue", "=== RUN   FuzzValue\n--- FAIL: FuzzValue (0.00s)\n"))
++        items.insert(2, event("output", "FuzzValue/seed#0", "    value_test.go:14: CONTRACT[value] bad value\n"))
++        return items, mutant
++
++    def test_parent_failure_propagation_without_direct_assertion(self):
++        items, mutant = self.parent_failure_fixture()
++        self.assertTrue(check_mutant(encode(items), MANIFEST, mutant)["accepted"])
++
++    def test_unknown_parent_marker_is_not_child_propagation(self):
++        items, mutant = self.parent_failure_fixture()
++        items.insert(2, event("output", "FuzzValue", "    value_test.go:44: CONTRACT[unrelated] unexpected\n"))
++        self.reject("UNCLASSIFIED_PARENT_OUTPUT", check_mutant, items, mutant)
++
++    def test_unmarked_helper_parent_assertion_is_rejected(self):
++        items, mutant = self.parent_failure_fixture()
++        items.insert(2, event("output", "FuzzValue", "    helper.go:44: unexpected value\n"))
++        self.reject("UNCLASSIFIED_PARENT_OUTPUT", check_mutant, items, mutant)
++
++    def test_repeated_correct_child_marker_does_not_hide_parent_assertion(self):
++        items, mutant = self.parent_failure_fixture()
++        items.insert(2, event("output", "FuzzValue/seed#0", "    value_test.go:15: CONTRACT[value] also bad\n"))
++        items.insert(3, event("output", "FuzzValue", "    helper.go:44: CONTRACT[value] parent failure\n"))
++        self.reject("UNCLASSIFIED_PARENT_OUTPUT", check_mutant, items, mutant)
++
++    def test_expected_test_rejects_unclassified_non_test_go_helper(self):
++        items, mutant = self.parent_failure_fixture()
++        items.insert(2, event("output", "FuzzValue/seed#0", "    helper.go:44: unexpected value\n"))
++        self.reject("UNCLASSIFIED_ASSERTION", check_mutant, items, mutant)
+ 
+     def test_fuzz_requires_transition_and_budget(self):
+         items = suite(["FuzzValue"])

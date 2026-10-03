@@ -1,0 +1,5 @@
+module example.com/go-core-engineering-lab
+
+go 1.27.1
+
+toolchain go1.27.1

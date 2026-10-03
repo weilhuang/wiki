@@ -1,0 +1,518 @@
+{
+  "recordedAt": "2026-10-03",
+  "projection": "learner-facing summary; not a raw execution log",
+  "currentRevision": "r6",
+  "runtimeStatus": "pass",
+  "independentReview": "approved technical content, current runtime and public projection; site rendering checked separately",
+  "currentSourceManifestSha256": "44ffe1a671ac8291ead8efdd79095ab94fb9f0f858df4da2db031b752bccc279",
+  "download": {
+    "path": "examples/go-core-engineering-lab.zip",
+    "sha256": "9eb82485c2acfa40a1e67068ae8087c84354e6f21c47b3c5f7b15755ea6d5100",
+    "sourceOnly": true
+  },
+  "stages": [
+    {
+      "id": "go-core.preflight",
+      "status": "pass",
+      "scope": [
+        "实际版本、平台、单模块图与 mod verify"
+      ],
+      "limitations": [
+        "无外部模块，不能推断第三方依赖锁定"
+      ]
+    },
+    {
+      "id": "go-core.unit",
+      "status": "pass",
+      "scope": [
+        "slice/map/nil形状、深复制别名、方法集、typed nil、Is/As/AsType/Join、公开JSON",
+        "固定PCG生成输入与保存的fuzz种子重放",
+        "有限Store并发不变量；普通测试并不自带race检测"
+      ],
+      "limitations": [
+        "ResponseRecorder无真实网络",
+        "内存fixture无数据库或Kubernetes",
+        "不以子测试/循环次数作证明强度"
+      ]
+    },
+    {
+      "id": "go-core.harness",
+      "status": "pass",
+      "scope": [
+        "默认命令删测试/删语料/无匹配基准应仍exit0，由固定清单按准确缺项原因拒绝"
+      ],
+      "limitations": [
+        "仅Python日志夹具不能代替本阶段真实Go执行"
+      ]
+    },
+    {
+      "id": "go-core.mutants",
+      "status": "pass",
+      "scope": [
+        "正确基线后分别替换四个坏实现并运行默认套件",
+        "指定测试+标记+退出1，并排除语法/编译/panic/超时"
+      ],
+      "limitations": [
+        "仅四个受控缺陷，不等于所有缺陷可检出"
+      ]
+    },
+    {
+      "id": "go-core.race",
+      "status": "pass",
+      "scope": [
+        "默认套件实际-race运行，含四worker有限快照读写"
+      ],
+      "limitations": [
+        "不证明未执行路径无竞争或无死锁"
+      ]
+    },
+    {
+      "id": "go-core.vet",
+      "status": "pass",
+      "scope": [
+        "实际go vet ./...退出码"
+      ],
+      "limitations": [
+        "静态分析不等于逻辑或并发正确"
+      ]
+    },
+    {
+      "id": "go-core.fuzz",
+      "status": "pass",
+      "scope": [
+        "12个保存种子身份重放；固定10份不同语料字节；探索单独验完整预热、256x计数、单worker与超时",
+        "发现语料若存在则另保存"
+      ],
+      "limitations": [
+        "不承诺固定探索调度",
+        "有限无失败不是穷尽证明"
+      ]
+    },
+    {
+      "id": "go-core.benchmark",
+      "status": "pass",
+      "scope": [
+        "64B/4KiB两个策略；每命令100次每子场景、独立3个样本、固定测量条目与分配单位"
+      ],
+      "limitations": [
+        "只作运行示例，不作统计充分的性能排名或服务容量结论"
+      ]
+    }
+  ],
+  "historicalFailures": [
+    {
+      "id": "go-core.r1.preflight-attempt1",
+      "revision": "G-core-r1",
+      "status": "fail",
+      "scope": [
+        "初始冗余toolchain指令导致go list要求整理go.mod"
+      ],
+      "artifacts": [
+        {
+          "path": "labs/go-core-engineering-lab/history/objects/1da7aa0ac948bacc0bb58d2b62d49b49382c6b21eabf6918dfec8030b9488cc5.txt",
+          "sha256": "1da7aa0ac948bacc0bb58d2b62d49b49382c6b21eabf6918dfec8030b9488cc5",
+          "originalPath": "labs/go-core-engineering-lab/history/r1/proof/preflight-01/attempted-source/README.md.txt"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/boundary.go",
+          "sha256": "1865ea403aac40344cbe6e34c35ab00d387d46de39b5673a61462541dddcd235",
+          "originalPath": "labs/go-core-engineering-lab/history/r1/proof/preflight-01/attempted-source/boundary.go.txt"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/history/objects/ab0a60b2e0b8e99b7c97fce2d751509a4dea77ae16dab6818a43e3460a562fa8.txt",
+          "sha256": "ab0a60b2e0b8e99b7c97fce2d751509a4dea77ae16dab6818a43e3460a562fa8",
+          "originalPath": "labs/go-core-engineering-lab/history/r1/proof/preflight-01/attempted-source/boundary_test.go.txt"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/history/objects/a7828c687521aa01a5cc7585adba28fe9f0364bbe7fa47c74987640e5bc3ff3d.txt",
+          "sha256": "a7828c687521aa01a5cc7585adba28fe9f0364bbe7fa47c74987640e5bc3ff3d",
+          "originalPath": "labs/go-core-engineering-lab/history/r1/proof/preflight-01/attempted-source/cmd/demo/main.go.txt"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/history/objects/ff7bfb61f3ab5b3fb0bcde9feed8ffe6aff6ad247c9935d43a3e8b091d2ff928.txt",
+          "sha256": "ff7bfb61f3ab5b3fb0bcde9feed8ffe6aff6ad247c9935d43a3e8b091d2ff928",
+          "originalPath": "labs/go-core-engineering-lab/history/r1/proof/preflight-01/attempted-source/go.mod.txt"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/go.sum",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "originalPath": "labs/go-core-engineering-lab/history/r1/proof/preflight-01/attempted-source/go.sum.txt"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/methods.go",
+          "sha256": "dae56cca2bcf0a92fa4197f49243104e758a3c4a92c018e565e7f41f63c29698",
+          "originalPath": "labs/go-core-engineering-lab/history/r1/proof/preflight-01/attempted-source/methods.go.txt"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/snapshot.go",
+          "sha256": "e5b67af987d0c4f2c4d8091f05383797d881403129c98bbd212a0a88c75456a6",
+          "originalPath": "labs/go-core-engineering-lab/history/r1/proof/preflight-01/attempted-source/snapshot.go.txt"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/history/objects/ca58108e8179963d42237131fe34bf125f267db0a3f6349f836cc79b77c1cd37.txt",
+          "sha256": "ca58108e8179963d42237131fe34bf125f267db0a3f6349f836cc79b77c1cd37",
+          "originalPath": "labs/go-core-engineering-lab/history/r1/proof/preflight-01/attempted-source/snapshot_test.go.txt"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/testdata/deterministic-seed.json",
+          "sha256": "ca63a24dd11099729107b97eb8129adca4b753b3433746324508c6bbe3a7db52",
+          "originalPath": "labs/go-core-engineering-lab/history/r1/proof/preflight-01/attempted-source/testdata/deterministic-seed.json.txt"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/testdata/fuzz/FuzzValidateKey/018a003fcb773a8c",
+          "sha256": "018a003fcb773a8c914f938f0d7cff2c9eea107045d617ab65d29e2c8ec03fd5",
+          "originalPath": "labs/go-core-engineering-lab/history/r1/proof/preflight-01/attempted-source/testdata/fuzz/FuzzValidateKey/018a003fcb773a8c.txt"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/testdata/fuzz/FuzzValidateKey/25beaf5d20f1eed9",
+          "sha256": "25beaf5d20f1eed94577e8c891765ab9e49a9db8c073f3a0c725dc1762451646",
+          "originalPath": "labs/go-core-engineering-lab/history/r1/proof/preflight-01/attempted-source/testdata/fuzz/FuzzValidateKey/25beaf5d20f1eed9.txt"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/testdata/fuzz/FuzzValidateKey/26e89b11780e48f8",
+          "sha256": "26e89b11780e48f88786e2eb1c2abe60173678c1eaba65e87267772f90c85cee",
+          "originalPath": "labs/go-core-engineering-lab/history/r1/proof/preflight-01/attempted-source/testdata/fuzz/FuzzValidateKey/26e89b11780e48f8.txt"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/testdata/fuzz/FuzzValidateKey/e3ca5d3d65c8f8ef",
+          "sha256": "e3ca5d3d65c8f8ef8accaa352b52021f32781fdfb696e681441127bfe8efa3cf",
+          "originalPath": "labs/go-core-engineering-lab/history/r1/proof/preflight-01/attempted-source/testdata/fuzz/FuzzValidateKey/e3ca5d3d65c8f8ef.txt"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/testdata/fuzz/FuzzValidateKey/fd092373507012da",
+          "sha256": "fd092373507012da476b676ab3967d3c63322b100c9952a039f2f72de67add7d",
+          "originalPath": "labs/go-core-engineering-lab/history/r1/proof/preflight-01/attempted-source/testdata/fuzz/FuzzValidateKey/fd092373507012da.txt"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/history/objects/0a620ee0d7b8f5b136872bb40917d89605c66050c27e83d5fc6dff76111ee47e.txt",
+          "sha256": "0a620ee0d7b8f5b136872bb40917d89605c66050c27e83d5fc6dff76111ee47e",
+          "originalPath": "labs/go-core-engineering-lab/history/r1/proof/preflight-01/attempted-source/testdata/mutations.json.txt"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/history/objects/18a14e83175b850f0ee6f428c0e9d73c92a48c496c5e635000dfa5ae97603457.txt",
+          "sha256": "18a14e83175b850f0ee6f428c0e9d73c92a48c496c5e635000dfa5ae97603457",
+          "originalPath": "labs/go-core-engineering-lab/history/r1/proof/preflight-01/attempted-source/verify.py.txt"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/history/objects/dc46e9a4f9c690554f1545fa921cfe06ac6c3ec80831e905a403cdd6ca244391.txt",
+          "sha256": "dc46e9a4f9c690554f1545fa921cfe06ac6c3ec80831e905a403cdd6ca244391",
+          "originalPath": "labs/go-core-engineering-lab/history/r1/proof/preflight-01/attempted-source-manifest.json"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/proof/preflight-01/environment.txt",
+          "sha256": "d0ddd312b22f29ec423d387aeb93473f19dba771aa6ca697ca1d426e00091995",
+          "originalPath": "labs/go-core-engineering-lab/history/r1/proof/preflight-01/environment.txt"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/history/objects/1b156f1db503ef77c618724e81bb4e63cea548831625992faef233e4ea0d0419.txt",
+          "sha256": "1b156f1db503ef77c618724e81bb4e63cea548831625992faef233e4ea0d0419",
+          "originalPath": "labs/go-core-engineering-lab/history/r1/proof/preflight-01/modules.txt"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/history/objects/f00599e85cd16b01501229f73a7cef98457edb448131c0aad27e45619f1919ea.txt",
+          "sha256": "f00599e85cd16b01501229f73a7cef98457edb448131c0aad27e45619f1919ea",
+          "originalPath": "labs/go-core-engineering-lab/history/r1/proof/preflight-01/result.json"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/proof/preflight-01/version.txt",
+          "sha256": "f554cfdb85411c2bb1d503df3f53dfbad1f753eb8271938833166a5d26a7547c",
+          "originalPath": "labs/go-core-engineering-lab/history/r1/proof/preflight-01/version.txt"
+        }
+      ]
+    },
+    {
+      "id": "go-core.r3.mutants",
+      "revision": "G-core-r3",
+      "status": "fail",
+      "scope": [
+        "正确基线后分别替换四个坏实现并运行默认套件",
+        "指定测试+标记+退出1，并排除语法/编译/panic/超时"
+      ],
+      "artifacts": [
+        {
+          "path": "labs/go-core-engineering-lab/history/objects/911418c2202142ab9668408b3047702dd4c5d0d7d766053ac17e3172adfa4e71.txt",
+          "sha256": "911418c2202142ab9668408b3047702dd4c5d0d7d766053ac17e3172adfa4e71",
+          "originalPath": "labs/go-core-engineering-lab/history/r3/proof/mutants-01/baseline.txt"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/history/objects/9986fa719fa24dc1eea12bc2a16b66d49f354407ce10523b814036277a2724ea.txt",
+          "sha256": "9986fa719fa24dc1eea12bc2a16b66d49f354407ce10523b814036277a2724ea",
+          "originalPath": "labs/go-core-engineering-lab/history/r3/proof/mutants-01/clone-alias.txt"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/proof/mutants-01/variant-source/clone-alias/snapshot.go.txt",
+          "sha256": "fea0bb9f09cbddfa87970fbedbead6255ae48ab493a2b30059328daaa491473c",
+          "originalPath": "labs/go-core-engineering-lab/history/r3/proof/mutants-01/reconstructed-variant-source/clone-alias/snapshot.go.txt"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/proof/mutants-01/variant-source/typed-nil/boundary.go.txt",
+          "sha256": "7d69611140563674f943af0e9a80623d4e50be7c400bc9c2c804d911c970d9dc",
+          "originalPath": "labs/go-core-engineering-lab/history/r3/proof/mutants-01/reconstructed-variant-source/typed-nil/boundary.go.txt"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/history/objects/4ecfd09ffbdb1e1d00bcfd649b2fe78f8efbb0e6bf9abe8892e3a557dd850f38.txt",
+          "sha256": "4ecfd09ffbdb1e1d00bcfd649b2fe78f8efbb0e6bf9abe8892e3a557dd850f38",
+          "originalPath": "labs/go-core-engineering-lab/history/r3/proof/mutants-01/result.json"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/history/objects/f4c8cc008f2d0bebe1c1109137dbf4ecebd24648e7f9f519ced9a543c4a2081f.txt",
+          "sha256": "f4c8cc008f2d0bebe1c1109137dbf4ecebd24648e7f9f519ced9a543c4a2081f",
+          "originalPath": "labs/go-core-engineering-lab/history/r3/proof/mutants-01/typed-nil.txt"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/history/objects/059da850057032dd4c05667b7fc453b305dc1f8abb3db94fb84072065327ebab.txt",
+          "sha256": "059da850057032dd4c05667b7fc453b305dc1f8abb3db94fb84072065327ebab",
+          "originalPath": "labs/go-core-engineering-lab/history/r3/proof/mutants-01/variant-source-provenance.json"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/proof/preflight-01/version.txt",
+          "sha256": "f554cfdb85411c2bb1d503df3f53dfbad1f753eb8271938833166a5d26a7547c",
+          "originalPath": "labs/go-core-engineering-lab/history/r3/proof/mutants-01/version.txt"
+        }
+      ]
+    },
+    {
+      "id": "go-core.r4.fuzz",
+      "revision": "G-core-r4",
+      "status": "fail",
+      "scope": [
+        "12个保存种子身份重放；固定10份不同语料字节；探索单独验完整预热、256x计数、单worker与超时",
+        "发现语料若存在则另保存"
+      ],
+      "artifacts": [
+        {
+          "path": "labs/go-core-engineering-lab/history/objects/cc91c9183f6a3f540fe32f12e8a0e8f7241201866480b940fd8e98176a7813f2.txt",
+          "sha256": "cc91c9183f6a3f540fe32f12e8a0e8f7241201866480b940fd8e98176a7813f2",
+          "originalPath": "labs/go-core-engineering-lab/history/r4/proof/fuzz-01/counting-analysis.json"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/testdata/upstream/go1.27.1/LICENSE",
+          "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad",
+          "originalPath": "labs/go-core-engineering-lab/history/r4/proof/fuzz-01/counting-source/LICENSE.txt"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/testdata/upstream/go1.27.1/src/internal/fuzz/fuzz.go",
+          "sha256": "db5a9c6f3b26220eb9fb1c144caf012a555c6adef785cb9d185426e508d9d2aa",
+          "originalPath": "labs/go-core-engineering-lab/history/r4/proof/fuzz-01/counting-source/src/internal/fuzz/fuzz.go.txt"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/testdata/upstream/go1.27.1/src/internal/fuzz/minimize.go",
+          "sha256": "1f7fffe58538f34463fcc125fd713f07527aa6b7cd07603d343249e5e13e2dba",
+          "originalPath": "labs/go-core-engineering-lab/history/r4/proof/fuzz-01/counting-source/src/internal/fuzz/minimize.go.txt"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/testdata/upstream/go1.27.1/src/internal/fuzz/worker.go",
+          "sha256": "6416ccc2b7bba6a986ca4beacde58dc2d6f4e648e0a9a1858af66b2123cd6f3a",
+          "originalPath": "labs/go-core-engineering-lab/history/r4/proof/fuzz-01/counting-source/src/internal/fuzz/worker.go.txt"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/testdata/upstream/go1.27.1/src/testing/benchmark.go",
+          "sha256": "ce7b0158ea5c5b0911cfb14ba50c0f1fdc631bf86ec6a5b5530d0f3aaac0ba20",
+          "originalPath": "labs/go-core-engineering-lab/history/r4/proof/fuzz-01/counting-source/src/testing/benchmark.go.txt"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/testdata/upstream/go1.27.1/src/testing/fuzz.go",
+          "sha256": "f26c1704f1c914b29197f7e4a5099c94cb53bd8fed9ec09dd70d2c5a6ee9879c",
+          "originalPath": "labs/go-core-engineering-lab/history/r4/proof/fuzz-01/counting-source/src/testing/fuzz.go.txt"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/proof/fuzz-01/discovery-corpus/9fe2f0a3f0799e8f",
+          "sha256": "9fe2f0a3f0799e8fa7e51c5c6a64575c49a804b38028e4b72f81fe6aea67b257",
+          "originalPath": "labs/go-core-engineering-lab/history/r4/proof/fuzz-01/discovery-corpus-after-failed-acceptance/9fe2f0a3f0799e8f"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/proof/fuzz-01/discovery-corpus/a5341e16712613ca",
+          "sha256": "a5341e16712613cae7714a7d99e31f110c0a1713c058bbfea781d9835ade6896",
+          "originalPath": "labs/go-core-engineering-lab/history/r4/proof/fuzz-01/discovery-corpus-after-failed-acceptance/a5341e16712613ca"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/proof/fuzz-01/discovery-corpus/bca5a2a110277987",
+          "sha256": "bca5a2a110277987a8321141cf26e321de8e849d9ef60593496feed46c903599",
+          "originalPath": "labs/go-core-engineering-lab/history/r4/proof/fuzz-01/discovery-corpus-after-failed-acceptance/bca5a2a110277987"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/proof/fuzz-01/discovery-corpus/f7d774048ada30d0",
+          "sha256": "f7d774048ada30d0b90795b843471413d1506dcbc74c4de673e8c919dc6de85b",
+          "originalPath": "labs/go-core-engineering-lab/history/r4/proof/fuzz-01/discovery-corpus-after-failed-acceptance/f7d774048ada30d0"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/history/objects/cb22b19bf922ba7314cc070c82a50949b197d8776bfa4c32344719336d668dca.txt",
+          "sha256": "cb22b19bf922ba7314cc070c82a50949b197d8776bfa4c32344719336d668dca",
+          "originalPath": "labs/go-core-engineering-lab/history/r4/proof/fuzz-01/fuzz.txt"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/history/objects/0bcc881c0beecbcb2a7dc0d964657e98ca2f97a2ab4e8fc5c29a4168c2659fcd.txt",
+          "sha256": "0bcc881c0beecbcb2a7dc0d964657e98ca2f97a2ab4e8fc5c29a4168c2659fcd",
+          "originalPath": "labs/go-core-engineering-lab/history/r4/proof/fuzz-01/result.json"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/history/objects/6c615cef9f3efb7d842f5cbd6837bc490a0710ce90b361de5f3371fb78173b9b.txt",
+          "sha256": "6c615cef9f3efb7d842f5cbd6837bc490a0710ce90b361de5f3371fb78173b9b",
+          "originalPath": "labs/go-core-engineering-lab/history/r4/proof/fuzz-01/seed-replay.txt"
+        },
+        {
+          "path": "labs/go-core-engineering-lab/proof/preflight-01/version.txt",
+          "sha256": "f554cfdb85411c2bb1d503df3f53dfbad1f753eb8271938833166a5d26a7547c",
+          "originalPath": "labs/go-core-engineering-lab/history/r4/proof/fuzz-01/version.txt"
+        }
+      ]
+    }
+  ],
+  "validatorHistory": "r5 accepted a synthetic extra parent assertion; r6 rejects it. The four actual r5 mutant logs contained only framework propagation and remain valid observations. r6 then executed all eight phases again.",
+  "wrapperHistory": "A mistyped outer SHA constant stopped before Go execution; the record is retained separately.",
+  "omittedFromPublicProjection": [
+    "Recursive copies of earlier successful revisions, which remain in private author freezes",
+    "Internal packaging/rewrite scripts",
+    "Outer execution lease metadata with machine-local paths"
+  ],
+  "limits": [
+    "Standard-library local Go observations only; no real HTTP network, database, Kubernetes, production load or universal race-freedom claim.",
+    "Three benchmark samples are finite measurements in this environment, not rankings.",
+    "Historical failures and current execution are distinct source revisions."
+  ],
+  "fuzzObservation": {
+    "accepted": true,
+    "mode": "bounded-exploration",
+    "savedSeedReplayRequiredSeparately": true,
+    "baselineInputs": 21,
+    "workers": 1,
+    "finalExecutions": 256,
+    "note": "Progress snapshots may repeat. Named run/pass identities may not. Exploration order is not fixed."
+  },
+  "savedSeedIdentities": 12,
+  "benchmarkSamples": [
+    {
+      "accepted": true,
+      "mode": "one-bounded-benchmark-sample",
+      "measurements": {
+        "BenchmarkCloneBytes/make-copy/64B-2": {
+          "iterations": 100,
+          "metrics": {
+            "ns/op": 21.53,
+            "MB/s": 2972.6,
+            "B/op": 64.0,
+            "allocs/op": 1.0
+          }
+        },
+        "BenchmarkCloneBytes/append/64B-2": {
+          "iterations": 100,
+          "metrics": {
+            "ns/op": 25.23,
+            "MB/s": 2536.66,
+            "B/op": 64.0,
+            "allocs/op": 1.0
+          }
+        },
+        "BenchmarkCloneBytes/make-copy/4KiB-2": {
+          "iterations": 100,
+          "metrics": {
+            "ns/op": 1245.0,
+            "MB/s": 3289.85,
+            "B/op": 4096.0,
+            "allocs/op": 1.0
+          }
+        },
+        "BenchmarkCloneBytes/append/4KiB-2": {
+          "iterations": 100,
+          "metrics": {
+            "ns/op": 438.9,
+            "MB/s": 9333.49,
+            "B/op": 4096.0,
+            "allocs/op": 1.0
+          }
+        }
+      },
+      "note": "One sample per command; sample identities and count are checked by the runner. No ranking claim.",
+      "sample": 1
+    },
+    {
+      "accepted": true,
+      "mode": "one-bounded-benchmark-sample",
+      "measurements": {
+        "BenchmarkCloneBytes/make-copy/64B-2": {
+          "iterations": 100,
+          "metrics": {
+            "ns/op": 31.44,
+            "MB/s": 2035.62,
+            "B/op": 64.0,
+            "allocs/op": 1.0
+          }
+        },
+        "BenchmarkCloneBytes/append/64B-2": {
+          "iterations": 100,
+          "metrics": {
+            "ns/op": 24.04,
+            "MB/s": 2662.23,
+            "B/op": 64.0,
+            "allocs/op": 1.0
+          }
+        },
+        "BenchmarkCloneBytes/make-copy/4KiB-2": {
+          "iterations": 100,
+          "metrics": {
+            "ns/op": 1842.0,
+            "MB/s": 2223.28,
+            "B/op": 4096.0,
+            "allocs/op": 1.0
+          }
+        },
+        "BenchmarkCloneBytes/append/4KiB-2": {
+          "iterations": 100,
+          "metrics": {
+            "ns/op": 916.4,
+            "MB/s": 4469.86,
+            "B/op": 4096.0,
+            "allocs/op": 1.0
+          }
+        }
+      },
+      "note": "One sample per command; sample identities and count are checked by the runner. No ranking claim.",
+      "sample": 2
+    },
+    {
+      "accepted": true,
+      "mode": "one-bounded-benchmark-sample",
+      "measurements": {
+        "BenchmarkCloneBytes/make-copy/64B-2": {
+          "iterations": 100,
+          "metrics": {
+            "ns/op": 19.43,
+            "MB/s": 3293.88,
+            "B/op": 64.0,
+            "allocs/op": 1.0
+          }
+        },
+        "BenchmarkCloneBytes/append/64B-2": {
+          "iterations": 100,
+          "metrics": {
+            "ns/op": 24.34,
+            "MB/s": 2629.42,
+            "B/op": 64.0,
+            "allocs/op": 1.0
+          }
+        },
+        "BenchmarkCloneBytes/make-copy/4KiB-2": {
+          "iterations": 100,
+          "metrics": {
+            "ns/op": 1354.0,
+            "MB/s": 3023.99,
+            "B/op": 4096.0,
+            "allocs/op": 1.0
+          }
+        },
+        "BenchmarkCloneBytes/append/4KiB-2": {
+          "iterations": 100,
+          "metrics": {
+            "ns/op": 286.7,
+            "MB/s": 14285.71,
+            "B/op": 4096.0,
+            "allocs/op": 1.0
+          }
+        }
+      },
+      "note": "One sample per command; sample identities and count are checked by the runner. No ranking claim.",
+      "sample": 3
+    }
+  ],
+  "independentlyReviewed": true
+}

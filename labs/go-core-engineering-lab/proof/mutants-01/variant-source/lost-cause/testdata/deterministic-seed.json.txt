@@ -1,0 +1,9 @@
+{
+  "algorithm": "math/rand/v2.NewPCG",
+  "seed1": 20261003,
+  "seed2": 17,
+  "cases": 128,
+  "maximumBytes": 128,
+  "test": "TestCloneDeterministicCorpus",
+  "notGoFuzzSchedulerSeed": true
+}

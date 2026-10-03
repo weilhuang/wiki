@@ -338,5 +338,20 @@
     "query": "什么时候停止拆微服务",
     "topic": "architecture.order-reliability-review",
     "anchor": "decision-record"
+  },
+  {
+    "query": "slice append 为什么改到旧数组",
+    "topic": "go.values-aliasing",
+    "anchor": "append-and-capacity"
+  },
+  {
+    "query": "nil指针error为什么不是nil",
+    "topic": "go.interfaces-errors",
+    "anchor": "typed-nil"
+  },
+  {
+    "query": "如何确认错误Go实现被默认测试准确拒绝",
+    "topic": "go.reproducible-testing",
+    "anchor": "semantic-counterexamples"
   }
 ]

@@ -1,0 +1,11 @@
+{
+  "kind": "synthetic-validator-counterexample",
+  "actualGoExecuted": false,
+  "baseLog": "../r5-mutants/typed-nil.txt",
+  "classifier": "original-classifier.py.txt",
+  "fixture": "synthetic-log.txt",
+  "r5ObservedAcceptance": true,
+  "addedDirectParentDiagnostic": "boundary_test.go:46: CONTRACT[unrelated] unexpected additional parent assertion",
+  "r6ExpectedRejection": "UNCLASSIFIED_PARENT_OUTPUT",
+  "scope": "The synthetic extra assertion exposed a classifier defect; it was not present in the original actual Go mutant log."
+}

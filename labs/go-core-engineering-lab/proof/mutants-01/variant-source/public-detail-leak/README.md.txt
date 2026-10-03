@@ -1,0 +1,86 @@
+# Go 值、接口与可复现测试实验
+
+这是三个章节共用的标准库教学项目。它只有进程内快照、输入校验、错误链和 `httptest.ResponseRecorder`；没有数据库、监听端口、Gin、gRPC 或 Kubernetes。此源码包本身不包含运行证据，不能把下载成功当成测试通过。
+
+## 固定环境
+
+- 官方 Go **1.27.1**；`go.mod` 声明 `go 1.27.1`，执行器另外严格核对实际版本
+- Python 3.10+ 只用于有限执行、采集输出、变体隔离与结果判定
+- 无第三方 Go 模块；`go.sum` 有意为空，不能编造标准库校验项
+- `testdata/upstream/go1.27.1` 是带原许可证的官方源码/规范快照；`testdata` 不参加 `go test ./...` 的包枚举
+- Linux/amd64 的 `-race` 需要可用 C 编译器及 cgo。缺少它时记录 blocked/fail，不移除 `-race` 后冒充通过
+
+先从 [Go 官方下载页](https://go.dev/dl/)取得固定版本并校验下载页提供的校验和。执行器必须使用自己获准的 SDK 路径，不要假设名为 `go` 的文件就是编译器。下面变量是你自己的路径；`LAB_GO` 必须指向已验证的官方二进制。
+
+```sh
+export LAB_GO=/absolute/path/to/go1.27.1/bin/go
+export LAB_CACHE=/absolute/path/to/dedicated-go-cache
+export GOTOOLCHAIN=local GOMAXPROCS=2 GOWORK=off
+export GOFLAGS='-p=1 -mod=readonly -buildvcs=false -trimpath' GOPROXY=off GOENV=off
+"$LAB_GO" version
+"$LAB_GO" test -count=1 -timeout=60s ./...
+"$LAB_GO" run ./cmd/demo
+```
+
+演示程序的合同输出如下；这段是字面预期，实际执行输出由 runner 另存。
+
+```text
+input=X42 snapshot=A42
+invalid=true field=true status=400 code=invalid_argument
+```
+
+直接运行 `go test` 不自动执行持续 fuzz 探索、benchmark 或 `-race`。它会执行普通测试与保存的 fuzz 种子。
+
+## 分段生成可审计证据
+
+输出目录必须在本源码树之外，且每次使用新目录。每个 phase 最多 165 秒墙钟，包并发 1、GOMAXPROCS 2，Go 软内存目标 384 MiB；仅采样自身子进程树，RSS 超过 1 GiB 或进程数超过 16 即中止。采样不是内核硬配额；调用者可以分配不超过 180 秒的独立运行窗口。各 phase 不会自动相互启动。先完成 preflight 和 unit，再运行其他阶段。
+
+```sh
+python3 verify.py preflight --go "$LAB_GO" --cache-root "$LAB_CACHE" --output ../evidence/preflight-01
+python3 verify.py unit --go "$LAB_GO" --cache-root "$LAB_CACHE" --output ../evidence/unit-01
+python3 verify.py harness --go "$LAB_GO" --cache-root "$LAB_CACHE" --output ../evidence/harness-01
+python3 verify.py mutants --go "$LAB_GO" --cache-root "$LAB_CACHE" --output ../evidence/mutants-01
+python3 verify.py race --go "$LAB_GO" --cache-root "$LAB_CACHE" --output ../evidence/race-01
+python3 verify.py vet --go "$LAB_GO" --cache-root "$LAB_CACHE" --output ../evidence/vet-01
+python3 verify.py fuzz --go "$LAB_GO" --cache-root "$LAB_CACHE" --output ../evidence/fuzz-01
+python3 verify.py benchmark --go "$LAB_GO" --cache-root "$LAB_CACHE" --output ../evidence/benchmark-01
+```
+
+runner 保留每个命令、退出码、脱敏后的日志、源 SHA256、Go 版本、有限环境设置、执行时间与清理情况。失败也写 `result.json`。发生编译错误、超时、缺少 race 支持时，不要删除失败记录；修复后用新编号目录重跑。不要在两个进程中同时改源码或运行相同输出目录。
+
+四个坏实现由 `testdata/mutations.json` 精确替换一个片段，在临时拷贝中逐个执行默认 `go test -json -count=1 ./...`：
+
+| 坏实现 | 必须由哪个公开合同拒绝 | 必须看到的断言标记 |
+| --- | --- | --- |
+| CloneBytes 直接返回输入 | `TestCloneIsolation` | `CONTRACT[clone-isolation]` |
+| 成功返回 `(*FieldError)(nil)` | `TestValidateKey` | `CONTRACT[nil-success]` |
+| Load 使用 `%v` 丢弃错误身份 | `TestLoadErrorChain` | `CONTRACT[error-chain]` |
+| 公开 DTO 带出 `err.Error()` | `TestWriteError` | `CONTRACT[public-error]` |
+
+这些是“应该使测试失败”的语义变体。runner 要求实际退出码为 1、命中指定测试和指定标记，且没有 panic、构建或语法失败。测试的期望常量不会随变体改变。固定的 `testdata/required-checks.json` 列出所有必需测试、子测试和12个种子身份；验证器要求每项恰有一次 run 和一次 pass，任何遗漏、skip、重复或未知条目都失败。变体允许失败的测试及断言标记也逐项列出，不接受额外未知失败。`harness` 阶段在临时副本删掉测试、语料或匹配的基准；要求 Go 命令本身 exit=0，但验证器按准确的缺项类别拒绝它。变体在临时目录运行并清理；绝不把测试失败直接当成变体被正确拒绝。
+
+## 保存了什么随机性
+
+`testdata/deterministic-seed.json` 固定 PCG 两个种子 20261003 与 17，普通测试生成 128 个不超过 128 字节的输入，可复现同一输入序列。五个 `testdata/fuzz/FuzzValidateKey/*` 文件是 Go 原生语料，加上代码内七个 `f.Add` 种子可独立重放。两组可能覆盖相同边界，不按数量宣称不同缺陷。
+
+fuzz 阶段使用 `-fuzztime=256x -parallel=1` 作有限探索，并设置进程和测试超时。本例另外固定 `-fuzzminimizetime=0x`，关闭覆盖率与失败输入的自动最小化；仍保留原始失败/发现语料，不承诺语料已缩减。此选择只服务于本例可核对的总计数。Go fuzz 的探索调度没有在这里固定成一个保证可重复的 PRNG 序列；真正可复现的是保存的输入及其性质。目标函数不使用 Skip；种子回放单独核对12个身份。有覆盖率的探索预热按语料字节去重：这12个身份对应10份不同内容，32字节与33字节边界各出现两次。探索另外要求预热全部完成、至少覆盖这10份内容、进入一个 worker 的 fuzz 阶段并完成总计256次有界计数（含预热，不是256个不同随机输入）；额外发现缓存可能使预热总数增加。`testdata/seed-corpus.json` 绑定每份字节与两组预期重复关系，不能通过减少必需回放项来满足预热计数。单独命令的12身份回放不在探索命令的execs计数内；两者不能互相替代。runner 保留本次缓存中发现的有界语料（若有）。如果 Go 产生失败语料写回 `testdata/fuzz`，源绑定会报告变化并失败；保留语料、审查后提交，不要悄悄抹掉。
+
+## benchmark 的问题很窄
+
+`BenchmarkCloneBytes` 比较两个已通过同合同测试的字节复制策略，64 B 与 4 KiB 输入在计时外准备。`b.Loop` 测量复制本身，结果保留到 sink，记录分配；不测试服务吞吐、网络、锁争用或 GC 长尾。每次命令 100 次/子场景，以 3 个独立命令采集；每条命令都必须观察到四个不同的基准结果，次数、耗时、字节量和分配单位齐全。三个样本只是有限运行示例，不是统计充分的速度排名。
+
+## 清理与边界
+
+实验不启动外部进程服务。runner 只删除自身 `TemporaryDirectory` 中的变体拷贝；测试缓存保留在显式指定的目录供复用。证据由你决定保留多久，清理前不要删除原失败记录。`Store` 的锁保护内部状态；调用方在 `Put` 复制期间仍不能同时改输入，拿到 `Get` 的副本以后可独立修改。这个边界应在后续服务/控制器中重新审查，不能把本实验当成那些系统的执行证据。
+
+## 源码许可
+
+`testdata/upstream/go1.27.1` 来自 Go 官方 `go1.27.1` 标签，版权和 BSD-3-Clause 许可见同目录 `LICENSE`。正文中的上游片段逐字对应这些文件。其余实验是本教程原创教学例子；没有复制真实业务系统。
+
+## 验证器自身的检查
+
+`python3 evidence_test.py` 运行纯 Python 合成日志夹具，检查缺项、skip、重复、错误标记和缺少测量输出会被拒绝。它不是 Go 实际运行证据。真实的缺项注入属于单独的 harness phase，需要 Go 执行记录。
+
+## 固定版本的0x配置核对
+
+fuzz阶段先在独立、仅标准库的 `testdata/fuzz-flag-probe` 中启动三个有界Go测试命令，读取真实 testing 包解析后的参数：默认值为1m0s、32x为32x、0x为0s。探针本身不执行最小化器；随包保存的固定版配置传递与派发条件源码解释为什么两个0会禁止派发，之后的真实fuzz命令再单独验收。该探针不进入主模块默认的 `go test ./...` 包枚举。

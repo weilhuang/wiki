@@ -1,0 +1,205 @@
+{"Time":"2026-10-04T04:35:53.58755613+08:00","Action":"start","Package":"example.com/go-core-engineering-lab"}
+{"Time":"2026-10-04T04:35:53.590594357+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey"}
+{"Time":"2026-10-04T04:35:53.590671231+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey","Output":"=== RUN   TestValidateKey\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.590693413+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey/one-byte"}
+{"Time":"2026-10-04T04:35:53.590696278+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey/one-byte","Output":"=== RUN   TestValidateKey/one-byte\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.590702096+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey/one-byte","Output":"--- PASS: TestValidateKey/one-byte (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.590706242+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey/one-byte","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.590711129+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey/mixed"}
+{"Time":"2026-10-04T04:35:53.590713363+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey/mixed","Output":"=== RUN   TestValidateKey/mixed\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.590751629+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey/mixed","Output":"--- PASS: TestValidateKey/mixed (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.590761494+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey/mixed","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.590764338+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey/maximum"}
+{"Time":"2026-10-04T04:35:53.590766481+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey/maximum","Output":"=== RUN   TestValidateKey/maximum\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.590774894+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey/maximum","Output":"--- PASS: TestValidateKey/maximum (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.590778188+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey/maximum","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.590780602+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey/empty"}
+{"Time":"2026-10-04T04:35:53.590782655+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey/empty","Output":"=== RUN   TestValidateKey/empty\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.590787021+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey/empty","Output":"--- PASS: TestValidateKey/empty (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.590789766+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey/empty","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.590791748+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey/too-long"}
+{"Time":"2026-10-04T04:35:53.590793491+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey/too-long","Output":"=== RUN   TestValidateKey/too-long\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.590795834+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey/too-long","Output":"--- PASS: TestValidateKey/too-long (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.590797697+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey/too-long","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.590799229+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey/numeric-prefix"}
+{"Time":"2026-10-04T04:35:53.590800612+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey/numeric-prefix","Output":"=== RUN   TestValidateKey/numeric-prefix\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.590807672+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey/numeric-prefix","Output":"--- PASS: TestValidateKey/numeric-prefix (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.590809535+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey/numeric-prefix","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.590811347+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey/uppercase"}
+{"Time":"2026-10-04T04:35:53.59081328+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey/uppercase","Output":"=== RUN   TestValidateKey/uppercase\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.590815183+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey/uppercase","Output":"--- PASS: TestValidateKey/uppercase (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.590816795+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey/uppercase","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.590818007+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey/unicode"}
+{"Time":"2026-10-04T04:35:53.590819199+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey/unicode","Output":"=== RUN   TestValidateKey/unicode\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.590821042+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey/unicode","Output":"--- PASS: TestValidateKey/unicode (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.590822504+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey/unicode","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.590828352+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey/slash"}
+{"Time":"2026-10-04T04:35:53.590829734+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey/slash","Output":"=== RUN   TestValidateKey/slash\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.590831537+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey/slash","Output":"--- PASS: TestValidateKey/slash (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.590837957+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey/slash","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.590839309+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey/trailing-dash-allowed"}
+{"Time":"2026-10-04T04:35:53.590840661+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey/trailing-dash-allowed","Output":"=== RUN   TestValidateKey/trailing-dash-allowed\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.590844857+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey/trailing-dash-allowed","Output":"--- PASS: TestValidateKey/trailing-dash-allowed (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.590850796+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey/trailing-dash-allowed","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.590852498+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey","Output":"--- PASS: TestValidateKey (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.590854181+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"TestValidateKey","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.590861722+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"TestLoadErrorChain"}
+{"Time":"2026-10-04T04:35:53.590863114+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestLoadErrorChain","Output":"=== RUN   TestLoadErrorChain\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.590896843+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestLoadErrorChain","Output":"--- PASS: TestLoadErrorChain (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.590899037+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"TestLoadErrorChain","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.59090112+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"TestWriteError"}
+{"Time":"2026-10-04T04:35:53.590902742+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestWriteError","Output":"=== RUN   TestWriteError\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.590904755+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"TestWriteError/invalid"}
+{"Time":"2026-10-04T04:35:53.590906508+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestWriteError/invalid","Output":"=== RUN   TestWriteError/invalid\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.590959155+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestWriteError/invalid","Output":"--- PASS: TestWriteError/invalid (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.590966296+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"TestWriteError/invalid","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.590967668+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"TestWriteError/missing"}
+{"Time":"2026-10-04T04:35:53.59096886+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestWriteError/missing","Output":"=== RUN   TestWriteError/missing\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.590971283+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestWriteError/missing","Output":"--- PASS: TestWriteError/missing (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.590977242+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"TestWriteError/missing","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.590978544+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"TestWriteError/unknown"}
+{"Time":"2026-10-04T04:35:53.590979656+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestWriteError/unknown","Output":"=== RUN   TestWriteError/unknown\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.590994528+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestWriteError/unknown","Output":"--- PASS: TestWriteError/unknown (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.591002479+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"TestWriteError/unknown","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.591003972+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"TestWriteError/canceled-wins"}
+{"Time":"2026-10-04T04:35:53.591005404+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestWriteError/canceled-wins","Output":"=== RUN   TestWriteError/canceled-wins\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.591007757+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestWriteError/canceled-wins","Output":"--- PASS: TestWriteError/canceled-wins (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.5910094+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"TestWriteError/canceled-wins","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.591011292+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"TestWriteError/deadline-wins"}
+{"Time":"2026-10-04T04:35:53.591012644+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestWriteError/deadline-wins","Output":"=== RUN   TestWriteError/deadline-wins\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.591028267+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestWriteError/deadline-wins","Output":"--- PASS: TestWriteError/deadline-wins (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.591034406+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"TestWriteError/deadline-wins","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.59103681+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestWriteError","Output":"--- PASS: TestWriteError (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.591038703+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"TestWriteError","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.591040005+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"TestJoinTraversal"}
+{"Time":"2026-10-04T04:35:53.591047055+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestJoinTraversal","Output":"=== RUN   TestJoinTraversal\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.591049188+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestJoinTraversal","Output":"--- PASS: TestJoinTraversal (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.591061206+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"TestJoinTraversal","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.591067265+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"TestMethodsAndTypedNil"}
+{"Time":"2026-10-04T04:35:53.591068417+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestMethodsAndTypedNil","Output":"=== RUN   TestMethodsAndTypedNil\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.591084591+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestMethodsAndTypedNil","Output":"--- PASS: TestMethodsAndTypedNil (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.591091921+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"TestMethodsAndTypedNil","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.591093273+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"TestAppendAliasing"}
+{"Time":"2026-10-04T04:35:53.591094545+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestAppendAliasing","Output":"=== RUN   TestAppendAliasing\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.591105862+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"TestAppendAliasing/reuse"}
+{"Time":"2026-10-04T04:35:53.591107264+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestAppendAliasing/reuse","Output":"=== RUN   TestAppendAliasing/reuse\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.59111815+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestAppendAliasing/reuse","Output":"--- PASS: TestAppendAliasing/reuse (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.591124029+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"TestAppendAliasing/reuse","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.591126002+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"TestAppendAliasing/full-slice-forces-growth"}
+{"Time":"2026-10-04T04:35:53.591127223+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestAppendAliasing/full-slice-forces-growth","Output":"=== RUN   TestAppendAliasing/full-slice-forces-growth\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.591135065+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestAppendAliasing/full-slice-forces-growth","Output":"--- PASS: TestAppendAliasing/full-slice-forces-growth (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.591138851+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"TestAppendAliasing/full-slice-forces-growth","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.591146842+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestAppendAliasing","Output":"--- PASS: TestAppendAliasing (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.591150187+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"TestAppendAliasing","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.591156777+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"TestCopyOverlapAndNil"}
+{"Time":"2026-10-04T04:35:53.591158069+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestCopyOverlapAndNil","Output":"=== RUN   TestCopyOverlapAndNil\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.591160402+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestCopyOverlapAndNil","Output":"--- PASS: TestCopyOverlapAndNil (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.591166101+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"TestCopyOverlapAndNil","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.591167443+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"TestCloneShape"}
+{"Time":"2026-10-04T04:35:53.591168614+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestCloneShape","Output":"=== RUN   TestCloneShape\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.591170547+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"TestCloneShape/nil"}
+{"Time":"2026-10-04T04:35:53.591171939+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestCloneShape/nil","Output":"=== RUN   TestCloneShape/nil\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.591190927+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestCloneShape/nil","Output":"--- PASS: TestCloneShape/nil (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.591193872+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"TestCloneShape/nil","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.591195815+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"TestCloneShape/allocated-empty"}
+{"Time":"2026-10-04T04:35:53.591197277+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestCloneShape/allocated-empty","Output":"=== RUN   TestCloneShape/allocated-empty\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.59121324+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestCloneShape/allocated-empty","Output":"--- PASS: TestCloneShape/allocated-empty (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.5912195+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"TestCloneShape/allocated-empty","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.591221322+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"TestCloneShape/nested-shapes"}
+{"Time":"2026-10-04T04:35:53.591222464+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestCloneShape/nested-shapes","Output":"=== RUN   TestCloneShape/nested-shapes\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.591225228+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestCloneShape/nested-shapes","Output":"--- PASS: TestCloneShape/nested-shapes (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.591230816+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"TestCloneShape/nested-shapes","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.591280049+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestCloneShape","Output":"--- PASS: TestCloneShape (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.591286148+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"TestCloneShape","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.59128759+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"TestCloneBytesStrategies"}
+{"Time":"2026-10-04T04:35:53.591288822+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestCloneBytesStrategies","Output":"=== RUN   TestCloneBytesStrategies\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.591291566+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestCloneBytesStrategies","Output":"    snapshot_test.go:110: CONTRACT[clone-isolation] strategy=make-copy shares input\n","OutputType":"error"}
+{"Time":"2026-10-04T04:35:53.591298847+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestCloneBytesStrategies","Output":"--- FAIL: TestCloneBytesStrategies (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.591311065+08:00","Action":"fail","Package":"example.com/go-core-engineering-lab","Test":"TestCloneBytesStrategies","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.591316623+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"TestCloneIsolation"}
+{"Time":"2026-10-04T04:35:53.591318185+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestCloneIsolation","Output":"=== RUN   TestCloneIsolation\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.591347138+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestCloneIsolation","Output":"    snapshot_test.go:124: CONTRACT[clone-isolation] input write leaked: dst={Name:demo Labels:map[tier:test] Chunks:[[88 52 50] [88 52 50]]} chunks=[\"X42\" \"X42\"]\n","OutputType":"error"}
+{"Time":"2026-10-04T04:35:53.591356261+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestCloneIsolation","Output":"--- FAIL: TestCloneIsolation (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.591359085+08:00","Action":"fail","Package":"example.com/go-core-engineering-lab","Test":"TestCloneIsolation","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.591360478+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"TestStoreOwnership"}
+{"Time":"2026-10-04T04:35:53.591361649+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestStoreOwnership","Output":"=== RUN   TestStoreOwnership\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.591372726+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestStoreOwnership","Output":"    snapshot_test.go:144: CONTRACT[store-ownership] got labels=map[tier:test] chunks=[\"Y42\"]\n","OutputType":"error"}
+{"Time":"2026-10-04T04:35:53.591379265+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestStoreOwnership","Output":"--- FAIL: TestStoreOwnership (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.591381298+08:00","Action":"fail","Package":"example.com/go-core-engineering-lab","Test":"TestStoreOwnership","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.591382971+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"TestConcurrentStore"}
+{"Time":"2026-10-04T04:35:53.591384733+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestConcurrentStore","Output":"=== RUN   TestConcurrentStore\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.591407597+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestConcurrentStore","Output":"    snapshot_test.go:163: CONTRACT[store-consistency] torn snapshot=[\"\\xff\\x03\"]\n","OutputType":"error"}
+{"Time":"2026-10-04T04:35:53.591414117+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestConcurrentStore","Output":"    snapshot_test.go:163: CONTRACT[store-consistency] torn snapshot=[\"\\xff\\x01\"]\n","OutputType":"error"}
+{"Time":"2026-10-04T04:35:53.591445483+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestConcurrentStore","Output":"    snapshot_test.go:163: CONTRACT[store-consistency] torn snapshot=[\"\\xff\\x00\"]\n","OutputType":"error"}
+{"Time":"2026-10-04T04:35:53.591496008+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestConcurrentStore","Output":"    snapshot_test.go:163: CONTRACT[store-consistency] torn snapshot=[\"\\xff\\x02\"]\n","OutputType":"error"}
+{"Time":"2026-10-04T04:35:53.591508175+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestConcurrentStore","Output":"--- FAIL: TestConcurrentStore (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.591517229+08:00","Action":"fail","Package":"example.com/go-core-engineering-lab","Test":"TestConcurrentStore","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.591520964+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"TestCloneDeterministicCorpus"}
+{"Time":"2026-10-04T04:35:53.591523608+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestCloneDeterministicCorpus","Output":"=== RUN   TestCloneDeterministicCorpus\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.591549887+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestCloneDeterministicCorpus","Output":"    snapshot_test.go:190: CONTRACT[clone-isolation] case=0 strategy=make-copy shares input\n","OutputType":"error"}
+{"Time":"2026-10-04T04:35:53.591560473+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"TestCloneDeterministicCorpus","Output":"--- FAIL: TestCloneDeterministicCorpus (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.591571509+08:00","Action":"fail","Package":"example.com/go-core-engineering-lab","Test":"TestCloneDeterministicCorpus","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.591581954+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey"}
+{"Time":"2026-10-04T04:35:53.591589445+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey","Output":"=== RUN   FuzzValidateKey\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.591903048+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/seed#0"}
+{"Time":"2026-10-04T04:35:53.591915657+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/seed#0","Output":"=== RUN   FuzzValidateKey/seed#0\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.591950518+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/seed#0","Output":"--- PASS: FuzzValidateKey/seed#0 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.591961294+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/seed#0","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.591964479+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/seed#1"}
+{"Time":"2026-10-04T04:35:53.591966802+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/seed#1","Output":"=== RUN   FuzzValidateKey/seed#1\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.591976526+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/seed#1","Output":"--- PASS: FuzzValidateKey/seed#1 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.591986031+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/seed#1","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.591994964+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/seed#2"}
+{"Time":"2026-10-04T04:35:53.591997788+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/seed#2","Output":"=== RUN   FuzzValidateKey/seed#2\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.592007743+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/seed#2","Output":"--- PASS: FuzzValidateKey/seed#2 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.592010747+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/seed#2","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.59201309+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/seed#3"}
+{"Time":"2026-10-04T04:35:53.592015404+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/seed#3","Output":"=== RUN   FuzzValidateKey/seed#3\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.59201959+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/seed#3","Output":"--- PASS: FuzzValidateKey/seed#3 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.592041142+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/seed#3","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.592049805+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/seed#4"}
+{"Time":"2026-10-04T04:35:53.592052088+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/seed#4","Output":"=== RUN   FuzzValidateKey/seed#4\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.592061562+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/seed#4","Output":"--- PASS: FuzzValidateKey/seed#4 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.592069754+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/seed#4","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.592072708+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/seed#5"}
+{"Time":"2026-10-04T04:35:53.59208084+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/seed#5","Output":"=== RUN   FuzzValidateKey/seed#5\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.592085577+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/seed#5","Output":"--- PASS: FuzzValidateKey/seed#5 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.5920942+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/seed#5","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.592097154+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/seed#6"}
+{"Time":"2026-10-04T04:35:53.592099228+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/seed#6","Output":"=== RUN   FuzzValidateKey/seed#6\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.592103464+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/seed#6","Output":"--- PASS: FuzzValidateKey/seed#6 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.592110033+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/seed#6","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.59211455+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/018a003fcb773a8c"}
+{"Time":"2026-10-04T04:35:53.592116954+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/018a003fcb773a8c","Output":"=== RUN   FuzzValidateKey/018a003fcb773a8c\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.592136152+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/018a003fcb773a8c","Output":"--- PASS: FuzzValidateKey/018a003fcb773a8c (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.592149361+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/018a003fcb773a8c","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.592158054+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/25beaf5d20f1eed9"}
+{"Time":"2026-10-04T04:35:53.592160588+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/25beaf5d20f1eed9","Output":"=== RUN   FuzzValidateKey/25beaf5d20f1eed9\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.592170993+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/25beaf5d20f1eed9","Output":"--- PASS: FuzzValidateKey/25beaf5d20f1eed9 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.592179286+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/25beaf5d20f1eed9","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.59218226+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/26e89b11780e48f8"}
+{"Time":"2026-10-04T04:35:53.592184924+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/26e89b11780e48f8","Output":"=== RUN   FuzzValidateKey/26e89b11780e48f8\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.59219612+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/26e89b11780e48f8","Output":"--- PASS: FuzzValidateKey/26e89b11780e48f8 (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.592199265+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/26e89b11780e48f8","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.59220252+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/e3ca5d3d65c8f8ef"}
+{"Time":"2026-10-04T04:35:53.592207057+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/e3ca5d3d65c8f8ef","Output":"=== RUN   FuzzValidateKey/e3ca5d3d65c8f8ef\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.592218964+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/e3ca5d3d65c8f8ef","Output":"--- PASS: FuzzValidateKey/e3ca5d3d65c8f8ef (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.592228188+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/e3ca5d3d65c8f8ef","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.592237421+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/fd092373507012da"}
+{"Time":"2026-10-04T04:35:53.592251122+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/fd092373507012da","Output":"=== RUN   FuzzValidateKey/fd092373507012da\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.592261126+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/fd092373507012da","Output":"--- PASS: FuzzValidateKey/fd092373507012da (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.5922842+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey/fd092373507012da","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.592287726+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey","Output":"--- PASS: FuzzValidateKey (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.592290189+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.592292342+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Output":"FAIL\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.592653355+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Output":"FAIL\texample.com/go-core-engineering-lab\t0.005s\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.592680295+08:00","Action":"fail","Package":"example.com/go-core-engineering-lab","Elapsed":0.005}
+{"Time":"2026-10-04T04:35:53.756083186+08:00","Action":"start","Package":"example.com/go-core-engineering-lab/cmd/demo"}
+{"Time":"2026-10-04T04:35:53.758319806+08:00","Action":"run","Package":"example.com/go-core-engineering-lab/cmd/demo","Test":"TestDemoOutput"}
+{"Time":"2026-10-04T04:35:53.758379625+08:00","Action":"output","Package":"example.com/go-core-engineering-lab/cmd/demo","Test":"TestDemoOutput","Output":"=== RUN   TestDemoOutput\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.758391482+08:00","Action":"output","Package":"example.com/go-core-engineering-lab/cmd/demo","Test":"TestDemoOutput","Output":"    main_test.go:13: CONTRACT[demo-output] got=\"input=X42 snapshot=X42\\ninvalid=true field=true status=400 code=invalid_argument\\n\" want=\"input=X42 snapshot=A42\\ninvalid=true field=true status=400 code=invalid_argument\\n\"\n","OutputType":"error"}
+{"Time":"2026-10-04T04:35:53.758402609+08:00","Action":"output","Package":"example.com/go-core-engineering-lab/cmd/demo","Test":"TestDemoOutput","Output":"--- FAIL: TestDemoOutput (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.758405423+08:00","Action":"fail","Package":"example.com/go-core-engineering-lab/cmd/demo","Test":"TestDemoOutput","Elapsed":0}
+{"Time":"2026-10-04T04:35:53.758409919+08:00","Action":"output","Package":"example.com/go-core-engineering-lab/cmd/demo","Output":"FAIL\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.758648631+08:00","Action":"output","Package":"example.com/go-core-engineering-lab/cmd/demo","Output":"FAIL\texample.com/go-core-engineering-lab/cmd/demo\t0.003s\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:53.75866784+08:00","Action":"fail","Package":"example.com/go-core-engineering-lab/cmd/demo","Elapsed":0.003}

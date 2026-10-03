@@ -1,0 +1,312 @@
+#!/usr/bin/env python3
+"""Bounded, fail-closed evidence runner. Python 3.10+; no third-party modules.
+
+Each phase is a separate invocation so a scheduler can grant one short lease.
+This program never downloads a toolchain or dependencies and never edits its source.
+"""
+import argparse
+import hashlib
+import json
+import os
+from pathlib import Path
+import shutil
+import signal
+import subprocess
+import tempfile
+import time
+import sys
+
+sys.dont_write_bytecode = True
+from evidence import Rejection, check_suite, check_seed_corpus, check_fuzz_flag_probe, check_mutant, check_fuzz_exploration, check_benchmark
+
+ROOT = Path(__file__).resolve().parent
+START = time.monotonic()
+LIMIT = 165
+
+
+def digest(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def binding():
+    return [{"path": str(p.relative_to(ROOT)), "sha256": digest(p)}
+            for p in sorted(ROOT.rglob("*")) if p.is_file()
+            and "upstream" not in p.parts and "__pycache__" not in p.parts
+            and p.suffix not in {".pyc", ".zip"}]
+
+
+
+def sample_process_tree(pid):
+    """Sample only this child and its descendants; this is not a kernel hard cap."""
+    pending, seen = [pid], set()
+    while pending:
+        current = pending.pop()
+        if current in seen:
+            continue
+        seen.add(current)
+        tasks = Path("/proc") / str(current) / "task"
+        try:
+            threads = list(tasks.iterdir())
+        except (FileNotFoundError, ProcessLookupError):
+            continue
+        for thread in threads:
+            try:
+                pending.extend(int(value) for value in (thread / "children").read_text().split())
+            except (FileNotFoundError, ProcessLookupError):
+                pass
+    rss = count = 0
+    for current in seen:
+        try:
+            status = (Path("/proc") / str(current) / "status").read_text()
+        except (FileNotFoundError, ProcessLookupError):
+            continue
+        count += 1
+        for line in status.splitlines():
+            if line.startswith("VmRSS:"):
+                rss += int(line.split()[1]) * 1024
+    return count, rss
+
+
+def main():
+    global LIMIT
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("phase", choices=["preflight", "unit", "harness", "mutants", "race", "vet", "fuzz", "benchmark"])
+    parser.add_argument("--go", required=True, help="absolute path to an already verified official Go1.27.1 binary")
+    parser.add_argument("--output", required=True, help="new evidence directory outside source")
+    parser.add_argument("--cache-root", required=True, help="approved dedicated build/module/GOPATH cache root")
+    parser.add_argument("--seconds", type=int, default=165, help="phase wall budget, maximum 165 seconds")
+    args = parser.parse_args()
+    if not 1 <= args.seconds <= 165:
+        parser.error("--seconds must be between 1 and 165")
+    LIMIT = args.seconds
+    go = Path(args.go).resolve()
+    output = Path(args.output).resolve()
+    cache = Path(args.cache_root).resolve()
+    if not go.is_file() or not go.is_absolute():
+        parser.error("--go must exist")
+    if output == ROOT or ROOT in output.parents or cache == ROOT or ROOT in cache.parents:
+        parser.error("output/cache must be outside the source tree")
+    output.mkdir(parents=True, exist_ok=False)
+    for directory in ("gopath", "gomod", "gobuild"):
+        (cache / directory).mkdir(parents=True, exist_ok=True)
+    env = dict(os.environ, GOTOOLCHAIN="local", GOMAXPROCS="2", GOWORK="off",
+               GOFLAGS="-p=1 -mod=readonly -buildvcs=false -trimpath", GOPROXY="off", GOENV="off", GOMEMLIMIT="384MiB",
+               GOPATH=str(cache / "gopath"), GOMODCACHE=str(cache / "gomod"),
+               GOCACHE=str(cache / "gobuild"))
+    env.pop("GOROOT", None)
+    manifest = json.loads((ROOT / "testdata/required-checks.json").read_text())
+    before = binding()
+    report = {"phase": args.phase, "status": "blocked", "executionLevel": "real-go-standard-library",
+              "sourceFiles": before, "commands": [], "cleanup": {"temporaryCopiesRemoved": False},
+              "limits": {"wallSeconds": LIMIT, "GOMAXPROCS": 2, "packageParallelism": 1, "GOMEMLIMIT": "384MiB (soft)", "sampledRSSLimitBytes": 1073741824, "sampledProcessLimit": 16, "samplingSeconds": 0.25},
+              "fuzzScope": "required saved-seed identities and bounded exploration checked separately; exploration order is not deterministic",
+              "requiredInventorySHA256": digest(ROOT / "testdata/required-checks.json")}
+
+    def sanitize(text, cwd):
+        for actual, public in [(str(cwd), "<LAB>"), (str(ROOT), "<LAB>"), (str(cache), "<CACHE>"), (str(go), "<GO>")]:
+            text = text.replace(actual, public)
+        return text
+
+    def run(label, argv, cwd=ROOT, timeout=65):
+        remaining = LIMIT - (time.monotonic() - START)
+        if remaining < 1:
+            raise RuntimeError("phase wall budget exhausted")
+        command = [str(go)] + argv
+        started = time.monotonic()
+        process = subprocess.Popen(command, cwd=cwd, env=env, text=True,
+                                   stdout=subprocess.PIPE, stderr=subprocess.STDOUT, start_new_session=True)
+        timed_out = False
+        resource_stop = None
+        peak_rss = peak_processes = 0
+        deadline = started + min(timeout, remaining)
+        while True:
+            try:
+                count, rss = sample_process_tree(process.pid)
+            except Exception as error:
+                resource_stop = "process-tree sampling unavailable: " + type(error).__name__
+                count = rss = 0
+            peak_rss, peak_processes = max(peak_rss, rss), max(peak_processes, count)
+            if rss > 1073741824 or count > 16:
+                resource_stop = "sampled process-tree RSS/process limit exceeded"
+            timed_out = time.monotonic() >= deadline
+            if timed_out or resource_stop:
+                try:
+                    os.killpg(process.pid, signal.SIGKILL)
+                except ProcessLookupError:
+                    pass
+                stdout, _ = process.communicate()
+                break
+            try:
+                stdout, _ = process.communicate(timeout=max(0.001, min(0.25, deadline - time.monotonic())))
+                break
+            except subprocess.TimeoutExpired:
+                continue
+        clean = sanitize(stdout, cwd)
+        (output / (label + ".txt")).write_text(clean)
+        entry = {"label": label, "command": ["<GO>"] + argv, "workingDirectory": "<LAB>" + (("/" + str(cwd.relative_to(ROOT))) if cwd != ROOT and ROOT in cwd.parents else ""),
+                 "environment": {k: sanitize(env[k], cwd) for k in ["GOTOOLCHAIN", "GOMAXPROCS", "GOWORK", "GOFLAGS", "GOPROXY", "GOENV", "GOMEMLIMIT", "GOPATH", "GOMODCACHE", "GOCACHE"]},
+                 "exitCode": process.returncode, "timeout": timed_out, "resourceStop": resource_stop,
+                 "sampledPeakRSSBytes": peak_rss, "sampledPeakProcesses": peak_processes,
+                 "elapsedSeconds": round(time.monotonic() - started, 3),
+                 "log": label + ".txt", "logSHA256": digest(output / (label + ".txt"))}
+        report["commands"].append(entry)
+        if resource_stop:
+            raise RuntimeError(label + ": " + resource_stop)
+        if timed_out:
+            raise RuntimeError(label + ": timeout is infrastructure failure, never a semantic rejection")
+        return process.returncode, clean, entry
+
+    def require_pass(label, argv, timeout=65, cwd=ROOT):
+        code, text, entry = run(label, argv, cwd=cwd, timeout=timeout)
+        if code != 0:
+            raise RuntimeError(label + ": nonzero exit " + str(code))
+        entry["processResult"] = "exit-zero"
+        return text
+
+    try:
+        report["seedCorpusReview"] = check_seed_corpus(ROOT, manifest)
+        version = require_pass("version", ["version"], 10).strip()
+        if not version.startswith("go version go1.27.1 "):
+            raise RuntimeError("wrong toolchain: " + version)
+        report["version"] = version
+        if args.phase == "preflight":
+            require_pass("environment", ["env", "GOVERSION", "GOOS", "GOARCH", "CGO_ENABLED"], 10)
+            graph = require_pass("modules", ["list", "-m", "all"], 20).strip().splitlines()
+            if graph != ["example.com/go-core-engineering-lab"]:
+                raise RuntimeError("unexpected external module graph: " + repr(graph))
+            require_pass("module-verify", ["mod", "verify"], 20)
+        elif args.phase == "unit":
+            log = require_pass("unit", ["test", "-json", "-count=1", "-timeout=60s", "./..."], 145)
+            report["commands"][-1]["acceptance"] = check_suite(log, manifest)
+            demo = require_pass("demo", ["run", "./cmd/demo"], 20)
+            if demo != "input=X42 snapshot=A42\ninvalid=true field=true status=400 code=invalid_argument\n":
+                raise RuntimeError("demo output differed from literal expectation")
+        elif args.phase == "race":
+            log = require_pass("race", ["test", "-json", "-race", "-count=1", "-timeout=60s", "./..."], 150)
+            report["commands"][-1]["acceptance"] = check_suite(log, manifest)
+        elif args.phase == "vet":
+            require_pass("vet", ["vet", "./..."], 150)
+        elif args.phase == "fuzz":
+            probe = manifest["fuzzFlagProbe"]
+            for case in probe["cases"]:
+                argv = ["test", "-json", "-run=^" + probe["test"] + "$", "-count=1", "-timeout=10s", ".", "-args", "-want-minimize=" + case["normalized"]]
+                if case["argument"] is not None:
+                    argv.append("-test.fuzzminimizetime=" + case["argument"])
+                log = require_pass("fuzz-flag-" + case["name"], argv, 20, ROOT / probe["directory"])
+                report["commands"][-1]["workingDirectory"] = "<LAB>/" + probe["directory"]
+                report["commands"][-1]["acceptance"] = check_fuzz_flag_probe(log, manifest, case)
+            log = require_pass("seed-replay", ["test", "-json", "-run=^FuzzValidateKey$", "-count=1", "-timeout=30s", "."], 40)
+            report["commands"][-1]["acceptance"] = check_suite(log, manifest, replay=True)
+            log = require_pass("fuzz", ["test", "-json", "-run=^$", "-fuzz=^FuzzValidateKey$", "-fuzztime=256x", "-fuzzminimizetime=0x", "-parallel=1", "-timeout=60s", "."], 80)
+            report["commands"][-1]["acceptance"] = check_fuzz_exploration(log, manifest)
+            # Go's discovery cache is evidence, not an asserted deterministic seed.
+            corpus_dir = cache / "gobuild" / "fuzz" / "example.com/go-core-engineering-lab" / "FuzzValidateKey"
+            if corpus_dir.exists():
+                saved = output / "discovery-corpus"
+                saved.mkdir()
+                for item in sorted(corpus_dir.iterdir()):
+                    if item.is_file() and item.stat().st_size <= 65536:
+                        shutil.copy2(item, saved / item.name)
+                report["discoveryCorpus"] = [{"path": str(p.relative_to(output)), "sha256": digest(p)} for p in sorted(saved.iterdir())]
+        elif args.phase == "benchmark":
+            samples = []
+            for sample in range(1, manifest["benchmark"]["independentSamples"] + 1):
+                log = require_pass("benchmark-sample-" + str(sample), ["test", "-json", "-run=^$", "-bench=^BenchmarkCloneBytes$", "-benchmem", "-benchtime=100x", "-count=1", "-cpu=2", "-timeout=45s", "."], 50)
+                accepted = check_benchmark(log, manifest)
+                accepted["sample"] = sample
+                samples.append(accepted)
+                report["commands"][-1]["acceptance"] = accepted
+            report["benchmarkSamples"] = samples
+            report["interpretation"] = "bounded smoke measurement only; no speed ranking, service throughput, or statistical significance claim"
+        elif args.phase == "mutants":
+            log = require_pass("baseline", ["test", "-json", "-count=1", "-timeout=45s", "./..."], 65)
+            report["commands"][-1]["acceptance"] = check_suite(log, manifest)
+            mutations = json.loads((ROOT / "testdata/mutations.json").read_text())
+            for mutant in mutations:
+                with tempfile.TemporaryDirectory(prefix="go-core-mutant-") as temporary:
+                    clone = Path(temporary) / "lab"
+                    shutil.copytree(ROOT, clone, ignore=shutil.ignore_patterns("__pycache__", "upstream"))
+                    target = clone / mutant["file"]
+                    original = target.read_text()
+                    if original.count(mutant["before"]) != 1:
+                        raise RuntimeError(mutant["id"] + ": replacement is not unique")
+                    target.write_text(original.replace(mutant["before"], mutant["after"], 1))
+                    # Capture the actual variant before execution/classification, including failed attempts.
+                    captured = output / "variant-source" / mutant["id"]
+                    captured.mkdir(parents=True)
+                    variant_files = []
+                    for source in sorted(clone.rglob("*")):
+                        if not source.is_file():
+                            continue
+                        relative = source.relative_to(clone)
+                        saved = captured / (str(relative) + ".txt")
+                        saved.parent.mkdir(parents=True, exist_ok=True)
+                        saved.write_bytes(source.read_bytes())
+                        variant_files.append({"originalPath": str(relative), "capturedPath": str(saved.relative_to(output)), "sha256": digest(saved)})
+                    captured_manifest = captured / "source-manifest.json"
+                    captured_manifest.write_text(json.dumps({"mutant": mutant["id"], "capture": "before Go execution and before acceptance classification", "files": variant_files}, indent=2) + "\n")
+                    code, log, entry = run(mutant["id"], ["test", "-json", "-count=1", "-timeout=30s", "./..."], clone, 40)
+                    entry["variantSourceManifest"] = str(captured_manifest.relative_to(output))
+                    entry["variantSourceManifestSHA256"] = digest(captured_manifest)
+                    entry["mutantSourceSHA256"] = digest(target)
+                    if code != 1:
+                        raise RuntimeError(mutant["id"] + ": expected test exit 1, got " + str(code))
+                    accepted = check_mutant(log, manifest, mutant)
+                    entry.update(result="expected-semantic-rejection", mutantSourceSHA256=digest(target),
+                                 requiredTest=mutant["test"], requiredMarker=mutant["marker"], acceptance=accepted)
+        elif args.phase == "harness":
+            log = require_pass("baseline", ["test", "-json", "-count=1", "-timeout=45s", "./..."], 65)
+            report["commands"][-1]["acceptance"] = check_suite(log, manifest)
+            for omission in ["test", "seed", "benchmark"]:
+                with tempfile.TemporaryDirectory(prefix="go-core-omission-") as temporary:
+                    clone = Path(temporary) / "lab"
+                    shutil.copytree(ROOT, clone, ignore=shutil.ignore_patterns("__pycache__", "upstream"))
+                    expected_code = "MISSING_TEST"
+                    if omission == "test":
+                        target = clone / "snapshot_test.go"
+                        text = target.read_text()
+                        first = text.index("func TestCloneIsolation(")
+                        last = text.index("\n}\n", first) + 3
+                        target.write_text(text[:first] + text[last:])
+                    elif omission == "seed":
+                        (clone / "testdata/fuzz/FuzzValidateKey/018a003fcb773a8c").unlink()
+                    else:
+                        target = clone / "snapshot_test.go"
+                        text = target.read_text()
+                        target.write_text(text.replace("func BenchmarkCloneBytes(", "func BenchmarkOmitted(", 1))
+                        expected_code = "MISSING_BENCHMARK"
+                    argv = ["test", "-json", "-count=1", "-timeout=30s", "./..."]
+                    if omission == "benchmark":
+                        argv = ["test", "-json", "-run=^$", "-bench=^BenchmarkCloneBytes$", "-benchmem", "-benchtime=100x", "-count=1", "-cpu=2", "-timeout=30s", "."]
+                    code, log, entry = run("omitted-" + omission, argv, clone, 40)
+                    if code != 0:
+                        raise RuntimeError("omission must be a green Go command rejected by the validator")
+                    try:
+                        check_benchmark(log, manifest) if omission == "benchmark" else check_suite(log, manifest)
+                    except Rejection as rejection:
+                        if rejection.code != expected_code:
+                            raise RuntimeError("wrong omission rejection: " + str(rejection))
+                        entry.update(result="expected-inventory-rejection", rejectionCode=rejection.code, detail=str(rejection))
+                    else:
+                        raise RuntimeError("validator accepted an omitted " + omission)
+        report["status"] = "pass"
+    except Exception as error:
+        report["status"] = "fail"
+        report["failure"] = str(error)
+        report["rejectionCode"] = error.code if isinstance(error, Rejection) else None
+    finally:
+        report["cleanup"]["temporaryCopiesRemoved"] = True
+        report["cleanup"]["cache"] = "dedicated external cache retained; no server/database/container created"
+        after = binding()
+        report["sourceUnchanged"] = before == after
+        if before != after:
+            report["status"] = "fail"
+            report["failure"] = "source changed during execution; preserve newly written fuzz failure corpus before review"
+            report["sourceFilesAfter"] = after
+        (output / "result.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n")
+    print(json.dumps({"phase": args.phase, "status": report["status"], "failure": report.get("failure")}))
+    return 0 if report["status"] == "pass" else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

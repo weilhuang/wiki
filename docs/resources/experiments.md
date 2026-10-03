@@ -92,6 +92,23 @@ search: false
 
 </details>
 
+### Go 工程基础实验 {#experiment-go-core-engineering}
+
+[下载源码包](/examples/go-core-engineering-lab.zip) · [查看运行结果](/examples/go-core-engineering-verification.json)。历史运行范围：实际版本、平台、单模块图与 mod verify；slice/map/nil形状、深复制别名、方法集、typed nil、Is/As/AsType/Join、公开JSON；固定PCG生成输入与保存的fuzz种子重放；有限Store并发不变量；普通测试并不自带race检测；默认命令删测试/删语料/无匹配基准应仍exit0，由固定清单按准确缺项原因拒绝；正确基线后分别替换四个坏实现并运行默认套件；指定测试+标记+退出1，并排除语法/编译/panic/超时；默认套件实际-race运行，含四worker有限快照读写；实际go vet ./...退出码；12个保存种子身份重放；固定10份不同语料字节；探索单独验完整预热、256x计数、单worker与超时；发现语料若存在则另保存；64B/4KiB两个策略；每命令100次每子场景、独立3个样本、固定测量条目与分配单位。
+
+关联知识：[可复现 Go 工程：模块、测试与反例](/knowledge/go/engineering/reproducible-testing.html)、[接口与错误：方法集、nil 与可恢复合同](/knowledge/go/language/interfaces-errors.html)、[值与容器：slice、map 和别名](/knowledge/go/language/values-aliasing.html)。
+
+<details class="verification-appendix">
+<summary>版本、下载身份与未覆盖范围</summary>
+
+- 版本：go version go1.27.1 linux/amd64；GOMAXPROCS=2; package parallelism=1; standard library only
+- SHA256：9eb82485c2acfa40a1e67068ae8087c84354e6f21c47b3c5f7b15755ea6d5100
+- SHA256：af40f14996765c75ce6c4898e06c4fdf1ce6fecfa339e3112606211dad9ae9ac
+- 未覆盖：无外部模块，不能推断第三方依赖锁定；ResponseRecorder无真实网络；内存fixture无数据库或Kubernetes；不以子测试/循环次数作证明强度；仅Python日志夹具不能代替本阶段真实Go执行；仅四个受控缺陷，不等于所有缺陷可检出；不证明未执行路径无竞争或无死锁；静态分析不等于逻辑或并发正确；不承诺固定探索调度；有限无失败不是穷尽证明；只作运行示例，不作统计充分的性能排名或服务容量结论
+- 此处汇总已有运行记录；收录到目录不会增加实验覆盖范围
+
+</details>
+
 ### Go 运行时实验：channel 交接、CPU、网络等待与有界堆积 {#experiment-go-runtime-boundaries}
 
 [下载源码包](/examples/go-runtime-boundaries-lab.zip)。历史运行范围：无缓冲反向边、容量1的R1→S2、close排空后的零值接收、对象转交/归还；正确路径race/vet；alias错误发布、cancel-as-join错误断言按目标原因拒绝；独立真实竞争检测；有限select样本只核对就绪集合记账；所有应用worker通过done/WaitGroup结束；四类独立有限进程，实际CPU/block profile与execution trace；不是网络模型；TCP一个loopback连接对，IO wait实栈后发送K；2秒deadline与连接关闭；24项输入/2许可，active2与waiting22；完成24并join24；关闭peer后的真实worker EOF必须传播为exit1，joined1/completed0。

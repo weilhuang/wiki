@@ -1,0 +1,11 @@
+[
+  {
+    "attempt": 1,
+    "command": "python3 check_static.py --wiki <EXISTING_WIKI>",
+    "exitCode": 1,
+    "failure": "AssertionError: (interfaces-errors.md, err)",
+    "cause": "The static checker treated inline-code AsType[*FieldError](err) as a Markdown link.",
+    "correction": "Ignore fenced and inline code when collecting Markdown links.",
+    "semanticCounterexample": false
+  }
+]

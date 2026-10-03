@@ -1,0 +1,2 @@
+go test fuzz v1
+string("d\xee\xe6j\x00e\x00o-42")

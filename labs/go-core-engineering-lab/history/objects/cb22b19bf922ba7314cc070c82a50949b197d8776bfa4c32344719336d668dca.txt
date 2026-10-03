@@ -1,0 +1,11 @@
+{"Time":"2026-10-04T03:52:12.304963148+08:00","Action":"start","Package":"example.com/go-core-engineering-lab"}
+{"Time":"2026-10-04T03:52:12.307688105+08:00","Action":"run","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey"}
+{"Time":"2026-10-04T03:52:12.307744719+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey","Output":"=== RUN   FuzzValidateKey\n","OutputType":"frame"}
+{"Time":"2026-10-04T03:52:12.308313498+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey","Output":"fuzz: elapsed: 0s, gathering baseline coverage: 0/10 completed\n"}
+{"Time":"2026-10-04T03:52:12.331985434+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey","Output":"fuzz: elapsed: 0s, gathering baseline coverage: 10/10 completed, now fuzzing with 1 workers\n"}
+{"Time":"2026-10-04T03:52:12.382461428+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey","Output":"fuzz: elapsed: 0s, execs: 265 (3574/sec), new interesting: 4 (total: 14)\n"}
+{"Time":"2026-10-04T03:52:12.382514947+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey","Output":"--- PASS: FuzzValidateKey (0.07s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T03:52:12.382519714+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Test":"FuzzValidateKey","Elapsed":0.07}
+{"Time":"2026-10-04T03:52:12.382531741+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Output":"PASS\n","OutputType":"frame"}
+{"Time":"2026-10-04T03:52:12.383291708+08:00","Action":"output","Package":"example.com/go-core-engineering-lab","Output":"ok  \texample.com/go-core-engineering-lab\t0.078s\n"}
+{"Time":"2026-10-04T03:52:12.383311677+08:00","Action":"pass","Package":"example.com/go-core-engineering-lab","Elapsed":0.078}

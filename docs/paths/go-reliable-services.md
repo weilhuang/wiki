@@ -21,6 +21,9 @@ Go 函数、error 与 defer；channel 与 goroutine；HTTP 请求响应。这些
 
 从公开输入和响应开始，先知道服务承诺什么，再讨论请求取消后的工作。
 
+- [值与容器：slice、map 和别名](/knowledge/go/language/values-aliasing.html)（选读）：需要补语言基础时，先判断复制以后哪些存储仍然共享
+- [接口与错误：方法集、nil 与可恢复合同](/knowledge/go/language/interfaces-errors.html)（选读）：需要澄清返回边界时，区分接口 nil、错误身份与公开响应
+- [可复现 Go 工程：模块、测试与反例](/knowledge/go/engineering/reproducible-testing.html)（选读）：用固定源码、测试清单与语义反例复现判断；有基础可直接进入请求主线
 - [HTTP 管线与响应合同：谁解析、谁调用、谁写回](/knowledge/go/http/request-response-contract.html)（主线）：建立入口拒绝顺序与完整响应合同
 - [channel 的同步与关闭：谁交接、谁结束](/knowledge/go/concurrency/channel-memory-ownership.html)（选读）：需要解释交接规则时，先区分收发同步、对象别名和工作结束
 - [Go 请求取消：从 context 传播到提交结果](/knowledge/go/concurrency/context-cancellation.html)（主线）：区分取消信号、工作退出和业务提交

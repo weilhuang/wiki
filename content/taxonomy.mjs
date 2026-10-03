@@ -11,12 +11,12 @@ export const taxonomy = [
     ['jvm-diagnostics','JVM 诊断','从负载和现象提出假设，再选择线程、分配或内存证据。','JFR、GC 日志、OOM、堆外内存']
   ] },
   { id:'go', title:'Go 工程', summary:'围绕函数合同、并发所有权、标准库服务和进程生命周期组织 Go 知识。先解释谁启动、谁等待、谁关闭，再讨论工具选择。', prerequisites:'能阅读 Go 函数、接口、error 和 defer；并发页需要 channel/goroutine 的基本概念。', boundary:'context 是本进程协作协议，不是数据库提交结果或持久任务队列。跨服务恢复回到可靠交互。', categories:[
-    ['language','语言核心','用具体值和控制流澄清语言约定。','值与指针、slice/map、接口 nil、error 链、泛型'],
+    ['language','语言核心','从值复制与别名进入 slice/map，再用动态类型和接收者解释接口、nil 与 error 链。','泛型约束与类型推断、反射、更多序列化边界'],
     ['concurrency','并发协作与设计','先区分数据同步、对象交接与工作结束，再限制并发与队列。','sync、errgroup、背压、并发测试'],
     ['http','HTTP 服务与客户端','输入、响应、Body、连接和预算共同构成调用合同。','database/sql、JSON、代理与流式响应'],
     ['runtime','运行时','从可观察行为进入调度、netpoll、GC 和分配实现。','栈增长、内存分配与GC、cgo与系统调用、代表性负载下的运行时诊断'],
     ['lifecycle','进程生命周期','先停止接纳，再等待已有工作，最后释放依赖。','就绪摘流、持久后台任务、容器终止窗口'],
-    ['engineering','框架与工程','框架比较先说明它增加的状态和责任。','Gin、gRPC、配置日志、模块版本、测试替身']
+    ['engineering','框架与工程','用固定模块、明确测试清单与语义反例建立可复现入口，再比较框架增加的状态和责任。','Gin、gRPC、配置日志、真实数据库与网络集成']
   ] },
   { id:'frameworks', title:'框架与服务通信', summary:'沿请求进入、对象创建、代理调用和资源使用，解释应用框架与通信协议如何影响业务行为。', prerequisites:'基本函数调用、异常、HTTP 和 SQL；源码页明确固定版本与实际实现。', boundary:'框架定义调用与资源边界，不能替代数据库隔离、消息交付或业务幂等协议。', categories:[
     ['spring-container','Spring 容器','区分定义注册、实例创建、依赖注入、初始化和销毁。','IoC 基础、复杂定义与自定义命名空间、作用域扩展、循环依赖'],

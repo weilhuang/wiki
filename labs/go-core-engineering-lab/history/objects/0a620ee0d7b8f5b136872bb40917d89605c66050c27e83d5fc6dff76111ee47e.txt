@@ -1,0 +1,34 @@
+[
+  {
+    "id": "clone-alias",
+    "file": "snapshot.go",
+    "before": "dst := make([]byte, len(src))\n\tcopy(dst, src)\n\treturn dst",
+    "after": "return src",
+    "test": "TestCloneIsolation",
+    "marker": "CONTRACT[clone-isolation]"
+  },
+  {
+    "id": "typed-nil",
+    "file": "boundary.go",
+    "before": "\treturn nil\n}\n\n// Load",
+    "after": "\treturn (*FieldError)(nil)\n}\n\n// Load",
+    "test": "TestValidateKey",
+    "marker": "CONTRACT[nil-success]"
+  },
+  {
+    "id": "lost-cause",
+    "file": "boundary.go",
+    "before": "fmt.Errorf(\"load snapshot: %w\", err)",
+    "after": "fmt.Errorf(\"load snapshot: %v\", err)",
+    "test": "TestLoadErrorChain",
+    "marker": "CONTRACT[error-chain]"
+  },
+  {
+    "id": "public-detail-leak",
+    "file": "boundary.go",
+    "before": "PublicError{\"invalid_argument\", \"invalid key\"}",
+    "after": "PublicError{\"invalid_argument\", err.Error()}",
+    "test": "TestWriteError",
+    "marker": "CONTRACT[public-error]"
+  }
+]

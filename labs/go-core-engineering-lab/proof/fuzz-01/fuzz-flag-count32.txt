@@ -1,0 +1,9 @@
+{"Time":"2026-10-04T04:35:58.38326905+08:00","Action":"start","Package":"example.com/go-core-fuzz-flag-probe"}
+{"Time":"2026-10-04T04:35:58.386376535+08:00","Action":"run","Package":"example.com/go-core-fuzz-flag-probe","Test":"TestFuzzMinimizationFlagParsing"}
+{"Time":"2026-10-04T04:35:58.386426118+08:00","Action":"output","Package":"example.com/go-core-fuzz-flag-probe","Test":"TestFuzzMinimizationFlagParsing","Output":"=== RUN   TestFuzzMinimizationFlagParsing\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:58.38644084+08:00","Action":"output","Package":"example.com/go-core-fuzz-flag-probe","Test":"TestFuzzMinimizationFlagParsing","Output":"    flag_test.go:22: FUZZ_MIN_FLAG=32x\n"}
+{"Time":"2026-10-04T04:35:58.386451976+08:00","Action":"output","Package":"example.com/go-core-fuzz-flag-probe","Test":"TestFuzzMinimizationFlagParsing","Output":"--- PASS: TestFuzzMinimizationFlagParsing (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:58.386455291+08:00","Action":"pass","Package":"example.com/go-core-fuzz-flag-probe","Test":"TestFuzzMinimizationFlagParsing","Elapsed":0}
+{"Time":"2026-10-04T04:35:58.386461029+08:00","Action":"output","Package":"example.com/go-core-fuzz-flag-probe","Output":"PASS\n","OutputType":"frame"}
+{"Time":"2026-10-04T04:35:58.386666743+08:00","Action":"output","Package":"example.com/go-core-fuzz-flag-probe","Output":"ok  \texample.com/go-core-fuzz-flag-probe\t0.003s\n"}
+{"Time":"2026-10-04T04:35:58.386693382+08:00","Action":"pass","Package":"example.com/go-core-fuzz-flag-probe","Elapsed":0.003}

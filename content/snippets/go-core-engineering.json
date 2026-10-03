@@ -1,0 +1,110 @@
+[
+  {
+    "id": "go-core.slices-clone",
+    "doc": "docs/knowledge/go/language/values-aliasing.md",
+    "source": "labs/go-core-engineering-lab/testdata/upstream/go1.27.1/src/slices/slices.go",
+    "file": "testdata/upstream/go1.27.1/src/slices/slices.go",
+    "lines": [
+      355,
+      363
+    ],
+    "language": "go",
+    "version": "go1.27.1",
+    "type": "upstream-excerpt",
+    "transform": "none",
+    "sourceSha256": "f31f8ff279a51850aa90f3cbf60f06eaf6d5452889e2b015043c91ccb3e5d403",
+    "cleanCodeSha256": "b61eb125575712a5cf0c163f398caa5bf32fbfea90a6088780385f3fd732a185",
+    "cleanCopy": "clean-snippets/go-core.slices-clone.go.txt",
+    "annotations": "in-document"
+  },
+  {
+    "id": "go-core.clone-snapshot",
+    "doc": "docs/knowledge/go/language/values-aliasing.md",
+    "source": "labs/go-core-engineering-lab/snapshot.go",
+    "file": "snapshot.go",
+    "lines": [
+      26,
+      41
+    ],
+    "language": "go",
+    "version": "go1.27.1",
+    "type": "executable",
+    "transform": "none",
+    "sourceSha256": "e5b67af987d0c4f2c4d8091f05383797d881403129c98bbd212a0a88c75456a6",
+    "cleanCodeSha256": "a161e6f378c540ae77941c9228d7e2ee31bb2582fd7d57675af05b5cd5e0cb49",
+    "cleanCopy": "clean-snippets/go-core.clone-snapshot.go.txt",
+    "annotations": "in-document"
+  },
+  {
+    "id": "go-core.errors-is",
+    "doc": "docs/knowledge/go/language/interfaces-errors.md",
+    "source": "labs/go-core-engineering-lab/testdata/upstream/go1.27.1/src/errors/wrap.go",
+    "file": "testdata/upstream/go1.27.1/src/errors/wrap.go",
+    "lines": [
+      54,
+      79
+    ],
+    "language": "go",
+    "version": "go1.27.1",
+    "type": "upstream-excerpt",
+    "transform": "none",
+    "sourceSha256": "098116636610ae87dd80e49c4dbe6a2b6c37918d7e1af35ded005be621d68a40",
+    "cleanCodeSha256": "5353a6298eed331ed452ef871ef1be5dbf393c1dcbae6fb1d9a0d8db7253da3d",
+    "cleanCopy": "clean-snippets/go-core.errors-is.go.txt",
+    "annotations": "in-document"
+  },
+  {
+    "id": "go-core.error-response",
+    "doc": "docs/knowledge/go/language/interfaces-errors.md",
+    "source": "labs/go-core-engineering-lab/boundary.go",
+    "file": "boundary.go",
+    "lines": [
+      64,
+      79
+    ],
+    "language": "go",
+    "version": "go1.27.1",
+    "type": "executable",
+    "transform": "none",
+    "sourceSha256": "1865ea403aac40344cbe6e34c35ab00d387d46de39b5673a61462541dddcd235",
+    "cleanCodeSha256": "1154d27322d20225721347ffe6c7502996958c6d2e38cd99c7a3f3c5436fd8ed",
+    "cleanCopy": "clean-snippets/go-core.error-response.go.txt",
+    "annotations": "in-document"
+  },
+  {
+    "id": "go-core.clone-isolation",
+    "doc": "docs/knowledge/go/engineering/reproducible-testing.md",
+    "source": "labs/go-core-engineering-lab/snapshot_test.go",
+    "file": "snapshot_test.go",
+    "lines": [
+      117,
+      131
+    ],
+    "language": "go",
+    "version": "go1.27.1",
+    "type": "executable",
+    "transform": "none",
+    "sourceSha256": "117e17a5e65a8a1fc382008eec45176543806130cbd95b6e4cb9e1b4419a4401",
+    "cleanCodeSha256": "f71935061727fb898ab00b51df6f1921ce8ffac59e746ffa0bcfcc026a6e777b",
+    "cleanCopy": "clean-snippets/go-core.clone-isolation.go.txt",
+    "annotations": "in-document"
+  },
+  {
+    "id": "go-core.benchmark-clone",
+    "doc": "docs/knowledge/go/engineering/reproducible-testing.md",
+    "source": "labs/go-core-engineering-lab/snapshot_test.go",
+    "file": "snapshot_test.go",
+    "lines": [
+      199,
+      215
+    ],
+    "language": "go",
+    "version": "go1.27.1",
+    "type": "executable",
+    "transform": "none",
+    "sourceSha256": "117e17a5e65a8a1fc382008eec45176543806130cbd95b6e4cb9e1b4419a4401",
+    "cleanCodeSha256": "24a2efe0dd74ac7b5400dcbd54790b39c4085fbf6d4b6552d811d672e1113288",
+    "cleanCopy": "clean-snippets/go-core.benchmark-clone.go.txt",
+    "annotations": "in-document"
+  }
+]

@@ -1,0 +1,230 @@
+"""Synthetic parser fixtures; these are not evidence that the Go lab ran."""
+import copy
+import json
+from pathlib import Path
+import sys
+import unittest
+import shutil
+import tempfile
+
+sys.dont_write_bytecode = True
+from evidence import Rejection, check_suite, check_seed_corpus, check_mutant, check_fuzz_exploration, check_benchmark
+
+PACKAGE = "fixture.test/lab"
+MANIFEST = {
+    "package": PACKAGE,
+    "defaultSuite": {PACKAGE: ["TestValue", "FuzzValue", "FuzzValue/seed#0"]},
+    "fuzzReplay": {PACKAGE: ["FuzzValue", "FuzzValue/seed#0"]},
+    "fuzzExplore": {"target": "FuzzValue", "workers": 1, "executionLimit": 256, "minimumWarmupCorpusEntries": 1},
+    "benchmark": {"names": ["BenchmarkValue/a-2", "BenchmarkValue/b-2"], "iterations": 100,
+                  "requiredUnits": ["ns/op", "MB/s", "B/op", "allocs/op"]},
+}
+
+
+def event(action, test=None, output=None):
+    result = {"Action": action, "Package": PACKAGE}
+    if test:
+        result["Test"] = test
+    if output is not None:
+        result["Output"] = output
+    return result
+
+
+def encode(events):
+    return "\n".join(json.dumps(item) for item in events) + "\n"
+
+
+def suite(names=None):
+    items = [event("start")]
+    for name in names or MANIFEST["defaultSuite"][PACKAGE]:
+        items += [event("run", name), event("pass", name)]
+    return items + [event("pass")]
+
+
+def benchmark():
+    items = [event("start")]
+    for name in MANIFEST["benchmark"]["names"]:
+        items.append(event("output", output=name + " 100 35.0 ns/op 1.83 MB/s 64 B/op 1 allocs/op\n"))
+    return items + [event("pass")]
+
+
+class AcceptanceFixtures(unittest.TestCase):
+    def reject(self, code, function, events, *args):
+        with self.assertRaises(Rejection) as caught:
+            function(encode(events), MANIFEST, *args)
+        self.assertEqual(caught.exception.code, code)
+
+    def test_complete_suite(self):
+        self.assertTrue(check_suite(encode(suite()), MANIFEST)["accepted"])
+
+    def test_missing_named_test(self):
+        self.reject("MISSING_TEST", check_suite, [e for e in suite() if e.get("Test") != "TestValue"])
+
+    def test_missing_saved_seed(self):
+        self.reject("MISSING_TEST", check_suite, [e for e in suite() if e.get("Test") != "FuzzValue/seed#0"])
+
+    def test_skip_is_not_success(self):
+        items = suite()
+        items[2]["Action"] = "skip"
+        self.reject("SKIPPED_TEST", check_suite, items)
+
+    def test_duplicate_run(self):
+        items = suite()
+        items.insert(2, event("run", "TestValue"))
+        self.reject("DUPLICATE_RUN", check_suite, items)
+
+    def test_duplicate_pass(self):
+        items = suite()
+        items.insert(3, event("pass", "TestValue"))
+        self.reject("DUPLICATE_TERMINAL", check_suite, items)
+
+    def test_renamed_or_extra_test(self):
+        items = suite()
+        items.insert(1, event("run", "TestUnexpected"))
+        self.reject("UNEXPECTED_TEST", check_suite, items)
+
+    def test_missing_package_completion(self):
+        self.reject("PACKAGE_TERMINAL_COUNT", check_suite, suite()[:-1])
+
+    def test_seed_replay_has_its_own_inventory(self):
+        items = suite(MANIFEST["fuzzReplay"][PACKAGE])
+        self.assertEqual(check_suite(encode(items), MANIFEST, replay=True)["mode"], "saved-seed-replay")
+
+    def test_semantic_marker_must_match_failed_identity(self):
+        mutant = {"requiredFailure": {"package": PACKAGE, "test": "TestValue", "marker": "CONTRACT[value]"},
+                  "allowedFailureMarkers": {PACKAGE + "::TestValue": "CONTRACT[value]"}}
+        items = suite()
+        items[2]["Action"] = "fail"
+        items[-1]["Action"] = "fail"
+        items.insert(2, event("output", "TestValue", "    value_test.go:14: CONTRACT[value] got bad value\n"))
+        self.assertTrue(check_mutant(encode(items), MANIFEST, mutant)["accepted"])
+        items[2]["Output"] = "    value_test.go:14: CONTRACT[other] unrelated failure\n"
+        self.reject("WRONG_FAILURE_MARKER", check_mutant, items, mutant)
+
+    def test_panic_never_counts_as_semantic_rejection(self):
+        items = suite()
+        items.insert(2, event("output", "TestValue", "panic: failure\n"))
+        self.reject("INFRASTRUCTURE_OR_RUNTIME_FAILURE", check_suite, items)
+
+    def parent_failure_fixture(self):
+        marker = "CONTRACT[value]"
+        mutant = {"requiredFailure": {"package": PACKAGE, "test": "FuzzValue", "marker": marker},
+                  "allowedFailureMarkers": {PACKAGE + "::FuzzValue/seed#0": marker}}
+        items = suite()
+        for item in items:
+            if item["Action"] == "pass" and item.get("Test") in {None, "FuzzValue", "FuzzValue/seed#0"}:
+                item["Action"] = "fail"
+        items.insert(1, event("output", "FuzzValue", "=== RUN   FuzzValue\n--- FAIL: FuzzValue (0.00s)\n"))
+        items.insert(2, event("output", "FuzzValue/seed#0", "    value_test.go:14: CONTRACT[value] bad value\n"))
+        return items, mutant
+
+    def test_parent_failure_propagation_without_direct_assertion(self):
+        items, mutant = self.parent_failure_fixture()
+        self.assertTrue(check_mutant(encode(items), MANIFEST, mutant)["accepted"])
+
+    def test_unknown_parent_marker_is_not_child_propagation(self):
+        items, mutant = self.parent_failure_fixture()
+        items.insert(2, event("output", "FuzzValue", "    value_test.go:44: CONTRACT[unrelated] unexpected\n"))
+        self.reject("UNCLASSIFIED_PARENT_OUTPUT", check_mutant, items, mutant)
+
+    def test_unmarked_helper_parent_assertion_is_rejected(self):
+        items, mutant = self.parent_failure_fixture()
+        items.insert(2, event("output", "FuzzValue", "    helper.go:44: unexpected value\n"))
+        self.reject("UNCLASSIFIED_PARENT_OUTPUT", check_mutant, items, mutant)
+
+    def test_repeated_correct_child_marker_does_not_hide_parent_assertion(self):
+        items, mutant = self.parent_failure_fixture()
+        items.insert(2, event("output", "FuzzValue/seed#0", "    value_test.go:15: CONTRACT[value] also bad\n"))
+        items.insert(3, event("output", "FuzzValue", "    helper.go:44: CONTRACT[value] parent failure\n"))
+        self.reject("UNCLASSIFIED_PARENT_OUTPUT", check_mutant, items, mutant)
+
+    def test_expected_test_rejects_unclassified_non_test_go_helper(self):
+        items, mutant = self.parent_failure_fixture()
+        items.insert(2, event("output", "FuzzValue/seed#0", "    helper.go:44: unexpected value\n"))
+        self.reject("UNCLASSIFIED_ASSERTION", check_mutant, items, mutant)
+
+    def test_fuzz_requires_transition_and_budget(self):
+        items = suite(["FuzzValue"])
+        items.insert(2, event("output", "FuzzValue", "fuzz: elapsed: 0s, gathering baseline coverage: 1/1 completed, now fuzzing with 1 workers\n"))
+        items.insert(3, event("output", "FuzzValue", "fuzz: elapsed: 0s, execs: 256 (100/sec), new interesting: 1 (total: 2)\n"))
+        self.assertEqual(check_fuzz_exploration(encode(items), MANIFEST)["finalExecutions"], 256)
+        items[3]["Output"] = items[3]["Output"].replace("256", "12")
+        self.reject("FUZZ_EXECUTION_COUNT_MISMATCH", check_fuzz_exploration, items)
+
+    def test_seed_only_is_not_exploration(self):
+        self.reject("FUZZ_TRANSITION_COUNT", check_fuzz_exploration, suite(["FuzzValue"]))
+
+    def test_complete_benchmark_sample(self):
+        self.assertEqual(len(check_benchmark(encode(benchmark()), MANIFEST)["measurements"]), 2)
+
+    def test_missing_benchmark(self):
+        items = benchmark()
+        del items[1]
+        self.reject("MISSING_BENCHMARK", check_benchmark, items)
+
+    def test_unmatched_benchmark_exit_zero_still_lacks_required_rows(self):
+        items = [event("start"), event("output", output="ok fixture.test/lab 0.001s [no tests to run]\n"), event("pass")]
+        self.reject("MISSING_BENCHMARK", check_benchmark, items)
+
+    def test_duplicate_benchmark(self):
+        items = benchmark()
+        items.insert(1, copy.deepcopy(items[1]))
+        self.reject("DUPLICATE_BENCHMARK", check_benchmark, items)
+
+    def test_skipped_benchmark(self):
+        items = benchmark()
+        items.insert(1, event("skip", "BenchmarkValue"))
+        self.reject("SKIPPED_OR_FAILED_MEASUREMENT", check_benchmark, items)
+
+    def test_wrong_iterations(self):
+        items = benchmark()
+        items[1]["Output"] = items[1]["Output"].replace(" 100 ", " 1 ")
+        self.reject("WRONG_BENCHMARK_ITERATIONS", check_benchmark, items)
+
+    def test_missing_allocation_metric(self):
+        items = benchmark()
+        items[1]["Output"] = items[1]["Output"].replace(" 1 allocs/op", "")
+        self.reject("MISSING_BENCHMARK_METRIC", check_benchmark, items)
+
+    def test_real_fixed_seed_bytes_have_twelve_identities_and_ten_contents(self):
+        root = Path(__file__).resolve().parent
+        manifest = json.loads((root / "testdata/required-checks.json").read_text())
+        checked = check_seed_corpus(root, manifest)
+        self.assertEqual(checked["replayIdentities"], 12)
+        self.assertEqual(checked["uniqueCorpusBytes"], 10)
+        self.assertEqual(len(checked["intentionalDuplicateContentGroups"]), 2)
+
+    def test_changed_corpus_bytes_are_rejected(self):
+        root = Path(__file__).resolve().parent
+        manifest = json.loads((root / "testdata/required-checks.json").read_text())
+        with tempfile.TemporaryDirectory(prefix="corpus-fixture-") as temporary:
+            target = Path(temporary)
+            shutil.copy2(root / "boundary_test.go", target / "boundary_test.go")
+            shutil.copytree(root / "testdata", target / "testdata", ignore=shutil.ignore_patterns("upstream"))
+            corpus = target / "testdata/fuzz/FuzzValidateKey/25beaf5d20f1eed9"
+            corpus.write_bytes(corpus.read_bytes() + b"\n")
+            with self.assertRaises(Rejection) as caught:
+                check_seed_corpus(target, manifest)
+            self.assertEqual(caught.exception.code, "CORPUS_BYTES_CHANGED")
+
+    def test_coverage_warmup_uses_distinct_contents_not_replay_names(self):
+        root = Path(__file__).resolve().parent
+        manifest = json.loads((root / "testdata/required-checks.json").read_text())
+        package = manifest["package"]
+        target = manifest["fuzzExplore"]["target"]
+        items = [dict(Action="start", Package=package), dict(Action="run", Package=package, Test=target),
+                 dict(Action="output", Package=package, Test=target, Output="fuzz: elapsed: 0s, gathering baseline coverage: 10/10 completed, now fuzzing with 1 workers\n"),
+                 dict(Action="output", Package=package, Test=target, Output="fuzz: elapsed: 0s, execs: 256 (100/sec), new interesting: 1 (total: 11)\n"),
+                 dict(Action="pass", Package=package, Test=target), dict(Action="pass", Package=package)]
+        self.assertEqual(check_fuzz_exploration(encode(items), manifest)["baselineInputs"], 10)
+        # Extra discovery-cache entries can increase warmup; they never remove required replay identities.
+        items[2]["Output"] = items[2]["Output"].replace("10/10", "13/13")
+        self.assertEqual(check_fuzz_exploration(encode(items), manifest)["baselineInputs"], 13)
+        items[2]["Output"] = items[2]["Output"].replace("13/13", "9/9")
+        with self.assertRaises(Rejection) as caught:
+            check_fuzz_exploration(encode(items), manifest)
+        self.assertEqual(caught.exception.code, "FUZZ_BASELINE_INCOMPLETE")
+
+
+if __name__ == "__main__":
+    unittest.main(verbosity=2)

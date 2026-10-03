@@ -57,7 +57,11 @@
     "indexing": "索引与访问路径",
     "fencing": "资源端栅栏",
     "observability": "可观测性",
-    "slo": "服务目标"
+    "slo": "服务目标",
+    "aliasing": "别名共享",
+    "interfaces": "接口与方法集",
+    "modules": "模块与依赖",
+    "testing": "测试与反例"
   },
   "task": {
     "understand": "理解机制",
