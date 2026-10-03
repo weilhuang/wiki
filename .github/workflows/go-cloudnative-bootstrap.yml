@@ -1,0 +1,84 @@
+name: Validate Go cloud-native bootstrap
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/go-cloudnative-bootstrap.yml'
+      - 'scripts/ci/go_cloudnative_*.py'
+      - 'scripts/ci/test_go_cloudnative_ci.py'
+      - 'scripts/ci/go_cloudnative_versions.json'
+      - 'labs/go-cloudnative-controller/**'
+      - 'labs/go-cloudnative-controller-reviewed.json'
+permissions:
+  contents: read
+concurrency:
+  group: go-cloudnative-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+jobs:
+  real-controller:
+    if: github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      GOTOOLCHAIN: local
+      GOWORK: 'off'
+      GOMAXPROCS: '2'
+      GOMEMLIMIT: 512MiB
+      GOFLAGS: '-mod=readonly -p=1 -trimpath'
+      CGO_ENABLED: '0'
+      PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+      PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+    steps:
+      - name: Checkout the proposed merge without persistent credentials
+        timeout-minutes: 2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+          submodules: false
+          lfs: false
+      - name: Check the reviewed source and evidence boundary
+        timeout-minutes: 1
+        run: |
+          python3 -B scripts/ci/test_go_cloudnative_ci.py
+          python3 -B scripts/ci/go_cloudnative_ci.py prepare
+      - name: Set up the exact Go compiler
+        timeout-minutes: 5
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version: '1.27.1'
+          check-latest: false
+          cache: true
+          cache-dependency-path: labs/go-cloudnative-controller/go.sum
+      - name: Download verified official fixture tools
+        timeout-minutes: 7
+        run: timeout --kill-after=10s 390s python3 -B scripts/ci/go_cloudnative_assets.py "$RUNNER_TEMP/wiki-go-cloudnative-private/tools"
+      - name: Resolve and verify frozen dependencies
+        timeout-minutes: 5
+        run: python3 -B scripts/ci/go_cloudnative_ci.py dependencies
+      - name: Compile and run unit contracts
+        timeout-minutes: 4
+        run: python3 -B scripts/ci/go_cloudnative_ci.py unit
+      - name: Run real API server and manager contracts
+        timeout-minutes: 4
+        run: python3 -B scripts/ci/go_cloudnative_ci.py integration
+      - name: Run one owned kind cluster and clean it up
+        timeout-minutes: 14
+        run: python3 -B scripts/ci/go_cloudnative_ci.py kind
+      - name: Validate and stage bounded evidence
+        id: evidence
+        if: always()
+        timeout-minutes: 1
+        run: python3 -B scripts/ci/go_cloudnative_ci.py collect
+      - name: Upload only the validated staging directory
+        timeout-minutes: 2
+        if: always() && steps.evidence.outputs.upload_ready == 'true'
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: go-cloudnative-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/wiki-go-cloudnative-upload
+          retention-days: 3
+          include-hidden-files: false
+          if-no-files-found: error
+          compression-level: 6

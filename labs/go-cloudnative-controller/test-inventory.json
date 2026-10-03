@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "unit": {
+    "example.com/wiki/p0-controller/api/v1alpha1": [
+      "TestDeepCopyAndScheme"
+    ],
+    "example.com/wiki/p0-controller/internal/controller": [
+      "TestReadinessRequiresCurrentRollout",
+      "TestReadinessRequiresCurrentRollout/current",
+      "TestReadinessRequiresCurrentRollout/stale-observation",
+      "TestReadinessRequiresCurrentRollout/not-ready",
+      "TestReadinessRequiresCurrentRollout/old-replicas",
+      "TestReadinessRequiresCurrentRollout/not-updated",
+      "TestReadinessRequiresCurrentRollout/unavailable",
+      "TestReadinessRequiresCurrentRollout/missing-condition",
+      "TestReadinessRequiresCurrentRollout/wrong-spec",
+      "TestServiceMutationPreservesAllocatedFields",
+      "TestReconcileRefusesForeignChildren",
+      "TestReconcileRefusesForeignChildren/Deployment/unowned",
+      "TestReconcileRefusesForeignChildren/Deployment/foreign",
+      "TestReconcileRefusesForeignChildren/Service/unowned",
+      "TestReconcileRefusesForeignChildren/Service/foreign",
+      "TestReconcileStableAndRepairsDrift",
+      "TestStatusConflictRetryBounded",
+      "TestStatusConflictRetryBounded/recovers",
+      "TestStatusConflictRetryBounded/exhausts",
+      "TestStatusDoesNotStampNewGeneration"
+    ],
+    "example.com/wiki/p0-controller/cmd/operand": [
+      "TestHTTPContract",
+      "TestProbeRejectsWrongResponse",
+      "TestProbeRejectsRedirect"
+    ]
+  },
+  "integration": {
+    "example.com/wiki/p0-controller/test/integration": [
+      "TestEnvtestManagerLifecycle",
+      "TestEnvtestManagerLifecycle/APIValidationAndDefaults",
+      "TestEnvtestManagerLifecycle/StatusSubresourceAndConflict",
+      "TestEnvtestManagerLifecycle/WatchConvergenceAndNoop",
+      "TestEnvtestManagerLifecycle/CurrentGenerationSimulatedStatus",
+      "TestEnvtestManagerLifecycle/ForeignOwnershipRefused",
+      "TestEnvtestManagerLifecycle/ManagerRestartConverges"
+    ]
+  },
+  "kind": [
+    "ToolVersions",
+    "BuildLocalImages",
+    "OwnedClusterCreated",
+    "ManagerNamespacedRBAC",
+    "OwnedDeploymentService",
+    "ReadyPodAndCurrentCondition",
+    "HTTPThroughServiceDNS",
+    "DriftRepaired",
+    "DeletedChildRecreated",
+    "ControllerRestartConverges",
+    "OwnerGarbageCollection",
+    "DiagnosticsCollected",
+    "OwnedClusterRemoved",
+    "OwnedImagesRemoved"
+  ],
+  "outcomes": [
+    "pass",
+    "fail",
+    "not_run"
+  ],
+  "rules": [
+    "Require process exit 0 and each required case exactly once with pass",
+    "Reject skips,duplicate terminal outcomes,missing cases,unmatched package failures",
+    "Do not treat absent tests or unrelated startup/compile failures as semantic passes",
+    "Integration status inputs are simulated; envtest does not prove Pods,readiness or GC"
+  ],
+  "harness_unit": [
+    "ReadyOracleAcceptsCurrent",
+    "ReadyOracleRejectsReplicaSpecMismatch",
+    "ReadyOracleRejectsExtraOldReplica",
+    "ReadyOracleRejectsUnavailableReplica",
+    "ReadyOracleRejectsStaleDeployment",
+    "ReadyOracleRejectsStaleCondition",
+    "ReadyOracleRejectsExtraUnreadyPod",
+    "ReadyOracleRejectsMissingAvailableCondition"
+  ]
+}

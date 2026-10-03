@@ -1,0 +1,42 @@
+{
+  "scope": "isolated Linux amd64 teaching fixture; research pins, not an execution result",
+  "go": "1.27.1",
+  "controller_runtime": "v0.25.2",
+  "k8s_modules": "v0.37.0",
+  "kubebuilder_reference": "v4.16.0",
+  "controller_tools": "v0.22.0",
+  "setup_envtest_reference": "v0.25.2",
+  "kubernetes": "v1.37.0",
+  "kind_version": "v0.33.0",
+  "kind_node_image": "kindest/node:v1.37.0@sha256:a1ed56cfb0e7b93589bdf97c8cd566405a265939e3620fc4f5de89adff580ae5",
+  "kind": {
+    "url": "https://github.com/kubernetes-sigs/kind/releases/download/v0.33.0/kind-linux-amd64",
+    "sha256": "aee6151561422756b764a4ae28e7f44cda5af5a9eead3cc9985112b1de8d8e0d",
+    "bytes": 10530942,
+    "checksum_source": "https://github.com/kubernetes-sigs/kind/releases/download/v0.33.0/kind-linux-amd64.sha256sum"
+  },
+  "kubectl": {
+    "url": "https://dl.k8s.io/release/v1.37.0/bin/linux/amd64/kubectl",
+    "sha256": "6129359f4e1f3848a5572ccb0b26cf28b8ca08cef38c95a765b2f64a2c961a2f",
+    "max_bytes": 100663296,
+    "checksum_source": "https://dl.k8s.io/release/v1.37.0/bin/linux/amd64/kubectl.sha256"
+  },
+  "envtest": {
+    "url": "https://github.com/kubernetes-sigs/controller-tools/releases/download/envtest-v1.37.0/envtest-v1.37.0-linux-amd64.tar.gz",
+    "sha256": "f03faedfc68d2a78cee5cb02618bb44e7f67044f4c5fc957f72d3307fda61a9c",
+    "sha512": "1d1c453633b72c161a5d5a886cde7ac850be1a2ac796a9e1d4ffacacc64868295bdd2d57aa66cd0c158f5ce510f5dfe3fbc61ac21bd3dcfb875bd70658aa663a",
+    "bytes": 54907240,
+    "checksum_source": "https://api.github.com/repos/kubernetes-sigs/controller-tools/releases/tags/envtest-v1.37.0",
+    "index_source": "https://raw.githubusercontent.com/kubernetes-sigs/controller-tools/HEAD/envtest-releases.yaml"
+  },
+  "actions": {
+    "checkout": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+    "setup_go": "actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+    "upload_artifact": "actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a"
+  },
+  "notes": [
+    "Kubernetes1.37.1 is current, but this fixture deliberately pins actually published matching1.37.0 kind/envtest assets.",
+    "Direct publisher-hash-verified envtest archive is supplied via KUBEBUILDER_ASSETS; setup-envtest is a reference version, not claimed executed by this downloader.",
+    "No moving latest tags, registry pushes, paid services or existing kubeconfig are required."
+  ]
+}
