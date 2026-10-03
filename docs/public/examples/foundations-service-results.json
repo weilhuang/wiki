@@ -1,0 +1,574 @@
+{
+  "grader_guards": [
+    "startup-error",
+    "wrong-exit",
+    "wrong-cause",
+    "malformed-report"
+  ],
+  "implementation": "CPython",
+  "platform": "Linux",
+  "python": "3.12.14",
+  "records": [
+    {
+      "command": "python3 -B waiting.py",
+      "exitCode": 0,
+      "report": {
+        "observations": [
+          {
+            "elapsed_ns": 4493220,
+            "kind": "cpu",
+            "measurement_only": true,
+            "sum": 333328333350000,
+            "thread_cpu_ns": 4489905
+          },
+          {
+            "acquired_after_release": true,
+            "failed_nonblocking_acquire": true,
+            "kind": "lock",
+            "lock_held": false,
+            "worker_alive": false
+          },
+          {
+            "empty_before_put": true,
+            "kind": "queue",
+            "queued_after_join": 0,
+            "result": [
+              "job-7"
+            ],
+            "worker_alive": false
+          },
+          {
+            "kernel_park_observed": false,
+            "kind": "loopback",
+            "not_readable_before_send": true,
+            "open_socket_objects": 0,
+            "result": [
+              "OK"
+            ],
+            "worker_alive": false
+          }
+        ],
+        "status": "pass"
+      }
+    },
+    {
+      "command": "python3 -B assertions.py correct cancel-first",
+      "exitCode": 0,
+      "expectedViolation": null,
+      "report": {
+        "after_join": {
+          "done": true,
+          "effects": [],
+          "resource_open": false,
+          "result": "cancelled",
+          "worker_error": null
+        },
+        "before_cleanup": {
+          "done": false,
+          "effects": [],
+          "resource_open": true,
+          "result": "cancelled",
+          "worker_error": null
+        },
+        "cleanup": {
+          "leaked_before_rescue": false,
+          "resource_open_after_rescue": false,
+          "thread_alive": false
+        },
+        "harness_error": null,
+        "mode": "correct",
+        "publications": [
+          {
+            "done": false,
+            "effects": [],
+            "resource_open": false,
+            "result": "cancelled",
+            "worker_error": null
+          }
+        ],
+        "schedule": "cancel-first",
+        "status": "pass",
+        "violations": []
+      }
+    },
+    {
+      "command": "python3 -B assertions.py correct commit-first",
+      "exitCode": 0,
+      "expectedViolation": null,
+      "report": {
+        "after_join": {
+          "done": true,
+          "effects": [
+            "receipt:7"
+          ],
+          "resource_open": false,
+          "result": "receipt:7",
+          "worker_error": null
+        },
+        "before_cleanup": {
+          "done": false,
+          "effects": [
+            "receipt:7"
+          ],
+          "resource_open": true,
+          "result": "receipt:7",
+          "worker_error": null
+        },
+        "cleanup": {
+          "leaked_before_rescue": false,
+          "resource_open_after_rescue": false,
+          "thread_alive": false
+        },
+        "harness_error": null,
+        "mode": "correct",
+        "publications": [
+          {
+            "done": false,
+            "effects": [
+              "receipt:7"
+            ],
+            "resource_open": false,
+            "result": "receipt:7",
+            "worker_error": null
+          }
+        ],
+        "schedule": "commit-first",
+        "status": "pass",
+        "violations": []
+      }
+    },
+    {
+      "command": "python3 -B assertions.py wrong-result commit-first",
+      "exitCode": 1,
+      "expectedViolation": "RESULT",
+      "report": {
+        "after_join": {
+          "done": true,
+          "effects": [
+            "receipt:7"
+          ],
+          "resource_open": false,
+          "result": "receipt:8",
+          "worker_error": null
+        },
+        "before_cleanup": {
+          "done": false,
+          "effects": [
+            "receipt:7"
+          ],
+          "resource_open": true,
+          "result": "receipt:8",
+          "worker_error": null
+        },
+        "cleanup": {
+          "leaked_before_rescue": false,
+          "resource_open_after_rescue": false,
+          "thread_alive": false
+        },
+        "harness_error": null,
+        "mode": "wrong-result",
+        "publications": [
+          {
+            "done": false,
+            "effects": [
+              "receipt:7"
+            ],
+            "resource_open": false,
+            "result": "receipt:8",
+            "worker_error": null
+          }
+        ],
+        "schedule": "commit-first",
+        "status": "rejected",
+        "violations": [
+          "RESULT"
+        ]
+      }
+    },
+    {
+      "command": "python3 -B assertions.py duplicate commit-first",
+      "exitCode": 1,
+      "expectedViolation": "SIDE_EFFECT",
+      "report": {
+        "after_join": {
+          "done": true,
+          "effects": [
+            "receipt:7",
+            "receipt:7"
+          ],
+          "resource_open": false,
+          "result": "receipt:7",
+          "worker_error": null
+        },
+        "before_cleanup": {
+          "done": false,
+          "effects": [
+            "receipt:7",
+            "receipt:7"
+          ],
+          "resource_open": true,
+          "result": "receipt:7",
+          "worker_error": null
+        },
+        "cleanup": {
+          "leaked_before_rescue": false,
+          "resource_open_after_rescue": false,
+          "thread_alive": false
+        },
+        "harness_error": null,
+        "mode": "duplicate",
+        "publications": [
+          {
+            "done": false,
+            "effects": [
+              "receipt:7",
+              "receipt:7"
+            ],
+            "resource_open": false,
+            "result": "receipt:7",
+            "worker_error": null
+          }
+        ],
+        "schedule": "commit-first",
+        "status": "rejected",
+        "violations": [
+          "SIDE_EFFECT"
+        ]
+      }
+    },
+    {
+      "command": "python3 -B assertions.py ignore-cancel cancel-first",
+      "exitCode": 1,
+      "expectedViolation": "CANCEL_EFFECT",
+      "report": {
+        "after_join": {
+          "done": true,
+          "effects": [
+            "receipt:7"
+          ],
+          "resource_open": false,
+          "result": "receipt:7",
+          "worker_error": null
+        },
+        "before_cleanup": {
+          "done": false,
+          "effects": [
+            "receipt:7"
+          ],
+          "resource_open": true,
+          "result": "receipt:7",
+          "worker_error": null
+        },
+        "cleanup": {
+          "leaked_before_rescue": false,
+          "resource_open_after_rescue": false,
+          "thread_alive": false
+        },
+        "harness_error": null,
+        "mode": "ignore-cancel",
+        "publications": [
+          {
+            "done": false,
+            "effects": [
+              "receipt:7"
+            ],
+            "resource_open": false,
+            "result": "receipt:7",
+            "worker_error": null
+          }
+        ],
+        "schedule": "cancel-first",
+        "status": "rejected",
+        "violations": [
+          "CANCEL_EFFECT"
+        ]
+      }
+    },
+    {
+      "command": "python3 -B assertions.py early-done commit-first",
+      "exitCode": 1,
+      "expectedViolation": "PUBLISH_ORDER",
+      "report": {
+        "after_join": {
+          "done": true,
+          "effects": [
+            "receipt:7"
+          ],
+          "resource_open": false,
+          "result": "receipt:7",
+          "worker_error": null
+        },
+        "before_cleanup": {
+          "done": true,
+          "effects": [
+            "receipt:7"
+          ],
+          "resource_open": true,
+          "result": "receipt:7",
+          "worker_error": null
+        },
+        "cleanup": {
+          "leaked_before_rescue": false,
+          "resource_open_after_rescue": false,
+          "thread_alive": false
+        },
+        "harness_error": null,
+        "mode": "early-done",
+        "publications": [
+          {
+            "done": false,
+            "effects": [
+              "receipt:7"
+            ],
+            "resource_open": true,
+            "result": "receipt:7",
+            "worker_error": null
+          },
+          {
+            "done": true,
+            "effects": [
+              "receipt:7"
+            ],
+            "resource_open": false,
+            "result": "receipt:7",
+            "worker_error": null
+          }
+        ],
+        "schedule": "commit-first",
+        "status": "rejected",
+        "violations": [
+          "PUBLISH_ORDER"
+        ]
+      }
+    },
+    {
+      "command": "python3 -B assertions.py leak commit-first",
+      "exitCode": 1,
+      "expectedViolation": [
+        "PUBLISH_ORDER",
+        "RESOURCE"
+      ],
+      "report": {
+        "after_join": {
+          "done": true,
+          "effects": [
+            "receipt:7"
+          ],
+          "resource_open": true,
+          "result": "receipt:7",
+          "worker_error": null
+        },
+        "before_cleanup": {
+          "done": false,
+          "effects": [
+            "receipt:7"
+          ],
+          "resource_open": true,
+          "result": "receipt:7",
+          "worker_error": null
+        },
+        "cleanup": {
+          "leaked_before_rescue": true,
+          "resource_open_after_rescue": false,
+          "thread_alive": false
+        },
+        "harness_error": null,
+        "mode": "leak",
+        "publications": [
+          {
+            "done": false,
+            "effects": [
+              "receipt:7"
+            ],
+            "resource_open": true,
+            "result": "receipt:7",
+            "worker_error": null
+          }
+        ],
+        "schedule": "commit-first",
+        "status": "rejected",
+        "violations": [
+          "PUBLISH_ORDER",
+          "RESOURCE"
+        ]
+      }
+    },
+    {
+      "command": "python3 -B assertions.py startup-error commit-first",
+      "exitCode": 2,
+      "expectedStatus": "error",
+      "report": {
+        "after_join": null,
+        "before_cleanup": {
+          "done": false,
+          "effects": [],
+          "resource_open": false,
+          "result": null,
+          "worker_error": {
+            "message": "injected startup failure",
+            "type": "RuntimeError"
+          }
+        },
+        "cleanup": {
+          "leaked_before_rescue": false,
+          "resource_open_after_rescue": false,
+          "thread_alive": false
+        },
+        "harness_error": {
+          "message": "worker failed: {'type': 'RuntimeError', 'message': 'injected startup failure'}",
+          "type": "RuntimeError"
+        },
+        "mode": "startup-error",
+        "publications": [],
+        "schedule": "commit-first",
+        "status": "error",
+        "violations": []
+      }
+    }
+  ],
+  "sourceFiles": [
+    {
+      "path": "assertions.py",
+      "sha256": "11f10c6dad5fa195a7b0519c532fe9ef549a5a8edc4eddc6244819c7cb7d75a5"
+    },
+    {
+      "path": "causal_walkthrough.py",
+      "sha256": "aabf640641c3ec12ebea845295bc90e681927aa8a1e2c4c2db2ed22e07726ab3"
+    },
+    {
+      "path": "service.py",
+      "sha256": "67dacfd8969f97dd07ba37918c022cf6867c9e480ecbb5b527571b106b655ea4"
+    },
+    {
+      "path": "verify.py",
+      "sha256": "4835052f863feb966f2bc460fe4737a1eae1bb95381a7ca97a387c9a9bf7cffd"
+    },
+    {
+      "path": "verify_regressions.py",
+      "sha256": "299b4ea922775a28163f77a1057f2f88d92d2b0ca762ac1e7825784e4cac6922"
+    },
+    {
+      "path": "waiting.py",
+      "sha256": "ec833c641d5bf0c2e2db98808497d76eb8fc5926d29d5971de91b722c365541e"
+    }
+  ],
+  "status": "pass",
+  "verifierRegressions": {
+    "originalServiceSha256": "67dacfd8969f97dd07ba37918c022cf6867c9e480ecbb5b527571b106b655ea4",
+    "records": [
+      {
+        "exitCode": 1,
+        "mutation": "late-publication-before-release",
+        "observed": {
+          "after_join": {
+            "done": true,
+            "effects": [],
+            "resource_open": false,
+            "result": "cancelled",
+            "worker_error": null
+          },
+          "before_cleanup": {
+            "done": false,
+            "effects": [],
+            "resource_open": true,
+            "result": "cancelled",
+            "worker_error": null
+          },
+          "cleanup": {
+            "leaked_before_rescue": false,
+            "resource_open_after_rescue": false,
+            "thread_alive": false
+          },
+          "publications": [
+            {
+              "done": false,
+              "effects": [],
+              "resource_open": true,
+              "result": "cancelled",
+              "worker_error": null
+            }
+          ],
+          "status": "rejected",
+          "violations": [
+            "PUBLISH_ORDER"
+          ]
+        },
+        "sourceSha256": "d675612a86b88bb12584c0cddf8127a3697a18df44145293bc67ad80b02dc05f"
+      },
+      {
+        "exitCode": 1,
+        "mutation": "wrong-result-at-computed",
+        "observed": {
+          "after_join": {
+            "done": true,
+            "effects": [
+              "receipt:7"
+            ],
+            "resource_open": false,
+            "result": "receipt:7",
+            "worker_error": null
+          },
+          "before_cleanup": {
+            "done": false,
+            "effects": [
+              "receipt:7"
+            ],
+            "resource_open": true,
+            "result": "receipt:WRONG",
+            "worker_error": null
+          },
+          "cleanup": {
+            "leaked_before_rescue": false,
+            "resource_open_after_rescue": false,
+            "thread_alive": false
+          },
+          "publications": [
+            {
+              "done": false,
+              "effects": [
+                "receipt:7"
+              ],
+              "resource_open": false,
+              "result": "receipt:7",
+              "worker_error": null
+            }
+          ],
+          "status": "rejected",
+          "violations": [
+            "RESULT"
+          ]
+        },
+        "sourceSha256": "462b4ea751992f488d416fe769dc38d810a1cde467d829f35d58280b3c53faed"
+      },
+      {
+        "exitCode": 1,
+        "mutation": "wrong-startup-identity",
+        "observed": {
+          "assertion": "startup failure was misclassified"
+        },
+        "sourceSha256": "0fe97232799066004fa4678090144c788b9926606027c4665fe442e2831da6d0"
+      }
+    ],
+    "scope": "three exact source mutations, synchronous publication witness and computed-phase result checks",
+    "status": "pass"
+  },
+  "regressionCommand": {
+    "command": "python3 -B verify_regressions.py",
+    "exitCode": 0
+  },
+  "driverCommand": {
+    "command": "python3 -B verify.py",
+    "exitCode": 0
+  },
+  "walkthroughCommand": {
+    "command": "python3 -B causal_walkthrough.py",
+    "exitCode": 0,
+    "stdout": "cancelled; zero effects; resource closed; worker joined\n"
+  },
+  "recordedAt": "2026-10-03T01:17:26.697822+00:00",
+  "limitations": [
+    "Finite Python/loopback observations, no scheduler guarantees",
+    "ControlledJob resource and effects are in-memory models",
+    "No production exception recovery, HTTP, database or remote-service verification"
+  ]
+}

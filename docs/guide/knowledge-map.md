@@ -21,6 +21,8 @@ search: false
 - [容器对象](/knowledge/frameworks/spring-container/bean-lifecycle.html) → [请求完成](/knowledge/frameworks/spring-mvc/request-pipeline.html) → [事务](/knowledge/frameworks/spring-transactions/proxy-call-chain.html)与[连接](/knowledge/frameworks/data-access/connection-budget.html) → [本地服务边界](/cases/orders/local-service-boundary.html)
 - [取消信号](/knowledge/go/concurrency/context-cancellation.html) → [工作退出与等待](/knowledge/go/concurrency/bounded-work.html) → [下游预算](/knowledge/go/http/client-budgets.html) → [进程排空](/knowledge/go/lifecycle/graceful-shutdown.html)
 - [库存不变量](/knowledge/data/transactions/inventory-invariants.html) → [幂等](/knowledge/distributed/reliable-interactions/idempotency.html) → [Outbox](/knowledge/distributed/events/transactional-outbox.html) → [缓存](/knowledge/data/cache/invalidation-freshness.html) → [联合恢复](/cases/orders/consistency-recovery.html)
+- [等待条件](/knowledge/foundations/operating-systems/blocking-waiting.html) → [结果与时序断言](/knowledge/foundations/testing/assertion-counterexamples.html) → [对象授权的反例](/knowledge/security/authorization/object-tenant-authorization.html#negative-tests)
+- [可信身份与撤销](/knowledge/security/authentication/authentication-boundaries.html) → [租户、对象与动作](/knowledge/security/authorization/object-tenant-authorization.html) → [身份与多租户路线](/paths/identity-tenancy.html)
 
 <div id="九个主题怎样分工" class="legacy-anchor" aria-hidden="true"></div>
 
@@ -33,8 +35,8 @@ search: false
 - [消息与分布式](/knowledge/distributed/)：多个参与者无法共享同一次观察时，要分别说明身份、确认、顺序、重试和恢复。
 - [系统架构与演进](/knowledge/architecture/)：从业务约束和变化成本出发选择结构。模式用于解释一个决定解决了什么、又引出了什么。
 - [云原生与可靠性](/knowledge/cloud/)：从进程和资源出发，把交付、观测、服务目标与恢复联系起来。平台工具不能消除应用自身的生命周期责任。
-- [身份与安全](/knowledge/security/)：每次访问都要明确主体、资源、动作和信任边界，再选择认证、授权及凭据生命周期。（机制正文仍在规划）
-- [计算机基础与工程方法](/knowledge/foundations/)：数据结构、操作系统和测试方法为上层机制提供可推理的模型；构建与协作让结论能被复核。（机制正文仍在规划）
+- [身份与安全](/knowledge/security/)：每次访问都要明确主体、资源、动作和信任边界，再选择认证、授权及凭据生命周期。
+- [计算机基础与工程方法](/knowledge/foundations/)：数据结构、操作系统和测试方法为上层机制提供可推理的模型；构建与协作让结论能被复核。
 
 <div id="从理解到评审" class="legacy-anchor" aria-hidden="true"></div>
 

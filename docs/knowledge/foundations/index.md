@@ -19,9 +19,9 @@ search: false
 
 ## 核心关系与阅读顺序
 
-抽象模型帮助预测，测试帮助区分解释，构建身份帮助复现，评审帮助发现遗漏。它们是一条证据链：缺少业务断言时，完整日志仍可能只证明程序运行过。
+一次请求可能在计算，也可能等锁、队列或 I/O；线程和资源的持有者决定谁能推进它。测试再把结果、发生顺序和资源结束分别变成可观察承诺。固定源码与输入帮助复现，但缺少业务断言时，完整日志仍可能只证明程序运行过。
 
-从当前问题需要的数据结构或操作系统概念补起；先有预测再写测试，先固定输入和源码再比较结果。最后用改变条件的解释检验知识是否可以迁移。
+先区分程序在算什么、等什么和持有什么，再用事件固定需要比较的交错。为每个承诺构造一个相似却错误的实现，核对断言为何失败；需要深入特定机制时，再补相应的数据结构与操作系统专题。
 
 常见误区：代码覆盖率不是业务正确率；测试和实现写成同一逻辑可能一起错；多个转载同一案例不是多份独立经验。
 
@@ -41,7 +41,9 @@ search: false
 
 进程、虚拟内存和 I/O 提供运行机制的下层解释。
 
-本分类正文仍在规划，当前不提供空文章链接。
+[分类导读](/knowledge/foundations/operating-systems/)
+
+- [进程、线程与阻塞 I/O：请求在等什么](/knowledge/foundations/operating-systems/blocking-waiting.html)：沿一个生成回执的请求区分 CPU 执行、调度等待、I/O、锁与队列等待，并追踪线程结束以后仍需归还的资源
 
 后续范围：调度、页缓存、文件系统、系统调用。
 
@@ -49,9 +51,11 @@ search: false
 
 一个好断言要区分正确实现与相似的错误实现。
 
-本分类正文仍在规划，当前不提供空文章链接。
+[分类导读](/knowledge/foundations/testing/)
 
-后续范围：契约测试、属性测试、时序控制、故障注入。
+- [用反例检验断言：结果、时序与失败归因](/knowledge/foundations/testing/assertion-counterexamples.html)：用两种受控交错和五个错误实现，检验回执任务的结果、真实副作用、完成发布与资源清理，并区分目标失败和实验启动失败
+
+后续范围：真实服务契约测试、属性测试、系统级故障注入。
 
 ### 构建与依赖
 
@@ -79,4 +83,4 @@ search: false
 
 ## 如何与其他领域连接
 
-在[实验与验证](/resources/experiments.html)比较资料、源码、静态、进程和真实服务证据；从一个错误实现是否会被断言抓住，开始学习测试区分力。随后在[复习与推理](/resources/review.html)改变条件，检查模型是否能够解释新结果。
+从[请求在等什么](/knowledge/foundations/operating-systems/blocking-waiting.html)进入[连接预算](/knowledge/frameworks/data-access/connection-budget.html)，把等待条件接回真实资源持有者；从[反例与断言](/knowledge/foundations/testing/assertion-counterexamples.html)进入[对象授权](/knowledge/security/authorization/object-tenant-authorization.html)，检查一个错误的允许是否会被精确拒绝。两类实验的观察范围不同，不能将内存模型当作数据库或操作系统保证。

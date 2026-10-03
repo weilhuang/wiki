@@ -53,5 +53,45 @@
     "query": "要不要拆微服务",
     "topic": "architecture.order-service-extraction",
     "anchor": "_4-决策矩阵-先过硬门槛-再比较代价"
+  },
+  {
+    "query": "JWT 退出后为什么还能用",
+    "topic": "security.authentication-boundaries",
+    "anchor": "revocation-visibility"
+  },
+  {
+    "query": "签名验证成功能直接放行吗",
+    "topic": "security.authentication-boundaries",
+    "anchor": "self-contained-token"
+  },
+  {
+    "query": "已经登录为什么还能越权",
+    "topic": "security.object-tenant-authorization",
+    "anchor": "four-dimensions"
+  },
+  {
+    "query": "订单转给别人后旧权限还有效吗",
+    "topic": "security.object-tenant-authorization",
+    "anchor": "check-and-use"
+  },
+  {
+    "query": "CPU不高为什么请求慢",
+    "topic": "foundations.blocking-waiting",
+    "anchor": "waiting-conditions"
+  },
+  {
+    "query": "增加线程能解决连接池等待吗",
+    "topic": "foundations.blocking-waiting",
+    "anchor": "choose-a-change"
+  },
+  {
+    "query": "并发测试不用sleep怎么安排顺序",
+    "topic": "foundations.assertion-counterexamples",
+    "anchor": "two-interleavings"
+  },
+  {
+    "query": "测试非零退出为什么仍可能假绿",
+    "topic": "foundations.assertion-counterexamples",
+    "anchor": "failure-attribution"
   }
 ]

@@ -1,0 +1,49 @@
+{
+  "status": "pass",
+  "checks": [
+    {
+      "path": "articles/blocking-waiting.md",
+      "sha256": "65bd7c918135a5670c4e2e57d51d6e9bf8644cfd423ed60463a9a3de754c0a0e",
+      "mermaidParsed": 2,
+      "codeHikeSteps": 1
+    },
+    {
+      "path": "articles/assertion-counterexamples.md",
+      "sha256": "e8fc08866b058b8075d339ee70b51c41647ca0df0d062f449a62acf2a07ce53b",
+      "mermaidParsed": 2,
+      "codeHikeSteps": 2
+    },
+    {
+      "snippet": "foundations.lock-wait",
+      "cleanSourceSha256": "d925565e706b7bd318610988dd712cbbbc0bee9f2f837a1959cf1769678021a2",
+      "lines": [
+        48,
+        69
+      ],
+      "source": "labs/foundations-service-lab/waiting.py",
+      "annotations": 4
+    },
+    {
+      "snippet": "foundations.causal-walkthrough",
+      "cleanSourceSha256": "aabf640641c3ec12ebea845295bc90e681927aa8a1e2c4c2db2ed22e07726ab3",
+      "lines": null,
+      "source": "labs/foundations-service-lab/causal_walkthrough.py",
+      "annotations": 4
+    },
+    {
+      "snippet": "foundations.accepted",
+      "cleanSourceSha256": "619d30c2a18b29c5aa0f89995961db3628881bec1b0ef4924c74a20effa4efd9",
+      "lines": [
+        18,
+        26
+      ],
+      "source": "labs/foundations-service-lab/verify.py",
+      "annotations": 3
+    }
+  ],
+  "limitations": [
+    "Mermaid syntax parsing only, no browser rendering",
+    "Code Hike compilation and source equality only, no browser step interaction",
+    "Integration/independent review/deployment are separate"
+  ]
+}

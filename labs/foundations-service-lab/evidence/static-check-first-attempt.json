@@ -1,0 +1,7 @@
+{
+  "status": "fail",
+  "command": "node tools/check-content.mjs . <existing-wiki-checkout>",
+  "exitCode": 1,
+  "error": "AssertionError: 5 !== 1",
+  "cause": "Checker counted Python annotation comments inside fences as headings. Replaced raw regex with Markdown heading tokens. No article H1 defect."
+}

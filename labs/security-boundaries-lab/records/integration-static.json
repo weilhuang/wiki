@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "kind": "static-integration",
+  "status": "pass",
+  "recordedAt": "2026-10-03T01:29:46.945688+00:00",
+  "command": "npm run check",
+  "exitCode": 0,
+  "scope": [
+    "23 Node tests including actual Mermaid parse and Code Hike source excerpt matching",
+    "91 generated HTML pages with internal link/anchor/canonical/noindex and visible Markdown checks",
+    "329 canonical search sections across 24 topics; 19 actual query targets in top 3",
+    "26 historical assets and all 130 technical fences of the 20 published baseline topics preserved"
+  ],
+  "sourceFiles": [
+    {
+      "path": "docs/knowledge/security/authentication/authentication-boundaries.md",
+      "sha256": "9b08eb498aedecfe22a2710359e21641e7cdab0505ee40c84043a79ba3f92629"
+    },
+    {
+      "path": "docs/knowledge/security/authorization/object-tenant-authorization.md",
+      "sha256": "c536738c01a6fe5538cc25bbd675c1d431fb76738a85d479effe3e051ca90636"
+    },
+    {
+      "path": "content/snippets/security-boundaries.json",
+      "sha256": "a549048bce1f960838825842b6de5e3ffb89eaa1b4daf073677eed129b486fa6"
+    },
+    {
+      "path": "labs/security-boundaries-lab/walk_authorization.py",
+      "sha256": "651d207bd9da0b472e05a06bd0af077fa7c415bcc03c6f505340f79ecac380b1"
+    },
+    {
+      "path": "labs/security-boundaries-lab/walk_session.py",
+      "sha256": "142b784b43ea15e2093b9582929176f683f3897efb611b1ea27db3cc458e60dc"
+    }
+  ],
+  "limitations": [
+    "No new Python/Java runtime execution was performed by this check",
+    "This record covers local static build, not remote CI, deployed browser interaction or publication"
+  ],
+  "priorAuthorArtifacts": [
+    {
+      "path": "labs/security-boundaries-lab/records/static-results.json",
+      "sha256": "47e15c4c17a0f01a3dc911ff387a73c658339efea64af1bece51ec3a11f367b9"
+    }
+  ]
+}

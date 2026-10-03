@@ -1,0 +1,136 @@
+{
+  "model": "trusted-input sequential decision model",
+  "records": [
+    {
+      "boundary": "revocation-at-12",
+      "cached-at-11-until-16": true,
+      "offline-snapshot": true,
+      "online-current": false,
+      "session": false
+    },
+    {
+      "allowed": [
+        [
+          "alice",
+          "red",
+          "o1",
+          "read"
+        ],
+        [
+          "alice",
+          "red",
+          "o1",
+          "update-note"
+        ],
+        [
+          "bob",
+          "red",
+          "o2",
+          "read"
+        ],
+        [
+          "bob",
+          "red",
+          "o2",
+          "update-note"
+        ],
+        [
+          "carol",
+          "red",
+          "o1",
+          "read"
+        ],
+        [
+          "mallory",
+          "blue",
+          "o1",
+          "read"
+        ],
+        [
+          "mallory",
+          "blue",
+          "o1",
+          "update-note"
+        ]
+      ],
+      "combinations": 90,
+      "matrix": "actors x tenants x objects x actions"
+    },
+    {
+      "denied": true,
+      "effects": 0,
+      "probe": "tenant-from-request"
+    },
+    {
+      "denied": true,
+      "effects": 0,
+      "probe": "tenant-member-is-owner"
+    },
+    {
+      "denied": true,
+      "effects": 0,
+      "probe": "default-allow"
+    },
+    {
+      "denied": true,
+      "effects": 0,
+      "probe": "missing-identity-allowed"
+    },
+    {
+      "denied": true,
+      "effects": 0,
+      "probe": "delegation-expands-action"
+    },
+    {
+      "denied": true,
+      "effects": 0,
+      "probe": "ignore-delegate"
+    },
+    {
+      "denied": true,
+      "effects": 0,
+      "probe": "ignore-grant-expiry"
+    },
+    {
+      "denied": true,
+      "effects": 0,
+      "probe": "ignore-grant-revocation"
+    },
+    {
+      "denied": true,
+      "effects": 0,
+      "probe": "ignore-ownership-epoch"
+    },
+    {
+      "denied": true,
+      "effects": 0,
+      "probe": "ignore-object-id"
+    },
+    {
+      "denied": true,
+      "effects": 0,
+      "probe": "cached-allow-after-transfer"
+    },
+    {
+      "boundaries": [
+        "online-profile-and-time",
+        "inactive-or-future-cache",
+        "empty-delegation-actions",
+        "same-owner-stale-preparation",
+        "repeated-prepared-commit"
+      ],
+      "committed-revision": 2,
+      "single-commit-effects": 1,
+      "stale-write-effects": 0
+    },
+    {
+      "stale-writes": 0,
+      "transitions": [
+        "membership-revoked-before-commit",
+        "prepared-actor-changed",
+        "ownership-transferred"
+      ]
+    }
+  ],
+  "status": "pass"
+}

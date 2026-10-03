@@ -1,0 +1,126 @@
+{
+  "baselineCommit": "859be3071d3880d6f2481e8f0f5fa9170c6cbc06",
+  "baselineTree": "469abe1fcdd3344b7e6c29936b3fbc7d8966106d",
+  "topics": [
+    {
+      "id": "java.hashmap",
+      "source": "knowledge/java/collections/hashmap.md",
+      "fenceCount": 10,
+      "fencesSha256": "1d6151542305328648c80dea2859b2f8f026f5bdf38e624cdfecd18ba7feeca1"
+    },
+    {
+      "id": "java.hashmap-source",
+      "source": "knowledge/java/collections/hashmap-source.md",
+      "fenceCount": 5,
+      "fencesSha256": "5503622ea15b2106b7b4e50a83ae3f21abe9e13e4cf157b7b2a459e54060c322"
+    },
+    {
+      "id": "go.bounded-work",
+      "source": "knowledge/go/concurrency/bounded-work.md",
+      "fenceCount": 6,
+      "fencesSha256": "de9488453faf307e8149805102261a75c642848929185e5341b60a1c76d9b4b7"
+    },
+    {
+      "id": "go.context-cancellation",
+      "source": "knowledge/go/concurrency/context-cancellation.md",
+      "fenceCount": 10,
+      "fencesSha256": "b3caa3e8a2e5fc1fe392035269085231e2a0abcdcd284c3c062a1935190e0b57"
+    },
+    {
+      "id": "go.client-budgets",
+      "source": "knowledge/go/http/client-budgets.md",
+      "fenceCount": 6,
+      "fencesSha256": "8d391eb940536789e25582342653c2f8b659ec3278611cdba835c8003e50596a"
+    },
+    {
+      "id": "go.http-contract",
+      "source": "knowledge/go/http/request-response-contract.md",
+      "fenceCount": 6,
+      "fencesSha256": "b1dbad88777c3f1f4072516f32307647d1c086d79138bd0296fd2ba456d7fc9f"
+    },
+    {
+      "id": "go.graceful-shutdown",
+      "source": "knowledge/go/lifecycle/graceful-shutdown.md",
+      "fenceCount": 6,
+      "fencesSha256": "f720adc7ee7d33a0b2b3a6da96bd289af6353a7aa5dca9aefc42fee73eda79c6"
+    },
+    {
+      "id": "frameworks.connection-budget",
+      "source": "knowledge/frameworks/data-access/connection-budget.md",
+      "fenceCount": 7,
+      "fencesSha256": "2e0587b914ac5a209bb8662fe2e091addc856c72e59b2304d24d4cf08de10487"
+    },
+    {
+      "id": "frameworks.bean-definition-registration",
+      "source": "knowledge/frameworks/spring-container/bean-definition-registration.md",
+      "fenceCount": 9,
+      "fencesSha256": "1c1e11f998af6b8532acb7484a8b9b014fc5f5d57f34882fe8ed9885effa97e6"
+    },
+    {
+      "id": "frameworks.bean-lifecycle",
+      "source": "knowledge/frameworks/spring-container/bean-lifecycle.md",
+      "fenceCount": 6,
+      "fencesSha256": "28a2652f6f716452df2017fb7d8ac2cad235553f5190aa264100c10703ad7817"
+    },
+    {
+      "id": "frameworks.mvc-pipeline",
+      "source": "knowledge/frameworks/spring-mvc/request-pipeline.md",
+      "fenceCount": 7,
+      "fencesSha256": "fce4df6f6c7540ddc2dfd5afb388fb761bf2f637307afe992c11b084aa1b1252"
+    },
+    {
+      "id": "frameworks.transaction-proxy",
+      "source": "knowledge/frameworks/spring-transactions/proxy-call-chain.md",
+      "fenceCount": 11,
+      "fencesSha256": "98914c56f55011d32a29338862bd5ab6f9af4d872045293ed4f0d7d79f8ed3e9"
+    },
+    {
+      "id": "data.cache-invalidation",
+      "source": "knowledge/data/cache/invalidation-freshness.md",
+      "fenceCount": 5,
+      "fencesSha256": "1896897501b8a23a06f0b72463d141fe015fc93e247d05d23931ab68337e153d"
+    },
+    {
+      "id": "data.inventory-invariants",
+      "source": "knowledge/data/transactions/inventory-invariants.md",
+      "fenceCount": 4,
+      "fencesSha256": "cc4b3ee2bcbb51017230d3b18faf8565cf7550d7a6bdf45e9836438d93c8ac03"
+    },
+    {
+      "id": "distributed.transactional-outbox",
+      "source": "knowledge/distributed/events/transactional-outbox.md",
+      "fenceCount": 4,
+      "fencesSha256": "727722f688096ba9564954a4760b7a05a8f7b2ba9413b8f06479015c70397a9f"
+    },
+    {
+      "id": "distributed.idempotency",
+      "source": "knowledge/distributed/reliable-interactions/idempotency.md",
+      "fenceCount": 4,
+      "fencesSha256": "0d27274b87f5f92c7e43839155784ef96e2b2ca07c12912262ae82a90f9e56ef"
+    },
+    {
+      "id": "architecture.consistency-recovery",
+      "source": "cases/orders/consistency-recovery.md",
+      "fenceCount": 5,
+      "fencesSha256": "1d6138f38859b0efb1d6a0f100040ad48490ea061ea59f9a600c937d1e19f395"
+    },
+    {
+      "id": "architecture.local-service-boundary",
+      "source": "cases/orders/local-service-boundary.md",
+      "fenceCount": 6,
+      "fencesSha256": "03c65d985ea6a819968009de528c6dac07cbfd8a92e9398f5a0b6f1c824024c0"
+    },
+    {
+      "id": "architecture.order-service-extraction",
+      "source": "cases/architecture/order-service-extraction.md",
+      "fenceCount": 12,
+      "fencesSha256": "f5d462280b9a96c55cc7dc82baea643d2b06c29dd9317ce7c613ca22b024c1c1"
+    },
+    {
+      "id": "cloud.connection-waiting",
+      "source": "troubleshooting/connection-waiting.md",
+      "fenceCount": 1,
+      "fencesSha256": "56f09942557ee10e04a76d7aaaa469aa55e0b760159991a4ffd45bc72844ac22"
+    }
+  ]
+}

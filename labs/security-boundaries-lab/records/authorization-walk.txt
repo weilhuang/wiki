@@ -1,0 +1,4 @@
+delegate read: delegated-read original
+old approval: stale-object []
+old grant: no-object-permission None
+new owner: owner original

@@ -1,0 +1,6 @@
+{
+  "status": "pass",
+  "method": "map every source/artifact repository path to exact staged bytes and verify SHA256",
+  "records": 6,
+  "revision": "r2"
+}

@@ -1,0 +1,6 @@
+t12 session: False
+t12 offline: True
+t12 online: False
+t12 cached: True
+t16 cached: False
+t20 offline: False

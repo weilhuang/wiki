@@ -36,10 +36,19 @@ export const paths = [
       {title:'最后联合恢复和停止',transition:'每个组件各自恢复仍可能留下缺口，需要在同一数据集上联合对账并决定何时停止。',task:'恢复后检查守恒、投影和待交接责任，而非只检查服务存活。',readings:[
         {topic:'architecture.consistency-recovery',role:'required',purpose:'用权威事实对账、限定重放并验证兼容迁移'}]}
     ] }
+  ,{ id:'identity-tenancy', title:'身份与多租户', source:'paths/identity-tenancy.md', status:'published',
+    entry:['能区分 HTTP 请求的调用方与服务端','能读条件判断和一条订单记录'], goal:'从可信身份进入一次订单操作，比较撤销时效，并为租户、对象、动作与提交时刻建立默认拒绝规则。',
+    stages:[
+      {title:'先界定身份与撤销的责任',transition:'请求带来的声明要经过可信验证才可当作身份。在线状态、自包含令牌和缓存的成本不同，撤销生效时间也不同。',task:'画出同一凭据在在线检查、离线校验和旧缓存下的决策，说明各自依赖谁、何时能看到撤销。',readings:[
+        {topic:'security.authentication-boundaries',role:'required',purpose:'区分身份建立、令牌验证、会话状态与撤销可见性'}]},
+      {title:'把身份放回具体对象与时刻',transition:'已经知道调用者是谁，仍需核对他对当前租户和对象能做哪项动作；准备阶段的允许不能自动沿用到事实已经改变的提交阶段。',task:'列出本人、同租户他人、跨租户和受托方的读取/修改矩阵；再改变归属、成员资格和对象版本，预测提交结果。',readings:[
+        {topic:'security.object-tenant-authorization',role:'required',purpose:'按主体、租户、对象、动作与当前版本逐项裁决'}]},
+      {title:'用反例检查拒绝是否真的生效',transition:'正常用户能成功只证明一条路径。要把缺少动作限制、过期身份和旧准备重复提交等错误逐项变成可识别的失败。',task:'运行有限策略模型，核对允许或拒绝、精确副作用和版本；说明模型尚未覆盖的密码学、身份供应商与真实数据库执行。',readings:[
+        {topic:'foundations.assertion-counterexamples',role:'optional',purpose:'需要编写验证器时，区分业务反例、启动错误和资源收尾'}]}
+    ] }
 ]
 export const plannedPaths = [
   {id:'java-core',title:'Java 核心机制',goal:'从对象相等性、集合和并发走到运行时诊断',missing:'JMM、执行器与 JVM 诊断尚未形成完整路线'},
   {id:'performance',title:'性能诊断',goal:'用负载和证据区分排队、连接、SQL 与运行时瓶颈',missing:'观测模型、SQL 和 profile 专题仍待补齐'},
-  {id:'architecture-evolution',title:'系统设计与演进',goal:'从约束比较结构，再安排可逆迁移',missing:'先提供完整案例；通用建模和迁移专题继续补充'},
-  {id:'identity-tenancy',title:'身份与多租户',goal:'明确主体、资源、动作和跨租户边界',missing:'认证与授权核心正文尚未发布，不提供开始完整路线入口'}
+  {id:'architecture-evolution',title:'系统设计与演进',goal:'从约束比较结构，再安排可逆迁移',missing:'先提供完整案例；通用建模和迁移专题继续补充'}
 ]

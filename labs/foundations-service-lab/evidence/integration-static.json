@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "kind": "static-integration",
+  "status": "pass",
+  "recordedAt": "2026-10-03T01:29:46.944678+00:00",
+  "command": "npm run check",
+  "exitCode": 0,
+  "scope": [
+    "23 Node tests including actual Mermaid parse and Code Hike source excerpt matching",
+    "91 generated HTML pages with internal link/anchor/canonical/noindex and visible Markdown checks",
+    "329 canonical search sections across 24 topics; 19 actual query targets in top 3",
+    "26 historical assets and all 130 technical fences of the 20 published baseline topics preserved"
+  ],
+  "sourceFiles": [
+    {
+      "path": "docs/knowledge/foundations/operating-systems/blocking-waiting.md",
+      "sha256": "028d0aa4b98b49e5f8c3741d3e5658ae188111f05ca50be3706a04bad4cea943"
+    },
+    {
+      "path": "docs/knowledge/foundations/testing/assertion-counterexamples.md",
+      "sha256": "3c89fa9197a654bb5464c04fd04929811e62dedfaa7258af6e0ce019030bf282"
+    },
+    {
+      "path": "content/snippets/foundations.json",
+      "sha256": "05f9e9092b18d316500332f54043cbbc8271cfdb73572439c5e40f3f2059d1d5"
+    },
+    {
+      "path": "labs/foundations-service-lab/editorial/check-content.mjs",
+      "sha256": "1cdffe3c27d850da3044a8b0b1b770c59ee66e91f6f57eebd8482b2ad1707641"
+    },
+    {
+      "path": "labs/foundations-service-lab/editorial/package.py",
+      "sha256": "3d2f1a158a7d80c063b6b737b968ae7d70cf01cf96386ffbb65446ea80f9d56d"
+    }
+  ],
+  "limitations": [
+    "No new Python/Java runtime execution was performed by this check",
+    "This record covers local static build, not remote CI, deployed browser interaction or publication"
+  ],
+  "priorAuthorArtifacts": [
+    {
+      "path": "labs/foundations-service-lab/evidence/static-check-final.json",
+      "sha256": "80c3687fc0a3c27ffad93ccfb79533830ad6b485d3d8b20e1fe494687daa0580"
+    },
+    {
+      "path": "labs/foundations-service-lab/evidence/python-syntax.json",
+      "sha256": "f7424d4254db194962c61b0e2634d4fa8d4e1677b1dc8cc08ee870711aa0c55f"
+    },
+    {
+      "path": "labs/foundations-service-lab/evidence/packaging-check.json",
+      "sha256": "1fdacc1507efc4cda499cb3e110b840ae3ae7efd3114259c3cd8c6d73e7aef3c"
+    },
+    {
+      "path": "labs/foundations-service-lab/evidence/static-check-first-attempt.json",
+      "sha256": "7998b2182ac60a228ed4f897f8e3e6883c12258756ff3ba7d6d5cd0276a23fb9"
+    },
+    {
+      "path": "labs/foundations-service-lab/evidence/evidence-mapping-check.json",
+      "sha256": "50436abf5328abff80bb48db0c8085c0ea0bebdd57cd9884a55c6e6bfa62bccd"
+    },
+    {
+      "path": "labs/foundations-service-lab/evidence/public-path-scan.json",
+      "sha256": "a4c7dcd38762415bdf8f36639093e04ffcd4a6cfc33f4cce9ae9a95a39480087"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "status": "pass",
+  "revision": "r2",
+  "files": [
+    "articles/blocking-waiting.md",
+    "articles/assertion-counterexamples.md",
+    "labs/foundations-service-lab/LICENSE",
+    "labs/foundations-service-lab/README.md",
+    "labs/foundations-service-lab/assertions.py",
+    "labs/foundations-service-lab/causal_walkthrough.py",
+    "labs/foundations-service-lab/service.py",
+    "labs/foundations-service-lab/source-manifest.json",
+    "labs/foundations-service-lab/verify.py",
+    "labs/foundations-service-lab/versions.json",
+    "labs/foundations-service-lab/waiting.py",
+    "sources.json",
+    "verification.json",
+    "snippets.json",
+    "artifacts/foundations-service-results.json",
+    "artifacts/foundations-service-lab.zip",
+    "tools/check-content.mjs",
+    "tools/package.py",
+    "artifacts/static-check-final.json",
+    "artifacts/python-syntax.json",
+    "artifacts/packaging-check.json",
+    "artifacts/static-check-first-attempt.json",
+    "artifacts/evidence-mapping-check.json",
+    "artifacts/public-path-scan.json",
+    "labs/foundations-service-lab/verify_regressions.py"
+  ],
+  "internalAbsolutePaths": [],
+  "notes": [
+    "Checker literal sentinel strings are not actual local file paths; ZIP member bytes equal separately scanned lab sources"
+  ]
+}

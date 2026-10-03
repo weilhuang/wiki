@@ -1,0 +1,105 @@
+{
+  "meaning": "every unsafe allow was rejected by its intended business assertion",
+  "records": [
+    {
+      "command": "python3 -B verify.py --mutant tenant-from-request",
+      "exitCode": 3,
+      "result": {
+        "assertion": "WRONG_ALLOW:tenant-from-request",
+        "mutant": "tenant-from-request",
+        "status": "rejected"
+      }
+    },
+    {
+      "command": "python3 -B verify.py --mutant tenant-member-is-owner",
+      "exitCode": 3,
+      "result": {
+        "assertion": "WRONG_ALLOW:tenant-member-is-owner",
+        "mutant": "tenant-member-is-owner",
+        "status": "rejected"
+      }
+    },
+    {
+      "command": "python3 -B verify.py --mutant default-allow",
+      "exitCode": 3,
+      "result": {
+        "assertion": "WRONG_ALLOW:default-allow",
+        "mutant": "default-allow",
+        "status": "rejected"
+      }
+    },
+    {
+      "command": "python3 -B verify.py --mutant missing-identity-allowed",
+      "exitCode": 3,
+      "result": {
+        "assertion": "WRONG_ALLOW:missing-identity-allowed",
+        "mutant": "missing-identity-allowed",
+        "status": "rejected"
+      }
+    },
+    {
+      "command": "python3 -B verify.py --mutant delegation-expands-action",
+      "exitCode": 3,
+      "result": {
+        "assertion": "WRONG_ALLOW:delegation-expands-action",
+        "mutant": "delegation-expands-action",
+        "status": "rejected"
+      }
+    },
+    {
+      "command": "python3 -B verify.py --mutant ignore-delegate",
+      "exitCode": 3,
+      "result": {
+        "assertion": "WRONG_ALLOW:ignore-delegate",
+        "mutant": "ignore-delegate",
+        "status": "rejected"
+      }
+    },
+    {
+      "command": "python3 -B verify.py --mutant ignore-grant-expiry",
+      "exitCode": 3,
+      "result": {
+        "assertion": "WRONG_ALLOW:ignore-grant-expiry",
+        "mutant": "ignore-grant-expiry",
+        "status": "rejected"
+      }
+    },
+    {
+      "command": "python3 -B verify.py --mutant ignore-grant-revocation",
+      "exitCode": 3,
+      "result": {
+        "assertion": "WRONG_ALLOW:ignore-grant-revocation",
+        "mutant": "ignore-grant-revocation",
+        "status": "rejected"
+      }
+    },
+    {
+      "command": "python3 -B verify.py --mutant ignore-ownership-epoch",
+      "exitCode": 3,
+      "result": {
+        "assertion": "WRONG_ALLOW:ignore-ownership-epoch",
+        "mutant": "ignore-ownership-epoch",
+        "status": "rejected"
+      }
+    },
+    {
+      "command": "python3 -B verify.py --mutant ignore-object-id",
+      "exitCode": 3,
+      "result": {
+        "assertion": "WRONG_ALLOW:ignore-object-id",
+        "mutant": "ignore-object-id",
+        "status": "rejected"
+      }
+    },
+    {
+      "command": "python3 -B verify.py --mutant cached-allow-after-transfer",
+      "exitCode": 3,
+      "result": {
+        "assertion": "WRONG_ALLOW:cached-allow-after-transfer",
+        "mutant": "cached-allow-after-transfer",
+        "status": "rejected"
+      }
+    }
+  ],
+  "status": "pass"
+}

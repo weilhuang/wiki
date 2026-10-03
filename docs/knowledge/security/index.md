@@ -15,13 +15,13 @@ search: false
 
 HTTP 与服务边界；认证证明身份，授权决定某次动作，两者不可互换。
 
-本批尚无独立安全机制正文。目录给出边界和规划，不把订单教学例子包装成已完成身份或支付安全的系统。
+认证与授权各有信任边界。可运行示例限于可信身份输入后的顺序决策模型，不能替代真实身份供应商、密码学验证或多节点撤销测试。
 
 ## 核心关系与阅读顺序
 
 主体提出对资源执行动作的请求；认证帮助确定主体，授权结合资源和上下文裁决动作，执行点负责落实决定，审计保留可追溯观察。服务身份、用户身份与租户边界不能混为一项登录状态。
 
-先识别资产和信任边界，再分别学习认证与授权；随后将租户和服务间委托加入条件，最后设计凭据轮换、撤销与审计。本站这些机制正文仍在规划。
+先从一次请求携带的凭据进入，比较会话与令牌怎样保留状态；再在订单对象上加入租户、动作和委托条件。当前两篇解释这些判断，完整登录流程、密钥轮换和跨服务审计需要各自的专题。
 
 常见误区：验证 JWT 签名不代表允许访问任意对象；知道订单 ID 不代表拥有订单；把租户 ID 从参数直接带入查询也不自动形成隔离。
 
@@ -41,17 +41,21 @@ HTTP 与服务边界；认证证明身份，授权决定某次动作，两者不
 
 身份建立、会话延续和撤销需要完整生命周期。
 
-本分类正文仍在规划，当前不提供空文章链接。
+[分类导读](/knowledge/security/authentication/)
 
-后续范围：会话、MFA、OAuth 2.0、OIDC、JWT。
+- [身份从哪里可信：会话、令牌与撤销边界](/knowledge/security/authentication/authentication-boundaries.html)：沿一条订单请求追踪身份凭据如何变成可信主体，比较服务端会话、自包含令牌和撤销状态的可见范围
+
+后续范围：MFA、完整 OAuth/OIDC 登录流程、签名库与密钥轮换。
 
 ### 授权
 
 权限判定需要资源、动作和上下文。
 
-本分类正文仍在规划，当前不提供空文章链接。
+[分类导读](/knowledge/security/authorization/)
 
-后续范围：RBAC、ABAC、ReBAC、对象级授权。
+- [授权到哪一个对象：租户、主体与动作](/knowledge/security/authorization/object-tenant-authorization.html)：用订单读取、备注修改和只读委托推导默认拒绝策略，检查越租户、对象归属变更及授权后写入之间的窗口
+
+后续范围：RBAC、ABAC、ReBAC、数据库授权执行、列表与导出边界。
 
 ### 多租户与服务身份
 
@@ -59,7 +63,7 @@ HTTP 与服务边界；认证证明身份，授权决定某次动作，两者不
 
 本分类正文仍在规划，当前不提供空文章链接。
 
-后续范围：工作负载身份、mTLS、代理委托、跨租户测试。
+后续范围：工作负载身份、mTLS、跨服务委托、真实服务跨租户集成测试。
 
 ### 凭据与审计
 
@@ -79,4 +83,4 @@ HTTP 与服务边界；认证证明身份，授权决定某次动作，两者不
 
 ## 如何与其他领域连接
 
-在[订单服务边界](/cases/orders/local-service-boundary.html)中先识别尚未实现的身份与授权责任；不把教学接口当作安全系统。认证与授权是不同问题，未来 RBAC 与对象级授权会归入本领域。错误响应与日志的公开内容还要与[HTTP 合同](/knowledge/go/http/request-response-contract.html)配合。
+[会话与令牌](/knowledge/security/authentication/authentication-boundaries.html)确定哪些身份声明可以信任；[对象授权](/knowledge/security/authorization/object-tenant-authorization.html)再将主体与当前订单事实联系起来。提交前权限发生变化时，需要与[库存不变量](/knowledge/data/transactions/inventory-invariants.html)中的并发裁决一起思考。错误响应与日志还要遵守[HTTP 响应边界](/knowledge/go/http/request-response-contract.html)。

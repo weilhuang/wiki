@@ -1,0 +1,44 @@
+{
+  "failureClassifierNegatives": 4,
+  "originalModelSha256": "0fe17409919ee00ca637920a55b016ca4adfda16704d17264bc4a884a9f9fdd6",
+  "records": [
+    {
+      "exception": "AssertionError: EMPTY_GRANT_ACTIONS",
+      "exitCode": 1,
+      "mutatedModelSha256": "d7b590b429968f01f809e951684499e28969f83b703a8f168adab1ed330c681f",
+      "mutation": "ignore-grant-actions"
+    },
+    {
+      "exception": "AssertionError: ONLINE_PROFILE:issuer",
+      "exitCode": 1,
+      "mutatedModelSha256": "992e8f4fc1d8a01156496f4f9e0e3eb805fd6a2d1f9d50da1a5cec319ba3f567",
+      "mutation": "online-omits-profile"
+    },
+    {
+      "exception": "AssertionError: CACHE_INACTIVE",
+      "exitCode": 1,
+      "mutatedModelSha256": "3d117660669608858abf3c7a14b83d36ed0bcfd11c39964aea7e690cfb35b751",
+      "mutation": "cache-ignores-inactive"
+    },
+    {
+      "exception": "AssertionError: CACHE_NOT_OBSERVED",
+      "exitCode": 1,
+      "mutatedModelSha256": "d9187997c58c4d9516222a2a4b61ada645acff0a59ce691941509c3a9381098e",
+      "mutation": "cache-ignores-observed-time"
+    },
+    {
+      "exception": "AssertionError: STALE_PREPARATION",
+      "exitCode": 1,
+      "mutatedModelSha256": "e8d032a39dafe40ecc90174ac4dc51f010fcc3a44b112d90cdee494fee698942",
+      "mutation": "commit-ignores-revision"
+    },
+    {
+      "exception": "AssertionError: STALE_PREPARATION",
+      "exitCode": 1,
+      "mutatedModelSha256": "bbfd19b9bc91b2dce84b1ee3f8896f24bc0dddbceb1ede910e0751b1c2eb70a1",
+      "mutation": "commit-does-not-increment-revision"
+    }
+  ],
+  "scope": "six source mutations; exact Python assertion attribution; no real authentication provider",
+  "status": "pass"
+}
