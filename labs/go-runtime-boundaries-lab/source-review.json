@@ -1,0 +1,106 @@
+{
+  "reviewedAt": "2026-10-03",
+  "kind": "source-reviewed",
+  "status": "pass",
+  "sources": [
+    {
+      "upstreamPath": "src/runtime/chan.go",
+      "url": "https://raw.githubusercontent.com/golang/go/go1.27.1/src/runtime/chan.go",
+      "tag": "go1.27.1",
+      "sha256": "dbe8d02ebb1b554b28263c8f34747c0b6d796b3e7040a2f6a625c472e9ce9a42",
+      "localReleaseSha256": "dbe8d02ebb1b554b28263c8f34747c0b6d796b3e7040a2f6a625c472e9ce9a42",
+      "byteEqualToInstalledRelease": true,
+      "publicPath": "sources/src/runtime/chan.go.txt"
+    },
+    {
+      "upstreamPath": "src/runtime/select.go",
+      "url": "https://raw.githubusercontent.com/golang/go/go1.27.1/src/runtime/select.go",
+      "tag": "go1.27.1",
+      "sha256": "93977178a5c507d2bd0bbd990613fa0c8a1d6d18b974fcbcd6c9edce6bd8b5bf",
+      "localReleaseSha256": "93977178a5c507d2bd0bbd990613fa0c8a1d6d18b974fcbcd6c9edce6bd8b5bf",
+      "byteEqualToInstalledRelease": true,
+      "publicPath": "sources/src/runtime/select.go.txt"
+    },
+    {
+      "upstreamPath": "src/runtime/proc.go",
+      "url": "https://raw.githubusercontent.com/golang/go/go1.27.1/src/runtime/proc.go",
+      "tag": "go1.27.1",
+      "sha256": "40d15ce858cf058cff92606001a29ee1689db88c121a2f0c283163a0d64a7375",
+      "localReleaseSha256": "40d15ce858cf058cff92606001a29ee1689db88c121a2f0c283163a0d64a7375",
+      "byteEqualToInstalledRelease": true,
+      "publicPath": "sources/src/runtime/proc.go.txt"
+    },
+    {
+      "upstreamPath": "src/runtime/runtime2.go",
+      "url": "https://raw.githubusercontent.com/golang/go/go1.27.1/src/runtime/runtime2.go",
+      "tag": "go1.27.1",
+      "sha256": "7d66ed912f68b1259947807ca1bdf79ee7e54c6a61a716d88db663d570af66da",
+      "localReleaseSha256": "7d66ed912f68b1259947807ca1bdf79ee7e54c6a61a716d88db663d570af66da",
+      "byteEqualToInstalledRelease": true,
+      "publicPath": "sources/src/runtime/runtime2.go.txt"
+    },
+    {
+      "upstreamPath": "src/runtime/netpoll.go",
+      "url": "https://raw.githubusercontent.com/golang/go/go1.27.1/src/runtime/netpoll.go",
+      "tag": "go1.27.1",
+      "sha256": "f7c606d3fa0a3b9499fd5f42b81918a98f0b99a6029fca2010cabc710fc9ea65",
+      "localReleaseSha256": "f7c606d3fa0a3b9499fd5f42b81918a98f0b99a6029fca2010cabc710fc9ea65",
+      "byteEqualToInstalledRelease": true,
+      "publicPath": "sources/src/runtime/netpoll.go.txt"
+    },
+    {
+      "upstreamPath": "src/runtime/netpoll_epoll.go",
+      "url": "https://raw.githubusercontent.com/golang/go/go1.27.1/src/runtime/netpoll_epoll.go",
+      "tag": "go1.27.1",
+      "sha256": "cd94172ee133e4e522a8091818c6d82c9fdb94a9c263d5004feee114f76f9624",
+      "localReleaseSha256": "cd94172ee133e4e522a8091818c6d82c9fdb94a9c263d5004feee114f76f9624",
+      "byteEqualToInstalledRelease": true,
+      "publicPath": "sources/src/runtime/netpoll_epoll.go.txt"
+    },
+    {
+      "upstreamPath": "src/internal/poll/fd_unix.go",
+      "url": "https://raw.githubusercontent.com/golang/go/go1.27.1/src/internal/poll/fd_unix.go",
+      "tag": "go1.27.1",
+      "sha256": "675f74e8cbfc73170e08b43947c131706cd59e498d722555fe3b793618f5f162",
+      "localReleaseSha256": "675f74e8cbfc73170e08b43947c131706cd59e498d722555fe3b793618f5f162",
+      "byteEqualToInstalledRelease": true,
+      "publicPath": "sources/src/internal/poll/fd_unix.go.txt"
+    },
+    {
+      "upstreamPath": "src/internal/poll/fd_poll_runtime.go",
+      "url": "https://raw.githubusercontent.com/golang/go/go1.27.1/src/internal/poll/fd_poll_runtime.go",
+      "tag": "go1.27.1",
+      "sha256": "88fda43019c5dcf42545effdebd1747aaea377560dd041a35df8499538ee07c5",
+      "localReleaseSha256": "88fda43019c5dcf42545effdebd1747aaea377560dd041a35df8499538ee07c5",
+      "byteEqualToInstalledRelease": true,
+      "publicPath": "sources/src/internal/poll/fd_poll_runtime.go.txt"
+    },
+    {
+      "upstreamPath": "doc/go_mem.html",
+      "url": "https://raw.githubusercontent.com/golang/go/go1.27.1/doc/go_mem.html",
+      "tag": "go1.27.1",
+      "sha256": "a7372b4f36c9525ecc7531bbdbb9e53746ae3f58367a25fe8084d5a35bb8ee7c",
+      "localReleaseSha256": "a7372b4f36c9525ecc7531bbdbb9e53746ae3f58367a25fe8084d5a35bb8ee7c",
+      "byteEqualToInstalledRelease": true,
+      "publicPath": "sources/doc/go_mem.html"
+    },
+    {
+      "upstreamPath": "doc/go_spec.html",
+      "url": "https://raw.githubusercontent.com/golang/go/go1.27.1/doc/go_spec.html",
+      "tag": "go1.27.1",
+      "sha256": "a249c493e0ad58ccfeac8081426d5b0e77f92b9761b95548f85c9e4d23d0a753",
+      "localReleaseSha256": "a249c493e0ad58ccfeac8081426d5b0e77f92b9761b95548f85c9e4d23d0a753",
+      "byteEqualToInstalledRelease": true,
+      "publicPath": "sources/doc/go_spec.html"
+    },
+    {
+      "upstreamPath": "LICENSE",
+      "url": "https://raw.githubusercontent.com/golang/go/go1.27.1/LICENSE",
+      "tag": "go1.27.1",
+      "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad",
+      "localReleaseSha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad",
+      "byteEqualToInstalledRelease": true,
+      "publicPath": "sources/LICENSE"
+    }
+  ]
+}

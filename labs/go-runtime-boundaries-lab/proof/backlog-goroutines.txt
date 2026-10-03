@@ -1,0 +1,267 @@
+goroutine 1 [running]:
+main.capture({0x76d2f8, 0x337740d32070}, {0x5a84d8, 0xf}, {0x5a73d2, 0xb}, 0x16)
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:90 +0xf8
+main.run({0x7ffe9717b7da, 0x7}, {0x7ffe9717b7e7, 0x4d}, 0x0)
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:275 +0x26d3
+main.main()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:322 +0x167
+
+goroutine 23 [trace reader (blocked)]:
+runtime.ReadTrace()
+	runtime/trace.go:893 +0x45
+runtime/trace.(*traceMultiplexer).startLocked.func1()
+	runtime/trace/subscribe.go:167 +0xb4
+created by runtime/trace.(*traceMultiplexer).startLocked in goroutine 1
+	runtime/trace/subscribe.go:157 +0x159
+
+goroutine 24 [syscall]:
+runtime/pprof.readProfile()
+	runtime/cpuprof.go:251 +0x4a
+runtime/pprof.profileWriter({0x76c360?, 0x337740d08048?})
+	runtime/pprof/pprof.go:927 +0x45
+created by runtime/pprof.StartCPUProfile in goroutine 1
+	runtime/pprof/pprof.go:908 +0x1b6
+
+goroutine 27 [chan receive]:
+main.activeWork(0x0?)
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:70 +0x15
+main.queuedWork(0x337740d04460, 0x337740d04310, 0x0?, 0x337740d160c0, 0x337740d160d0)
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:77 +0x65
+main.run.func10()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:270 +0x27
+main.run.func5.1()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:165 +0x57
+created by main.run.func5 in goroutine 1
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:163 +0xa5
+
+goroutine 28 [chan send]:
+main.queuedWork(0x337740d04460, 0x337740d04310, 0x0?, 0x337740d160c0, 0x337740d160d0)
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:75 +0x46
+main.run.func10()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:270 +0x27
+main.run.func5.1()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:165 +0x57
+created by main.run.func5 in goroutine 1
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:163 +0xa5
+
+goroutine 29 [chan send]:
+main.queuedWork(0x337740d04460, 0x337740d04310, 0x0?, 0x337740d160c0, 0x337740d160d0)
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:75 +0x46
+main.run.func10()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:270 +0x27
+main.run.func5.1()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:165 +0x57
+created by main.run.func5 in goroutine 1
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:163 +0xa5
+
+goroutine 30 [chan send]:
+main.queuedWork(0x337740d04460, 0x337740d04310, 0x0?, 0x337740d160c0, 0x337740d160d0)
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:75 +0x46
+main.run.func10()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:270 +0x27
+main.run.func5.1()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:165 +0x57
+created by main.run.func5 in goroutine 1
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:163 +0xa5
+
+goroutine 31 [chan send]:
+main.queuedWork(0x337740d04460, 0x337740d04310, 0x0?, 0x337740d160c0, 0x337740d160d0)
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:75 +0x46
+main.run.func10()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:270 +0x27
+main.run.func5.1()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:165 +0x57
+created by main.run.func5 in goroutine 1
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:163 +0xa5
+
+goroutine 32 [chan send]:
+main.queuedWork(0x337740d04460, 0x337740d04310, 0x0?, 0x337740d160c0, 0x337740d160d0)
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:75 +0x46
+main.run.func10()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:270 +0x27
+main.run.func5.1()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:165 +0x57
+created by main.run.func5 in goroutine 1
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:163 +0xa5
+
+goroutine 33 [chan send]:
+main.queuedWork(0x337740d04460, 0x337740d04310, 0x0?, 0x337740d160c0, 0x337740d160d0)
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:75 +0x46
+main.run.func10()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:270 +0x27
+main.run.func5.1()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:165 +0x57
+created by main.run.func5 in goroutine 1
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:163 +0xa5
+
+goroutine 34 [chan send]:
+main.queuedWork(0x337740d04460, 0x337740d04310, 0x0?, 0x337740d160c0, 0x337740d160d0)
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:75 +0x46
+main.run.func10()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:270 +0x27
+main.run.func5.1()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:165 +0x57
+created by main.run.func5 in goroutine 1
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:163 +0xa5
+
+goroutine 35 [chan send]:
+main.queuedWork(0x337740d04460, 0x337740d04310, 0x0?, 0x337740d160c0, 0x337740d160d0)
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:75 +0x46
+main.run.func10()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:270 +0x27
+main.run.func5.1()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:165 +0x57
+created by main.run.func5 in goroutine 1
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:163 +0xa5
+
+goroutine 36 [chan send]:
+main.queuedWork(0x337740d04460, 0x337740d04310, 0x0?, 0x337740d160c0, 0x337740d160d0)
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:75 +0x46
+main.run.func10()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:270 +0x27
+main.run.func5.1()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:165 +0x57
+created by main.run.func5 in goroutine 1
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:163 +0xa5
+
+goroutine 37 [chan send]:
+main.queuedWork(0x337740d04460, 0x337740d04310, 0x0?, 0x337740d160c0, 0x337740d160d0)
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:75 +0x46
+main.run.func10()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:270 +0x27
+main.run.func5.1()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:165 +0x57
+created by main.run.func5 in goroutine 1
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:163 +0xa5
+
+goroutine 38 [chan receive]:
+main.activeWork(0x0?)
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:70 +0x15
+main.queuedWork(0x337740d04460, 0x337740d04310, 0x0?, 0x337740d160c0, 0x337740d160d0)
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:77 +0x65
+main.run.func10()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:270 +0x27
+main.run.func5.1()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:165 +0x57
+created by main.run.func5 in goroutine 1
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:163 +0xa5
+
+goroutine 39 [chan send]:
+main.queuedWork(0x337740d04460, 0x337740d04310, 0x0?, 0x337740d160c0, 0x337740d160d0)
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:75 +0x46
+main.run.func10()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:270 +0x27
+main.run.func5.1()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:165 +0x57
+created by main.run.func5 in goroutine 1
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:163 +0xa5
+
+goroutine 40 [chan send]:
+main.queuedWork(0x337740d04460, 0x337740d04310, 0x0?, 0x337740d160c0, 0x337740d160d0)
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:75 +0x46
+main.run.func10()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:270 +0x27
+main.run.func5.1()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:165 +0x57
+created by main.run.func5 in goroutine 1
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:163 +0xa5
+
+goroutine 41 [chan send]:
+main.queuedWork(0x337740d04460, 0x337740d04310, 0x0?, 0x337740d160c0, 0x337740d160d0)
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:75 +0x46
+main.run.func10()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:270 +0x27
+main.run.func5.1()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:165 +0x57
+created by main.run.func5 in goroutine 1
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:163 +0xa5
+
+goroutine 42 [chan send]:
+main.queuedWork(0x337740d04460, 0x337740d04310, 0x0?, 0x337740d160c0, 0x337740d160d0)
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:75 +0x46
+main.run.func10()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:270 +0x27
+main.run.func5.1()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:165 +0x57
+created by main.run.func5 in goroutine 1
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:163 +0xa5
+
+goroutine 43 [chan send]:
+main.queuedWork(0x337740d04460, 0x337740d04310, 0x0?, 0x337740d160c0, 0x337740d160d0)
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:75 +0x46
+main.run.func10()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:270 +0x27
+main.run.func5.1()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:165 +0x57
+created by main.run.func5 in goroutine 1
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:163 +0xa5
+
+goroutine 44 [chan send]:
+main.queuedWork(0x337740d04460, 0x337740d04310, 0x0?, 0x337740d160c0, 0x337740d160d0)
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:75 +0x46
+main.run.func10()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:270 +0x27
+main.run.func5.1()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:165 +0x57
+created by main.run.func5 in goroutine 1
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:163 +0xa5
+
+goroutine 45 [chan send]:
+main.queuedWork(0x337740d04460, 0x337740d04310, 0x0?, 0x337740d160c0, 0x337740d160d0)
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:75 +0x46
+main.run.func10()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:270 +0x27
+main.run.func5.1()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:165 +0x57
+created by main.run.func5 in goroutine 1
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:163 +0xa5
+
+goroutine 46 [chan send]:
+main.queuedWork(0x337740d04460, 0x337740d04310, 0x0?, 0x337740d160c0, 0x337740d160d0)
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:75 +0x46
+main.run.func10()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:270 +0x27
+main.run.func5.1()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:165 +0x57
+created by main.run.func5 in goroutine 1
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:163 +0xa5
+
+goroutine 47 [chan send]:
+main.queuedWork(0x337740d04460, 0x337740d04310, 0x0?, 0x337740d160c0, 0x337740d160d0)
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:75 +0x46
+main.run.func10()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:270 +0x27
+main.run.func5.1()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:165 +0x57
+created by main.run.func5 in goroutine 1
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:163 +0xa5
+
+goroutine 48 [chan send]:
+main.queuedWork(0x337740d04460, 0x337740d04310, 0x0?, 0x337740d160c0, 0x337740d160d0)
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:75 +0x46
+main.run.func10()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:270 +0x27
+main.run.func5.1()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:165 +0x57
+created by main.run.func5 in goroutine 1
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:163 +0xa5
+
+goroutine 49 [chan send]:
+main.queuedWork(0x337740d04460, 0x337740d04310, 0x0?, 0x337740d160c0, 0x337740d160d0)
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:75 +0x46
+main.run.func10()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:270 +0x27
+main.run.func5.1()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:165 +0x57
+created by main.run.func5 in goroutine 1
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:163 +0xa5
+
+goroutine 50 [chan send]:
+main.queuedWork(0x337740d04460, 0x337740d04310, 0x0?, 0x337740d160c0, 0x337740d160d0)
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:75 +0x46
+main.run.func10()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:270 +0x27
+main.run.func5.1()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:165 +0x57
+created by main.run.func5 in goroutine 1
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:163 +0xa5

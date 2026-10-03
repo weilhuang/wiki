@@ -1,0 +1,31 @@
+goroutine 1 [running]:
+main.run({0x7ffcd7e6d7e2, 0x3}, {0x7ffcd7e6d7eb, 0x49}, 0x0)
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:183 +0x1475
+main.main()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:322 +0x167
+
+goroutine 23 [trace reader (blocked)]:
+runtime.ReadTrace()
+	runtime/trace.go:893 +0x45
+runtime/trace.(*traceMultiplexer).startLocked.func1()
+	runtime/trace/subscribe.go:167 +0xb4
+created by runtime/trace.(*traceMultiplexer).startLocked in goroutine 1
+	runtime/trace/subscribe.go:157 +0x159
+
+goroutine 24 [syscall]:
+runtime/pprof.readProfile()
+	runtime/cpuprof.go:251 +0x4a
+runtime/pprof.profileWriter({0x76c360?, 0x19bce0d88048?})
+	runtime/pprof/pprof.go:927 +0x45
+created by runtime/pprof.StartCPUProfile in goroutine 1
+	runtime/pprof/pprof.go:908 +0x1b6
+
+goroutine 27 [runnable]:
+main.cpuWork(0x19bce0d960c8, 0x0?)
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:45 +0x36
+main.run.func6()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:175 +0x2d
+main.run.func5.1()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:165 +0x57
+created by main.run.func5 in goroutine 1
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:163 +0xa5

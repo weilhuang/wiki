@@ -1,0 +1,65 @@
+{
+  "kind": "static-checked",
+  "status": "pass",
+  "recordedAt": "2026-10-03T09:31:07.540604+00:00",
+  "commands": [
+    {
+      "command": "npm run check",
+      "exitCode": 0
+    }
+  ],
+  "scope": [
+    "37 canonical topics across9 domains,6 reference-based routes,24 Node regressions,117 HTML outputs,463 search sections and60 intent targets",
+    "Four integrated articles,4 Mermaid diagrams and4 genuine Code Hike walkthroughs; canonical source and snippet identities",
+    "Go concurrency/runtime and cloud category guides; service-reliability route; shared source ZIP entries and applicable evidence scopes",
+    "Legacy anchors,canonical/404 lifecycle,visible non-code Markdown,strong rendering and source/assets preserved"
+  ],
+  "limitations": [
+    "No new Go runtime or cloud model execution in platform integration; source-bound author and independent executions remain separate",
+    "Kubernetes cluster behavior remains not-run; process examples and sequential models do not establish cluster guarantees",
+    "Independent whole-tree review,remote CI and deployed-browser checks are separate gates"
+  ],
+  "sourceFiles": [
+    {
+      "path": "docs/knowledge/go/concurrency/channel-memory-ownership.md",
+      "sha256": "78d8fe7f3ab882b87e0d5ccea754d809b9e126b23b1086cca947e58723a1fe17"
+    },
+    {
+      "path": "docs/knowledge/go/runtime/scheduler-netpoll-diagnosis.md",
+      "sha256": "29019b6c98019405842f6a8cdacff11d1d763c65238e4926adf678b6590ac3f7"
+    },
+    {
+      "path": "content/snippets/go-runtime.json",
+      "sha256": "6bc5882b11900ecb09818af7cc01baa5f8ca1377d8cdca1e05d404caaedc9bce"
+    },
+    {
+      "path": "labs/go-runtime-boundaries-lab/editorial/static-check.mjs",
+      "sha256": "608fa04e61ac3b18a2c0776f111ac40e46522ed6cfa3ac9ad61df35df92b35d5"
+    },
+    {
+      "path": "docs/knowledge/cloud/observability/service-level-signals.md",
+      "sha256": "677d5008416a54eefc53c75de652e1b1c0457e3a952cda06e1a440f34b2d8c6c"
+    },
+    {
+      "path": "docs/knowledge/cloud/lifecycle/readiness-draining.md",
+      "sha256": "3d81568f2d66b7a949bb977e73dff58e5bd71f724bfbe596ff2e77f596d2441f"
+    },
+    {
+      "path": "content/snippets/cloud-reliability.json",
+      "sha256": "64f653a9ba06c27bfda5d7c2274587478384452019a71ddcc1ab0685d1832b59"
+    },
+    {
+      "path": "labs/cloud-reliability-lab/pod-spec-fragment.yaml",
+      "sha256": "669be8168e5f78021e4b5045e066026a2985a8b4432cb423ae1b5bf1f9052ea9"
+    },
+    {
+      "path": "content/records/cloud-reliability/author-check.mjs",
+      "sha256": "10bb3faf0826ff61d993f33b93b10656219e1306aee0ef13134f56126bc8e40d"
+    }
+  ],
+  "edits": [
+    "G: status/reviewedAt publication metadata only; technical article bodies unchanged",
+    "C: status/reviewedAt plus related edges to the same-batch G topics; technical bodies unchanged",
+    "Existing MySQL archive-binding limitation wording now reflects completed content review; original source ZIP and public execution summary unchanged"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "status": "pass",
+  "articles": [
+    {
+      "id": "go.channel-memory-ownership",
+      "source": "docs/knowledge/go/concurrency/channel-memory-ownership.md",
+      "sha256": "72f42e14e4720682463f9d77acc44ae3c367a5a0a18c5cd3d8d57e7b2a37742f",
+      "h1": 1
+    },
+    {
+      "id": "go.runtime-wait-diagnosis",
+      "source": "docs/knowledge/go/runtime/scheduler-netpoll-diagnosis.md",
+      "sha256": "16e85c4a76248421a5fe9b1aa356a81be7114be1e1352018c68cd15b86740d40",
+      "h1": 1
+    }
+  ],
+  "diagrams": 2,
+  "codeHikeFences": 2,
+  "steps": 7,
+  "links": 9
+}

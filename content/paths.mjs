@@ -19,10 +19,12 @@ export const paths = [
     stages:[
       {title:'先把请求合同写清',transition:'从公开输入和响应开始，先知道服务承诺什么，再讨论请求取消后的工作。',task:'用同一输入分别预测公开响应、业务进入和副作用。',readings:[
         {topic:'go.http-contract',role:'required',purpose:'建立入口拒绝顺序与完整响应合同'},
+        {topic:'go.channel-memory-ownership',role:'optional',purpose:'需要解释交接规则时，先区分收发同步、对象别名和工作结束'},
         {topic:'go.context-cancellation',role:'required',purpose:'区分取消信号、工作退出和业务提交'}]},
       {title:'限制工作与等待',transition:'取消只发信号，仍需明确谁等待任务、限制队列，以及谁关闭下游响应。',task:'给活动任务、队列和下游调用设可解释的边界。',readings:[
         {topic:'go.bounded-work',role:'required',purpose:'说明谁接纳、谁 join、谁关闭'},
-        {topic:'go.client-budgets',role:'required',purpose:'让 Body、连接复用和重试共享总预算'}]},
+        {topic:'go.client-budgets',role:'required',purpose:'让 Body、连接复用和重试共享总预算'},
+        {topic:'go.runtime-wait-diagnosis',role:'optional',purpose:'定位慢请求时，用实际栈、profile与trace区分执行、等待和输入堆积'}]},
       {title:'关闭进程前兑现责任',transition:'单次请求正确收尾不意味着整个进程可以退出，后台工作和共享依赖还有自己的责任。',task:'演练正常排空与强制退出，说明什么结果需要外部持久化。',readings:[
         {topic:'go.graceful-shutdown',role:'required',purpose:'按依赖顺序停止接纳、等待和释放资源'}]}
     ] },
@@ -65,8 +67,9 @@ export const paths = [
         {topic:'java.jvm-diagnosis',role:'required',purpose:'区分计算、monitor 阻塞、条件等待与分配压力'},
         {topic:'foundations.blocking-waiting',role:'optional',purpose:'需要跨出 JVM 时，把等待条件继续追到连接或下游持有者'}]}
     ] }
+  ,{"id": "service-reliability", "title": "服务观测与发布可靠性", "source": "paths/service-reliability.md", "status": "published", "entry": ["了解一次请求的输入、结果与超时", "能区分新工作接纳和已有工作完成；正文补充分布与探针概念"], "goal": "先定义用户事件与服务目标，再用局部证据定位原因，最后解释发布时的路由、排空和资源释放。", "stages": [{"title": "定义用户看到的结果", "transition": "服务目标需要明确事件边界和好事件条件，才能判断一组请求是否满足目标。", "task": "给固定订单样本计算好事件比例和预算；改变流量分配，说明哪些百分位算法会失效。", "readings": [{"topic": "cloud.service-level-signals", "role": "required", "purpose": "区分事件总体、采样、比例和分布，处理零流量与基数成本"}]}, {"title": "让证据区分相似症状", "transition": "目标未达标只说明用户结果，下一步要用相同窗口的证据寻找执行、等待或输入堆积。", "task": "为 CPU 低而请求变慢提出两个原因，选择能排除一个原因的下一项观察，并保留测量范围。", "readings": [{"topic": "foundations.blocking-waiting", "role": "optional", "purpose": "需要基础模型时，从线程与资源持有者区分计算和等待"}, {"topic": "go.runtime-wait-diagnosis", "role": "optional", "purpose": "Go 服务用有限真实进程练习栈、profile与trace之间的区别"}, {"topic": "java.jvm-diagnosis", "role": "optional", "purpose": "Java 服务对照线程 CPU 增量、锁和GC观察"}, {"topic": "cloud.connection-waiting", "role": "required", "purpose": "把入口症状接回连接等待与实际持有者"}]}, {"title": "把发布窗口放进同一时间线", "transition": "平台状态和应用状态分属不同所有者。目标与观察范围明确后，再安排摘流、停止接纳、等待及依赖释放。", "task": "安排一个端点已变但路由未刷新的请求，写出何时接纳或拒绝、旧工作何时结束，以及何时停止发布。", "readings": [{"topic": "go.graceful-shutdown", "role": "optional", "purpose": "需要应用侧实例时，观察正常排空、强制退出和依赖顺序"}, {"topic": "cloud.readiness-draining", "role": "required", "purpose": "区分探针、端点消费者与进程责任，并说明真实集群尚未验证的部分"}]}]}
 ]
 export const plannedPaths = [
-  {id:'performance',title:'性能诊断',goal:'用负载和证据区分排队、连接、SQL 与运行时瓶颈',missing:'服务目标、代表性负载与 profile 专题仍待补齐'},
+  {id:'performance',title:'性能诊断',goal:'用负载和证据区分排队、连接、SQL 与运行时瓶颈',missing:'已有服务目标与 Java/Go 有限诊断；代表性负载、容量模型和端到端性能实验仍待补齐'},
   {id:'architecture-evolution',title:'系统设计与演进',goal:'从约束比较结构，再安排可逆迁移',missing:'先提供完整案例；通用建模和迁移专题继续补充'}
 ]

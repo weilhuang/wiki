@@ -1,0 +1,23 @@
+Type: delay
+Showing nodes accounting for 728.06us, 100% of 728.06us total
+      flat  flat%   sum%        cum   cum%
+  585.47us 80.41% 80.41%   585.47us 80.41%  runtime.chanrecv1
+  129.60us 17.80% 98.22%   134.85us 18.52%  runtime.gcStart
+   12.99us  1.78%   100%    12.99us  1.78%  sync.(*WaitGroup).Wait
+         0     0%   100%   129.60us 17.80%  compress/gzip.NewWriterLevel
+         0     0%   100%     5.25us  0.72%  main.capture
+         0     0%   100%   459.78us 63.15%  main.channelWait
+         0     0%   100%   138.69us 19.05%  main.main
+         0     0%   100%   138.69us 19.05%  main.run
+         0     0%   100%   459.78us 63.15%  main.run.func5.1
+         0     0%   100%   459.78us 63.15%  main.run.func7
+         0     0%   100%     5.25us  0.72%  runtime.gcBgMarkStartWorkers
+         0     0%   100%     5.25us  0.72%  runtime.makeslice
+         0     0%   100%   134.85us 18.52%  runtime.mallocgc
+         0     0%   100%     5.25us  0.72%  runtime.mallocgcLarge
+         0     0%   100%   129.60us 17.80%  runtime.mallocgcSmallScanNoHeader
+         0     0%   100%   129.60us 17.80%  runtime.newobject
+         0     0%   100%   119.36us 16.39%  runtime/pprof.StopCPUProfile
+         0     0%   100%   129.60us 17.80%  runtime/pprof.newProfileBuilder
+         0     0%   100%   129.60us 17.80%  runtime/pprof.profileWriter
+Main binary filename not available.

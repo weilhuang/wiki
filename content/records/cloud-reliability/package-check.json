@@ -1,0 +1,35 @@
+{
+  "status": "pass",
+  "recordedAt": "2026-10-03T09:08:55.523919+00:00",
+  "pythonAST": [
+    {
+      "path": "lifecycle.py",
+      "status": "pass"
+    },
+    {
+      "path": "signals.py",
+      "status": "pass"
+    },
+    {
+      "path": "verify.py",
+      "status": "pass"
+    },
+    {
+      "path": "walk_draining.py",
+      "status": "pass"
+    },
+    {
+      "path": "walk_signals.py",
+      "status": "pass"
+    }
+  ],
+  "zipEntries": 12,
+  "zipExactSourceBytes": true,
+  "zipSourceOnly": true,
+  "zipNoSymlinks": true,
+  "noNewSoftware": true,
+  "noHeavySlotUsed": true,
+  "limits": [
+    "No full wiki build, browser, Kubernetes API or cluster validation in author package"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "status": "pass",
+  "articles": [
+    {
+      "id": "cloud.service-level-signals",
+      "sha256": "6f446982161b5239108a2e1495eeac3b1e8d0087a395b396fc484cd2f64cd504",
+      "source": "knowledge/cloud/observability/service-level-signals.md"
+    },
+    {
+      "id": "cloud.readiness-draining",
+      "sha256": "79e1d35fe2bfd70a6f9cd44cf8c043be75cddb56ae9f20b7e3316214f3496a9a",
+      "source": "knowledge/cloud/lifecycle/readiness-draining.md"
+    }
+  ],
+  "diagrams": [
+    {
+      "article": "service-level-signals.md",
+      "type": "flowchart-v2",
+      "sha256": "9bef8bcab99c80cc90eab866435cc6db48f6cd65f48c629c84d56ff47c5ac613"
+    },
+    {
+      "article": "readiness-draining.md",
+      "type": "flowchart-v2",
+      "sha256": "eae7038b1cad646cfb152a859a3e3ebc4e3e72b59056038e2ce0d3ba1c7ffd73"
+    }
+  ],
+  "snippets": [
+    {
+      "id": "cloud.signals-walk",
+      "sourceSha256": "4fb2f5b6c0973e2dc0ce65de24a3f290b3a4f03e352df793b760d9686159dacb",
+      "cleanCodeSha256": "4fb2f5b6c0973e2dc0ce65de24a3f290b3a4f03e352df793b760d9686159dacb",
+      "steps": 3
+    },
+    {
+      "id": "cloud.draining-walk",
+      "sourceSha256": "7fa5bf986a872c400bd679dce561e130763dfec4dff6e12a8883e218e6591006",
+      "cleanCodeSha256": "7fa5bf986a872c400bd679dce561e130763dfec4dff6e12a8883e218e6591006",
+      "steps": 4
+    }
+  ],
+  "yaml": {
+    "source": "labs/cloud-reliability-lab/pod-spec-fragment.yaml",
+    "sha256": "669be8168e5f78021e4b5045e066026a2985a8b4432cb423ae1b5bf1f9052ea9",
+    "status": "syntax-and-exact-text-only"
+  },
+  "limitation": "Parsing and snippet checks only; no browser, SSR or Kubernetes API validation",
+  "codeBlocksCompiled": 3
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "command": "python3 --version",
+    "workingDirectory": "labs/cloud-reliability-lab",
+    "exitCode": 0,
+    "output": "Python 3.12.14\n"
+  },
+  {
+    "command": "timeout 10s python3 -B walk_signals.py",
+    "workingDirectory": "labs/cloud-reliability-lab",
+    "exitCode": 0,
+    "output": "{'total': 110, 'good': 91, 'ratio': '91/110', 'burn': '190/11'}\n"
+  },
+  {
+    "command": "timeout 10s python3 -B walk_draining.py",
+    "workingDirectory": "labs/cloud-reliability-lab",
+    "exitCode": 0,
+    "output": "{'completed': ['old'], 'rejected': ['late'], 'close_count': 1, 'forced': False}\n"
+  },
+  {
+    "command": "timeout 10s python3 -B verify.py --output results.json",
+    "workingDirectory": "labs/cloud-reliability-lab",
+    "exitCode": 0,
+    "output": "15 model cases passed; 19 exact target rejections; 5 unrelated outcomes refused\n"
+  },
+  {
+    "command": "timeout 10s python3 -B verify.py --mutant mean-ratios",
+    "workingDirectory": "labs/cloud-reliability-lab",
+    "exitCode": 2,
+    "output": "{\"case\": \"counts\", \"failure\": {\"actual\": \"1/2\", \"code\": \"pooled-ratio\", \"expected\": \"91/110\"}, \"mutant\": \"mean-ratios\", \"status\": \"target-rejected\"}\n",
+    "expectation": "expected-rejection",
+    "expectedExitCode": 2
+  },
+  {
+    "command": "timeout 10s python3 -B verify.py --mutant restart-grace",
+    "workingDirectory": "labs/cloud-reliability-lab",
+    "exitCode": 2,
+    "output": "{\"case\": \"deadline\", \"failure\": {\"actual\": 16, \"code\": \"single-grace-deadline\", \"expected\": 10}, \"mutant\": \"restart-grace\", \"status\": \"target-rejected\"}\n",
+    "expectation": "expected-rejection",
+    "expectedExitCode": 2
+  }
+]

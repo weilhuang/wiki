@@ -1,0 +1,390 @@
+{
+  "correct": [
+    {
+      "case": "counts",
+      "observed": {
+        "good": 91,
+        "ratio": "91/110",
+        "status": "observed",
+        "total": 110
+      },
+      "status": "pass"
+    },
+    {
+      "case": "threshold",
+      "observed": {
+        "good": 2,
+        "ratio": "2/3",
+        "status": "observed",
+        "total": 3
+      },
+      "status": "pass"
+    },
+    {
+      "case": "empty",
+      "observed": {
+        "good": 0,
+        "ratio": null,
+        "status": "no-traffic",
+        "total": 0
+      },
+      "status": "pass"
+    },
+    {
+      "case": "missing",
+      "observed": {
+        "good": null,
+        "ratio": null,
+        "status": "unknown",
+        "total": null
+      },
+      "status": "pass"
+    },
+    {
+      "case": "budget",
+      "observed": {
+        "allowed": "11/10",
+        "burn": "190/11",
+        "remaining": "-179/10"
+      },
+      "status": "pass"
+    },
+    {
+      "case": "percentile",
+      "observed": {
+        "pooled_p95_ms": 1000,
+        "rank_for_21": 20
+      },
+      "status": "pass"
+    },
+    {
+      "case": "histogram",
+      "observed": {
+        "cumulative": [
+          100,
+          100,
+          110
+        ],
+        "p95_interval_ms": "(300,1000]",
+        "same_buckets_alternative_exact_p95_ms": 500
+      },
+      "status": "pass"
+    },
+    {
+      "case": "sampling",
+      "observed": {
+        "population": "1/10",
+        "retained": "1/2"
+      },
+      "status": "pass"
+    },
+    {
+      "case": "propagate",
+      "observed": {
+        "close_count": 1,
+        "completed": [
+          "old"
+        ],
+        "rejected": [
+          "late",
+          "keepalive"
+        ]
+      },
+      "status": "pass"
+    },
+    {
+      "case": "readiness-window",
+      "observed": {
+        "completed": [
+          "pre-stop"
+        ]
+      },
+      "status": "pass"
+    },
+    {
+      "case": "close-active",
+      "observed": {
+        "close_count": 1,
+        "completed": [
+          "in-flight"
+        ]
+      },
+      "status": "pass"
+    },
+    {
+      "case": "close-twice",
+      "observed": {
+        "close_count": 1
+      },
+      "status": "pass"
+    },
+    {
+      "case": "gate-twice",
+      "observed": {
+        "accepting": false,
+        "rejected": [
+          "late"
+        ]
+      },
+      "status": "pass"
+    },
+    {
+      "case": "deadline",
+      "observed": {
+        "application_cleanup_ran": false,
+        "deadline": 10,
+        "exit": "forced",
+        "uncertain": [
+          "unfinished"
+        ]
+      },
+      "status": "pass"
+    },
+    {
+      "case": "conditions",
+      "observed": {
+        "exception": {
+          "ready": true,
+          "serving": false,
+          "terminating": true
+        },
+        "ordinary": {
+          "ready": false,
+          "serving": true,
+          "terminating": true
+        }
+      },
+      "status": "pass"
+    }
+  ],
+  "mutants": [
+    {
+      "case": "counts",
+      "failure": {
+        "actual": [
+          115,
+          96
+        ],
+        "code": "eligible-counts",
+        "expected": [
+          110,
+          91
+        ]
+      },
+      "mutant": "include-health",
+      "status": "target-rejected"
+    },
+    {
+      "case": "counts",
+      "failure": {
+        "actual": [
+          99,
+          91
+        ],
+        "code": "eligible-counts",
+        "expected": [
+          110,
+          91
+        ]
+      },
+      "mutant": "drop-timeouts",
+      "status": "target-rejected"
+    },
+    {
+      "case": "counts",
+      "failure": {
+        "actual": "1/2",
+        "code": "pooled-ratio",
+        "expected": "91/110"
+      },
+      "mutant": "mean-ratios",
+      "status": "target-rejected"
+    },
+    {
+      "case": "threshold",
+      "failure": {
+        "actual": 1,
+        "code": "inclusive-boundary",
+        "expected": 2
+      },
+      "mutant": "strict-threshold",
+      "status": "target-rejected"
+    },
+    {
+      "case": "empty",
+      "failure": {
+        "actual": "1",
+        "code": "empty-ratio",
+        "expected": null
+      },
+      "mutant": "zero-is-perfect",
+      "status": "target-rejected"
+    },
+    {
+      "case": "missing",
+      "failure": {
+        "actual": "no-traffic",
+        "code": "unknown-state",
+        "expected": "unknown"
+      },
+      "mutant": "missing-is-zero",
+      "status": "target-rejected"
+    },
+    {
+      "case": "budget",
+      "failure": {
+        "actual": "1089/10",
+        "code": "allowed-bad-events",
+        "expected": "11/10"
+      },
+      "mutant": "use-target-as-budget",
+      "status": "target-rejected"
+    },
+    {
+      "case": "percentile",
+      "failure": {
+        "actual": 550.0,
+        "code": "pooled-p95",
+        "expected": 1000
+      },
+      "mutant": "mean-p95",
+      "status": "target-rejected"
+    },
+    {
+      "case": "percentile",
+      "failure": {
+        "actual": "2000/11",
+        "code": "pooled-p95",
+        "expected": 1000
+      },
+      "mutant": "weighted-p95",
+      "status": "target-rejected"
+    },
+    {
+      "case": "histogram",
+      "failure": {
+        "actual": [
+          "50",
+          "50",
+          "55"
+        ],
+        "code": "summed-buckets",
+        "expected": [
+          100,
+          100,
+          110
+        ]
+      },
+      "mutant": "average-buckets",
+      "status": "target-rejected"
+    },
+    {
+      "case": "sampling",
+      "failure": {
+        "actual": "1/2",
+        "code": "population-error-ratio",
+        "expected": "1/10"
+      },
+      "mutant": "sample-is-population",
+      "status": "target-rejected"
+    },
+    {
+      "case": "propagate",
+      "failure": {
+        "actual": false,
+        "code": "route-not-yet-refreshed",
+        "expected": true
+      },
+      "mutant": "instant-propagation",
+      "status": "target-rejected"
+    },
+    {
+      "case": "close-active",
+      "failure": {
+        "actual": [
+          "closed",
+          false,
+          1
+        ],
+        "code": "dependency-held-while-active",
+        "expected": [
+          "busy",
+          true,
+          0
+        ]
+      },
+      "mutant": "early-close",
+      "status": "target-rejected"
+    },
+    {
+      "case": "close-twice",
+      "failure": {
+        "actual": 2,
+        "code": "close-once",
+        "expected": 1
+      },
+      "mutant": "double-close",
+      "status": "target-rejected"
+    },
+    {
+      "case": "gate-twice",
+      "failure": {
+        "actual": true,
+        "code": "gate-remains-closed",
+        "expected": false
+      },
+      "mutant": "toggle-gate",
+      "status": "target-rejected"
+    },
+    {
+      "case": "deadline",
+      "failure": {
+        "actual": 16,
+        "code": "single-grace-deadline",
+        "expected": 10
+      },
+      "mutant": "restart-grace",
+      "status": "target-rejected"
+    },
+    {
+      "case": "deadline",
+      "failure": {
+        "actual": "clean",
+        "code": "forced-is-not-clean",
+        "expected": "forced"
+      },
+      "mutant": "force-is-clean",
+      "status": "target-rejected"
+    },
+    {
+      "case": "conditions",
+      "failure": {
+        "actual": true,
+        "code": "terminating-not-ready",
+        "expected": false
+      },
+      "mutant": "ignore-terminating",
+      "status": "target-rejected"
+    },
+    {
+      "case": "conditions",
+      "failure": {
+        "actual": false,
+        "code": "publish-not-ready-exception",
+        "expected": true
+      },
+      "mutant": "ignore-publish-exception",
+      "status": "target-rejected"
+    }
+  ],
+  "runtime": "3.12.14",
+  "scope": "finite arithmetic and sequential lifecycle model only",
+  "status": "pass",
+  "verifier_probes": [
+    "wrong-exception",
+    "unexpected-success",
+    "wrong-code",
+    "wrong-expected",
+    "wrong-actual"
+  ]
+}

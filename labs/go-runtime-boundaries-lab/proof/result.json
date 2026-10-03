@@ -1,0 +1,78 @@
+{
+  "status": "pass",
+  "version": "go version go1.27.1 linux/amd64",
+  "scenarios": {
+    "cpu": {
+      "scenario": "cpu",
+      "version": "go1.27.1",
+      "status": "pass",
+      "started": 1,
+      "joined": 1,
+      "completed": 1,
+      "applicationGoroutineLimit": 1,
+      "blockedObserved": 0,
+      "activeAtSnapshot": 0,
+      "waitingAtSnapshot": 0,
+      "cpuChecksum": 563973863467021332,
+      "networkBytes": 0
+    },
+    "channel": {
+      "scenario": "channel",
+      "version": "go1.27.1",
+      "status": "pass",
+      "started": 1,
+      "joined": 1,
+      "completed": 1,
+      "applicationGoroutineLimit": 1,
+      "blockedObserved": 1,
+      "activeAtSnapshot": 0,
+      "waitingAtSnapshot": 0,
+      "cpuChecksum": 0,
+      "networkBytes": 0
+    },
+    "network": {
+      "scenario": "network",
+      "version": "go1.27.1",
+      "status": "pass",
+      "started": 1,
+      "joined": 1,
+      "completed": 1,
+      "applicationGoroutineLimit": 2,
+      "blockedObserved": 1,
+      "activeAtSnapshot": 0,
+      "waitingAtSnapshot": 0,
+      "cpuChecksum": 0,
+      "networkBytes": 1
+    },
+    "backlog": {
+      "scenario": "backlog",
+      "version": "go1.27.1",
+      "status": "pass",
+      "started": 24,
+      "joined": 24,
+      "completed": 24,
+      "applicationGoroutineLimit": 24,
+      "blockedObserved": 22,
+      "activeAtSnapshot": 2,
+      "waitingAtSnapshot": 22,
+      "cpuChecksum": 0,
+      "networkBytes": 0
+    }
+  },
+  "checks": [
+    "normal tests",
+    "race clean for executed paths",
+    "vet",
+    "alias exact rejection",
+    "cancel-join exact rejection",
+    "actual race diagnostic",
+    "real CPU/channel/TCP/backlog profile and trace",
+    "worker error propagated",
+    "verifier rejection classification"
+  ],
+  "limitations": [
+    "Finite Linux amd64 samples, not fairness or production throughput guarantees",
+    "No external network, HTTP load, C calls, disk IO or container scheduling tests",
+    "Raw profiles retained privately; source ZIP contains sanitized text observations and hashes only"
+  ]
+}

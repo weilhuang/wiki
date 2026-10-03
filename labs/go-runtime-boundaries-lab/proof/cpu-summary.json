@@ -1,0 +1,14 @@
+{
+  "scenario": "cpu",
+  "version": "go1.27.1",
+  "status": "pass",
+  "started": 1,
+  "joined": 1,
+  "completed": 1,
+  "applicationGoroutineLimit": 1,
+  "blockedObserved": 0,
+  "activeAtSnapshot": 0,
+  "waitingAtSnapshot": 0,
+  "cpuChecksum": 563973863467021332,
+  "networkBytes": 0
+}

@@ -1,0 +1,28 @@
+Type: delay
+Showing nodes accounting for 166.40us, 100% of 166.40us total
+      flat  flat%   sum%        cum   cum%
+  133.63us 80.31% 80.31%   133.63us 80.31%  internal/poll.(*FD).Read
+   32.77us 19.69%   100%    32.77us 19.69%  internal/poll.(*FD).WaitWrite
+         0     0%   100%   133.63us 80.31%  io.ReadAtLeast
+         0     0%   100%   133.63us 80.31%  io.ReadFull
+         0     0%   100%    32.77us 19.69%  main.main
+         0     0%   100%   133.63us 80.31%  main.networkWait
+         0     0%   100%    32.77us 19.69%  main.run
+         0     0%   100%   133.63us 80.31%  main.run.func5.1
+         0     0%   100%   133.63us 80.31%  main.run.func9
+         0     0%   100%    32.77us 19.69%  net.(*Dialer).Dial
+         0     0%   100%    32.77us 19.69%  net.(*Dialer).DialContext
+         0     0%   100%   133.63us 80.31%  net.(*conn).Read
+         0     0%   100%   133.63us 80.31%  net.(*netFD).Read
+         0     0%   100%    32.77us 19.69%  net.(*netFD).connect
+         0     0%   100%    32.77us 19.69%  net.(*netFD).dial
+         0     0%   100%    32.77us 19.69%  net.(*sysDialer).dialParallel
+         0     0%   100%    32.77us 19.69%  net.(*sysDialer).dialSerial
+         0     0%   100%    32.77us 19.69%  net.(*sysDialer).dialSingle
+         0     0%   100%    32.77us 19.69%  net.(*sysDialer).dialTCP
+         0     0%   100%    32.77us 19.69%  net.(*sysDialer).doDialTCP
+         0     0%   100%    32.77us 19.69%  net.(*sysDialer).doDialTCPProto
+         0     0%   100%    32.77us 19.69%  net.DialTimeout
+         0     0%   100%    32.77us 19.69%  net.internetSocket
+         0     0%   100%    32.77us 19.69%  net.socket
+Main binary filename not available.

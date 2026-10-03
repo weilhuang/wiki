@@ -1,0 +1,6 @@
+=== RUN   TestPublishedPayload
+    ownership_test.go:86: OWNERSHIP_REJECT got="X42" want=A42
+--- FAIL: TestPublishedPayload (0.00s)
+FAIL
+FAIL	example.com/go-runtime-boundaries-lab	0.002s
+FAIL

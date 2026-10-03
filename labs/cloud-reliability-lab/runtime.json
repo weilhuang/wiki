@@ -1,0 +1,11 @@
+{
+  "implementation": "CPython",
+  "version": "3.12.14",
+  "platform": "Linux",
+  "dependencies": "standard library only",
+  "totalTimeoutSeconds": 10,
+  "processes": "one Python process per command; no spawned subprocesses",
+  "serviceExecution": false,
+  "network": false,
+  "threading": false
+}

@@ -1,0 +1,64 @@
+[
+  {
+    "name": "version",
+    "command": "go version",
+    "exitCode": 0,
+    "durationSeconds": 0.009,
+    "timedOut": false
+  },
+  {
+    "name": "tests",
+    "command": "go test -p=1 -count=1 -v -timeout=20s ./...",
+    "exitCode": 0,
+    "durationSeconds": 0.591,
+    "timedOut": false
+  },
+  {
+    "name": "race-clean",
+    "command": "go test -p=1 -race -count=1 -v -timeout=20s ./...",
+    "exitCode": 0,
+    "durationSeconds": 1.526,
+    "timedOut": false
+  },
+  {
+    "name": "vet",
+    "command": "go vet -p=1 ./...",
+    "exitCode": 0,
+    "durationSeconds": 0.137,
+    "timedOut": false
+  },
+  {
+    "name": "reject-alias",
+    "command": "LAB_VARIANT=alias go test -p=1 -count=1 -run ^TestPublishedPayload$ -v -timeout=20s .",
+    "exitCode": 1,
+    "durationSeconds": 0.144,
+    "timedOut": false,
+    "expectation": "expected-rejection",
+    "expectedExitCode": 1
+  },
+  {
+    "name": "reject-cancel-join",
+    "command": "LAB_VARIANT=cancel-join go test -p=1 -count=1 -run ^TestCancellationIsNotJoin$ -v -timeout=20s .",
+    "exitCode": 1,
+    "durationSeconds": 0.154,
+    "timedOut": false,
+    "expectation": "expected-rejection",
+    "expectedExitCode": 1
+  },
+  {
+    "name": "reject-race",
+    "command": "LAB_VARIANT=race go test -p=1 -race -count=1 -run ^TestRaceFixture$ -v -timeout=20s .",
+    "exitCode": 1,
+    "durationSeconds": 0.224,
+    "timedOut": false,
+    "expectation": "expected-rejection",
+    "expectedExitCode": 1
+  },
+  {
+    "name": "build",
+    "command": "go build -p=1 -trimpath -o PRIVATE/diagnose ./cmd/diagnose",
+    "exitCode": 1,
+    "durationSeconds": 0.021,
+    "timedOut": false
+  }
+]

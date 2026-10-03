@@ -1,0 +1,14 @@
+{
+  "scenario": "channel",
+  "version": "go1.27.1",
+  "status": "pass",
+  "started": 1,
+  "joined": 1,
+  "completed": 1,
+  "applicationGoroutineLimit": 1,
+  "blockedObserved": 1,
+  "activeAtSnapshot": 0,
+  "waitingAtSnapshot": 0,
+  "cpuChecksum": 0,
+  "networkBytes": 0
+}

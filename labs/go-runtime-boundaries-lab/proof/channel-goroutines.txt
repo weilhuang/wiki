@@ -1,0 +1,35 @@
+goroutine 1 [running]:
+main.capture({0x76d2f8, 0x27cbcb09a0e0}, {0x5a88e4, 0x10}, {0x5a8030, 0xe}, 0x1)
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:90 +0xf8
+main.run({0x7fffe1d397da, 0x7}, {0x7fffe1d397e7, 0x4d}, 0x0)
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:193 +0x856
+main.main()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:322 +0x167
+
+goroutine 10 [trace reader (blocked)]:
+runtime.ReadTrace()
+	runtime/trace.go:893 +0x45
+runtime/trace.(*traceMultiplexer).startLocked.func1()
+	runtime/trace/subscribe.go:167 +0xb4
+created by runtime/trace.(*traceMultiplexer).startLocked in goroutine 1
+	runtime/trace/subscribe.go:157 +0x159
+
+goroutine 11 [runnable]:
+compress/gzip.NewWriterLevel({0x76c360, 0x27cbcb028078}, 0x1)
+	compress/gzip/gzip.go:72 +0xca
+runtime/pprof.newProfileBuilder({0x76c360, 0x27cbcb028078})
+	runtime/pprof/proto.go:260 +0x26
+runtime/pprof.profileWriter({0x76c360?, 0x27cbcb028078?})
+	runtime/pprof/pprof.go:920 +0x25
+created by runtime/pprof.StartCPUProfile in goroutine 1
+	runtime/pprof/pprof.go:908 +0x1b6
+
+goroutine 12 [chan receive]:
+main.channelWait(0x27cbcb0503f0, 0x0?)
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:55 +0x27
+main.run.func7()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:191 +0x25
+main.run.func5.1()
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:165 +0x57
+created by main.run.func5 in goroutine 1
+	example.com/go-runtime-boundaries-lab/cmd/diagnose/main.go:163 +0xa5

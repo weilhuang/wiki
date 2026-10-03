@@ -1,0 +1,53 @@
+{
+  "reviewedAt": "2026-10-03",
+  "files": [
+    {
+      "sourceId": "go127.chan-source",
+      "file": "src/runtime/chan.go",
+      "lineRanges": "176-310;414-484;524-697",
+      "scope": "Send admission, park, closed channel and receive branches"
+    },
+    {
+      "sourceId": "go127.select-source",
+      "file": "src/runtime/select.go",
+      "lineRanges": "167-202",
+      "scope": "Permuted case polling order"
+    },
+    {
+      "sourceId": "go127.proc-source",
+      "file": "src/runtime/proc.go",
+      "lineRanges": "25-34;3404-3524;3747-3805;4150-4210",
+      "scope": "GMP concepts and findRunnable/schedule/netpoll integration"
+    },
+    {
+      "sourceId": "go127.runtime-state-source",
+      "file": "src/runtime/runtime2.go",
+      "lineRanges": "35-65",
+      "scope": "Runnable/running/syscall/waiting state definitions"
+    },
+    {
+      "sourceId": "go127.netpoll-source",
+      "file": "src/runtime/netpoll.go",
+      "lineRanges": "336-361;546-583",
+      "scope": "Runtime poll wait and park on IO wait"
+    },
+    {
+      "sourceId": "go127.epoll-source",
+      "file": "src/runtime/netpoll_epoll.go",
+      "lineRanges": "99-176",
+      "scope": "Linux epoll events and ready list"
+    },
+    {
+      "sourceId": "go127.poll-source",
+      "file": "src/internal/poll/fd_unix.go",
+      "lineRanges": "141-178",
+      "scope": "FD.Read retry after EAGAIN and pollable waitRead"
+    },
+    {
+      "sourceId": "go127.poll-runtime-source",
+      "file": "src/internal/poll/fd_poll_runtime.go",
+      "lineRanges": "72-94",
+      "scope": "Read wait bridges to runtime poll wait"
+    }
+  ]
+}

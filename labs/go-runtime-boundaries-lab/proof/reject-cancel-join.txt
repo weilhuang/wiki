@@ -1,0 +1,6 @@
+=== RUN   TestCancellationIsNotJoin
+    ownership_test.go:112: CANCEL_JOIN_REJECT cancelled=true exited-at-cancel=false joined-at-end=true
+--- FAIL: TestCancellationIsNotJoin (0.00s)
+FAIL
+FAIL	example.com/go-runtime-boundaries-lab	0.002s
+FAIL

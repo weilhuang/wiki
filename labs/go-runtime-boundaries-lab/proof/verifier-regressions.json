@@ -1,0 +1,26 @@
+[
+  {
+    "case": "target",
+    "acceptedAsTargetRejection": true
+  },
+  {
+    "case": "compile",
+    "acceptedAsTargetRejection": false
+  },
+  {
+    "case": "wrong-test",
+    "acceptedAsTargetRejection": false
+  },
+  {
+    "case": "wrong-marker",
+    "acceptedAsTargetRejection": false
+  },
+  {
+    "case": "false-green",
+    "acceptedAsTargetRejection": false
+  },
+  {
+    "case": "timeout",
+    "acceptedAsTargetRejection": false
+  }
+]

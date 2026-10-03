@@ -1,0 +1,30 @@
+{
+  "checks": [
+    {
+      "name": "broad-private-path-scan",
+      "status": "fail",
+      "exitCode": 1,
+      "observation": "Generic /workspace/ guard string in author-check.mjs matched an overbroad pattern; no concrete private path was found",
+      "classification": "checker false positive; not a model counterexample"
+    },
+    {
+      "name": "concrete-private-path-scan",
+      "status": "pass",
+      "exitCode": 0,
+      "observation": "No concrete private filesystem paths; JSON parses; no symlinks or bytecode caches"
+    },
+    {
+      "name": "freeze-scan-wording",
+      "status": "fail",
+      "exitCode": 1,
+      "classification": "checker false positive",
+      "observation": "Descriptive slash-separated directory names in scan history accidentally matched the scanner; rewritten without path-like wording before final freeze"
+    },
+    {
+      "name": "final-concrete-path-scan",
+      "status": "pass",
+      "exitCode": 0,
+      "observation": "Every final text file checked; no concrete private filesystem paths"
+    }
+  ]
+}
