@@ -1,0 +1,22 @@
+[
+  {
+    "id": "mysql-mechanisms.access-paths",
+    "doc": "docs/knowledge/data/indexes/composite-index-access-paths.md",
+    "source": "labs/mysql-mechanisms-lab/sql/access_paths.sql",
+    "language": "sql",
+    "version": "MySQL 8.4.7",
+    "type": "executable",
+    "annotations": "in-document",
+    "sourceSha256": "900069beefc88f3f1752347cee6560086bd783ce0038c524e6a404f7d5d393f9"
+  },
+  {
+    "id": "mysql-mechanisms.current-write",
+    "doc": "docs/knowledge/data/transactions/mvcc-read-views.md",
+    "source": "labs/mysql-mechanisms-lab/sql/current_write.sql",
+    "language": "sql",
+    "version": "MySQL 8.4.7",
+    "type": "executable",
+    "annotations": "in-document",
+    "sourceSha256": "6754a74c6f6a93770800111b2810d78d0330a9fbbdbe1ae10c88e68d0bc14505"
+  }
+]

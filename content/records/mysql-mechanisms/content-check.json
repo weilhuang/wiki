@@ -1,0 +1,1 @@
+{"status":"STATIC_CHECKED","articles":2,"codehikeCodeBlocks":5,"annotatedSnippets":2,"accessibleMermaid":3,"mysqlExecutionPerformedByThisCheck":false,"executionEvidence":"Separate audited CI run 37102894207 attempt 1","limitations":["Mermaid syntax parsed, not browser-rendered","Code Hike compilation/source equality, not browser interaction","Candidate remains review"]}

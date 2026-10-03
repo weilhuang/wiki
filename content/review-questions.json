@@ -250,5 +250,68 @@
     "task": "understand",
     "prompt": "最终上下文已有Token，为什么TooEarlyAuto仍不生效？配置排序能否决定构造先后？",
     "anchor": "ordering"
+  },
+  {
+    "id": "mysql-range-filter",
+    "topic": "data.index-access-paths",
+    "task": "understand",
+    "prompt": "把state等值改成范围后，created_at条件在哪些阶段仍有作用？为什么不能叫完全失效？",
+    "anchor": "range-and-filter"
+  },
+  {
+    "id": "mysql-plan-choice",
+    "topic": "data.index-access-paths",
+    "task": "diagnose",
+    "prompt": "无hint与FORCE INDEX返回相同四行，哪些观察才能比较访问路径？哪些结论仍不能下？",
+    "anchor": "read-plan"
+  },
+  {
+    "id": "mysql-first-view",
+    "topic": "data.mvcc-read-views",
+    "task": "understand",
+    "prompt": "BEGIN后B提交、A才首次SELECT，RR会看到哪个版本？WITH CONSISTENT SNAPSHOT改变哪一步？",
+    "anchor": "first-consistent-read"
+  },
+  {
+    "id": "mysql-own-write",
+    "topic": "data.mvcc-read-views",
+    "task": "verify",
+    "prompt": "A看见5、20而B看见7、17，写下两个会话与提交状态，说明为什么不是脏读。",
+    "anchor": "own-writes"
+  },
+  {
+    "id": "message-confirm-purpose",
+    "topic": "distributed.delivery-ack-boundaries",
+    "task": "understand",
+    "prompt": "Publisher confirm已到，为什么仍不能断言业务投影已经更新？",
+    "anchor": "boundaries"
+  },
+  {
+    "id": "message-poison-order",
+    "topic": "distributed.delivery-ack-boundaries",
+    "task": "recover",
+    "prompt": "A1已隔离，增量A2是否可以跳过缺口，B1又应如何推进？",
+    "anchor": "poison"
+  },
+  {
+    "id": "fence-before-contact",
+    "topic": "distributed.lease-fencing",
+    "task": "design",
+    "prompt": "B取得新token但未联系资源时，A的旧请求为什么仍可能通过？",
+    "anchor": "lease-gap"
+  },
+  {
+    "id": "fence-replay-operation",
+    "topic": "distributed.lease-fencing",
+    "task": "verify",
+    "prompt": "同token的新操作与同操作重放怎样区分？返回stale仍旧写应由哪项断言发现？",
+    "anchor": "receiver"
+  },
+  {
+    "id": "fence-restore-watermark",
+    "topic": "distributed.lease-fencing",
+    "task": "recover",
+    "prompt": "恢复了业务值却没有水位或操作记录，分别失去什么保护？",
+    "anchor": "scope-recovery"
   }
 ]

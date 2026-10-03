@@ -41,9 +41,11 @@ search: false
 
 从访问路径解释筛选、排序、回表和分页代价。
 
-本分类正文仍在规划，当前不提供空文章链接。
+[分类导读](/knowledge/data/indexes/)
 
-后续范围：B+Tree、联合索引、执行计划、统计信息。
+- [组合索引与访问路径：执行计划说明了什么](/knowledge/data/indexes/composite-index-access-paths.html)：用同一组订单数据分开解释索引定位、范围过滤、覆盖、回表、排序与优化器选择，并核对无 hint 和人为约束计划的证据边界
+
+后续范围：B+Tree 页结构、统计信息刷新与倾斜数据、分页与索引维护。
 
 ### 事务与并发业务
 
@@ -52,8 +54,9 @@ search: false
 [分类导读](/knowledge/data/transactions/)
 
 - [并发不变量与隔离：库存为什么会被两个请求同时看见](/knowledge/data/transactions/inventory-invariants.html)：从库存守恒的最短反例出发，用 MySQL 两会话区分快照读、条件更新、锁定读与死锁，并留下能检查的数据库证据。
+- [MVCC 的读取边界：快照、当前读与写入](/knowledge/data/transactions/mvcc-read-views.html)：用两个写读会话和一个观察会话解释 RR 与 RC 的 Read View、首次读时机、锁定读取、自己的写入以及提交回滚后的实际可见性
 
-后续范围：MVCC、Read View、undo/redo、记录锁与间隙锁。
+后续范围：undo 回收与 redo、间隙锁与死锁、更多隔离和DDL边界。
 
 ### 复制与恢复
 
@@ -99,4 +102,4 @@ search: false
 
 ## 如何与其他领域连接
 
-本地事实提交后，[Outbox](/knowledge/distributed/events/transactional-outbox.html)保存跨组件交接责任；[缓存新鲜度](/knowledge/data/cache/invalidation-freshness.html)解释读取为何仍会落后。最终用[联合恢复](/cases/orders/consistency-recovery.html)核对权威事实与派生结果。
+[索引访问路径](/knowledge/data/indexes/composite-index-access-paths.html)解释怎样找到候选，[MVCC 读取边界](/knowledge/data/transactions/mvcc-read-views.html)解释能看到哪个版本。本地事实提交后，[Outbox](/knowledge/distributed/events/transactional-outbox.html)保存跨组件交接责任；[缓存新鲜度](/knowledge/data/cache/invalidation-freshness.html)解释读取为何仍会落后。最终用[联合恢复](/cases/orders/consistency-recovery.html)核对权威事实与派生结果。

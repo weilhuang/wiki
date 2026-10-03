@@ -1,0 +1,692 @@
+[
+  {
+    "id": "mysql-mechanisms.source-review",
+    "title": "MySQL 8.4官方语义与8.4.7 ReadView来源核对",
+    "kind": "source-reviewed",
+    "status": "pass",
+    "scope": [
+      "2026-10-03用web逐项核对官方手册与固定mysql-8.4.7 ReadView源码语义",
+      "定位/范围/覆盖/回表/排序/统计；RR/RC视图时机、锁定读、自己的写与undo"
+    ],
+    "limitations": [
+      "8.4手册为滚动维护文档，不是8.4.7原始字节快照",
+      "未复制上游源码，无原源码摘录；未运行内部源码函数",
+      "原创SQL与图为教学解释"
+    ],
+    "sourceFiles": [
+      {
+        "path": "content/sources/mysql-mechanisms.json",
+        "sha256": "0b7b9c695c111fd50b819068ea1b868ac2b2f57b6bfd0054a9212ea13a90c594"
+      }
+    ],
+    "commands": [],
+    "artifacts": [],
+    "recordedAt": "2026-10-03T02:21:45.710603+00:00",
+    "independentlyReviewed": true,
+    "revision": "D-content-r3 / D-harness-r4",
+    "resourceGroup": "mysql-mechanisms"
+  },
+  {
+    "id": "mysql-mechanisms.static-check",
+    "title": "有限执行器源树与安全控制流检查",
+    "kind": "static-checked",
+    "status": "pass",
+    "scope": [
+      "r4精确源manifest、Python AST与固定Compose边界检查",
+      "11项纯标准库回归涵盖路径、身份、部分构造、清理继续、空业务证据/事件schema、symlink读取",
+      "完整事务/隔离/会话生命周期协议与非regular有界拒绝",
+      "独立r4完整62项控制检查通过，包括正向完整记录与失败诊断；仅准许精确源码及一次真实CI尝试"
+    ],
+    "limitations": [
+      "该记录仅证明执行器源树与安全控制检查；真实MySQL另由real-run记录绑定，正文/站点发布另审",
+      "不执行MySQL、不等价真实SQL结果",
+      "r1/r2/r3曾静态通过但独审HOLD，失败历史独立保留"
+    ],
+    "sourceFiles": [
+      {
+        "path": "labs/mysql-mechanisms-lab/LICENSE",
+        "sha256": "173879800c133ee3f54f704c759deb2a4b8ea329a31f2cc966019aace13cdd5a"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/README.md",
+        "sha256": "08c6862cda196281f19f55bc69f1201e9a4fab6cf2f5a262da6b982db0b187a9"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/cases.py",
+        "sha256": "6f88c2f2d5af59db6c2818f75a8875e97fe7c341078e3b2aaf2ad2f5be9d94df"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/check_static.py",
+        "sha256": "042ae48d240617665e156efdeb64062067e45a43bbcbcc51a4396caa48402e82"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/collect.py",
+        "sha256": "a78106d82f49e5a0895576a04e7fc2c5bab2e9031702caa0c600e4d750796199"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/compose.yaml",
+        "sha256": "8debf4268b32231e53b89c0e419e52a7ecc2dfe361e989f979c02ecfc9eac61b"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/driver.py",
+        "sha256": "bd0f1de09bb6341cc414621132873046e0c7bc940a54c63ec919238523901a73"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/protocol_contract.py",
+        "sha256": "8af393a9c3936281c4ab9a825adaa079f2adb940ef521ebf29e45eee26dab737"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/run.py",
+        "sha256": "e9b785f5c790a761541768a6d84c6e645de742c1b281a95c062baa3f39c1af31"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/safety.py",
+        "sha256": "3a9be4a7afa68ea967e7965f6ecdf2a0bc870a55801a6ec1f4e4750bee3aab4b"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/sql/access_paths.sql",
+        "sha256": "900069beefc88f3f1752347cee6560086bd783ce0038c524e6a404f7d5d393f9"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/sql/current_write.sql",
+        "sha256": "6754a74c6f6a93770800111b2810d78d0330a9fbbdbe1ae10c88e68d0bc14505"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/sql/schema.sql",
+        "sha256": "8054a993332832aaa5e8a03d0892c0d5a2a9968a4d26903ecab0eb38b606a733"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/test_safety.py",
+        "sha256": "ad1bd5f9e605fa1b06338c736a152e5c57725d8d9d555d4a2be50f9155c827f4"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/trace_contract.py",
+        "sha256": "b1c4233f43dceb9ce03ffd0251ce9376e4062ff7b506b49f961a23e5bc9f89cf"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/source-manifest.json",
+        "sha256": "e787bedb50929fd0a05c11c7c52ec643896a271129da27c3cfe3bc2ca8460e0f"
+      }
+    ],
+    "commands": [
+      {
+        "command": "python3 -B labs/mysql-mechanisms-lab/check_static.py",
+        "exitCode": 0
+      },
+      {
+        "command": "python3 -B labs/mysql-mechanisms-lab/test_safety.py",
+        "exitCode": 0
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "content/records/mysql-mechanisms/author-static.json",
+        "sha256": "8ed33bccc1afce9cde6d6c78d4ec6fdfa4e56656cb947b6747ae5075e68907eb"
+      },
+      {
+        "path": "content/records/mysql-mechanisms/harness-review-history.json",
+        "sha256": "1ef11d40ce85ce98c2efa9590278869bf7905a25380e1ab55e456a980bb8b7b4"
+      }
+    ],
+    "recordedAt": "2026-10-03T02:21:45.710603+00:00",
+    "independentlyReviewed": true,
+    "revision": "D-content-r3 / D-harness-r4",
+    "resourceGroup": "mysql-mechanisms"
+  },
+  {
+    "id": "mysql-mechanisms.snippet-check",
+    "title": "真实Code Hike与可访问Mermaid/正文结构检查",
+    "kind": "static-checked",
+    "status": "pass",
+    "scope": [
+      "Integrated D/M article metadata, category guides, optional and required reading roles, aliases and public evidence references",
+      "24 Node regressions,109 generated HTML pages,420 canonical search sections and 46 intent targets",
+      "Five D Code Hike blocks and two M blocks, exact source excerpts and six Mermaid diagrams",
+      "One source ZIP entry per shared lab; dated MySQL NOT_RUN freeze note links to the actual audited run"
+    ],
+    "limitations": [
+      "No new MySQL/broker/Redis/etcd/Python/Java runtime execution in integration",
+      "Original MySQL proof remains bound to run37102894207 attempt1 and checkout44a2821a2782057b039e5511dd84f092c745be2c",
+      "Whole-tree independent review, remote CI and actual browser checks are separate gates"
+    ],
+    "sourceFiles": [
+      {
+        "path": "docs/knowledge/data/indexes/composite-index-access-paths.md",
+        "sha256": "05b6913c8ec397736aa0dbfc14f8143a5086f8d163de8234b849372afac7986b"
+      },
+      {
+        "path": "docs/knowledge/data/transactions/mvcc-read-views.md",
+        "sha256": "b65ee7ee3811903bd94f95cf415c0d7744bd8ef6b10bf99baf8c78cbe8ee825f"
+      },
+      {
+        "path": "content/snippets/mysql-mechanisms.json",
+        "sha256": "76ffa7d8b776c3bb485c48c91e604788078b13eeedce7f672b3509e49fe86ef1"
+      }
+    ],
+    "commands": [
+      {
+        "command": "npm run check",
+        "exitCode": 0
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "content/records/data-messaging/integration-static.json",
+        "sha256": "bb90aed1701461b66f6f95768d52f762d853543788680bcfac09c95b3f47cb22"
+      }
+    ],
+    "recordedAt": "2026-10-03T07:54:56.618152+00:00",
+    "independentlyReviewed": false,
+    "revision": "D-M-integration-1",
+    "resourceGroup": "mysql-mechanisms",
+    "historicalAuthorChecks": {
+      "scope": [
+        "使用现站Code Hike1.1.0编译全部五个代码块，两个steps清理后与完整SQL文件逐字匹配",
+        "Mermaid11.17.2实际parse三幅含accTitle/accDescr的图；元数据、单H1与引用ID检查"
+      ],
+      "commands": [
+        {
+          "command": "node checks/verify-content.mjs",
+          "exitCode": 0,
+          "environment": "WIKI_ROOT points to the existing read-only wiki dependency installation; command run from author package"
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "content/records/mysql-mechanisms/content-check.json",
+          "sha256": "ff9a4a22df2569a9b135d19ac8aeb12cf9bc9893deca1e5f6ffb1a6da0f5693f"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mysql-mechanisms.archive-binding",
+    "title": "冻结源码ZIP逐成员绑定",
+    "kind": "static-checked",
+    "status": "pass",
+    "scope": [
+      "16个唯一普通成员逐字等于harness-r4源树与source-manifest",
+      "成员SHA256、Git blob SHA1匹配已独审远端源码树；源码ZIP原字节未变"
+    ],
+    "limitations": [
+      "作者包装检查；源码ZIP未由原始真实执行审计单独检查，仍待本轮内容审查",
+      "源码ZIP不包含CI证据日志；其SHA不能替代CI证据ZIP SHA",
+      "不运行数据库、服务或CI"
+    ],
+    "sourceFiles": [
+      {
+        "path": "labs/mysql-mechanisms-lab/LICENSE",
+        "sha256": "173879800c133ee3f54f704c759deb2a4b8ea329a31f2cc966019aace13cdd5a"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/README.md",
+        "sha256": "08c6862cda196281f19f55bc69f1201e9a4fab6cf2f5a262da6b982db0b187a9"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/cases.py",
+        "sha256": "6f88c2f2d5af59db6c2818f75a8875e97fe7c341078e3b2aaf2ad2f5be9d94df"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/check_static.py",
+        "sha256": "042ae48d240617665e156efdeb64062067e45a43bbcbcc51a4396caa48402e82"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/collect.py",
+        "sha256": "a78106d82f49e5a0895576a04e7fc2c5bab2e9031702caa0c600e4d750796199"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/compose.yaml",
+        "sha256": "8debf4268b32231e53b89c0e419e52a7ecc2dfe361e989f979c02ecfc9eac61b"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/driver.py",
+        "sha256": "bd0f1de09bb6341cc414621132873046e0c7bc940a54c63ec919238523901a73"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/protocol_contract.py",
+        "sha256": "8af393a9c3936281c4ab9a825adaa079f2adb940ef521ebf29e45eee26dab737"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/run.py",
+        "sha256": "e9b785f5c790a761541768a6d84c6e645de742c1b281a95c062baa3f39c1af31"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/safety.py",
+        "sha256": "3a9be4a7afa68ea967e7965f6ecdf2a0bc870a55801a6ec1f4e4750bee3aab4b"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/sql/access_paths.sql",
+        "sha256": "900069beefc88f3f1752347cee6560086bd783ce0038c524e6a404f7d5d393f9"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/sql/current_write.sql",
+        "sha256": "6754a74c6f6a93770800111b2810d78d0330a9fbbdbe1ae10c88e68d0bc14505"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/sql/schema.sql",
+        "sha256": "8054a993332832aaa5e8a03d0892c0d5a2a9968a4d26903ecab0eb38b606a733"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/test_safety.py",
+        "sha256": "ad1bd5f9e605fa1b06338c736a152e5c57725d8d9d555d4a2be50f9155c827f4"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/trace_contract.py",
+        "sha256": "b1c4233f43dceb9ce03ffd0251ce9376e4062ff7b506b49f961a23e5bc9f89cf"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/source-manifest.json",
+        "sha256": "e787bedb50929fd0a05c11c7c52ec643896a271129da27c3cfe3bc2ca8460e0f"
+      }
+    ],
+    "commands": [
+      {
+        "command": "python3 -B checks/verify-package.py --frozen-harness <frozen-harness> --audit-dir <audit-dir> --previous <previous-content>",
+        "exitCode": 0,
+        "context": "Author-only read-only comparison against declared local input roots"
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "docs/public/examples/mysql-mechanisms-lab.zip",
+        "sha256": "3af92ecbaadbd5a1db4a22612d92e5b21a7cc63bb6d91a085e899fb474d11f1e"
+      },
+      {
+        "path": "docs/public/examples/mysql-mechanisms-source-binding.json",
+        "sha256": "13e87d27454a38257909b193cd2e31696a67a23dac9b64b81ce49680e65b257e"
+      },
+      {
+        "path": "content/records/mysql-mechanisms/package-check.json",
+        "sha256": "18e121c7b2a5f8819022b383ddd9fa7782b5da472b4fbccb13ec1e0129cea55f"
+      }
+    ],
+    "recordedAt": "2026-10-03T06:59:48.568503+00:00",
+    "independentlyReviewed": true,
+    "revision": "D-content-r3 / D-harness-r4",
+    "resourceGroup": "mysql-mechanisms"
+  },
+  {
+    "id": "mysql-mechanisms.real-run",
+    "title": "MySQL 8.4.7真实计划与多会话读取实验",
+    "kind": "executed",
+    "status": "pass",
+    "scope": [
+      "固定harness-r4在标准公共Ubuntu runner执行官方MySQL8.4.7；run37102894207 attempt1；真实证据独审191/191通过",
+      "固定36订单+2库存、每mode三个真实持续会话；完整五mode协议、基线39固定值断言通过",
+      "无hint与人为约束索引计划分开；实际范围、覆盖、ICP、skip scan、filesort和EXPLAIN ANALYZE记录",
+      "普通BEGIN/显式快照、RR/RC、当前锁定读与自己写入、ROW_COUNT、引擎锁等待屏障、提交/回滚的实际值",
+      "三项指定语义错误各退出42；1064语法控制单独退出43；19命令身份与退出、全部会话和本轮资源清理通过"
+    ],
+    "limitations": [
+      "一次固定源码、镜像、linux/amd64和36+2行数据的有限执行；计划选择/skip scan/cost/time不跨数据分布泛化",
+      "不验证生产性能、复制、故障切换、崩溃恢复、DDL、全部隔离与锁形态或InnoDB内部函数采样",
+      "这份记录仅覆盖列出的有限实验；其他版本、业务负载和失败模型仍需各自验证",
+      "GitHub原始artifact审计时到期时间2026-10-06T06:24:02Z；公开摘要保留原始执行审计字节；派生观察表与源码ZIP绑定随后已单独复核",
+      "source-manifest与README保留运行前冻结not-run字节；运行后状态仅在此记录及独立摘要更新",
+      "不借用旧数据一致性23case或安全检查的合成trace冒认本次SQL证据"
+    ],
+    "sourceFiles": [
+      {
+        "path": "labs/mysql-mechanisms-lab/LICENSE",
+        "sha256": "173879800c133ee3f54f704c759deb2a4b8ea329a31f2cc966019aace13cdd5a"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/README.md",
+        "sha256": "08c6862cda196281f19f55bc69f1201e9a4fab6cf2f5a262da6b982db0b187a9"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/cases.py",
+        "sha256": "6f88c2f2d5af59db6c2818f75a8875e97fe7c341078e3b2aaf2ad2f5be9d94df"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/check_static.py",
+        "sha256": "042ae48d240617665e156efdeb64062067e45a43bbcbcc51a4396caa48402e82"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/collect.py",
+        "sha256": "a78106d82f49e5a0895576a04e7fc2c5bab2e9031702caa0c600e4d750796199"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/compose.yaml",
+        "sha256": "8debf4268b32231e53b89c0e419e52a7ecc2dfe361e989f979c02ecfc9eac61b"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/driver.py",
+        "sha256": "bd0f1de09bb6341cc414621132873046e0c7bc940a54c63ec919238523901a73"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/protocol_contract.py",
+        "sha256": "8af393a9c3936281c4ab9a825adaa079f2adb940ef521ebf29e45eee26dab737"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/run.py",
+        "sha256": "e9b785f5c790a761541768a6d84c6e645de742c1b281a95c062baa3f39c1af31"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/safety.py",
+        "sha256": "3a9be4a7afa68ea967e7965f6ecdf2a0bc870a55801a6ec1f4e4750bee3aab4b"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/sql/access_paths.sql",
+        "sha256": "900069beefc88f3f1752347cee6560086bd783ce0038c524e6a404f7d5d393f9"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/sql/current_write.sql",
+        "sha256": "6754a74c6f6a93770800111b2810d78d0330a9fbbdbe1ae10c88e68d0bc14505"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/sql/schema.sql",
+        "sha256": "8054a993332832aaa5e8a03d0892c0d5a2a9968a4d26903ecab0eb38b606a733"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/test_safety.py",
+        "sha256": "ad1bd5f9e605fa1b06338c736a152e5c57725d8d9d555d4a2be50f9155c827f4"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/trace_contract.py",
+        "sha256": "b1c4233f43dceb9ce03ffd0251ce9376e4062ff7b506b49f961a23e5bc9f89cf"
+      },
+      {
+        "path": "labs/mysql-mechanisms-lab/source-manifest.json",
+        "sha256": "e787bedb50929fd0a05c11c7c52ec643896a271129da27c3cfe3bc2ca8460e0f"
+      },
+      {
+        "path": ".github/workflows/mysql-mechanisms-lab.yml",
+        "sha256": "61e9f209ff50d056b8d9256cb82d5a4ccfc4ea2496ba2320fb276fd891197cec"
+      }
+    ],
+    "commands": [
+      {
+        "command": "docker version --format '{{.Server.Version}}'",
+        "label": "docker-version",
+        "exitCode": 0,
+        "actualExitCode": 0,
+        "outcome": "normal_exit",
+        "timeoutSeconds": 15,
+        "argvSha256": "62f93255e31bcb5053cfe41c48b19b2f477786d305ceeae5cbddca87f16df2a9",
+        "logSha256": "6bd60857f0062defe4edbffc3b3e49ecd7b055a2598326793fc1cfb435587e0d",
+        "executionContext": "GitHub run 37102894207 attempt 1; normalized runner argv"
+      },
+      {
+        "command": "docker compose version --short",
+        "label": "compose-version",
+        "exitCode": 0,
+        "actualExitCode": 0,
+        "outcome": "normal_exit",
+        "timeoutSeconds": 15,
+        "argvSha256": "5453f681cd75f22b48b98887e9f532f7fc36a5c0e8b466f1a7e3632c97a38ab8",
+        "logSha256": "278ec87a75ab3da08b3b34c6d9e678df7a3c71298d2f3ea3880f078e1b71b1e3",
+        "executionContext": "GitHub run 37102894207 attempt 1; normalized runner argv"
+      },
+      {
+        "command": "git rev-parse HEAD",
+        "label": "checkout-commit",
+        "exitCode": 0,
+        "actualExitCode": 0,
+        "outcome": "normal_exit",
+        "timeoutSeconds": 10,
+        "argvSha256": "23f3904a755e3e030eb84a084d27539110fa0ad5b806ccc473711d1c56b6ea48",
+        "logSha256": "94b52e7079ed7af74d383a36342b52d890ecb960a524d27c3c4422dc1983396e",
+        "executionContext": "GitHub run 37102894207 attempt 1; normalized runner argv"
+      },
+      {
+        "command": "docker compose --project-name ks-mechanisms-8eb5f8d067c54d86860cf324232df1f3 -f '<lab-root>/compose.yaml' up -d --wait --wait-timeout 180",
+        "label": "start",
+        "exitCode": 0,
+        "actualExitCode": 0,
+        "outcome": "normal_exit",
+        "timeoutSeconds": 240,
+        "argvSha256": "82953c7605ad2c4056e23b3a07c37de23a2e2d2710d3454b20fd49e18fd4b1ab",
+        "logSha256": "86d70ba87a81b445d895fd06ebc39a9eb94d00222a47d0ee962f200bfa552c16",
+        "executionContext": "GitHub run 37102894207 attempt 1; normalized runner argv"
+      },
+      {
+        "command": "docker compose --project-name ks-mechanisms-8eb5f8d067c54d86860cf324232df1f3 -f '<lab-root>/compose.yaml' ps -q mysql",
+        "label": "container-id",
+        "exitCode": 0,
+        "actualExitCode": 0,
+        "outcome": "normal_exit",
+        "timeoutSeconds": 15,
+        "argvSha256": "99ae7a6db7b05c09943ba6f8d012c2546d9820a2e1de9e0d00267865b0dd78bd",
+        "logSha256": "9a6c9dcb5564646570b1599999ab7aae472f9f67546c592ec7261a5573464891",
+        "executionContext": "GitHub run 37102894207 attempt 1; normalized runner argv"
+      },
+      {
+        "command": "docker inspect --format '{{index .Config.Labels \"knowledge-station.mechanisms-owner\"}}' 1b67d51bc1d692ea02d95f1290e7e46525f023700e9dba995a3fb8dc8099163d",
+        "label": "owner-label",
+        "exitCode": 0,
+        "actualExitCode": 0,
+        "outcome": "normal_exit",
+        "timeoutSeconds": 15,
+        "argvSha256": "d75c20062d54d68db1c9d8921b5d7bb6e1cbb1b58215c032677ed22d949721fc",
+        "logSha256": "2fefde96e5dac21934e1cba370fc481e5fe242d20bbd16f0494d941ea3db2f8b",
+        "executionContext": "GitHub run 37102894207 attempt 1; normalized runner argv"
+      },
+      {
+        "command": "docker inspect --format '{{.Image}}' 1b67d51bc1d692ea02d95f1290e7e46525f023700e9dba995a3fb8dc8099163d",
+        "label": "image-id",
+        "exitCode": 0,
+        "actualExitCode": 0,
+        "outcome": "normal_exit",
+        "timeoutSeconds": 15,
+        "argvSha256": "084b0e9598437e6dfa6b1a1879e6b85f3de2d4d8f2d0f854e7fa11e79ac2a6f9",
+        "logSha256": "833e343d0828c4eea701e068bd8aa76e2b6de0d2ab100873994b07bf945d06c2",
+        "executionContext": "GitHub run 37102894207 attempt 1; normalized runner argv"
+      },
+      {
+        "command": "docker image inspect --format '{{json .RepoDigests}}' sha256:0de4015d5b1f0fa462e43b48c29f8f66eacdd16d11e07aedf3b13533adadd504",
+        "label": "image-digests",
+        "exitCode": 0,
+        "actualExitCode": 0,
+        "outcome": "normal_exit",
+        "timeoutSeconds": 15,
+        "argvSha256": "c96977d748e7bece8be22a2226627ccf6a7e444d32c694eb4f06e7372aae6512",
+        "logSha256": "f5a9efaa27a4fb9813fe752737b1beb37bc1790b6ff0b15c13132eaf18c7ea3d",
+        "executionContext": "GitHub run 37102894207 attempt 1; normalized runner argv"
+      },
+      {
+        "command": "docker image inspect --format '{{.Os}}/{{.Architecture}}' sha256:0de4015d5b1f0fa462e43b48c29f8f66eacdd16d11e07aedf3b13533adadd504",
+        "label": "image-platform",
+        "exitCode": 0,
+        "actualExitCode": 0,
+        "outcome": "normal_exit",
+        "timeoutSeconds": 15,
+        "argvSha256": "0e439fcef1b307a139d6487813139e1d2aedd77410fb4acabc6d54227d5e8143",
+        "logSha256": "30a2860611f42f808b7012f033e39aaedf708c7ea934b69e9dd0b3fdcd756996",
+        "executionContext": "GitHub run 37102894207 attempt 1; normalized runner argv"
+      },
+      {
+        "command": "'<python3>' -B cases.py --container 1b67d51bc1d692ea02d95f1290e7e46525f023700e9dba995a3fb8dc8099163d --owner 8eb5f8d067c54d86860cf324232df1f3 --mode baseline --out '<lab-root>/results/8eb5f8d067c54d86860cf324232df1f3/baseline'",
+        "label": "baseline",
+        "exitCode": 0,
+        "actualExitCode": 0,
+        "outcome": "normal_exit",
+        "timeoutSeconds": 90,
+        "argvSha256": "b61e55455dfcdc0c260d6750f950a30c966c1be94a3205cd959b36e8f804aeea",
+        "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "executionContext": "GitHub run 37102894207 attempt 1; normalized runner argv"
+      },
+      {
+        "command": "'<python3>' -B cases.py --container 1b67d51bc1d692ea02d95f1290e7e46525f023700e9dba995a3fb8dc8099163d --owner 8eb5f8d067c54d86860cf324232df1f3 --mode mutant-missing-tenant --out '<lab-root>/results/8eb5f8d067c54d86860cf324232df1f3/mutant-missing-tenant'",
+        "label": "mutant-missing-tenant",
+        "exitCode": 42,
+        "actualExitCode": 42,
+        "outcome": "normal_exit",
+        "timeoutSeconds": 90,
+        "argvSha256": "ad8f7cb60ef44057c530d3735ba266c88ca77ff461e8fc29bd7cfece4eb2f65e",
+        "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "executionContext": "GitHub run 37102894207 attempt 1; normalized runner argv",
+        "expectation": "expected-rejection",
+        "expectedExitCode": 42,
+        "reason": "指定业务语义差异"
+      },
+      {
+        "command": "'<python3>' -B cases.py --container 1b67d51bc1d692ea02d95f1290e7e46525f023700e9dba995a3fb8dc8099163d --owner 8eb5f8d067c54d86860cf324232df1f3 --mode mutant-rc-for-rr --out '<lab-root>/results/8eb5f8d067c54d86860cf324232df1f3/mutant-rc-for-rr'",
+        "label": "mutant-rc-for-rr",
+        "exitCode": 42,
+        "actualExitCode": 42,
+        "outcome": "normal_exit",
+        "timeoutSeconds": 90,
+        "argvSha256": "0b757b6881b5fd7b20ddf339b194e083786d68de0dff707b48a8f70d3a2890aa",
+        "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "executionContext": "GitHub run 37102894207 attempt 1; normalized runner argv",
+        "expectation": "expected-rejection",
+        "expectedExitCode": 42,
+        "reason": "指定业务语义差异"
+      },
+      {
+        "command": "'<python3>' -B cases.py --container 1b67d51bc1d692ea02d95f1290e7e46525f023700e9dba995a3fb8dc8099163d --owner 8eb5f8d067c54d86860cf324232df1f3 --mode mutant-stale-write --out '<lab-root>/results/8eb5f8d067c54d86860cf324232df1f3/mutant-stale-write'",
+        "label": "mutant-stale-write",
+        "exitCode": 42,
+        "actualExitCode": 42,
+        "outcome": "normal_exit",
+        "timeoutSeconds": 90,
+        "argvSha256": "1cebc86b1777d68b14cc667426901c3f0e91d4dcf299c30f132b0a848934f47b",
+        "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "executionContext": "GitHub run 37102894207 attempt 1; normalized runner argv",
+        "expectation": "expected-rejection",
+        "expectedExitCode": 42,
+        "reason": "指定业务语义差异"
+      },
+      {
+        "command": "'<python3>' -B cases.py --container 1b67d51bc1d692ea02d95f1290e7e46525f023700e9dba995a3fb8dc8099163d --owner 8eb5f8d067c54d86860cf324232df1f3 --mode control-sql-error --out '<lab-root>/results/8eb5f8d067c54d86860cf324232df1f3/control-sql-error'",
+        "label": "control-sql-error",
+        "exitCode": 43,
+        "actualExitCode": 43,
+        "outcome": "normal_exit",
+        "timeoutSeconds": 90,
+        "argvSha256": "6e60681079b38597a0b574bd3b4d327a9e78a33f22f1b7402a7e9525d3fd37d0",
+        "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "executionContext": "GitHub run 37102894207 attempt 1; normalized runner argv",
+        "expectation": "expected-rejection",
+        "expectedExitCode": 43,
+        "reason": "SQL_FAILURE 1064语法控制，不是业务反例"
+      },
+      {
+        "command": "docker compose --project-name ks-mechanisms-8eb5f8d067c54d86860cf324232df1f3 -f '<lab-root>/compose.yaml' logs --no-color --tail 200",
+        "label": "service-log",
+        "exitCode": 0,
+        "actualExitCode": 0,
+        "outcome": "normal_exit",
+        "timeoutSeconds": 20,
+        "argvSha256": "db407316daacaed72918487db626420e6ae136d1790fb19c625295723ce8db95",
+        "logSha256": "d9d44e2114b28e078bb100eae7a963dbf323278033825151b5f25a76d6b3da75",
+        "executionContext": "GitHub run 37102894207 attempt 1; normalized runner argv"
+      },
+      {
+        "command": "docker compose --project-name ks-mechanisms-8eb5f8d067c54d86860cf324232df1f3 -f '<lab-root>/compose.yaml' down --volumes --timeout 10",
+        "label": "cleanup",
+        "exitCode": 0,
+        "actualExitCode": 0,
+        "outcome": "normal_exit",
+        "timeoutSeconds": 40,
+        "argvSha256": "f4b015dc5efce77613e08af0e88d9b0128c6e5538956596af38396ee71f6a9c4",
+        "logSha256": "caa2fe8c8ea22efcd45a26961c67a59e47bf5939ff6a5225002e63793549d203",
+        "executionContext": "GitHub run 37102894207 attempt 1; normalized runner argv"
+      },
+      {
+        "command": "docker ps -aq --filter label=com.docker.compose.project=ks-mechanisms-8eb5f8d067c54d86860cf324232df1f3",
+        "label": "remaining-containers",
+        "exitCode": 0,
+        "actualExitCode": 0,
+        "outcome": "normal_exit",
+        "timeoutSeconds": 10,
+        "argvSha256": "d5954a4e8d6cdf511375088050d904085407708997f52876769b1393155f1699",
+        "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "executionContext": "GitHub run 37102894207 attempt 1; normalized runner argv"
+      },
+      {
+        "command": "docker volume ls -q --filter label=com.docker.compose.project=ks-mechanisms-8eb5f8d067c54d86860cf324232df1f3",
+        "label": "remaining-volumes",
+        "exitCode": 0,
+        "actualExitCode": 0,
+        "outcome": "normal_exit",
+        "timeoutSeconds": 10,
+        "argvSha256": "c24e80cc556dda2c143770dc59fecfe6bd7e8d153a3c21a8f36fbfcf9a35dc70",
+        "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "executionContext": "GitHub run 37102894207 attempt 1; normalized runner argv"
+      },
+      {
+        "command": "docker network ls -q --filter label=com.docker.compose.project=ks-mechanisms-8eb5f8d067c54d86860cf324232df1f3",
+        "label": "remaining-networks",
+        "exitCode": 0,
+        "actualExitCode": 0,
+        "outcome": "normal_exit",
+        "timeoutSeconds": 10,
+        "argvSha256": "08aa207be28825d419344961cb718ee68997dc7603e6eb01771665f57aae64bd",
+        "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "executionContext": "GitHub run 37102894207 attempt 1; normalized runner argv"
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "docs/public/examples/mysql-mechanisms-verification.json",
+        "sha256": "9615e4a07bcef625efdeb0dd14c2d8dfa8601a5dc3d010185d5aa00c7c03a903"
+      },
+      {
+        "path": "docs/public/examples/mysql-mechanisms-observations.json",
+        "sha256": "d6f4a74dc45e205be911d84a6e53ddc24ae6176acd2dc8ca14a1f91cb6a8ec4e"
+      },
+      {
+        "path": "docs/public/examples/mysql-mechanisms-lab.zip",
+        "sha256": "3af92ecbaadbd5a1db4a22612d92e5b21a7cc63bb6d91a085e899fb474d11f1e"
+      }
+    ],
+    "resourceGroup": "mysql-mechanisms",
+    "versions": [
+      "MySQL 8.4.7 / MySQL Community Server - GPL",
+      "official mysql:8.4.7; mysql@sha256:0426ec38c7a10aa45ba383887df7878f74ee70e2fd589c7b69207f3577901903",
+      "sha256:0de4015d5b1f0fa462e43b48c29f8f66eacdd16d11e07aedf3b13533adadd504",
+      "linux/amd64; GitHub-hosted ubuntu-24.04 image 20260927.320.1"
+    ],
+    "recordedAt": "2026-10-03T06:24:05Z",
+    "independentlyReviewed": true,
+    "revision": "D-content-r3 / D-harness-r4",
+    "run": {
+      "url": "https://github.com/weilhuang/wiki/actions/runs/37102894207",
+      "id": 37102894207,
+      "attempt": 1,
+      "event": "pull_request",
+      "pr_url": "https://github.com/weilhuang/wiki/pull/9",
+      "pr_draft_at_audit": true,
+      "repository": "weilhuang/wiki",
+      "head_sha": "8d741c9cdb9f0dde4a37ba6468119bc79ac63687",
+      "base_sha": "6ed477b626238d88fed5af1a652bdd777377d67b",
+      "checkout_sha": "44a2821a2782057b039e5511dd84f092c745be2c",
+      "tree_sha": "ee1cb9687e005f04b78aac5e983476056fbc6dbe",
+      "started_at": "2026-10-03T06:23:30Z",
+      "last_updated_at": "2026-10-03T06:24:06Z",
+      "job_completed_at": "2026-10-03T06:24:05Z"
+    },
+    "image": {
+      "runner": "GitHub-hosted ubuntu-24.04",
+      "runner_image_version": "20260927.320.1",
+      "mysql_version": "8.4.7",
+      "mysql_version_comment": "MySQL Community Server - GPL",
+      "requested": "mysql:8.4.7",
+      "id": "sha256:0de4015d5b1f0fa462e43b48c29f8f66eacdd16d11e07aedf3b13533adadd504",
+      "repo_digests": [
+        "mysql@sha256:0426ec38c7a10aa45ba383887df7878f74ee70e2fd589c7b69207f3577901903"
+      ],
+      "platform": "linux/amd64"
+    },
+    "ciEvidenceArtifact": {
+      "artifact_id": 11266183383,
+      "url": "https://github.com/weilhuang/wiki/actions/runs/37102894207/artifacts/11266183383",
+      "zip_sha256": "6b2ce2dc761d863e7f30675c4a1c397e806e993f9ed04c7a6d0b682cf5d22ffa",
+      "zip_bytes": 30726,
+      "files": 32,
+      "uncompressed_bytes": 186232,
+      "manifest_sha256": "3b8b4bb3920378e0b27906c7b2a26e701c264145adb925eec2e19c9f029a2ffc",
+      "github_expires_at": "2026-10-06T06:24:02Z"
+    },
+    "independentReview": {
+      "decision": "APPROVE_EXECUTION_EVIDENCE",
+      "checksPassed": 191,
+      "checksTotal": 191,
+      "auditedAt": "2026-10-03T06:35:37Z",
+      "publicSummaryPath": "docs/public/examples/mysql-mechanisms-verification.json",
+      "publicSummarySha256": "9615e4a07bcef625efdeb0dd14c2d8dfa8601a5dc3d010185d5aa00c7c03a903"
+    }
+  }
+]

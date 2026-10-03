@@ -1,0 +1,47 @@
+{
+  "revision": "D-content-r3",
+  "baseRevision": "D-content-r2",
+  "status": "review",
+  "acceptedPoints": 0,
+  "mysqlExecution": "pass",
+  "mysqlExecutionIndependentlyReviewed": true,
+  "run": {
+    "url": "https://github.com/weilhuang/wiki/actions/runs/37102894207",
+    "id": 37102894207,
+    "attempt": 1,
+    "event": "pull_request",
+    "pr_url": "https://github.com/weilhuang/wiki/pull/9",
+    "pr_draft_at_audit": true,
+    "repository": "weilhuang/wiki",
+    "head_sha": "8d741c9cdb9f0dde4a37ba6468119bc79ac63687",
+    "base_sha": "6ed477b626238d88fed5af1a652bdd777377d67b",
+    "checkout_sha": "44a2821a2782057b039e5511dd84f092c745be2c",
+    "tree_sha": "ee1cb9687e005f04b78aac5e983476056fbc6dbe",
+    "started_at": "2026-10-03T06:23:30Z",
+    "last_updated_at": "2026-10-03T06:24:06Z",
+    "job_completed_at": "2026-10-03T06:24:05Z"
+  },
+  "summarySha256": "9615e4a07bcef625efdeb0dd14c2d8dfa8601a5dc3d010185d5aa00c7c03a903",
+  "changed": [
+    "两篇移除未运行占位，新增局部真实观察和有边界的结果表",
+    "MVCC将未额外发出的A/RC结束后读取明确标为机制推论",
+    "新增原字节独审公开摘要、有限派生结果表、16成员源码ZIP绑定",
+    "执行台账pass绑定19真实命令与指定42/43错误分类；新增源码包装静态记录"
+  ],
+  "unchanged": [
+    "全部harness-r4源码、README、source-manifest及workflow字节",
+    "source-only ZIP",
+    "两篇全部5代码块与3Mermaid围栏",
+    "sources.json、snippets.json、integration-proposals.json",
+    "r1/r2/r3 HOLD安全审查历史"
+  ],
+  "notPerformed": [
+    "数据库或服务启动",
+    "Java/Go执行",
+    "CI触发或远端写入",
+    "完整VitePress build",
+    "浏览器验收"
+  ],
+  "previousStaticRecordNote": "author-static.json记录冻结harness的早期静态检查，其当时NOT_RUN标记不覆盖本次独立真实CI记录",
+  "contentIndependentReview": "pending"
+}

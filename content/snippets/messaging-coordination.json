@@ -1,0 +1,22 @@
+[
+  {
+    "id": "messaging.delivery-walk",
+    "doc": "docs/knowledge/distributed/messaging/delivery-ack-boundaries.md",
+    "source": "labs/messaging-coordination-lab/walk_delivery.py",
+    "language": "python",
+    "version": "CPython 3.12.14",
+    "type": "executable",
+    "annotations": "in-document",
+    "sourceSha256": "58ce0e555a04003abc7532a235876c5a80fcb36cf5728e7beb7b3bdd62cdb60e"
+  },
+  {
+    "id": "messaging.fencing-walk",
+    "doc": "docs/knowledge/distributed/coordination/lease-fencing.md",
+    "source": "labs/messaging-coordination-lab/walk_fencing.py",
+    "language": "python",
+    "version": "CPython 3.12.14",
+    "type": "executable",
+    "annotations": "in-document",
+    "sourceSha256": "f0dd5b9f9e466f1c78c77031537c4bd13e310c10c0509d4b1c9623fcf1bb8ded"
+  }
+]

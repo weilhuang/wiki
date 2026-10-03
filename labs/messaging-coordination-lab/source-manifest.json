@@ -1,0 +1,42 @@
+{
+  "package": "messaging-coordination-lab",
+  "revision": "M-r1",
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "84aa6975e4dd6b289fa501bdaea6e97b58dadac596b11d0378f3d40085a42449"
+    },
+    {
+      "path": "README.md",
+      "sha256": "a11207bdf63ab495e9e6a278df416ec66bbe62aa507b1539d6d07715a5578509"
+    },
+    {
+      "path": "protocol_model.py",
+      "sha256": "b6f6bbb736234da52f726e8d83201dca3db1028a4916bd2327c95ec340bc612a"
+    },
+    {
+      "path": "runtime.json",
+      "sha256": "13b9190f4066a9a94448b2087e8e4fbf87b118d3886bf02c334c95d3c1de400f"
+    },
+    {
+      "path": "scenario_runner.py",
+      "sha256": "c43c00e3a7425ed62cedbfcca60aab663ae3ef521be08adeae9d3848fc9206a8"
+    },
+    {
+      "path": "scenarios.py",
+      "sha256": "f7e5b3599a08c4878ab6e2dc6e09e5f531288537dcd68ccc6aaefc81270c0b1e"
+    },
+    {
+      "path": "verify.py",
+      "sha256": "49094e346c499d364b7b0a222900552fe79a522b9dcdbde28ef8298f98390b07"
+    },
+    {
+      "path": "walk_delivery.py",
+      "sha256": "58ce0e555a04003abc7532a235876c5a80fcb36cf5728e7beb7b3bdd62cdb60e"
+    },
+    {
+      "path": "walk_fencing.py",
+      "sha256": "f0dd5b9f9e466f1c78c77031537c4bd13e310c10c0509d4b1c9623fcf1bb8ded"
+    }
+  ]
+}

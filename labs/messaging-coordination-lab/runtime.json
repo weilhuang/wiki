@@ -1,0 +1,9 @@
+{
+  "runtime": "CPython",
+  "testedVersion": "3.12.14",
+  "dependencies": [],
+  "operatingSystem": "Linux",
+  "servicesStarted": [],
+  "executionMode": "bounded sequential standard-library subprocess models",
+  "networkRequired": false
+}

@@ -31,9 +31,13 @@ export const paths = [
     stages:[
       {title:'先定义一次业务的事实',transition:'先解释一次写入怎样保持业务守恒，再让重试复用同一份裁决。',task:'写出守恒、唯一和终态合同，给超时后的查询保留稳定身份。',readings:[
         {topic:'data.inventory-invariants',role:'required',purpose:'用业务结果比较条件更新与锁定读取'},
+        {topic:'data.mvcc-read-views',role:'optional',purpose:'需要解释读取差异时，区分普通视图、当前读取和自己的写入'},
+        {topic:'data.index-access-paths',role:'optional',purpose:'把索引定位、过滤、取列和排序分开，并比较估计与实际计划'},
         {topic:'distributed.idempotency',role:'required',purpose:'让重复参与同一裁决而非再次执行业务'}]},
       {title:'再推进跨组件责任',transition:'本地提交不能把事实自动送到消费者或缓存，必须增加持久交接与新鲜度合同。',task:'画出交接重投与旧值回填的窗口，比较方案增加的状态。',readings:[
         {topic:'distributed.transactional-outbox',role:'required',purpose:'区分事实提交、交付和消费提交'},
+        {topic:'distributed.delivery-ack-boundaries',role:'required',purpose:'追踪确认究竟覆盖保存、投递还是消费提交，处理重投与按键缺口'},
+        {topic:'distributed.lease-fencing',role:'optional',purpose:'存在租约接管时，让接收端拒绝已被新代次取代的旧持有者'},
         {topic:'data.cache-invalidation',role:'required',purpose:'为不同读取定义新鲜度与恢复责任'}]},
       {title:'最后联合恢复和停止',transition:'每个组件各自恢复仍可能留下缺口，需要在同一数据集上联合对账并决定何时停止。',task:'恢复后检查守恒、投影和待交接责任，而非只检查服务存活。',readings:[
         {topic:'architecture.consistency-recovery',role:'required',purpose:'用权威事实对账、限定重放并验证兼容迁移'}]}
@@ -63,6 +67,6 @@ export const paths = [
     ] }
 ]
 export const plannedPaths = [
-  {id:'performance',title:'性能诊断',goal:'用负载和证据区分排队、连接、SQL 与运行时瓶颈',missing:'观测模型、SQL 和 profile 专题仍待补齐'},
+  {id:'performance',title:'性能诊断',goal:'用负载和证据区分排队、连接、SQL 与运行时瓶颈',missing:'服务目标、代表性负载与 profile 专题仍待补齐'},
   {id:'architecture-evolution',title:'系统设计与演进',goal:'从约束比较结构，再安排可逆迁移',missing:'先提供完整案例；通用建模和迁移专题继续补充'}
 ]

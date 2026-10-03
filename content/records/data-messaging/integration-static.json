@@ -1,0 +1,53 @@
+{
+  "kind": "static-checked",
+  "status": "pass",
+  "recordedAt": "2026-10-03T07:54:56.618152+00:00",
+  "commands": [
+    {
+      "command": "npm run check",
+      "exitCode": 0
+    }
+  ],
+  "scope": [
+    "Integrated D/M article metadata, category guides, optional and required reading roles, aliases and public evidence references",
+    "24 Node regressions,109 generated HTML pages,420 canonical search sections and 46 intent targets",
+    "Five D Code Hike blocks and two M blocks, exact source excerpts and six Mermaid diagrams",
+    "One source ZIP entry per shared lab; dated MySQL NOT_RUN freeze note links to the actual audited run"
+  ],
+  "limitations": [
+    "No new MySQL/broker/Redis/etcd/Python/Java runtime execution in integration",
+    "Original MySQL proof remains bound to run37102894207 attempt1 and checkout44a2821a2782057b039e5511dd84f092c745be2c",
+    "Whole-tree independent review, remote CI and actual browser checks are separate gates"
+  ],
+  "sourceFiles": [
+    {
+      "path": "docs/knowledge/data/indexes/composite-index-access-paths.md",
+      "sha256": "05b6913c8ec397736aa0dbfc14f8143a5086f8d163de8234b849372afac7986b"
+    },
+    {
+      "path": "docs/knowledge/data/transactions/mvcc-read-views.md",
+      "sha256": "b65ee7ee3811903bd94f95cf415c0d7744bd8ef6b10bf99baf8c78cbe8ee825f"
+    },
+    {
+      "path": "docs/knowledge/distributed/messaging/delivery-ack-boundaries.md",
+      "sha256": "eb5dcb3d3319c3e668a6ec1d9c60b7a1af0e7fe00851f3e722a3a7854f5198bb"
+    },
+    {
+      "path": "docs/knowledge/distributed/coordination/lease-fencing.md",
+      "sha256": "7b39c16a94c875e7fa49c7573ee97cd3754ff1fb8fc7f5f417cdbcfdf252b644"
+    },
+    {
+      "path": "content/snippets/mysql-mechanisms.json",
+      "sha256": "76ffa7d8b776c3bb485c48c91e604788078b13eeedce7f672b3509e49fe86ef1"
+    },
+    {
+      "path": "content/snippets/messaging-coordination.json",
+      "sha256": "e8c54290010020dbe93e98d8e4a6d36bc301e0a83d8be7426dbaa09ca2dabc68"
+    }
+  ],
+  "edits": {
+    "publicationMetadata": "status and reviewedAt only; M related edges activated because D is included in this same candidate",
+    "technicalCopy": "Reviewer-recommended ORDER BY wording narrowed to queries reading both inventory rows",
+    "formatting": "Three bold delimiters moved before terminal punctuation after actual Markdown render regression found raw asterisks; technical phrases/fences unchanged"
+  }
+}

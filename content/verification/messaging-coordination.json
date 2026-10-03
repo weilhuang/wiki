@@ -1,0 +1,202 @@
+[
+  {
+    "id": "messaging.source-review",
+    "kind": "source-reviewed",
+    "status": "pass",
+    "title": "消息确认与租约来源核对",
+    "scope": [
+      "2026-10-03 经 web 逐项实查13项官方来源，核对RabbitMQ4.1确认/顺序/死信、Kafka4.0配置与4.0.2生产者边界、etcd3.6租约与v3.6.0客户端实现",
+      "版本化在线文档与固定源码tag分开记录；原文未复制上游源码"
+    ],
+    "limitations": [
+      "在线文档可维护，不是不可变网页快照",
+      "只核对本篇论断相关章节与函数，不是完整产品源码审计",
+      "未执行真实broker、etcd、Redis、数据库或网络"
+    ],
+    "sourceFiles": [
+      {
+        "path": "content/sources/messaging-coordination.json",
+        "sha256": "34ad82f28d377703c883330f07942d99aead09aed24aba8e7b888b02b2e41dcb"
+      }
+    ],
+    "commands": [],
+    "artifacts": [],
+    "recordedAt": "2026-10-03T07:15:08.068955+00:00",
+    "revision": "M-r1",
+    "independentlyReviewed": true,
+    "resourceGroup": "messaging-coordination-lab"
+  },
+  {
+    "id": "messaging.protocol-run",
+    "kind": "executed",
+    "status": "pass",
+    "title": "消息与协调的受控协议模型",
+    "resourceGroup": "messaging-coordination-lab",
+    "scope": [
+      "CPython3.12.14/Linux有限标准库顺序模型；10个正确场景和14个目标错误变体，两个文章walkthrough均实际运行",
+      "明确确认丢失、提交后重投、毒消息隔离与按键缺口；接收端旧token拒绝、同token多操作/同操作重放、主体/资源范围、水位恢复与离线epoch切换",
+      "返回stale/conflict却仍产生副作用的两个变体由状态断言拒绝；6类验证器误识别探针均拒绝"
+    ],
+    "limitations": [
+      "Store.committed为逻辑持久JSON快照；transaction原子性与restart保留字节是模型前提，不是磁盘或数据库保证",
+      "无真实broker、producer协议、Kafka offset实现、重平衡、复制、共识、网络分区或进程崩溃",
+      "身份已经可信，Authority.issued模拟核验授予；没有密码学、IdP或真实鉴权",
+      "逻辑时钟与串行事件安排，不穷举所有并发交错；epoch恢复要求先隔离旧写入者",
+      "毒消息的A2故意作为业务缺口保留ready，非资源泄漏；全部24个受控子进程已结束",
+      "源码ZIP生成不代表重新运行；结果仅绑定所列源码字节"
+    ],
+    "sourceFiles": [
+      {
+        "path": "labs/messaging-coordination-lab/protocol_model.py",
+        "sha256": "b6f6bbb736234da52f726e8d83201dca3db1028a4916bd2327c95ec340bc612a"
+      },
+      {
+        "path": "labs/messaging-coordination-lab/scenario_runner.py",
+        "sha256": "c43c00e3a7425ed62cedbfcca60aab663ae3ef521be08adeae9d3848fc9206a8"
+      },
+      {
+        "path": "labs/messaging-coordination-lab/scenarios.py",
+        "sha256": "f7e5b3599a08c4878ab6e2dc6e09e5f531288537dcd68ccc6aaefc81270c0b1e"
+      },
+      {
+        "path": "labs/messaging-coordination-lab/verify.py",
+        "sha256": "49094e346c499d364b7b0a222900552fe79a522b9dcdbde28ef8298f98390b07"
+      },
+      {
+        "path": "labs/messaging-coordination-lab/walk_delivery.py",
+        "sha256": "58ce0e555a04003abc7532a235876c5a80fcb36cf5728e7beb7b3bdd62cdb60e"
+      },
+      {
+        "path": "labs/messaging-coordination-lab/walk_fencing.py",
+        "sha256": "f0dd5b9f9e466f1c78c77031537c4bd13e310c10c0509d4b1c9623fcf1bb8ded"
+      }
+    ],
+    "commands": [
+      {
+        "command": "python3 --version",
+        "exitCode": 0,
+        "stdout": "Python 3.12.14\n",
+        "stderr": "",
+        "workingDirectory": "labs/messaging-coordination-lab"
+      },
+      {
+        "command": "python3 -B walk_delivery.py",
+        "exitCode": 0,
+        "stdout": "{'first': 'applied', 'replay': 'duplicate', 'total': {'shop-a/order-7': 5}, 'effects': 1, 'deliveries': 2}\n",
+        "stderr": "",
+        "workingDirectory": "labs/messaging-coordination-lab"
+      },
+      {
+        "command": "python3 -B walk_fencing.py",
+        "exitCode": 0,
+        "stdout": "{'token': 2, 'replay': {'status': 'replayed', 'value': 5}, 'second': {'status': 'applied', 'value': 12}, 'old': {'status': 'stale'}}\n",
+        "stderr": "",
+        "workingDirectory": "labs/messaging-coordination-lab"
+      },
+      {
+        "command": "python3 -B verify.py",
+        "exitCode": 0,
+        "workingDirectory": "labs/messaging-coordination-lab",
+        "output": "10 correct schedules passed; 14 target mutants rejected; 6 verifier probes refused as target failures",
+        "capture": "stdout preserved in messaging-coordination-results.json; original raw output retained with author delivery"
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "docs/public/examples/messaging-coordination-results.json",
+        "sha256": "0f22bcff7cd9656bd1f788dbed4e52a6f05b66f7b3b1b561440be4571f6b7846"
+      },
+      {
+        "path": "docs/public/examples/messaging-coordination-lab.zip",
+        "sha256": "121fcfc44bbba4ac9aec11cee25e41c2c5e0f994a185b1ff1bf6499eb305c273"
+      },
+      {
+        "path": "labs/messaging-coordination-lab/source-manifest.json",
+        "sha256": "7bd13d23011e29a35cb3ae5fc0c30dae4b9a15fcc1867899b2ab3c7d6ef03a30"
+      }
+    ],
+    "recordedAt": "2026-10-03T07:15:08.068955+00:00",
+    "revision": "M-r1",
+    "independentlyReviewed": true,
+    "versions": [
+      "CPython 3.12.14 / Linux / standard library"
+    ]
+  },
+  {
+    "id": "messaging.snippet-check",
+    "kind": "static-checked",
+    "status": "pass",
+    "title": "消息与协调正文片段、图和链接检查",
+    "scope": [
+      "Integrated D/M article metadata, category guides, optional and required reading roles, aliases and public evidence references",
+      "24 Node regressions,109 generated HTML pages,420 canonical search sections and 46 intent targets",
+      "Five D Code Hike blocks and two M blocks, exact source excerpts and six Mermaid diagrams",
+      "One source ZIP entry per shared lab; dated MySQL NOT_RUN freeze note links to the actual audited run"
+    ],
+    "limitations": [
+      "No new MySQL/broker/Redis/etcd/Python/Java runtime execution in integration",
+      "Original MySQL proof remains bound to run37102894207 attempt1 and checkout44a2821a2782057b039e5511dd84f092c745be2c",
+      "Whole-tree independent review, remote CI and actual browser checks are separate gates"
+    ],
+    "sourceFiles": [
+      {
+        "path": "docs/knowledge/distributed/messaging/delivery-ack-boundaries.md",
+        "sha256": "eb5dcb3d3319c3e668a6ec1d9c60b7a1af0e7fe00851f3e722a3a7854f5198bb"
+      },
+      {
+        "path": "docs/knowledge/distributed/coordination/lease-fencing.md",
+        "sha256": "7b39c16a94c875e7fa49c7573ee97cd3754ff1fb8fc7f5f417cdbcfdf252b644"
+      },
+      {
+        "path": "content/snippets/messaging-coordination.json",
+        "sha256": "e8c54290010020dbe93e98d8e4a6d36bc301e0a83d8be7426dbaa09ca2dabc68"
+      },
+      {
+        "path": "labs/messaging-coordination-lab/walk_delivery.py",
+        "sha256": "58ce0e555a04003abc7532a235876c5a80fcb36cf5728e7beb7b3bdd62cdb60e"
+      },
+      {
+        "path": "labs/messaging-coordination-lab/walk_fencing.py",
+        "sha256": "f0dd5b9f9e466f1c78c77031537c4bd13e310c10c0509d4b1c9623fcf1bb8ded"
+      }
+    ],
+    "commands": [
+      {
+        "command": "npm run check",
+        "exitCode": 0
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "content/records/data-messaging/integration-static.json",
+        "sha256": "bb90aed1701461b66f6f95768d52f762d853543788680bcfac09c95b3f47cb22"
+      }
+    ],
+    "recordedAt": "2026-10-03T07:54:56.618152+00:00",
+    "revision": "D-M-integration-1",
+    "independentlyReviewed": false,
+    "resourceGroup": "messaging-coordination-lab",
+    "historicalAuthorChecks": {
+      "scope": [
+        "真实CodeHike1.1.0编译2个steps片段，3步范围各合法，清洁源码与walk文件逐字一致",
+        "Mermaid11.17.2 strict解析3图，均有accTitle/accDescr，无自定义初始化/HTML标签/click",
+        "通过现站readTopics读取稳定ID并检查所有强先修/关联和10条本地正文链接；新D只在交付未来关系中",
+        "公开文章/源码/JSON扫描无作者环境绝对路径"
+      ],
+      "commands": [
+        {
+          "command": "node check-package.mjs --wiki \"$WIKI_CHECKOUT\"",
+          "exitCode": 0,
+          "workingDirectory": "author-staging",
+          "environment": "WIKI_CHECKOUT points to the existing read-only checkout; private absolute path omitted"
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "docs/public/examples/messaging-coordination-static-results.json",
+          "sha256": "edf4922ba8f736ab2e349b55504c549b5b299816ac9cf4539afcace0fc2da8c2"
+        }
+      ]
+    }
+  }
+]
