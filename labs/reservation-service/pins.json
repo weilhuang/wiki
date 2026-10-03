@@ -1,0 +1,17 @@
+{
+  "runtime": {
+    "go": "go1.27.1",
+    "mysql": "8.4.7",
+    "protoc": "libprotoc 36.2",
+    "protoc-gen-go": "protoc-gen-go v1.36.11",
+    "protoc-gen-go-grpc": "protoc-gen-go-grpc 1.6.1",
+    "github.com/gin-gonic/gin": "v1.12.0",
+    "github.com/go-sql-driver/mysql": "v1.10.1",
+    "gorm.io/gorm": "v1.31.2",
+    "gorm.io/driver/mysql": "v1.6.0",
+    "google.golang.org/grpc": "v1.84.0",
+    "google.golang.org/protobuf": "v1.36.11"
+  },
+  "mysql_image": "mysql@sha256:0426ec38c7a10aa45ba383887df7878f74ee70e2fd589c7b69207f3577901903",
+  "protoc_sha256": "121f6c7afe1d4d0e3ea6aab9432038599250134cbf4474cb1167d2c7decd4278"
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "file": "licenses/gin.txt",
+    "url": "https://github.com/gin-gonic/gin/blob/v1.12.0/LICENSE",
+    "sha256": "03458b6d5828e1be1127ca2adf122572eb574fc47b56190c3b38203b8b2a98d0"
+  },
+  {
+    "file": "licenses/gorm.txt",
+    "url": "https://github.com/go-gorm/gorm/blob/v1.31.2/LICENSE",
+    "sha256": "a7535fe9fee1f534b47846eee31be7492c73fb766e6f4fe9433a427e16e147c3"
+  },
+  {
+    "file": "licenses/gorm-mysql.txt",
+    "url": "https://github.com/go-gorm/mysql/blob/v1.6.0/License",
+    "sha256": "59f62caa972078dc1664ce928b5e5d51b78633fc43b78894d2dab83bc504edee"
+  },
+  {
+    "file": "licenses/mysql-driver.txt",
+    "url": "https://github.com/go-sql-driver/mysql/blob/v1.10.1/LICENSE",
+    "sha256": "fab3dd6bdab226f1c08630b1dd917e11fcb4ec5e1e020e2c16f83a0a13863e85"
+  },
+  {
+    "file": "licenses/grpc-go.txt",
+    "url": "https://github.com/grpc/grpc-go/blob/v1.84.0/LICENSE",
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+  },
+  {
+    "file": "licenses/protobuf-go.txt",
+    "url": "https://github.com/protocolbuffers/protobuf-go/blob/v1.36.11/LICENSE",
+    "sha256": "4835612df0098ca95f8e7d9e3bffcb02358d435dbb38057c844c99d7f725eb20"
+  }
+]
