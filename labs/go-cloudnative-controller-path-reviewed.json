@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "scope": "p3-api-cache-reconcile-real-envtest-and-kind",
-  "review_state": "r6 narrow argument and credential boundary repairs; independent rereview and current execution pending",
-  "source_id": "ccee6cf854831207d35e44468b82277304a8cd7cd031918e83fd93c94b3469f2",
+  "review_state": "r7 preserves all ownership assertions and observes protected child state before retry policy; independent delta review and corrected runtime pending",
+  "source_id": "6e7d64527b84b9084736b7e4666903543ad8898e7181d1d54819f74cf2ae14e0",
   "source_sha256": {
     ".github/workflows/controller-path.yml": "2ef97cbc499a44c27477301b968a827f3164a43466dd5727e1111e6168b8ee9d",
     "labs/go-cloudnative-controller-path/PROVENANCE.json": "8d3db5d4c215f49a8293a471dddea3f019a6befa73a43e064e11e0111c7ced64",
@@ -19,7 +19,7 @@
     "labs/go-cloudnative-controller-path/go.sum": "b47d5fc38400a0da9a7fbfdb4e71b40bb8aa4bd467d18807721ea65eb5c2273c",
     "labs/go-cloudnative-controller-path/internal/controller/contracts_test.go": "09c5d4c598bbf1478f37d5a6bb475249bc09d2a6d0906789073d017a87134faa",
     "labs/go-cloudnative-controller-path/internal/controller/reconciler.go": "3fb0dd54361a58b962a2a2ff3f8bb3af0feab981004d7c70a67fcfacb8f4f365",
-    "labs/go-cloudnative-controller-path/internal/controller/reconciler_test.go": "e046361fff45970357fd6105f1fc2f974c6c7fba8dd37f0f5c068f336863fada",
+    "labs/go-cloudnative-controller-path/internal/controller/reconciler_test.go": "260a0701d2e2f6c9fd8c3be159de301610a139911ebac8f362f80be16a60c80c",
     "labs/go-cloudnative-controller-path/licenses/kubernetes-APACHE-2.0.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
     "labs/go-cloudnative-controller-path/scripts/check_generated.py": "fe4793bac606cf9d1f03ac6d8b7aea1e67d540920f18f40ffa45020deee30d8c",
     "labs/go-cloudnative-controller-path/scripts/check_kind_oracle.py": "a4e5828fb75b248e837cdc30a97260bee5cc186b2e60084e597276c9133c5304",

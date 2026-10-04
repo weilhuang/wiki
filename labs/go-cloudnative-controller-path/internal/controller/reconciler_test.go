@@ -96,14 +96,14 @@ func TestReconcileRefusesForeignChildren(t *testing.T) {
 				}
 				rv := object.GetResourceVersion()
 				res, err := r.Reconcile(ctx, ctrl.Request{NamespacedName: client.ObjectKeyFromObject(a)})
-				if err != nil || res.RequeueAfter <= 0 {
-					t.Fatalf("expected bounded ownership retry: %v %+v", err, res)
-				}
 				if err := c.Get(ctx, client.ObjectKeyFromObject(a), object); err != nil {
 					t.Fatal(err)
 				}
 				if object.GetResourceVersion() != rv {
 					semanticAssert(t, "FOREIGN_CHILD_UNCHANGED", object.GetResourceVersion(), rv)
+				}
+				if err != nil || res.RequeueAfter <= 0 {
+					t.Fatalf("expected bounded ownership retry: %v %+v", err, res)
 				}
 				if err := c.Get(ctx, client.ObjectKeyFromObject(a), a); err != nil {
 					t.Fatal(err)
