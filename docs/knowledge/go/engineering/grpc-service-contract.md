@@ -16,9 +16,7 @@ requires:
   reason: RPC deadline 与服务端自有工作需要同一取消关系
 - id: go.interfaces-errors
   reason: 应用错误身份与公开传输状态由不同层负责
-recommendedBefore:
-- id: go.sql-gorm-boundaries
-  reason: 先分清已提交事实，再解释 RPC deadline 和有限流
+recommendedBefore: []
 related:
 - id: go.client-budgets
   reason: RPC 状态不能单独决定写操作能否重试
