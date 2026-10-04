@@ -1,0 +1,23 @@
+test_container_remove_failure_continues (__main__.CleanupTests.test_container_remove_failure_continues) ... ok
+test_diagnostics_failure_continues (__main__.CleanupTests.test_diagnostics_failure_continues) ... ok
+test_exact_removal (__main__.CleanupTests.test_exact_removal) ... ok
+test_initial_absence (__main__.CleanupTests.test_initial_absence) ... ok
+test_late_job_reduces_wrapper_budget (__main__.CleanupTests.test_late_job_reduces_wrapper_budget) ... ok
+test_network_nonzero_not_absence (__main__.CleanupTests.test_network_nonzero_not_absence) ... ok
+test_owner_mismatch_never_deletes (__main__.CleanupTests.test_owner_mismatch_never_deletes) ... ok
+test_reserved_logs_survive_normal_exhaustion (__main__.CleanupTests.test_reserved_logs_survive_normal_exhaustion) ... ok
+test_unrelated_no_such (__main__.CleanupTests.test_unrelated_no_such) ... ok
+test_wrapper_includes_cleanup_and_final (__main__.CleanupTests.test_wrapper_includes_cleanup_and_final) ... ok
+test_wrong_network_name (__main__.CleanupTests.test_wrong_network_name) ... ok
+test_bound_125ms_schedule_refreshes (__main__.ProcessSamplerModelTests.test_bound_125ms_schedule_refreshes) ... ok
+test_caps_and_live_sampling_are_bounded (__main__.ProcessSamplerModelTests.test_caps_and_live_sampling_are_bounded) ... ok
+test_deadline_is_not_extended_by_wait_or_query (__main__.ProcessSamplerModelTests.test_deadline_is_not_extended_by_wait_or_query) ... ok
+test_exact_100ms_is_not_enough (__main__.ProcessSamplerModelTests.test_exact_100ms_is_not_enough) ... ok
+test_go_control_flow_and_global_cache_reader_ownership (__main__.ProcessSamplerModelTests.test_go_control_flow_and_global_cache_reader_ownership) ... ok
+test_interval_begins_at_query_completion (__main__.ProcessSamplerModelTests.test_interval_begins_at_query_completion) ... ok
+test_old_five_ms_schedule_starves (__main__.ProcessSamplerModelTests.test_old_five_ms_schedule_starves) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.003s
+
+OK

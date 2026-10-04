@@ -1,0 +1,276 @@
+[
+  {
+    "id": "service.gin-context",
+    "title": "Gin 1.12.0 Context 与 binding 入口",
+    "url": "https://github.com/gin-gonic/gin/blob/v1.12.0/context.go",
+    "type": "source",
+    "version": "v1.12.0",
+    "tag": "v1.12.0",
+    "reviewedAt": "2026-10-03",
+    "scope": "Next / Abort / AbortWithStatusJSON / Bind 与 ShouldBind",
+    "sha256": "d2ef92395e01aefd21796623338c6baacaa1e6930a5bf994f62f010e4765e41b",
+    "license": "MIT",
+    "identityMethod": "read-only installed official Go SDK or checksum-verified module cache; no upstream source excerpt redistributed"
+  },
+  {
+    "id": "service.go-json",
+    "title": "Go 1.27.1 JSON 解码合同",
+    "url": "https://github.com/golang/go/blob/go1.27.1/src/encoding/json/decode.go",
+    "type": "source",
+    "version": "go1.27.1",
+    "tag": "go1.27.1",
+    "reviewedAt": "2026-10-03",
+    "scope": "重复字段、未知字段、null 与整数字段解码；严格重复键拒绝是本服务政策",
+    "sha256": "1632161a34c8286722716a48ba0b5e0c3d117a2e017e79ace676403808a16e6e",
+    "license": "BSD-3-Clause",
+    "identityMethod": "read-only installed official Go SDK or checksum-verified module cache; no upstream source excerpt redistributed"
+  },
+  {
+    "id": "service.go-http",
+    "title": "Go 1.27.1 HTTP 请求与 MaxBytesReader",
+    "url": "https://github.com/golang/go/blob/go1.27.1/src/net/http/request.go",
+    "type": "source",
+    "version": "go1.27.1",
+    "tag": "go1.27.1",
+    "reviewedAt": "2026-10-03",
+    "scope": "请求取消与实际读取上限、MaxBytesError",
+    "sha256": "c3257079994b4e4f74f01cef72508919983ba31f91fcf599d348e9d52cec1540",
+    "license": "BSD-3-Clause",
+    "identityMethod": "read-only installed official Go SDK or checksum-verified module cache; no upstream source excerpt redistributed"
+  },
+  {
+    "id": "service.go-http-server",
+    "title": "Go 1.27.1 HTTP Close 与 Shutdown",
+    "url": "https://github.com/golang/go/blob/go1.27.1/src/net/http/server.go",
+    "type": "source",
+    "version": "go1.27.1",
+    "tag": "go1.27.1",
+    "reviewedAt": "2026-10-03",
+    "scope": "Close 的连接关闭与 listener 等待，不推导所有 handler join",
+    "sha256": "8a46dd48f65aba824366170f8f335417af263fc60b7b4e04ef2a4bba4a21253d",
+    "license": "BSD-3-Clause",
+    "identityMethod": "read-only installed official Go SDK or checksum-verified module cache; no upstream source excerpt redistributed"
+  },
+  {
+    "id": "service.go-context",
+    "title": "Go 1.27.1 context 派生期限",
+    "url": "https://github.com/golang/go/blob/go1.27.1/src/context/context.go",
+    "type": "source",
+    "version": "go1.27.1",
+    "tag": "go1.27.1",
+    "reviewedAt": "2026-10-03",
+    "scope": "派生 context 保留父取消与更早的期限；不改变另一个对象持有的 context",
+    "sha256": "971f00ffa375b79d3f65e6da33cca3a493cc3fce091c589233abfb4283e29b7d",
+    "license": "BSD-3-Clause",
+    "identityMethod": "read-only installed official Go SDK or checksum-verified module cache; no upstream source excerpt redistributed"
+  },
+  {
+    "id": "service.go-sql",
+    "title": "Go 1.27.1 database/sql 的连接、事务与 Rows",
+    "url": "https://github.com/golang/go/blob/go1.27.1/src/database/sql/sql.go",
+    "type": "source",
+    "version": "go1.27.1",
+    "tag": "go1.27.1",
+    "reviewedAt": "2026-10-03",
+    "scope": "DB 池、BeginTx、Commit/Rollback、Rows.Err/Close",
+    "sha256": "5d5ec3cd3519e1d4a388a372e29ddeaedea45dde86845cb4e9002a5ef52f27f0",
+    "license": "BSD-3-Clause",
+    "identityMethod": "read-only installed official Go SDK or checksum-verified module cache; no upstream source excerpt redistributed"
+  },
+  {
+    "id": "service.gorm-finisher",
+    "title": "GORM 1.31.2 Take 与显式事务",
+    "url": "https://github.com/go-gorm/gorm/blob/v1.31.2/finisher_api.go",
+    "type": "source",
+    "version": "v1.31.2",
+    "tag": "v1.31.2",
+    "reviewedAt": "2026-10-03",
+    "scope": "Take/ErrRecordNotFound 与 Begin/Commit/Rollback 的结果句柄",
+    "sha256": "e2153d1143549a990073e483094a2198f4116d82bf5ef5d00c7dc8e1eba4bf85",
+    "license": "MIT",
+    "identityMethod": "read-only installed official Go SDK or checksum-verified module cache; no upstream source excerpt redistributed"
+  },
+  {
+    "id": "service.mysql-driver",
+    "title": "MySQL 驱动 1.10.1 Context 支持",
+    "url": "https://github.com/go-sql-driver/mysql/blob/v1.10.1/README.md#contextcontext-support",
+    "type": "source",
+    "version": "v1.10.1",
+    "tag": "v1.10.1",
+    "reviewedAt": "2026-10-03",
+    "scope": "可取消查询与关闭连接的范围",
+    "sha256": "19393e3f1a9b4303cb7e64ad9163e3ea3e61d57d975f1028c0e1a7979a03f0a1",
+    "license": "MPL-2.0",
+    "identityMethod": "read-only installed official Go SDK or checksum-verified module cache; no upstream source excerpt redistributed"
+  },
+  {
+    "id": "service.mysql-driver-source",
+    "title": "MySQL 驱动 1.10.1 取消源码",
+    "url": "https://github.com/go-sql-driver/mysql/blob/v1.10.1/connection.go#L574-L578",
+    "type": "source",
+    "version": "v1.10.1",
+    "tag": "v1.10.1",
+    "reviewedAt": "2026-10-03",
+    "scope": "cancel/cleanup 关闭 rawConn，不同步等待 MySQL 服务端线程消失",
+    "sha256": "dc9eed2dc445196caac176e8f9f89e6c602900c15e475fec432b86451f6f4bde",
+    "license": "MPL-2.0",
+    "identityMethod": "read-only installed official Go SDK or checksum-verified module cache; no upstream source excerpt redistributed"
+  },
+  {
+    "id": "service.grpc-stream",
+    "title": "grpc-go 1.84.0 发送与 context",
+    "url": "https://github.com/grpc/grpc-go/blob/v1.84.0/stream.go",
+    "type": "source",
+    "version": "v1.84.0",
+    "tag": "v1.84.0",
+    "reviewedAt": "2026-10-03",
+    "scope": "SendMsg 的发送等待、原 stream context 与返回范围",
+    "sha256": "68aa9293b8023d550c730d391482dc08b2572526b8629904f1dde457bf042c4d",
+    "license": "Apache-2.0",
+    "identityMethod": "read-only installed official Go SDK or checksum-verified module cache; no upstream source excerpt redistributed"
+  },
+  {
+    "id": "service.grpc-status",
+    "title": "grpc-go 1.84.0 status API",
+    "url": "https://github.com/grpc/grpc-go/blob/v1.84.0/status/status.go",
+    "type": "source",
+    "version": "v1.84.0",
+    "tag": "v1.84.0",
+    "reviewedAt": "2026-10-03",
+    "scope": "status 错误与本地 context 错误；PublicError 码表属于本服务",
+    "sha256": "bc5f3bd9fefa5b9c59c811e5b67bbd0351b9a042ed7013d6ecfb967511ff7b1c",
+    "license": "Apache-2.0",
+    "identityMethod": "read-only installed official Go SDK or checksum-verified module cache; no upstream source excerpt redistributed"
+  },
+  {
+    "id": "service.gorm-transactions",
+    "title": "GORM 事务指南",
+    "url": "https://gorm.io/docs/transactions.html",
+    "type": "documentation",
+    "version": "accessed 2026-10-03; implementation fixed v1.31.2",
+    "reviewedAt": "2026-10-03",
+    "scope": "默认单次事务与显式多语句事务的区别",
+    "identityMethod": "official documentation read at stated date; mutable guide is not presented as a fixed code snapshot"
+  },
+  {
+    "id": "service.mysql-locks",
+    "title": "MySQL 8.4 InnoDB 语句与锁",
+    "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-locks-set.html",
+    "type": "documentation",
+    "version": "MySQL 8.4 documentation; runtime pin 8.4.7",
+    "reviewedAt": "2026-10-03",
+    "scope": "UPDATE、唯一键竞争与外键检查锁；没有任意扩展后的无死锁承诺",
+    "identityMethod": "official documentation read at stated date; mutable guide is not presented as a fixed code snapshot"
+  },
+  {
+    "id": "service.mysql-transaction",
+    "title": "MySQL 8.4 显式事务与会话回滚",
+    "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-autocommit-commit-rollback.html",
+    "type": "documentation",
+    "version": "MySQL 8.4 documentation; runtime pin 8.4.7",
+    "reviewedAt": "2026-10-03",
+    "scope": "显式事务、提交、会话结束回滚；没有客户端 Close 同步清理保证；INNODB_TRX 全局缓存刷新与独立实时观察的区别",
+    "identityMethod": "official documentation read at stated date; mutable guide is not presented as a fixed code snapshot",
+    "supportingSources": [
+      {
+        "url": "https://github.com/mysql/mysql-server/blob/mysql-8.4.7/storage/innobase/trx/trx0i_s.cc",
+        "tag": "mysql-8.4.7",
+        "sha256": "c5647626e35f64253cfa1ce84b944c9c62703f52e4390de07c1334238c6f6128",
+        "bytes": 33345,
+        "readRanges": [
+          [
+            681,
+            698
+          ],
+          [
+            817,
+            834
+          ],
+          [
+            887,
+            901
+          ]
+        ],
+        "license": "GPL-2.0-only; additional linking permission as stated in file header",
+        "redistributed": false,
+        "identityMethod": "official tag source read and hashed; linked for explanation, not bundled or executed"
+      },
+      {
+        "url": "https://github.com/mysql/mysql-server/blob/mysql-8.4.7/storage/innobase/include/trx0i_s.h",
+        "tag": "mysql-8.4.7",
+        "sha256": "e43435dbd77376b1b90af10abb46734c5e034772bcc73eee7fa7044f8bfc7356",
+        "bytes": 11071,
+        "readRanges": [
+          [
+            208,
+            250
+          ]
+        ],
+        "license": "GPL-2.0-only; additional linking permission as stated in file header",
+        "redistributed": false,
+        "identityMethod": "official tag source read and hashed; linked for explanation, not bundled or executed"
+      },
+      {
+        "url": "https://github.com/mysql/mysql-server/blob/mysql-8.4.7/storage/innobase/handler/i_s.cc",
+        "tag": "mysql-8.4.7",
+        "sha256": "2e68bf57f2a900fe5ee65a9de581484f1f3be85afb2481fc40e3d9679951faf1",
+        "bytes": 246931,
+        "readRanges": [
+          [
+            792,
+            852
+          ]
+        ],
+        "license": "GPL-2.0-only; additional linking permission as stated in file header",
+        "redistributed": false,
+        "identityMethod": "official tag source read and hashed; linked for explanation, not bundled or executed"
+      },
+      {
+        "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-information-schema-internal-data.html",
+        "type": "documentation",
+        "reviewedAt": "2026-10-03",
+        "scope": "INNODB_TRX、data_locks/data_lock_waits、PROCESSLIST 与 threads 不构成一致快照"
+      }
+    ]
+  },
+  {
+    "id": "service.proto3",
+    "title": "Protocol Buffers proto3 语言指南",
+    "url": "https://protobuf.dev/programming-guides/proto3/",
+    "type": "documentation",
+    "version": "accessed 2026-10-03",
+    "reviewedAt": "2026-10-03",
+    "scope": "字段编号、reserved、默认值及线格式演进；本例 protoc36.2",
+    "identityMethod": "official documentation read at stated date; mutable guide is not presented as a fixed code snapshot"
+  },
+  {
+    "id": "service.grpc-deadlines",
+    "title": "gRPC deadline 指南",
+    "url": "https://grpc.io/docs/guides/deadlines/",
+    "type": "documentation",
+    "version": "accessed 2026-10-03",
+    "reviewedAt": "2026-10-03",
+    "scope": "客户端期限、传播、服务端停止自有工作",
+    "identityMethod": "official documentation read at stated date; mutable guide is not presented as a fixed code snapshot"
+  },
+  {
+    "id": "service.grpc-flow",
+    "title": "gRPC flow control 指南",
+    "url": "https://grpc.io/docs/guides/flow-control/",
+    "type": "documentation",
+    "version": "accessed 2026-10-03",
+    "reviewedAt": "2026-10-03",
+    "scope": "流式发送等待与应用消费并非同一件事",
+    "identityMethod": "official documentation read at stated date; mutable guide is not presented as a fixed code snapshot"
+  },
+  {
+    "id": "service.grpc-shutdown",
+    "title": "gRPC graceful shutdown 指南",
+    "url": "https://grpc.io/docs/guides/server-graceful-stop/",
+    "type": "documentation",
+    "version": "accessed 2026-10-03",
+    "reviewedAt": "2026-10-03",
+    "scope": "GracefulStop 的有界等待需搭配 forceful stop",
+    "identityMethod": "official documentation read at stated date; mutable guide is not presented as a fixed code snapshot"
+  }
+]

@@ -276,6 +276,25 @@ search: false
 
 </details>
 
+### 库存预约服务实验：Gin、gRPC与MySQL {#experiment-reservation-service}
+
+[下载源码包](/examples/reservation-service.zip) · [查看运行结果](/examples/reservation-service-verification.json)。历史运行范围：protoc36.2 与两个独立版本插件；nomsgpack，-buildvcs=false，集成仅编译；fake stream 的一次 Send 错误身份；真实 TCP、精确状态/媒体/正文、入口计数与独立事实；真实 MySQL 锁交错、回滚、操作唯一性、连接归还、D09/D10；真实 TCP unary 与有限 server-stream；P01/P02/P04 默认子进程，P03 同进程 Runtime；r4 全五项数据库观察；逐一确认指定叶、package、唯一语义断言与无额外失败。
+
+关联知识：[Gin 服务边界：输入、授权与响应](/knowledge/go/engineering/gin-service-contract.html)、[gRPC 调用：版本、deadline 与流](/knowledge/go/engineering/grpc-service-contract.html)、[SQL 与 GORM：事务、连接和数据所有权](/knowledge/go/engineering/sql-gorm-boundaries.html)。
+
+源码包保留冻结时的待运行说明；同一份源码随后已完成真实 MySQL/TCP 实验。[验证摘要](/examples/reservation-service-verification.json)记录运行身份、两次历史失败和适用范围。解压后从 `reservation-service-lab/labs/reservation-service/README.md` 开始。
+
+<details class="verification-appendix">
+<summary>版本、下载身份与未覆盖范围</summary>
+
+- 版本：Go1.27.1 / MySQL8.4.7 / Linux amd64；Gin1.12.0 / GORM1.31.2 / grpc-go1.84.0
+- SHA256：355c9679da6296ef06ee0a6216eeb3d8797b362c492b800bf49b2b6e05dc0ecb
+- SHA256：7f8862e7b2e72972755901b3d5261aae4ce92fd77ca0d2372a1586ee700a1bcc
+- 未覆盖：固定 Go 1.27.1、MySQL 8.4.7、Linux amd64 单节点环境；未证明高可用、容量或任意故障下的结果；G07/M06 使用 fake stream；G06 是有限慢消费取消实验，不是 HTTP/2 背压或吞吐基准；P03 是同进程 Runtime；P01/P02/P04 运行默认入口，P04 使用 SQL 仓储；教学身份标记不构成生产认证或 TLS；COMMIT 故障只覆盖一次成功响应丢失；Runtime 只等待登记的 Serve/关闭工作，不证明任意 HTTP handler 都已 join；INNODB_TRX 采样基于 MySQL 8.4.7 全局缓存机制和无其它读取者的顺序夹具；module-graph.log 仅公开脱敏字节；其 raw hash 是 collector 回执，独审没有重算未公开的私有原字节
+- 此处汇总已有运行记录；收录到目录不会增加实验覆盖范围
+
+</details>
+
 ### 身份与对象授权模型：撤销、租户、动作和提交版本 {#experiment-security-boundaries}
 
 [下载源码包](/examples/security-boundaries-lab.zip)。历史运行范围：Python 3.12.14 标准库，固定整数时间、有限顺序状态模型；声明配置与 nbf/exp 边界；当前状态与旧缓存对撤销的可见差异；90 个固定主体/租户/对象/动作组合与独立允许集合逐项比对，拒绝读无正文，拒绝写无业务副作用；成员撤销、动作处理器绑定、归属转移、委托期限/撤销/对象/接收者/代次及提交重查；r2：在线/缓存声明和时间边界、inactive与未来观察、空委托动作、同主体陈旧准备与重复提交；逐项核对正文、备注、修订号和事件；11 个故意错误的允许变体实际运行，子进程预期退出 3 且 assertion 精确为 WRONG_ALLOW:变体名；超时、崩溃、语法/启动错误、错误 JSON、额外 stderr 或错误断言均不算通过；陈旧允许变体实际写入已转移订单，拒绝断言同时观察结果、数据和业务事件；六种实际model.py源码变异逐项运行强化后的verify.py，均因精确目标AssertionError退出1；检查空委托动作、在线声明配置、缓存inactive/未来观察、提交修订比较和递增；同主体陈旧准备及重复提交须无额外副作用；四项纯分类器反例拒绝RuntimeError、SyntaxError、ModuleNotFoundError及意外退出0。

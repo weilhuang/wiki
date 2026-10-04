@@ -1,0 +1,18 @@
+test_all_complete_controls (__main__.MutantVerifierTests.test_all_complete_controls) ... ok
+test_duplicate_assertion (__main__.MutantVerifierTests.test_duplicate_assertion) ... ok
+test_duplicate_package_terminal (__main__.MutantVerifierTests.test_duplicate_package_terminal) ... ok
+test_extra_leaf_cleanup_assertion (__main__.MutantVerifierTests.test_extra_leaf_cleanup_assertion) ... ok
+test_extra_parent_assertion (__main__.MutantVerifierTests.test_extra_parent_assertion) ... ok
+test_legacy_bad_logs (__main__.MutantVerifierTests.test_legacy_bad_logs) ... ok
+test_logged_marker_without_error_attribution (__main__.MutantVerifierTests.test_logged_marker_without_error_attribution) ... ok
+test_missing_backend (__main__.MutantVerifierTests.test_missing_backend) ... ok
+test_missing_package_terminal (__main__.MutantVerifierTests.test_missing_package_terminal) ... ok
+test_real_go127_m06_record (__main__.MutantVerifierTests.test_real_go127_m06_record) ... ok
+test_unknown_leaf (__main__.MutantVerifierTests.test_unknown_leaf) ... ok
+test_wrong_marker (__main__.MutantVerifierTests.test_wrong_marker) ... ok
+test_wrong_package (__main__.MutantVerifierTests.test_wrong_package) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.006s
+
+OK

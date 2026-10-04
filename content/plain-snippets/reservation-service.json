@@ -1,0 +1,21 @@
+[
+  {
+    "id": "service.proto",
+    "doc": "docs/knowledge/go/engineering/grpc-service-contract.md",
+    "source": "labs/reservation-service/api/reservation/v1/reservation.proto",
+    "file": "labs/reservation-service/api/reservation/v1/reservation.proto",
+    "lines": [
+      1,
+      27
+    ],
+    "language": "proto",
+    "version": "reservation-service r4",
+    "type": "source-excerpt",
+    "transform": "none",
+    "sourceSha256": "de796a7da3b2e84e34b29ab23342f316d2f1aa4ac2a83f72dd518cb9087008a8",
+    "cleanCodeSha256": "de796a7da3b2e84e34b29ab23342f316d2f1aa4ac2a83f72dd518cb9087008a8",
+    "cleanCopy": "content/records/reservation-service/snippets/service.proto.proto",
+    "presentation": "plain",
+    "annotations": "in-document"
+  }
+]

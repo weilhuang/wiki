@@ -446,5 +446,68 @@
     "task": "verify",
     "prompt": "编译失败与命中特定CONTRACT断言的失败有什么不同？",
     "anchor": "semantic-counterexamples"
+  },
+  {
+    "id": "gin-rejection",
+    "topic": "go.gin-service-contract",
+    "task": "verify",
+    "prompt": "只读教学身份同时提交重复 quantity 时，应比较哪些响应字节、入口次数和数据库事实？",
+    "anchor": "rejection-order"
+  },
+  {
+    "id": "gin-abort",
+    "topic": "go.gin-service-contract",
+    "task": "diagnose",
+    "prompt": "Abort 以后仍调用服务会发生什么？哪一行 Go 控制流阻止当前函数继续执行？",
+    "anchor": "middleware-control"
+  },
+  {
+    "id": "gin-body-budget",
+    "topic": "go.gin-service-contract",
+    "task": "understand",
+    "prompt": "2 秒应用预算是否覆盖正文读取？客户端断开后能否观察到 499？",
+    "anchor": "cancellation-and-outcome"
+  },
+  {
+    "id": "sql-last-item",
+    "topic": "go.sql-gorm-boundaries",
+    "task": "verify",
+    "prompt": "两个会话预约最后一件时，为什么 Exec 无 error 仍不足以返回 confirmed？",
+    "anchor": "conditional-update"
+  },
+  {
+    "id": "sql-tx-owner",
+    "topic": "go.sql-gorm-boundaries",
+    "task": "diagnose",
+    "prompt": "扣库存用了池级 DB 而占位用了 tx，Rollback 后哪项事实可能保留？",
+    "anchor": "transaction-owner"
+  },
+  {
+    "id": "sql-unknown-commit",
+    "topic": "go.sql-gorm-boundaries",
+    "task": "recover",
+    "prompt": "COMMIT 成功包丢失和提交前断线分别可能留下什么？应如何保留操作身份？",
+    "anchor": "uncertain-commit"
+  },
+  {
+    "id": "grpc-details",
+    "topic": "go.grpc-service-contract",
+    "task": "understand",
+    "prompt": "DeadlineExceeded 没有 PublicError 为什么不一定违背应用错误合同？",
+    "anchor": "status-details"
+  },
+  {
+    "id": "grpc-send-budget",
+    "topic": "go.grpc-service-contract",
+    "task": "understand",
+    "prompt": "派生 ctx 到期时 Send 已经阻塞，谁能终止传输，谁负责回收发送者？",
+    "anchor": "flow-control"
+  },
+  {
+    "id": "grpc-process-db",
+    "topic": "go.grpc-service-contract",
+    "task": "verify",
+    "prompt": "进程退出与 MySQL 线程消失为何分开观察？每 5ms 查 INNODB_TRX 会改变什么？",
+    "anchor": "process-contract"
   }
 ]

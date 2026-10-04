@@ -48,6 +48,16 @@ Go 函数、error 与 defer；channel 与 goroutine；HTTP 请求响应。这些
 
 **阶段任务**：演练正常排空与强制退出，说明什么结果需要外部持久化。
 
+## 4. 把两种传输接到同一持久合同 {#stage-4}
+
+把已经理解的请求、取消与退出责任放进同一个预约服务，沿 HTTP、数据库和 gRPC 交叉核对同一份业务事实。
+
+- [Gin 服务边界：输入、授权与响应](/knowledge/go/engineering/gin-service-contract.html)（主线）：定义公开输入、授权顺序与精确响应
+- [SQL 与 GORM：事务、连接和数据所有权](/knowledge/go/engineering/sql-gorm-boundaries.html)（主线）：用两种真实 MySQL 仓储验证同一不变量
+- [gRPC 调用：版本、deadline 与流](/knowledge/go/engineering/grpc-service-contract.html)（主线）：解释 RPC 终态、有限流和默认进程退出
+
+**阶段任务**：用一个操作键从 HTTP 创建、gRPC 查询，再分别验证拒绝、回滚、未知提交和关闭
+
 ## 完成以后 {#completion}
 
 用一个改变条件的反例检查自己的解释，再比较两个都合理的方案。路线的完成不等于职位或能力认证；留下可复核的推理比记录读过多少页更有用。

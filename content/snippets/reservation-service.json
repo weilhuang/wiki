@@ -1,0 +1,249 @@
+[
+  {
+    "id": "service.http-auth",
+    "doc": "docs/knowledge/go/engineering/gin-service-contract.md",
+    "source": "labs/reservation-service/internal/httpapi/http.go",
+    "file": "labs/reservation-service/internal/httpapi/http.go",
+    "lines": [
+      63,
+      82
+    ],
+    "language": "go",
+    "version": "reservation-service r4",
+    "type": "source-excerpt",
+    "transform": "none",
+    "sourceSha256": "36acda672f5a43ef5136eebbacbf2b573d228c15a51525942d94bc789d2f699c",
+    "cleanCodeSha256": "fd32d1787fbee49589e0764fbafdf96da17e8926eb03ba8017a950169b1f432f",
+    "cleanCopy": "content/records/reservation-service/snippets/service.http-auth.go",
+    "presentation": "steps",
+    "annotations": "in-document"
+  },
+  {
+    "id": "service.http-read",
+    "doc": "docs/knowledge/go/engineering/gin-service-contract.md",
+    "source": "labs/reservation-service/internal/httpapi/http.go",
+    "file": "labs/reservation-service/internal/httpapi/http.go",
+    "lines": [
+      116,
+      132
+    ],
+    "language": "go",
+    "version": "reservation-service r4",
+    "type": "source-excerpt",
+    "transform": "none",
+    "sourceSha256": "36acda672f5a43ef5136eebbacbf2b573d228c15a51525942d94bc789d2f699c",
+    "cleanCodeSha256": "d02b8e3db1e195ffd94317604d11843a9403bc592673f19bff2f9967b75b7468",
+    "cleanCopy": "content/records/reservation-service/snippets/service.http-read.go",
+    "presentation": "steps",
+    "annotations": "in-document"
+  },
+  {
+    "id": "service.http-decode",
+    "doc": "docs/knowledge/go/engineering/gin-service-contract.md",
+    "source": "labs/reservation-service/internal/httpapi/http.go",
+    "file": "labs/reservation-service/internal/httpapi/http.go",
+    "lines": [
+      150,
+      190
+    ],
+    "language": "go",
+    "version": "reservation-service r4",
+    "type": "source-excerpt",
+    "transform": "none",
+    "sourceSha256": "36acda672f5a43ef5136eebbacbf2b573d228c15a51525942d94bc789d2f699c",
+    "cleanCodeSha256": "0c495a071b323e88d17d44a468441d0ef11e1b1c473517fb5539276849b8b706",
+    "cleanCopy": "content/records/reservation-service/snippets/service.http-decode.go",
+    "presentation": "steps",
+    "annotations": "in-document"
+  },
+  {
+    "id": "service.domain-reserve",
+    "doc": "docs/knowledge/go/engineering/gin-service-contract.md",
+    "source": "labs/reservation-service/internal/domain/service.go",
+    "file": "labs/reservation-service/internal/domain/service.go",
+    "lines": [
+      112,
+      131
+    ],
+    "language": "go",
+    "version": "reservation-service r4",
+    "type": "source-excerpt",
+    "transform": "none",
+    "sourceSha256": "c618422c104527a2cb40d078c4938502508bfa9dfed97826ad75e9b282535d9f",
+    "cleanCodeSha256": "9c38e38a90a8e5167cf55e2f9b404b4fa4dda8c61aba2e6dd0f9b0f4eaa37e17",
+    "cleanCopy": "content/records/reservation-service/snippets/service.domain-reserve.go",
+    "presentation": "steps",
+    "annotations": "in-document"
+  },
+  {
+    "id": "service.schema",
+    "doc": "docs/knowledge/go/engineering/sql-gorm-boundaries.md",
+    "source": "labs/reservation-service/migrations/001_init.sql",
+    "file": "labs/reservation-service/migrations/001_init.sql",
+    "lines": [
+      1,
+      14
+    ],
+    "language": "sql",
+    "version": "reservation-service r4",
+    "type": "source-excerpt",
+    "transform": "none",
+    "sourceSha256": "f18599523677062758c6973711d1e06f266a26684e2a3ae059aa349163fd34c3",
+    "cleanCodeSha256": "f18599523677062758c6973711d1e06f266a26684e2a3ae059aa349163fd34c3",
+    "cleanCopy": "content/records/reservation-service/snippets/service.schema.sql",
+    "presentation": "steps",
+    "annotations": "in-document"
+  },
+  {
+    "id": "service.sql-debit",
+    "doc": "docs/knowledge/go/engineering/sql-gorm-boundaries.md",
+    "source": "labs/reservation-service/internal/store/sql.go",
+    "file": "labs/reservation-service/internal/store/sql.go",
+    "lines": [
+      53,
+      64
+    ],
+    "language": "go",
+    "version": "reservation-service r4",
+    "type": "source-excerpt",
+    "transform": "none",
+    "sourceSha256": "98ca3c604c591c78cd0ca4527e5ffaec8886ca8acece5e92e57603d62f4f47c5",
+    "cleanCodeSha256": "fa0acd34e3a21e58e6875a2457bbe03e6c1a89cfd536eef4f012b6581a3a3357",
+    "cleanCopy": "content/records/reservation-service/snippets/service.sql-debit.go",
+    "presentation": "steps",
+    "annotations": "in-document"
+  },
+  {
+    "id": "service.sql-claim",
+    "doc": "docs/knowledge/go/engineering/sql-gorm-boundaries.md",
+    "source": "labs/reservation-service/internal/store/sql.go",
+    "file": "labs/reservation-service/internal/store/sql.go",
+    "lines": [
+      31,
+      44
+    ],
+    "language": "go",
+    "version": "reservation-service r4",
+    "type": "source-excerpt",
+    "transform": "none",
+    "sourceSha256": "98ca3c604c591c78cd0ca4527e5ffaec8886ca8acece5e92e57603d62f4f47c5",
+    "cleanCodeSha256": "b05397bd08a186fe32bcd207c788665217a47045a1b4edbd0cc57202b13ba004",
+    "cleanCopy": "content/records/reservation-service/snippets/service.sql-claim.go",
+    "presentation": "steps",
+    "annotations": "in-document"
+  },
+  {
+    "id": "service.gorm-debit",
+    "doc": "docs/knowledge/go/engineering/sql-gorm-boundaries.md",
+    "source": "labs/reservation-service/internal/store/gorm.go",
+    "file": "labs/reservation-service/internal/store/gorm.go",
+    "lines": [
+      63,
+      70
+    ],
+    "language": "go",
+    "version": "reservation-service r4",
+    "type": "source-excerpt",
+    "transform": "none",
+    "sourceSha256": "b97e3ecafdb6b7944e207db7b657d2623590b6447044999d13e98731a2e1523e",
+    "cleanCodeSha256": "25f10014a0b6836eb4a91a99c81b204a2414a477556d4203a477e7976488a68b",
+    "cleanCopy": "content/records/reservation-service/snippets/service.gorm-debit.go",
+    "presentation": "steps",
+    "annotations": "in-document"
+  },
+  {
+    "id": "service.gorm-get",
+    "doc": "docs/knowledge/go/engineering/sql-gorm-boundaries.md",
+    "source": "labs/reservation-service/internal/store/gorm.go",
+    "file": "labs/reservation-service/internal/store/gorm.go",
+    "lines": [
+      99,
+      109
+    ],
+    "language": "go",
+    "version": "reservation-service r4",
+    "type": "source-excerpt",
+    "transform": "none",
+    "sourceSha256": "b97e3ecafdb6b7944e207db7b657d2623590b6447044999d13e98731a2e1523e",
+    "cleanCodeSha256": "45019df8441e0a34301730959dc372c908b9a49d4181c8aa63b1a139a0c6c50d",
+    "cleanCopy": "content/records/reservation-service/snippets/service.gorm-get.go",
+    "presentation": "steps",
+    "annotations": "in-document"
+  },
+  {
+    "id": "service.sql-list",
+    "doc": "docs/knowledge/go/engineering/sql-gorm-boundaries.md",
+    "source": "labs/reservation-service/internal/store/sql.go",
+    "file": "labs/reservation-service/internal/store/sql.go",
+    "lines": [
+      91,
+      112
+    ],
+    "language": "go",
+    "version": "reservation-service r4",
+    "type": "source-excerpt",
+    "transform": "none",
+    "sourceSha256": "98ca3c604c591c78cd0ca4527e5ffaec8886ca8acece5e92e57603d62f4f47c5",
+    "cleanCodeSha256": "d0e454b808af846731c7c96db41e6e779fc683731b82afa38db703da1aecf24a",
+    "cleanCopy": "content/records/reservation-service/snippets/service.sql-list.go",
+    "presentation": "steps",
+    "annotations": "in-document"
+  },
+  {
+    "id": "service.grpc-reserve",
+    "doc": "docs/knowledge/go/engineering/grpc-service-contract.md",
+    "source": "labs/reservation-service/internal/grpcapi/grpc.go",
+    "file": "labs/reservation-service/internal/grpcapi/grpc.go",
+    "lines": [
+      74,
+      86
+    ],
+    "language": "go",
+    "version": "reservation-service r4",
+    "type": "source-excerpt",
+    "transform": "none",
+    "sourceSha256": "562762395b2a3e57914fd1e36b42cc119c310b5e4c9e077b2eb685bf390a3101",
+    "cleanCodeSha256": "289b1d051c36792d9b398c82beddacd672dd778ccc1c26e5dcdc95c4460a7be0",
+    "cleanCopy": "content/records/reservation-service/snippets/service.grpc-reserve.go",
+    "presentation": "steps",
+    "annotations": "in-document"
+  },
+  {
+    "id": "service.grpc-failure",
+    "doc": "docs/knowledge/go/engineering/grpc-service-contract.md",
+    "source": "labs/reservation-service/internal/grpcapi/grpc.go",
+    "file": "labs/reservation-service/internal/grpcapi/grpc.go",
+    "lines": [
+      50,
+      58
+    ],
+    "language": "go",
+    "version": "reservation-service r4",
+    "type": "source-excerpt",
+    "transform": "none",
+    "sourceSha256": "562762395b2a3e57914fd1e36b42cc119c310b5e4c9e077b2eb685bf390a3101",
+    "cleanCodeSha256": "2f69bc46530b847749f8209c9edb6c8971f83b1c83fcd4ec714e63e5bdd42a07",
+    "cleanCopy": "content/records/reservation-service/snippets/service.grpc-failure.go",
+    "presentation": "steps",
+    "annotations": "in-document"
+  },
+  {
+    "id": "service.grpc-send",
+    "doc": "docs/knowledge/go/engineering/grpc-service-contract.md",
+    "source": "labs/reservation-service/internal/grpcapi/grpc.go",
+    "file": "labs/reservation-service/internal/grpcapi/grpc.go",
+    "lines": [
+      116,
+      129
+    ],
+    "language": "go",
+    "version": "reservation-service r4",
+    "type": "source-excerpt",
+    "transform": "none",
+    "sourceSha256": "562762395b2a3e57914fd1e36b42cc119c310b5e4c9e077b2eb685bf390a3101",
+    "cleanCodeSha256": "8aa7f243091137ec1825878c71d1dbb9f95a0a96cb54907637d995f146aff5ca",
+    "cleanCopy": "content/records/reservation-service/snippets/service.grpc-send.go",
+    "presentation": "steps",
+    "annotations": "in-document"
+  }
+]

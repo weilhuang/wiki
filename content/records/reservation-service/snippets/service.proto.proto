@@ -1,0 +1,27 @@
+syntax = "proto3";
+package reservation.v1;
+option go_package = "example.com/reservation-service/api/reservation/v1;reservationv1";
+
+service ReservationService {
+ rpc Reserve(ReserveRequest) returns (Operation);
+ rpc Get(GetRequest) returns (Operation);
+ rpc List(ListRequest) returns (stream Operation);
+}
+message ReserveRequest {
+ string operation_id = 1;
+ string sku = 2;
+ int64 quantity = 3;
+ reserved 4;
+ reserved "subject";
+}
+message GetRequest { string operation_id = 1; }
+message ListRequest { int32 limit = 1; }
+message Operation {
+ string operation_id = 1;
+ string sku = 2;
+ int64 quantity = 3;
+ string state = 4;
+ reserved 5;
+ reserved "subject";
+}
+message PublicError { string code = 1; }

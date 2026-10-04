@@ -1,0 +1,7 @@
+{"Time":"2026-10-03T22:55:02.578028864Z","Action":"run","Package":"example.com/reservation-service/tests","Test":"TestProcess/P04"}
+{"Time":"2026-10-03T22:55:02.578032691Z","Action":"output","Package":"example.com/reservation-service/tests","Test":"TestProcess/P04","Output":"=== RUN   TestProcess/P04\n","OutputType":"frame"}
+{"Time":"2026-10-03T22:55:02.58663567Z","Action":"output","Package":"example.com/reservation-service/tests","Test":"TestProcess/P04","Output":"    process_test.go:295: FIXTURE mysql=8.4.7 backend=sql\n"}
+{"Time":"2026-10-03T22:55:02.854951536Z","Action":"output","Package":"example.com/reservation-service/tests","Test":"TestProcess/P04","Output":"    process_test.go:339: FORCED_DB_BEFORE_RELEASE processes=1 threads=1 transactions=1 waits=1 locks=3\n"}
+{"Time":"2026-10-03T22:55:03.857414596Z","Action":"output","Package":"example.com/reservation-service/tests","Test":"TestProcess/P04","Output":"    process_test.go:161: forced database state observation failed (context.deadlineExceededError)\n","OutputType":"error"}
+{"Time":"2026-10-03T22:55:03.862478968Z","Action":"output","Package":"example.com/reservation-service/tests","Test":"TestProcess/P04","Output":"--- FAIL: TestProcess/P04 (1.28s)\n","OutputType":"frame"}
+{"Time":"2026-10-03T22:55:03.862507691Z","Action":"fail","Package":"example.com/reservation-service/tests","Test":"TestProcess/P04","Elapsed":1.28}

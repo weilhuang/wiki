@@ -29,7 +29,8 @@ export const paths = [
         {topic:'go.client-budgets',role:'required',purpose:'让 Body、连接复用和重试共享总预算'},
         {topic:'go.runtime-wait-diagnosis',role:'optional',purpose:'定位慢请求时，用实际栈、profile与trace区分执行、等待和输入堆积'}]},
       {title:'关闭进程前兑现责任',transition:'单次请求正确收尾不意味着整个进程可以退出，后台工作和共享依赖还有自己的责任。',task:'演练正常排空与强制退出，说明什么结果需要外部持久化。',readings:[
-        {topic:'go.graceful-shutdown',role:'required',purpose:'按依赖顺序停止接纳、等待和释放资源'}]}
+        {topic:'go.graceful-shutdown',role:'required',purpose:'按依赖顺序停止接纳、等待和释放资源'}]},
+      {"title": "把两种传输接到同一持久合同", "task": "用一个操作键从 HTTP 创建、gRPC 查询，再分别验证拒绝、回滚、未知提交和关闭", "readings": [{"topic": "go.gin-service-contract", "role": "required", "purpose": "定义公开输入、授权顺序与精确响应"}, {"topic": "go.sql-gorm-boundaries", "role": "required", "purpose": "用两种真实 MySQL 仓储验证同一不变量"}, {"topic": "go.grpc-service-contract", "role": "required", "purpose": "解释 RPC 终态、有限流和默认进程退出"}], "transition": "把已经理解的请求、取消与退出责任放进同一个预约服务，沿 HTTP、数据库和 gRPC 交叉核对同一份业务事实。"}
     ] },
   { id:'data-message-consistency', title:'数据与消息一致性', source:'paths/data-message-consistency.md', status:'published',
     entry:['SQL 与唯一约束','事务提交和回滚','两个会话的交错执行'], goal:'从业务不变量走到未知结果、事件交接、缓存和联合恢复，解释每个局部承诺。',

@@ -14,7 +14,10 @@
     "rabbitmq": "RabbitMQ",
     "kafka": "Kafka",
     "etcd": "etcd",
-    "kubernetes": "Kubernetes"
+    "kubernetes": "Kubernetes",
+    "gin": "Gin",
+    "gorm": "GORM",
+    "grpc": "gRPC"
   },
   "mechanism": {
     "ioc": "IoC",

@@ -1,0 +1,725 @@
+{
+  "recordedAt": "2026-10-03",
+  "status": "verified",
+  "independentlyReviewed": true,
+  "scope": "固定源码的真实 MySQL、HTTP/gRPC TCP 与进程实验；各用例的证明层次分别列出",
+  "sourceSnapshot": {
+    "revision": "r4",
+    "sourceID": "2a6baac73e59ddfd57fbe2925500457f27708928b43201a718ac5ecfc13c3292",
+    "reviewContractPath": "labs/reservation-service-reviewed.json",
+    "reviewContractSHA256": "0a5d7dac799ddf9efc6e23f312ab83a8663994e6e888d04322555487c4a6ac70",
+    "files": [
+      {
+        "path": ".github/workflows/reservation-service.yml",
+        "sha256": "c96f7a7a39c01865cfdb1558cf8ceaa654b6e91e9fadc116a9b7c31e19c4ada6"
+      },
+      {
+        "path": "labs/reservation-service-reviewed.json",
+        "sha256": "0a5d7dac799ddf9efc6e23f312ab83a8663994e6e888d04322555487c4a6ac70"
+      },
+      {
+        "path": "labs/reservation-service/LICENSE",
+        "sha256": "6a4c39d86baab9062765b8216d5dea94c1c9535f864b0d9863c053be9244f1f5"
+      },
+      {
+        "path": "labs/reservation-service/README.md",
+        "sha256": "f60f8838ce0605ee8e2bdf753fbbd91f2d25fbf99d8ebe25d1a5a2d400219ed9"
+      },
+      {
+        "path": "labs/reservation-service/acceptance-matrix.json",
+        "sha256": "6b23825b72338debc7a90c1130dfb9b70e36142c225b1613cbfb17558c03e5cf"
+      },
+      {
+        "path": "labs/reservation-service/api/reservation/v1/reservation.pb.go",
+        "sha256": "1710a657dfda9a48c4f6cd074c42f70ccd4292d4e5014ccfa2a2fe634c2a414d"
+      },
+      {
+        "path": "labs/reservation-service/api/reservation/v1/reservation.proto",
+        "sha256": "de796a7da3b2e84e34b29ab23342f316d2f1aa4ac2a83f72dd518cb9087008a8"
+      },
+      {
+        "path": "labs/reservation-service/api/reservation/v1/reservation_grpc.pb.go",
+        "sha256": "f6a929520338e381d9dc1177dd017bf18e189fa9df6804a872c38e97aabb5f26"
+      },
+      {
+        "path": "labs/reservation-service/cmd/reservationd/main.go",
+        "sha256": "660272288f77944c9d85d65d41ef0392bba7afa006469f05a73908f11ab9bf59"
+      },
+      {
+        "path": "labs/reservation-service/contract.md",
+        "sha256": "a9cc6b20a0bbe5a47d029e0a8d3759a6b12966a4517d88c514f12a9ede9f432f"
+      },
+      {
+        "path": "labs/reservation-service/go.mod",
+        "sha256": "640d27443e00814a0dffcd34ff96eea56c7f57bf660287154566546b82ad41f8"
+      },
+      {
+        "path": "labs/reservation-service/go.sum",
+        "sha256": "919a9c28b6664abf50b94cbe89b6affc149d8a21c4eb67c8c6962162ecdf1c02"
+      },
+      {
+        "path": "labs/reservation-service/internal/domain/service.go",
+        "sha256": "c618422c104527a2cb40d078c4938502508bfa9dfed97826ad75e9b282535d9f"
+      },
+      {
+        "path": "labs/reservation-service/internal/grpcapi/grpc.go",
+        "sha256": "562762395b2a3e57914fd1e36b42cc119c310b5e4c9e077b2eb685bf390a3101"
+      },
+      {
+        "path": "labs/reservation-service/internal/grpcapi/grpc_test.go",
+        "sha256": "3c133957ca68a072187c2a2323d8be1866221e63c91878bda9e9f242d1225a69"
+      },
+      {
+        "path": "labs/reservation-service/internal/httpapi/http.go",
+        "sha256": "36acda672f5a43ef5136eebbacbf2b573d228c15a51525942d94bc789d2f699c"
+      },
+      {
+        "path": "labs/reservation-service/internal/runtime/runtime.go",
+        "sha256": "1b15b145ade8e367fc4d188c706f2c2da2cd245cf4603aa0b95e3ead46809f49"
+      },
+      {
+        "path": "labs/reservation-service/internal/store/common.go",
+        "sha256": "c2d5030d7cd7adcec8059a08d294d05e56c8e93162a7279ecb30316df84a0db8"
+      },
+      {
+        "path": "labs/reservation-service/internal/store/gorm.go",
+        "sha256": "b97e3ecafdb6b7944e207db7b657d2623590b6447044999d13e98731a2e1523e"
+      },
+      {
+        "path": "labs/reservation-service/internal/store/sql.go",
+        "sha256": "98ca3c604c591c78cd0ca4527e5ffaec8886ca8acece5e92e57603d62f4f47c5"
+      },
+      {
+        "path": "labs/reservation-service/licenses/gin.txt",
+        "sha256": "03458b6d5828e1be1127ca2adf122572eb574fc47b56190c3b38203b8b2a98d0"
+      },
+      {
+        "path": "labs/reservation-service/licenses/gorm-mysql.txt",
+        "sha256": "59f62caa972078dc1664ce928b5e5d51b78633fc43b78894d2dab83bc504edee"
+      },
+      {
+        "path": "labs/reservation-service/licenses/gorm.txt",
+        "sha256": "a7535fe9fee1f534b47846eee31be7492c73fb766e6f4fe9433a427e16e147c3"
+      },
+      {
+        "path": "labs/reservation-service/licenses/grpc-go.txt",
+        "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+      },
+      {
+        "path": "labs/reservation-service/licenses/mysql-driver.txt",
+        "sha256": "fab3dd6bdab226f1c08630b1dd917e11fcb4ec5e1e020e2c16f83a0a13863e85"
+      },
+      {
+        "path": "labs/reservation-service/licenses/protobuf-go.txt",
+        "sha256": "4835612df0098ca95f8e7d9e3bffcb02358d435dbb38057c844c99d7f725eb20"
+      },
+      {
+        "path": "labs/reservation-service/licenses/sources.json",
+        "sha256": "a5bde8ab1cbe7759a5f93296ebce38f8e1932943d278a842f14fbec6792a693a"
+      },
+      {
+        "path": "labs/reservation-service/migrations/001_init.sql",
+        "sha256": "f18599523677062758c6973711d1e06f266a26684e2a3ae059aa349163fd34c3"
+      },
+      {
+        "path": "labs/reservation-service/migrations/schema.go",
+        "sha256": "4367ee1f2914f8e652cf7c864748df334617385d0d129f790a7e569e58fb129a"
+      },
+      {
+        "path": "labs/reservation-service/pins.json",
+        "sha256": "02b03e7ae4a6f007ec0572ae6ebc56dc96ad88bffbedb87a95aff066ae1ae4f8"
+      },
+      {
+        "path": "labs/reservation-service/scripts/budgets.py",
+        "sha256": "f3ec11a97371d100ef00f819c7ca5a3a4fccf0ad6236696a00f58a492448d894"
+      },
+      {
+        "path": "labs/reservation-service/scripts/cleanup.py",
+        "sha256": "947f59029602ff78683ce4674ff2eb7aa13d2a0f7158e13f84cb5fdb5ef32420"
+      },
+      {
+        "path": "labs/reservation-service/scripts/collect.py",
+        "sha256": "0678febe5dd48a0e7715eccd58df88369caf3e245b8226ce443e32f41b6f3c53"
+      },
+      {
+        "path": "labs/reservation-service/scripts/download_protoc.py",
+        "sha256": "3b9634fda229804f5f5e21b762f8efc3b584eaa519c41ae3269834b8a12bf3d7"
+      },
+      {
+        "path": "labs/reservation-service/scripts/evidence.py",
+        "sha256": "68f58fdc27f1af856d8fc4261b165b4674b1372e88161e0001a9c14d98f1101c"
+      },
+      {
+        "path": "labs/reservation-service/scripts/mutants.py",
+        "sha256": "51d1683ea04726b1274f5c198d8c047e1822714a21103962ca8b4947ee54f7be"
+      },
+      {
+        "path": "labs/reservation-service/scripts/reader-commands.sh",
+        "sha256": "5c5c73f1e91bc01240e2e38fc7416691a22e60f2f93a3df34f2fb34a4c758cd4"
+      },
+      {
+        "path": "labs/reservation-service/scripts/run_ci.py",
+        "sha256": "4b53eb58f44b751c9f3ed8b80b0f9c9a2b3e9c4cd6d54be3f9da984f6f8b30c0"
+      },
+      {
+        "path": "labs/reservation-service/scripts/test_cleanup.py",
+        "sha256": "ed70c2c925cbb780e4a4ef016a2107aaa5ca0ed44aff0c99ee679022c79d26ae"
+      },
+      {
+        "path": "labs/reservation-service/scripts/test_evidence.py",
+        "sha256": "b0709f6058253c089d42dc11e467f2d53af865475460059bd875e7b45a96fb3f"
+      },
+      {
+        "path": "labs/reservation-service/scripts/test_mutants.py",
+        "sha256": "1a758cfb64bc0ed59c2dd8d90b43276d1e074631527503d82be7aec29d4434d2"
+      },
+      {
+        "path": "labs/reservation-service/scripts/test_verify_results.py",
+        "sha256": "1725436e0ae27f80741dffdad8470fc93ff330ec3811732abd9ed758bb2c8964"
+      },
+      {
+        "path": "labs/reservation-service/scripts/verify_results.py",
+        "sha256": "271627b8192995e746e9cb73382ba82c51a2017bbcf04c7d814ca9185c4b2633"
+      },
+      {
+        "path": "labs/reservation-service/testdata/review-r1/mutant_extra_leaf_cleanup_failure.jsonl",
+        "sha256": "e08d67153a1d808ce49bb217fb3a26ac338477e14a6772c3f8eb25fafe923f48"
+      },
+      {
+        "path": "labs/reservation-service/testdata/review-r1/mutant_extra_parent_assertion.jsonl",
+        "sha256": "1b1fe55e909e8ab5520542cda17ab9f61fbb69f05611fedba6a1a9c70db2b377"
+      },
+      {
+        "path": "labs/reservation-service/testdata/review-r1/mutant_missing_package_terminal.jsonl",
+        "sha256": "5be606333410ea5ecaae39ea9ad97de630f5f3543affe8ae5e6f47a8aa8f3f7a"
+      },
+      {
+        "path": "labs/reservation-service/testdata/review-r1/mutant_one_backend_missing.jsonl",
+        "sha256": "6521a9867e5097d82e1724dda3daeb58835778ca06bea5111a156d57a7ba1a99"
+      },
+      {
+        "path": "labs/reservation-service/testdata/review-r1/mutant_wrong_package.jsonl",
+        "sha256": "8e5ae2cfe5053857f93f6149603c6b64c07ba89922008fbb675cf37de2ed5f8d"
+      },
+      {
+        "path": "labs/reservation-service/testdata/review-r2/m06-go127.jsonl",
+        "sha256": "fffef3be8e0f88d9e8b571fafbf31ee16db5f7f036e0d0ca4813be362d889e67"
+      },
+      {
+        "path": "labs/reservation-service/tests/commit_proxy_test.go",
+        "sha256": "bae66131f638b3b638f9b16683605ba3afa49eb638324240ad8c3b2faf35995a"
+      },
+      {
+        "path": "labs/reservation-service/tests/database_test.go",
+        "sha256": "b59766d36b6931f914a05fe10ed50518ab34cbeecd0b28650d4fed8da9dc5709"
+      },
+      {
+        "path": "labs/reservation-service/tests/fixture_test.go",
+        "sha256": "dc9b7aa35ae276e6de52b14a38a054e3d2133e41e7efb15be5fa6ef9ebaba16d"
+      },
+      {
+        "path": "labs/reservation-service/tests/grpc_test.go",
+        "sha256": "de77e91637b0e82ab7f9a09e12bf8b56cf5ea5fb5ea117d1ff4107f7e625cd2f"
+      },
+      {
+        "path": "labs/reservation-service/tests/http_test.go",
+        "sha256": "6fde04823a4748930537891231b56b7bbe850c5a14f9a34fcfd146e792aad886"
+      },
+      {
+        "path": "labs/reservation-service/tests/process_test.go",
+        "sha256": "223459bc81ad3e6212afb455381c025abee0c1c868b018e3c9ec1fe6e66983c3"
+      }
+    ]
+  },
+  "execution": {
+    "runID": 37161631044,
+    "attempt": 1,
+    "url": "https://github.com/weilhuang/wiki/actions/runs/37161631044",
+    "head": "d9730eaf77c30f1853f6c7f173504cfe02ea26b9",
+    "testedMerge": "cf457576ebc12f765aa917dde3c91c446f48fa61",
+    "tree": "3af0565242b3a21c00e4b02d17c78061f651e38f",
+    "artifactID": 11287478605,
+    "artifactZIP_SHA256": "4ffde2ab8003d2f7f8a92fc83e53618c76ef4cef8ffc353a587e9bc2cb554b7a",
+    "wrapperElapsedSeconds": 86.197,
+    "requiredIntegrationCases": [
+      "TestIntegration/gorm/D01",
+      "TestIntegration/gorm/D02",
+      "TestIntegration/gorm/D03",
+      "TestIntegration/gorm/D04",
+      "TestIntegration/gorm/D05",
+      "TestIntegration/gorm/D06",
+      "TestIntegration/gorm/D07",
+      "TestIntegration/gorm/D08",
+      "TestIntegration/gorm/D09",
+      "TestIntegration/gorm/D10",
+      "TestIntegration/gorm/G01",
+      "TestIntegration/gorm/G02",
+      "TestIntegration/gorm/G03",
+      "TestIntegration/gorm/G04",
+      "TestIntegration/gorm/G05",
+      "TestIntegration/gorm/G06",
+      "TestIntegration/gorm/H01",
+      "TestIntegration/gorm/H02",
+      "TestIntegration/gorm/H03",
+      "TestIntegration/gorm/H04",
+      "TestIntegration/gorm/H05",
+      "TestIntegration/gorm/H06",
+      "TestIntegration/gorm/H07",
+      "TestIntegration/gorm/H08",
+      "TestIntegration/gorm/H09",
+      "TestIntegration/gorm/H10",
+      "TestIntegration/gorm/H11",
+      "TestIntegration/sql/D01",
+      "TestIntegration/sql/D02",
+      "TestIntegration/sql/D03",
+      "TestIntegration/sql/D04",
+      "TestIntegration/sql/D05",
+      "TestIntegration/sql/D06",
+      "TestIntegration/sql/D07",
+      "TestIntegration/sql/D08",
+      "TestIntegration/sql/D09",
+      "TestIntegration/sql/D10",
+      "TestIntegration/sql/G01",
+      "TestIntegration/sql/G02",
+      "TestIntegration/sql/G03",
+      "TestIntegration/sql/G04",
+      "TestIntegration/sql/G05",
+      "TestIntegration/sql/G06",
+      "TestIntegration/sql/H01",
+      "TestIntegration/sql/H02",
+      "TestIntegration/sql/H03",
+      "TestIntegration/sql/H04",
+      "TestIntegration/sql/H05",
+      "TestIntegration/sql/H06",
+      "TestIntegration/sql/H07",
+      "TestIntegration/sql/H08",
+      "TestIntegration/sql/H09",
+      "TestIntegration/sql/H10",
+      "TestIntegration/sql/H11",
+      "TestProcess/P01",
+      "TestProcess/P02",
+      "TestProcess/P03",
+      "TestProcess/P04"
+    ],
+    "passedIntegrationLeaves": 58,
+    "adapterUnit": {
+      "id": "TestG07StreamSendError",
+      "status": "pass",
+      "layer": "fake-stream adapter unit"
+    },
+    "semanticVariants": [
+      {
+        "id": "M01",
+        "case": "H10",
+        "marker": "HTTP_ERROR_BODY",
+        "status": "detected"
+      },
+      {
+        "id": "M02",
+        "case": "H03",
+        "marker": "HTTP_FORBIDDEN_STATUS",
+        "status": "detected"
+      },
+      {
+        "id": "M03",
+        "case": "D02",
+        "marker": "ROLLBACK_STOCK",
+        "status": "detected"
+      },
+      {
+        "id": "M04",
+        "case": "D03",
+        "marker": "LAST_ITEM_STATES",
+        "status": "detected"
+      },
+      {
+        "id": "M05",
+        "case": "D06",
+        "marker": "CANCEL_IDENTITY",
+        "status": "detected"
+      },
+      {
+        "id": "M06",
+        "case": "G07",
+        "marker": "STREAM_SEND_ERROR",
+        "status": "detected"
+      }
+    ],
+    "uniquelyAttributedFailureLeaves": 11,
+    "pythonRegressions": 54,
+    "independentNegativeProbes": 79,
+    "cleanup": {
+      "container": "absent",
+      "network": "absent",
+      "diagnostics": "collected",
+      "errors": [],
+      "status": "pass"
+    },
+    "versions": {
+      "go": "go1.27.1",
+      "github.com/gin-gonic/gin": "v1.12.0",
+      "github.com/go-sql-driver/mysql": "v1.10.1",
+      "google.golang.org/grpc": "v1.84.0",
+      "google.golang.org/protobuf": "v1.36.11",
+      "gorm.io/driver/mysql": "v1.6.0",
+      "gorm.io/gorm": "v1.31.2",
+      "protoc": "libprotoc 36.2",
+      "protoc-gen-go": "protoc-gen-go v1.36.11",
+      "protoc-gen-go-grpc": "protoc-gen-go-grpc 1.6.1",
+      "mysql_architecture": "amd64",
+      "mysql_image": "mysql@sha256:0426ec38c7a10aa45ba383887df7878f74ee70e2fd589c7b69207f3577901903",
+      "mysql": "8.4.7"
+    }
+  },
+  "p04Observations": {
+    "beforeRelease": {
+      "processes": 1,
+      "threads": 1,
+      "transactions": 1,
+      "waits": 1,
+      "locks": 3
+    },
+    "afterReleaseLive": {
+      "processes": 0,
+      "threads": 0,
+      "waits": 0,
+      "locks": 0
+    },
+    "cachedReadIdleMicroseconds": 125582,
+    "transactions": 0,
+    "finalLiveCounts": "all zero",
+    "stock": 10,
+    "operations": 0,
+    "pending": 0,
+    "postReleaseDeadlineSeconds": 1
+  },
+  "sourceDownload": {
+    "path": "docs/public/examples/reservation-service.zip",
+    "sha256": "355c9679da6296ef06ee0a6216eeb3d8797b362c492b800bf49b2b6e05dc0ecb",
+    "members": 55,
+    "note": "55 个冻结源码/合同文件逐字保留；包内待运行文字是冻结时状态，本记录说明同一快照后续的已审执行"
+  },
+  "publicEvidence": {
+    "directory": "content/records/reservation-service/runtime-37161631044-1",
+    "index": {
+      "path": "content/records/reservation-service/runtime-37161631044-1/evidence-index.json",
+      "sha256": "d2fa50515ca5a2f3c230122d5d1feeff961b0cb0bed24dcbe8ccc3e3cbf6af09"
+    },
+    "files": [
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/source-before.json",
+        "sha256": "d3f317fc129a92fc2ebf7fc62ab4c2c43bbe512a49f83b5bb06aef294c174df1",
+        "bytes": 6557
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/go-version.log",
+        "sha256": "f554cfdb85411c2bb1d503df3f53dfbad1f753eb8271938833166a5d26a7547c",
+        "bytes": 32
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/module-download.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/module-verify.log",
+        "sha256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd",
+        "bytes": 21
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/module-graph.log",
+        "sha256": "aa6610b816adcc7fb3aa86f985cd5b705d46aed0b4f98b4fd5712d544fd34f54",
+        "bytes": 26186
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/download-protoc.log",
+        "sha256": "81298a5b814a2d31416cc4792d02aad5cb0f50cbd906a63b4baa747dd68f4680",
+        "bytes": 97
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/install-go-generator.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/install-grpc-generator.log",
+        "sha256": "92c03819a4385b1f06595cb9096f3bc7fbc0f7251fc88c209304ef228832f3b2",
+        "bytes": 69
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/protoc.log",
+        "sha256": "29a645a23ed3faa5d85781dfce8478c3e394eb3344b7d6260dff9f6f5eb76b3a",
+        "bytes": 15
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/protoc-gen-go.log",
+        "sha256": "8310de2fd5999e43fa1ae60f2e77de33fde633b4fe6ef6db1359fd884eeffae1",
+        "bytes": 23
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/protoc-gen-go-grpc.log",
+        "sha256": "f9c8fb07e4d487ad2ad291e975ee94ff18290d148940ce277f4b8057908a33d0",
+        "bytes": 25
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/regenerate.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/build.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/validator-self-test.log",
+        "sha256": "e51087f410fca45bc2f75da8aed5757e1044d824f5c1f72158382524deb49e77",
+        "bytes": 654
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/evidence-self-test.log",
+        "sha256": "cb24b7f26d4fabab1dc43a430019cd24e47ef7cb72842f1be799537cacdae841",
+        "bytes": 1321
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/cleanup-self-test.log",
+        "sha256": "f372be78dc459f0eb7c224d6bc8758310302a8f06e1dea72e28be8ffe90ab428",
+        "bytes": 2011
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/mutant-verifier-self-test.log",
+        "sha256": "5a5b3476bf45e16d2dcff7f0e55a0c816be6dee0987d62ebe8ab8e4d75866ea8",
+        "bytes": 1283
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/unit.log",
+        "sha256": "014f704349d1b8e81b7c3922abfc8685f4b1fd858079091c4f5915d7dea97188",
+        "bytes": 1372
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/pull-mysql.log",
+        "sha256": "c1e8ce59bb35277f758d245fd7748e6aef19a6b3d1b514e160e5a8788e6558ce",
+        "bytes": 1807
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/mysql-architecture.log",
+        "sha256": "d54d20eadbec9c9cc5ac6e0e371abc96d64a0d724d1cf45297fab6098026a69d",
+        "bytes": 6
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/network-create.log",
+        "sha256": "49902d8f2e3de23f9db3ae8c8cfb9d15eced68bb91d406d378a4d461e5d50781",
+        "bytes": 65
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/mysql-start.log",
+        "sha256": "9e50f39deb7e3f8eaa8f753ea93d2467701bfcccf134e8afb1d98b133036558a",
+        "bytes": 65
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/mysql-image.log",
+        "sha256": "396fd695f917636fe2f9060d48927be7a0ce50e5a9b8d65702502d44ac965f03",
+        "bytes": 78
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/mysql-port.log",
+        "sha256": "592c37d7c53f7980cb3b0e164c27b094a753d13a9663b81bc9899e3ec6356a2e",
+        "bytes": 16
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/mysql-ready-1.log",
+        "sha256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+        "bytes": 105
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/mysql-ready-2.log",
+        "sha256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+        "bytes": 105
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/mysql-ready-3.log",
+        "sha256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+        "bytes": 105
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/mysql-ready-4.log",
+        "sha256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+        "bytes": 105
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/mysql-ready-5.log",
+        "sha256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+        "bytes": 105
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/mysql-ready-6.log",
+        "sha256": "e7bd07f9f7b9e7fe9e8a1a8e705a272a8b94cbbcecbdce05a146f8cfd21fd2d4",
+        "bytes": 84
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/mysql-ready-7.log",
+        "sha256": "e7bd07f9f7b9e7fe9e8a1a8e705a272a8b94cbbcecbdce05a146f8cfd21fd2d4",
+        "bytes": 84
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/mysql-ready-8.log",
+        "sha256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+        "bytes": 105
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/mysql-ready-9.log",
+        "sha256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+        "bytes": 105
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/mysql-ready-10.log",
+        "sha256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+        "bytes": 105
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/mysql-ready-11.log",
+        "sha256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+        "bytes": 105
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/mysql-ready-12.log",
+        "sha256": "9f6c0aaaabdb42c83e82439bf2c9d1b7f39f82211d7988d55c09dc59556617d5",
+        "bytes": 6
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/integration.log",
+        "sha256": "7985ae9d605a5431e500e58f3fb6765e348db394dffd40863221c98100e94ea6",
+        "bytes": 60326
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/M01.log",
+        "sha256": "320fe35ef22e52f114400eb1d4f271166f15781c6e3bbff58bf9d3c0675deacf",
+        "bytes": 5444
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/M02.log",
+        "sha256": "6b647bf9f31d84cde26eaf08a17841b68e2d25bf6cd05393b2c9270b55eea628",
+        "bytes": 5124
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/M03.log",
+        "sha256": "c873a24b5df68b348811d3aebc1c506c89371b9885388b7990b38a237de8bde7",
+        "bytes": 5109
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/M04.log",
+        "sha256": "704bbff423fe03e04808bceaa9949b7f00f8b6a5fb829795833b772a578eba5d",
+        "bytes": 5223
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/M05.log",
+        "sha256": "0f19c21abbef68ec43077854daca503ff9098821b040d8b3053e1322f233bea4",
+        "bytes": 5179
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/M06.log",
+        "sha256": "e0886549960674d9d237964b7f55f893e754f383ef6953169b8a90ab2ef1d2bb",
+        "bytes": 1733
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/container-owner.log",
+        "sha256": "96fdd23cd83158e2168ded7c34aa446d35a9bb1aeddbc9eb5fef38928821013d",
+        "bytes": 17
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/mysql-diagnostics.log",
+        "sha256": "cbd0bea794f0e6eb83b81d1660b8eb524d94ee6558b77adc3ba2a4492ff6daef",
+        "bytes": 4853
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/container-remove.log",
+        "sha256": "27a2bfdc09377edc4b6bf3006fa95e573b848005eed2cf28f0496b1e5badc21e",
+        "bytes": 29
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/container-absent.log",
+        "sha256": "e99ef5fbfe7700a04bbc2f86f2e10412ec414ad1ae7f442365820c433d2f2b5a",
+        "bytes": 55
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/network-owner.log",
+        "sha256": "96fdd23cd83158e2168ded7c34aa446d35a9bb1aeddbc9eb5fef38928821013d",
+        "bytes": 17
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/network-remove.log",
+        "sha256": "e848ff80170adf00e8dfbacefb49aa86a4022683db8be95a11094c38ceef2f00",
+        "bytes": 33
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/network-absent.log",
+        "sha256": "8e1a57e7e5848927faf237c710987f88d4cd384e4bc445a58ad92fa7ec6f43ef",
+        "bytes": 82
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/source-after.json",
+        "sha256": "d3f317fc129a92fc2ebf7fc62ab4c2c43bbe512a49f83b5bb06aef294c174df1",
+        "bytes": 6557
+      },
+      {
+        "path": "content/records/reservation-service/runtime-37161631044-1/result.json",
+        "sha256": "de103bbceb3304b2c3cc1dd5b1b2218c2e6664d1e35aa8d84c87530c3d45fc56",
+        "bytes": 53852
+      }
+    ],
+    "format": "CI already-sanitized public artifact bytes copied unchanged; not private raw logs"
+  },
+  "historicalRuns": [
+    {
+      "runID": 37158595834,
+      "attempt": 1,
+      "url": "https://github.com/weilhuang/wiki/actions/runs/37158595834",
+      "revision": "r2",
+      "sourceID": "9276fe6e5e3a3786efb5507bcd699c16e656c289014e0441b52fcd91cda2f171",
+      "testedMerge": "fbba2d6099b4acba12909ad60fca5c192e2e91d0",
+      "head": "ca44e83ce3fc83d6b8dc60e76d6eb70f57624a37",
+      "status": "fail",
+      "passedIntegrationLeaves": 57,
+      "failedLeaf": "TestProcess/P04",
+      "mutants": "not-run",
+      "cleanup": "pass",
+      "excerpt": {
+        "path": "docs/public/examples/reservation-service-history/r2-p04.jsonl",
+        "sha256": "b3dac08ecf4ff499b30a39f277aaf2ecce8b77e89748c68050055dd8c2045bc8"
+      },
+      "postReleaseState": "not individually recorded; no claim of a uniquely proven remaining component"
+    },
+    {
+      "runID": 37159943545,
+      "attempt": 1,
+      "url": "https://github.com/weilhuang/wiki/actions/runs/37159943545",
+      "revision": "r3",
+      "sourceID": "b6631d034fa7785890a772bca1881f23d85dcffcb9c2319460b7d920a475d8a1",
+      "testedMerge": "a065dbb3af0d9c44e41508f2ac9a21a31d66f9c9",
+      "head": "6510179f1aed8b05c6ee6e14b5192905cb915ebb",
+      "status": "fail",
+      "passedIntegrationLeaves": 57,
+      "failedLeaf": "TestProcess/P04",
+      "mutants": "not-run",
+      "cleanup": "pass",
+      "excerpt": {
+        "path": "docs/public/examples/reservation-service-history/r3-p04.jsonl",
+        "sha256": "7c21c886d4089f3f2ff8992fe13948dcac7ea26b5af53e8efae2fc2d2463c877"
+      },
+      "postReleaseState": "not individually recorded; no claim of a uniquely proven remaining component"
+    }
+  ],
+  "limitations": [
+    "固定 Go 1.27.1、MySQL 8.4.7、Linux amd64 单节点环境；未证明高可用、容量或任意故障下的结果",
+    "G07/M06 使用 fake stream；G06 是有限慢消费取消实验，不是 HTTP/2 背压或吞吐基准",
+    "P03 是同进程 Runtime；P01/P02/P04 运行默认入口，P04 使用 SQL 仓储",
+    "教学身份标记不构成生产认证或 TLS；COMMIT 故障只覆盖一次成功响应丢失",
+    "Runtime 只等待登记的 Serve/关闭工作，不证明任意 HTTP handler 都已 join",
+    "INNODB_TRX 采样基于 MySQL 8.4.7 全局缓存机制和无其它读取者的顺序夹具",
+    "module-graph.log 仅公开脱敏字节；其 raw hash 是 collector 回执，独审没有重算未公开的私有原字节"
+  ],
+  "interpretation": [
+    "58 是当前固定用例库存，不累计前两次重复执行的通过数。",
+    "第二次失败未记录释放后逐项值；缓存机制支持采样修正，不证明旧运行仅剩缓存事务。"
+  ]
+}

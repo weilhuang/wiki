@@ -1,0 +1,53 @@
+{
+  "sourceFilesTransformed": false,
+  "sourceZIPMembers": 55,
+  "runtimeArtifactBytesTransformed": false,
+  "runtimeRecord": "public sanitized CI artifact only",
+  "contentChanges": [
+    {
+      "path": "docs/knowledge/go/engineering/gin-service-contract.md",
+      "authorSHA256": "d74eb4686c44f23183a533860c8aa308a5b627a4b01ca96faa7c6c060888211a",
+      "changes": [
+        "publication metadata",
+        "reviewed cross-topic relations",
+        "invisible snippet marker spacing",
+        "download status notice",
+        "appendix runtime status updated from the independently reviewed r4 execution; technical assertions and code unchanged"
+      ]
+    },
+    {
+      "path": "docs/knowledge/go/engineering/grpc-service-contract.md",
+      "authorSHA256": "05a0de6347f5627899acccae4729c4f9f9df6fc3f32805abb10b5ffbe1ec3edc",
+      "changes": [
+        "publication metadata",
+        "reviewed cross-topic relations",
+        "invisible snippet marker spacing",
+        "download status notice",
+        "appendix runtime status updated from the independently reviewed r4 execution; technical assertions and code unchanged"
+      ]
+    },
+    {
+      "path": "docs/knowledge/go/engineering/sql-gorm-boundaries.md",
+      "authorSHA256": "e20cdb8d06f39d68cd3be20724ce41630422dbccf6b23eef771b51d8a11ab69a",
+      "changes": [
+        "publication metadata",
+        "reviewed cross-topic relations",
+        "invisible snippet marker spacing",
+        "download status notice",
+        "appendix runtime status updated from the independently reviewed r4 execution; technical assertions and code unchanged"
+      ]
+    }
+  ],
+  "omittedAuthorMaterials": [
+    "editorial preparation scripts",
+    "process/resource-limit bookkeeping",
+    "coordinator narration",
+    "private raw logs"
+  ],
+  "preserved": [
+    "exact source snippets and licenses",
+    "source and execution identities",
+    "two bounded failed P04 excerpts",
+    "Proto annotation failure explanation"
+  ]
+}

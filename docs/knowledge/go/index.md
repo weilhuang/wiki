@@ -61,7 +61,7 @@ context 是本进程协作协议，不是数据库提交结果或持久任务队
 - [下游 HTTP 调用：连接复用、超时预算与有限重试](/knowledge/go/http/client-budgets.html)：用回环服务和可控时钟观察 Response.Body、连接复用、分阶段超时、重试放大与写入结果未知。
 - [HTTP 管线与响应合同：谁解析、谁调用、谁写回](/knowledge/go/http/request-response-contract.html)：从真实 HTTP 请求追踪校验、中间件、业务调用和响应提交，用可复跑的失败矩阵定位错误边界。
 
-后续范围：database/sql、JSON、代理与流式响应。
+后续范围：HTTP代理、流式响应、更多序列化与协议边界。
 
 ### 运行时
 
@@ -89,9 +89,12 @@ context 是本进程协作协议，不是数据库提交结果或持久任务队
 
 [分类导读](/knowledge/go/engineering/)
 
+- [Gin 服务边界：输入、授权与响应](/knowledge/go/engineering/gin-service-contract.html)：从重复字段与只读身份的请求出发，为同一个库存预约服务定义可观察的拒绝顺序、严格解码、应用入口与公开响应
+- [gRPC 调用：版本、deadline 与流](/knowledge/go/engineering/grpc-service-contract.html)：从一次超时预约出发，分清 RPC 状态与数据库事实，固定 proto 身份、公开错误、有限列表和信号关闭责任
 - [可复现 Go 工程：模块、测试与反例](/knowledge/go/engineering/reproducible-testing.html)：从空目录和固定工具链开始，把可重放输入、独立预期、语义坏实现与有限运行证据连成一条可检查的链
+- [SQL 与 GORM：事务、连接和数据所有权](/knowledge/go/engineering/sql-gorm-boundaries.html)：两个会话预约最后一件商品，用相同仓储合同解释条件更新、操作键、提交结果未知与连接归还
 
-后续范围：Gin、gRPC、配置日志、真实数据库与网络集成。
+后续范围：生产身份与TLS、在线Schema演进、代表性负载下的连接池与RPC、配置日志。
 
 ## 如何与其他领域连接
 

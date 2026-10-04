@@ -353,5 +353,50 @@
     "query": "如何确认错误Go实现被默认测试准确拒绝",
     "topic": "go.reproducible-testing",
     "anchor": "semantic-counterexamples"
+  },
+  {
+    "query": "Gin 重复 JSON 字段为什么没有报错",
+    "topic": "go.gin-service-contract",
+    "anchor": "strict-json"
+  },
+  {
+    "query": "Gin Abort 之后还执行代码",
+    "topic": "go.gin-service-contract",
+    "anchor": "middleware-control"
+  },
+  {
+    "query": "HTTP 499 和 408 请求取消",
+    "topic": "go.gin-service-contract",
+    "anchor": "cancellation-and-outcome"
+  },
+  {
+    "query": "GORM 回滚库存还是少了",
+    "topic": "go.sql-gorm-boundaries",
+    "anchor": "transaction-owner"
+  },
+  {
+    "query": "RowsAffected 为零但没有 error",
+    "topic": "go.sql-gorm-boundaries",
+    "anchor": "conditional-update"
+  },
+  {
+    "query": "MySQL commit 返回错误是否成功",
+    "topic": "go.sql-gorm-boundaries",
+    "anchor": "uncertain-commit"
+  },
+  {
+    "query": "gRPC deadline 没有错误 details",
+    "topic": "go.grpc-service-contract",
+    "anchor": "status-details"
+  },
+  {
+    "query": "grpc Send 阻塞 context 超时无效",
+    "topic": "go.grpc-service-contract",
+    "anchor": "flow-control"
+  },
+  {
+    "query": "MySQL INNODB_TRX 不刷新",
+    "topic": "go.grpc-service-contract",
+    "anchor": "process-contract"
   }
 ]
