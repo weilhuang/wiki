@@ -17,8 +17,8 @@ requires:
 - id: go.context-cancellation
   reason: 数据库等待需沿请求取消，但取消不能证明 COMMIT 没有完成
 recommendedBefore:
-- id: go.gin-service-contract
-  reason: 先看具体输入和公开响应，可更快理解同一预约操作的范围
+- id: go.grpc-service-contract
+  reason: 先分清已提交事实，再解释 RPC deadline 和有限流
 related:
 - id: go.client-budgets
   reason: 写入响应丢失后仍需查询业务事实，不能仅按网络错误重试

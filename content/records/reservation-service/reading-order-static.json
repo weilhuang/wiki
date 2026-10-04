@@ -1,0 +1,26 @@
+{
+  "status": "pass",
+  "recordedAt": "2026-10-04",
+  "command": "npm test",
+  "exitCode": 0,
+  "scope": [
+    "Corrected suggested reading direction HTTP then transaction then RPC, including actual Markdown-rendered links",
+    "All source snippets,13 stepped blocks,ordinary Proto and5 Mermaid sources retained and statically checked"
+  ],
+  "sourceSHA256": {
+    "docs/knowledge/go/engineering/gin-service-contract.md": "4027d70c27cb1839760dc4275b2b593d5183fae84e979c4aaa99e91c035d3144",
+    "docs/knowledge/go/engineering/sql-gorm-boundaries.md": "4b66cf253f5f057835cc20ac5603341f6c85b8600355ba7dce5e57966296127f",
+    "docs/knowledge/go/engineering/grpc-service-contract.md": "3c4025ad579dffa4433a68aab203e4244496a38cbd58852ca9cd2bbe272fc412",
+    "tests/service-reading-order.test.mjs": "f8e5c55c80344f6a388ad438c02b64b9dbe98e872778ca16675a71bb3f29da22"
+  },
+  "testLogSHA256": "e014341842a92a184841507c28198b8e1736d0ee3a8b19d8b87477dd4baebfdf",
+  "previousStaticRecord": {
+    "path": "content/records/reservation-service/integration-static.json",
+    "sha256": "6882a03b0c72bb77caac5f1af9cba2159a58a9a4de0e6cd9b87a197340e92c55"
+  },
+  "notClaimed": [
+    "new Go/MySQL execution",
+    "browser validation of this new deployment",
+    "full local VitePress build"
+  ]
+}

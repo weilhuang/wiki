@@ -241,9 +241,8 @@
     "kind": "static-checked",
     "title": "三篇内容静态绑定",
     "scope": [
-      "Only two exact Mermaid accessibility strings and second→first Send in exercise 3 changed",
-      "14 snippets,13 walkthroughs,5 diagrams retained; all code bytes unchanged except named Mermaid strings",
-      "Previous content candidate and failure/static records preserved"
+      "Corrected suggested reading direction HTTP then transaction then RPC, including actual Markdown-rendered links",
+      "All source snippets,13 stepped blocks,ordinary Proto and5 Mermaid sources retained and statically checked"
     ],
     "recordedAt": "2026-10-04",
     "revision": "reservation-service-r4",
@@ -252,19 +251,23 @@
     "sourceFiles": [
       {
         "path": "docs/knowledge/go/engineering/gin-service-contract.md",
-        "sha256": "e915daa7222adba15ad1a680f02b65918d1c9e30092a7e6ee9ac7f57d4e86e9a"
-      },
-      {
-        "path": "docs/knowledge/go/engineering/grpc-service-contract.md",
-        "sha256": "2b7a002e439886045175de9d26c6a7d86f554492d5e3334a73071896a91de966"
+        "sha256": "4027d70c27cb1839760dc4275b2b593d5183fae84e979c4aaa99e91c035d3144"
       },
       {
         "path": "docs/knowledge/go/engineering/sql-gorm-boundaries.md",
-        "sha256": "c6c24b094a70c0e53b39e7106ad8841160be0e33ee5553e8931f21e558e58de7"
+        "sha256": "4b66cf253f5f057835cc20ac5603341f6c85b8600355ba7dce5e57966296127f"
+      },
+      {
+        "path": "docs/knowledge/go/engineering/grpc-service-contract.md",
+        "sha256": "3c4025ad579dffa4433a68aab203e4244496a38cbd58852ca9cd2bbe272fc412"
+      },
+      {
+        "path": "tests/service-reading-order.test.mjs",
+        "sha256": "f8e5c55c80344f6a388ad438c02b64b9dbe98e872778ca16675a71bb3f29da22"
       }
     ],
     "limitations": [
-      "当前投影的源码/片段与图语法已执行检查；浏览器布局与交互另行验收。"
+      "当前元数据方向、片段与图语法经本次静态检查；最终构建与部署后浏览器验证另记，运行证据保持原始来源。"
     ],
     "commands": [
       {
@@ -274,8 +277,8 @@
     ],
     "artifacts": [
       {
-        "path": "content/records/reservation-service/integration-static.json",
-        "sha256": "6882a03b0c72bb77caac5f1af9cba2159a58a9a4de0e6cd9b87a197340e92c55"
+        "path": "content/records/reservation-service/reading-order-static.json",
+        "sha256": "0280e0dcb9098db6175335a2f8684cff4385a8e1db8d815c4bd81a2d7b68a479"
       }
     ]
   },
@@ -284,8 +287,8 @@
     "kind": "executed",
     "title": "Code Hike 真实高亮/注释与 Mermaid 语法解析",
     "scope": [
-      "Prior candidate: actual Code Hike14/steps13 and Mermaid5 parsed successfully",
-      "Current candidate: exact code bytes retained; two Mermaid accessibility strings changed"
+      "Corrected suggested reading direction HTTP then transaction then RPC, including actual Markdown-rendered links",
+      "All source snippets,13 stepped blocks,ordinary Proto and5 Mermaid sources retained and statically checked"
     ],
     "recordedAt": "2026-10-04",
     "revision": "reservation-service-r4",
@@ -294,19 +297,23 @@
     "sourceFiles": [
       {
         "path": "docs/knowledge/go/engineering/gin-service-contract.md",
-        "sha256": "e915daa7222adba15ad1a680f02b65918d1c9e30092a7e6ee9ac7f57d4e86e9a"
-      },
-      {
-        "path": "docs/knowledge/go/engineering/grpc-service-contract.md",
-        "sha256": "2b7a002e439886045175de9d26c6a7d86f554492d5e3334a73071896a91de966"
+        "sha256": "4027d70c27cb1839760dc4275b2b593d5183fae84e979c4aaa99e91c035d3144"
       },
       {
         "path": "docs/knowledge/go/engineering/sql-gorm-boundaries.md",
-        "sha256": "c6c24b094a70c0e53b39e7106ad8841160be0e33ee5553e8931f21e558e58de7"
+        "sha256": "4b66cf253f5f057835cc20ac5603341f6c85b8600355ba7dce5e57966296127f"
+      },
+      {
+        "path": "docs/knowledge/go/engineering/grpc-service-contract.md",
+        "sha256": "3c4025ad579dffa4433a68aab203e4244496a38cbd58852ca9cd2bbe272fc412"
+      },
+      {
+        "path": "tests/service-reading-order.test.mjs",
+        "sha256": "f8e5c55c80344f6a388ad438c02b64b9dbe98e872778ca16675a71bb3f29da22"
       }
     ],
     "limitations": [
-      "当前投影的源码/片段与图语法已执行检查；浏览器布局与交互另行验收。"
+      "当前元数据方向、片段与图语法经本次静态检查；最终构建与部署后浏览器验证另记，运行证据保持原始来源。"
     ],
     "commands": [
       {
@@ -316,8 +323,8 @@
     ],
     "artifacts": [
       {
-        "path": "content/records/reservation-service/integration-static.json",
-        "sha256": "6882a03b0c72bb77caac5f1af9cba2159a58a9a4de0e6cd9b87a197340e92c55"
+        "path": "content/records/reservation-service/reading-order-static.json",
+        "sha256": "0280e0dcb9098db6175335a2f8684cff4385a8e1db8d815c4bd81a2d7b68a479"
       }
     ]
   },

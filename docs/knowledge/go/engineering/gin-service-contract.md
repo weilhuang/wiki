@@ -16,7 +16,9 @@ requires:
   reason: 本章把请求/响应提交合同落实到Gin，不重讲HTTP服务器基本管线
 - id: go.context-cancellation
   reason: 拒绝请求、取消调用和撤销数据库提交必须分别判断
-recommendedBefore: []
+recommendedBefore:
+- id: go.sql-gorm-boundaries
+  reason: 先看具体输入和公开响应，可更快理解同一预约操作的范围
 related:
 - id: go.graceful-shutdown
   reason: 已接纳请求的退出责任需要连接到进程关闭
