@@ -1,0 +1,9 @@
+{"Time":"2026-10-04T06:07:53.048643067+08:00","Action":"start","Package":"example.com/reservation-service/internal/grpcapi"}
+{"Time":"2026-10-04T06:07:53.052705713+08:00","Action":"run","Package":"example.com/reservation-service/internal/grpcapi","Test":"TestG07StreamSendError"}
+{"Time":"2026-10-04T06:07:53.052774625+08:00","Action":"output","Package":"example.com/reservation-service/internal/grpcapi","Test":"TestG07StreamSendError","Output":"=== RUN   TestG07StreamSendError\n","OutputType":"frame"}
+{"Time":"2026-10-04T06:07:53.052802756+08:00","Action":"output","Package":"example.com/reservation-service/internal/grpcapi","Test":"TestG07StreamSendError","Output":"    grpc_test.go:53: SEMANTIC_ASSERT {\"got\":\"err=\\u003cnil\\u003e calls=2\",\"marker\":\"STREAM_SEND_ERROR\",\"want\":\"same Send error, calls=1\"}\n","OutputType":"error"}
+{"Time":"2026-10-04T06:07:53.05281247+08:00","Action":"output","Package":"example.com/reservation-service/internal/grpcapi","Test":"TestG07StreamSendError","Output":"--- FAIL: TestG07StreamSendError (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-04T06:07:53.052817748+08:00","Action":"fail","Package":"example.com/reservation-service/internal/grpcapi","Test":"TestG07StreamSendError","Elapsed":0}
+{"Time":"2026-10-04T06:07:53.052823797+08:00","Action":"output","Package":"example.com/reservation-service/internal/grpcapi","Output":"FAIL\n","OutputType":"frame"}
+{"Time":"2026-10-04T06:07:53.05333717+08:00","Action":"output","Package":"example.com/reservation-service/internal/grpcapi","Output":"FAIL\texample.com/reservation-service/internal/grpcapi\t0.004s\n","OutputType":"frame"}
+{"Time":"2026-10-04T06:07:53.053356669+08:00","Action":"fail","Package":"example.com/reservation-service/internal/grpcapi","Elapsed":0.005}
