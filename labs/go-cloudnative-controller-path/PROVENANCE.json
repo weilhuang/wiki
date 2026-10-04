@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "kind": "new P3 teaching source; no inherited execution results",
+  "baseRepository": "https://github.com/weilhuang/wiki",
+  "baseCommit": "0ffe64abc5ef7d3423aa088ff1ef10c29f19b0e3",
+  "baseFiles": [
+    {
+      "path": "labs/go-cloudnative-controller/README.md",
+      "sha256": "7adffe6667cedb2280928705828ef32c7bd2f166bcc30fc40a161bcee9896581"
+    },
+    {
+      "path": "labs/go-cloudnative-controller/THIRD_PARTY_NOTICES.md",
+      "sha256": "0dd60a813ad351c97d4778e64de3425f61ff0f1d3e007d53d9e93c6d2b058b6d"
+    },
+    {
+      "path": "labs/go-cloudnative-controller/api/v1alpha1/types.go",
+      "sha256": "07fc0c783c72eeb686c9c0c29a0ffa3369d85b8509fe1c88f8d6de6cbc3e0495"
+    },
+    {
+      "path": "labs/go-cloudnative-controller/api/v1alpha1/types_test.go",
+      "sha256": "1ed836d5cd80f9b1976f2892e301a640010cef8a1c164a6aa8f2a5b6185b9d28"
+    },
+    {
+      "path": "labs/go-cloudnative-controller/api/v1alpha1/zz_generated.deepcopy.go",
+      "sha256": "161daadbc69f18dfbd9456aa80a4fbe7c4b795baf9db7b086588ebf0d2e01532"
+    },
+    {
+      "path": "labs/go-cloudnative-controller/cmd/manager/main.go",
+      "sha256": "dfa9df396a049ccc0117cde34a1ea8d86b6f5a46007d3cd02521c9fd8a022948"
+    },
+    {
+      "path": "labs/go-cloudnative-controller/cmd/operand/main.go",
+      "sha256": "1ceef49e4d5e497232205b71a0aa9d9d4e3019f0fd164f9fb6da556503a85266"
+    },
+    {
+      "path": "labs/go-cloudnative-controller/cmd/operand/main_test.go",
+      "sha256": "121b6a2a7ac34bef38bbc8b15f616e519cfb186316c76e2a8ef12c5ef1f8b66a"
+    },
+    {
+      "path": "labs/go-cloudnative-controller/config/crd/lab.wiki.example_appservices.yaml",
+      "sha256": "32899955f9af63d8487513ec2a09736a6981223c76269c91482fcfc6d8561550"
+    },
+    {
+      "path": "labs/go-cloudnative-controller/go.mod",
+      "sha256": "80e69ea30f12ccd48d8faf0da46dd28ae9acf6c881418baec310fa6687d101b9"
+    },
+    {
+      "path": "labs/go-cloudnative-controller/go.sum",
+      "sha256": "b47d5fc38400a0da9a7fbfdb4e71b40bb8aa4bd467d18807721ea65eb5c2273c"
+    },
+    {
+      "path": "labs/go-cloudnative-controller/internal/controller/reconciler.go",
+      "sha256": "05e2cfab457fb6cc4f863914b9ad4735f547af438b03f60ff8332c70e5f5dfd8"
+    },
+    {
+      "path": "labs/go-cloudnative-controller/internal/controller/reconciler_test.go",
+      "sha256": "c718d19210a15096f076f005955fd0e776531c86823eb22e971ce45bad5d5a57"
+    },
+    {
+      "path": "labs/go-cloudnative-controller/licenses/kubernetes-APACHE-2.0.txt",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "labs/go-cloudnative-controller/scripts/check_kind_oracle.py",
+      "sha256": "2c092f335cf4e9d70836338335f2e54ef6a83370101231a4a0dc53842582e186"
+    },
+    {
+      "path": "labs/go-cloudnative-controller/scripts/kind_acceptance.py",
+      "sha256": "20a70d00d999b72f23ab89739456fcf345313393a7c60d72518eb09b034aa813"
+    },
+    {
+      "path": "labs/go-cloudnative-controller/test/integration/manager_test.go",
+      "sha256": "8f50893ea726ead1ddb0cafbda545c85b079daf8d12a18ddc6060f621115f73d"
+    },
+    {
+      "path": "labs/go-cloudnative-controller/test-inventory.json",
+      "sha256": "5cfe000cc50301b541ac63cb7254d403561daa03702757e6ef3bba674aa5dbd7"
+    }
+  ],
+  "derivation": "Copied safe P0 controller/operand/API and bounded harness patterns into a new module and wrapper namespace; extended API/cache/queue/identity and kind assertions. Original P0 source and workflow were not edited.",
+  "executionClaim": "NOT_RUN until an exact-source P3 execution succeeds"
+}

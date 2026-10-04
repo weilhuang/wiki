@@ -1,0 +1,40 @@
+{
+  "fixtures": [
+    {
+      "file": "p2-m06-real-go127.jsonl",
+      "sha256": "fffef3be8e0f88d9e8b571fafbf31ee16db5f7f036e0d0ca4813be362d889e67",
+      "scope": "actual P2 r2 Go1.27 structured error stream; not P3 runtime evidence"
+    },
+    {
+      "file": "p3-r3-unit-real-go127.jsonl",
+      "sha256": "5518bee462979300857cb42cbb935cf6cf9150b83e06cf15c46704759205536e",
+      "scope": "actual P3 r3 Go1.27 positive stream; old source only, not current r5 execution"
+    },
+    {
+      "file": "p2-mutant_extra_leaf_cleanup_failure.jsonl",
+      "sha256": "e08d67153a1d808ce49bb217fb3a26ac338477e14a6772c3f8eb25fafe923f48",
+      "scope": "historical P2 adversarial malformed stream; synthetic, not runtime"
+    },
+    {
+      "file": "p2-mutant_extra_parent_assertion.jsonl",
+      "sha256": "1b1fe55e909e8ab5520542cda17ab9f61fbb69f05611fedba6a1a9c70db2b377",
+      "scope": "historical P2 adversarial malformed stream; synthetic, not runtime"
+    },
+    {
+      "file": "p2-mutant_missing_package_terminal.jsonl",
+      "sha256": "5be606333410ea5ecaae39ea9ad97de630f5f3543affe8ae5e6f47a8aa8f3f7a",
+      "scope": "historical P2 adversarial malformed stream; synthetic, not runtime"
+    },
+    {
+      "file": "p2-mutant_one_backend_missing.jsonl",
+      "sha256": "6521a9867e5097d82e1724dda3daeb58835778ca06bea5111a156d57a7ba1a99",
+      "scope": "historical P2 adversarial malformed stream; synthetic, not runtime"
+    },
+    {
+      "file": "p2-mutant_wrong_package.jsonl",
+      "sha256": "8e5ae2cfe5053857f93f6149603c6b64c07ba89922008fbb675cf37de2ed5f8d",
+      "scope": "historical P2 adversarial malformed stream; synthetic, not runtime"
+    }
+  ],
+  "derivation": "Go lifecycle/structured assertion parser adapted from the independently reviewed P2 r2 mutants.py; no P2 runtime conclusion transferred to P3."
+}
