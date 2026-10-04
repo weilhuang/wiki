@@ -1,0 +1,13 @@
+test_complete (__main__.VerifyResultsTests.test_complete) ... ok
+test_duplicate (__main__.VerifyResultsTests.test_duplicate) ... ok
+test_empty (__main__.VerifyResultsTests.test_empty) ... ok
+test_missing_case (__main__.VerifyResultsTests.test_missing_case) ... ok
+test_missing_terminal (__main__.VerifyResultsTests.test_missing_terminal) ... ok
+test_skip (__main__.VerifyResultsTests.test_skip) ... ok
+test_unknown_failure (__main__.VerifyResultsTests.test_unknown_failure) ... ok
+test_wrong_version (__main__.VerifyResultsTests.test_wrong_version) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.001s
+
+OK

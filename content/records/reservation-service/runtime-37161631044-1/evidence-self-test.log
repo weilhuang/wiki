@@ -1,0 +1,20 @@
+test_capture_has_wall_deadline (__main__.EvidenceTests.test_capture_has_wall_deadline) ... ok
+test_command_pass (__main__.EvidenceTests.test_command_pass) ... ok
+test_count_bound (__main__.EvidenceTests.test_count_bound) ... ok
+test_equal_length_changed_content (__main__.EvidenceTests.test_equal_length_changed_content) ... ok
+test_existing_destination (__main__.EvidenceTests.test_existing_destination) ... ok
+test_fresh_destination (__main__.EvidenceTests.test_fresh_destination) ... ok
+test_output_bound_terminates (__main__.EvidenceTests.test_output_bound_terminates) ... ok
+test_outside_destination (__main__.EvidenceTests.test_outside_destination) ... ok
+test_raw_total_independent_of_public (__main__.EvidenceTests.test_raw_total_independent_of_public) ... ok
+test_symlink_destination (__main__.EvidenceTests.test_symlink_destination) ... ok
+test_symlink_input (__main__.EvidenceTests.test_symlink_input) ... ok
+test_total_bound (__main__.EvidenceTests.test_total_bound) ... ok
+test_unexpected_file (__main__.EvidenceTests.test_unexpected_file) ... ok
+test_unexplained_transform (__main__.EvidenceTests.test_unexplained_transform) ... ok
+test_wrapper_omission (__main__.EvidenceTests.test_wrapper_omission) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.137s
+
+OK

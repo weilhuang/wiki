@@ -1,0 +1,8 @@
+{"Time":"2026-10-03T23:24:41.893313163Z","Action":"start","Package":"example.com/reservation-service/internal/grpcapi"}
+{"Time":"2026-10-03T23:24:41.896535121Z","Action":"run","Package":"example.com/reservation-service/internal/grpcapi","Test":"TestG07StreamSendError"}
+{"Time":"2026-10-03T23:24:41.896580326Z","Action":"output","Package":"example.com/reservation-service/internal/grpcapi","Test":"TestG07StreamSendError","Output":"=== RUN   TestG07StreamSendError\n","OutputType":"frame"}
+{"Time":"2026-10-03T23:24:41.896601191Z","Action":"output","Package":"example.com/reservation-service/internal/grpcapi","Test":"TestG07StreamSendError","Output":"--- PASS: TestG07StreamSendError (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-03T23:24:41.896604878Z","Action":"pass","Package":"example.com/reservation-service/internal/grpcapi","Test":"TestG07StreamSendError","Elapsed":0}
+{"Time":"2026-10-03T23:24:41.896609406Z","Action":"output","Package":"example.com/reservation-service/internal/grpcapi","Output":"PASS\n","OutputType":"frame"}
+{"Time":"2026-10-03T23:24:41.896854029Z","Action":"output","Package":"example.com/reservation-service/internal/grpcapi","Output":"ok  \texample.com/reservation-service/internal/grpcapi\t0.003s\n"}
+{"Time":"2026-10-03T23:24:41.89686777Z","Action":"pass","Package":"example.com/reservation-service/internal/grpcapi","Elapsed":0.004}

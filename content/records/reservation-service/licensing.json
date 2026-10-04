@@ -1,0 +1,42 @@
+{
+  "originalExample": {
+    "license": "MIT",
+    "noticePath": "labs/reservation-service/LICENSE",
+    "sha256": "6a4c39d86baab9062765b8216d5dea94c1c9535f864b0d9863c053be9244f1f5",
+    "scope": "原创服务、测试、SQL、proto 及本文逐字摘录；完整源依赖从冻结 r4 包接入"
+  },
+  "articles": "Use the repository documentation license; this candidate does not change the repository license.",
+  "thirdPartyCodeRedistributedInArticleSnippets": false,
+  "generatedFiles": "Actual protoc outputs are kept in the frozen source package with tool versions; no generated output is hand-rewritten.",
+  "dependencyNotices": [
+    {
+      "path": "labs/reservation-service/licenses/gin.txt",
+      "sha256": "03458b6d5828e1be1127ca2adf122572eb574fc47b56190c3b38203b8b2a98d0"
+    },
+    {
+      "path": "labs/reservation-service/licenses/gorm-mysql.txt",
+      "sha256": "59f62caa972078dc1664ce928b5e5d51b78633fc43b78894d2dab83bc504edee"
+    },
+    {
+      "path": "labs/reservation-service/licenses/gorm.txt",
+      "sha256": "a7535fe9fee1f534b47846eee31be7492c73fb766e6f4fe9433a427e16e147c3"
+    },
+    {
+      "path": "labs/reservation-service/licenses/grpc-go.txt",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "labs/reservation-service/licenses/mysql-driver.txt",
+      "sha256": "fab3dd6bdab226f1c08630b1dd917e11fcb4ec5e1e020e2c16f83a0a13863e85"
+    },
+    {
+      "path": "labs/reservation-service/licenses/protobuf-go.txt",
+      "sha256": "4835612df0098ca95f8e7d9e3bffcb02358d435dbb38057c844c99d7f725eb20"
+    },
+    {
+      "path": "labs/reservation-service/licenses/sources.json",
+      "sha256": "a5bde8ab1cbe7759a5f93296ebce38f8e1932943d278a842f14fbec6792a693a"
+    }
+  ],
+  "upstreamSourceReferences": "sources.json holds pinned URLs, hashes and licenses. Fixed MySQL GPL source is linked and reviewed, not copied into the downloadable source package."
+}

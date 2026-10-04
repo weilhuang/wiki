@@ -1,0 +1,1717 @@
+{
+  "status": "pass",
+  "reason": null,
+  "versions": {
+    "go": "go1.27.1",
+    "github.com/gin-gonic/gin": "v1.12.0",
+    "github.com/go-sql-driver/mysql": "v1.10.1",
+    "google.golang.org/grpc": "v1.84.0",
+    "google.golang.org/protobuf": "v1.36.11",
+    "gorm.io/driver/mysql": "v1.6.0",
+    "gorm.io/gorm": "v1.31.2",
+    "protoc": "libprotoc 36.2",
+    "protoc-gen-go": "protoc-gen-go v1.36.11",
+    "protoc-gen-go-grpc": "protoc-gen-go-grpc 1.6.1",
+    "mysql_architecture": "amd64",
+    "mysql_image": "mysql@sha256:0426ec38c7a10aa45ba383887df7878f74ee70e2fd589c7b69207f3577901903",
+    "mysql": "8.4.7"
+  },
+  "sourceSHA256": {
+    ".github/workflows/reservation-service.yml": "c96f7a7a39c01865cfdb1558cf8ceaa654b6e91e9fadc116a9b7c31e19c4ada6",
+    "labs/reservation-service/LICENSE": "6a4c39d86baab9062765b8216d5dea94c1c9535f864b0d9863c053be9244f1f5",
+    "labs/reservation-service/README.md": "f60f8838ce0605ee8e2bdf753fbbd91f2d25fbf99d8ebe25d1a5a2d400219ed9",
+    "labs/reservation-service/acceptance-matrix.json": "6b23825b72338debc7a90c1130dfb9b70e36142c225b1613cbfb17558c03e5cf",
+    "labs/reservation-service/api/reservation/v1/reservation.pb.go": "1710a657dfda9a48c4f6cd074c42f70ccd4292d4e5014ccfa2a2fe634c2a414d",
+    "labs/reservation-service/api/reservation/v1/reservation.proto": "de796a7da3b2e84e34b29ab23342f316d2f1aa4ac2a83f72dd518cb9087008a8",
+    "labs/reservation-service/api/reservation/v1/reservation_grpc.pb.go": "f6a929520338e381d9dc1177dd017bf18e189fa9df6804a872c38e97aabb5f26",
+    "labs/reservation-service/cmd/reservationd/main.go": "660272288f77944c9d85d65d41ef0392bba7afa006469f05a73908f11ab9bf59",
+    "labs/reservation-service/contract.md": "a9cc6b20a0bbe5a47d029e0a8d3759a6b12966a4517d88c514f12a9ede9f432f",
+    "labs/reservation-service/go.mod": "640d27443e00814a0dffcd34ff96eea56c7f57bf660287154566546b82ad41f8",
+    "labs/reservation-service/go.sum": "919a9c28b6664abf50b94cbe89b6affc149d8a21c4eb67c8c6962162ecdf1c02",
+    "labs/reservation-service/internal/domain/service.go": "c618422c104527a2cb40d078c4938502508bfa9dfed97826ad75e9b282535d9f",
+    "labs/reservation-service/internal/grpcapi/grpc.go": "562762395b2a3e57914fd1e36b42cc119c310b5e4c9e077b2eb685bf390a3101",
+    "labs/reservation-service/internal/grpcapi/grpc_test.go": "3c133957ca68a072187c2a2323d8be1866221e63c91878bda9e9f242d1225a69",
+    "labs/reservation-service/internal/httpapi/http.go": "36acda672f5a43ef5136eebbacbf2b573d228c15a51525942d94bc789d2f699c",
+    "labs/reservation-service/internal/runtime/runtime.go": "1b15b145ade8e367fc4d188c706f2c2da2cd245cf4603aa0b95e3ead46809f49",
+    "labs/reservation-service/internal/store/common.go": "c2d5030d7cd7adcec8059a08d294d05e56c8e93162a7279ecb30316df84a0db8",
+    "labs/reservation-service/internal/store/gorm.go": "b97e3ecafdb6b7944e207db7b657d2623590b6447044999d13e98731a2e1523e",
+    "labs/reservation-service/internal/store/sql.go": "98ca3c604c591c78cd0ca4527e5ffaec8886ca8acece5e92e57603d62f4f47c5",
+    "labs/reservation-service/licenses/gin.txt": "03458b6d5828e1be1127ca2adf122572eb574fc47b56190c3b38203b8b2a98d0",
+    "labs/reservation-service/licenses/gorm-mysql.txt": "59f62caa972078dc1664ce928b5e5d51b78633fc43b78894d2dab83bc504edee",
+    "labs/reservation-service/licenses/gorm.txt": "a7535fe9fee1f534b47846eee31be7492c73fb766e6f4fe9433a427e16e147c3",
+    "labs/reservation-service/licenses/grpc-go.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "labs/reservation-service/licenses/mysql-driver.txt": "fab3dd6bdab226f1c08630b1dd917e11fcb4ec5e1e020e2c16f83a0a13863e85",
+    "labs/reservation-service/licenses/protobuf-go.txt": "4835612df0098ca95f8e7d9e3bffcb02358d435dbb38057c844c99d7f725eb20",
+    "labs/reservation-service/licenses/sources.json": "a5bde8ab1cbe7759a5f93296ebce38f8e1932943d278a842f14fbec6792a693a",
+    "labs/reservation-service/migrations/001_init.sql": "f18599523677062758c6973711d1e06f266a26684e2a3ae059aa349163fd34c3",
+    "labs/reservation-service/migrations/schema.go": "4367ee1f2914f8e652cf7c864748df334617385d0d129f790a7e569e58fb129a",
+    "labs/reservation-service/pins.json": "02b03e7ae4a6f007ec0572ae6ebc56dc96ad88bffbedb87a95aff066ae1ae4f8",
+    "labs/reservation-service/scripts/budgets.py": "f3ec11a97371d100ef00f819c7ca5a3a4fccf0ad6236696a00f58a492448d894",
+    "labs/reservation-service/scripts/cleanup.py": "947f59029602ff78683ce4674ff2eb7aa13d2a0f7158e13f84cb5fdb5ef32420",
+    "labs/reservation-service/scripts/collect.py": "0678febe5dd48a0e7715eccd58df88369caf3e245b8226ce443e32f41b6f3c53",
+    "labs/reservation-service/scripts/download_protoc.py": "3b9634fda229804f5f5e21b762f8efc3b584eaa519c41ae3269834b8a12bf3d7",
+    "labs/reservation-service/scripts/evidence.py": "68f58fdc27f1af856d8fc4261b165b4674b1372e88161e0001a9c14d98f1101c",
+    "labs/reservation-service/scripts/mutants.py": "51d1683ea04726b1274f5c198d8c047e1822714a21103962ca8b4947ee54f7be",
+    "labs/reservation-service/scripts/reader-commands.sh": "5c5c73f1e91bc01240e2e38fc7416691a22e60f2f93a3df34f2fb34a4c758cd4",
+    "labs/reservation-service/scripts/run_ci.py": "4b53eb58f44b751c9f3ed8b80b0f9c9a2b3e9c4cd6d54be3f9da984f6f8b30c0",
+    "labs/reservation-service/scripts/test_cleanup.py": "ed70c2c925cbb780e4a4ef016a2107aaa5ca0ed44aff0c99ee679022c79d26ae",
+    "labs/reservation-service/scripts/test_evidence.py": "b0709f6058253c089d42dc11e467f2d53af865475460059bd875e7b45a96fb3f",
+    "labs/reservation-service/scripts/test_mutants.py": "1a758cfb64bc0ed59c2dd8d90b43276d1e074631527503d82be7aec29d4434d2",
+    "labs/reservation-service/scripts/test_verify_results.py": "1725436e0ae27f80741dffdad8470fc93ff330ec3811732abd9ed758bb2c8964",
+    "labs/reservation-service/scripts/verify_results.py": "271627b8192995e746e9cb73382ba82c51a2017bbcf04c7d814ca9185c4b2633",
+    "labs/reservation-service/testdata/review-r1/mutant_extra_leaf_cleanup_failure.jsonl": "e08d67153a1d808ce49bb217fb3a26ac338477e14a6772c3f8eb25fafe923f48",
+    "labs/reservation-service/testdata/review-r1/mutant_extra_parent_assertion.jsonl": "1b1fe55e909e8ab5520542cda17ab9f61fbb69f05611fedba6a1a9c70db2b377",
+    "labs/reservation-service/testdata/review-r1/mutant_missing_package_terminal.jsonl": "5be606333410ea5ecaae39ea9ad97de630f5f3543affe8ae5e6f47a8aa8f3f7a",
+    "labs/reservation-service/testdata/review-r1/mutant_one_backend_missing.jsonl": "6521a9867e5097d82e1724dda3daeb58835778ca06bea5111a156d57a7ba1a99",
+    "labs/reservation-service/testdata/review-r1/mutant_wrong_package.jsonl": "8e5ae2cfe5053857f93f6149603c6b64c07ba89922008fbb675cf37de2ed5f8d",
+    "labs/reservation-service/testdata/review-r2/m06-go127.jsonl": "fffef3be8e0f88d9e8b571fafbf31ee16db5f7f036e0d0ca4813be362d889e67",
+    "labs/reservation-service/tests/commit_proxy_test.go": "bae66131f638b3b638f9b16683605ba3afa49eb638324240ad8c3b2faf35995a",
+    "labs/reservation-service/tests/database_test.go": "b59766d36b6931f914a05fe10ed50518ab34cbeecd0b28650d4fed8da9dc5709",
+    "labs/reservation-service/tests/fixture_test.go": "dc9b7aa35ae276e6de52b14a38a054e3d2133e41e7efb15be5fa6ef9ebaba16d",
+    "labs/reservation-service/tests/grpc_test.go": "de77e91637b0e82ab7f9a09e12bf8b56cf5ea5fb5ea117d1ff4107f7e625cd2f",
+    "labs/reservation-service/tests/http_test.go": "6fde04823a4748930537891231b56b7bbe850c5a14f9a34fcfd146e792aad886",
+    "labs/reservation-service/tests/process_test.go": "223459bc81ad3e6212afb455381c025abee0c1c868b018e3c9ec1fe6e66983c3"
+  },
+  "commands": [
+    {
+      "label": "go-version",
+      "argv": [
+        "go",
+        "version"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 0,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 0.004,
+      "evidence": {
+        "file": "go-version.log",
+        "rawSHA256": "f554cfdb85411c2bb1d503df3f53dfbad1f753eb8271938833166a5d26a7547c",
+        "publicSHA256": "f554cfdb85411c2bb1d503df3f53dfbad1f753eb8271938833166a5d26a7547c",
+        "rawBytes": 32,
+        "publicBytes": 32,
+        "changed": false
+      }
+    },
+    {
+      "label": "module-download",
+      "argv": [
+        "go",
+        "mod",
+        "download"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 0,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 3.055,
+      "evidence": {
+        "file": "module-download.log",
+        "rawSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "publicSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "rawBytes": 0,
+        "publicBytes": 0,
+        "changed": false
+      }
+    },
+    {
+      "label": "module-verify",
+      "argv": [
+        "go",
+        "mod",
+        "verify"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 0,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 0.575,
+      "evidence": {
+        "file": "module-verify.log",
+        "rawSHA256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd",
+        "publicSHA256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd",
+        "rawBytes": 21,
+        "publicBytes": 21,
+        "changed": false
+      }
+    },
+    {
+      "label": "module-graph",
+      "argv": [
+        "go",
+        "list",
+        "-m",
+        "-json",
+        "all"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 0,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 0.722,
+      "evidence": {
+        "file": "module-graph.log",
+        "rawSHA256": "278cd8787d7cf87f5c40eab5f1a5a29f78aaca107b1b9448746897f011fb194b",
+        "publicSHA256": "aa6610b816adcc7fb3aa86f985cd5b705d46aed0b4f98b4fd5712d544fd34f54",
+        "rawBytes": 29565,
+        "publicBytes": 26186,
+        "changed": true
+      }
+    },
+    {
+      "label": "download-protoc",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/download_protoc.py",
+        "--destination",
+        "[TASK]/protoc.zip"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 0,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 0.365,
+      "evidence": {
+        "file": "download-protoc.log",
+        "rawSHA256": "81298a5b814a2d31416cc4792d02aad5cb0f50cbd906a63b4baa747dd68f4680",
+        "publicSHA256": "81298a5b814a2d31416cc4792d02aad5cb0f50cbd906a63b4baa747dd68f4680",
+        "rawBytes": 97,
+        "publicBytes": 97,
+        "changed": false
+      }
+    },
+    {
+      "label": "install-go-generator",
+      "argv": [
+        "go",
+        "install",
+        "google.golang.org/protobuf/cmd/protoc-gen-go@v1.36.11"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 0,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 12.514,
+      "evidence": {
+        "file": "install-go-generator.log",
+        "rawSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "publicSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "rawBytes": 0,
+        "publicBytes": 0,
+        "changed": false
+      }
+    },
+    {
+      "label": "install-grpc-generator",
+      "argv": [
+        "go",
+        "install",
+        "google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.6.1"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 0,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 0.721,
+      "evidence": {
+        "file": "install-grpc-generator.log",
+        "rawSHA256": "92c03819a4385b1f06595cb9096f3bc7fbc0f7251fc88c209304ef228832f3b2",
+        "publicSHA256": "92c03819a4385b1f06595cb9096f3bc7fbc0f7251fc88c209304ef228832f3b2",
+        "rawBytes": 69,
+        "publicBytes": 69,
+        "changed": false
+      }
+    },
+    {
+      "label": "protoc",
+      "argv": [
+        "protoc",
+        "--version"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 0,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 0.001,
+      "evidence": {
+        "file": "protoc.log",
+        "rawSHA256": "29a645a23ed3faa5d85781dfce8478c3e394eb3344b7d6260dff9f6f5eb76b3a",
+        "publicSHA256": "29a645a23ed3faa5d85781dfce8478c3e394eb3344b7d6260dff9f6f5eb76b3a",
+        "rawBytes": 15,
+        "publicBytes": 15,
+        "changed": false
+      }
+    },
+    {
+      "label": "protoc-gen-go",
+      "argv": [
+        "protoc-gen-go",
+        "--version"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 0,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 0.002,
+      "evidence": {
+        "file": "protoc-gen-go.log",
+        "rawSHA256": "8310de2fd5999e43fa1ae60f2e77de33fde633b4fe6ef6db1359fd884eeffae1",
+        "publicSHA256": "8310de2fd5999e43fa1ae60f2e77de33fde633b4fe6ef6db1359fd884eeffae1",
+        "rawBytes": 23,
+        "publicBytes": 23,
+        "changed": false
+      }
+    },
+    {
+      "label": "protoc-gen-go-grpc",
+      "argv": [
+        "protoc-gen-go-grpc",
+        "--version"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 0,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 0.002,
+      "evidence": {
+        "file": "protoc-gen-go-grpc.log",
+        "rawSHA256": "f9c8fb07e4d487ad2ad291e975ee94ff18290d148940ce277f4b8057908a33d0",
+        "publicSHA256": "f9c8fb07e4d487ad2ad291e975ee94ff18290d148940ce277f4b8057908a33d0",
+        "rawBytes": 25,
+        "publicBytes": 25,
+        "changed": false
+      }
+    },
+    {
+      "label": "regenerate",
+      "argv": [
+        "protoc",
+        "--go_out=[TASK]/generated",
+        "--go_opt=paths=source_relative",
+        "--go-grpc_out=[TASK]/generated",
+        "--go-grpc_opt=paths=source_relative",
+        "api/reservation/v1/reservation.proto"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 0,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 0.008,
+      "evidence": {
+        "file": "regenerate.log",
+        "rawSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "publicSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "rawBytes": 0,
+        "publicBytes": 0,
+        "changed": false
+      }
+    },
+    {
+      "label": "build",
+      "argv": [
+        "go",
+        "build",
+        "-tags=nomsgpack",
+        "-o",
+        "[TASK]/reservationd",
+        "./cmd/reservationd"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 0,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 24.885,
+      "evidence": {
+        "file": "build.log",
+        "rawSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "publicSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "rawBytes": 0,
+        "publicBytes": 0,
+        "changed": false
+      }
+    },
+    {
+      "label": "validator-self-test",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/test_verify_results.py"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 0,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 0.113,
+      "evidence": {
+        "file": "validator-self-test.log",
+        "rawSHA256": "e51087f410fca45bc2f75da8aed5757e1044d824f5c1f72158382524deb49e77",
+        "publicSHA256": "e51087f410fca45bc2f75da8aed5757e1044d824f5c1f72158382524deb49e77",
+        "rawBytes": 654,
+        "publicBytes": 654,
+        "changed": false
+      }
+    },
+    {
+      "label": "evidence-self-test",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/test_evidence.py"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 0,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 0.342,
+      "evidence": {
+        "file": "evidence-self-test.log",
+        "rawSHA256": "cb24b7f26d4fabab1dc43a430019cd24e47ef7cb72842f1be799537cacdae841",
+        "publicSHA256": "cb24b7f26d4fabab1dc43a430019cd24e47ef7cb72842f1be799537cacdae841",
+        "rawBytes": 1321,
+        "publicBytes": 1321,
+        "changed": false
+      }
+    },
+    {
+      "label": "cleanup-self-test",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/test_cleanup.py"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 0,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 0.065,
+      "evidence": {
+        "file": "cleanup-self-test.log",
+        "rawSHA256": "f372be78dc459f0eb7c224d6bc8758310302a8f06e1dea72e28be8ffe90ab428",
+        "publicSHA256": "f372be78dc459f0eb7c224d6bc8758310302a8f06e1dea72e28be8ffe90ab428",
+        "rawBytes": 2011,
+        "publicBytes": 2011,
+        "changed": false
+      }
+    },
+    {
+      "label": "mutant-verifier-self-test",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/test_mutants.py"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 0,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 0.049,
+      "evidence": {
+        "file": "mutant-verifier-self-test.log",
+        "rawSHA256": "5a5b3476bf45e16d2dcff7f0e55a0c816be6dee0987d62ebe8ab8e4d75866ea8",
+        "publicSHA256": "5a5b3476bf45e16d2dcff7f0e55a0c816be6dee0987d62ebe8ab8e4d75866ea8",
+        "rawBytes": 1283,
+        "publicBytes": 1283,
+        "changed": false
+      }
+    },
+    {
+      "label": "unit",
+      "argv": [
+        "go",
+        "test",
+        "-tags=nomsgpack",
+        "-json",
+        "-count=1",
+        "-timeout=20s",
+        "./internal/grpcapi"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 0,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 5.028,
+      "evidence": {
+        "file": "unit.log",
+        "rawSHA256": "014f704349d1b8e81b7c3922abfc8685f4b1fd858079091c4f5915d7dea97188",
+        "publicSHA256": "014f704349d1b8e81b7c3922abfc8685f4b1fd858079091c4f5915d7dea97188",
+        "rawBytes": 1372,
+        "publicBytes": 1372,
+        "changed": false
+      }
+    },
+    {
+      "label": "pull-mysql",
+      "argv": [
+        "docker",
+        "pull",
+        "mysql@sha256:0426ec38c7a10aa45ba383887df7878f74ee70e2fd589c7b69207f3577901903"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 0,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 15.211,
+      "evidence": {
+        "file": "pull-mysql.log",
+        "rawSHA256": "c1e8ce59bb35277f758d245fd7748e6aef19a6b3d1b514e160e5a8788e6558ce",
+        "publicSHA256": "c1e8ce59bb35277f758d245fd7748e6aef19a6b3d1b514e160e5a8788e6558ce",
+        "rawBytes": 1807,
+        "publicBytes": 1807,
+        "changed": false
+      }
+    },
+    {
+      "label": "mysql-architecture",
+      "argv": [
+        "docker",
+        "image",
+        "inspect",
+        "mysql@sha256:0426ec38c7a10aa45ba383887df7878f74ee70e2fd589c7b69207f3577901903",
+        "--format",
+        "{{.Architecture}}"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 0,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 0.014,
+      "evidence": {
+        "file": "mysql-architecture.log",
+        "rawSHA256": "d54d20eadbec9c9cc5ac6e0e371abc96d64a0d724d1cf45297fab6098026a69d",
+        "publicSHA256": "d54d20eadbec9c9cc5ac6e0e371abc96d64a0d724d1cf45297fab6098026a69d",
+        "rawBytes": 6,
+        "publicBytes": 6,
+        "changed": false
+      }
+    },
+    {
+      "label": "network-create",
+      "argv": [
+        "docker",
+        "network",
+        "create",
+        "--label",
+        "reservation-run=20eee0cfcfa8bb52",
+        "reservation-20eee0cfcfa8bb52-net"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 0,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 0.122,
+      "evidence": {
+        "file": "network-create.log",
+        "rawSHA256": "49902d8f2e3de23f9db3ae8c8cfb9d15eced68bb91d406d378a4d461e5d50781",
+        "publicSHA256": "49902d8f2e3de23f9db3ae8c8cfb9d15eced68bb91d406d378a4d461e5d50781",
+        "rawBytes": 65,
+        "publicBytes": 65,
+        "changed": false
+      }
+    },
+    {
+      "label": "mysql-start",
+      "argv": [
+        "docker",
+        "run",
+        "-d",
+        "--name",
+        "reservation-20eee0cfcfa8bb52",
+        "--label",
+        "reservation-run=20eee0cfcfa8bb52",
+        "--network",
+        "reservation-20eee0cfcfa8bb52-net",
+        "--cpus=2",
+        "--memory=1g",
+        "--pids-limit=128",
+        "--tmpfs",
+        "/var/lib/mysql:rw,size=512m",
+        "--tmpfs",
+        "/tmp:rw,size=64m",
+        "--tmpfs",
+        "/var/run/mysqld:rw,size=16m",
+        "-p",
+        "127.0.0.1::3306",
+        "-e",
+        "MYSQL_ROOT_PASSWORD",
+        "-e",
+        "MYSQL_ROOT_HOST=%",
+        "mysql@sha256:0426ec38c7a10aa45ba383887df7878f74ee70e2fd589c7b69207f3577901903"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 0,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 0.953,
+      "evidence": {
+        "file": "mysql-start.log",
+        "rawSHA256": "9e50f39deb7e3f8eaa8f753ea93d2467701bfcccf134e8afb1d98b133036558a",
+        "publicSHA256": "9e50f39deb7e3f8eaa8f753ea93d2467701bfcccf134e8afb1d98b133036558a",
+        "rawBytes": 65,
+        "publicBytes": 65,
+        "changed": false
+      }
+    },
+    {
+      "label": "mysql-image",
+      "argv": [
+        "docker",
+        "inspect",
+        "reservation-20eee0cfcfa8bb52",
+        "--format",
+        "{{.Config.Image}}"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 0,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 0.012,
+      "evidence": {
+        "file": "mysql-image.log",
+        "rawSHA256": "396fd695f917636fe2f9060d48927be7a0ce50e5a9b8d65702502d44ac965f03",
+        "publicSHA256": "396fd695f917636fe2f9060d48927be7a0ce50e5a9b8d65702502d44ac965f03",
+        "rawBytes": 78,
+        "publicBytes": 78,
+        "changed": false
+      }
+    },
+    {
+      "label": "mysql-port",
+      "argv": [
+        "docker",
+        "port",
+        "reservation-20eee0cfcfa8bb52",
+        "3306/tcp"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 0,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 0.011,
+      "evidence": {
+        "file": "mysql-port.log",
+        "rawSHA256": "592c37d7c53f7980cb3b0e164c27b094a753d13a9663b81bc9899e3ec6356a2e",
+        "publicSHA256": "592c37d7c53f7980cb3b0e164c27b094a753d13a9663b81bc9899e3ec6356a2e",
+        "rawBytes": 16,
+        "publicBytes": 16,
+        "changed": false
+      }
+    },
+    {
+      "label": "mysql-ready-1",
+      "argv": [
+        "docker",
+        "exec",
+        "-e",
+        "MYSQL_PWD",
+        "reservation-20eee0cfcfa8bb52",
+        "mysql",
+        "-uroot",
+        "-Nse",
+        "SELECT VERSION()"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 1,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 0.043,
+      "evidence": {
+        "file": "mysql-ready-1.log",
+        "rawSHA256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+        "publicSHA256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+        "rawBytes": 105,
+        "publicBytes": 105,
+        "changed": false
+      }
+    },
+    {
+      "label": "mysql-ready-2",
+      "argv": [
+        "docker",
+        "exec",
+        "-e",
+        "MYSQL_PWD",
+        "reservation-20eee0cfcfa8bb52",
+        "mysql",
+        "-uroot",
+        "-Nse",
+        "SELECT VERSION()"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 1,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 0.044,
+      "evidence": {
+        "file": "mysql-ready-2.log",
+        "rawSHA256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+        "publicSHA256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+        "rawBytes": 105,
+        "publicBytes": 105,
+        "changed": false
+      }
+    },
+    {
+      "label": "mysql-ready-3",
+      "argv": [
+        "docker",
+        "exec",
+        "-e",
+        "MYSQL_PWD",
+        "reservation-20eee0cfcfa8bb52",
+        "mysql",
+        "-uroot",
+        "-Nse",
+        "SELECT VERSION()"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 1,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 0.04,
+      "evidence": {
+        "file": "mysql-ready-3.log",
+        "rawSHA256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+        "publicSHA256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+        "rawBytes": 105,
+        "publicBytes": 105,
+        "changed": false
+      }
+    },
+    {
+      "label": "mysql-ready-4",
+      "argv": [
+        "docker",
+        "exec",
+        "-e",
+        "MYSQL_PWD",
+        "reservation-20eee0cfcfa8bb52",
+        "mysql",
+        "-uroot",
+        "-Nse",
+        "SELECT VERSION()"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 1,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 0.042,
+      "evidence": {
+        "file": "mysql-ready-4.log",
+        "rawSHA256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+        "publicSHA256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+        "rawBytes": 105,
+        "publicBytes": 105,
+        "changed": false
+      }
+    },
+    {
+      "label": "mysql-ready-5",
+      "argv": [
+        "docker",
+        "exec",
+        "-e",
+        "MYSQL_PWD",
+        "reservation-20eee0cfcfa8bb52",
+        "mysql",
+        "-uroot",
+        "-Nse",
+        "SELECT VERSION()"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 1,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 0.042,
+      "evidence": {
+        "file": "mysql-ready-5.log",
+        "rawSHA256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+        "publicSHA256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+        "rawBytes": 105,
+        "publicBytes": 105,
+        "changed": false
+      }
+    },
+    {
+      "label": "mysql-ready-6",
+      "argv": [
+        "docker",
+        "exec",
+        "-e",
+        "MYSQL_PWD",
+        "reservation-20eee0cfcfa8bb52",
+        "mysql",
+        "-uroot",
+        "-Nse",
+        "SELECT VERSION()"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 1,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 0.044,
+      "evidence": {
+        "file": "mysql-ready-6.log",
+        "rawSHA256": "e7bd07f9f7b9e7fe9e8a1a8e705a272a8b94cbbcecbdce05a146f8cfd21fd2d4",
+        "publicSHA256": "e7bd07f9f7b9e7fe9e8a1a8e705a272a8b94cbbcecbdce05a146f8cfd21fd2d4",
+        "rawBytes": 84,
+        "publicBytes": 84,
+        "changed": false
+      }
+    },
+    {
+      "label": "mysql-ready-7",
+      "argv": [
+        "docker",
+        "exec",
+        "-e",
+        "MYSQL_PWD",
+        "reservation-20eee0cfcfa8bb52",
+        "mysql",
+        "-uroot",
+        "-Nse",
+        "SELECT VERSION()"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 1,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 0.056,
+      "evidence": {
+        "file": "mysql-ready-7.log",
+        "rawSHA256": "e7bd07f9f7b9e7fe9e8a1a8e705a272a8b94cbbcecbdce05a146f8cfd21fd2d4",
+        "publicSHA256": "e7bd07f9f7b9e7fe9e8a1a8e705a272a8b94cbbcecbdce05a146f8cfd21fd2d4",
+        "rawBytes": 84,
+        "publicBytes": 84,
+        "changed": false
+      }
+    },
+    {
+      "label": "mysql-ready-8",
+      "argv": [
+        "docker",
+        "exec",
+        "-e",
+        "MYSQL_PWD",
+        "reservation-20eee0cfcfa8bb52",
+        "mysql",
+        "-uroot",
+        "-Nse",
+        "SELECT VERSION()"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 1,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 0.041,
+      "evidence": {
+        "file": "mysql-ready-8.log",
+        "rawSHA256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+        "publicSHA256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+        "rawBytes": 105,
+        "publicBytes": 105,
+        "changed": false
+      }
+    },
+    {
+      "label": "mysql-ready-9",
+      "argv": [
+        "docker",
+        "exec",
+        "-e",
+        "MYSQL_PWD",
+        "reservation-20eee0cfcfa8bb52",
+        "mysql",
+        "-uroot",
+        "-Nse",
+        "SELECT VERSION()"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 1,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 0.041,
+      "evidence": {
+        "file": "mysql-ready-9.log",
+        "rawSHA256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+        "publicSHA256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+        "rawBytes": 105,
+        "publicBytes": 105,
+        "changed": false
+      }
+    },
+    {
+      "label": "mysql-ready-10",
+      "argv": [
+        "docker",
+        "exec",
+        "-e",
+        "MYSQL_PWD",
+        "reservation-20eee0cfcfa8bb52",
+        "mysql",
+        "-uroot",
+        "-Nse",
+        "SELECT VERSION()"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 1,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 0.043,
+      "evidence": {
+        "file": "mysql-ready-10.log",
+        "rawSHA256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+        "publicSHA256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+        "rawBytes": 105,
+        "publicBytes": 105,
+        "changed": false
+      }
+    },
+    {
+      "label": "mysql-ready-11",
+      "argv": [
+        "docker",
+        "exec",
+        "-e",
+        "MYSQL_PWD",
+        "reservation-20eee0cfcfa8bb52",
+        "mysql",
+        "-uroot",
+        "-Nse",
+        "SELECT VERSION()"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 1,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 0.042,
+      "evidence": {
+        "file": "mysql-ready-11.log",
+        "rawSHA256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+        "publicSHA256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+        "rawBytes": 105,
+        "publicBytes": 105,
+        "changed": false
+      }
+    },
+    {
+      "label": "mysql-ready-12",
+      "argv": [
+        "docker",
+        "exec",
+        "-e",
+        "MYSQL_PWD",
+        "reservation-20eee0cfcfa8bb52",
+        "mysql",
+        "-uroot",
+        "-Nse",
+        "SELECT VERSION()"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 0,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 0.053,
+      "evidence": {
+        "file": "mysql-ready-12.log",
+        "rawSHA256": "9f6c0aaaabdb42c83e82439bf2c9d1b7f39f82211d7988d55c09dc59556617d5",
+        "publicSHA256": "9f6c0aaaabdb42c83e82439bf2c9d1b7f39f82211d7988d55c09dc59556617d5",
+        "rawBytes": 6,
+        "publicBytes": 6,
+        "changed": false
+      }
+    },
+    {
+      "label": "integration",
+      "argv": [
+        "go",
+        "test",
+        "-tags=integration,nomsgpack",
+        "-json",
+        "-count=1",
+        "-timeout=90s",
+        "./tests"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 0,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 7.289,
+      "evidence": {
+        "file": "integration.log",
+        "rawSHA256": "7985ae9d605a5431e500e58f3fb6765e348db394dffd40863221c98100e94ea6",
+        "publicSHA256": "7985ae9d605a5431e500e58f3fb6765e348db394dffd40863221c98100e94ea6",
+        "rawBytes": 60326,
+        "publicBytes": 60326,
+        "changed": false
+      }
+    },
+    {
+      "label": "M01",
+      "argv": [
+        "go",
+        "test",
+        "-tags=integration,nomsgpack",
+        "-json",
+        "-count=1",
+        "-timeout=15s",
+        "-run=^TestIntegration$/^(sql|gorm)$/^H10$",
+        "./tests"
+      ],
+      "cwd": "[VARIANT]",
+      "exitCode": 1,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 1.344,
+      "evidence": {
+        "file": "M01.log",
+        "rawSHA256": "320fe35ef22e52f114400eb1d4f271166f15781c6e3bbff58bf9d3c0675deacf",
+        "publicSHA256": "320fe35ef22e52f114400eb1d4f271166f15781c6e3bbff58bf9d3c0675deacf",
+        "rawBytes": 5444,
+        "publicBytes": 5444,
+        "changed": false
+      }
+    },
+    {
+      "label": "M02",
+      "argv": [
+        "go",
+        "test",
+        "-tags=integration,nomsgpack",
+        "-json",
+        "-count=1",
+        "-timeout=15s",
+        "-run=^TestIntegration$/^(sql|gorm)$/^H03$",
+        "./tests"
+      ],
+      "cwd": "[VARIANT]",
+      "exitCode": 1,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 1.351,
+      "evidence": {
+        "file": "M02.log",
+        "rawSHA256": "6b647bf9f31d84cde26eaf08a17841b68e2d25bf6cd05393b2c9270b55eea628",
+        "publicSHA256": "6b647bf9f31d84cde26eaf08a17841b68e2d25bf6cd05393b2c9270b55eea628",
+        "rawBytes": 5124,
+        "publicBytes": 5124,
+        "changed": false
+      }
+    },
+    {
+      "label": "M03",
+      "argv": [
+        "go",
+        "test",
+        "-tags=integration,nomsgpack",
+        "-json",
+        "-count=1",
+        "-timeout=15s",
+        "-run=^TestIntegration$/^(sql|gorm)$/^D02$",
+        "./tests"
+      ],
+      "cwd": "[VARIANT]",
+      "exitCode": 1,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 1.325,
+      "evidence": {
+        "file": "M03.log",
+        "rawSHA256": "c873a24b5df68b348811d3aebc1c506c89371b9885388b7990b38a237de8bde7",
+        "publicSHA256": "c873a24b5df68b348811d3aebc1c506c89371b9885388b7990b38a237de8bde7",
+        "rawBytes": 5109,
+        "publicBytes": 5109,
+        "changed": false
+      }
+    },
+    {
+      "label": "M04",
+      "argv": [
+        "go",
+        "test",
+        "-tags=integration,nomsgpack",
+        "-json",
+        "-count=1",
+        "-timeout=15s",
+        "-run=^TestIntegration$/^(sql|gorm)$/^D03$",
+        "./tests"
+      ],
+      "cwd": "[VARIANT]",
+      "exitCode": 1,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 1.315,
+      "evidence": {
+        "file": "M04.log",
+        "rawSHA256": "704bbff423fe03e04808bceaa9949b7f00f8b6a5fb829795833b772a578eba5d",
+        "publicSHA256": "704bbff423fe03e04808bceaa9949b7f00f8b6a5fb829795833b772a578eba5d",
+        "rawBytes": 5223,
+        "publicBytes": 5223,
+        "changed": false
+      }
+    },
+    {
+      "label": "M05",
+      "argv": [
+        "go",
+        "test",
+        "-tags=integration,nomsgpack",
+        "-json",
+        "-count=1",
+        "-timeout=15s",
+        "-run=^TestIntegration$/^(sql|gorm)$/^D06$",
+        "./tests"
+      ],
+      "cwd": "[VARIANT]",
+      "exitCode": 1,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 1.35,
+      "evidence": {
+        "file": "M05.log",
+        "rawSHA256": "0f19c21abbef68ec43077854daca503ff9098821b040d8b3053e1322f233bea4",
+        "publicSHA256": "0f19c21abbef68ec43077854daca503ff9098821b040d8b3053e1322f233bea4",
+        "rawBytes": 5179,
+        "publicBytes": 5179,
+        "changed": false
+      }
+    },
+    {
+      "label": "M06",
+      "argv": [
+        "go",
+        "test",
+        "-tags=nomsgpack",
+        "-json",
+        "-count=1",
+        "-timeout=15s",
+        "-run=^TestG07StreamSendError$",
+        "./internal/grpcapi"
+      ],
+      "cwd": "[VARIANT]",
+      "exitCode": 1,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 0.585,
+      "evidence": {
+        "file": "M06.log",
+        "rawSHA256": "e0886549960674d9d237964b7f55f893e754f383ef6953169b8a90ab2ef1d2bb",
+        "publicSHA256": "e0886549960674d9d237964b7f55f893e754f383ef6953169b8a90ab2ef1d2bb",
+        "rawBytes": 1733,
+        "publicBytes": 1733,
+        "changed": false
+      }
+    },
+    {
+      "label": "container-owner",
+      "argv": [
+        "docker",
+        "inspect",
+        "reservation-20eee0cfcfa8bb52",
+        "--format",
+        "{{index .Config.Labels \"reservation-run\"}}"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 0,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 0.02,
+      "evidence": {
+        "file": "container-owner.log",
+        "rawSHA256": "96fdd23cd83158e2168ded7c34aa446d35a9bb1aeddbc9eb5fef38928821013d",
+        "publicSHA256": "96fdd23cd83158e2168ded7c34aa446d35a9bb1aeddbc9eb5fef38928821013d",
+        "rawBytes": 17,
+        "publicBytes": 17,
+        "changed": false
+      }
+    },
+    {
+      "label": "mysql-diagnostics",
+      "argv": [
+        "docker",
+        "logs",
+        "--tail",
+        "80",
+        "reservation-20eee0cfcfa8bb52"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 0,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 0.012,
+      "evidence": {
+        "file": "mysql-diagnostics.log",
+        "rawSHA256": "cbd0bea794f0e6eb83b81d1660b8eb524d94ee6558b77adc3ba2a4492ff6daef",
+        "publicSHA256": "cbd0bea794f0e6eb83b81d1660b8eb524d94ee6558b77adc3ba2a4492ff6daef",
+        "rawBytes": 4853,
+        "publicBytes": 4853,
+        "changed": false
+      }
+    },
+    {
+      "label": "container-remove",
+      "argv": [
+        "docker",
+        "rm",
+        "-f",
+        "reservation-20eee0cfcfa8bb52"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 0,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 0.431,
+      "evidence": {
+        "file": "container-remove.log",
+        "rawSHA256": "27a2bfdc09377edc4b6bf3006fa95e573b848005eed2cf28f0496b1e5badc21e",
+        "publicSHA256": "27a2bfdc09377edc4b6bf3006fa95e573b848005eed2cf28f0496b1e5badc21e",
+        "rawBytes": 29,
+        "publicBytes": 29,
+        "changed": false
+      }
+    },
+    {
+      "label": "container-absent",
+      "argv": [
+        "docker",
+        "inspect",
+        "reservation-20eee0cfcfa8bb52"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 1,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 0.019,
+      "evidence": {
+        "file": "container-absent.log",
+        "rawSHA256": "e99ef5fbfe7700a04bbc2f86f2e10412ec414ad1ae7f442365820c433d2f2b5a",
+        "publicSHA256": "e99ef5fbfe7700a04bbc2f86f2e10412ec414ad1ae7f442365820c433d2f2b5a",
+        "rawBytes": 55,
+        "publicBytes": 55,
+        "changed": false
+      }
+    },
+    {
+      "label": "network-owner",
+      "argv": [
+        "docker",
+        "network",
+        "inspect",
+        "reservation-20eee0cfcfa8bb52-net",
+        "--format",
+        "{{index .Labels \"reservation-run\"}}"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 0,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 0.011,
+      "evidence": {
+        "file": "network-owner.log",
+        "rawSHA256": "96fdd23cd83158e2168ded7c34aa446d35a9bb1aeddbc9eb5fef38928821013d",
+        "publicSHA256": "96fdd23cd83158e2168ded7c34aa446d35a9bb1aeddbc9eb5fef38928821013d",
+        "rawBytes": 17,
+        "publicBytes": 17,
+        "changed": false
+      }
+    },
+    {
+      "label": "network-remove",
+      "argv": [
+        "docker",
+        "network",
+        "rm",
+        "reservation-20eee0cfcfa8bb52-net"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 0,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 0.214,
+      "evidence": {
+        "file": "network-remove.log",
+        "rawSHA256": "e848ff80170adf00e8dfbacefb49aa86a4022683db8be95a11094c38ceef2f00",
+        "publicSHA256": "e848ff80170adf00e8dfbacefb49aa86a4022683db8be95a11094c38ceef2f00",
+        "rawBytes": 33,
+        "publicBytes": 33,
+        "changed": false
+      }
+    },
+    {
+      "label": "network-absent",
+      "argv": [
+        "docker",
+        "network",
+        "inspect",
+        "reservation-20eee0cfcfa8bb52-net"
+      ],
+      "cwd": "[PACKAGE]",
+      "exitCode": 1,
+      "timeout": false,
+      "outputBoundExceeded": false,
+      "captureFailure": null,
+      "leftoverProcess": false,
+      "processGroupClear": true,
+      "seconds": 0.011,
+      "evidence": {
+        "file": "network-absent.log",
+        "rawSHA256": "8e1a57e7e5848927faf237c710987f88d4cd384e4bc445a58ad92fa7ec6f43ef",
+        "publicSHA256": "8e1a57e7e5848927faf237c710987f88d4cd384e4bc445a58ad92fa7ec6f43ef",
+        "rawBytes": 82,
+        "publicBytes": 82,
+        "changed": false
+      }
+    }
+  ],
+  "mutants": [
+    {
+      "id": "M01",
+      "case": "H10",
+      "marker": "HTTP_ERROR_BODY",
+      "status": "detected",
+      "command_record": {
+        "label": "M01",
+        "argv": [
+          "go",
+          "test",
+          "-tags=integration,nomsgpack",
+          "-json",
+          "-count=1",
+          "-timeout=15s",
+          "-run=^TestIntegration$/^(sql|gorm)$/^H10$",
+          "./tests"
+        ],
+        "cwd": "[VARIANT]",
+        "exitCode": 1,
+        "timeout": false,
+        "outputBoundExceeded": false,
+        "captureFailure": null,
+        "leftoverProcess": false,
+        "processGroupClear": true,
+        "seconds": 1.344,
+        "evidence": {
+          "file": "M01.log",
+          "rawSHA256": "320fe35ef22e52f114400eb1d4f271166f15781c6e3bbff58bf9d3c0675deacf",
+          "publicSHA256": "320fe35ef22e52f114400eb1d4f271166f15781c6e3bbff58bf9d3c0675deacf",
+          "rawBytes": 5444,
+          "publicBytes": 5444,
+          "changed": false
+        }
+      }
+    },
+    {
+      "id": "M02",
+      "case": "H03",
+      "marker": "HTTP_FORBIDDEN_STATUS",
+      "status": "detected",
+      "command_record": {
+        "label": "M02",
+        "argv": [
+          "go",
+          "test",
+          "-tags=integration,nomsgpack",
+          "-json",
+          "-count=1",
+          "-timeout=15s",
+          "-run=^TestIntegration$/^(sql|gorm)$/^H03$",
+          "./tests"
+        ],
+        "cwd": "[VARIANT]",
+        "exitCode": 1,
+        "timeout": false,
+        "outputBoundExceeded": false,
+        "captureFailure": null,
+        "leftoverProcess": false,
+        "processGroupClear": true,
+        "seconds": 1.351,
+        "evidence": {
+          "file": "M02.log",
+          "rawSHA256": "6b647bf9f31d84cde26eaf08a17841b68e2d25bf6cd05393b2c9270b55eea628",
+          "publicSHA256": "6b647bf9f31d84cde26eaf08a17841b68e2d25bf6cd05393b2c9270b55eea628",
+          "rawBytes": 5124,
+          "publicBytes": 5124,
+          "changed": false
+        }
+      }
+    },
+    {
+      "id": "M03",
+      "case": "D02",
+      "marker": "ROLLBACK_STOCK",
+      "status": "detected",
+      "command_record": {
+        "label": "M03",
+        "argv": [
+          "go",
+          "test",
+          "-tags=integration,nomsgpack",
+          "-json",
+          "-count=1",
+          "-timeout=15s",
+          "-run=^TestIntegration$/^(sql|gorm)$/^D02$",
+          "./tests"
+        ],
+        "cwd": "[VARIANT]",
+        "exitCode": 1,
+        "timeout": false,
+        "outputBoundExceeded": false,
+        "captureFailure": null,
+        "leftoverProcess": false,
+        "processGroupClear": true,
+        "seconds": 1.325,
+        "evidence": {
+          "file": "M03.log",
+          "rawSHA256": "c873a24b5df68b348811d3aebc1c506c89371b9885388b7990b38a237de8bde7",
+          "publicSHA256": "c873a24b5df68b348811d3aebc1c506c89371b9885388b7990b38a237de8bde7",
+          "rawBytes": 5109,
+          "publicBytes": 5109,
+          "changed": false
+        }
+      }
+    },
+    {
+      "id": "M04",
+      "case": "D03",
+      "marker": "LAST_ITEM_STATES",
+      "status": "detected",
+      "command_record": {
+        "label": "M04",
+        "argv": [
+          "go",
+          "test",
+          "-tags=integration,nomsgpack",
+          "-json",
+          "-count=1",
+          "-timeout=15s",
+          "-run=^TestIntegration$/^(sql|gorm)$/^D03$",
+          "./tests"
+        ],
+        "cwd": "[VARIANT]",
+        "exitCode": 1,
+        "timeout": false,
+        "outputBoundExceeded": false,
+        "captureFailure": null,
+        "leftoverProcess": false,
+        "processGroupClear": true,
+        "seconds": 1.315,
+        "evidence": {
+          "file": "M04.log",
+          "rawSHA256": "704bbff423fe03e04808bceaa9949b7f00f8b6a5fb829795833b772a578eba5d",
+          "publicSHA256": "704bbff423fe03e04808bceaa9949b7f00f8b6a5fb829795833b772a578eba5d",
+          "rawBytes": 5223,
+          "publicBytes": 5223,
+          "changed": false
+        }
+      }
+    },
+    {
+      "id": "M05",
+      "case": "D06",
+      "marker": "CANCEL_IDENTITY",
+      "status": "detected",
+      "command_record": {
+        "label": "M05",
+        "argv": [
+          "go",
+          "test",
+          "-tags=integration,nomsgpack",
+          "-json",
+          "-count=1",
+          "-timeout=15s",
+          "-run=^TestIntegration$/^(sql|gorm)$/^D06$",
+          "./tests"
+        ],
+        "cwd": "[VARIANT]",
+        "exitCode": 1,
+        "timeout": false,
+        "outputBoundExceeded": false,
+        "captureFailure": null,
+        "leftoverProcess": false,
+        "processGroupClear": true,
+        "seconds": 1.35,
+        "evidence": {
+          "file": "M05.log",
+          "rawSHA256": "0f19c21abbef68ec43077854daca503ff9098821b040d8b3053e1322f233bea4",
+          "publicSHA256": "0f19c21abbef68ec43077854daca503ff9098821b040d8b3053e1322f233bea4",
+          "rawBytes": 5179,
+          "publicBytes": 5179,
+          "changed": false
+        }
+      }
+    },
+    {
+      "id": "M06",
+      "case": "G07",
+      "marker": "STREAM_SEND_ERROR",
+      "status": "detected",
+      "command_record": {
+        "label": "M06",
+        "argv": [
+          "go",
+          "test",
+          "-tags=nomsgpack",
+          "-json",
+          "-count=1",
+          "-timeout=15s",
+          "-run=^TestG07StreamSendError$",
+          "./internal/grpcapi"
+        ],
+        "cwd": "[VARIANT]",
+        "exitCode": 1,
+        "timeout": false,
+        "outputBoundExceeded": false,
+        "captureFailure": null,
+        "leftoverProcess": false,
+        "processGroupClear": true,
+        "seconds": 0.585,
+        "evidence": {
+          "file": "M06.log",
+          "rawSHA256": "e0886549960674d9d237964b7f55f893e754f383ef6953169b8a90ab2ef1d2bb",
+          "publicSHA256": "e0886549960674d9d237964b7f55f893e754f383ef6953169b8a90ab2ef1d2bb",
+          "rawBytes": 1733,
+          "publicBytes": 1733,
+          "changed": false
+        }
+      }
+    }
+  ],
+  "cleanup": {
+    "container": "absent",
+    "network": "absent",
+    "diagnostics": "collected",
+    "errors": [],
+    "status": "pass"
+  },
+  "requiredIntegrationCases": [
+    "TestIntegration/gorm/D01",
+    "TestIntegration/gorm/D02",
+    "TestIntegration/gorm/D03",
+    "TestIntegration/gorm/D04",
+    "TestIntegration/gorm/D05",
+    "TestIntegration/gorm/D06",
+    "TestIntegration/gorm/D07",
+    "TestIntegration/gorm/D08",
+    "TestIntegration/gorm/D09",
+    "TestIntegration/gorm/D10",
+    "TestIntegration/gorm/G01",
+    "TestIntegration/gorm/G02",
+    "TestIntegration/gorm/G03",
+    "TestIntegration/gorm/G04",
+    "TestIntegration/gorm/G05",
+    "TestIntegration/gorm/G06",
+    "TestIntegration/gorm/H01",
+    "TestIntegration/gorm/H02",
+    "TestIntegration/gorm/H03",
+    "TestIntegration/gorm/H04",
+    "TestIntegration/gorm/H05",
+    "TestIntegration/gorm/H06",
+    "TestIntegration/gorm/H07",
+    "TestIntegration/gorm/H08",
+    "TestIntegration/gorm/H09",
+    "TestIntegration/gorm/H10",
+    "TestIntegration/gorm/H11",
+    "TestIntegration/sql/D01",
+    "TestIntegration/sql/D02",
+    "TestIntegration/sql/D03",
+    "TestIntegration/sql/D04",
+    "TestIntegration/sql/D05",
+    "TestIntegration/sql/D06",
+    "TestIntegration/sql/D07",
+    "TestIntegration/sql/D08",
+    "TestIntegration/sql/D09",
+    "TestIntegration/sql/D10",
+    "TestIntegration/sql/G01",
+    "TestIntegration/sql/G02",
+    "TestIntegration/sql/G03",
+    "TestIntegration/sql/G04",
+    "TestIntegration/sql/G05",
+    "TestIntegration/sql/G06",
+    "TestIntegration/sql/H01",
+    "TestIntegration/sql/H02",
+    "TestIntegration/sql/H03",
+    "TestIntegration/sql/H04",
+    "TestIntegration/sql/H05",
+    "TestIntegration/sql/H06",
+    "TestIntegration/sql/H07",
+    "TestIntegration/sql/H08",
+    "TestIntegration/sql/H09",
+    "TestIntegration/sql/H10",
+    "TestIntegration/sql/H11",
+    "TestProcess/P01",
+    "TestProcess/P02",
+    "TestProcess/P03",
+    "TestProcess/P04"
+  ],
+  "requiredUnitCases": [
+    "TestG07StreamSendError"
+  ],
+  "sourceCommit": "cf457576ebc12f765aa917dde3c91c446f48fa61",
+  "prHead": "d9730eaf77c30f1853f6c7f173504cfe02ea26b9",
+  "prBase": "0ffe64abc5ef7d3423aa088ff1ef10c29f19b0e3",
+  "sourceID": "2a6baac73e59ddfd57fbe2925500457f27708928b43201a718ac5ecfc13c3292",
+  "protocArchiveSHA256": "121f6c7afe1d4d0e3ea6aab9432038599250134cbf4474cb1167d2c7decd4278",
+  "runID": "37161631044",
+  "runAttempt": "1",
+  "reviewContractSHA256": "0a5d7dac799ddf9efc6e23f312ab83a8663994e6e888d04322555487c4a6ac70",
+  "timing": {
+    "jobStartedAt": 1791069823,
+    "wrapperElapsedSeconds": 86.197,
+    "wrapperInternalLimitSeconds": 650,
+    "outerTerminationLimitSeconds": 660,
+    "workDeadlineOffset": 530.0,
+    "cleanupDeadlineOffset": 620.0,
+    "finalDeadlineOffset": 635.0
+  },
+  "logBudget": {
+    "raw": 145982,
+    "public": 142603,
+    "normal_raw": 127782,
+    "normal_public": 124403,
+    "reserved_raw": 18200,
+    "reserved_public": 18200
+  }
+}

@@ -30,7 +30,7 @@ search: false
 
 围绕函数合同、并发所有权、标准库服务和进程生命周期组织 Go 知识。先解释谁启动、谁等待、谁关闭，再讨论工具选择。
 
-[Go 工程](/knowledge/go/) · 已有 10 篇可读主题
+[Go 工程](/knowledge/go/) · 已有 13 篇可读主题
 
 - [语言核心](/knowledge/go/language/)：从值复制与别名进入 slice/map，再用动态类型和接收者解释接口、nil 与 error 链。
 - [并发协作与设计](/knowledge/go/concurrency/)：先区分数据同步、对象交接与工作结束，再限制并发与队列。

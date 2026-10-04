@@ -1,0 +1,28 @@
+{"Time":"2026-10-03T23:25:18.221725739Z","Action":"start","Package":"example.com/reservation-service/tests"}
+{"Time":"2026-10-03T23:25:18.227090135Z","Action":"run","Package":"example.com/reservation-service/tests","Test":"TestIntegration"}
+{"Time":"2026-10-03T23:25:18.227141939Z","Action":"output","Package":"example.com/reservation-service/tests","Test":"TestIntegration","Output":"=== RUN   TestIntegration\n","OutputType":"frame"}
+{"Time":"2026-10-03T23:25:18.227169737Z","Action":"run","Package":"example.com/reservation-service/tests","Test":"TestIntegration/sql"}
+{"Time":"2026-10-03T23:25:18.227172514Z","Action":"output","Package":"example.com/reservation-service/tests","Test":"TestIntegration/sql","Output":"=== RUN   TestIntegration/sql\n","OutputType":"frame"}
+{"Time":"2026-10-03T23:25:18.227254721Z","Action":"run","Package":"example.com/reservation-service/tests","Test":"TestIntegration/sql/D06"}
+{"Time":"2026-10-03T23:25:18.227260575Z","Action":"output","Package":"example.com/reservation-service/tests","Test":"TestIntegration/sql/D06","Output":"=== RUN   TestIntegration/sql/D06\n","OutputType":"frame"}
+{"Time":"2026-10-03T23:25:18.235759151Z","Action":"output","Package":"example.com/reservation-service/tests","Test":"TestIntegration/sql/D06","Output":"    database_test.go:260: FIXTURE mysql=8.4.7 backend=sql\n"}
+{"Time":"2026-10-03T23:25:18.243244734Z","Action":"output","Package":"example.com/reservation-service/tests","Test":"TestIntegration/sql/D06","Output":"    database_test.go:146: SEMANTIC_ASSERT {\"marker\":\"CANCEL_IDENTITY\",\"got\":\"\\u003cnil\\u003e\",\"want\":\"context.Canceled\"}\n","OutputType":"error"}
+{"Time":"2026-10-03T23:25:18.245876358Z","Action":"output","Package":"example.com/reservation-service/tests","Test":"TestIntegration/sql/D06","Output":"--- FAIL: TestIntegration/sql/D06 (0.02s)\n","OutputType":"frame"}
+{"Time":"2026-10-03T23:25:18.245896146Z","Action":"fail","Package":"example.com/reservation-service/tests","Test":"TestIntegration/sql/D06","Elapsed":0.02}
+{"Time":"2026-10-03T23:25:18.246169552Z","Action":"output","Package":"example.com/reservation-service/tests","Test":"TestIntegration/sql","Output":"--- FAIL: TestIntegration/sql (0.02s)\n","OutputType":"frame"}
+{"Time":"2026-10-03T23:25:18.246178289Z","Action":"fail","Package":"example.com/reservation-service/tests","Test":"TestIntegration/sql","Elapsed":0.02}
+{"Time":"2026-10-03T23:25:18.246186392Z","Action":"run","Package":"example.com/reservation-service/tests","Test":"TestIntegration/gorm"}
+{"Time":"2026-10-03T23:25:18.246209007Z","Action":"output","Package":"example.com/reservation-service/tests","Test":"TestIntegration/gorm","Output":"=== RUN   TestIntegration/gorm\n","OutputType":"frame"}
+{"Time":"2026-10-03T23:25:18.246306128Z","Action":"run","Package":"example.com/reservation-service/tests","Test":"TestIntegration/gorm/D06"}
+{"Time":"2026-10-03T23:25:18.246310371Z","Action":"output","Package":"example.com/reservation-service/tests","Test":"TestIntegration/gorm/D06","Output":"=== RUN   TestIntegration/gorm/D06\n","OutputType":"frame"}
+{"Time":"2026-10-03T23:25:18.253451614Z","Action":"output","Package":"example.com/reservation-service/tests","Test":"TestIntegration/gorm/D06","Output":"    database_test.go:260: FIXTURE mysql=8.4.7 backend=gorm\n"}
+{"Time":"2026-10-03T23:25:18.260840683Z","Action":"output","Package":"example.com/reservation-service/tests","Test":"TestIntegration/gorm/D06","Output":"    database_test.go:146: SEMANTIC_ASSERT {\"marker\":\"CANCEL_IDENTITY\",\"got\":\"\\u003cnil\\u003e\",\"want\":\"context.Canceled\"}\n","OutputType":"error"}
+{"Time":"2026-10-03T23:25:18.263401773Z","Action":"output","Package":"example.com/reservation-service/tests","Test":"TestIntegration/gorm/D06","Output":"--- FAIL: TestIntegration/gorm/D06 (0.02s)\n","OutputType":"frame"}
+{"Time":"2026-10-03T23:25:18.263422962Z","Action":"fail","Package":"example.com/reservation-service/tests","Test":"TestIntegration/gorm/D06","Elapsed":0.02}
+{"Time":"2026-10-03T23:25:18.263678183Z","Action":"output","Package":"example.com/reservation-service/tests","Test":"TestIntegration/gorm","Output":"--- FAIL: TestIntegration/gorm (0.02s)\n","OutputType":"frame"}
+{"Time":"2026-10-03T23:25:18.263686312Z","Action":"fail","Package":"example.com/reservation-service/tests","Test":"TestIntegration/gorm","Elapsed":0.02}
+{"Time":"2026-10-03T23:25:18.263691123Z","Action":"output","Package":"example.com/reservation-service/tests","Test":"TestIntegration","Output":"--- FAIL: TestIntegration (0.04s)\n","OutputType":"frame"}
+{"Time":"2026-10-03T23:25:18.263693978Z","Action":"fail","Package":"example.com/reservation-service/tests","Test":"TestIntegration","Elapsed":0.04}
+{"Time":"2026-10-03T23:25:18.263723492Z","Action":"output","Package":"example.com/reservation-service/tests","Output":"FAIL\n","OutputType":"frame"}
+{"Time":"2026-10-03T23:25:18.264266193Z","Action":"output","Package":"example.com/reservation-service/tests","Output":"FAIL\texample.com/reservation-service/tests\t0.042s\n","OutputType":"frame"}
+{"Time":"2026-10-03T23:25:18.264279872Z","Action":"fail","Package":"example.com/reservation-service/tests","Elapsed":0.043}

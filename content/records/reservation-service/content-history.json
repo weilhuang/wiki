@@ -1,0 +1,26 @@
+{
+  "candidate": "content-r2",
+  "sourceContentID": "57e9c37bf993a11168898d50b2e1770f6769562d3ed2de1a9399820c713b12f9",
+  "priorStaticRender": {
+    "status": "pass",
+    "snippets": 14,
+    "steppedBlocks": 13,
+    "plainProto": 1,
+    "mermaidSyntax": 5,
+    "scope": "author candidate before narrow accessibility-text revision"
+  },
+  "retainedFailure": {
+    "status": "fail",
+    "cause": "Proto grammar lacks the annotation punctuation scope required by Code Hike; steps were not extracted",
+    "resolution": "keep exact Proto bytes with actual native highlighter and ordinary prose;13supportedwalkthroughs remain"
+  },
+  "currentRender": {
+    "status": "pass",
+    "recordedAt": "2026-10-04",
+    "scope": "Integrated npm tests verified exact snippets, 13 supported walkthroughs, one plain Proto block and five Mermaid sources; full static-site build passed",
+    "record": "content/records/reservation-service/integration-static.json",
+    "browser": "pending deployed-page verification",
+    "historicalResults": "Prior executions retain their original candidate identities"
+  },
+  "editorialDelta": "two Mermaid accessibility strings narrowed to shown ACK-loss path; exercise uses first Send matching the actual fixture"
+}

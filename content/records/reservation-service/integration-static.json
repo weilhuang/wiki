@@ -1,0 +1,29 @@
+{
+  "status": "pass",
+  "recordedAt": "2026-10-04",
+  "command": "npm test",
+  "exitCode": 0,
+  "scope": [
+    "exact fixed source excerpts, including plain Proto",
+    "Mermaid syntax and diagram declarations",
+    "platform regression tests"
+  ],
+  "newContent": {
+    "topics": 3,
+    "snippets": 14,
+    "steppedBlocks": 13,
+    "plainProtoBlocks": 1,
+    "mermaidDiagrams": 5
+  },
+  "sourceSHA256": {
+    "docs/knowledge/go/engineering/gin-service-contract.md": "e915daa7222adba15ad1a680f02b65918d1c9e30092a7e6ee9ac7f57d4e86e9a",
+    "docs/knowledge/go/engineering/sql-gorm-boundaries.md": "c6c24b094a70c0e53b39e7106ad8841160be0e33ee5553e8931f21e558e58de7",
+    "docs/knowledge/go/engineering/grpc-service-contract.md": "2b7a002e439886045175de9d26c6a7d86f554492d5e3334a73071896a91de966"
+  },
+  "testLogSHA256": "aec120176dbf58655ac4379634b81aded394d5cb5343f3bb11a484a70c993af3",
+  "notClaimed": [
+    "browser rendering",
+    "new Go/MySQL execution",
+    "full build result before its separate command completes"
+  ]
+}

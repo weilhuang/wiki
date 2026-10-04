@@ -1,0 +1,51 @@
+docker.io/library/mysql@sha256:0426ec38c7a10aa45ba383887df7878f74ee70e2fd589c7b69207f3577901903: Pulling from library/mysql
+658e67031dba: Pulling fs layer
+023bf5ce6a48: Pulling fs layer
+24675d427758: Pulling fs layer
+ad32417d60c2: Pulling fs layer
+25809bf57a8f: Pulling fs layer
+b13420727c1c: Pulling fs layer
+ff6e8ae58e24: Pulling fs layer
+93b034b0c553: Pulling fs layer
+ada6ad8c9d8c: Pulling fs layer
+1fdbfdab0659: Pulling fs layer
+ad32417d60c2: Waiting
+25809bf57a8f: Waiting
+b13420727c1c: Waiting
+ff6e8ae58e24: Waiting
+93b034b0c553: Waiting
+ada6ad8c9d8c: Waiting
+1fdbfdab0659: Waiting
+023bf5ce6a48: Verifying Checksum
+023bf5ce6a48: Download complete
+658e67031dba: Verifying Checksum
+658e67031dba: Download complete
+24675d427758: Verifying Checksum
+24675d427758: Download complete
+ad32417d60c2: Verifying Checksum
+ad32417d60c2: Download complete
+b13420727c1c: Verifying Checksum
+b13420727c1c: Download complete
+25809bf57a8f: Verifying Checksum
+25809bf57a8f: Download complete
+93b034b0c553: Verifying Checksum
+93b034b0c553: Download complete
+ff6e8ae58e24: Verifying Checksum
+ff6e8ae58e24: Download complete
+1fdbfdab0659: Verifying Checksum
+1fdbfdab0659: Download complete
+ada6ad8c9d8c: Verifying Checksum
+ada6ad8c9d8c: Download complete
+658e67031dba: Pull complete
+023bf5ce6a48: Pull complete
+24675d427758: Pull complete
+ad32417d60c2: Pull complete
+25809bf57a8f: Pull complete
+b13420727c1c: Pull complete
+ff6e8ae58e24: Pull complete
+93b034b0c553: Pull complete
+ada6ad8c9d8c: Pull complete
+1fdbfdab0659: Pull complete
+Digest: sha256:0426ec38c7a10aa45ba383887df7878f74ee70e2fd589c7b69207f3577901903
+Status: Downloaded newer image for mysql@sha256:0426ec38c7a10aa45ba383887df7878f74ee70e2fd589c7b69207f3577901903
+docker.io/library/mysql@sha256:0426ec38c7a10aa45ba383887df7878f74ee70e2fd589c7b69207f3577901903

@@ -1,0 +1,6 @@
+{"Time":"2026-10-03T22:30:38.920613793Z","Action":"run","Package":"example.com/reservation-service/tests","Test":"TestProcess/P04"}
+{"Time":"2026-10-03T22:30:38.920616908Z","Action":"output","Package":"example.com/reservation-service/tests","Test":"TestProcess/P04","Output":"=== RUN   TestProcess/P04\n","OutputType":"frame"}
+{"Time":"2026-10-03T22:30:38.926568563Z","Action":"output","Package":"example.com/reservation-service/tests","Test":"TestProcess/P04","Output":"    process_test.go:246: FIXTURE mysql=8.4.7 backend=sql\n"}
+{"Time":"2026-10-03T22:30:40.191229827Z","Action":"output","Package":"example.com/reservation-service/tests","Test":"TestProcess/P04","Output":"    process_test.go:289: forced DB connection removal failed (context.deadlineExceededError)\n","OutputType":"error"}
+{"Time":"2026-10-03T22:30:40.194674679Z","Action":"output","Package":"example.com/reservation-service/tests","Test":"TestProcess/P04","Output":"--- FAIL: TestProcess/P04 (1.27s)\n","OutputType":"frame"}
+{"Time":"2026-10-03T22:30:40.194692757Z","Action":"fail","Package":"example.com/reservation-service/tests","Test":"TestProcess/P04","Elapsed":1.27}

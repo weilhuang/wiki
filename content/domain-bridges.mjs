@@ -10,6 +10,7 @@ export const domainBridges = {
   foundations:'从[请求在等什么](/knowledge/foundations/operating-systems/blocking-waiting.html)进入[连接预算](/knowledge/frameworks/data-access/connection-budget.html)，把等待条件接回真实资源持有者；从[反例与断言](/knowledge/foundations/testing/assertion-counterexamples.html)进入[对象授权](/knowledge/security/authorization/object-tenant-authorization.html)，检查一个错误的允许是否会被精确拒绝。两类实验的观察范围不同，不能将内存模型当作数据库或操作系统保证。'
 }
 export const experimentTitles = {
+  'service.generation':'库存预约服务实验：Gin、gRPC与MySQL',
   'legacy.spring-service-boundaries':'Spring 服务边界实验：容器、MVC 与连接',
   'legacy.spring-transaction-proxy':'Spring 事务代理实验',
   'legacy.go-service-lifecycle':'Go 服务生命周期实验：HTTP、工作池、调用与停机',

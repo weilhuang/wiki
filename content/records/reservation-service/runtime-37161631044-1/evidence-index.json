@@ -1,0 +1,418 @@
+{
+  "source-before.json": {
+    "file": "source-before.json",
+    "rawSHA256": "d3f317fc129a92fc2ebf7fc62ab4c2c43bbe512a49f83b5bb06aef294c174df1",
+    "publicSHA256": "d3f317fc129a92fc2ebf7fc62ab4c2c43bbe512a49f83b5bb06aef294c174df1",
+    "rawBytes": 6557,
+    "publicBytes": 6557,
+    "changed": false
+  },
+  "go-version.log": {
+    "file": "go-version.log",
+    "rawSHA256": "f554cfdb85411c2bb1d503df3f53dfbad1f753eb8271938833166a5d26a7547c",
+    "publicSHA256": "f554cfdb85411c2bb1d503df3f53dfbad1f753eb8271938833166a5d26a7547c",
+    "rawBytes": 32,
+    "publicBytes": 32,
+    "changed": false
+  },
+  "module-download.log": {
+    "file": "module-download.log",
+    "rawSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "publicSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "rawBytes": 0,
+    "publicBytes": 0,
+    "changed": false
+  },
+  "module-verify.log": {
+    "file": "module-verify.log",
+    "rawSHA256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd",
+    "publicSHA256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd",
+    "rawBytes": 21,
+    "publicBytes": 21,
+    "changed": false
+  },
+  "module-graph.log": {
+    "file": "module-graph.log",
+    "rawSHA256": "278cd8787d7cf87f5c40eab5f1a5a29f78aaca107b1b9448746897f011fb194b",
+    "publicSHA256": "aa6610b816adcc7fb3aa86f985cd5b705d46aed0b4f98b4fd5712d544fd34f54",
+    "rawBytes": 29565,
+    "publicBytes": 26186,
+    "changed": true
+  },
+  "download-protoc.log": {
+    "file": "download-protoc.log",
+    "rawSHA256": "81298a5b814a2d31416cc4792d02aad5cb0f50cbd906a63b4baa747dd68f4680",
+    "publicSHA256": "81298a5b814a2d31416cc4792d02aad5cb0f50cbd906a63b4baa747dd68f4680",
+    "rawBytes": 97,
+    "publicBytes": 97,
+    "changed": false
+  },
+  "install-go-generator.log": {
+    "file": "install-go-generator.log",
+    "rawSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "publicSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "rawBytes": 0,
+    "publicBytes": 0,
+    "changed": false
+  },
+  "install-grpc-generator.log": {
+    "file": "install-grpc-generator.log",
+    "rawSHA256": "92c03819a4385b1f06595cb9096f3bc7fbc0f7251fc88c209304ef228832f3b2",
+    "publicSHA256": "92c03819a4385b1f06595cb9096f3bc7fbc0f7251fc88c209304ef228832f3b2",
+    "rawBytes": 69,
+    "publicBytes": 69,
+    "changed": false
+  },
+  "protoc.log": {
+    "file": "protoc.log",
+    "rawSHA256": "29a645a23ed3faa5d85781dfce8478c3e394eb3344b7d6260dff9f6f5eb76b3a",
+    "publicSHA256": "29a645a23ed3faa5d85781dfce8478c3e394eb3344b7d6260dff9f6f5eb76b3a",
+    "rawBytes": 15,
+    "publicBytes": 15,
+    "changed": false
+  },
+  "protoc-gen-go.log": {
+    "file": "protoc-gen-go.log",
+    "rawSHA256": "8310de2fd5999e43fa1ae60f2e77de33fde633b4fe6ef6db1359fd884eeffae1",
+    "publicSHA256": "8310de2fd5999e43fa1ae60f2e77de33fde633b4fe6ef6db1359fd884eeffae1",
+    "rawBytes": 23,
+    "publicBytes": 23,
+    "changed": false
+  },
+  "protoc-gen-go-grpc.log": {
+    "file": "protoc-gen-go-grpc.log",
+    "rawSHA256": "f9c8fb07e4d487ad2ad291e975ee94ff18290d148940ce277f4b8057908a33d0",
+    "publicSHA256": "f9c8fb07e4d487ad2ad291e975ee94ff18290d148940ce277f4b8057908a33d0",
+    "rawBytes": 25,
+    "publicBytes": 25,
+    "changed": false
+  },
+  "regenerate.log": {
+    "file": "regenerate.log",
+    "rawSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "publicSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "rawBytes": 0,
+    "publicBytes": 0,
+    "changed": false
+  },
+  "build.log": {
+    "file": "build.log",
+    "rawSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "publicSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "rawBytes": 0,
+    "publicBytes": 0,
+    "changed": false
+  },
+  "validator-self-test.log": {
+    "file": "validator-self-test.log",
+    "rawSHA256": "e51087f410fca45bc2f75da8aed5757e1044d824f5c1f72158382524deb49e77",
+    "publicSHA256": "e51087f410fca45bc2f75da8aed5757e1044d824f5c1f72158382524deb49e77",
+    "rawBytes": 654,
+    "publicBytes": 654,
+    "changed": false
+  },
+  "evidence-self-test.log": {
+    "file": "evidence-self-test.log",
+    "rawSHA256": "cb24b7f26d4fabab1dc43a430019cd24e47ef7cb72842f1be799537cacdae841",
+    "publicSHA256": "cb24b7f26d4fabab1dc43a430019cd24e47ef7cb72842f1be799537cacdae841",
+    "rawBytes": 1321,
+    "publicBytes": 1321,
+    "changed": false
+  },
+  "cleanup-self-test.log": {
+    "file": "cleanup-self-test.log",
+    "rawSHA256": "f372be78dc459f0eb7c224d6bc8758310302a8f06e1dea72e28be8ffe90ab428",
+    "publicSHA256": "f372be78dc459f0eb7c224d6bc8758310302a8f06e1dea72e28be8ffe90ab428",
+    "rawBytes": 2011,
+    "publicBytes": 2011,
+    "changed": false
+  },
+  "mutant-verifier-self-test.log": {
+    "file": "mutant-verifier-self-test.log",
+    "rawSHA256": "5a5b3476bf45e16d2dcff7f0e55a0c816be6dee0987d62ebe8ab8e4d75866ea8",
+    "publicSHA256": "5a5b3476bf45e16d2dcff7f0e55a0c816be6dee0987d62ebe8ab8e4d75866ea8",
+    "rawBytes": 1283,
+    "publicBytes": 1283,
+    "changed": false
+  },
+  "unit.log": {
+    "file": "unit.log",
+    "rawSHA256": "014f704349d1b8e81b7c3922abfc8685f4b1fd858079091c4f5915d7dea97188",
+    "publicSHA256": "014f704349d1b8e81b7c3922abfc8685f4b1fd858079091c4f5915d7dea97188",
+    "rawBytes": 1372,
+    "publicBytes": 1372,
+    "changed": false
+  },
+  "pull-mysql.log": {
+    "file": "pull-mysql.log",
+    "rawSHA256": "c1e8ce59bb35277f758d245fd7748e6aef19a6b3d1b514e160e5a8788e6558ce",
+    "publicSHA256": "c1e8ce59bb35277f758d245fd7748e6aef19a6b3d1b514e160e5a8788e6558ce",
+    "rawBytes": 1807,
+    "publicBytes": 1807,
+    "changed": false
+  },
+  "mysql-architecture.log": {
+    "file": "mysql-architecture.log",
+    "rawSHA256": "d54d20eadbec9c9cc5ac6e0e371abc96d64a0d724d1cf45297fab6098026a69d",
+    "publicSHA256": "d54d20eadbec9c9cc5ac6e0e371abc96d64a0d724d1cf45297fab6098026a69d",
+    "rawBytes": 6,
+    "publicBytes": 6,
+    "changed": false
+  },
+  "network-create.log": {
+    "file": "network-create.log",
+    "rawSHA256": "49902d8f2e3de23f9db3ae8c8cfb9d15eced68bb91d406d378a4d461e5d50781",
+    "publicSHA256": "49902d8f2e3de23f9db3ae8c8cfb9d15eced68bb91d406d378a4d461e5d50781",
+    "rawBytes": 65,
+    "publicBytes": 65,
+    "changed": false
+  },
+  "mysql-start.log": {
+    "file": "mysql-start.log",
+    "rawSHA256": "9e50f39deb7e3f8eaa8f753ea93d2467701bfcccf134e8afb1d98b133036558a",
+    "publicSHA256": "9e50f39deb7e3f8eaa8f753ea93d2467701bfcccf134e8afb1d98b133036558a",
+    "rawBytes": 65,
+    "publicBytes": 65,
+    "changed": false
+  },
+  "mysql-image.log": {
+    "file": "mysql-image.log",
+    "rawSHA256": "396fd695f917636fe2f9060d48927be7a0ce50e5a9b8d65702502d44ac965f03",
+    "publicSHA256": "396fd695f917636fe2f9060d48927be7a0ce50e5a9b8d65702502d44ac965f03",
+    "rawBytes": 78,
+    "publicBytes": 78,
+    "changed": false
+  },
+  "mysql-port.log": {
+    "file": "mysql-port.log",
+    "rawSHA256": "592c37d7c53f7980cb3b0e164c27b094a753d13a9663b81bc9899e3ec6356a2e",
+    "publicSHA256": "592c37d7c53f7980cb3b0e164c27b094a753d13a9663b81bc9899e3ec6356a2e",
+    "rawBytes": 16,
+    "publicBytes": 16,
+    "changed": false
+  },
+  "mysql-ready-1.log": {
+    "file": "mysql-ready-1.log",
+    "rawSHA256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+    "publicSHA256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+    "rawBytes": 105,
+    "publicBytes": 105,
+    "changed": false
+  },
+  "mysql-ready-2.log": {
+    "file": "mysql-ready-2.log",
+    "rawSHA256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+    "publicSHA256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+    "rawBytes": 105,
+    "publicBytes": 105,
+    "changed": false
+  },
+  "mysql-ready-3.log": {
+    "file": "mysql-ready-3.log",
+    "rawSHA256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+    "publicSHA256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+    "rawBytes": 105,
+    "publicBytes": 105,
+    "changed": false
+  },
+  "mysql-ready-4.log": {
+    "file": "mysql-ready-4.log",
+    "rawSHA256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+    "publicSHA256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+    "rawBytes": 105,
+    "publicBytes": 105,
+    "changed": false
+  },
+  "mysql-ready-5.log": {
+    "file": "mysql-ready-5.log",
+    "rawSHA256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+    "publicSHA256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+    "rawBytes": 105,
+    "publicBytes": 105,
+    "changed": false
+  },
+  "mysql-ready-6.log": {
+    "file": "mysql-ready-6.log",
+    "rawSHA256": "e7bd07f9f7b9e7fe9e8a1a8e705a272a8b94cbbcecbdce05a146f8cfd21fd2d4",
+    "publicSHA256": "e7bd07f9f7b9e7fe9e8a1a8e705a272a8b94cbbcecbdce05a146f8cfd21fd2d4",
+    "rawBytes": 84,
+    "publicBytes": 84,
+    "changed": false
+  },
+  "mysql-ready-7.log": {
+    "file": "mysql-ready-7.log",
+    "rawSHA256": "e7bd07f9f7b9e7fe9e8a1a8e705a272a8b94cbbcecbdce05a146f8cfd21fd2d4",
+    "publicSHA256": "e7bd07f9f7b9e7fe9e8a1a8e705a272a8b94cbbcecbdce05a146f8cfd21fd2d4",
+    "rawBytes": 84,
+    "publicBytes": 84,
+    "changed": false
+  },
+  "mysql-ready-8.log": {
+    "file": "mysql-ready-8.log",
+    "rawSHA256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+    "publicSHA256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+    "rawBytes": 105,
+    "publicBytes": 105,
+    "changed": false
+  },
+  "mysql-ready-9.log": {
+    "file": "mysql-ready-9.log",
+    "rawSHA256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+    "publicSHA256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+    "rawBytes": 105,
+    "publicBytes": 105,
+    "changed": false
+  },
+  "mysql-ready-10.log": {
+    "file": "mysql-ready-10.log",
+    "rawSHA256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+    "publicSHA256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+    "rawBytes": 105,
+    "publicBytes": 105,
+    "changed": false
+  },
+  "mysql-ready-11.log": {
+    "file": "mysql-ready-11.log",
+    "rawSHA256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+    "publicSHA256": "7cb08e727534e3fa4f95c339fa7c0c8c08db20537cd35c0ed3f19ffc36326a96",
+    "rawBytes": 105,
+    "publicBytes": 105,
+    "changed": false
+  },
+  "mysql-ready-12.log": {
+    "file": "mysql-ready-12.log",
+    "rawSHA256": "9f6c0aaaabdb42c83e82439bf2c9d1b7f39f82211d7988d55c09dc59556617d5",
+    "publicSHA256": "9f6c0aaaabdb42c83e82439bf2c9d1b7f39f82211d7988d55c09dc59556617d5",
+    "rawBytes": 6,
+    "publicBytes": 6,
+    "changed": false
+  },
+  "integration.log": {
+    "file": "integration.log",
+    "rawSHA256": "7985ae9d605a5431e500e58f3fb6765e348db394dffd40863221c98100e94ea6",
+    "publicSHA256": "7985ae9d605a5431e500e58f3fb6765e348db394dffd40863221c98100e94ea6",
+    "rawBytes": 60326,
+    "publicBytes": 60326,
+    "changed": false
+  },
+  "M01.log": {
+    "file": "M01.log",
+    "rawSHA256": "320fe35ef22e52f114400eb1d4f271166f15781c6e3bbff58bf9d3c0675deacf",
+    "publicSHA256": "320fe35ef22e52f114400eb1d4f271166f15781c6e3bbff58bf9d3c0675deacf",
+    "rawBytes": 5444,
+    "publicBytes": 5444,
+    "changed": false
+  },
+  "M02.log": {
+    "file": "M02.log",
+    "rawSHA256": "6b647bf9f31d84cde26eaf08a17841b68e2d25bf6cd05393b2c9270b55eea628",
+    "publicSHA256": "6b647bf9f31d84cde26eaf08a17841b68e2d25bf6cd05393b2c9270b55eea628",
+    "rawBytes": 5124,
+    "publicBytes": 5124,
+    "changed": false
+  },
+  "M03.log": {
+    "file": "M03.log",
+    "rawSHA256": "c873a24b5df68b348811d3aebc1c506c89371b9885388b7990b38a237de8bde7",
+    "publicSHA256": "c873a24b5df68b348811d3aebc1c506c89371b9885388b7990b38a237de8bde7",
+    "rawBytes": 5109,
+    "publicBytes": 5109,
+    "changed": false
+  },
+  "M04.log": {
+    "file": "M04.log",
+    "rawSHA256": "704bbff423fe03e04808bceaa9949b7f00f8b6a5fb829795833b772a578eba5d",
+    "publicSHA256": "704bbff423fe03e04808bceaa9949b7f00f8b6a5fb829795833b772a578eba5d",
+    "rawBytes": 5223,
+    "publicBytes": 5223,
+    "changed": false
+  },
+  "M05.log": {
+    "file": "M05.log",
+    "rawSHA256": "0f19c21abbef68ec43077854daca503ff9098821b040d8b3053e1322f233bea4",
+    "publicSHA256": "0f19c21abbef68ec43077854daca503ff9098821b040d8b3053e1322f233bea4",
+    "rawBytes": 5179,
+    "publicBytes": 5179,
+    "changed": false
+  },
+  "M06.log": {
+    "file": "M06.log",
+    "rawSHA256": "e0886549960674d9d237964b7f55f893e754f383ef6953169b8a90ab2ef1d2bb",
+    "publicSHA256": "e0886549960674d9d237964b7f55f893e754f383ef6953169b8a90ab2ef1d2bb",
+    "rawBytes": 1733,
+    "publicBytes": 1733,
+    "changed": false
+  },
+  "container-owner.log": {
+    "file": "container-owner.log",
+    "rawSHA256": "96fdd23cd83158e2168ded7c34aa446d35a9bb1aeddbc9eb5fef38928821013d",
+    "publicSHA256": "96fdd23cd83158e2168ded7c34aa446d35a9bb1aeddbc9eb5fef38928821013d",
+    "rawBytes": 17,
+    "publicBytes": 17,
+    "changed": false
+  },
+  "mysql-diagnostics.log": {
+    "file": "mysql-diagnostics.log",
+    "rawSHA256": "cbd0bea794f0e6eb83b81d1660b8eb524d94ee6558b77adc3ba2a4492ff6daef",
+    "publicSHA256": "cbd0bea794f0e6eb83b81d1660b8eb524d94ee6558b77adc3ba2a4492ff6daef",
+    "rawBytes": 4853,
+    "publicBytes": 4853,
+    "changed": false
+  },
+  "container-remove.log": {
+    "file": "container-remove.log",
+    "rawSHA256": "27a2bfdc09377edc4b6bf3006fa95e573b848005eed2cf28f0496b1e5badc21e",
+    "publicSHA256": "27a2bfdc09377edc4b6bf3006fa95e573b848005eed2cf28f0496b1e5badc21e",
+    "rawBytes": 29,
+    "publicBytes": 29,
+    "changed": false
+  },
+  "container-absent.log": {
+    "file": "container-absent.log",
+    "rawSHA256": "e99ef5fbfe7700a04bbc2f86f2e10412ec414ad1ae7f442365820c433d2f2b5a",
+    "publicSHA256": "e99ef5fbfe7700a04bbc2f86f2e10412ec414ad1ae7f442365820c433d2f2b5a",
+    "rawBytes": 55,
+    "publicBytes": 55,
+    "changed": false
+  },
+  "network-owner.log": {
+    "file": "network-owner.log",
+    "rawSHA256": "96fdd23cd83158e2168ded7c34aa446d35a9bb1aeddbc9eb5fef38928821013d",
+    "publicSHA256": "96fdd23cd83158e2168ded7c34aa446d35a9bb1aeddbc9eb5fef38928821013d",
+    "rawBytes": 17,
+    "publicBytes": 17,
+    "changed": false
+  },
+  "network-remove.log": {
+    "file": "network-remove.log",
+    "rawSHA256": "e848ff80170adf00e8dfbacefb49aa86a4022683db8be95a11094c38ceef2f00",
+    "publicSHA256": "e848ff80170adf00e8dfbacefb49aa86a4022683db8be95a11094c38ceef2f00",
+    "rawBytes": 33,
+    "publicBytes": 33,
+    "changed": false
+  },
+  "network-absent.log": {
+    "file": "network-absent.log",
+    "rawSHA256": "8e1a57e7e5848927faf237c710987f88d4cd384e4bc445a58ad92fa7ec6f43ef",
+    "publicSHA256": "8e1a57e7e5848927faf237c710987f88d4cd384e4bc445a58ad92fa7ec6f43ef",
+    "rawBytes": 82,
+    "publicBytes": 82,
+    "changed": false
+  },
+  "source-after.json": {
+    "file": "source-after.json",
+    "rawSHA256": "d3f317fc129a92fc2ebf7fc62ab4c2c43bbe512a49f83b5bb06aef294c174df1",
+    "publicSHA256": "d3f317fc129a92fc2ebf7fc62ab4c2c43bbe512a49f83b5bb06aef294c174df1",
+    "rawBytes": 6557,
+    "publicBytes": 6557,
+    "changed": false
+  },
+  "result.json": {
+    "file": "result.json",
+    "rawSHA256": "de103bbceb3304b2c3cc1dd5b1b2218c2e6664d1e35aa8d84c87530c3d45fc56",
+    "publicSHA256": "de103bbceb3304b2c3cc1dd5b1b2218c2e6664d1e35aa8d84c87530c3d45fc56",
+    "rawBytes": 53852,
+    "publicBytes": 53852,
+    "changed": false
+  }
+}

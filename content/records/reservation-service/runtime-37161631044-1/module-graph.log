@@ -1,0 +1,824 @@
+{
+	"Path": "example.com/reservation-service",
+	"Main": true,
+	"Dir": "[PACKAGE]",
+	"GoMod": "[PACKAGE]/go.mod",
+	"GoVersion": "1.27.1"
+}
+{
+	"Path": "cel.dev/expr",
+	"Version": "v0.25.2",
+	"Time": "2026-03-12T16:46:44Z",
+	"Indirect": true
+}
+{
+	"Path": "cloud.google.com/go/auth",
+	"Version": "v0.20.0",
+	"Time": "2026-04-06T22:09:02Z",
+	"Indirect": true
+}
+{
+	"Path": "cloud.google.com/go/compute/metadata",
+	"Version": "v0.9.0",
+	"Time": "2025-09-24T19:41:55Z",
+	"Indirect": true
+}
+{
+	"Path": "filippo.io/edwards25519",
+	"Version": "v1.2.0",
+	"Time": "2026-02-17T17:23:26Z",
+	"Indirect": true,
+	"Dir": "[TASK]/module-cache/filippo.io/edwards25519@v1.2.0",
+	"GoMod": "[TASK]/module-cache/cache/download/filippo.io/edwards25519/@v/v1.2.0.mod",
+	"GoVersion": "1.24.0",
+	"Sum": "h1:crnVqOiS4jqYleHd9vaKZ+HKtHfllngJIiOpNpoJsjo=",
+	"GoModSum": "h1:xzAOLCNug/yB62zG1bQ8uziwrIqIuxhctzJT18Q77mc="
+}
+{
+	"Path": "github.com/GoogleCloudPlatform/opentelemetry-operations-go/detectors/gcp",
+	"Version": "v1.34.0",
+	"Time": "2026-07-10T15:34:08Z",
+	"Indirect": true
+}
+{
+	"Path": "github.com/bytedance/gopkg",
+	"Version": "v0.1.3",
+	"Time": "2025-08-13T03:34:23Z",
+	"Indirect": true,
+	"Dir": "[TASK]/module-cache/github.com/bytedance/gopkg@v0.1.3",
+	"GoMod": "[TASK]/module-cache/cache/download/github.com/bytedance/gopkg/@v/v0.1.3.mod",
+	"GoVersion": "1.18",
+	"Sum": "h1:TPBSwH8RsouGCBcMBktLt1AymVo2TVsBVCY4b6TnZ/M=",
+	"GoModSum": "h1:576VvJ+eJgyCzdjS+c4+77QF3p7ubbtiKARP3TxducM="
+}
+{
+	"Path": "github.com/bytedance/sonic",
+	"Version": "v1.15.0",
+	"Time": "2026-01-22T12:41:14Z",
+	"Indirect": true,
+	"Dir": "[TASK]/module-cache/github.com/bytedance/sonic@v1.15.0",
+	"GoMod": "[TASK]/module-cache/cache/download/github.com/bytedance/sonic/@v/v1.15.0.mod",
+	"GoVersion": "1.18",
+	"Sum": "h1:/PXeWFaR5ElNcVE84U0dOHjiMHQOwNIx3K4ymzh/uSE=",
+	"GoModSum": "h1:tFkWrPz0/CUCLEF4ri4UkHekCIcdnkqXw9VduqpJh0k="
+}
+{
+	"Path": "github.com/bytedance/sonic/loader",
+	"Version": "v0.5.0",
+	"Time": "2026-01-22T10:03:19Z",
+	"Indirect": true,
+	"Dir": "[TASK]/module-cache/github.com/bytedance/sonic/loader@v0.5.0",
+	"GoMod": "[TASK]/module-cache/cache/download/github.com/bytedance/sonic/loader/@v/v0.5.0.mod",
+	"GoVersion": "1.16",
+	"Sum": "h1:gXH3KVnatgY7loH5/TkeVyXPfESoqSBSBEiDd5VjlgE=",
+	"GoModSum": "h1:AR4NYCk5DdzZizZ5djGqQ92eEhCCcdf5x77udYiSJRo="
+}
+{
+	"Path": "github.com/cespare/xxhash/v2",
+	"Version": "v2.3.0",
+	"Time": "2024-04-04T20:00:10Z",
+	"Indirect": true
+}
+{
+	"Path": "github.com/cloudwego/base64x",
+	"Version": "v0.1.6",
+	"Time": "2025-08-04T03:31:59Z",
+	"Indirect": true,
+	"Dir": "[TASK]/module-cache/github.com/cloudwego/base64x@v0.1.6",
+	"GoMod": "[TASK]/module-cache/cache/download/github.com/cloudwego/base64x/@v/v0.1.6.mod",
+	"GoVersion": "1.17",
+	"Sum": "h1:t11wG9AECkCDk5fMSoxmufanudBtJ+/HemLstXDLI2M=",
+	"GoModSum": "h1:OFcloc187FXDaYHvrNIjxSe8ncn0OOM8gEHfghB2IPU="
+}
+{
+	"Path": "github.com/cncf/xds/go",
+	"Version": "v0.0.0-20260202195803-dba9d589def2",
+	"Time": "2026-02-02T19:58:03Z",
+	"Indirect": true
+}
+{
+	"Path": "github.com/davecgh/go-spew",
+	"Version": "v1.1.1",
+	"Time": "2018-02-21T23:26:28Z",
+	"Indirect": true,
+	"GoMod": "[TASK]/module-cache/cache/download/github.com/davecgh/go-spew/@v/v1.1.1.mod",
+	"Sum": "h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=",
+	"GoModSum": "h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38="
+}
+{
+	"Path": "github.com/envoyproxy/go-control-plane",
+	"Version": "v0.14.0",
+	"Time": "2025-11-04T22:01:44Z",
+	"Indirect": true
+}
+{
+	"Path": "github.com/envoyproxy/go-control-plane/envoy",
+	"Version": "v1.37.0",
+	"Time": "2026-01-13T06:26:49Z",
+	"Indirect": true
+}
+{
+	"Path": "github.com/envoyproxy/go-control-plane/ratelimit",
+	"Version": "v0.1.0",
+	"Time": "2024-12-23T15:25:59Z",
+	"Indirect": true
+}
+{
+	"Path": "github.com/envoyproxy/protoc-gen-validate",
+	"Version": "v1.3.3",
+	"Time": "2026-02-18T16:13:16Z",
+	"Indirect": true
+}
+{
+	"Path": "github.com/felixge/httpsnoop",
+	"Version": "v1.1.0",
+	"Time": "2026-06-11T18:42:32Z",
+	"Indirect": true
+}
+{
+	"Path": "github.com/gabriel-vasile/mimetype",
+	"Version": "v1.4.12",
+	"Time": "2025-12-09T13:52:28Z",
+	"Indirect": true,
+	"Dir": "[TASK]/module-cache/github.com/gabriel-vasile/mimetype@v1.4.12",
+	"GoMod": "[TASK]/module-cache/cache/download/github.com/gabriel-vasile/mimetype/@v/v1.4.12.mod",
+	"GoVersion": "1.21",
+	"Sum": "h1:e9hWvmLYvtp846tLHam2o++qitpguFiYCKbn0w9jyqw=",
+	"GoModSum": "h1:d+9Oxyo1wTzWdyVUPMmXFvp4F9tea18J8ufA774AB3s="
+}
+{
+	"Path": "github.com/gin-contrib/sse",
+	"Version": "v1.1.0",
+	"Time": "2025-04-08T00:39:14Z",
+	"Indirect": true,
+	"Dir": "[TASK]/module-cache/github.com/gin-contrib/sse@v1.1.0",
+	"GoMod": "[TASK]/module-cache/cache/download/github.com/gin-contrib/sse/@v/v1.1.0.mod",
+	"GoVersion": "1.23",
+	"Sum": "h1:n0w2GMuUpWDVp7qSpvze6fAu9iRxJY4Hmj6AmBOU05w=",
+	"GoModSum": "h1:hxRZ5gVpWMT7Z0B0gSNYqqsSCNIJMjzvm6fqCz9vjwM="
+}
+{
+	"Path": "github.com/gin-gonic/gin",
+	"Version": "v1.12.0",
+	"Time": "2026-02-28T10:10:09Z",
+	"Dir": "[TASK]/module-cache/github.com/gin-gonic/gin@v1.12.0",
+	"GoMod": "[TASK]/module-cache/cache/download/github.com/gin-gonic/gin/@v/v1.12.0.mod",
+	"GoVersion": "1.25.0",
+	"Sum": "h1:b3YAbrZtnf8N//yjKeU2+MQsh2mY5htkZidOM7O0wG8=",
+	"GoModSum": "h1:VxccKfsSllpKshkBWgVgRniFFAzFb9csfngsqANjnLc="
+}
+{
+	"Path": "github.com/go-jose/go-jose/v4",
+	"Version": "v4.1.4",
+	"Time": "2026-03-31T23:33:50Z",
+	"Indirect": true
+}
+{
+	"Path": "github.com/go-logr/logr",
+	"Version": "v1.4.3",
+	"Time": "2025-05-19T04:56:57Z",
+	"Indirect": true
+}
+{
+	"Path": "github.com/go-logr/stdr",
+	"Version": "v1.2.2",
+	"Time": "2021-12-14T08:00:35Z",
+	"Indirect": true
+}
+{
+	"Path": "github.com/go-playground/assert/v2",
+	"Version": "v2.2.0",
+	"Time": "2022-09-06T03:32:22Z",
+	"Indirect": true,
+	"GoMod": "[TASK]/module-cache/cache/download/github.com/go-playground/assert/v2/@v/v2.2.0.mod",
+	"GoVersion": "1.13",
+	"Sum": "h1:JvknZsQTYeFEAhQwI4qEt9cyV5ONwRHC+lYKSsYSR8s=",
+	"GoModSum": "h1:VDjEfimB/XKnb+ZQfWdccd7VUvScMdVu0Titje2rxJ4="
+}
+{
+	"Path": "github.com/go-playground/locales",
+	"Version": "v0.14.1",
+	"Time": "2023-01-05T16:04:36Z",
+	"Indirect": true,
+	"Dir": "[TASK]/module-cache/github.com/go-playground/locales@v0.14.1",
+	"GoMod": "[TASK]/module-cache/cache/download/github.com/go-playground/locales/@v/v0.14.1.mod",
+	"GoVersion": "1.17",
+	"Sum": "h1:EWaQ/wswjilfKLTECiXz7Rh+3BjFhfDFKv/oXslEjJA=",
+	"GoModSum": "h1:hxrqLVvrK65+Rwrd5Fc6F2O76J/NuW9t0sjnWqG1slY="
+}
+{
+	"Path": "github.com/go-playground/universal-translator",
+	"Version": "v0.18.1",
+	"Time": "2023-01-30T04:27:26Z",
+	"Indirect": true,
+	"Dir": "[TASK]/module-cache/github.com/go-playground/universal-translator@v0.18.1",
+	"GoMod": "[TASK]/module-cache/cache/download/github.com/go-playground/universal-translator/@v/v0.18.1.mod",
+	"GoVersion": "1.18",
+	"Sum": "h1:Bcnm0ZwsGyWbCzImXv+pAJnYK9S473LQFuzCbDbfSFY=",
+	"GoModSum": "h1:xekY+UJKNuX9WP91TpwSH2VMlDf28Uj24BCp08ZFTUY="
+}
+{
+	"Path": "github.com/go-playground/validator/v10",
+	"Version": "v10.30.1",
+	"Time": "2025-12-24T16:08:59Z",
+	"Indirect": true,
+	"Dir": "[TASK]/module-cache/github.com/go-playground/validator/v10@v10.30.1",
+	"GoMod": "[TASK]/module-cache/cache/download/github.com/go-playground/validator/v10/@v/v10.30.1.mod",
+	"GoVersion": "1.24.0",
+	"Sum": "h1:f3zDSN/zOma+w6+1Wswgd9fLkdwy06ntQJp0BBvFG0w=",
+	"GoModSum": "h1:oSuBIQzuJxL//3MelwSLD5hc2Tu889bF0Idm9Dg26cM="
+}
+{
+	"Path": "github.com/go-sql-driver/mysql",
+	"Version": "v1.10.1",
+	"Time": "2026-09-02T09:21:57Z",
+	"Dir": "[TASK]/module-cache/github.com/go-sql-driver/mysql@v1.10.1",
+	"GoMod": "[TASK]/module-cache/cache/download/github.com/go-sql-driver/mysql/@v/v1.10.1.mod",
+	"GoVersion": "1.24.0",
+	"Sum": "h1:arlSnNLq6a5yxGxV7qg9lF4j0C+KwD6NbQyKr9QL6ME=",
+	"GoModSum": "h1:M+cqaI7+xxXGG9swrdeUIoPG3Y3KCkF0pZej+SK+nWk="
+}
+{
+	"Path": "github.com/goccy/go-json",
+	"Version": "v0.10.5",
+	"Time": "2025-01-25T05:38:06Z",
+	"Indirect": true,
+	"Dir": "[TASK]/module-cache/github.com/goccy/go-json@v0.10.5",
+	"GoMod": "[TASK]/module-cache/cache/download/github.com/goccy/go-json/@v/v0.10.5.mod",
+	"GoVersion": "1.19",
+	"Sum": "h1:Fq85nIqj+gXn/S5ahsiTlK3TmC85qgirsdTP/+DeaC4=",
+	"GoModSum": "h1:oq7eo15ShAhp70Anwd5lgX2pLfOS3QCiwU/PULtXL6M="
+}
+{
+	"Path": "github.com/goccy/go-yaml",
+	"Version": "v1.19.2",
+	"Time": "2026-01-08T01:12:13Z",
+	"Indirect": true,
+	"Dir": "[TASK]/module-cache/github.com/goccy/go-yaml@v1.19.2",
+	"GoMod": "[TASK]/module-cache/cache/download/github.com/goccy/go-yaml/@v/v1.19.2.mod",
+	"GoVersion": "1.21.0",
+	"Sum": "h1:PmFC1S6h8ljIz6gMRBopkjP1TVT7xuwrButHID66PoM=",
+	"GoModSum": "h1:XBurs7gK8ATbW4ZPGKgcbrY1Br56PdM69F7LkFRi1kA="
+}
+{
+	"Path": "github.com/golang/glog",
+	"Version": "v1.2.5",
+	"Time": "2025-04-29T08:43:26Z",
+	"Indirect": true
+}
+{
+	"Path": "github.com/golang/protobuf",
+	"Version": "v1.5.4",
+	"Time": "2024-03-06T06:45:40Z",
+	"Indirect": true,
+	"GoMod": "[TASK]/module-cache/cache/download/github.com/golang/protobuf/@v/v1.5.4.mod",
+	"GoVersion": "1.17",
+	"Sum": "h1:i7eJL8qZTpSEXOPTxNKhASYpMn+8e5Q6AdndVa1dWek=",
+	"GoModSum": "h1:lnTiLA8Wa4RWRcIUkrtSVa5nRhsEGBg48fD6rSs7xps="
+}
+{
+	"Path": "github.com/google/go-cmp",
+	"Version": "v0.7.0",
+	"Time": "2025-01-14T18:15:44Z",
+	"Indirect": true,
+	"GoMod": "[TASK]/module-cache/cache/download/github.com/google/go-cmp/@v/v0.7.0.mod",
+	"GoVersion": "1.21",
+	"Sum": "h1:wk8382ETsv4JYUZwIsn6YpYiWiBsYLSJiTsyBybVuN8=",
+	"GoModSum": "h1:pXiqmnSA92OHEEa9HXL2W4E7lf9JzCmGVUdgjX3N/iU="
+}
+{
+	"Path": "github.com/google/gofuzz",
+	"Version": "v1.0.0",
+	"Time": "2019-04-08T17:44:45Z",
+	"Indirect": true,
+	"GoMod": "[TASK]/module-cache/cache/download/github.com/google/gofuzz/@v/v1.0.0.mod",
+	"GoVersion": "1.12",
+	"GoModSum": "h1:dBl0BpW6vV/+mYPU4Po3pmUjxk6FQPldtuIdl/M65Eg="
+}
+{
+	"Path": "github.com/google/s2a-go",
+	"Version": "v0.1.9",
+	"Time": "2025-01-06T17:53:46Z",
+	"Indirect": true
+}
+{
+	"Path": "github.com/google/uuid",
+	"Version": "v1.6.0",
+	"Time": "2024-01-23T18:54:04Z",
+	"Indirect": true
+}
+{
+	"Path": "github.com/googleapis/enterprise-certificate-proxy",
+	"Version": "v0.3.15",
+	"Time": "2026-04-15T18:05:21Z",
+	"Indirect": true
+}
+{
+	"Path": "github.com/googleapis/gax-go/v2",
+	"Version": "v2.22.0",
+	"Time": "2026-04-14T19:15:00Z",
+	"Indirect": true
+}
+{
+	"Path": "github.com/jinzhu/inflection",
+	"Version": "v1.0.0",
+	"Time": "2019-06-03T04:28:36Z",
+	"Indirect": true,
+	"Dir": "[TASK]/module-cache/github.com/jinzhu/inflection@v1.0.0",
+	"GoMod": "[TASK]/module-cache/cache/download/github.com/jinzhu/inflection/@v/v1.0.0.mod",
+	"Sum": "h1:K317FqzuhWc8YvSVlFMCCUb36O/S9MCKRDI7QkRKD/E=",
+	"GoModSum": "h1:h+uFLlag+Qp1Va5pdKtLDYj+kHp5pxUVkryuEj+Srlc="
+}
+{
+	"Path": "github.com/jinzhu/now",
+	"Version": "v1.1.5",
+	"Time": "2022-03-17T06:16:25Z",
+	"Indirect": true,
+	"Dir": "[TASK]/module-cache/github.com/jinzhu/now@v1.1.5",
+	"GoMod": "[TASK]/module-cache/cache/download/github.com/jinzhu/now/@v/v1.1.5.mod",
+	"GoVersion": "1.12",
+	"Sum": "h1:/o9tlHleP7gOFmsnYNz3RGnqzefHA47wQpKrrdTIwXQ=",
+	"GoModSum": "h1:d3SSVoowX0Lcu0IBviAWJpolVfI5UJVZZ7cO71lE/z8="
+}
+{
+	"Path": "github.com/jordanlewis/gcassert",
+	"Version": "v0.0.0-20250430164644-389ef753e22e",
+	"Time": "2025-04-30T16:46:44Z",
+	"Indirect": true
+}
+{
+	"Path": "github.com/json-iterator/go",
+	"Version": "v1.1.12",
+	"Time": "2021-09-11T02:17:26Z",
+	"Indirect": true,
+	"Dir": "[TASK]/module-cache/github.com/json-iterator/go@v1.1.12",
+	"GoMod": "[TASK]/module-cache/cache/download/github.com/json-iterator/go/@v/v1.1.12.mod",
+	"GoVersion": "1.12",
+	"Sum": "h1:PV8peI4a0ysnczrg+LtxykD8LfKY9ML6u2jnxaEnrnM=",
+	"GoModSum": "h1:e30LSqwooZae/UwlEbR2852Gd8hjQvJoHmT4TnhNGBo="
+}
+{
+	"Path": "github.com/klauspost/compress",
+	"Version": "v1.17.6",
+	"Time": "2024-02-05T16:28:55Z",
+	"Indirect": true
+}
+{
+	"Path": "github.com/klauspost/cpuid/v2",
+	"Version": "v2.3.0",
+	"Time": "2025-07-11T09:57:38Z",
+	"Indirect": true,
+	"Dir": "[TASK]/module-cache/github.com/klauspost/cpuid/v2@v2.3.0",
+	"GoMod": "[TASK]/module-cache/cache/download/github.com/klauspost/cpuid/v2/@v/v2.3.0.mod",
+	"GoVersion": "1.22",
+	"Sum": "h1:S4CRMLnYUhGeDFDqkGriYKdfoFlDnMtqTiI/sFzhA9Y=",
+	"GoModSum": "h1:hqwkgyIinND0mEev00jJYCxPNVRVXFQeu1XKlok6oO0="
+}
+{
+	"Path": "github.com/kr/pretty",
+	"Version": "v0.3.1",
+	"Time": "2022-08-29T23:03:05Z",
+	"Indirect": true
+}
+{
+	"Path": "github.com/kr/text",
+	"Version": "v0.2.0",
+	"Time": "2020-02-14T20:31:06Z",
+	"Indirect": true
+}
+{
+	"Path": "github.com/leodido/go-urn",
+	"Version": "v1.4.0",
+	"Time": "2024-01-31T10:04:06Z",
+	"Indirect": true,
+	"Dir": "[TASK]/module-cache/github.com/leodido/go-urn@v1.4.0",
+	"GoMod": "[TASK]/module-cache/cache/download/github.com/leodido/go-urn/@v/v1.4.0.mod",
+	"GoVersion": "1.18",
+	"Sum": "h1:WT9HwE9SGECu3lg4d/dIA+jxlljEa1/ffXKmRjqdmIQ=",
+	"GoModSum": "h1:bvxc+MVxLKB4z00jd1z+Dvzr47oO32F/QSNjSBOlFxI="
+}
+{
+	"Path": "github.com/mattn/go-isatty",
+	"Version": "v0.0.20",
+	"Time": "2023-10-17T07:28:21Z",
+	"Indirect": true,
+	"Dir": "[TASK]/module-cache/github.com/mattn/go-isatty@v0.0.20",
+	"GoMod": "[TASK]/module-cache/cache/download/github.com/mattn/go-isatty/@v/v0.0.20.mod",
+	"GoVersion": "1.15",
+	"Sum": "h1:xfD0iDuEKnDkl03q4limB+vH+GxLEtL/jb4xVJSWWEY=",
+	"GoModSum": "h1:W+V8PltTTMOvKvAeJH7IuucS94S2C6jfK/D7dTCTo3Y="
+}
+{
+	"Path": "github.com/mattn/go-sqlite3",
+	"Version": "v1.14.22",
+	"Time": "2024-02-02T17:00:28Z",
+	"Indirect": true,
+	"GoMod": "[TASK]/module-cache/cache/download/github.com/mattn/go-sqlite3/@v/v1.14.22.mod",
+	"GoVersion": "1.19",
+	"Sum": "h1:2gZY6PC6kBnID23Tichd1K+Z0oS6nE/XwU+Vz/5o4kU=",
+	"GoModSum": "h1:Uh1q+B4BYcTPb+yiD3kU8Ct7aC0hY9fxUwlHK0RXw+Y="
+}
+{
+	"Path": "github.com/modern-go/concurrent",
+	"Version": "v0.0.0-20180306012644-bacd9c7ef1dd",
+	"Time": "2018-03-06T01:26:44Z",
+	"Indirect": true,
+	"Dir": "[TASK]/module-cache/github.com/modern-go/concurrent@v0.0.0-20180306012644-bacd9c7ef1dd",
+	"GoMod": "[TASK]/module-cache/cache/download/github.com/modern-go/concurrent/@v/v0.0.0-20180306012644-bacd9c7ef1dd.mod",
+	"Sum": "h1:TRLaZ9cD/w8PVh93nsPXa1VrQ6jlwL5oN8l14QlcNfg=",
+	"GoModSum": "h1:6dJC0mAP4ikYIbvyc7fijjWJddQyLn8Ig3JB5CqoB9Q="
+}
+{
+	"Path": "github.com/modern-go/reflect2",
+	"Version": "v1.0.2",
+	"Time": "2021-09-11T02:10:30Z",
+	"Indirect": true,
+	"Dir": "[TASK]/module-cache/github.com/modern-go/reflect2@v1.0.2",
+	"GoMod": "[TASK]/module-cache/cache/download/github.com/modern-go/reflect2/@v/v1.0.2.mod",
+	"GoVersion": "1.12",
+	"Sum": "h1:xBagoLtFs94CBntxluKeaWgTMpvLxC4ur3nMaC9Gz0M=",
+	"GoModSum": "h1:yWuevngMOJpCy52FWWMvUC8ws7m/LJsjYzDa0/r8luk="
+}
+{
+	"Path": "github.com/pelletier/go-toml/v2",
+	"Version": "v2.2.4",
+	"Time": "2025-04-07T11:11:38Z",
+	"Indirect": true,
+	"Dir": "[TASK]/module-cache/github.com/pelletier/go-toml/v2@v2.2.4",
+	"GoMod": "[TASK]/module-cache/cache/download/github.com/pelletier/go-toml/v2/@v/v2.2.4.mod",
+	"GoVersion": "1.21.0",
+	"Sum": "h1:mye9XuhQ6gvn5h28+VilKrrPoQVanw5PMw/TB0t5Ec4=",
+	"GoModSum": "h1:2gIqNv+qfxSVS7cM2xJQKtLSTLUE9V8t9Stt+h56mCY="
+}
+{
+	"Path": "github.com/planetscale/vtprotobuf",
+	"Version": "v0.6.1-0.20240319094008-0393e58bdf10",
+	"Time": "2024-03-19T09:40:08Z",
+	"Indirect": true
+}
+{
+	"Path": "github.com/pmezard/go-difflib",
+	"Version": "v1.0.0",
+	"Time": "2016-01-10T10:55:54Z",
+	"Indirect": true,
+	"GoMod": "[TASK]/module-cache/cache/download/github.com/pmezard/go-difflib/@v/v1.0.0.mod",
+	"Sum": "h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=",
+	"GoModSum": "h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4="
+}
+{
+	"Path": "github.com/quic-go/qpack",
+	"Version": "v0.6.0",
+	"Time": "2025-11-17T02:04:08Z",
+	"Indirect": true,
+	"Dir": "[TASK]/module-cache/github.com/quic-go/qpack@v0.6.0",
+	"GoMod": "[TASK]/module-cache/cache/download/github.com/quic-go/qpack/@v/v0.6.0.mod",
+	"GoVersion": "1.24",
+	"Sum": "h1:g7W+BMYynC1LbYLSqRt8PBg5Tgwxn214ZZR34VIOjz8=",
+	"GoModSum": "h1:lUpLKChi8njB4ty2bFLX2x4gzDqXwUpaO1DP9qMDZII="
+}
+{
+	"Path": "github.com/quic-go/quic-go",
+	"Version": "v0.59.0",
+	"Time": "2026-01-11T08:39:34Z",
+	"Indirect": true,
+	"Dir": "[TASK]/module-cache/github.com/quic-go/quic-go@v0.59.0",
+	"GoMod": "[TASK]/module-cache/cache/download/github.com/quic-go/quic-go/@v/v0.59.0.mod",
+	"GoVersion": "1.24",
+	"Sum": "h1:OLJkp1Mlm/aS7dpKgTc6cnpynnD2Xg7C1pwL6vy/SAw=",
+	"GoModSum": "h1:upnsH4Ju1YkqpLXC305eW3yDZ4NfnNbmQRCMWS58IKU="
+}
+{
+	"Path": "github.com/rogpeppe/go-internal",
+	"Version": "v1.10.0",
+	"Time": "2023-03-27T09:34:06Z",
+	"Indirect": true
+}
+{
+	"Path": "github.com/spiffe/go-spiffe/v2",
+	"Version": "v2.8.1",
+	"Time": "2026-06-19T13:39:21Z",
+	"Indirect": true
+}
+{
+	"Path": "github.com/stretchr/objx",
+	"Version": "v0.5.2",
+	"Time": "2024-02-29T09:57:51Z",
+	"Indirect": true,
+	"GoMod": "[TASK]/module-cache/cache/download/github.com/stretchr/objx/@v/v0.5.2.mod",
+	"GoVersion": "1.20",
+	"GoModSum": "h1:FRsXN1f5AsAjCGJKqEizvkpNtU+EGNCLh3NxZ/8L+MA="
+}
+{
+	"Path": "github.com/stretchr/testify",
+	"Version": "v1.11.1",
+	"Time": "2025-08-27T10:46:31Z",
+	"Indirect": true,
+	"GoMod": "[TASK]/module-cache/cache/download/github.com/stretchr/testify/@v/v1.11.1.mod",
+	"GoVersion": "1.17",
+	"Sum": "h1:7s2iGBzp5EwR7/aIZr8ao5+dra3wiQyKjjFuvgVKu7U=",
+	"GoModSum": "h1:wZwfW3scLgRK+23gO65QZefKpKQRnfz6sD981Nm4B6U="
+}
+{
+	"Path": "github.com/twitchyliquid64/golang-asm",
+	"Version": "v0.15.1",
+	"Time": "2021-01-12T00:43:21Z",
+	"Indirect": true,
+	"Dir": "[TASK]/module-cache/github.com/twitchyliquid64/golang-asm@v0.15.1",
+	"GoMod": "[TASK]/module-cache/cache/download/github.com/twitchyliquid64/golang-asm/@v/v0.15.1.mod",
+	"GoVersion": "1.13",
+	"Sum": "h1:SU5vSMR7hnwNxj24w34ZyCi/FmDZTkS4MhqMhdFk5YI=",
+	"GoModSum": "h1:a1lVb/DtPvCB8fslRZhAngC2+aY1QWCk3Cedj/Gdt08="
+}
+{
+	"Path": "github.com/ugorji/go/codec",
+	"Version": "v1.3.1",
+	"Time": "2025-10-28T11:07:04Z",
+	"Indirect": true,
+	"Dir": "[TASK]/module-cache/github.com/ugorji/go/codec@v1.3.1",
+	"GoMod": "[TASK]/module-cache/cache/download/github.com/ugorji/go/codec/@v/v1.3.1.mod",
+	"GoVersion": "1.21",
+	"Sum": "h1:waO7eEiFDwidsBN6agj1vJQ4AG7lh2yqXyOXqhgQuyY=",
+	"GoModSum": "h1:pRBVtBSKl77K30Bv8R2P+cLSGaTtex6fsA2Wjqmfxj4="
+}
+{
+	"Path": "github.com/xdg-go/pbkdf2",
+	"Version": "v1.0.0",
+	"Time": "2021-03-28T18:46:53Z",
+	"Indirect": true
+}
+{
+	"Path": "github.com/xdg-go/scram",
+	"Version": "v1.2.0",
+	"Time": "2025-11-24T13:40:20Z",
+	"Indirect": true
+}
+{
+	"Path": "github.com/xdg-go/stringprep",
+	"Version": "v1.0.4",
+	"Time": "2022-12-07T14:57:11Z",
+	"Indirect": true
+}
+{
+	"Path": "github.com/youmark/pkcs8",
+	"Version": "v0.0.0-20240726163527-a2c0da244d78",
+	"Time": "2024-07-26T16:35:27Z",
+	"Indirect": true
+}
+{
+	"Path": "go.mongodb.org/mongo-driver/v2",
+	"Version": "v2.5.0",
+	"Time": "2026-01-28T17:52:07Z",
+	"Indirect": true,
+	"Dir": "[TASK]/module-cache/go.mongodb.org/mongo-driver/v2@v2.5.0",
+	"GoMod": "[TASK]/module-cache/cache/download/go.mongodb.org/mongo-driver/v2/@v/v2.5.0.mod",
+	"GoVersion": "1.19",
+	"Sum": "h1:yXUhImUjjAInNcpTcAlPHiT7bIXhshCTL3jVBkF3xaE=",
+	"GoModSum": "h1:yOI9kBsufol30iFsl1slpdq1I0eHPzybRWdyYUs8K/0="
+}
+{
+	"Path": "go.opentelemetry.io/auto/sdk",
+	"Version": "v1.2.1",
+	"Time": "2025-09-15T16:53:44Z",
+	"Indirect": true
+}
+{
+	"Path": "go.opentelemetry.io/contrib/detectors/gcp",
+	"Version": "v1.44.0",
+	"Time": "2026-05-28T05:28:14Z",
+	"Indirect": true
+}
+{
+	"Path": "go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp",
+	"Version": "v0.69.0",
+	"Time": "2026-05-28T05:28:14Z",
+	"Indirect": true
+}
+{
+	"Path": "go.opentelemetry.io/otel",
+	"Version": "v1.44.0",
+	"Time": "2026-05-27T16:42:37Z",
+	"Indirect": true
+}
+{
+	"Path": "go.opentelemetry.io/otel/metric",
+	"Version": "v1.44.0",
+	"Time": "2026-05-27T16:42:37Z",
+	"Indirect": true
+}
+{
+	"Path": "go.opentelemetry.io/otel/sdk",
+	"Version": "v1.44.0",
+	"Time": "2026-05-27T16:42:37Z",
+	"Indirect": true
+}
+{
+	"Path": "go.opentelemetry.io/otel/sdk/metric",
+	"Version": "v1.44.0",
+	"Time": "2026-05-27T16:42:37Z",
+	"Indirect": true
+}
+{
+	"Path": "go.opentelemetry.io/otel/trace",
+	"Version": "v1.44.0",
+	"Time": "2026-05-27T16:42:37Z",
+	"Indirect": true
+}
+{
+	"Path": "go.uber.org/mock",
+	"Version": "v0.6.0",
+	"Time": "2025-08-18T14:58:04Z",
+	"Indirect": true,
+	"GoMod": "[TASK]/module-cache/cache/download/go.uber.org/mock/@v/v0.6.0.mod",
+	"GoVersion": "1.23.0",
+	"Sum": "h1:hyF9dfmbgIX5EfOdasqLsWD6xqpNZlXblLB/Dbnwv3Y=",
+	"GoModSum": "h1:KiVJ4BqZJaMj4svdfmHM0AUx4NJYO8ZNpPnZn1Z+BBU="
+}
+{
+	"Path": "golang.org/x/arch",
+	"Version": "v0.22.0",
+	"Time": "2025-10-01T11:24:54Z",
+	"Indirect": true,
+	"Dir": "[TASK]/module-cache/golang.org/x/arch@v0.22.0",
+	"GoMod": "[TASK]/module-cache/cache/download/golang.org/x/arch/@v/v0.22.0.mod",
+	"GoVersion": "1.24.0",
+	"Sum": "h1:c/Zle32i5ttqRXjdLyyHZESLD/bB90DCU1g9l/0YBDI=",
+	"GoModSum": "h1:dNHoOeKiyja7GTvF9NJS1l3Z2yntpQNzgrjh1cU103A="
+}
+{
+	"Path": "golang.org/x/crypto",
+	"Version": "v0.54.0",
+	"Time": "2026-07-08T18:22:26Z",
+	"Indirect": true,
+	"Dir": "[TASK]/module-cache/golang.org/x/crypto@v0.54.0",
+	"GoMod": "[TASK]/module-cache/cache/download/golang.org/x/crypto/@v/v0.54.0.mod",
+	"GoVersion": "1.25.0",
+	"Sum": "h1:YLIA59K4fiNzHzjnZt2tUJQjQtUWfWbeHBqKtk3eScw=",
+	"GoModSum": "h1:KWL8ny2AZdGR2cWmzeHrp2azQPGogOv+HeQaVEXC2dk="
+}
+{
+	"Path": "golang.org/x/mod",
+	"Version": "v0.37.0",
+	"Time": "2026-06-08T15:10:58Z",
+	"Indirect": true
+}
+{
+	"Path": "golang.org/x/net",
+	"Version": "v0.57.0",
+	"Time": "2026-07-08T21:02:14Z",
+	"Indirect": true,
+	"Dir": "[TASK]/module-cache/golang.org/x/net@v0.57.0",
+	"GoMod": "[TASK]/module-cache/cache/download/golang.org/x/net/@v/v0.57.0.mod",
+	"GoVersion": "1.25.0",
+	"Sum": "h1:K5+3DljvIuDG9/Jv9rvyMywYNFCQ9RSUY6OOTTkT+tE=",
+	"GoModSum": "h1:KpXc8iv+r3XplLAG/f7Jsf9RPszJzdR0f58q9vGOuEU="
+}
+{
+	"Path": "golang.org/x/oauth2",
+	"Version": "v0.36.0",
+	"Time": "2026-02-11T19:14:10Z",
+	"Indirect": true
+}
+{
+	"Path": "golang.org/x/sync",
+	"Version": "v0.22.0",
+	"Time": "2026-07-01T17:29:34Z",
+	"Indirect": true
+}
+{
+	"Path": "golang.org/x/sys",
+	"Version": "v0.47.0",
+	"Time": "2026-06-30T17:07:31Z",
+	"Indirect": true,
+	"Dir": "[TASK]/module-cache/golang.org/x/sys@v0.47.0",
+	"GoMod": "[TASK]/module-cache/cache/download/golang.org/x/sys/@v/v0.47.0.mod",
+	"GoVersion": "1.25.0",
+	"Sum": "h1:o7XGOvZQCADBQQ4Y7VNq2dRWQR7JmOUW8Kxx4ZsNgWs=",
+	"GoModSum": "h1:4GL1E5IUh+htKOUEOaiffhrAeqysfVGipDYzABqnCmw="
+}
+{
+	"Path": "golang.org/x/term",
+	"Version": "v0.45.0",
+	"Time": "2026-07-08T15:40:56Z",
+	"Indirect": true
+}
+{
+	"Path": "golang.org/x/text",
+	"Version": "v0.40.0",
+	"Time": "2026-07-08T15:41:08Z",
+	"Indirect": true,
+	"Dir": "[TASK]/module-cache/golang.org/x/text@v0.40.0",
+	"GoMod": "[TASK]/module-cache/cache/download/golang.org/x/text/@v/v0.40.0.mod",
+	"GoVersion": "1.25.0",
+	"Sum": "h1:Ub2Z6/xjgF1WrYQz2nuITOEegKFtiIy+rieRJ5lHZKs=",
+	"GoModSum": "h1:hpnzDAfGV753zIKo+wk3u1bVKCGPbrnF7+7LBF/UHVY="
+}
+{
+	"Path": "golang.org/x/tools",
+	"Version": "v0.47.0",
+	"Time": "2026-06-25T17:02:32Z",
+	"Indirect": true
+}
+{
+	"Path": "gonum.org/v1/gonum",
+	"Version": "v0.17.0",
+	"Time": "2025-12-29T19:16:44Z",
+	"Indirect": true,
+	"GoMod": "[TASK]/module-cache/cache/download/gonum.org/v1/gonum/@v/v0.17.0.mod",
+	"GoVersion": "1.24.0",
+	"Sum": "h1:VbpOemQlsSMrYmn7T2OUvQ4dqxQXU+ouZFQsZOx50z4=",
+	"GoModSum": "h1:El3tOrEuMpv2UdMrbNlKEh9vd86bmQ6vqIcDwxEOc1E="
+}
+{
+	"Path": "google.golang.org/api",
+	"Version": "v0.278.0",
+	"Time": "2026-05-05T19:10:26Z",
+	"Indirect": true
+}
+{
+	"Path": "google.golang.org/genproto/googleapis/api",
+	"Version": "v0.0.0-20260706201446-f0a921348800",
+	"Time": "2026-07-06T20:14:46Z",
+	"Indirect": true
+}
+{
+	"Path": "google.golang.org/genproto/googleapis/rpc",
+	"Version": "v0.0.0-20260706201446-f0a921348800",
+	"Time": "2026-07-06T20:14:46Z",
+	"Indirect": true,
+	"Dir": "[TASK]/module-cache/google.golang.org/genproto/googleapis/rpc@v0.0.0-20260706201446-f0a921348800",
+	"GoMod": "[TASK]/module-cache/cache/download/google.golang.org/genproto/googleapis/rpc/@v/v0.0.0-20260706201446-f0a921348800.mod",
+	"GoVersion": "1.25.0",
+	"Sum": "h1:qEHAMpSaUhtD0p3NbEEI83HwNGFxEwaSJ1G9PLnCBZE=",
+	"GoModSum": "h1:4Hqkh8ycfw05ld/3BWL7rJOSfebL2Q+DVDeRgYgxUU8="
+}
+{
+	"Path": "google.golang.org/grpc",
+	"Version": "v1.84.0",
+	"Time": "2026-09-17T20:03:25Z",
+	"Dir": "[TASK]/module-cache/google.golang.org/grpc@v1.84.0",
+	"GoMod": "[TASK]/module-cache/cache/download/google.golang.org/grpc/@v/v1.84.0.mod",
+	"GoVersion": "1.25.0",
+	"Sum": "h1:soMyaPJ8pAak5PIQ0DGBUir0XRo2fRoMqhNWMLlLxO0=",
+	"GoModSum": "h1:ljCht0DrxQrXBDRTZp52Qxh3Ffk8CdYm2sj4O2QN2C0="
+}
+{
+	"Path": "google.golang.org/protobuf",
+	"Version": "v1.36.11",
+	"Time": "2025-12-12T08:48:31Z",
+	"Dir": "[TASK]/module-cache/google.golang.org/protobuf@v1.36.11",
+	"GoMod": "[TASK]/module-cache/cache/download/google.golang.org/protobuf/@v/v1.36.11.mod",
+	"GoVersion": "1.23",
+	"Sum": "h1:fV6ZwhNocDyBLK0dj+fg8ektcVegBBuEolpbTQyBNVE=",
+	"GoModSum": "h1:HTf+CrKn2C3g5S8VImy6tdcUvCska2kB7j23XfzDpco="
+}
+{
+	"Path": "gopkg.in/check.v1",
+	"Version": "v1.0.0-20201130134442-10cb98267c6c",
+	"Time": "2020-11-30T13:44:42Z",
+	"Indirect": true
+}
+{
+	"Path": "gopkg.in/yaml.v3",
+	"Version": "v3.0.1",
+	"Time": "2022-05-27T08:35:30Z",
+	"Indirect": true,
+	"GoMod": "[TASK]/module-cache/cache/download/gopkg.in/yaml.v3/@v/v3.0.1.mod",
+	"Sum": "h1:fxVm/GzAzEWqLHuvctI91KS9hhNmmWOoWu0XTYJS7CA=",
+	"GoModSum": "h1:K4uyk7z7BCEPqu6E+C64Yfv1cQ7kz7rIZviUmN+EgEM="
+}
+{
+	"Path": "gorm.io/driver/mysql",
+	"Version": "v1.6.0",
+	"Time": "2025-06-04T07:33:30Z",
+	"Dir": "[TASK]/module-cache/gorm.io/driver/mysql@v1.6.0",
+	"GoMod": "[TASK]/module-cache/cache/download/gorm.io/driver/mysql/@v/v1.6.0.mod",
+	"GoVersion": "1.18",
+	"Sum": "h1:eNbLmNTpPpTOVZi8MMxCi2aaIm0ZpInbORNXDwyLGvg=",
+	"GoModSum": "h1:D/oCC2GWK3M/dqoLxnOlaNKmXz8WNTfcS9y5ovaSqKo="
+}
+{
+	"Path": "gorm.io/driver/sqlite",
+	"Version": "v1.6.0",
+	"Time": "2025-06-04T07:51:08Z",
+	"Indirect": true,
+	"GoMod": "[TASK]/module-cache/cache/download/gorm.io/driver/sqlite/@v/v1.6.0.mod",
+	"GoVersion": "1.20",
+	"Sum": "h1:WHRRrIiulaPiPFmDcod6prc4l2VGVWHz80KspNsxSfQ=",
+	"GoModSum": "h1:AO9V1qIQddBESngQUKWL9yoH93HIeA1X6V633rBwyT8="
+}
+{
+	"Path": "gorm.io/gorm",
+	"Version": "v1.31.2",
+	"Time": "2026-06-22T03:37:04Z",
+	"Dir": "[TASK]/module-cache/gorm.io/gorm@v1.31.2",
+	"GoMod": "[TASK]/module-cache/cache/download/gorm.io/gorm/@v/v1.31.2.mod",
+	"GoVersion": "1.18",
+	"Sum": "h1:3o8FXNo9v9S858gil+3LlZA1LkCOzgb4g5BL64FgaCo=",
+	"GoModSum": "h1:XyQVbO2k6YkOis7C2437jSit3SsDK72s7n7rsSHd+Gs="
+}
+{
+	"Path": "rsc.io/pdf",
+	"Version": "v0.1.1",
+	"Time": "2018-04-11T19:01:10Z",
+	"Indirect": true
+}
